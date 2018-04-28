@@ -9,12 +9,12 @@
   <!--</parent>-->
 
   <groupId>com.github.andrewauclair</groupId>
-  <artifactId>assertj-swing-parent-pom</artifactId>
+  <artifactId>uitest4j-parent-pom</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>AssertJ Swing: Fluent assertions for java unit testing</name>
   <description>Parent POM for all AssertJ-Swing modules</description>
-  <inceptionYear>2014</inceptionYear>
+  <inceptionYear>2018</inceptionYear>
 
   <modules>
     <module>assertj-swing</module>
@@ -65,16 +65,24 @@
   </build>
 
   <scm>
-    <developerConnection>scm:git:git@github.com:andrewauclair/assertj-swing.git</developerConnection>
-    <connection>git://github.com/andrewauclair/assertj-swing.git</connection>
-    <url>https://github.com/andrewauclair/assertj-swing</url>
+    <developerConnection>scm:git:git@github.com:andrewauclair/uitest4j.git</developerConnection>
+    <connection>git://github.com/andrewauclair/uitest4j.git</connection>
+    <url>https://github.com/andrewauclair/uitest4j</url>
     <tag>HEAD</tag>
   </scm>
   <issueManagement>
     <system>github</system>
-    <url>https://github.com/andrewauclair/assertj-swing/issues</url>
+    <url>https://github.com/andrewauclair/uitest4j/issues</url>
   </issueManagement>
   <developers>
+    <developer>
+      <id>andrewauclair</id>
+      <name>Andrew Auclair</name>
+      <roles>
+        <role>Owner</role>
+        <role>Developer</role>
+      </roles>
+    </developer>
     <developer>
       <id>joel</id>
       <name>Joel Costigliola</name>
