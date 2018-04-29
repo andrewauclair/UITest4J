@@ -71,7 +71,7 @@ class AWT_insetsFromContainer_Test {
   private static class WindowWithNullInsets extends TestWindow {
     @RunsInEDT
     static WindowWithNullInsets createNew() {
-      return execute(() -> new WindowWithNullInsets());
+      return execute(WindowWithNullInsets::new);
     }
 
     private WindowWithNullInsets() {
