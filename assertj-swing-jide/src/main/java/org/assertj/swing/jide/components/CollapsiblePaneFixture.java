@@ -13,7 +13,7 @@
 package org.assertj.swing.jide.components;
 
 import org.uitest4j.swing.core.Robot;
-import org.assertj.swing.fixture.AbstractContainerFixture;
+import org.uitest4j.swing.fixture.AbstractContainerFixture;
 import org.assertj.swing.jide.components.driver.CollapsiblePaneDriver;
 
 import com.jidesoft.pane.CollapsiblePane;

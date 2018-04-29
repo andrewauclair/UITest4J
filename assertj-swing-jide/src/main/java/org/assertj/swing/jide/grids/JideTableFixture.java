@@ -15,7 +15,7 @@ package org.assertj.swing.jide.grids;
 import javax.swing.JTable;
 
 import org.uitest4j.swing.core.Robot;
-import org.assertj.swing.fixture.JTableFixture;
+import org.uitest4j.swing.fixture.JTableFixture;
 import org.assertj.swing.jide.grids.driver.JideTableCellReader;
 
 import com.jidesoft.grid.JideTable;

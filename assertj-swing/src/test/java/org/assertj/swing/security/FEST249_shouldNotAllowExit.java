@@ -20,7 +20,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
-import org.assertj.swing.fixture.FrameFixture;
+import org.uitest4j.swing.fixture.FrameFixture;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.jupiter.api.Test;

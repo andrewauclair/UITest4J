@@ -29,7 +29,7 @@ import org.uitest4j.swing.core.GenericTypeMatcher;
 import org.uitest4j.swing.core.NameMatcher;
 import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.core.TypeMatcher;
-import org.assertj.swing.fixture.AbstractComponentFixture;
+import org.uitest4j.swing.fixture.AbstractComponentFixture;
 
 /**
  * Template for AWT or Swing {@code Component} finders.

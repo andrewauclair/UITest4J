@@ -14,7 +14,7 @@ package org.uitest4j.swing.finder;
 
 import org.uitest4j.swing.core.BasicRobot;
 import org.uitest4j.swing.core.Robot;
-import org.assertj.swing.fixture.JOptionPaneFixture;
+import org.uitest4j.swing.fixture.JOptionPaneFixture;
 import org.assertj.swing.test.core.EDTSafeTestCase;
 import org.assertj.swing.test.swing.JOptionPaneLauncher;
 import org.junit.jupiter.api.AfterEach;

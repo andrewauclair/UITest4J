@@ -12,7 +12,7 @@
  */
 package org.assertj.swing.jide.grids;
 
-import org.assertj.swing.fixture.ItemGroupFixture;
+import org.uitest4j.swing.fixture.ItemGroupFixture;
 
 /**
  * A Fixture that provides extra methods that can be performed on an item group.

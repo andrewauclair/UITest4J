@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
 
 import org.uitest4j.swing.core.GenericTypeMatcher;
 import org.uitest4j.swing.core.Robot;
-import org.assertj.swing.fixture.FrameFixture;
+import org.uitest4j.swing.fixture.FrameFixture;
 
 /**
  * Finder for {@code Frame}s. This class cannot be used directly, please see {@link WindowFinder}.

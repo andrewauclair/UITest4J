@@ -12,8 +12,8 @@
  */
 package org.uitest4j.swing.finder;
 
-import org.assertj.swing.fixture.FrameFixture;
-import org.assertj.swing.fixture.JButtonFixture;
+import org.uitest4j.swing.fixture.FrameFixture;
+import org.uitest4j.swing.fixture.JButtonFixture;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.WindowLauncher;
 

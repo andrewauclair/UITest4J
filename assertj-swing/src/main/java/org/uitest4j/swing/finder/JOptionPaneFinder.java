@@ -22,7 +22,7 @@ import javax.swing.JOptionPane;
 
 import org.uitest4j.swing.core.GenericTypeMatcher;
 import org.uitest4j.swing.core.Robot;
-import org.assertj.swing.fixture.JOptionPaneFixture;
+import org.uitest4j.swing.fixture.JOptionPaneFixture;
 
 /**
  * <p>

@@ -17,7 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.uitest4j.swing.exception.WaitTimedOutError;
-import org.assertj.swing.fixture.DialogFixture;
+import org.uitest4j.swing.fixture.DialogFixture;
 import org.assertj.swing.test.swing.WindowLauncher.DialogToLaunch;
 import org.junit.jupiter.api.Test;
 

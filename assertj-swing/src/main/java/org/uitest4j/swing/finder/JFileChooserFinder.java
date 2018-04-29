@@ -22,7 +22,7 @@ import javax.swing.JFileChooser;
 
 import org.uitest4j.swing.core.GenericTypeMatcher;
 import org.uitest4j.swing.core.Robot;
-import org.assertj.swing.fixture.JFileChooserFixture;
+import org.uitest4j.swing.fixture.JFileChooserFixture;
 
 /**
  * <p>

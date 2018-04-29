@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
 
 import org.uitest4j.swing.core.GenericTypeMatcher;
 import org.uitest4j.swing.core.Robot;
-import org.assertj.swing.fixture.DialogFixture;
+import org.uitest4j.swing.fixture.DialogFixture;
 
 /**
  * Finder for AWT or Swing {@code Dialog}s. This class cannot be used directly, please see {@link WindowFinder}.

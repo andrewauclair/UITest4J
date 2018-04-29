@@ -331,7 +331,7 @@ public class Settings {
 
   /**
    * @return the scope of AWT or Swing {@code Component} lookups. This setting only affects the classes in the package
-   *         {@code org.assertj.swing.fixture}.
+   *         {@code org.uitest4j.swing.fixture}.
    * @see #componentLookupScope(ComponentLookupScope) for default value and configuration key
    */
   @Nonnull public ComponentLookupScope componentLookupScope() {
@@ -340,7 +340,7 @@ public class Settings {
 
   /**
    * Updates the scope of AWT or Swing {@code Component} lookups. This setting only affects the classes in the package
-   * {@code org.assertj.swing.fixture}. The default value is {@link ComponentLookupScope#DEFAULT}.
+   * {@code org.uitest4j.swing.fixture}. The default value is {@link ComponentLookupScope#DEFAULT}.
    * <p>
    * The property key for configuration file and system properties is <code>org.assertj.swing.lookup_scope</code>
    * </p>

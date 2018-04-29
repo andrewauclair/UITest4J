@@ -30,7 +30,7 @@ import javax.annotation.Nonnull;
  * </p>
  *
  * <pre>
- * // import static org.assertj.swing.fixture.KeyPressInfo.*;
+ * // import static org.uitest4j.swing.fixture.KeyPressInfo.*;
  * KeyPressInfo i = key(VK_C).modifiers(CTRL_MASK);
  * </pre>
  *
@@ -39,7 +39,7 @@ import javax.annotation.Nonnull;
  * </p>
  *
  * <pre>
- * // import static org.assertj.swing.fixture.KeyPressInfo.*;
+ * // import static org.uitest4j.swing.fixture.KeyPressInfo.*;
  * KeyPressInfo i = key(VK_R).modifiers(SHIFT_MASK);
  * </pre>
  *

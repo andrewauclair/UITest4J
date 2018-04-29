@@ -17,8 +17,8 @@ import java.util.regex.Pattern;
 import javax.swing.JList;
 
 import org.uitest4j.swing.core.Robot;
-import org.assertj.swing.fixture.AbstractComponentFixture;
-import org.assertj.swing.fixture.ItemGroupFixture;
+import org.uitest4j.swing.fixture.AbstractComponentFixture;
+import org.uitest4j.swing.fixture.ItemGroupFixture;
 import org.assertj.swing.jide.grids.driver.AbstractComboBoxCellReader;
 import org.assertj.swing.jide.grids.driver.ListComboBoxDriver;
 

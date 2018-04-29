@@ -30,7 +30,7 @@ import static org.uitest4j.swing.driver.JPopupMenuElementsAsTextQuery.menuElemen
  *
  * <p>
  * <b>Note:</b> This class is intended for internal use only. Please use the classes in the package
- * {@link org.assertj.swing.fixture} in your tests.
+ * {@link org.uitest4j.swing.fixture} in your tests.
  * </p>
  *
  * @author Yvonne Wang

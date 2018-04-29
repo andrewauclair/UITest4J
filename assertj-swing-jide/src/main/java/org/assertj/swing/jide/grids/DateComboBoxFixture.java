@@ -18,7 +18,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 import org.uitest4j.swing.core.Robot;
-import org.assertj.swing.fixture.AbstractComponentFixture;
+import org.uitest4j.swing.fixture.AbstractComponentFixture;
 import org.assertj.swing.jide.grids.driver.DateComboBoxDriver;
 
 import com.jidesoft.combobox.DateComboBox;

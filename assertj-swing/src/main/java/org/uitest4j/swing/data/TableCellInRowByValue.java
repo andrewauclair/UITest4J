@@ -37,7 +37,7 @@ import static org.assertj.swing.util.Arrays.format;
  *
  * <pre>
  * // import static org.uitest4j.swing.data.TableCellInRowByValue.rowWithValue;
- * {@link org.assertj.swing.fixture.JTableCellFixture JTableCellFixture} cell = window.table("records").cell({@link TableCellInRowByValue#rowWithValue(String...) rowWithValue}("Sue", "Black", "Knitting").column(2));
+ * {@link org.uitest4j.swing.fixture.JTableCellFixture JTableCellFixture} cell = window.table("records").cell({@link TableCellInRowByValue#rowWithValue(String...) rowWithValue}("Sue", "Black", "Knitting").column(2));
  * </pre>
  *
  * @author Alex Ruiz

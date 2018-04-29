@@ -34,7 +34,7 @@ import javax.annotation.Nonnull;
  * </p>
  *
  * <pre>
- * // import static org.assertj.swing.fixture.MouseClickInfo.*;
+ * // import static org.uitest4j.swing.fixture.MouseClickInfo.*;
  * MouseClickInfo i = rightButton();
  * </pre>
  *
@@ -43,7 +43,7 @@ import javax.annotation.Nonnull;
  * </p>
  *
  * <pre>
- * // import static org.assertj.swing.fixture.MouseClickInfo.*;
+ * // import static org.uitest4j.swing.fixture.MouseClickInfo.*;
  * MouseClickInfo i = leftButton().times(2);
  * </pre>
  *

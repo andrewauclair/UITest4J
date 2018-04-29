@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
 
 import org.uitest4j.swing.core.GenericTypeMatcher;
 import org.uitest4j.swing.core.Robot;
-import org.assertj.swing.fixture.AbstractWindowFixture;
+import org.uitest4j.swing.fixture.AbstractWindowFixture;
 
 /**
  * Template for {@code Window} finders.

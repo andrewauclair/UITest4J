@@ -33,7 +33,7 @@ import static org.uitest4j.swing.exception.ActionFailedException.actionFailure;
  *
  * <pre>
  * // import static org.uitest4j.swing.data.TableCellInSelectedRow.selectedRow;
- * {@link org.assertj.swing.fixture.JTableCellFixture JTableCellFixture} cell = window.table("records").cell({@link TableCellInSelectedRow#selectedRow() selectedRow}().column(2));
+ * {@link org.uitest4j.swing.fixture.JTableCellFixture JTableCellFixture} cell = window.table("records").cell({@link TableCellInSelectedRow#selectedRow() selectedRow}().column(2));
  * </pre>
  *
  * @author Alex Ruiz

@@ -38,7 +38,7 @@ import static org.assertj.swing.query.JTableColumnByIdentifierQuery.columnIndexB
  *
  * <pre>
  * // import static org.uitest4j.swing.data.TableCellByColumnId.row;
- * {@link org.assertj.swing.fixture.JTableCellFixture JTableCellFixture} cell = dialog.table("records").cell({@link TableCellByColumnId#row(int) row}(3).columnId("firstColumn"));
+ * {@link org.uitest4j.swing.fixture.JTableCellFixture JTableCellFixture} cell = dialog.table("records").cell({@link TableCellByColumnId#row(int) row}(3).columnId("firstColumn"));
  * </pre>
  *
  * @author Alex Ruiz

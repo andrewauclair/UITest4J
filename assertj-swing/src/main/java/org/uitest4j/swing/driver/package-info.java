@@ -13,7 +13,7 @@
 /**
  * <p>
  * {@code Component}-specific test drivers. Classes in this package are not part of the API. Use the classes in
- * {@link org.assertj.swing.fixture} in your tests.
+ * {@link org.uitest4j.swing.fixture} in your tests.
  * </p>
  *
  * <p>

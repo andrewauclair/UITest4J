@@ -14,7 +14,7 @@ package org.assertj.swing.jide.components;
 
 import org.assertj.core.util.Strings;
 import org.uitest4j.swing.core.Robot;
-import org.assertj.swing.fixture.AbstractContainerFixture;
+import org.uitest4j.swing.fixture.AbstractContainerFixture;
 
 import com.jidesoft.status.StatusBar;
 
