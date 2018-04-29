@@ -25,7 +25,7 @@ import java.io.PrintStream;
 
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.format.Formatting.format;
+import static org.uitest4j.swing.format.Formatting.format;
 import static org.assertj.swing.hierarchy.NewHierarchy.ignoreExistingComponents;
 
 /**
@@ -34,7 +34,7 @@ import static org.assertj.swing.hierarchy.NewHierarchy.ignoreExistingComponents;
  * @author Alex Ruiz
  *
  * @see ComponentPrinter
- * @see org.assertj.swing.format.Formatting#format(Component)
+ * @see org.uitest4j.swing.format.Formatting#format(Component)
  */
 public final class BasicComponentPrinter implements ComponentPrinter {
   private static final String INDENTATION = "  ";

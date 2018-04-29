@@ -36,7 +36,7 @@ import static org.uitest4j.swing.driver.ComponentPerformDefaultAccessibleActionT
 import static org.uitest4j.swing.driver.ComponentPreconditions.checkEnabledAndShowing;
 import static org.uitest4j.swing.driver.ComponentPreconditions.checkShowing;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.format.Formatting.format;
+import static org.uitest4j.swing.format.Formatting.format;
 import static org.assertj.swing.query.ComponentEnabledQuery.isEnabled;
 import static org.assertj.swing.query.ComponentHasFocusQuery.hasFocus;
 import static org.assertj.swing.query.ComponentSizeQuery.sizeOf;
@@ -605,13 +605,13 @@ public class ComponentDriver {
 
   /**
    * Formats the name of a property of the given AWT or Swing {@code Component} by concatenating the value obtained from
-   * {@link org.assertj.swing.format.Formatting#format(Component)} with the given property name.
+   * {@link org.uitest4j.swing.format.Formatting#format(Component)} with the given property name.
    *
    * @param c the given {@code Component}.
    * @param propertyName the name of the property.
    * @return the description of a property belonging to a {@code Component}.
-   * @see org.assertj.swing.format.ComponentFormatter
-   * @see org.assertj.swing.format.Formatting#format(Component)
+   * @see org.uitest4j.swing.format.ComponentFormatter
+   * @see org.uitest4j.swing.format.Formatting#format(Component)
    */
   @RunsInEDT
   @Nonnull public static Description propertyName(final @Nonnull Component c, final @Nonnull String propertyName) {

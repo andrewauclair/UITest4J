@@ -17,7 +17,7 @@ import java.awt.Frame;
 import org.uitest4j.swing.core.GenericTypeMatcher;
 import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.fixture.FrameFixture;
-import org.assertj.swing.format.Formatting;
+import org.uitest4j.swing.format.Formatting;
 import org.assertj.swing.jide.action.CommandBarFixture;
 import org.assertj.swing.jide.action.format.CommandBarFormatter;
 import org.assertj.swing.jide.components.CollapsiblePaneFixture;

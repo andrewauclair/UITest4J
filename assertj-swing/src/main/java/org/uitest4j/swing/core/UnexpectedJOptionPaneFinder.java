@@ -21,7 +21,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Fail.fail;
 import static org.assertj.core.util.Lists.newArrayList;
-import static org.assertj.swing.format.Formatting.format;
+import static org.uitest4j.swing.format.Formatting.format;
 
 /**
  * Finds {@code JOptionPane}s that are showing up on the screen and are not expected.

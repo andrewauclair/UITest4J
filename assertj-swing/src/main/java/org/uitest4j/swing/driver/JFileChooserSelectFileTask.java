@@ -25,7 +25,7 @@ import static javax.swing.JFileChooser.FILES_ONLY;
 import static org.assertj.core.util.Strings.concat;
 import static org.uitest4j.swing.driver.ComponentPreconditions.checkEnabledAndShowing;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.format.Formatting.format;
+import static org.uitest4j.swing.format.Formatting.format;
 
 /**
  * Selects a file in a {@code JFileChooser}. This task is executed in the event dispatch thread (EDT).

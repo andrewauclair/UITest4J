@@ -13,7 +13,7 @@
 package org.uitest4j.swing.fixture;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.format.Formatting.format;
+import static org.uitest4j.swing.format.Formatting.format;
 
 import java.awt.Component;
 import java.awt.Container;

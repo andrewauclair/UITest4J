@@ -22,7 +22,7 @@ import javax.annotation.Nonnull;
 import javax.swing.*;
 
 import static org.uitest4j.swing.driver.JProgressBarValueQuery.valueOf;
-import static org.assertj.swing.format.Formatting.format;
+import static org.uitest4j.swing.format.Formatting.format;
 import static org.assertj.swing.timing.Pause.pause;
 
 /**

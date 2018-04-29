@@ -35,7 +35,7 @@ import static org.uitest4j.swing.driver.ComponentPreconditions.checkEnabledAndSh
 import static org.uitest4j.swing.driver.ComponentPreconditions.checkShowing;
 import static org.uitest4j.swing.driver.ComponentSetSizeTask.setComponentSize;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.format.Formatting.format;
+import static org.uitest4j.swing.format.Formatting.format;
 
 /**
  * <p>

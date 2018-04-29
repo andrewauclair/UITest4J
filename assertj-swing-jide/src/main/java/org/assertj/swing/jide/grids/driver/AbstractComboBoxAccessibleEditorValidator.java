@@ -15,7 +15,7 @@ package org.assertj.swing.jide.grids.driver;
 import org.assertj.core.util.Strings;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.uitest4j.swing.driver.ComponentPreconditions;
-import org.assertj.swing.format.Formatting;
+import org.uitest4j.swing.format.Formatting;
 
 import com.jidesoft.combobox.AbstractComboBox;
 

@@ -30,7 +30,7 @@ import static org.uitest4j.swing.driver.JMenuPopupMenuQuery.popupMenuOf;
 import static org.uitest4j.swing.driver.WindowMoveToFrontTask.toFront;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 import static org.uitest4j.swing.exception.ActionFailedException.actionFailure;
-import static org.assertj.swing.format.Formatting.format;
+import static org.uitest4j.swing.format.Formatting.format;
 import static org.assertj.swing.timing.Pause.pause;
 import static org.assertj.swing.util.Platform.isOSX;
 

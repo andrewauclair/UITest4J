@@ -18,7 +18,7 @@ import javax.annotation.Nonnull;
 import java.awt.*;
 
 import static org.assertj.core.util.Strings.concat;
-import static org.assertj.swing.format.Formatting.format;
+import static org.uitest4j.swing.format.Formatting.format;
 
 /**
  * Verifies correct state of a {@code Component}.

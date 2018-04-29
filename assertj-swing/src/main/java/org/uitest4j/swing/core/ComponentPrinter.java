@@ -31,7 +31,7 @@ public interface ComponentPrinter {
    *
    * @param out the output stream where to print the {@code Component}s to.
    * @throws NullPointerException if the output stream is {@code null}.
-   * @see org.assertj.swing.format.Formatting#format(Component)
+   * @see org.uitest4j.swing.format.Formatting#format(Component)
    */
   void printComponents(@Nonnull PrintStream out);
 
@@ -41,7 +41,7 @@ public interface ComponentPrinter {
    * @param out the output stream where to print the {@code Component}s to.
    * @param root the root used as the starting point of the search.
    * @throws NullPointerException if the output stream is {@code null}.
-   * @see org.assertj.swing.format.Formatting#format(Component)
+   * @see org.uitest4j.swing.format.Formatting#format(Component)
    */
   void printComponents(@Nonnull PrintStream out, @Nullable Container root);
 
@@ -52,7 +52,7 @@ public interface ComponentPrinter {
    * @param type the type of {@code Component}s to print.
    * @throws NullPointerException if the output stream is {@code null}.
    * @throws NullPointerException if {@code type} is {@code null}.
-   * @see org.assertj.swing.format.Formatting#format(Component)
+   * @see org.uitest4j.swing.format.Formatting#format(Component)
    */
   void printComponents(@Nonnull PrintStream out, @Nonnull Class<? extends Component> type);
 
@@ -64,7 +64,7 @@ public interface ComponentPrinter {
    * @param root the root used as the starting point of the search.
    * @throws NullPointerException if the output stream is {@code null}.
    * @throws NullPointerException if {@code type} is {@code null}.
-   * @see org.assertj.swing.format.Formatting#format(Component)
+   * @see org.uitest4j.swing.format.Formatting#format(Component)
    */
   void printComponents(@Nonnull PrintStream out, @Nonnull Class<? extends Component> type, @Nullable Container root);
 
@@ -75,7 +75,7 @@ public interface ComponentPrinter {
    * @param matcher specifies the search criteria to use filter the {@code Component}s to print.
    * @throws NullPointerException if the output stream is {@code null}.
    * @throws NullPointerException if {@code matcher} is {@code null}.
-   * @see org.assertj.swing.format.Formatting#format(Component)
+   * @see org.uitest4j.swing.format.Formatting#format(Component)
    */
   void printComponents(@Nonnull PrintStream out, @Nonnull ComponentMatcher matcher);
 
@@ -87,7 +87,7 @@ public interface ComponentPrinter {
    * @param root the root used as the starting point of the search.
    * @throws NullPointerException if the output stream is {@code null}.
    * @throws NullPointerException if {@code matcher} is {@code null}.
-   * @see org.assertj.swing.format.Formatting#format(Component)
+   * @see org.uitest4j.swing.format.Formatting#format(Component)
    */
   void printComponents(@Nonnull PrintStream out, @Nonnull ComponentMatcher matcher, @Nullable Container root);
 }
