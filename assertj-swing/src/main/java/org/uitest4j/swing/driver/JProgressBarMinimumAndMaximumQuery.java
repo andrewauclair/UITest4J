@@ -1,4 +1,4 @@
-/**
+/*
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
  *
@@ -12,13 +12,13 @@
  */
 package org.uitest4j.swing.driver;
 
-import org.uitest4j.swing.util.Pair;
 import org.uitest4j.swing.annotation.RunsInEDT;
+import org.uitest4j.swing.util.Pair;
 
 import javax.annotation.Nonnull;
 import javax.swing.*;
+import java.util.Objects;
 
-import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
@@ -28,12 +28,13 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
  * @author Alex Ruiz
  */
 final class JProgressBarMinimumAndMaximumQuery {
-  @RunsInEDT
-  static @Nonnull Pair<Integer, Integer> minimumAndMaximumOf(final @Nonnull JProgressBar progressBar) {
-    Pair<Integer, Integer> result = execute(() -> Pair.of(progressBar.getMinimum(), progressBar.getMaximum()));
-    return checkNotNull(result);
-  }
+	@RunsInEDT
+	static @Nonnull
+	Pair<Integer, Integer> minimumAndMaximumOf(final @Nonnull JProgressBar progressBar) {
+		Pair<Integer, Integer> result = execute(() -> Pair.of(progressBar.getMinimum(), progressBar.getMaximum()));
+		return Objects.requireNonNull(result);
+	}
 
-  private JProgressBarMinimumAndMaximumQuery() {
-  }
+	private JProgressBarMinimumAndMaximumQuery() {
+	}
 }

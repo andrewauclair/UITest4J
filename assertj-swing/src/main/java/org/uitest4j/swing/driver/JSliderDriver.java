@@ -1,4 +1,4 @@
-/**
+/*
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
  *
@@ -23,8 +23,8 @@ import org.uitest4j.swing.annotation.RunsInEDT;
 import javax.annotation.Nonnull;
 import javax.swing.*;
 import java.awt.*;
+import java.util.Objects;
 
-import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.uitest4j.swing.driver.ComponentPreconditions.checkEnabledAndShowing;
 import static org.uitest4j.swing.driver.JSliderSetValueTask.setValue;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
@@ -71,7 +71,7 @@ public class JSliderDriver extends JComponentDriver {
   @RunsInEDT
   @Nonnull private static Pair<Integer, GenericRange<Point>> findSlideToMaximumInfo(final @Nonnull JSlider slider,
       final @Nonnull JSliderLocation location) {
-    Pair<Integer, GenericRange<Point>> result = execute(new GuiQuery<Pair<Integer, GenericRange<Point>>>() {
+    Pair<Integer, GenericRange<Point>> result = execute(new GuiQuery<>() {
       @Override
       protected Pair<Integer, GenericRange<Point>> executeInEDT() {
         checkEnabledAndShowing(slider);
@@ -80,7 +80,7 @@ public class JSliderDriver extends JComponentDriver {
         return Pair.of(value, fromAndTo);
       }
     });
-    return checkNotNull(result);
+    return Objects.requireNonNull(result);
   }
 
   /**
@@ -98,7 +98,7 @@ public class JSliderDriver extends JComponentDriver {
   @RunsInEDT
   @Nonnull private static Pair<Integer, GenericRange<Point>> findSlideToMinimumInfo(final @Nonnull JSlider slider,
       final @Nonnull JSliderLocation location) {
-    Pair<Integer, GenericRange<Point>> result = execute(new GuiQuery<Pair<Integer, GenericRange<Point>>>() {
+    Pair<Integer, GenericRange<Point>> result = execute(new GuiQuery<>() {
       @Override
       protected Pair<Integer, GenericRange<Point>> executeInEDT() {
         checkEnabledAndShowing(slider);
@@ -107,12 +107,12 @@ public class JSliderDriver extends JComponentDriver {
         return Pair.of(value, fromAndTo);
       }
     });
-    return checkNotNull(result);
+    return Objects.requireNonNull(result);
   }
 
   @RunsInEDT
   private void slide(@Nonnull JSlider slider, @Nonnull Pair<Integer, GenericRange<Point>> slideInfo) {
-    slide(slider, slideInfo.first, checkNotNull(slideInfo.second));
+    slide(slider, slideInfo.first, Objects.requireNonNull(slideInfo.second));
   }
 
   /**
@@ -141,7 +141,7 @@ public class JSliderDriver extends JComponentDriver {
   @RunsInEDT
   @Nonnull private static GenericRange<Point> findSlideInfo(final @Nonnull JSlider slider,
       final @Nonnull JSliderLocation location, final int value) {
-    GenericRange<Point> result = execute(new GuiQuery<GenericRange<Point>>() {
+    GenericRange<Point> result = execute(new GuiQuery<>() {
       @Override
       protected GenericRange<Point> executeInEDT() {
         checkValueInBounds(slider, value);
@@ -149,7 +149,7 @@ public class JSliderDriver extends JComponentDriver {
         return slideInfo(slider, location, value);
       }
     });
-    return checkNotNull(result);
+    return Objects.requireNonNull(result);
   }
 
   @RunsInCurrentThread
@@ -167,7 +167,7 @@ public class JSliderDriver extends JComponentDriver {
   private static GenericRange<Point> slideInfo(@Nonnull JSlider slider, JSliderLocation location, int value) {
     Point from = location.pointAt(slider, slider.getValue());
     Point to = location.pointAt(slider, value);
-    return new GenericRange<Point>(from, to);
+    return new GenericRange<>(from, to);
   }
 
   @Nonnull private JSliderLocation location() {

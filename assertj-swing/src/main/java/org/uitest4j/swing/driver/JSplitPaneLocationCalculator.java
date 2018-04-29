@@ -1,4 +1,4 @@
-/**
+/*
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
  *
@@ -19,12 +19,12 @@ import javax.annotation.Nonnull;
 import javax.swing.*;
 import java.awt.*;
 import java.util.Map;
+import java.util.Objects;
 
 import static java.lang.Math.max;
 import static java.lang.Math.min;
 import static javax.swing.JSplitPane.HORIZONTAL_SPLIT;
 import static javax.swing.JSplitPane.VERTICAL_SPLIT;
-import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 import static org.uitest4j.swing.util.Maps.newHashMap;
 
@@ -35,127 +35,127 @@ import static org.uitest4j.swing.util.Maps.newHashMap;
  * @author Alex Ruiz
  */
 final class JSplitPaneLocationCalculator {
-  private static Map<Integer, LocationFinder> FINDERS = newHashMap();
+	private static Map<Integer, LocationFinder> FINDERS = newHashMap();
 
-  static {
-    add(new VerticalOrientationLocationFinder(), new HorizontalOrientationLocationFinder());
-  }
+	static {
+		add(new VerticalOrientationLocationFinder(), new HorizontalOrientationLocationFinder());
+	}
 
-  private static void add(@Nonnull LocationFinder... finders) {
-    for (LocationFinder finder : finders) {
-      FINDERS.put(finder.orientation(), finder);
-    }
-  }
+	private static void add(@Nonnull LocationFinder... finders) {
+		for (LocationFinder finder : finders) {
+			FINDERS.put(finder.orientation(), finder);
+		}
+	}
 
-  @RunsInEDT
-  static int locationToMoveDividerTo(final @Nonnull JSplitPane splitPane, final int desiredLocation) {
-    Integer result = execute(() -> FINDERS.get(splitPane.getOrientation()).locationToMoveDividerTo(splitPane,
-                                                                                                   desiredLocation));
-    return checkNotNull(result);
-  }
+	@RunsInEDT
+	static int locationToMoveDividerTo(final @Nonnull JSplitPane splitPane, final int desiredLocation) {
+		Integer result = execute(() -> FINDERS.get(splitPane.getOrientation()).locationToMoveDividerTo(splitPane,
+				desiredLocation));
+		return Objects.requireNonNull(result);
+	}
 
-  private JSplitPaneLocationCalculator() {
-  }
+	private JSplitPaneLocationCalculator() {
+	}
 
-  private static abstract class LocationFinder {
-    abstract int locationToMoveDividerTo(@Nonnull JSplitPane splitPane, int desiredLocation);
+	private static abstract class LocationFinder {
+		abstract int locationToMoveDividerTo(@Nonnull JSplitPane splitPane, int desiredLocation);
 
-    abstract int orientation();
-  }
+		abstract int orientation();
+	}
 
-  private static class VerticalOrientationLocationFinder extends LocationFinder {
-    @RunsInCurrentThread
-    @Override
-    int locationToMoveDividerTo(@Nonnull JSplitPane splitPane, int desiredLocation) {
-      int minimum = calculateMinimum(splitPane);
-      int maximum = calculateMaximum(splitPane);
-      if (maximum < minimum) {
-        minimum = maximum = 0;
-      }
-      return min(maximum, max(minimum, desiredLocation));
-    }
+	private static class VerticalOrientationLocationFinder extends LocationFinder {
+		@RunsInCurrentThread
+		@Override
+		int locationToMoveDividerTo(@Nonnull JSplitPane splitPane, int desiredLocation) {
+			int minimum = calculateMinimum(splitPane);
+			int maximum = calculateMaximum(splitPane);
+			if (maximum < minimum) {
+				minimum = maximum = 0;
+			}
+			return min(maximum, max(minimum, desiredLocation));
+		}
 
-    @RunsInCurrentThread
-    private int calculateMinimum(@Nonnull JSplitPane splitPane) {
-      Component left = splitPane.getLeftComponent();
-      if (left == null || !left.isVisible()) {
-        return 0;
-      }
-      int minimum = left.getMinimumSize().height;
-      Insets insets = splitPane.getInsets();
-      if (insets != null) {
-        minimum += insets.top;
-      }
-      return minimum;
-    }
+		@RunsInCurrentThread
+		private int calculateMinimum(@Nonnull JSplitPane splitPane) {
+			Component left = splitPane.getLeftComponent();
+			if (left == null || !left.isVisible()) {
+				return 0;
+			}
+			int minimum = left.getMinimumSize().height;
+			Insets insets = splitPane.getInsets();
+			if (insets != null) {
+				minimum += insets.top;
+			}
+			return minimum;
+		}
 
-    @RunsInCurrentThread
-    private int calculateMaximum(@Nonnull JSplitPane splitPane) {
-      Component rightComponent = splitPane.getRightComponent();
-      if (splitPane.getLeftComponent() == null || rightComponent == null) {
-        return -1; // Don't allow dragging.
-      }
-      Insets insets = splitPane.getInsets();
-      int dividerSize = splitPane.getDividerSize();
-      int bottom = (insets != null) ? insets.bottom : 0;
-      int splitPaneHeight = splitPane.getSize().height;
-      if (!rightComponent.isVisible()) {
-        return max(0, splitPaneHeight - (dividerSize + bottom));
-      }
-      return max(0, splitPaneHeight - (dividerSize + bottom) - rightComponent.getMinimumSize().height);
-    }
+		@RunsInCurrentThread
+		private int calculateMaximum(@Nonnull JSplitPane splitPane) {
+			Component rightComponent = splitPane.getRightComponent();
+			if (splitPane.getLeftComponent() == null || rightComponent == null) {
+				return -1; // Don't allow dragging.
+			}
+			Insets insets = splitPane.getInsets();
+			int dividerSize = splitPane.getDividerSize();
+			int bottom = (insets != null) ? insets.bottom : 0;
+			int splitPaneHeight = splitPane.getSize().height;
+			if (!rightComponent.isVisible()) {
+				return max(0, splitPaneHeight - (dividerSize + bottom));
+			}
+			return max(0, splitPaneHeight - (dividerSize + bottom) - rightComponent.getMinimumSize().height);
+		}
 
-    @Override
-    int orientation() {
-      return VERTICAL_SPLIT;
-    }
-  }
+		@Override
+		int orientation() {
+			return VERTICAL_SPLIT;
+		}
+	}
 
-  private static class HorizontalOrientationLocationFinder extends LocationFinder {
-    @RunsInCurrentThread
-    @Override
-    int locationToMoveDividerTo(@Nonnull JSplitPane splitPane, int desiredLocation) {
-      int minimum = calculateMinimum(splitPane);
-      int maximum = calculateMaximum(splitPane);
-      if (maximum < minimum) {
-        minimum = maximum = 0;
-      }
-      return min(maximum, max(minimum, desiredLocation));
-    }
+	private static class HorizontalOrientationLocationFinder extends LocationFinder {
+		@RunsInCurrentThread
+		@Override
+		int locationToMoveDividerTo(@Nonnull JSplitPane splitPane, int desiredLocation) {
+			int minimum = calculateMinimum(splitPane);
+			int maximum = calculateMaximum(splitPane);
+			if (maximum < minimum) {
+				minimum = maximum = 0;
+			}
+			return min(maximum, max(minimum, desiredLocation));
+		}
 
-    @RunsInCurrentThread
-    private int calculateMinimum(@Nonnull JSplitPane splitPane) {
-      Component left = splitPane.getLeftComponent();
-      if (left == null || !left.isVisible()) {
-        return 0;
-      }
-      int minimum = left.getMinimumSize().width;
-      Insets insets = splitPane.getInsets();
-      if (insets != null) {
-        minimum += insets.left;
-      }
-      return minimum;
-    }
+		@RunsInCurrentThread
+		private int calculateMinimum(@Nonnull JSplitPane splitPane) {
+			Component left = splitPane.getLeftComponent();
+			if (left == null || !left.isVisible()) {
+				return 0;
+			}
+			int minimum = left.getMinimumSize().width;
+			Insets insets = splitPane.getInsets();
+			if (insets != null) {
+				minimum += insets.left;
+			}
+			return minimum;
+		}
 
-    @RunsInCurrentThread
-    private int calculateMaximum(@Nonnull JSplitPane splitPane) {
-      Component rightComponent = splitPane.getRightComponent();
-      if (splitPane.getLeftComponent() == null || rightComponent == null) {
-        return -1; // Don't allow dragging.
-      }
-      Insets insets = splitPane.getInsets();
-      int dividerSize = splitPane.getDividerSize();
-      int right = (insets != null) ? insets.right : 0;
-      int splitPaneWidth = splitPane.getSize().width;
-      if (!rightComponent.isVisible()) {
-        return max(0, splitPaneWidth - (dividerSize + right));
-      }
-      return max(0, splitPaneWidth - (dividerSize + right) - rightComponent.getMinimumSize().width);
-    }
+		@RunsInCurrentThread
+		private int calculateMaximum(@Nonnull JSplitPane splitPane) {
+			Component rightComponent = splitPane.getRightComponent();
+			if (splitPane.getLeftComponent() == null || rightComponent == null) {
+				return -1; // Don't allow dragging.
+			}
+			Insets insets = splitPane.getInsets();
+			int dividerSize = splitPane.getDividerSize();
+			int right = (insets != null) ? insets.right : 0;
+			int splitPaneWidth = splitPane.getSize().width;
+			if (!rightComponent.isVisible()) {
+				return max(0, splitPaneWidth - (dividerSize + right));
+			}
+			return max(0, splitPaneWidth - (dividerSize + right) - rightComponent.getMinimumSize().width);
+		}
 
-    @Override
-    int orientation() {
-      return HORIZONTAL_SPLIT;
-    }
-  }
+		@Override
+		int orientation() {
+			return HORIZONTAL_SPLIT;
+		}
+	}
 }

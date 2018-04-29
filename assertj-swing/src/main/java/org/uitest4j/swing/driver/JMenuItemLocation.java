@@ -1,4 +1,4 @@
-/**
+/*
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
  *
@@ -19,76 +19,78 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.swing.*;
 import java.awt.*;
+import java.util.Objects;
 
-import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.uitest4j.swing.query.ComponentShowingQuery.isShowing;
 
 /**
  * Location of a {@code JMenuItem}.
- * 
+ *
  * @author Alex Ruiz
  */
 public final class JMenuItemLocation {
-  private Component parentOrInvoker;
-  private JPopupMenu parentPopup;
+	private Component parentOrInvoker;
+	private JPopupMenu parentPopup;
 
-  private final boolean inMenuBar;
+	private final boolean inMenuBar;
 
-  /**
-   * <p>
-   * Creates a new {@link JMenuItemLocation}.
-   * </p>
-   * 
-   * <p>
-   * <b>Note:</b> This constructor is accessed in the current executing thread. Such thread may or may not be the event
-   * dispatch thread (EDT). Client code must call this constructor from the EDT.
-   * </p>
-   * 
-   * @param menuItem the target {@code JMenuItem}.
-   */
-  @RunsInCurrentThread
-  public JMenuItemLocation(@Nonnull JMenuItem menuItem) {
-    parentOrInvoker = menuItem.getParent();
-    if (parentOrInvoker instanceof JPopupMenu) {
-      parentPopup = (JPopupMenu) parentOrInvoker;
-      parentOrInvoker = checkNotNull(parentPopup.getInvoker());
-    }
-    inMenuBar = parentOrInvoker instanceof JMenuBar;
-  }
+	/**
+	 * <p>
+	 * Creates a new {@link JMenuItemLocation}.
+	 * </p>
+	 *
+	 * <p>
+	 * <b>Note:</b> This constructor is accessed in the current executing thread. Such thread may or may not be the event
+	 * dispatch thread (EDT). Client code must call this constructor from the EDT.
+	 * </p>
+	 *
+	 * @param menuItem the target {@code JMenuItem}.
+	 */
+	@RunsInCurrentThread
+	public JMenuItemLocation(@Nonnull JMenuItem menuItem) {
+		parentOrInvoker = menuItem.getParent();
+		if (parentOrInvoker instanceof JPopupMenu) {
+			parentPopup = (JPopupMenu) parentOrInvoker;
+			parentOrInvoker = Objects.requireNonNull(parentPopup.getInvoker());
+		}
+		inMenuBar = parentOrInvoker instanceof JMenuBar;
+	}
 
-  /**
-   * Indicates whether the {@code JMenuItem} is in a {@link JMenuBar}.
-   * 
-   * @return {@code true} if the {@code JMenuItem} is in a {@code JMenuBar}, {@code false} otherwise.
-   */
-  public boolean inMenuBar() {
-    return inMenuBar;
-  }
+	/**
+	 * Indicates whether the {@code JMenuItem} is in a {@link JMenuBar}.
+	 *
+	 * @return {@code true} if the {@code JMenuItem} is in a {@code JMenuBar}, {@code false} otherwise.
+	 */
+	public boolean inMenuBar() {
+		return inMenuBar;
+	}
 
-  /**
-   * Indicates whether the parent of the {@code JMenuItem} is another menu.
-   * 
-   * @return {@code true} if the parent of the {@code JMenuItem} is another menu, {@code false} otherwise.
-   */
-  @RunsInEDT
-  public boolean isParentAMenu() {
-    if (!(parentOrInvoker instanceof JMenuItem)) {
-      return false;
-    }
-    return parentPopup == null || !isShowing(parentPopup);
-  }
+	/**
+	 * Indicates whether the parent of the {@code JMenuItem} is another menu.
+	 *
+	 * @return {@code true} if the parent of the {@code JMenuItem} is another menu, {@code false} otherwise.
+	 */
+	@RunsInEDT
+	public boolean isParentAMenu() {
+		if (!(parentOrInvoker instanceof JMenuItem)) {
+			return false;
+		}
+		return parentPopup == null || !isShowing(parentPopup);
+	}
 
-  /**
-   * @return the parent or the invoker of the {@code JMenuItem}, or its invoker (if it is in a pop-up).
-   */
-  @Nonnull public Component parentOrInvoker() {
-    return parentOrInvoker;
-  }
+	/**
+	 * @return the parent or the invoker of the {@code JMenuItem}, or its invoker (if it is in a pop-up).
+	 */
+	@Nonnull
+	public Component parentOrInvoker() {
+		return parentOrInvoker;
+	}
 
-  /**
-   * @return the parent pop-up menu, or {@code null} if the {@code JMenuItem} is not in a pop-up.
-   */
-  @Nullable public JPopupMenu parentPopup() {
-    return parentPopup;
-  }
+	/**
+	 * @return the parent pop-up menu, or {@code null} if the {@code JMenuItem} is not in a pop-up.
+	 */
+	@Nullable
+	public JPopupMenu parentPopup() {
+		return parentPopup;
+	}
 }

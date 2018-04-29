@@ -1,4 +1,4 @@
-/**
+/*
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
  *
@@ -26,9 +26,9 @@ import javax.annotation.Nullable;
 import javax.swing.*;
 import javax.swing.table.JTableHeader;
 import java.awt.*;
+import java.util.Objects;
 import java.util.regex.Pattern;
 
-import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.uitest4j.swing.core.MouseButton.LEFT_BUTTON;
 import static org.uitest4j.swing.driver.ComponentPreconditions.checkEnabledAndShowing;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
@@ -189,7 +189,7 @@ public class JTableHeaderDriver extends JComponentDriver {
       tableHeader.getTable().scrollRectToVisible(tableHeader.getHeaderRect(columnIndex));
       return p;
     });
-    return checkNotNull(result);
+    return Objects.requireNonNull(result);
   }
 
   /**
@@ -233,7 +233,7 @@ public class JTableHeaderDriver extends JComponentDriver {
       tableHeader.getTable().scrollRectToVisible(tableHeader.getHeaderRect(indexAndLocation.first));
       return indexAndLocation.second;
     });
-    return checkNotNull(result);
+    return Objects.requireNonNull(result);
   }
 
   @Nonnull private JTableHeaderLocation location() {

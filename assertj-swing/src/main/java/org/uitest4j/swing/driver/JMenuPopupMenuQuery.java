@@ -1,4 +1,4 @@
-/**
+/*
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
  *
@@ -16,23 +16,24 @@ import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.annotation.Nonnull;
 import javax.swing.*;
+import java.util.Objects;
 
-import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
  * Returns the pop-up menu associated with a {@link JMenu}. This query is executed in the event dispatch thread (EDT).
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
 final class JMenuPopupMenuQuery {
-  @RunsInEDT
-  static @Nonnull JPopupMenu popupMenuOf(final @Nonnull JMenu menu) {
-    JPopupMenu result = execute(() -> menu.getPopupMenu());
-    return checkNotNull(result);
-  }
+	@RunsInEDT
+	static @Nonnull
+	JPopupMenu popupMenuOf(final @Nonnull JMenu menu) {
+		JPopupMenu result = execute(menu::getPopupMenu);
+		return Objects.requireNonNull(result);
+	}
 
-  private JMenuPopupMenuQuery() {
-  }
+	private JMenuPopupMenuQuery() {
+	}
 }

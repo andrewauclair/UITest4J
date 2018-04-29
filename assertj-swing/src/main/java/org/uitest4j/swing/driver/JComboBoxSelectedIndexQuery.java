@@ -1,4 +1,4 @@
-/**
+/*
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
  *
@@ -16,25 +16,24 @@ import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.annotation.Nonnull;
 import javax.swing.*;
+import java.util.Objects;
 
-import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
  * Returns the selected index in a {@code JComboBox}. This query is executed in the event dispatch thread (EDT).
  *
- * @see JComboBox#getSelectedIndex()
- *
  * @author Alex Ruiz
  * @author Yvonne Wang
+ * @see JComboBox#getSelectedIndex()
  */
 final class JComboBoxSelectedIndexQuery {
-  @RunsInEDT
-  static int selectedIndexOf(final @Nonnull JComboBox<?> comboBox) {
-    Integer result = execute(() -> comboBox.getSelectedIndex());
-    return checkNotNull(result);
-  }
+	@RunsInEDT
+	static int selectedIndexOf(final @Nonnull JComboBox<?> comboBox) {
+		Integer result = execute(comboBox::getSelectedIndex);
+		return Objects.requireNonNull(result);
+	}
 
-  private JComboBoxSelectedIndexQuery() {
-  }
+	private JComboBoxSelectedIndexQuery() {
+	}
 }

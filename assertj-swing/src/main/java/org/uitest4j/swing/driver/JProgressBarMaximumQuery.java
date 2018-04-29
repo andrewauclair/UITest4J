@@ -1,4 +1,4 @@
-/**
+/*
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
  *
@@ -16,8 +16,8 @@ import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.annotation.Nonnull;
 import javax.swing.*;
+import java.util.Objects;
 
-import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
@@ -26,12 +26,12 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
  * @author Alex Ruiz
  */
 final class JProgressBarMaximumQuery {
-  @RunsInEDT
-  static int maximumOf(final @Nonnull JProgressBar progressBar) {
-    Integer result = execute(() -> progressBar.getMaximum());
-    return checkNotNull(result);
-  }
+	@RunsInEDT
+	static int maximumOf(final @Nonnull JProgressBar progressBar) {
+		Integer result = execute(progressBar::getMaximum);
+		return Objects.requireNonNull(result);
+	}
 
-  private JProgressBarMaximumQuery() {
-  }
+	private JProgressBarMaximumQuery() {
+	}
 }

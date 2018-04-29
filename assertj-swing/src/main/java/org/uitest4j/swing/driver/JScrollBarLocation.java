@@ -1,4 +1,4 @@
-/**
+/*
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
  *
@@ -18,10 +18,10 @@ import javax.annotation.Nonnull;
 import javax.swing.*;
 import java.awt.*;
 import java.util.Map;
+import java.util.Objects;
 
 import static java.awt.Adjustable.HORIZONTAL;
 import static java.awt.Adjustable.VERTICAL;
-import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.uitest4j.swing.util.Maps.newHashMap;
 
 /**
@@ -31,127 +31,134 @@ import static org.uitest4j.swing.util.Maps.newHashMap;
  * @author Alex Ruiz
  */
 public final class JScrollBarLocation {
-  // TODO Test horizontal scroll bar
+	// TODO Test horizontal scroll bar
 
-  private static final int BLOCK_OFFSET = 4;
+	private static final int BLOCK_OFFSET = 4;
 
-  private static final Map<Integer, JScrollBarLocationStrategy> LOCATIONS = newHashMap();
+	private static final Map<Integer, JScrollBarLocationStrategy> LOCATIONS = newHashMap();
 
-  static {
-    LOCATIONS.put(HORIZONTAL, new HorizontalJScrollBarLocation());
-    LOCATIONS.put(VERTICAL, new VerticalJScrollBarLocation());
-  }
+	static {
+		LOCATIONS.put(HORIZONTAL, new HorizontalJScrollBarLocation());
+		LOCATIONS.put(VERTICAL, new VerticalJScrollBarLocation());
+	}
 
-  /**
-   * <p>
-   * Returns the location where to move the mouse pointer to scroll to the given position.
-   * </p>
-   *
-   * <p>
-   * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
-   * dispatch thread (EDT). Client code must call this method from the EDT.
-   * </p>
-   *
-   * @param scrollBar the target {@code JScrollBar}.
-   * @param position the position to scroll to.
-   * @return the location where to move the mouse pointer to scroll to the given position.
-   */
-  @RunsInCurrentThread
-  @Nonnull public Point thumbLocation(@Nonnull JScrollBar scrollBar, int position) {
-    double fraction = (double) position / maximumMinusMinimum(scrollBar);
-    return locationStrategyFor(scrollBar).thumbLocation(scrollBar, fraction);
-  }
+	/**
+	 * <p>
+	 * Returns the location where to move the mouse pointer to scroll to the given position.
+	 * </p>
+	 *
+	 * <p>
+	 * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
+	 * dispatch thread (EDT). Client code must call this method from the EDT.
+	 * </p>
+	 *
+	 * @param scrollBar the target {@code JScrollBar}.
+	 * @param position  the position to scroll to.
+	 * @return the location where to move the mouse pointer to scroll to the given position.
+	 */
+	@RunsInCurrentThread
+	@Nonnull
+	public Point thumbLocation(@Nonnull JScrollBar scrollBar, int position) {
+		double fraction = (double) position / maximumMinusMinimum(scrollBar);
+		return locationStrategyFor(scrollBar).thumbLocation(scrollBar, fraction);
+	}
 
-  @RunsInCurrentThread
-  private int maximumMinusMinimum(@Nonnull JScrollBar scrollBar) {
-    return scrollBar.getMaximum() - scrollBar.getMinimum();
-  }
+	@RunsInCurrentThread
+	private int maximumMinusMinimum(@Nonnull JScrollBar scrollBar) {
+		return scrollBar.getMaximum() - scrollBar.getMinimum();
+	}
 
-  /**
-   * <p>
-   * Returns the location where to move the mouse pointer to scroll one block up (or right).
-   * </p>
-   *
-   * <p>
-   * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
-   * dispatch thread (EDT). Client code must call this method from the EDT.
-   * </p>
-   *
-   * @param scrollBar the target {@code JScrollBar}.
-   * @return the location where to move the mouse pointer to scroll one block up (or right).
-   */
-  @RunsInCurrentThread
-  @Nonnull public Point blockLocationToScrollUp(@Nonnull JScrollBar scrollBar) {
-    Point p = unitLocationToScrollUp(scrollBar);
-    int offset = BLOCK_OFFSET;
-    return blockLocation(scrollBar, p, offset);
-  }
+	/**
+	 * <p>
+	 * Returns the location where to move the mouse pointer to scroll one block up (or right).
+	 * </p>
+	 *
+	 * <p>
+	 * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
+	 * dispatch thread (EDT). Client code must call this method from the EDT.
+	 * </p>
+	 *
+	 * @param scrollBar the target {@code JScrollBar}.
+	 * @return the location where to move the mouse pointer to scroll one block up (or right).
+	 */
+	@RunsInCurrentThread
+	@Nonnull
+	public Point blockLocationToScrollUp(@Nonnull JScrollBar scrollBar) {
+		Point p = unitLocationToScrollUp(scrollBar);
+		int offset = BLOCK_OFFSET;
+		return blockLocation(scrollBar, p, offset);
+	}
 
-  /**
-   * <p>
-   * Returns the location where to move the mouse pointer to scroll one block down (or left).
-   * </p>
-   *
-   * <p>
-   * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
-   * dispatch thread (EDT). Client code must call this method from the EDT.
-   * </p>
-   *
-   * @param scrollBar the target {@code JScrollBar}.
-   * @return the location where to move the mouse pointer to scroll one block down (or left).
-   */
-  @RunsInCurrentThread
-  @Nonnull public Point blockLocationToScrollDown(@Nonnull JScrollBar scrollBar) {
-    Point p = unitLocationToScrollDown(scrollBar);
-    int offset = -BLOCK_OFFSET;
-    return blockLocation(scrollBar, p, offset);
-  }
+	/**
+	 * <p>
+	 * Returns the location where to move the mouse pointer to scroll one block down (or left).
+	 * </p>
+	 *
+	 * <p>
+	 * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
+	 * dispatch thread (EDT). Client code must call this method from the EDT.
+	 * </p>
+	 *
+	 * @param scrollBar the target {@code JScrollBar}.
+	 * @return the location where to move the mouse pointer to scroll one block down (or left).
+	 */
+	@RunsInCurrentThread
+	@Nonnull
+	public Point blockLocationToScrollDown(@Nonnull JScrollBar scrollBar) {
+		Point p = unitLocationToScrollDown(scrollBar);
+		int offset = -BLOCK_OFFSET;
+		return blockLocation(scrollBar, p, offset);
+	}
 
-  @RunsInCurrentThread
-  @Nonnull private Point blockLocation(@Nonnull JScrollBar scrollBar, @Nonnull Point unitLocation, int offset) {
-    return locationStrategyFor(scrollBar).blockLocation(scrollBar, unitLocation, offset);
-  }
+	@RunsInCurrentThread
+	@Nonnull
+	private Point blockLocation(@Nonnull JScrollBar scrollBar, @Nonnull Point unitLocation, int offset) {
+		return locationStrategyFor(scrollBar).blockLocation(scrollBar, unitLocation, offset);
+	}
 
-  /**
-   * <p>
-   * Returns the location where to move the mouse pointer to scroll one unit up (or right).
-   * </p>
-   *
-   * <p>
-   * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
-   * dispatch thread (EDT). Client code must call this method from the EDT.
-   * </p>
-   *
-   * @param scrollBar the target {@code JScrollBar}.
-   * @return the location where to move the mouse pointer to scroll one unit up (or right).
-   */
-  @RunsInCurrentThread
-  @Nonnull public Point unitLocationToScrollUp(@Nonnull JScrollBar scrollBar) {
-    int arrow = locationStrategyFor(scrollBar).arrow(scrollBar);
-    return new Point(arrow / 2, arrow / 2);
-  }
+	/**
+	 * <p>
+	 * Returns the location where to move the mouse pointer to scroll one unit up (or right).
+	 * </p>
+	 *
+	 * <p>
+	 * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
+	 * dispatch thread (EDT). Client code must call this method from the EDT.
+	 * </p>
+	 *
+	 * @param scrollBar the target {@code JScrollBar}.
+	 * @return the location where to move the mouse pointer to scroll one unit up (or right).
+	 */
+	@RunsInCurrentThread
+	@Nonnull
+	public Point unitLocationToScrollUp(@Nonnull JScrollBar scrollBar) {
+		int arrow = locationStrategyFor(scrollBar).arrow(scrollBar);
+		return new Point(arrow / 2, arrow / 2);
+	}
 
-  /**
-   * <p>
-   * Returns the location where to move the mouse pointer to scroll one unit down (or left).
-   * </p>
-   *
-   * <p>
-   * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
-   * dispatch thread (EDT). Client code must call this method from the EDT.
-   * </p>
-   *
-   * @param scrollBar the target {@code JScrollBar}.
-   * @return the location where to move the mouse pointer to scroll one unit down (or left).
-   */
-  @RunsInCurrentThread
-  @Nonnull public Point unitLocationToScrollDown(@Nonnull JScrollBar scrollBar) {
-    return locationStrategyFor(scrollBar).unitLocationToScrollDown(scrollBar);
-  }
+	/**
+	 * <p>
+	 * Returns the location where to move the mouse pointer to scroll one unit down (or left).
+	 * </p>
+	 *
+	 * <p>
+	 * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
+	 * dispatch thread (EDT). Client code must call this method from the EDT.
+	 * </p>
+	 *
+	 * @param scrollBar the target {@code JScrollBar}.
+	 * @return the location where to move the mouse pointer to scroll one unit down (or left).
+	 */
+	@RunsInCurrentThread
+	@Nonnull
+	public Point unitLocationToScrollDown(@Nonnull JScrollBar scrollBar) {
+		return locationStrategyFor(scrollBar).unitLocationToScrollDown(scrollBar);
+	}
 
-  @RunsInCurrentThread
-  @Nonnull private JScrollBarLocationStrategy locationStrategyFor(JScrollBar scrollBar) {
-    JScrollBarLocationStrategy strategy = LOCATIONS.get(scrollBar.getOrientation());
-    return checkNotNull(strategy);
-  }
+	@RunsInCurrentThread
+	@Nonnull
+	private JScrollBarLocationStrategy locationStrategyFor(JScrollBar scrollBar) {
+		JScrollBarLocationStrategy strategy = LOCATIONS.get(scrollBar.getOrientation());
+		return Objects.requireNonNull(strategy);
+	}
 }
