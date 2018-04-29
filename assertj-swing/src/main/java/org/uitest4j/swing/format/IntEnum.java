@@ -13,7 +13,7 @@
 package org.uitest4j.swing.format;
 
 import static java.lang.String.valueOf;
-import static org.assertj.swing.util.Maps.newHashMap;
+import static org.uitest4j.swing.util.Maps.newHashMap;
 
 import java.util.Map;
 

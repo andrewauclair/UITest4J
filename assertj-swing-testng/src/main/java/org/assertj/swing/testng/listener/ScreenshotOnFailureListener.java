@@ -17,7 +17,7 @@ import static java.util.logging.Level.SEVERE;
 import static org.assertj.core.util.Strings.concat;
 import static org.assertj.core.util.Strings.quote;
 import static org.assertj.swing.testng.listener.ScreenshotFileNameGenerator.screenshotFileNameFrom;
-import static org.assertj.swing.util.Strings.isNullOrEmpty;
+import static org.uitest4j.swing.util.Strings.isNullOrEmpty;
 
 import java.awt.GraphicsEnvironment;
 import java.lang.reflect.Method;

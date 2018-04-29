@@ -14,7 +14,7 @@ package org.uitest4j.swing.fixture;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Preconditions.checkNotNull;
-import static org.assertj.swing.util.Colors.colorFromHexString;
+import static org.uitest4j.swing.util.Colors.colorFromHexString;
 
 import java.awt.Color;
 

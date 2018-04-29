@@ -22,7 +22,7 @@ import javax.swing.tree.TreeCellRenderer;
 import java.awt.*;
 
 import static org.assertj.core.util.Preconditions.checkNotNull;
-import static org.assertj.swing.util.Strings.isDefaultToString;
+import static org.uitest4j.swing.util.Strings.isDefaultToString;
 
 /**
  * Default implementation of {@link JTreeCellReader}.

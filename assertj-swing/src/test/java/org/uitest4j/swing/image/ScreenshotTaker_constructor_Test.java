@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.image;
 
-import org.assertj.swing.util.RobotFactory;
+import org.uitest4j.swing.util.RobotFactory;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -20,7 +20,7 @@ import java.awt.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.uitest4j.swing.image.TestImageFileWriters.singletonImageFileWriterMock;
-import static org.assertj.swing.util.TestRobotFactories.newRobotFactoryMock;
+import static org.uitest4j.swing.util.TestRobotFactories.newRobotFactoryMock;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.when;
 

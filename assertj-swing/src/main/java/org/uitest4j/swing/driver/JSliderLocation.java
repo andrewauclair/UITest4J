@@ -22,7 +22,7 @@ import java.util.Map;
 import static javax.swing.SwingConstants.HORIZONTAL;
 import static javax.swing.SwingConstants.VERTICAL;
 import static org.assertj.core.util.Preconditions.checkNotNull;
-import static org.assertj.swing.util.Maps.newHashMap;
+import static org.uitest4j.swing.util.Maps.newHashMap;
 
 /**
  * A location in a {@code JSlider}.

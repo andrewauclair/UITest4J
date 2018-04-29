@@ -20,7 +20,7 @@ import javax.swing.JProgressBar;
 
 import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.driver.JProgressBarDriver;
-import org.assertj.swing.timing.Timeout;
+import org.uitest4j.swing.timing.Timeout;
 
 /**
  * Supports functional testing of {@code JProgressBar}s.

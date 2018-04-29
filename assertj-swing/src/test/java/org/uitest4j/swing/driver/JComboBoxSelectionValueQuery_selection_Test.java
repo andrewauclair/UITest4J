@@ -15,7 +15,7 @@ package org.uitest4j.swing.driver;
 import org.uitest4j.swing.cell.JComboBoxCellReader;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
-import org.assertj.swing.util.Pair;
+import org.uitest4j.swing.util.Pair;
 import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.annotation.RunsInEDT;
 

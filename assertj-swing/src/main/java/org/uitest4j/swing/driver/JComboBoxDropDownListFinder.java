@@ -15,7 +15,7 @@ package org.uitest4j.swing.driver;
 import org.uitest4j.swing.core.ComponentMatcher;
 import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.core.TypeMatcher;
-import org.assertj.swing.util.TimeoutWatch;
+import org.uitest4j.swing.util.TimeoutWatch;
 import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.annotation.Nonnull;
@@ -25,8 +25,8 @@ import java.awt.*;
 import java.util.List;
 
 import static org.assertj.core.util.Lists.newArrayList;
-import static org.assertj.swing.timing.Pause.pause;
-import static org.assertj.swing.util.TimeoutWatch.startWatchWithTimeoutOf;
+import static org.uitest4j.swing.timing.Pause.pause;
+import static org.uitest4j.swing.util.TimeoutWatch.startWatchWithTimeoutOf;
 
 /**
  * Looks up the {@code JList} in the pop-up raised by a {@code JComboBox}, if the LAF actually uses one.

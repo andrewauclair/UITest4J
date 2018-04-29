@@ -24,7 +24,7 @@ import java.awt.*;
 
 import static org.uitest4j.swing.core.MouseButton.LEFT_BUTTON;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.util.Platform.isOSX;
+import static org.uitest4j.swing.util.Platform.isOSX;
 
 /**
  * Tests for {@link JPopupMenuFixture#menuItemWithPath(String...)}.

@@ -10,7 +10,7 @@
  *
  * Copyright 2012-2015 the original author or authors.
  */
-module com.github.andrewauclair.assertjswing {
+module org.uitest4j.core {
     requires assertj.core;
     requires java.desktop;
     requires java.logging;

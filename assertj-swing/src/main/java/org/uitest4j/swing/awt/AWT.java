@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.awt;
 
-import org.assertj.swing.util.ToolkitProvider;
+import org.uitest4j.swing.util.ToolkitProvider;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.uitest4j.swing.annotation.RunsInEDT;
 
@@ -25,7 +25,7 @@ import static java.awt.GraphicsEnvironment.getLocalGraphicsEnvironment;
 import static java.awt.event.InputEvent.BUTTON3_DOWN_MASK;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.util.Platform.isWindows;
+import static org.uitest4j.swing.util.Platform.isWindows;
 
 /**
  * Utility methods related to AWT.

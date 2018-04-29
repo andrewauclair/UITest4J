@@ -21,7 +21,7 @@ import java.awt.event.AWTEventListener;
 
 import static javax.swing.SwingUtilities.invokeLater;
 import static org.assertj.core.util.Preconditions.checkNotNull;
-import static org.assertj.swing.util.AWTEvents.*;
+import static org.uitest4j.swing.util.AWTEvents.*;
 
 /**
  * Automatic filtering of auto-generated Swing dialogs.

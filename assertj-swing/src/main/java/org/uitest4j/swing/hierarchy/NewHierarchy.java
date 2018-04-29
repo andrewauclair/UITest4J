@@ -13,7 +13,7 @@
 package org.uitest4j.swing.hierarchy;
 
 import org.assertj.core.util.VisibleForTesting;
-import org.assertj.swing.util.ToolkitProvider;
+import org.uitest4j.swing.util.ToolkitProvider;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 
 import javax.annotation.Nonnull;

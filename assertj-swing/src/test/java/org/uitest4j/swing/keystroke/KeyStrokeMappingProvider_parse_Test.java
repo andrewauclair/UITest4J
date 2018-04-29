@@ -26,7 +26,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Files.newTemporaryFile;
 import static org.uitest4j.swing.keystroke.KeyStrokeMapping.mapping;
 import static org.uitest4j.swing.keystroke.KeyStrokeMappingProvider.NO_MASK;
-import static org.assertj.swing.util.Platform.isWindows;
+import static org.uitest4j.swing.util.Platform.isWindows;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**

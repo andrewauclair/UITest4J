@@ -24,7 +24,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Lists.newArrayList;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.test.task.ComponentRequestFocusAndWaitForFocusGainTask.giveFocusAndWaitTillIsFocused;
-import static org.assertj.swing.timing.Pause.pause;
+import static org.uitest4j.swing.timing.Pause.pause;
 
 /**
  * Base test case for implementations of {@link InputEventGenerator#pressKey(int, char)} and

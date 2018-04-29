@@ -32,7 +32,7 @@ import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.driver.ComponentDriver;
 import org.uitest4j.swing.exception.ComponentLookupException;
 import org.uitest4j.swing.query.ComponentEnabledQuery;
-import org.assertj.swing.timing.Timeout;
+import org.uitest4j.swing.timing.Timeout;
 
 /**
  * Supports functional testing of AWT and Swing {@code Component}s.

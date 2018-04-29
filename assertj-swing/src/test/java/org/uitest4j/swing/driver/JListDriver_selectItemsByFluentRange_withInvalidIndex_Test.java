@@ -21,12 +21,12 @@ import java.util.Collection;
 import static java.lang.String.valueOf;
 import static org.assertj.core.util.Lists.newArrayList;
 import static org.assertj.core.util.Strings.concat;
-import static org.assertj.swing.util.Range.from;
-import static org.assertj.swing.util.Range.to;
+import static org.uitest4j.swing.util.Range.from;
+import static org.uitest4j.swing.util.Range.to;
 
 /**
  * Tests for
- * {@link JListDriver#selectItems(javax.swing.JList, org.assertj.swing.util.Range.From, org.assertj.swing.util.Range.To)}
+ * {@link JListDriver#selectItems(javax.swing.JList, org.uitest4j.swing.util.Range.From, org.uitest4j.swing.util.Range.To)}
  * .
  * 
  * @author Alex Ruiz

@@ -22,9 +22,9 @@ import org.uitest4j.swing.edt.GuiQuery;
 import org.uitest4j.swing.exception.LocationUnavailableException;
 import org.uitest4j.swing.exception.WaitTimedOutError;
 import org.uitest4j.swing.internal.annotation.InternalApi;
-import org.assertj.swing.util.ArrayPreconditions;
-import org.assertj.swing.util.Pair;
-import org.assertj.swing.util.Triple;
+import org.uitest4j.swing.util.ArrayPreconditions;
+import org.uitest4j.swing.util.Pair;
+import org.uitest4j.swing.util.Triple;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.uitest4j.swing.annotation.RunsInEDT;
 
@@ -55,8 +55,8 @@ import static org.uitest4j.swing.driver.JTreeVerifySelectionTask.checkHasSelecti
 import static org.uitest4j.swing.driver.JTreeVerifySelectionTask.checkNoSelection;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 import static org.uitest4j.swing.exception.ActionFailedException.actionFailure;
-import static org.assertj.swing.timing.Pause.pause;
-import static org.assertj.swing.util.Platform.controlOrCommandKey;
+import static org.uitest4j.swing.timing.Pause.pause;
+import static org.uitest4j.swing.util.Platform.controlOrCommandKey;
 
 /**
  * <p>

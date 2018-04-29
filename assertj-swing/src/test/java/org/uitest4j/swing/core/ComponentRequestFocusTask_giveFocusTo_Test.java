@@ -23,7 +23,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 import static org.uitest4j.swing.query.ComponentHasFocusQuery.hasFocus;
 import static org.assertj.swing.test.swing.ComponentHasFocusCondition.untilFocused;
-import static org.assertj.swing.timing.Pause.pause;
+import static org.uitest4j.swing.timing.Pause.pause;
 
 /**
  * Tests for {@link ComponentRequestFocusTask#giveFocusTo(java.awt.Component)}.

@@ -19,7 +19,7 @@ import org.uitest4j.swing.annotation.RunsInEDT;
 import javax.annotation.Nonnull;
 import java.util.function.Consumer;
 
-import static org.assertj.swing.util.Platform.controlOrCommandKey;
+import static org.uitest4j.swing.util.Platform.controlOrCommandKey;
 
 /**
  * Simulates multiple selection on a GUI component.

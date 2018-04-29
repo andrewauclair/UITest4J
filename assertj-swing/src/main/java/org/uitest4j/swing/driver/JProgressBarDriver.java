@@ -14,8 +14,8 @@ package org.uitest4j.swing.driver;
 
 import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.internal.annotation.InternalApi;
-import org.assertj.swing.timing.Timeout;
-import org.assertj.swing.util.Pair;
+import org.uitest4j.swing.timing.Timeout;
+import org.uitest4j.swing.util.Pair;
 import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.annotation.Nonnull;
@@ -32,7 +32,7 @@ import static org.uitest4j.swing.driver.JProgressBarValueQuery.valueOf;
 import static org.uitest4j.swing.driver.JProgressBarWaitUntilIsDeterminate.waitUntilValueIsDeterminate;
 import static org.uitest4j.swing.driver.JProgressBarWaitUntilValueIsEqualToExpectedTask.waitUntilValueIsEqualToExpected;
 import static org.uitest4j.swing.driver.TextAssert.verifyThat;
-import static org.assertj.swing.timing.Timeout.timeout;
+import static org.uitest4j.swing.timing.Timeout.timeout;
 
 /**
  * <p>

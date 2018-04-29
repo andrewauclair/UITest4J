@@ -13,7 +13,7 @@
 package org.uitest4j.swing.driver;
 
 import static org.assertj.core.error.ShouldMatchPattern.shouldMatch;
-import static org.assertj.swing.util.Strings.areEqualOrMatch;
+import static org.uitest4j.swing.util.Strings.areEqualOrMatch;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;

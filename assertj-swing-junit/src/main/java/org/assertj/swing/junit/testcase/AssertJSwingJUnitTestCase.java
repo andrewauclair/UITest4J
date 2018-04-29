@@ -13,7 +13,7 @@
 package org.assertj.swing.junit.testcase;
 
 import org.uitest4j.swing.edt.FailOnThreadViolationRepaintManager;
-import org.assertj.swing.testing.AssertJSwingTestCaseTemplate;
+import org.uitest4j.swing.testing.AssertJSwingTestCaseTemplate;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;

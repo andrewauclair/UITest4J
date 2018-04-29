@@ -14,7 +14,7 @@ package org.assertj.swing.junit.ant;
 
 import static java.io.File.separator;
 import static java.util.logging.Level.SEVERE;
-import static org.assertj.swing.util.Strings.isNullOrEmpty;
+import static org.uitest4j.swing.util.Strings.isNullOrEmpty;
 
 import java.awt.image.BufferedImage;
 import java.util.logging.Logger;

@@ -21,7 +21,7 @@ import javax.swing.*;
 import java.util.regex.Pattern;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.timing.Timeout.timeout;
+import static org.uitest4j.swing.timing.Timeout.timeout;
 import static org.mockito.Mockito.*;
 
 /**

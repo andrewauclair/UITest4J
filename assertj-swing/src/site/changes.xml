@@ -30,7 +30,7 @@
           Fixed implementation of "selectAll" in class org.uitest4j.swing.driver.JTextComponentDriver.
       </action>
       <action dev="wanghy" type="remove" issue="FEST-354">
-        Removed class org.assertj.swing.util.SystemProperties.
+        Removed class org.uitest4j.swing.util.SystemProperties.
       </action>
       <action dev="alexruiz" type="fix" issue="FEST-355" due-to="Peter Murray">
           Method "validateNotNull(ComponentDriver)" in org.uitest4j.swing.fixture.ComponentFixture is now protected.
@@ -54,7 +54,7 @@
         Method 'showPopupMenuAt' in JTreeFixture now scrolls to the matching node before trying to display a pop-up menu.
       </action>
       <action dev="alexruiz" type="add" issue="FEST-286" due-to="Morten Breum Mikkelsen">
-        Added method 'descriptionAddendum' to class org.assertj.swing.timing.Condition.
+        Added method 'descriptionAddendum' to class org.uitest4j.swing.timing.Condition.
       </action>
       <action dev="alexruiz" type="add" issue="FEST-286" due-to="Morten Breum Mikkelsen">
           Class org.uitest4j.swing.core.ComponentFoundCondition now appends the component hierarchy to its description
@@ -132,7 +132,7 @@
         FEST displays JPopupMenu for non-focusable Components.
       </action>
       <action dev="alexruiz" type="fix">
-        Deprecated class org.assertj.swing.util.System and replaced it with org.assertj.swing.util.SystemProperties.
+        Deprecated class org.uitest4j.swing.util.System and replaced it with org.uitest4j.swing.util.SystemProperties.
       </action>
     </release>
     <release version="1.2a4" date="2010-01-19" description="Subsequent release">
@@ -231,8 +231,9 @@
         Added method 'rightClickPath(String)' to JTreeFixture.
       </action>
       <action dev="alexruiz" type="add" issue="FEST-249" due-to="Brandon">
-        Added class org.assertj.swing.security.NoExitSecurityManager to prevent applications under test from terminating
-        the current JVM.
+          Added class org.uitest4j.swing.security.NoExitSecurityManager to prevent applications under test from
+          terminating
+          the current JVM.
       </action>
       <action dev="alexruiz" type="fix" issue="FEST-250" due-to="Stephen Gade Esven, Morten Breum Mikkelsen">
         Component hierarchies now contain in the collection of root windows all the ownerless windows.
@@ -285,7 +286,7 @@
         Added method 'textOf(JTextComponent)' to JTextComponentDriver.
       </action>
       <action dev="alexruiz" type="add" issue="FEST-283">
-        Added class org.assertj.swing.util.AWTExceptionHandler.
+        Added class org.uitest4j.swing.util.AWTExceptionHandler.
       </action>
       <action dev="alexruiz" type="fix" isse="FEST-284" due-to="Steve Farrell">
         Robot automatically performs any necessary scrolls to make a component visible before clicking it. 
@@ -652,7 +653,7 @@
         take a Timeout.
       </action>
       <action dev="alexruiz" type="fix" issue="FEST-32" due-to="Juhos Csaba-Zsolt">
-        Class org.assertj.swing.timing.Timeout now throws NPE in constructor if the given TimeUnit is null.
+        Class org.uitest4j.swing.timing.Timeout now throws NPE in constructor if the given TimeUnit is null.
       </action>
       <action dev="alexruiz" type="fix" issue="FEST-118" due-to="Olivier DOREMIEUX">
           To activate a Window, org.uitest4j.swing.core.ActivateWindowTask now calls 'toFront and 'requestFocusInWindow'
@@ -728,7 +729,7 @@
           Added method "requireFocused" to all component fixtures in package org.uitest4j.swing.fixture.
       </action>
       <action dev="alexruiz" type="add" issue="FEST-9" due-to="Andres Almiray">
-        Added class org.assertj.swing.testing.FestSwingTestCase.
+        Added class org.uitest4j.swing.testing.FestSwingTestCase.
       </action>
       <action dev="alexruiz" type="add" issue="FEST-9" due-to="Andres Almiray">
         Added class org.assertj.swing.junit.testcase.FestSwingJUnitTestCase.
@@ -904,8 +905,8 @@
       </action>
       <action dev="alexruiz, wanghy" type="add" issue="216" 
         due-to="Simeon Fitch, Michael Hüttermann, Jean-Francois Poilpret">
-          Added org.uitest4j.swing.edt.GuiLazyLoadingDescription to lazy-load the description of a
-          org.assertj.swing.timing.Condition (which is executed in the event dispatch thread.)
+        Added org.uitest4j.swing.edt.GuiLazyLoadingDescription to lazy-load the description of a
+        org.uitest4j.swing.timing.Condition (which is executed in the event dispatch thread.)
       </action>
       <action dev="alexruiz" type="add" issue="216">
         Added annotations RunsInCurrentThread and RunsInEDT in package org.assertj.swing.annotations.
@@ -1018,20 +1019,21 @@
           the event dispatch thread.
       </action>
       <action dev="alexruiz" type="fix" issue="187">
-          Moved class AWT from package org.assertj.swing.util to org.uitest4j.swing.awt.
+        Moved class AWT from package org.uitest4j.swing.util to org.uitest4j.swing.awt.
       </action>
       <action dev="alexruiz, wanghy" type="fix" issue="187">
           Removed method 'runInEventThreadAndWait' in org.uitest4j.swing.awt.AWT. Replaced with
           org.uitest4j.swing.edt.GuiActionRunner and org.uitest4j.swing.edt.GuiTask.
       </action>
       <action dev="alexruiz" type="fix" issue="187">
-          Moved classes Condition, Pause and Timeout from package org.uitest4j.swing.core to org.assertj.swing.timing.
+        Moved classes Condition, Pause and Timeout from package org.uitest4j.swing.core to org.uitest4j.swing.timing.
       </action>
       <action dev="alexruiz, wanghy" type="fix" issue="187">
-        Added methods 'pause(Condition[])' to org.assertj.swing.timing.Pause.
+        Added methods 'pause(Condition[])' to org.uitest4j.swing.timing.Pause.
       </action>
       <action dev="alexruiz, wanghy" type="fix" issue="187">
-        Added method 'done' to org.assertj.swing.timing.Condition. This method is invoked by org.assertj.swing.timing.Pause 
+        Added method 'done' to org.uitest4j.swing.timing.Condition. This method is invoked by
+        org.uitest4j.swing.timing.Pause
         when a condition is evaluated (either the condition was satisfied or it timed-out.)
       </action>
       <action dev="alexruiz" type="add" issue="188" due-to="Jason Goodwin">
@@ -1227,7 +1229,7 @@
         'slideToMinimum'.
       </action>
       <action dev="alexruiz" type="add">
-        Added method 'controlOrCommandMask' to org.assertj.swing.util.Platform.
+        Added method 'controlOrCommandMask' to org.uitest4j.swing.util.Platform.
       </action>
       <action dev="alexruiz" type="add">
         Added method 'pressAndReleaseKey(KeyPressInfo)' to all component fixtures.
@@ -1332,7 +1334,7 @@
         Added methods 'selectAllText' and 'replaceText(String)' to JComboBoxFixture. 
       </action>
       <action dev="alexruiz" type="fix">
-        Replaced constants that indicate the operating system with methods in org.assertj.swing.util.Platform. 
+        Replaced constants that indicate the operating system with methods in org.uitest4j.swing.util.Platform.
       </action>
       <action dev="alexruiz, wanghy" type="remove">
         Eliminated some project dependencies. FEST-Swing now depends on FEST-Assert, FEST-Reflect and FEST-Util only.
@@ -1395,8 +1397,8 @@
         ComponentFinder.
       </action>
       <action dev="alexruiz" type="fix">
-        Moved methods from org.assertj.swing.util.Swing to org.assertj.swing.util.AWT. Deleted class 
-        org.assertj.swing.util.Swing. 
+        Moved methods from org.uitest4j.swing.util.Swing to org.uitest4j.swing.util.AWT. Deleted class
+        org.uitest4j.swing.util.Swing.
       </action>
       <action dev="alexruiz" type="add">
           Created interface org.uitest4j.swing.core.Robot and made RobotFixture implement it, to facilitate unit
@@ -1621,8 +1623,8 @@
         Added support for taking screenshots of failing tests with JUnit inside an IDE.
       </action>
 			<action dev="alexruiz" type="fix" issue="59">
-                Moved org.swing.fest.GUITest and org.assertj.swing.util.GUITestFinder to package
-                org.uitest4j.swing.annotation.
+              Moved org.swing.fest.GUITest and org.uitest4j.swing.util.GUITestFinder to package
+              org.uitest4j.swing.annotation.
             </action>
 			<action dev="alexruiz" type="fix" issue="59">
                 Moved exception classes in package org.assertj.swing to org.uitest4j.swing.exception.
@@ -1662,11 +1664,11 @@
         Added class JPanelFixture.        
       </action>
       <action dev="alexruiz" type="fix">
-          Moved ImageException and ScreenshotTaker from package org.assertj.swing.util to package
-          org.uitest4j.swing.image.
+        Moved ImageException and ScreenshotTaker from package org.uitest4j.swing.util to package
+        org.uitest4j.swing.image.
       </action>
       <action dev="alexruiz" type="fix">
-          Renamed org.assertj.swing.util.GUITests to org.uitest4j.swing.annotation.GUITestFinder.
+        Renamed org.uitest4j.swing.util.GUITests to org.uitest4j.swing.annotation.GUITestFinder.
       </action>
       <action dev="wanghy" type="add" issue="45">
         Add timeout for RobotFixture.wait(Condition): RobotFixture.wait(Condition, Timeout).

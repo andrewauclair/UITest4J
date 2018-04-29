@@ -14,8 +14,8 @@ package org.uitest4j.swing.driver;
 
 import org.uitest4j.swing.exception.LocationUnavailableException;
 import org.assertj.swing.test.ExpectedException;
-import org.assertj.swing.util.Pair;
-import org.assertj.swing.util.TextMatcher;
+import org.uitest4j.swing.util.Pair;
+import org.uitest4j.swing.util.TextMatcher;
 import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.annotation.RunsInEDT;
 

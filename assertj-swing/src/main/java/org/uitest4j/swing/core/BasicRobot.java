@@ -22,9 +22,9 @@ import org.uitest4j.swing.hierarchy.ExistingHierarchy;
 import org.uitest4j.swing.input.InputState;
 import org.uitest4j.swing.lock.ScreenLock;
 import org.uitest4j.swing.monitor.WindowMonitor;
-import org.assertj.swing.util.Pair;
-import org.assertj.swing.util.TimeoutWatch;
-import org.assertj.swing.util.ToolkitProvider;
+import org.uitest4j.swing.util.Pair;
+import org.uitest4j.swing.util.TimeoutWatch;
+import org.uitest4j.swing.util.ToolkitProvider;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.uitest4j.swing.annotation.RunsInEDT;
 
@@ -72,10 +72,10 @@ import static org.uitest4j.swing.format.Formatting.inEdtFormat;
 import static org.uitest4j.swing.hierarchy.NewHierarchy.ignoreExistingComponents;
 import static org.uitest4j.swing.keystroke.KeyStrokeMap.keyStrokeFor;
 import static org.uitest4j.swing.query.ComponentShowingQuery.isShowing;
-import static org.assertj.swing.timing.Pause.pause;
-import static org.assertj.swing.util.Modifiers.keysFor;
-import static org.assertj.swing.util.Modifiers.updateModifierWithKeyCode;
-import static org.assertj.swing.util.TimeoutWatch.startWatchWithTimeoutOf;
+import static org.uitest4j.swing.timing.Pause.pause;
+import static org.uitest4j.swing.util.Modifiers.keysFor;
+import static org.uitest4j.swing.util.Modifiers.updateModifierWithKeyCode;
+import static org.uitest4j.swing.util.TimeoutWatch.startWatchWithTimeoutOf;
 
 /**
  * Default implementation of {@link Robot}.

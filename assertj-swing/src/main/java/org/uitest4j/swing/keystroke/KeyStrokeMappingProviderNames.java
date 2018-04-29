@@ -20,7 +20,7 @@ import java.util.NoSuchElementException;
 
 import javax.annotation.Nonnull;
 
-import org.assertj.swing.util.OSFamily;
+import org.uitest4j.swing.util.OSFamily;
 
 /**
  * A generated name for a {@link KeyStrokeMappingProvider} to use, based on operating system family and locale.

@@ -14,7 +14,7 @@ package org.uitest4j.swing.core;
 
 import org.assertj.core.util.Arrays;
 import org.assertj.swing.test.recorder.KeyRecorder;
-import org.assertj.swing.timing.Condition;
+import org.uitest4j.swing.timing.Condition;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
@@ -22,8 +22,8 @@ import java.awt.*;
 import java.util.concurrent.Executors;
 
 import static java.awt.event.KeyEvent.*;
-import static org.assertj.swing.timing.Pause.pause;
-import static org.assertj.swing.timing.Timeout.timeout;
+import static org.uitest4j.swing.timing.Pause.pause;
+import static org.uitest4j.swing.timing.Timeout.timeout;
 
 /**
  * Tests for issue with slow waitForIdle with a custom event queue

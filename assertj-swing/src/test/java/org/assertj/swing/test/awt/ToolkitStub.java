@@ -28,7 +28,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
-import static org.assertj.swing.util.Maps.newHashMap;
+import static org.uitest4j.swing.util.Maps.newHashMap;
 import static org.mockito.Mockito.spy;
 
 /**

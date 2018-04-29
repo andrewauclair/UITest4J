@@ -19,8 +19,8 @@ import java.awt.*;
 
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.test.swing.ComponentHasFocusCondition.untilFocused;
-import static org.assertj.swing.timing.Pause.pause;
-import static org.assertj.swing.timing.Timeout.timeout;
+import static org.uitest4j.swing.timing.Pause.pause;
+import static org.uitest4j.swing.timing.Timeout.timeout;
 
 /**
  * Requests input focus for a {@code Component}. This task is executed in the event dispatch thread (EDT).

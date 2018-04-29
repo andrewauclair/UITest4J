@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.core;
 
-import org.assertj.swing.util.RobotFactory;
+import org.uitest4j.swing.util.RobotFactory;
 import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.annotation.Nonnull;
@@ -25,9 +25,9 @@ import static org.uitest4j.swing.awt.AWT.translate;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 import static org.uitest4j.swing.exception.ActionFailedException.actionFailure;
 import static org.uitest4j.swing.exception.UnexpectedException.unexpected;
-import static org.assertj.swing.timing.Pause.pause;
-import static org.assertj.swing.util.Platform.isOSX;
-import static org.assertj.swing.util.Platform.isWindows;
+import static org.uitest4j.swing.timing.Pause.pause;
+import static org.uitest4j.swing.util.Platform.isOSX;
+import static org.uitest4j.swing.util.Platform.isWindows;
 
 /**
  * Simulates user input by using an AWT {@code Robot}.

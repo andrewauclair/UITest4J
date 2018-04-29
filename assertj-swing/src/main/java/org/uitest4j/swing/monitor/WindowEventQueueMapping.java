@@ -23,7 +23,7 @@ import java.util.Set;
 import static java.lang.Boolean.TRUE;
 import static org.assertj.core.util.Sets.newHashSet;
 import static org.uitest4j.swing.query.ComponentParentQuery.parentOf;
-import static org.assertj.swing.util.Maps.newWeakHashMap;
+import static org.uitest4j.swing.util.Maps.newWeakHashMap;
 
 /**
  * A mapping of unique event queues to the set of root windows found on each queue.

@@ -20,7 +20,7 @@ import static javax.swing.JOptionPane.WARNING_MESSAGE;
 import static org.assertj.core.util.Preconditions.checkNotNullOrEmpty;
 import static org.assertj.core.util.Strings.concat;
 import static org.uitest4j.swing.exception.ActionFailedException.actionFailure;
-import static org.assertj.swing.util.Maps.newHashMap;
+import static org.uitest4j.swing.util.Maps.newHashMap;
 
 import java.util.Map;
 

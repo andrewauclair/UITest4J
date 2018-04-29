@@ -19,7 +19,7 @@ import java.awt.Component;
 import javax.annotation.Nonnull;
 import javax.swing.JTabbedPane;
 
-import org.assertj.swing.util.Arrays;
+import org.uitest4j.swing.util.Arrays;
 
 /**
  * Formatter for {@code JTabbedPane}s.

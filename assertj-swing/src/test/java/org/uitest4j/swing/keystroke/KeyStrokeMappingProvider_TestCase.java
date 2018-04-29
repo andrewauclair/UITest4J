@@ -16,7 +16,7 @@ import org.uitest4j.swing.driver.JTextComponentDriver;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.recorder.KeyRecorder;
 import org.assertj.swing.test.swing.TestWindow;
-import org.assertj.swing.timing.Condition;
+import org.uitest4j.swing.timing.Condition;
 import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.swing.*;
@@ -33,8 +33,8 @@ import static org.assertj.core.util.Lists.newArrayList;
 import static org.assertj.core.util.Strings.concat;
 import static org.assertj.core.util.Strings.quote;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.timing.Pause.pause;
-import static org.assertj.swing.util.Maps.newHashMap;
+import static org.uitest4j.swing.timing.Pause.pause;
+import static org.uitest4j.swing.util.Maps.newHashMap;
 
 /**
  * Test case for implementations of {@link KeyStrokeMappingProvider}.

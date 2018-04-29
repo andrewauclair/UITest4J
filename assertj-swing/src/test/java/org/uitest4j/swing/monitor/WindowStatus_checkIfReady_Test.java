@@ -16,8 +16,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.uitest4j.swing.monitor.TestWindows.newWindowsMock;
 import static org.uitest4j.swing.monitor.WindowMetrics.absoluteCenterOf;
 import static org.uitest4j.swing.query.ComponentSizeQuery.sizeOf;
-import static org.assertj.swing.timing.Pause.pause;
-import static org.assertj.swing.timing.Timeout.timeout;
+import static org.uitest4j.swing.timing.Pause.pause;
+import static org.uitest4j.swing.timing.Timeout.timeout;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -28,8 +28,8 @@ import java.awt.Point;
 
 import org.assertj.swing.test.core.SequentialEDTSafeTestCase;
 import org.assertj.swing.test.swing.TestWindow;
-import org.assertj.swing.timing.Condition;
-import org.assertj.swing.util.RobotFactory;
+import org.uitest4j.swing.timing.Condition;
+import org.uitest4j.swing.util.RobotFactory;
 import org.junit.jupiter.api.Test;
 
 /**

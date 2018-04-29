@@ -27,7 +27,7 @@ import java.util.logging.Logger;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.core.util.Strings.isNullOrEmpty;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.util.Maps.newConcurrentHashMap;
+import static org.uitest4j.swing.util.Maps.newConcurrentHashMap;
 
 /**
  * Utility methods related to formatting.

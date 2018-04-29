@@ -12,7 +12,7 @@
  */
 package org.assertj.swing.test.task;
 
-import org.assertj.swing.timing.Condition;
+import org.uitest4j.swing.timing.Condition;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.uitest4j.swing.annotation.RunsInEDT;
 
@@ -20,7 +20,7 @@ import javax.annotation.Nonnull;
 import java.awt.*;
 
 import static org.uitest4j.swing.query.ComponentShowingQuery.isShowing;
-import static org.assertj.swing.timing.Pause.pause;
+import static org.uitest4j.swing.timing.Pause.pause;
 
 /**
  * Makes a {@code Dialog} visible.

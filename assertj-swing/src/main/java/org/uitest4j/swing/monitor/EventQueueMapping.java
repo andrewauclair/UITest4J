@@ -23,7 +23,7 @@ import java.util.Map;
 import java.util.Set;
 
 import static org.assertj.core.util.Sets.newHashSet;
-import static org.assertj.swing.util.Maps.newWeakHashMap;
+import static org.uitest4j.swing.util.Maps.newWeakHashMap;
 
 /**
  * A mapping of AWT or Swing {@code Component}s, and their respective {@link EventQueue}.

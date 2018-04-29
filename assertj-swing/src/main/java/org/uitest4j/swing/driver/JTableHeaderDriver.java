@@ -15,10 +15,10 @@ package org.uitest4j.swing.driver;
 import org.uitest4j.swing.core.MouseButton;
 import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.internal.annotation.InternalApi;
-import org.assertj.swing.util.Pair;
-import org.assertj.swing.util.PatternTextMatcher;
-import org.assertj.swing.util.StringTextMatcher;
-import org.assertj.swing.util.TextMatcher;
+import org.uitest4j.swing.util.Pair;
+import org.uitest4j.swing.util.PatternTextMatcher;
+import org.uitest4j.swing.util.StringTextMatcher;
+import org.uitest4j.swing.util.TextMatcher;
 import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.annotation.Nonnull;
@@ -32,7 +32,7 @@ import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.uitest4j.swing.core.MouseButton.LEFT_BUTTON;
 import static org.uitest4j.swing.driver.ComponentPreconditions.checkEnabledAndShowing;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.timing.Pause.pause;
+import static org.uitest4j.swing.timing.Pause.pause;
 
 /**
  * <p>

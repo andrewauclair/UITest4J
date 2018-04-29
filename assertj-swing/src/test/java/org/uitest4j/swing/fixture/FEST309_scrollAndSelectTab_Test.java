@@ -14,7 +14,7 @@ package org.uitest4j.swing.fixture;
 
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
-import org.assertj.swing.timing.Pause;
+import org.uitest4j.swing.timing.Pause;
 import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.uitest4j.swing.annotation.RunsInEDT;

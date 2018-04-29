@@ -26,7 +26,7 @@ import java.util.logging.Logger;
 import static org.assertj.core.util.Strings.concat;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.test.builder.JFrames.frame;
-import static org.assertj.swing.timing.Pause.pause;
+import static org.uitest4j.swing.timing.Pause.pause;
 
 /**
  * Tests for <a href="http://code.google.com/p/fest/issues/detail?id=159" target="_blank">Bug 159</a>.

@@ -16,7 +16,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.uitest4j.swing.core.MouseButton.LEFT_BUTTON;
 import static org.uitest4j.swing.core.MouseButton.MIDDLE_BUTTON;
 import static org.uitest4j.swing.core.MouseButton.RIGHT_BUTTON;
-import static org.assertj.swing.util.Maps.newHashMap;
+import static org.uitest4j.swing.util.Maps.newHashMap;
 
 import java.awt.Point;
 import java.awt.event.MouseEvent;

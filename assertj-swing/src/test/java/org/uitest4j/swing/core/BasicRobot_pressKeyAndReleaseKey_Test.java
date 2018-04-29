@@ -13,11 +13,11 @@
 package org.uitest4j.swing.core;
 
 import static java.awt.event.KeyEvent.VK_A;
-import static org.assertj.swing.timing.Pause.pause;
-import static org.assertj.swing.timing.Timeout.timeout;
+import static org.uitest4j.swing.timing.Pause.pause;
+import static org.uitest4j.swing.timing.Timeout.timeout;
 
 import org.assertj.swing.test.recorder.KeyRecorder;
-import org.assertj.swing.timing.Condition;
+import org.uitest4j.swing.timing.Condition;
 import org.junit.jupiter.api.Test;
 
 /**

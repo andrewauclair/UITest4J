@@ -25,7 +25,7 @@ import static org.uitest4j.swing.driver.JTextComponentTextQuery.textOf;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 import static org.uitest4j.swing.query.ComponentHasFocusQuery.hasFocus;
 import static org.assertj.swing.test.task.ComponentSetEnabledTask.disable;
-import static org.assertj.swing.timing.Pause.pause;
+import static org.uitest4j.swing.timing.Pause.pause;
 
 /**
  * Base test case for {@link ComponentDriver}.

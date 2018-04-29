@@ -13,7 +13,7 @@
 package org.uitest4j.swing.monitor;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.util.Maps.newHashMap;
+import static org.uitest4j.swing.util.Maps.newHashMap;
 
 import java.awt.EventQueue;
 import java.awt.Window;

@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.keystroke;
 
-import static org.assertj.swing.util.Maps.newHashMap;
+import static org.uitest4j.swing.util.Maps.newHashMap;
 
 import java.util.Map;
 

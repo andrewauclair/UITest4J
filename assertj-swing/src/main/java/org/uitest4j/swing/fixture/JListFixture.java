@@ -24,7 +24,7 @@ import org.uitest4j.swing.cell.JListCellReader;
 import org.uitest4j.swing.core.MouseButton;
 import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.driver.JListDriver;
-import org.assertj.swing.util.Range;
+import org.uitest4j.swing.util.Range;
 
 /**
  * <p>

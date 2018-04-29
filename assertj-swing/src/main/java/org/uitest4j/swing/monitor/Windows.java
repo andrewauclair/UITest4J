@@ -23,7 +23,7 @@ import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import static org.assertj.swing.util.Maps.newWeakHashMap;
+import static org.uitest4j.swing.util.Maps.newWeakHashMap;
 
 /**
  * Information collected by the monitors in this package.

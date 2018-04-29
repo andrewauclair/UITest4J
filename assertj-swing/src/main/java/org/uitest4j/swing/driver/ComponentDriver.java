@@ -17,8 +17,8 @@ import org.uitest4j.swing.core.*;
 import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.edt.GuiLazyLoadingDescription;
 import org.uitest4j.swing.internal.annotation.InternalApi;
-import org.assertj.swing.timing.Timeout;
-import org.assertj.swing.util.TimeoutWatch;
+import org.uitest4j.swing.timing.Timeout;
+import org.uitest4j.swing.util.TimeoutWatch;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.uitest4j.swing.annotation.RunsInEDT;
 
@@ -41,8 +41,8 @@ import static org.uitest4j.swing.query.ComponentEnabledQuery.isEnabled;
 import static org.uitest4j.swing.query.ComponentHasFocusQuery.hasFocus;
 import static org.uitest4j.swing.query.ComponentSizeQuery.sizeOf;
 import static org.uitest4j.swing.query.ComponentVisibleQuery.isVisible;
-import static org.assertj.swing.timing.Pause.pause;
-import static org.assertj.swing.util.TimeoutWatch.startWatchWithTimeoutOf;
+import static org.uitest4j.swing.timing.Pause.pause;
+import static org.uitest4j.swing.util.TimeoutWatch.startWatchWithTimeoutOf;
 
 /**
  * <p>

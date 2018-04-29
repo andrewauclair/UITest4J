@@ -13,7 +13,7 @@
 package org.uitest4j.swing.format;
 
 import org.assertj.core.presentation.StandardRepresentation;
-import org.assertj.swing.util.Arrays;
+import org.uitest4j.swing.util.Arrays;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 
 import javax.annotation.Nonnull;
@@ -30,7 +30,7 @@ import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.core.util.Strings.concat;
 import static org.assertj.core.util.Strings.quote;
 import static org.uitest4j.swing.exception.ActionFailedException.actionFailure;
-import static org.assertj.swing.util.Maps.newHashMap;
+import static org.uitest4j.swing.util.Maps.newHashMap;
 
 /**
  * Formatter that uses <a href="http://docs.oracle.com/javase/tutorial/javabeans/index.html"

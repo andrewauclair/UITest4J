@@ -21,7 +21,7 @@ import java.util.Collection;
 import java.util.Map;
 
 import static org.uitest4j.swing.awt.AWT.isSharedInvisibleFrame;
-import static org.assertj.swing.util.Maps.newWeakHashMap;
+import static org.uitest4j.swing.util.Maps.newWeakHashMap;
 
 /**
  * A filter of windows to ignore in a component hierarchy.

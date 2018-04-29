@@ -18,12 +18,12 @@ import org.uitest4j.swing.core.MouseButton;
 import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.exception.LocationUnavailableException;
 import org.uitest4j.swing.internal.annotation.InternalApi;
-import org.assertj.swing.util.Pair;
-import org.assertj.swing.util.PatternTextMatcher;
-import org.assertj.swing.util.Range.From;
-import org.assertj.swing.util.Range.To;
-import org.assertj.swing.util.StringTextMatcher;
-import org.assertj.swing.util.TextMatcher;
+import org.uitest4j.swing.util.Pair;
+import org.uitest4j.swing.util.PatternTextMatcher;
+import org.uitest4j.swing.util.Range.From;
+import org.uitest4j.swing.util.Range.To;
+import org.uitest4j.swing.util.StringTextMatcher;
+import org.uitest4j.swing.util.TextMatcher;
 import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.annotation.Nonnull;
@@ -52,8 +52,8 @@ import static org.uitest4j.swing.driver.JListSelectionValueQuery.singleSelection
 import static org.uitest4j.swing.driver.JListSelectionValuesQuery.selectionValues;
 import static org.uitest4j.swing.driver.TextAssert.verifyThat;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.util.ArrayPreconditions.checkNotNullOrEmpty;
-import static org.assertj.swing.util.Arrays.format;
+import static org.uitest4j.swing.util.ArrayPreconditions.checkNotNullOrEmpty;
+import static org.uitest4j.swing.util.Arrays.format;
 
 /**
  * <p>

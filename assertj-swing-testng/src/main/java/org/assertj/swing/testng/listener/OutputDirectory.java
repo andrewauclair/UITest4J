@@ -13,7 +13,7 @@
 package org.assertj.swing.testng.listener;
 
 import static org.assertj.core.util.Strings.concat;
-import static org.assertj.swing.util.Strings.isNullOrEmpty;
+import static org.uitest4j.swing.util.Strings.isNullOrEmpty;
 
 import java.io.File;
 

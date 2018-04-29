@@ -14,7 +14,7 @@ package org.uitest4j.swing.monitor;
 
 import org.assertj.core.util.VisibleForTesting;
 import org.uitest4j.swing.edt.GuiQuery;
-import org.assertj.swing.util.ToolkitProvider;
+import org.uitest4j.swing.util.ToolkitProvider;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.uitest4j.swing.annotation.RunsInEDT;
 

@@ -16,9 +16,9 @@ import static java.lang.Math.max;
 import static java.lang.Math.min;
 import static org.uitest4j.swing.core.ComponentLookupScope.DEFAULT;
 import static org.uitest4j.swing.core.MouseButton.LEFT_BUTTON;
-import static org.assertj.swing.util.Platform.isOSX;
-import static org.assertj.swing.util.Platform.isWindows;
-import static org.assertj.swing.util.Platform.isX11;
+import static org.uitest4j.swing.util.Platform.isOSX;
+import static org.uitest4j.swing.util.Platform.isWindows;
+import static org.uitest4j.swing.util.Platform.isX11;
 
 import java.io.IOException;
 import java.io.InputStream;

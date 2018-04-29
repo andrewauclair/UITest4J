@@ -17,9 +17,9 @@ import static org.assertj.core.api.Fail.fail;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.core.util.Strings.concat;
 import static org.assertj.core.util.Strings.quote;
-import static org.assertj.swing.util.Arrays.copyOf;
-import static org.assertj.swing.util.Arrays.format;
-import static org.assertj.swing.util.Maps.newHashMap;
+import static org.uitest4j.swing.util.Arrays.copyOf;
+import static org.uitest4j.swing.util.Arrays.format;
+import static org.uitest4j.swing.util.Maps.newHashMap;
 
 import java.util.Map;
 

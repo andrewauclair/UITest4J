@@ -15,7 +15,7 @@ package org.uitest4j.swing.keystroke;
 import static java.awt.event.InputEvent.SHIFT_DOWN_MASK;
 import static java.awt.event.InputEvent.SHIFT_MASK;
 import static java.awt.event.KeyEvent.CHAR_UNDEFINED;
-import static org.assertj.swing.util.Platform.osFamily;
+import static org.uitest4j.swing.util.Platform.osFamily;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;

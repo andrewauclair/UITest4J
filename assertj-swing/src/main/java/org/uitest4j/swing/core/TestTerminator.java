@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.core;
 
-import static org.assertj.swing.util.AWTExceptionHandlerInstaller.installAWTExceptionHandler;
+import static org.uitest4j.swing.util.AWTExceptionHandlerInstaller.installAWTExceptionHandler;
 
 import javax.annotation.Nonnull;
 

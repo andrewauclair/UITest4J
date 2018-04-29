@@ -28,7 +28,7 @@ import java.awt.event.KeyEvent;
 import javax.annotation.Nonnull;
 
 import org.assertj.core.util.VisibleForTesting;
-import org.assertj.swing.util.ToolkitProvider;
+import org.uitest4j.swing.util.ToolkitProvider;
 
 /**
  * <p>

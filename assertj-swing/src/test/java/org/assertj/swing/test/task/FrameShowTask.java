@@ -12,7 +12,7 @@
  */
 package org.assertj.swing.test.task;
 
-import org.assertj.swing.timing.Condition;
+import org.uitest4j.swing.timing.Condition;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.uitest4j.swing.annotation.RunsInEDT;
 
@@ -21,7 +21,7 @@ import java.awt.*;
 
 import static org.uitest4j.swing.query.ComponentShowingQuery.isShowing;
 import static org.assertj.swing.test.query.FrameActiveQuery.isActive;
-import static org.assertj.swing.timing.Pause.pause;
+import static org.uitest4j.swing.timing.Pause.pause;
 
 /**
  * Makes an AWT or Swing {@code Frame} visible. This task is <b>not</b> executed in the event dispatch thread (EDT).

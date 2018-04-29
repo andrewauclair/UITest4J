@@ -15,7 +15,7 @@ package org.uitest4j.swing.image;
 import org.assertj.core.util.Preconditions;
 import org.assertj.core.util.VisibleForTesting;
 import org.uitest4j.swing.internal.annotation.IORuntimeException;
-import org.assertj.swing.util.RobotFactory;
+import org.uitest4j.swing.util.RobotFactory;
 import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.annotation.Nonnull;

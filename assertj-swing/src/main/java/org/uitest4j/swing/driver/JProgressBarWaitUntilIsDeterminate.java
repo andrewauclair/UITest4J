@@ -14,8 +14,8 @@ package org.uitest4j.swing.driver;
 
 import org.assertj.core.description.Description;
 import org.uitest4j.swing.edt.GuiLazyLoadingDescription;
-import org.assertj.swing.timing.Condition;
-import org.assertj.swing.timing.Timeout;
+import org.uitest4j.swing.timing.Condition;
+import org.uitest4j.swing.timing.Timeout;
 import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.annotation.Nonnull;
@@ -23,7 +23,7 @@ import javax.swing.*;
 
 import static org.uitest4j.swing.driver.JProgressBarIndeterminateQuery.isIndeterminate;
 import static org.uitest4j.swing.format.Formatting.format;
-import static org.assertj.swing.timing.Pause.pause;
+import static org.uitest4j.swing.timing.Pause.pause;
 
 /**
  * EDT-safe task that waits until the value of a {@code JProgressBar} is equal to the given expected value.

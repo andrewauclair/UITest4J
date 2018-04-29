@@ -24,7 +24,7 @@ import static org.assertj.swing.junit.ant.Tests.testClassNameFrom;
 import static org.assertj.swing.junit.ant.Tests.testMethodNameFrom;
 import static org.assertj.swing.junit.xml.XmlAttribute.name;
 import static org.assertj.swing.junit.xml.XmlAttributes.attributes;
-import static org.assertj.swing.util.Strings.isNullOrEmpty;
+import static org.uitest4j.swing.util.Strings.isNullOrEmpty;
 import junit.framework.Test;
 
 import org.assertj.swing.junit.xml.XmlNode;

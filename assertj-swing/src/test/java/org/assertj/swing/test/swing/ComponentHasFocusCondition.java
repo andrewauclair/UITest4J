@@ -20,7 +20,7 @@ import java.awt.Component;
 
 import javax.annotation.Nonnull;
 
-import org.assertj.swing.timing.Condition;
+import org.uitest4j.swing.timing.Condition;
 
 /**
  * Condition that checks that an AWT or Swing {@code Component} has focus.

@@ -24,7 +24,7 @@ import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.core.util.Strings.concat;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 import static org.uitest4j.swing.exception.ActionFailedException.actionFailure;
-import static org.assertj.swing.util.Arrays.format;
+import static org.uitest4j.swing.util.Arrays.format;
 
 /**
  * <p>

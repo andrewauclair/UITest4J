@@ -19,7 +19,7 @@ import org.uitest4j.swing.core.ComponentFinder;
 import org.uitest4j.swing.core.ComponentMatcher;
 import org.uitest4j.swing.core.NameMatcher;
 import org.uitest4j.swing.exception.ComponentLookupException;
-import org.assertj.swing.timing.Condition;
+import org.uitest4j.swing.timing.Condition;
 
 /**
  * A Condition that requires a component to be visible.

@@ -14,7 +14,7 @@ package org.uitest4j.swing.finder;
 
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.core.util.Strings.concat;
-import static org.assertj.swing.timing.Pause.pause;
+import static org.uitest4j.swing.timing.Pause.pause;
 
 import java.awt.Component;
 import java.util.concurrent.TimeUnit;

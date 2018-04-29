@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.driver;
 
-import static org.assertj.swing.util.Strings.isDefaultToString;
+import static org.uitest4j.swing.util.Strings.isDefaultToString;
 
 import javax.annotation.Nullable;
 

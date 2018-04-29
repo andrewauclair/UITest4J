@@ -19,10 +19,10 @@ import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.exception.ComponentLookupException;
 import org.uitest4j.swing.exception.LocationUnavailableException;
 import org.uitest4j.swing.internal.annotation.InternalApi;
-import org.assertj.swing.util.Pair;
-import org.assertj.swing.util.PatternTextMatcher;
-import org.assertj.swing.util.StringTextMatcher;
-import org.assertj.swing.util.TextMatcher;
+import org.uitest4j.swing.util.Pair;
+import org.uitest4j.swing.util.PatternTextMatcher;
+import org.uitest4j.swing.util.StringTextMatcher;
+import org.uitest4j.swing.util.TextMatcher;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.uitest4j.swing.annotation.RunsInEDT;
 
@@ -51,7 +51,7 @@ import static org.uitest4j.swing.driver.TextAssert.verifyThat;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 import static org.uitest4j.swing.exception.ActionFailedException.actionFailure;
 import static org.uitest4j.swing.format.Formatting.format;
-import static org.assertj.swing.util.Arrays.format;
+import static org.uitest4j.swing.util.Arrays.format;
 
 /**
  * <p>

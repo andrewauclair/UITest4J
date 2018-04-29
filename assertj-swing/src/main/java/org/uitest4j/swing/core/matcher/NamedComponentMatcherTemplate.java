@@ -14,8 +14,8 @@ package org.uitest4j.swing.core.matcher;
 
 import static org.assertj.core.util.Objects.areEqual;
 import static org.assertj.core.util.Strings.quote;
-import static org.assertj.swing.util.Strings.areEqualOrMatch;
-import static org.assertj.swing.util.Strings.match;
+import static org.uitest4j.swing.util.Strings.areEqualOrMatch;
+import static org.uitest4j.swing.util.Strings.match;
 
 import java.awt.Component;
 import java.util.regex.Pattern;

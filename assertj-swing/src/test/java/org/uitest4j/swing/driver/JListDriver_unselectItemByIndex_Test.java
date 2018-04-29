@@ -13,7 +13,7 @@
 package org.uitest4j.swing.driver;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.util.Platform.controlOrCommandKey;
+import static org.uitest4j.swing.util.Platform.controlOrCommandKey;
 
 import org.assertj.swing.test.ExpectedException;
 import org.junit.jupiter.api.Test;

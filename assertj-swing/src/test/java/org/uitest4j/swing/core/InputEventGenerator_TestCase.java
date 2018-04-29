@@ -25,7 +25,7 @@ import java.awt.event.MouseMotionAdapter;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.uitest4j.swing.awt.AWT.centerOf;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.timing.Pause.pause;
+import static org.uitest4j.swing.timing.Pause.pause;
 
 /**
  * Base test case for implementations of {@link InputEventGenerator}.

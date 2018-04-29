@@ -19,7 +19,7 @@ import org.assertj.swing.test.swing.JOptionPaneLauncherWindow;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.timing.Timeout.timeout;
+import static org.uitest4j.swing.timing.Timeout.timeout;
 
 /**
  * Tests lookups of {@code JOptionPane}s in {@link AbstractContainerFixture}.

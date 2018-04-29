@@ -22,7 +22,7 @@ import java.util.NoSuchElementException;
 
 import static java.util.Locale.US;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.util.OSFamily.WINDOWS;
+import static org.uitest4j.swing.util.OSFamily.WINDOWS;
 
 /**
  * Tests for {@link KeyStrokeMappingProviderNames#iterator()}.

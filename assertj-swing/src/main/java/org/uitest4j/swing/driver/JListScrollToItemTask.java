@@ -14,8 +14,8 @@ package org.uitest4j.swing.driver;
 
 import org.uitest4j.swing.cell.JListCellReader;
 import org.uitest4j.swing.edt.GuiQuery;
-import org.assertj.swing.util.Pair;
-import org.assertj.swing.util.TextMatcher;
+import org.uitest4j.swing.util.Pair;
+import org.uitest4j.swing.util.TextMatcher;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.uitest4j.swing.annotation.RunsInEDT;
 

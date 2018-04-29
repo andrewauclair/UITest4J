@@ -17,7 +17,7 @@ import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import javax.annotation.Nonnull;
 import java.awt.*;
 
-import static org.assertj.swing.util.Platform.*;
+import static org.uitest4j.swing.util.Platform.*;
 
 /**
  * Utility methods related to window-like containers.

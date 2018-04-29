@@ -13,7 +13,7 @@
 package org.uitest4j.swing.format;
 
 import org.assertj.core.util.Lists;
-import org.assertj.swing.util.Arrays;
+import org.uitest4j.swing.util.Arrays;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 
 import javax.annotation.Nonnull;

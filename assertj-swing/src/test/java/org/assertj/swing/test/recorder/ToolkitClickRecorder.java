@@ -14,7 +14,7 @@ package org.assertj.swing.test.recorder;
 
 import static org.assertj.core.util.Lists.newArrayList;
 import static org.assertj.core.util.Preconditions.checkNotNull;
-import static org.assertj.swing.util.Maps.newHashMap;
+import static org.uitest4j.swing.util.Maps.newHashMap;
 
 import java.awt.AWTEvent;
 import java.awt.Component;

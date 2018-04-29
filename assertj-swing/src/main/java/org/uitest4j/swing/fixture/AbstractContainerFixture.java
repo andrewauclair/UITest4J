@@ -15,7 +15,7 @@ package org.uitest4j.swing.fixture;
 import org.uitest4j.swing.core.*;
 import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.driver.ComponentDriver;
-import org.assertj.swing.timing.Timeout;
+import org.uitest4j.swing.timing.Timeout;
 import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.annotation.Nonnull;
@@ -26,8 +26,8 @@ import java.awt.*;
 
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.uitest4j.swing.core.ComponentLookupScope.SHOWING_ONLY;
-import static org.assertj.swing.timing.Pause.pause;
-import static org.assertj.swing.timing.Timeout.timeout;
+import static org.uitest4j.swing.timing.Pause.pause;
+import static org.uitest4j.swing.timing.Timeout.timeout;
 
 /**
  * Looks up AWT or Swing {@code Component}s contained in a {@code Container}.

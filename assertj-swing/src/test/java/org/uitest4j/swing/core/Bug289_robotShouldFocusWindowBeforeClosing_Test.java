@@ -15,7 +15,7 @@ package org.uitest4j.swing.core;
 import static java.lang.String.valueOf;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Strings.concat;
-import static org.assertj.swing.timing.Pause.pause;
+import static org.uitest4j.swing.timing.Pause.pause;
 
 import java.awt.Dimension;
 import java.awt.event.WindowAdapter;

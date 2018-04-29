@@ -16,7 +16,7 @@ import org.uitest4j.swing.core.KeyPressInfo;
 import org.uitest4j.swing.core.MouseClickInfo;
 import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.driver.ComponentDriver;
-import org.assertj.swing.timing.Timeout;
+import org.uitest4j.swing.timing.Timeout;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -29,7 +29,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.uitest4j.swing.core.KeyPressInfo.keyCode;
 import static org.uitest4j.swing.core.MouseButton.LEFT_BUTTON;
 import static org.uitest4j.swing.core.MouseClickInfo.leftButton;
-import static org.assertj.swing.timing.Timeout.timeout;
+import static org.uitest4j.swing.timing.Timeout.timeout;
 import static org.mockito.Mockito.*;
 
 /**

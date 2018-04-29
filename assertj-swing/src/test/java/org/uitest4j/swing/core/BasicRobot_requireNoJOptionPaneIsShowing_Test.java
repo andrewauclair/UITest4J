@@ -13,7 +13,7 @@
 package org.uitest4j.swing.core;
 
 import org.assertj.swing.test.ExpectedException;
-import org.assertj.swing.timing.Condition;
+import org.uitest4j.swing.timing.Condition;
 import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.annotation.RunsInEDT;
 
@@ -22,7 +22,7 @@ import java.awt.*;
 import java.util.Collection;
 
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.timing.Pause.pause;
+import static org.uitest4j.swing.timing.Pause.pause;
 
 /**
  * Tests for {@link BasicRobot#requireNoJOptionPaneIsShowing()}.

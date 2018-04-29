@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.monitor;
 
-import org.assertj.swing.util.RobotFactory;
+import org.uitest4j.swing.util.RobotFactory;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.uitest4j.swing.annotation.RunsInEDT;
 

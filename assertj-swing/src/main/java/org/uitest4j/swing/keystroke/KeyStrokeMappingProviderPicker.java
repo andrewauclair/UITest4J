@@ -21,7 +21,7 @@ import java.util.logging.Logger;
 import javax.annotation.Nonnull;
 
 import org.assertj.core.util.VisibleForTesting;
-import org.assertj.swing.util.OSFamily;
+import org.uitest4j.swing.util.OSFamily;
 
 /**
  * Chooses a {@link KeyStrokeMappingProvider} based on OS family and locale.

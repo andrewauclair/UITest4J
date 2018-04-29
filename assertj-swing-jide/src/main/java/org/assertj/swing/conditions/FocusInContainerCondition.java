@@ -21,7 +21,7 @@ import org.uitest4j.swing.core.ComponentFinder;
 import org.uitest4j.swing.core.ComponentMatcher;
 import org.uitest4j.swing.core.NameMatcher;
 import org.uitest4j.swing.exception.ComponentLookupException;
-import org.assertj.swing.timing.Condition;
+import org.uitest4j.swing.timing.Condition;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

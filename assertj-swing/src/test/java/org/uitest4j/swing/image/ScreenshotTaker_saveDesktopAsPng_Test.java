@@ -23,7 +23,7 @@ import static org.assertj.core.util.Files.temporaryFolderPath;
 import static org.assertj.core.util.Strings.concat;
 import static org.uitest4j.swing.assertions.Assertions.assertThat;
 import static org.uitest4j.swing.image.RandomFileNameCreator.randomFileName;
-import static org.assertj.swing.util.ImageReader.readImageFrom;
+import static org.uitest4j.swing.util.ImageReader.readImageFrom;
 
 /**
  * Tests for {@link ScreenshotTaker#saveDesktopAsPng(String)}.

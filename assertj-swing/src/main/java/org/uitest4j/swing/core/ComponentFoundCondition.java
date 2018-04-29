@@ -27,7 +27,7 @@ import javax.annotation.Nullable;
 import org.assertj.core.description.Description;
 import org.assertj.core.description.TextDescription;
 import org.uitest4j.swing.exception.ComponentLookupException;
-import org.assertj.swing.timing.Condition;
+import org.uitest4j.swing.timing.Condition;
 
 /**
  * Condition that is satisfied if an AWT or Swing {@code Component} that matches certain search criteria is found.

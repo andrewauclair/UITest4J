@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.core;
 
-import static org.assertj.swing.timing.Pause.pause;
+import static org.uitest4j.swing.timing.Pause.pause;
 
 import java.awt.AWTEvent;
 import java.awt.Component;

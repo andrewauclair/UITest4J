@@ -13,7 +13,7 @@
 package org.uitest4j.swing.driver;
 
 import static org.assertj.swing.test.util.StopWatch.startNewStopWatch;
-import static org.assertj.swing.timing.Timeout.timeout;
+import static org.uitest4j.swing.timing.Timeout.timeout;
 
 import org.uitest4j.swing.exception.WaitTimedOutError;
 import org.assertj.swing.test.ExpectedException;
@@ -21,7 +21,7 @@ import org.assertj.swing.test.util.StopWatch;
 import org.junit.jupiter.api.Test;
 
 /**
- * Tests for {@link ComponentDriver#requireEnabled(java.awt.Component, org.assertj.swing.timing.Timeout)}.
+ * Tests for {@link ComponentDriver#requireEnabled(java.awt.Component, org.uitest4j.swing.timing.Timeout)}.
  * 
  * @author Alex Ruiz
  * @author Yvonne Wang

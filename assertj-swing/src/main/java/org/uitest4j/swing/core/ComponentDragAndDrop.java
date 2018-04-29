@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.core;
 
-import org.assertj.swing.util.TimeoutWatch;
+import org.uitest4j.swing.util.TimeoutWatch;
 import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.annotation.Nonnull;
@@ -20,10 +20,10 @@ import java.awt.*;
 
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.uitest4j.swing.exception.ActionFailedException.actionFailure;
-import static org.assertj.swing.timing.Pause.pause;
-import static org.assertj.swing.util.Platform.isMacintosh;
-import static org.assertj.swing.util.Platform.isWindows;
-import static org.assertj.swing.util.TimeoutWatch.startWatchWithTimeoutOf;
+import static org.uitest4j.swing.timing.Pause.pause;
+import static org.uitest4j.swing.util.Platform.isMacintosh;
+import static org.uitest4j.swing.util.Platform.isWindows;
+import static org.uitest4j.swing.util.TimeoutWatch.startWatchWithTimeoutOf;
 
 /**
  * Simulates a user performing drag-and-drop.

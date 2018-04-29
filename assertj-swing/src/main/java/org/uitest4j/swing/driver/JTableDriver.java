@@ -23,10 +23,10 @@ import org.uitest4j.swing.data.TableCellFinder;
 import org.uitest4j.swing.edt.GuiQuery;
 import org.uitest4j.swing.exception.ActionFailedException;
 import org.uitest4j.swing.internal.annotation.InternalApi;
-import org.assertj.swing.util.Arrays;
-import org.assertj.swing.util.Pair;
-import org.assertj.swing.util.PatternTextMatcher;
-import org.assertj.swing.util.StringTextMatcher;
+import org.uitest4j.swing.util.Arrays;
+import org.uitest4j.swing.util.Pair;
+import org.uitest4j.swing.util.PatternTextMatcher;
+import org.uitest4j.swing.util.StringTextMatcher;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.uitest4j.swing.annotation.RunsInEDT;
 
@@ -55,10 +55,10 @@ import static org.uitest4j.swing.driver.TextAssert.verifyThat;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 import static org.uitest4j.swing.exception.ActionFailedException.actionFailure;
 import static org.uitest4j.swing.query.JTableColumnByIdentifierQuery.columnIndexByIdentifier;
-import static org.assertj.swing.util.ArrayPreconditions.checkNotNullOrEmpty;
-import static org.assertj.swing.util.Arrays.equal;
-import static org.assertj.swing.util.Arrays.format;
-import static org.assertj.swing.util.Platform.controlOrCommandKey;
+import static org.uitest4j.swing.util.ArrayPreconditions.checkNotNullOrEmpty;
+import static org.uitest4j.swing.util.Arrays.equal;
+import static org.uitest4j.swing.util.Arrays.format;
+import static org.uitest4j.swing.util.Platform.controlOrCommandKey;
 
 /**
  * <p>

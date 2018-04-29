@@ -14,15 +14,15 @@ package org.uitest4j.swing.driver;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Arrays.array;
-import static org.assertj.swing.util.Range.from;
-import static org.assertj.swing.util.Range.to;
+import static org.uitest4j.swing.util.Range.from;
+import static org.uitest4j.swing.util.Range.to;
 
 import org.assertj.swing.test.ExpectedException;
 import org.junit.jupiter.api.Test;
 
 /**
  * Tests for
- * {@link JListDriver#selectItems(javax.swing.JList, org.assertj.swing.util.Range.From, org.assertj.swing.util.Range.To)}
+ * {@link JListDriver#selectItems(javax.swing.JList, org.uitest4j.swing.util.Range.From, org.uitest4j.swing.util.Range.To)}
  * .
  * 
  * @author Alex Ruiz

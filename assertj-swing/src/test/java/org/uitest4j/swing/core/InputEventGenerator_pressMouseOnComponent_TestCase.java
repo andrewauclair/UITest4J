@@ -24,7 +24,7 @@ import java.util.Collection;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Lists.newArrayList;
 import static org.uitest4j.swing.awt.AWT.centerOf;
-import static org.assertj.swing.timing.Pause.pause;
+import static org.uitest4j.swing.timing.Pause.pause;
 
 /**
  * Base test case for implementations of {@link InputEventGenerator#pressMouse(java.awt.Component, java.awt.Point, int)}

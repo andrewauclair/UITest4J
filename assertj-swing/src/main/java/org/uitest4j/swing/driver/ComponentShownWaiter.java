@@ -13,7 +13,7 @@
 package org.uitest4j.swing.driver;
 
 import org.uitest4j.swing.exception.WaitTimedOutError;
-import org.assertj.swing.util.TimeoutWatch;
+import org.uitest4j.swing.util.TimeoutWatch;
 import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.annotation.Nonnull;
@@ -23,8 +23,8 @@ import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 
 import static org.uitest4j.swing.query.ComponentVisibleQuery.isVisible;
-import static org.assertj.swing.timing.Pause.pause;
-import static org.assertj.swing.util.TimeoutWatch.startWatchWithTimeoutOf;
+import static org.uitest4j.swing.timing.Pause.pause;
+import static org.uitest4j.swing.util.TimeoutWatch.startWatchWithTimeoutOf;
 
 /**
  * Waits until a particular AWT or Swing {@code Component} shows up on the screen.

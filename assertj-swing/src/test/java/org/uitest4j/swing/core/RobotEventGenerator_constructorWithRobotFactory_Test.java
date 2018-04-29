@@ -13,7 +13,7 @@
 package org.uitest4j.swing.core;
 
 import org.uitest4j.swing.exception.UnexpectedException;
-import org.assertj.swing.util.RobotFactory;
+import org.uitest4j.swing.util.RobotFactory;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -21,13 +21,13 @@ import java.awt.*;
 import java.awt.Robot;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.util.TestRobotFactories.newRobotFactoryMock;
+import static org.uitest4j.swing.util.TestRobotFactories.newRobotFactoryMock;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 /**
- * Tests for {@link RobotEventGenerator#RobotEventGenerator(org.assertj.swing.util.RobotFactory, Settings)}.
+ * Tests for {@link RobotEventGenerator#RobotEventGenerator(org.uitest4j.swing.util.RobotFactory, Settings)}.
  * 
  * @author Alex Ruiz
  */

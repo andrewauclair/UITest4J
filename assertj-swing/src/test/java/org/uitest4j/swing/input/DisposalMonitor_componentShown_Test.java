@@ -22,7 +22,7 @@ import java.awt.event.ComponentEvent;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.util.Maps.newHashMap;
+import static org.uitest4j.swing.util.Maps.newHashMap;
 
 /**
  * Tests for {@link DisposalMonitor#componentShown(ComponentEvent)}.

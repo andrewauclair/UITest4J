@@ -19,7 +19,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Files.newTemporaryFolder;
 import static org.assertj.core.util.Strings.concat;
 import static org.uitest4j.swing.assertions.Assertions.assertThat;
-import static org.assertj.swing.util.ImageReader.readImageFrom;
+import static org.uitest4j.swing.util.ImageReader.readImageFrom;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;

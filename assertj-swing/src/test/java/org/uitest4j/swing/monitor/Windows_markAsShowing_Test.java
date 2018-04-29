@@ -16,7 +16,7 @@ import static java.lang.String.valueOf;
 import static java.util.logging.Logger.getAnonymousLogger;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Strings.concat;
-import static org.assertj.swing.timing.Pause.pause;
+import static org.uitest4j.swing.timing.Pause.pause;
 
 import java.util.logging.Logger;
 

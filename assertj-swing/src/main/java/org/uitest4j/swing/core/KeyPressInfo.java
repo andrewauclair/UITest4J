@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.core;
 
-import static org.assertj.swing.util.Arrays.copyOf;
+import static org.uitest4j.swing.util.Arrays.copyOf;
 
 import javax.annotation.Nonnull;
 
@@ -45,7 +45,7 @@ import javax.annotation.Nonnull;
  *
  * <p>
  * For platform-safe mask pressing (e.g. 'Control' in Windows or 'Command' in MacOS) use
- * {@link org.assertj.swing.util.Platform#controlOrCommandMask()}.
+ * {@link org.uitest4j.swing.util.Platform#controlOrCommandMask()}.
  * </p>
  *
  * @author Alex Ruiz
@@ -94,7 +94,7 @@ public final class KeyPressInfo {
    *
    * <p>
    * For platform-safe mask pressing (e.g. 'Control' in Windows or 'Command' in MacOS) use
-   * {@link org.assertj.swing.util.Platform#controlOrCommandMask()}.
+   * {@link org.uitest4j.swing.util.Platform#controlOrCommandMask()}.
    * </p>
    *
    * @param newModifiers the new modifiers to use.

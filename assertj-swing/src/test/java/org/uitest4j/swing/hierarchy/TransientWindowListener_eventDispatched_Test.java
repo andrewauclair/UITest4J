@@ -13,7 +13,7 @@
 package org.uitest4j.swing.hierarchy;
 
 import static java.awt.event.WindowEvent.WINDOW_CLOSED;
-import static org.assertj.swing.timing.Pause.pause;
+import static org.uitest4j.swing.timing.Pause.pause;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 

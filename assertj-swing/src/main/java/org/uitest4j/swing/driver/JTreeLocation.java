@@ -13,7 +13,7 @@
 package org.uitest4j.swing.driver;
 
 import org.uitest4j.swing.exception.LocationUnavailableException;
-import org.assertj.swing.util.Pair;
+import org.uitest4j.swing.util.Pair;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 
 import javax.annotation.Nonnull;
@@ -21,7 +21,7 @@ import javax.swing.*;
 import javax.swing.tree.TreePath;
 import java.awt.*;
 
-import static org.assertj.swing.util.Arrays.format;
+import static org.uitest4j.swing.util.Arrays.format;
 
 /**
  * A visible location on a {@code JTree}. A row index or a {@link String}ified {@code TreePath} (i.e. each

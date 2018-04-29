@@ -20,7 +20,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.test.util.StopWatch.startNewStopWatch;
-import static org.assertj.swing.timing.Pause.pause;
+import static org.uitest4j.swing.timing.Pause.pause;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**

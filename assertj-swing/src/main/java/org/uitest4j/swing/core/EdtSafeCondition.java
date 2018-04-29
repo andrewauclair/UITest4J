@@ -13,7 +13,7 @@
 package org.uitest4j.swing.core;
 
 import org.assertj.core.description.Description;
-import org.assertj.swing.timing.Condition;
+import org.uitest4j.swing.timing.Condition;
 import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.annotation.Nonnull;

@@ -21,7 +21,7 @@ import java.awt.Component;
 
 import javax.annotation.Nonnull;
 
-import org.assertj.swing.timing.Condition;
+import org.uitest4j.swing.timing.Condition;
 
 /**
  * Verifies that an AWT or Swing {@code Component} is showing on the screen.

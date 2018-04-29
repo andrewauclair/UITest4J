@@ -15,7 +15,7 @@ package org.uitest4j.swing.driver;
 import org.uitest4j.swing.cell.JListCellReader;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
-import org.assertj.swing.util.TextMatcher;
+import org.uitest4j.swing.util.TextMatcher;
 import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.swing.*;
