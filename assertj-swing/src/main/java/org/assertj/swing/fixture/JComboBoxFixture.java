@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
 import javax.swing.JComboBox;
 import javax.swing.JList;
 
-import org.assertj.swing.cell.JComboBoxCellReader;
+import org.uitest4j.swing.cell.JComboBoxCellReader;
 import org.uitest4j.swing.core.Robot;
 import org.assertj.swing.driver.JComboBoxDriver;
 

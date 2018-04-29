@@ -13,7 +13,7 @@
 package org.assertj.swing.text;
 
 import org.assertj.core.util.VisibleForTesting;
-import org.assertj.swing.cell.JListCellReader;
+import org.uitest4j.swing.cell.JListCellReader;
 import org.assertj.swing.driver.BasicJListCellReader;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 

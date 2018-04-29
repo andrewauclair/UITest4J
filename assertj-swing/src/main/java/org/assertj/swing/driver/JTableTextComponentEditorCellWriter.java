@@ -27,7 +27,7 @@ import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.uitest4j.swing.core.MouseButton.LEFT_BUTTON;
 
 /**
- * {@link org.assertj.swing.cell.JTableCellWriter} that knows how to use {@code JTextComponent}s as cell editors.
+ * {@link org.uitest4j.swing.cell.JTableCellWriter} that knows how to use {@code JTextComponent}s as cell editors.
  *
  * @author Alex Ruiz
  * @author Yvonne Wang

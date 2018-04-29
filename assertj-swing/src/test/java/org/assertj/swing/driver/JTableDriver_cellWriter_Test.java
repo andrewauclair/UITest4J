@@ -17,7 +17,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
- * Tests for {@link JTableDriver#replaceCellWriter(org.assertj.swing.cell.JTableCellWriter)}.
+ * Tests for {@link JTableDriver#replaceCellWriter(org.uitest4j.swing.cell.JTableCellWriter)}.
  * 
  * @author Alex Ruiz
  * @author Yvonne Wang

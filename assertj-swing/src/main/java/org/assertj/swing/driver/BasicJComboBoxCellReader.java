@@ -12,7 +12,7 @@
  */
 package org.assertj.swing.driver;
 
-import org.assertj.swing.cell.JComboBoxCellReader;
+import org.uitest4j.swing.cell.JComboBoxCellReader;
 import org.assertj.swing.edt.GuiQuery;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 

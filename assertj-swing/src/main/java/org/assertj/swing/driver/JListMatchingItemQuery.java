@@ -12,7 +12,7 @@
  */
 package org.assertj.swing.driver;
 
-import org.assertj.swing.cell.JListCellReader;
+import org.uitest4j.swing.cell.JListCellReader;
 import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.util.StringTextMatcher;
 import org.assertj.swing.util.TextMatcher;

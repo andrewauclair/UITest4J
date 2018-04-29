@@ -17,7 +17,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
- * Tests for {@link JComboBoxDriver#replaceCellReader(org.assertj.swing.cell.JComboBoxCellReader)}.
+ * Tests for {@link JComboBoxDriver#replaceCellReader(org.uitest4j.swing.cell.JComboBoxCellReader)}.
  * 
  * @author Alex Ruiz
  * @author Yvonne Wang

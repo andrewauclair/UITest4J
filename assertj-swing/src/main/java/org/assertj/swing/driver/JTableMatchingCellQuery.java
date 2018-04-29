@@ -12,7 +12,7 @@
  */
 package org.assertj.swing.driver;
 
-import org.assertj.swing.cell.JTableCellReader;
+import org.uitest4j.swing.cell.JTableCellReader;
 import org.assertj.swing.data.TableCell;
 import org.assertj.swing.util.TextMatcher;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;

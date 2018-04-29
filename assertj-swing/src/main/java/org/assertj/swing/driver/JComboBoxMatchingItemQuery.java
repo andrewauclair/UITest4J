@@ -13,7 +13,7 @@
 package org.assertj.swing.driver;
 
 import org.assertj.core.util.Preconditions;
-import org.assertj.swing.cell.JComboBoxCellReader;
+import org.uitest4j.swing.cell.JComboBoxCellReader;
 import org.assertj.swing.util.TextMatcher;
 import org.uitest4j.swing.annotation.RunsInEDT;
 

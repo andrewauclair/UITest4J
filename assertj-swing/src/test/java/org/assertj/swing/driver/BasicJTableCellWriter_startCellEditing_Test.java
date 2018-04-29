@@ -12,7 +12,7 @@
  */
 package org.assertj.swing.driver;
 
-import org.assertj.swing.cell.JTableCellWriter;
+import org.uitest4j.swing.cell.JTableCellWriter;
 
 /**
  * Test case for implementations of {@link JTableCellWriter#startCellEditing(javax.swing.JTable, int, int)}.

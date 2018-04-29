@@ -150,7 +150,7 @@ public class ListComboBoxFixture extends
   /**
    * Simulates a user selecting an item in this fixture's <code>{@link ListComboBox}</code>.
    * Value matching is performed by this fixture's <code>{@link
-   * org.assertj.swing.cell.JComboBoxCellReader}</code>.
+   * org.uitest4j.swing.cell.JComboBoxCellReader}</code>.
    *
    * @param text the text of the item to select.
    * @return this fixture.
@@ -170,7 +170,7 @@ public class ListComboBoxFixture extends
   /**
    * Returns the <code>String</code> representation of the value of an item in this
    * fixture's <code>{@link ListComboBox}</code>, using this fixture's <code>{@link
-   * org.assertj.swing.cell.JComboBoxCellReader}</code>.
+   * org.uitest4j.swing.cell.JComboBoxCellReader}</code>.
    *
    * @param index the index of the item to return.
    * @return the <code>String</code> representation of the value of an item in this

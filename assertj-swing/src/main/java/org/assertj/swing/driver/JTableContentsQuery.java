@@ -12,7 +12,7 @@
  */
 package org.assertj.swing.driver;
 
-import org.assertj.swing.cell.JTableCellReader;
+import org.uitest4j.swing.cell.JTableCellReader;
 import org.assertj.swing.edt.GuiQuery;
 import org.uitest4j.swing.annotation.RunsInEDT;
 

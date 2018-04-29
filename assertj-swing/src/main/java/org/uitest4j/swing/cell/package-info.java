@@ -16,4 +16,4 @@
  * 
  * @author Alex Ruiz
  */
-package org.assertj.swing.cell;
+package org.uitest4j.swing.cell;

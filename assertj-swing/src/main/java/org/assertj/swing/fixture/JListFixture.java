@@ -20,7 +20,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.swing.JList;
 
-import org.assertj.swing.cell.JListCellReader;
+import org.uitest4j.swing.cell.JListCellReader;
 import org.uitest4j.swing.core.MouseButton;
 import org.uitest4j.swing.core.Robot;
 import org.assertj.swing.driver.JListDriver;

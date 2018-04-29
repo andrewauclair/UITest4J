@@ -17,7 +17,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
- * Tests for {@link JListDriver#replaceCellReader(org.assertj.swing.cell.JListCellReader)}.
+ * Tests for {@link JListDriver#replaceCellReader(org.uitest4j.swing.cell.JListCellReader)}.
  * 
  * @author Alex Ruiz
  * @author Yvonne Wang

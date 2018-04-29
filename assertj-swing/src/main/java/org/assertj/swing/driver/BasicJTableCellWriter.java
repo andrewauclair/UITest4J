@@ -20,7 +20,7 @@ import javax.swing.JComboBox;
 import javax.swing.JTable;
 import javax.swing.text.JTextComponent;
 
-import org.assertj.swing.cell.JTableCellWriter;
+import org.uitest4j.swing.cell.JTableCellWriter;
 import org.uitest4j.swing.core.Robot;
 
 /**

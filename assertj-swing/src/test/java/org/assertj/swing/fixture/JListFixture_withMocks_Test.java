@@ -12,7 +12,7 @@
  */
 package org.assertj.swing.fixture;
 
-import org.assertj.swing.cell.JListCellReader;
+import org.uitest4j.swing.cell.JListCellReader;
 import org.uitest4j.swing.core.Robot;
 import org.assertj.swing.driver.JListDriver;
 import org.junit.jupiter.api.BeforeEach;

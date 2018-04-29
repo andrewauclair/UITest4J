@@ -22,7 +22,7 @@ import java.awt.Font;
 import javax.annotation.Nonnull;
 import javax.swing.JTable;
 
-import org.assertj.swing.cell.JTableCellReader;
+import org.uitest4j.swing.cell.JTableCellReader;
 import org.assertj.swing.exception.ActionFailedException;
 import org.junit.jupiter.api.Test;
 

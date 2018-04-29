@@ -12,7 +12,7 @@
  */
 package org.assertj.swing.data;
 
-import org.assertj.swing.cell.JTableCellReader;
+import org.uitest4j.swing.cell.JTableCellReader;
 import org.assertj.swing.exception.ActionFailedException;
 import org.uitest4j.swing.annotation.RunsInEDT;
 

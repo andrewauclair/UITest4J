@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 import javax.swing.JPopupMenu;
 import javax.swing.JTree;
 
-import org.assertj.swing.cell.JTreeCellReader;
+import org.uitest4j.swing.cell.JTreeCellReader;
 import org.uitest4j.swing.core.MouseButton;
 import org.uitest4j.swing.core.MouseClickInfo;
 import org.uitest4j.swing.core.Robot;

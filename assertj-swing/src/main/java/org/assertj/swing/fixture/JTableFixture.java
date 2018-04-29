@@ -27,8 +27,8 @@ import javax.swing.JTable;
 import javax.swing.table.JTableHeader;
 
 import org.assertj.core.description.Description;
-import org.assertj.swing.cell.JTableCellReader;
-import org.assertj.swing.cell.JTableCellWriter;
+import org.uitest4j.swing.cell.JTableCellReader;
+import org.uitest4j.swing.cell.JTableCellWriter;
 import org.uitest4j.swing.core.MouseButton;
 import org.uitest4j.swing.core.MouseClickInfo;
 import org.uitest4j.swing.core.Robot;
@@ -192,7 +192,7 @@ public class JTableFixture extends AbstractJPopupMenuInvokerFixture<JTableFixtur
 
   /**
    * Returns the {@code String} representation of the selected cell in this fixture's {@code JTable}, using this
-   * fixture's {@link org.assertj.swing.cell.JTableCellReader}. Returns {@code null} if one can not be obtained or if
+   * fixture's {@link org.uitest4j.swing.cell.JTableCellReader}. Returns {@code null} if one can not be obtained or if
    * the {@code JTable} does not have any selected cell.
    *
    * @return the {@code String} representation of the selected cell.

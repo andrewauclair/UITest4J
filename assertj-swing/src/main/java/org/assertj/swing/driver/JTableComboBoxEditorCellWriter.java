@@ -24,7 +24,7 @@ import static org.assertj.swing.driver.JComboBoxEditableQuery.isEditable;
 import static org.assertj.swing.driver.JTableStopCellEditingTask.stopEditing;
 
 /**
- * {@link org.assertj.swing.cell.JTableCellWriter} that knows how to use {@code JComboBox}es as cell editors.
+ * {@link org.uitest4j.swing.cell.JTableCellWriter} that knows how to use {@code JComboBox}es as cell editors.
  *
  * @author Alex Ruiz
  * @author Yvonne Wang

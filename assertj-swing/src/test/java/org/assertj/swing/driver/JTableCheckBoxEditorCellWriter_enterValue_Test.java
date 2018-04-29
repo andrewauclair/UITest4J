@@ -14,7 +14,7 @@ package org.assertj.swing.driver;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.assertj.swing.cell.JTableCellWriter;
+import org.uitest4j.swing.cell.JTableCellWriter;
 import org.junit.jupiter.api.Test;
 
 /**

@@ -10,7 +10,7 @@
  *
  * Copyright 2012-2015 the original author or authors.
  */
-package org.assertj.swing.cell;
+package org.uitest4j.swing.cell;
 
 import org.uitest4j.swing.annotation.RunsInEDT;
 

@@ -17,7 +17,7 @@ import static org.assertj.swing.query.ComponentShowingQuery.isShowing;
 
 import javax.swing.JComboBox;
 
-import org.assertj.swing.cell.JTableCellWriter;
+import org.uitest4j.swing.cell.JTableCellWriter;
 import org.junit.jupiter.api.Test;
 
 /**

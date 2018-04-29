@@ -17,7 +17,7 @@ import static org.uitest4j.swing.core.TestRobots.singletonRobotMock;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 
-import org.assertj.swing.cell.JTreeCellReader;
+import org.uitest4j.swing.cell.JTreeCellReader;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 

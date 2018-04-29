@@ -12,8 +12,8 @@
  */
 package org.assertj.swing.fixture;
 
-import org.assertj.swing.cell.JTableCellReader;
-import org.assertj.swing.cell.JTableCellWriter;
+import org.uitest4j.swing.cell.JTableCellReader;
+import org.uitest4j.swing.cell.JTableCellWriter;
 import org.uitest4j.swing.core.MouseClickInfo;
 import org.uitest4j.swing.core.Robot;
 import org.assertj.swing.data.TableCell;

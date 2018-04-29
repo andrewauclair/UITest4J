@@ -14,8 +14,8 @@ package org.assertj.swing.driver;
 
 import org.assertj.core.description.Description;
 import org.assertj.core.util.VisibleForTesting;
-import org.assertj.swing.cell.JTableCellReader;
-import org.assertj.swing.cell.JTableCellWriter;
+import org.uitest4j.swing.cell.JTableCellReader;
+import org.uitest4j.swing.cell.JTableCellWriter;
 import org.uitest4j.swing.core.MouseButton;
 import org.uitest4j.swing.core.Robot;
 import org.assertj.swing.data.TableCell;

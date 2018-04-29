@@ -174,7 +174,7 @@ public class JTableCellFixture implements ItemFixture<JTableCellFixture> {
    * Starts editing this fixture's table cell. This method should be called <strong>before</strong> manipulating the
    * {@code Component} returned by {@link #editor()}.
    * <p>
-   * This method uses the {@link org.assertj.swing.cell.JTableCellWriter} from the {@link JTableFixture} that created
+   * This method uses the {@link org.uitest4j.swing.cell.JTableCellWriter} from the {@link JTableFixture} that created
    * this fixture.
    * </p>
    *
@@ -185,8 +185,8 @@ public class JTableCellFixture implements ItemFixture<JTableCellFixture> {
    * @throws IndexOutOfBoundsException if any of the indices (row and column) is out of bounds.
    * @throws org.assertj.swing.exception.ActionFailedException if this writer is unable to handle the underlying cell
    *           editor.
-   * @see JTableFixture#replaceCellWriter(org.assertj.swing.cell.JTableCellWriter)
-   * @see org.assertj.swing.cell.JTableCellWriter
+   * @see JTableFixture#replaceCellWriter(org.uitest4j.swing.cell.JTableCellWriter)
+   * @see org.uitest4j.swing.cell.JTableCellWriter
    * @see #editor()
    */
   @Nonnull public JTableCellFixture startEditing() {
@@ -198,7 +198,7 @@ public class JTableCellFixture implements ItemFixture<JTableCellFixture> {
    * Stops editing this fixture's table cell. This method should be called <strong>after</strong> manipulating the
    * {@code Component} returned by {@link #editor()}.
    * <p>
-   * This method uses the {@link org.assertj.swing.cell.JTableCellWriter} from the {@link JTableFixture} that created
+   * This method uses the {@link org.uitest4j.swing.cell.JTableCellWriter} from the {@link JTableFixture} that created
    * this fixture.
    * </p>
    *
@@ -209,8 +209,8 @@ public class JTableCellFixture implements ItemFixture<JTableCellFixture> {
    * @throws IndexOutOfBoundsException if any of the indices (row and column) is out of bounds.
    * @throws org.assertj.swing.exception.ActionFailedException if this writer is unable to handle the underlying cell
    *           editor.
-   * @see JTableFixture#replaceCellWriter(org.assertj.swing.cell.JTableCellWriter)
-   * @see org.assertj.swing.cell.JTableCellWriter
+   * @see JTableFixture#replaceCellWriter(org.uitest4j.swing.cell.JTableCellWriter)
+   * @see org.uitest4j.swing.cell.JTableCellWriter
    * @see #editor()
    */
   @Nonnull public JTableCellFixture stopEditing() {
@@ -236,7 +236,7 @@ public class JTableCellFixture implements ItemFixture<JTableCellFixture> {
    * </pre>
    *
    * <p>
-   * This method uses the {@link org.assertj.swing.cell.JTableCellWriter} from the {@link JTableFixture} that created
+   * This method uses the {@link org.uitest4j.swing.cell.JTableCellWriter} from the {@link JTableFixture} that created
    * this fixture.
    * </p>
    *
@@ -247,8 +247,8 @@ public class JTableCellFixture implements ItemFixture<JTableCellFixture> {
    * @throws IndexOutOfBoundsException if any of the indices (row and column) is out of bounds.
    * @throws org.assertj.swing.exception.ActionFailedException if this writer is unable to handle the underlying cell
    *           editor.
-   * @see JTableFixture#replaceCellWriter(org.assertj.swing.cell.JTableCellWriter)
-   * @see org.assertj.swing.cell.JTableCellWriter
+   * @see JTableFixture#replaceCellWriter(org.uitest4j.swing.cell.JTableCellWriter)
+   * @see org.uitest4j.swing.cell.JTableCellWriter
    * @see #editor()
    */
   @Nonnull public JTableCellFixture cancelEditing() {
@@ -260,7 +260,7 @@ public class JTableCellFixture implements ItemFixture<JTableCellFixture> {
    * Returns the editor of this fixture's table cell. To manipulate the editor (e.g. wrapping it with a
    * {@code ComponentFixture}), the method {@link #startEditing()} should be called first. To apply any changes back to
    * the table cell(), the method {@link #stopEditing()} should be called. This method uses the
-   * {@link org.assertj.swing.cell.JTableCellWriter} from the {@link JTableFixture} that created this fixture.
+   * {@link org.uitest4j.swing.cell.JTableCellWriter} from the {@link JTableFixture} that created this fixture.
    * <p>
    * Example:
    * </p>
@@ -276,8 +276,8 @@ public class JTableCellFixture implements ItemFixture<JTableCellFixture> {
    * </pre>
    *
    * @return the editor of this fixture's table cell.
-   * @see JTableFixture#replaceCellWriter(org.assertj.swing.cell.JTableCellWriter)
-   * @see org.assertj.swing.cell.JTableCellWriter
+   * @see JTableFixture#replaceCellWriter(org.uitest4j.swing.cell.JTableCellWriter)
+   * @see org.uitest4j.swing.cell.JTableCellWriter
    */
   public Component editor() {
     return driver.cellEditor(target, cell());
@@ -288,7 +288,7 @@ public class JTableCellFixture implements ItemFixture<JTableCellFixture> {
    * stops cell edition. To change the value of a cell(), only a call to this method is necessary. If you need more
    * flexibility, you can retrieve the cell editor with {@link #editor()}.
    * <p>
-   * This method uses the {@link org.assertj.swing.cell.JTableCellWriter} from the {@link JTableFixture} that created
+   * This method uses the {@link org.uitest4j.swing.cell.JTableCellWriter} from the {@link JTableFixture} that created
    * this fixture.
    * </p>
    *
@@ -300,8 +300,8 @@ public class JTableCellFixture implements ItemFixture<JTableCellFixture> {
    * @throws IndexOutOfBoundsException if any of the indices (row and column) is out of bounds.
    * @throws org.assertj.swing.exception.ActionFailedException if this driver's {@code JTableCellValueReader} is unable
    *           to enter the given value.
-   * @see JTableFixture#replaceCellWriter(org.assertj.swing.cell.JTableCellWriter)
-   * @see org.assertj.swing.cell.JTableCellWriter
+   * @see JTableFixture#replaceCellWriter(org.uitest4j.swing.cell.JTableCellWriter)
+   * @see org.uitest4j.swing.cell.JTableCellWriter
    */
   @Nonnull public JTableCellFixture enterValue(@Nonnull String value) {
     driver.enterValueInCell(target, cell(), value);
@@ -336,11 +336,11 @@ public class JTableCellFixture implements ItemFixture<JTableCellFixture> {
 
   /**
    * Returns a fixture that verifies the font of this fixture's table cell. This method uses the
-   * {@link org.assertj.swing.cell.JTableCellReader} from the {@link JTableFixture} that created this fixture.
+   * {@link org.uitest4j.swing.cell.JTableCellReader} from the {@link JTableFixture} that created this fixture.
    *
    * @return a fixture that verifies the font of this fixture's table cell.
-   * @see JTableFixture#replaceCellReader(org.assertj.swing.cell.JTableCellReader)
-   * @see org.assertj.swing.cell.JTableCellReader
+   * @see JTableFixture#replaceCellReader(org.uitest4j.swing.cell.JTableCellReader)
+   * @see org.uitest4j.swing.cell.JTableCellReader
    */
   public FontFixture font() {
     return table.fontAt(cell());
@@ -348,11 +348,11 @@ public class JTableCellFixture implements ItemFixture<JTableCellFixture> {
 
   /**
    * Returns a fixture that verifies the background color of this fixture's table cell. This method uses the
-   * {@link org.assertj.swing.cell.JTableCellReader} from the {@link JTableFixture} that created this fixture.
+   * {@link org.uitest4j.swing.cell.JTableCellReader} from the {@link JTableFixture} that created this fixture.
    *
    * @return a fixture that verifies the background color of this fixture's table cell.
-   * @see JTableFixture#replaceCellReader(org.assertj.swing.cell.JTableCellReader)
-   * @see org.assertj.swing.cell.JTableCellReader
+   * @see JTableFixture#replaceCellReader(org.uitest4j.swing.cell.JTableCellReader)
+   * @see org.uitest4j.swing.cell.JTableCellReader
    */
   @Nonnull public ColorFixture background() {
     return table.backgroundAt(cell());
@@ -360,11 +360,11 @@ public class JTableCellFixture implements ItemFixture<JTableCellFixture> {
 
   /**
    * Returns a fixture that verifies the foreground color of this fixture's table cell. This method uses the
-   * {@link org.assertj.swing.cell.JTableCellReader} from the {@link JTableFixture} that created this fixture.
+   * {@link org.uitest4j.swing.cell.JTableCellReader} from the {@link JTableFixture} that created this fixture.
    *
    * @return a fixture that verifies the foreground color of this fixture's table cell.
-   * @see JTableFixture#replaceCellReader(org.assertj.swing.cell.JTableCellReader)
-   * @see org.assertj.swing.cell.JTableCellReader
+   * @see JTableFixture#replaceCellReader(org.uitest4j.swing.cell.JTableCellReader)
+   * @see org.uitest4j.swing.cell.JTableCellReader
    */
   @Nonnull public ColorFixture foreground() {
     return table.foregroundAt(cell());
@@ -372,11 +372,11 @@ public class JTableCellFixture implements ItemFixture<JTableCellFixture> {
 
   /**
    * Returns the {@code String} representation of the value of this fixture's table cell. This method uses the
-   * {@link org.assertj.swing.cell.JTableCellReader} from the {@link JTableFixture} that created this fixture.
+   * {@link org.uitest4j.swing.cell.JTableCellReader} from the {@link JTableFixture} that created this fixture.
    *
    * @return the {@code String} representation of the value of this fixture's table cell.
-   * @see JTableFixture#replaceCellReader(org.assertj.swing.cell.JTableCellReader)
-   * @see org.assertj.swing.cell.JTableCellReader
+   * @see JTableFixture#replaceCellReader(org.uitest4j.swing.cell.JTableCellReader)
+   * @see org.uitest4j.swing.cell.JTableCellReader
    */
   @Override
   @Nullable public String value() {

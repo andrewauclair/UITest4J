@@ -19,7 +19,7 @@ import static org.uitest4j.swing.core.TestRobots.singletonRobotMock;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
- * Tests for {@link JTableDriver#replaceCellReader(org.assertj.swing.cell.JTableCellReader)}.
+ * Tests for {@link JTableDriver#replaceCellReader(org.uitest4j.swing.cell.JTableCellReader)}.
  * 
  * @author Alex Ruiz
  * @author Yvonne Wang

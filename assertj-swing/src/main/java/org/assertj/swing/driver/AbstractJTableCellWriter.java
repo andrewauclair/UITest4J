@@ -12,7 +12,7 @@
  */
 package org.assertj.swing.driver;
 
-import org.assertj.swing.cell.JTableCellWriter;
+import org.uitest4j.swing.cell.JTableCellWriter;
 import org.uitest4j.swing.core.ComponentFoundCondition;
 import org.uitest4j.swing.core.ComponentMatcher;
 import org.uitest4j.swing.core.Robot;

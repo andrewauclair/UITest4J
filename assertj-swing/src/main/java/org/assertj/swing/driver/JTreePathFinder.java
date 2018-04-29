@@ -12,7 +12,7 @@
  */
 package org.assertj.swing.driver;
 
-import org.assertj.swing.cell.JTreeCellReader;
+import org.uitest4j.swing.cell.JTreeCellReader;
 import org.assertj.swing.exception.LocationUnavailableException;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 

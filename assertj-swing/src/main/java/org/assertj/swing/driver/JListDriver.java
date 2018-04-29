@@ -13,7 +13,7 @@
 package org.assertj.swing.driver;
 
 import org.assertj.core.description.Description;
-import org.assertj.swing.cell.JListCellReader;
+import org.uitest4j.swing.cell.JListCellReader;
 import org.uitest4j.swing.core.MouseButton;
 import org.uitest4j.swing.core.Robot;
 import org.assertj.swing.exception.LocationUnavailableException;
