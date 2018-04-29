@@ -14,6 +14,7 @@ package org.uitest4j.swing.driver;
 
 import org.assertj.core.description.Description;
 import org.assertj.core.util.VisibleForTesting;
+import org.opentest4j.AssertionFailedError;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.data.Index;
@@ -324,13 +325,11 @@ public class JTabbedPaneDriver extends JComponentDriver {
 	 * @param tabbedPane the target {@code JTabbedPane}.
 	 * @param index      the index of the tab.
 	 * @throws IndexOutOfBoundsException if the given index is not within the {@code JTabbedPane} bounds.
-	 * @throws AssertionError            if the tab at the given index is not enabled.
+	 * @throws AssertionFailedError            if the tab at the given index is not enabled.
 	 */
 	@RunsInEDT
 	public void requireTabEnabled(@Nonnull JTabbedPane tabbedPane, int index) {
 		boolean actualEnabled = isEnabledAt(tabbedPane, index);
-//		assertThat(actualEnabled).as(enabledAtProperty(tabbedPane)).isTrue();
-
 		OpenTest4JAssertions.assertTrue(actualEnabled, () -> "Expected tab at index " + index + " to be enabled: " + format(tabbedPane));
 	}
 
@@ -340,12 +339,12 @@ public class JTabbedPaneDriver extends JComponentDriver {
 	 * @param tabbedPane the target {@code JTabbedPane}.
 	 * @param index      the index of the tab.
 	 * @throws IndexOutOfBoundsException if the given index is not within the {@code JTabbedPane} bounds.
-	 * @throws AssertionError            if the tab at the given index is not disabled.
+	 * @throws AssertionFailedError            if the tab at the given index is not disabled.
 	 */
 	@RunsInEDT
 	public void requireTabDisabled(@Nonnull JTabbedPane tabbedPane, int index) {
 		boolean actualEnabled = isEnabledAt(tabbedPane, index);
-		assertThat(actualEnabled).as(enabledAtProperty(tabbedPane)).isFalse();
+		OpenTest4JAssertions.assertFalse(actualEnabled, () -> "Expected tab at index " + index + " to be disabled: " + format(tabbedPane));
 	}
 
 	@RunsInEDT
@@ -356,11 +355,6 @@ public class JTabbedPaneDriver extends JComponentDriver {
 	@RunsInEDT
 	private Description toolTipTextAtProperty(@Nonnull JTabbedPane tabbedPane) {
 		return propertyName(tabbedPane, "toolTipTextAt");
-	}
-
-	@RunsInEDT
-	private Description enabledAtProperty(@Nonnull JTabbedPane tabbedPane) {
-		return propertyName(tabbedPane, "enabledAt");
 	}
 
 	@RunsInEDT
@@ -403,7 +397,7 @@ public class JTabbedPaneDriver extends JComponentDriver {
 			for (int i = 0; i < tabCount; i++) {
 				allTitles.add(tabbedPane.getTitleAt(i));
 			}
-			return allTitles.toArray(new String[allTitles.size()]);
+			return allTitles.toArray(new String[0]);
 		});
 		return Objects.requireNonNull(result);
 	}
