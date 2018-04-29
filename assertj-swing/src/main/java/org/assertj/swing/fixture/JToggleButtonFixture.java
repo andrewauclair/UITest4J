@@ -15,7 +15,7 @@ package org.assertj.swing.fixture;
 import javax.annotation.Nonnull;
 import javax.swing.JToggleButton;
 
-import org.assertj.swing.core.Robot;
+import org.uitest4j.swing.core.Robot;
 
 /**
  * Supports functional testing of {@code JToggleButton}s.

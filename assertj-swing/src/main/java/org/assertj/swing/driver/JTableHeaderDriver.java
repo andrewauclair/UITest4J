@@ -12,8 +12,8 @@
  */
 package org.assertj.swing.driver;
 
-import org.assertj.swing.core.MouseButton;
-import org.assertj.swing.core.Robot;
+import org.uitest4j.swing.core.MouseButton;
+import org.uitest4j.swing.core.Robot;
 import org.assertj.swing.internal.annotation.InternalApi;
 import org.assertj.swing.util.Pair;
 import org.assertj.swing.util.PatternTextMatcher;
@@ -29,7 +29,7 @@ import java.awt.*;
 import java.util.regex.Pattern;
 
 import static org.assertj.core.util.Preconditions.checkNotNull;
-import static org.assertj.swing.core.MouseButton.LEFT_BUTTON;
+import static org.uitest4j.swing.core.MouseButton.LEFT_BUTTON;
 import static org.assertj.swing.driver.ComponentPreconditions.checkEnabledAndShowing;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.timing.Pause.pause;

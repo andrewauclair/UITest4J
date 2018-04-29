@@ -26,7 +26,7 @@ import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
- * Tests for {@link JTableFixture#JTableFixture(org.assertj.swing.core.Robot, String)}.
+ * Tests for {@link JTableFixture#JTableFixture(org.uitest4j.swing.core.Robot, String)}.
  * 
  * @author Alex Ruiz
  * @author Yvonne Wang

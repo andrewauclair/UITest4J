@@ -13,9 +13,9 @@
 package org.assertj.swing.test.recorder;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.core.MouseButton.LEFT_BUTTON;
-import static org.assertj.swing.core.MouseButton.MIDDLE_BUTTON;
-import static org.assertj.swing.core.MouseButton.RIGHT_BUTTON;
+import static org.uitest4j.swing.core.MouseButton.LEFT_BUTTON;
+import static org.uitest4j.swing.core.MouseButton.MIDDLE_BUTTON;
+import static org.uitest4j.swing.core.MouseButton.RIGHT_BUTTON;
 import static org.assertj.swing.util.Maps.newHashMap;
 
 import java.awt.Point;
@@ -24,7 +24,7 @@ import java.util.Map;
 
 import javax.annotation.Nonnull;
 
-import org.assertj.swing.core.MouseButton;
+import org.uitest4j.swing.core.MouseButton;
 
 /**
  * An abstract listener recording mouse events.

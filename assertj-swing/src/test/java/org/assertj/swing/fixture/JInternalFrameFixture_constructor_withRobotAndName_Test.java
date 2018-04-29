@@ -22,7 +22,7 @@ import org.assertj.swing.test.swing.TestMdiWindow;
 import org.junit.jupiter.api.Test;
 
 /**
- * Tests for {@link JInternalFrameFixture#JInternalFrameFixture(org.assertj.swing.core.Robot, String)}.
+ * Tests for {@link JInternalFrameFixture#JInternalFrameFixture(org.uitest4j.swing.core.Robot, String)}.
  * 
  * @author Alex Ruiz
  * @author Yvonne Wang

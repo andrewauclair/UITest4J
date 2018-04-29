@@ -16,7 +16,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.awt.Component;
 
-import org.assertj.swing.core.Robot;
+import org.uitest4j.swing.core.Robot;
 import org.assertj.swing.driver.JComponentDriver;
 
 import com.jidesoft.status.LabelStatusBarItem;

@@ -12,7 +12,7 @@
  */
 package org.assertj.swing.driver;
 
-import org.assertj.swing.core.Robot;
+import org.uitest4j.swing.core.Robot;
 import org.assertj.swing.internal.annotation.InternalApi;
 import org.uitest4j.swing.annotation.RunsInEDT;
 
@@ -23,7 +23,7 @@ import java.io.File;
 
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.core.util.Preconditions.checkNotNullOrEmpty;
-import static org.assertj.swing.core.matcher.JButtonMatcher.withText;
+import static org.uitest4j.swing.core.matcher.JButtonMatcher.withText;
 import static org.assertj.swing.driver.ComponentPreconditions.checkEnabledAndShowing;
 import static org.assertj.swing.driver.JFileChooserApproveButtonTextQuery.approveButtonTextFrom;
 import static org.assertj.swing.driver.JFileChooserCancelButtonTextQuery.cancelButtonText;

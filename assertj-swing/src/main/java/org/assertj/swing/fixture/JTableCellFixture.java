@@ -13,8 +13,8 @@
 package org.assertj.swing.fixture;
 
 import static org.assertj.core.util.Preconditions.checkNotNull;
-import static org.assertj.swing.core.MouseButton.LEFT_BUTTON;
-import static org.assertj.swing.core.MouseButton.RIGHT_BUTTON;
+import static org.uitest4j.swing.core.MouseButton.LEFT_BUTTON;
+import static org.uitest4j.swing.core.MouseButton.RIGHT_BUTTON;
 
 import java.awt.Component;
 import java.util.regex.Pattern;
@@ -24,8 +24,8 @@ import javax.annotation.Nullable;
 import javax.swing.JTable;
 
 import org.assertj.core.util.VisibleForTesting;
-import org.assertj.swing.core.MouseButton;
-import org.assertj.swing.core.MouseClickInfo;
+import org.uitest4j.swing.core.MouseButton;
+import org.uitest4j.swing.core.MouseClickInfo;
 import org.assertj.swing.data.TableCell;
 import org.assertj.swing.driver.JTableDriver;
 

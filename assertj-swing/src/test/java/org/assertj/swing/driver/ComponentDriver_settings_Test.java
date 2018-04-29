@@ -12,13 +12,13 @@
  */
 package org.assertj.swing.driver;
 
-import org.assertj.swing.core.Robot;
-import org.assertj.swing.core.Settings;
+import org.uitest4j.swing.core.Robot;
+import org.uitest4j.swing.core.Settings;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.core.TestRobots.newRobotMock;
+import static org.uitest4j.swing.core.TestRobots.newRobotMock;
 import static org.mockito.Mockito.when;
 
 /**

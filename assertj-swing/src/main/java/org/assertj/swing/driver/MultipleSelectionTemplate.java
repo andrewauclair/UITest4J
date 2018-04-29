@@ -13,7 +13,7 @@
 package org.assertj.swing.driver;
 
 import org.assertj.core.api.Fail;
-import org.assertj.swing.core.Robot;
+import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.annotation.Nonnull;

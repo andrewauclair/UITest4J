@@ -12,7 +12,7 @@
  */
 package org.assertj.swing.fixture;
 
-import org.assertj.swing.core.Robot;
+import org.uitest4j.swing.core.Robot;
 import org.assertj.swing.edt.GuiQuery;
 import org.uitest4j.swing.annotation.RunsInEDT;
 

@@ -12,18 +12,18 @@
  */
 package org.assertj.swing.driver;
 
-import org.assertj.swing.core.MouseClickInfo;
+import org.uitest4j.swing.core.MouseClickInfo;
 import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.recorder.ClickRecorder;
 import org.assertj.swing.test.recorder.ClickRecorderManager;
 import org.junit.jupiter.api.Test;
 
 import static org.uitest4j.swing.awt.AWT.centerOf;
-import static org.assertj.swing.core.MouseClickInfo.leftButton;
+import static org.uitest4j.swing.core.MouseClickInfo.leftButton;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
- * Tests for {@link ComponentDriver#click(java.awt.Component, org.assertj.swing.core.MouseClickInfo)}.
+ * Tests for {@link ComponentDriver#click(java.awt.Component, org.uitest4j.swing.core.MouseClickInfo)}.
  *
  * @author Alex Ruiz
  * @author Yvonne Wang

@@ -13,15 +13,15 @@
 package org.assertj.swing.fixture;
 
 import static org.assertj.core.util.Preconditions.checkNotNull;
-import static org.assertj.swing.core.MouseButton.LEFT_BUTTON;
-import static org.assertj.swing.core.MouseButton.RIGHT_BUTTON;
+import static org.uitest4j.swing.core.MouseButton.LEFT_BUTTON;
+import static org.uitest4j.swing.core.MouseButton.RIGHT_BUTTON;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import org.assertj.core.util.VisibleForTesting;
-import org.assertj.swing.core.MouseButton;
-import org.assertj.swing.core.MouseClickInfo;
+import org.uitest4j.swing.core.MouseButton;
+import org.uitest4j.swing.core.MouseClickInfo;
 
 /**
  * Supports functional testing of single items in {@code JList}s.

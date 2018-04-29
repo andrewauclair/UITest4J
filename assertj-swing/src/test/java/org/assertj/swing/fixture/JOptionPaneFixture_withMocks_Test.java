@@ -12,7 +12,7 @@
  */
 package org.assertj.swing.fixture;
 
-import org.assertj.swing.core.Robot;
+import org.uitest4j.swing.core.Robot;
 import org.assertj.swing.driver.JOptionPaneDriver;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

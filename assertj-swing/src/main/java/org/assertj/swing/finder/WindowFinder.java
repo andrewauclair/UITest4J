@@ -18,7 +18,7 @@ import java.awt.Frame;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import org.assertj.swing.core.GenericTypeMatcher;
+import org.uitest4j.swing.core.GenericTypeMatcher;
 
 /**
  * <p>
@@ -36,7 +36,7 @@ import org.assertj.swing.core.GenericTypeMatcher;
  * </pre>
  *
  * <p>
- * Where {@code robot} is an instance of {@link org.assertj.swing.core.Robot}.
+ * Where {@code robot} is an instance of {@link org.uitest4j.swing.core.Robot}.
  * </p>
  *
  * <p>

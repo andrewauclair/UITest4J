@@ -12,7 +12,7 @@
  */
 package org.assertj.swing.driver;
 
-import org.assertj.swing.core.MouseButton;
+import org.uitest4j.swing.core.MouseButton;
 import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.recorder.ClickRecorder;
 import org.assertj.swing.test.recorder.ClickRecorderManager;

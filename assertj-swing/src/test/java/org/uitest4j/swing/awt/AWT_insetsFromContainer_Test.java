@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.awt;
 
-import org.assertj.swing.core.Robot;
+import org.uitest4j.swing.core.Robot;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.annotation.RunsInEDT;
@@ -20,7 +20,7 @@ import org.uitest4j.swing.annotation.RunsInEDT;
 import java.awt.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.core.BasicRobot.robotWithNewAwtHierarchy;
+import static org.uitest4j.swing.core.BasicRobot.robotWithNewAwtHierarchy;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.test.query.ContainerInsetsQuery.insetsOf;
 

@@ -12,9 +12,9 @@
  */
 package org.assertj.swing.fixture;
 
-import org.assertj.swing.core.KeyPressInfo;
-import org.assertj.swing.core.MouseClickInfo;
-import org.assertj.swing.core.Robot;
+import org.uitest4j.swing.core.KeyPressInfo;
+import org.uitest4j.swing.core.MouseClickInfo;
+import org.uitest4j.swing.core.Robot;
 import org.assertj.swing.driver.ComponentDriver;
 import org.assertj.swing.timing.Timeout;
 import org.junit.jupiter.api.BeforeEach;
@@ -26,9 +26,9 @@ import java.awt.*;
 import static java.awt.Color.BLUE;
 import static java.awt.event.KeyEvent.VK_C;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.core.KeyPressInfo.keyCode;
-import static org.assertj.swing.core.MouseButton.LEFT_BUTTON;
-import static org.assertj.swing.core.MouseClickInfo.leftButton;
+import static org.uitest4j.swing.core.KeyPressInfo.keyCode;
+import static org.uitest4j.swing.core.MouseButton.LEFT_BUTTON;
+import static org.uitest4j.swing.core.MouseClickInfo.leftButton;
 import static org.assertj.swing.timing.Timeout.timeout;
 import static org.mockito.Mockito.*;
 

@@ -13,7 +13,7 @@
 package org.assertj.swing.driver;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.core.MouseButton.RIGHT_BUTTON;
+import static org.uitest4j.swing.core.MouseButton.RIGHT_BUTTON;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.awt.Point;
@@ -25,7 +25,7 @@ import org.assertj.swing.test.recorder.ClickRecorderManager;
 import org.junit.jupiter.api.Test;
 
 /**
- * Tests for {@link JListDriver#clickItem(javax.swing.JList, String, org.assertj.swing.core.MouseButton, int)}.
+ * Tests for {@link JListDriver#clickItem(javax.swing.JList, String, org.uitest4j.swing.core.MouseButton, int)}.
  * 
  * @author Alex Ruiz
  * @author Yvonne Wang

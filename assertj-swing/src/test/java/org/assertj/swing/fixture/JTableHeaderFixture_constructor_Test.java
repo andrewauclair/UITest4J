@@ -12,7 +12,7 @@
  */
 package org.assertj.swing.fixture;
 
-import static org.assertj.swing.core.TestRobots.singletonRobotMock;
+import static org.uitest4j.swing.core.TestRobots.singletonRobotMock;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 
@@ -22,7 +22,7 @@ import org.assertj.swing.exception.ComponentLookupException;
 import org.junit.jupiter.api.Test;
 
 /**
- * Tests for {@link JTableHeaderFixture#JTableHeaderFixture(org.assertj.swing.core.Robot, JTableHeader)}.
+ * Tests for {@link JTableHeaderFixture#JTableHeaderFixture(org.uitest4j.swing.core.Robot, JTableHeader)}.
  * 
  * @author Yvonne Wang
  * @author Alex Ruiz

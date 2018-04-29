@@ -13,10 +13,10 @@
 package org.assertj.swing.driver;
 
 import org.assertj.swing.cell.JTableCellWriter;
-import org.assertj.swing.core.ComponentFoundCondition;
-import org.assertj.swing.core.ComponentMatcher;
-import org.assertj.swing.core.Robot;
-import org.assertj.swing.core.TypeMatcher;
+import org.uitest4j.swing.core.ComponentFoundCondition;
+import org.uitest4j.swing.core.ComponentMatcher;
+import org.uitest4j.swing.core.Robot;
+import org.uitest4j.swing.core.TypeMatcher;
 import org.assertj.swing.exception.ActionFailedException;
 import org.assertj.swing.exception.WaitTimedOutError;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;

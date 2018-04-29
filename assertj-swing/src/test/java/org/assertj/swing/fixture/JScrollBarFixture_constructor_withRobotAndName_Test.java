@@ -25,7 +25,7 @@ import org.assertj.swing.test.swing.TestWindow;
 import org.junit.jupiter.api.Test;
 
 /**
- * Tests for {@link JScrollBarFixture#JScrollBarFixture(org.assertj.swing.core.Robot, String)}.
+ * Tests for {@link JScrollBarFixture#JScrollBarFixture(org.uitest4j.swing.core.Robot, String)}.
  * 
  * @author Alex Ruiz
  * @author Yvonne Wang

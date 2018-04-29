@@ -23,12 +23,12 @@ import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import org.assertj.swing.core.ComponentFoundCondition;
-import org.assertj.swing.core.ComponentMatcher;
-import org.assertj.swing.core.GenericTypeMatcher;
-import org.assertj.swing.core.NameMatcher;
-import org.assertj.swing.core.Robot;
-import org.assertj.swing.core.TypeMatcher;
+import org.uitest4j.swing.core.ComponentFoundCondition;
+import org.uitest4j.swing.core.ComponentMatcher;
+import org.uitest4j.swing.core.GenericTypeMatcher;
+import org.uitest4j.swing.core.NameMatcher;
+import org.uitest4j.swing.core.Robot;
+import org.uitest4j.swing.core.TypeMatcher;
 import org.assertj.swing.fixture.AbstractComponentFixture;
 
 /**

@@ -21,7 +21,7 @@ import org.junit.jupiter.api.Test;
 import javax.swing.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.core.MouseButton.RIGHT_BUTTON;
+import static org.uitest4j.swing.core.MouseButton.RIGHT_BUTTON;
 import static org.assertj.swing.data.TableCell.row;
 import static org.assertj.swing.test.task.ComponentSetPopupMenuTask.createAndSetPopupMenu;
 

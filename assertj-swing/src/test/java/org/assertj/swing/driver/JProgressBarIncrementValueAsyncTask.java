@@ -24,7 +24,7 @@ import java.util.logging.Logger;
 import javax.annotation.Nonnull;
 import javax.swing.JProgressBar;
 
-import org.assertj.swing.core.Robot;
+import org.uitest4j.swing.core.Robot;
 
 /**
  * Asynchronously increments the value of a {@code JProgressBar} 3 times, given an increment and a period of time in

@@ -21,7 +21,7 @@ import javax.swing.JTable;
 import javax.swing.text.JTextComponent;
 
 import org.assertj.swing.cell.JTableCellWriter;
-import org.assertj.swing.core.Robot;
+import org.uitest4j.swing.core.Robot;
 
 /**
  * Default implementation of {@link JTableCellWriter}.

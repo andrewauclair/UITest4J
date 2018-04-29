@@ -21,8 +21,8 @@ import javax.annotation.Nullable;
 import javax.swing.JPopupMenu;
 import javax.swing.table.JTableHeader;
 
-import org.assertj.swing.core.MouseClickInfo;
-import org.assertj.swing.core.Robot;
+import org.uitest4j.swing.core.MouseClickInfo;
+import org.uitest4j.swing.core.Robot;
 import org.assertj.swing.driver.JTableHeaderDriver;
 
 /**

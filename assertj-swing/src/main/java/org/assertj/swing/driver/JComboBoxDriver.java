@@ -15,7 +15,7 @@ package org.assertj.swing.driver;
 import org.assertj.core.description.Description;
 import org.assertj.core.util.VisibleForTesting;
 import org.assertj.swing.cell.JComboBoxCellReader;
-import org.assertj.swing.core.Robot;
+import org.uitest4j.swing.core.Robot;
 import org.assertj.swing.exception.ComponentLookupException;
 import org.assertj.swing.exception.LocationUnavailableException;
 import org.assertj.swing.internal.annotation.InternalApi;

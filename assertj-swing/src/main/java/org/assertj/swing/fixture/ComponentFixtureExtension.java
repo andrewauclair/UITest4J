@@ -17,7 +17,7 @@ import java.awt.Container;
 
 import javax.annotation.Nonnull;
 
-import org.assertj.swing.core.Robot;
+import org.uitest4j.swing.core.Robot;
 
 /**
  * An "extension method" for implementations of {@link AbstractContainerFixture}. This extension creates new

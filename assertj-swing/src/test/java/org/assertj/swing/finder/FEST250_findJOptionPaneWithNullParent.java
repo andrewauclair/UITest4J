@@ -12,8 +12,8 @@
  */
 package org.assertj.swing.finder;
 
-import org.assertj.swing.core.BasicRobot;
-import org.assertj.swing.core.Robot;
+import org.uitest4j.swing.core.BasicRobot;
+import org.uitest4j.swing.core.Robot;
 import org.assertj.swing.fixture.JOptionPaneFixture;
 import org.assertj.swing.test.core.EDTSafeTestCase;
 import org.assertj.swing.test.swing.JOptionPaneLauncher;

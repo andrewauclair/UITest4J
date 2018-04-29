@@ -31,7 +31,7 @@ import static org.assertj.swing.test.swing.TreeNodeFactory.node;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
- * Tests for {@link JTreeFixture#JTreeFixture(org.assertj.swing.core.Robot, String)}.
+ * Tests for {@link JTreeFixture#JTreeFixture(org.uitest4j.swing.core.Robot, String)}.
  * 
  * @author Alex Ruiz
  * @author Yvonne Wang

@@ -12,7 +12,7 @@
  */
 package org.assertj.swing.fixture;
 
-import static org.assertj.swing.core.BasicRobot.robotWithCurrentAwtHierarchy;
+import static org.uitest4j.swing.core.BasicRobot.robotWithCurrentAwtHierarchy;
 
 import java.awt.Dimension;
 import java.awt.Point;
@@ -21,7 +21,7 @@ import java.awt.Window;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import org.assertj.swing.core.Robot;
+import org.uitest4j.swing.core.Robot;
 import org.assertj.swing.driver.WindowDriver;
 
 /**
@@ -47,7 +47,7 @@ public abstract class AbstractWindowFixture<S, C extends Window, D extends Windo
    *           be found.
    * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code Window} having a matching type
    *           is found.
-   * @see org.assertj.swing.core.BasicRobot#robotWithCurrentAwtHierarchy()
+   * @see org.uitest4j.swing.core.BasicRobot#robotWithCurrentAwtHierarchy()
    */
   public AbstractWindowFixture(@Nonnull Class<S> selfType, @Nonnull Class<? extends C> type) {
     this(selfType, robotWithCurrentAwtHierarchy(), type);
@@ -82,7 +82,7 @@ public abstract class AbstractWindowFixture<S, C extends Window, D extends Windo
    *           be found.
    * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code Window} having a matching name
    *           is found.
-   * @see org.assertj.swing.core.BasicRobot#robotWithCurrentAwtHierarchy()
+   * @see org.uitest4j.swing.core.BasicRobot#robotWithCurrentAwtHierarchy()
    */
   public AbstractWindowFixture(@Nonnull Class<S> selfType, @Nullable String name, @Nonnull Class<? extends C> type) {
     this(selfType, robotWithCurrentAwtHierarchy(), name, type);

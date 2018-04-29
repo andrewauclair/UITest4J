@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 
-import org.assertj.swing.core.Robot;
+import org.uitest4j.swing.core.Robot;
 import org.assertj.swing.driver.JScrollPaneDriver;
 
 /**

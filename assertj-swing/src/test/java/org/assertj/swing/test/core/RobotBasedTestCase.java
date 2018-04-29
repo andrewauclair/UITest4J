@@ -12,12 +12,12 @@
  */
 package org.assertj.swing.test.core;
 
-import org.assertj.swing.core.Robot;
+import org.uitest4j.swing.core.Robot;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 
-import static org.assertj.swing.core.BasicRobot.robotWithCurrentAwtHierarchy;
-import static org.assertj.swing.core.BasicRobot.robotWithNewAwtHierarchy;
+import static org.uitest4j.swing.core.BasicRobot.robotWithCurrentAwtHierarchy;
+import static org.uitest4j.swing.core.BasicRobot.robotWithNewAwtHierarchy;
 
 /**
  * Base test case that uses a {@link Robot}. It ensures that Swing components are created and accessed in the EDT.

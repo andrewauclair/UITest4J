@@ -27,7 +27,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 import static org.assertj.core.util.Preconditions.checkNotNull;
-import static org.assertj.swing.core.FocusOwnerFinder.focusOwner;
+import static org.uitest4j.swing.core.FocusOwnerFinder.focusOwner;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.image.ImageFileExtensions.PNG;
 import static org.assertj.swing.query.ComponentLocationOnScreenQuery.locationOnScreen;

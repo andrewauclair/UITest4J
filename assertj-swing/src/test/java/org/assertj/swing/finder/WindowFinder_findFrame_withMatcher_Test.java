@@ -20,14 +20,14 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import javax.annotation.Nonnull;
 import javax.swing.JFrame;
 
-import org.assertj.swing.core.GenericTypeMatcher;
+import org.uitest4j.swing.core.GenericTypeMatcher;
 import org.assertj.swing.exception.WaitTimedOutError;
 import org.assertj.swing.fixture.FrameFixture;
 import org.assertj.swing.test.swing.WindowLauncher.WindowToLaunch;
 import org.junit.jupiter.api.Test;
 
 /**
- * Tests for {@link WindowFinder#findFrame(org.assertj.swing.core.GenericTypeMatcher)}.
+ * Tests for {@link WindowFinder#findFrame(org.uitest4j.swing.core.GenericTypeMatcher)}.
  * 
  * @author Alex Ruiz
  */

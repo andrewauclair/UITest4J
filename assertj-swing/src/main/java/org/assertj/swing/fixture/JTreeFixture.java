@@ -18,9 +18,9 @@ import javax.swing.JPopupMenu;
 import javax.swing.JTree;
 
 import org.assertj.swing.cell.JTreeCellReader;
-import org.assertj.swing.core.MouseButton;
-import org.assertj.swing.core.MouseClickInfo;
-import org.assertj.swing.core.Robot;
+import org.uitest4j.swing.core.MouseButton;
+import org.uitest4j.swing.core.MouseClickInfo;
+import org.uitest4j.swing.core.Robot;
 import org.assertj.swing.driver.JTreeDriver;
 
 /**

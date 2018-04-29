@@ -18,11 +18,11 @@ import static org.assertj.swing.driver.AbstractButtonTextQuery.textOf;
 import javax.annotation.Nonnull;
 import javax.swing.JMenuItem;
 
-import org.assertj.swing.core.GenericTypeMatcher;
+import org.uitest4j.swing.core.GenericTypeMatcher;
 import org.junit.jupiter.api.Test;
 
 /**
- * Tests for {@link JPopupMenuDriver#menuItem(javax.swing.JPopupMenu, org.assertj.swing.core.GenericTypeMatcher)}.
+ * Tests for {@link JPopupMenuDriver#menuItem(javax.swing.JPopupMenu, org.uitest4j.swing.core.GenericTypeMatcher)}.
  * 
  * @author Alex Ruiz
  * @author Yvonne Wang

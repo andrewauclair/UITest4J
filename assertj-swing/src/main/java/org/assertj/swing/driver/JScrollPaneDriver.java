@@ -12,7 +12,7 @@
  */
 package org.assertj.swing.driver;
 
-import org.assertj.swing.core.Robot;
+import org.uitest4j.swing.core.Robot;
 import org.assertj.swing.internal.annotation.InternalApi;
 import org.uitest4j.swing.annotation.RunsInEDT;
 

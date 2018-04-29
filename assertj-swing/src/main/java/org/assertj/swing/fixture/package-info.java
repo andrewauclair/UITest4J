@@ -13,7 +13,7 @@
 /**
  * <p>
  * Public API, source of AssertJ-Swing's power and flexibility. Although you can use the
- * {@link org.assertj.swing.core.BasicRobot} directly, it is too low-level and requires, in our opinion, too much code.
+ * {@link org.uitest4j.swing.core.BasicRobot} directly, it is too low-level and requires, in our opinion, too much code.
  * AssertJ-Swing fixtures can simplify creation and maintenance of functional GUI tests by:
  * </p>
  *
@@ -57,7 +57,7 @@
  * </p>
  *
  * <pre>
- *   private {@link org.assertj.swing.core.BasicRobot} robot;
+ *   private {@link org.uitest4j.swing.core.BasicRobot} robot;
  *
  *   &#64;Before
  *   public void setUp() {
@@ -81,7 +81,7 @@
  * <p>
  * <strong>Note:</strong> It is very important to clean up resources used by AssertJ-Swing (keyboard, mouse and opened
  * windows) after each test; otherwise, the AssertJ-Swing robot will keep control of them and can make your computer
- * pretty much unusable. To clean up resources call the method 'cleanUp' from {@link org.assertj.swing.core.BasicRobot},
+ * pretty much unusable. To clean up resources call the method 'cleanUp' from {@link org.uitest4j.swing.core.BasicRobot},
  * {@link org.assertj.swing.fixture.FrameFixture} or {@link org.assertj.swing.fixture.DialogFixture}.
  * </p>
  * <p>

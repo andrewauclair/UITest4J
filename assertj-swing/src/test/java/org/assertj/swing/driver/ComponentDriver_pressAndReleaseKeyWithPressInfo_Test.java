@@ -17,11 +17,11 @@ import org.junit.jupiter.api.Test;
 
 import static java.awt.event.InputEvent.SHIFT_DOWN_MASK;
 import static java.awt.event.KeyEvent.VK_A;
-import static org.assertj.swing.core.KeyPressInfo.keyCode;
+import static org.uitest4j.swing.core.KeyPressInfo.keyCode;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
- * Tests for {@link ComponentDriver#pressAndReleaseKey(java.awt.Component, org.assertj.swing.core.KeyPressInfo)}.
+ * Tests for {@link ComponentDriver#pressAndReleaseKey(java.awt.Component, org.uitest4j.swing.core.KeyPressInfo)}.
  * 
  * @author Alex Ruiz
  * @author Yvonne Wang

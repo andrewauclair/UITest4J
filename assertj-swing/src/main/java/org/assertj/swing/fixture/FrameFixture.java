@@ -17,7 +17,7 @@ import java.awt.Frame;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import org.assertj.swing.core.Robot;
+import org.uitest4j.swing.core.Robot;
 import org.assertj.swing.driver.FrameDriver;
 
 /**
@@ -35,7 +35,7 @@ public class FrameFixture extends AbstractWindowFixture<FrameFixture, Frame, Fra
    *
    * @param target the {@code Frame} to be managed by this fixture.
    * @throws NullPointerException if the given frame is {@code null}.
-   * @see org.assertj.swing.core.BasicRobot#robotWithCurrentAwtHierarchy()
+   * @see org.uitest4j.swing.core.BasicRobot#robotWithCurrentAwtHierarchy()
    */
   public FrameFixture(@Nonnull Frame target) {
     super(FrameFixture.class, target);

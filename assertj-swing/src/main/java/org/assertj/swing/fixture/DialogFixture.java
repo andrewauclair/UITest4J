@@ -17,7 +17,7 @@ import java.awt.Dialog;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import org.assertj.swing.core.Robot;
+import org.uitest4j.swing.core.Robot;
 import org.assertj.swing.driver.DialogDriver;
 
 /**
@@ -32,7 +32,7 @@ public class DialogFixture extends AbstractWindowFixture<DialogFixture, Dialog, 
    * 
    * @param target the {@code Dialog} to be managed by this fixture.
    * @throws NullPointerException if {@code target} is {@code null}.
-   * @see org.assertj.swing.core.BasicRobot#robotWithCurrentAwtHierarchy()
+   * @see org.uitest4j.swing.core.BasicRobot#robotWithCurrentAwtHierarchy()
    */
   public DialogFixture(@Nonnull Dialog target) {
     super(DialogFixture.class, target);
@@ -70,7 +70,7 @@ public class DialogFixture extends AbstractWindowFixture<DialogFixture, Dialog, 
    * @param dialogName the name of the {@code Dialog} to find.
    * @throws org.assertj.swing.exception.ComponentLookupException if a {@code Dialog} having a matching name could not be found.
    * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code Dialog} having a matching name is found.
-   * @see org.assertj.swing.core.BasicRobot#robotWithCurrentAwtHierarchy()
+   * @see org.uitest4j.swing.core.BasicRobot#robotWithCurrentAwtHierarchy()
    */
   public DialogFixture(@Nullable String dialogName) {
     super(DialogFixture.class, dialogName, Dialog.class);

@@ -17,8 +17,8 @@ import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 import javax.swing.JButton;
 
-import org.assertj.swing.core.Robot;
-import org.assertj.swing.core.matcher.JButtonMatcher;
+import org.uitest4j.swing.core.Robot;
+import org.uitest4j.swing.core.matcher.JButtonMatcher;
 import org.assertj.swing.driver.JComponentDriver;
 
 import com.jidesoft.pane.CollapsiblePane;

@@ -24,7 +24,7 @@ import org.assertj.swing.test.swing.TestWindow;
 import org.junit.jupiter.api.Test;
 
 /**
- * Tests for {@link JLabelFixture#JLabelFixture(org.assertj.swing.core.Robot, String)}.
+ * Tests for {@link JLabelFixture#JLabelFixture(org.uitest4j.swing.core.Robot, String)}.
  * 
  * @author Alex Ruiz
  * @author Yvonne Wang

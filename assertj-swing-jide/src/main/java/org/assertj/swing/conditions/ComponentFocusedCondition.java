@@ -14,10 +14,10 @@ package org.assertj.swing.conditions;
 
 import java.awt.Component;
 
-import org.assertj.swing.core.BasicComponentFinder;
-import org.assertj.swing.core.ComponentFinder;
-import org.assertj.swing.core.ComponentMatcher;
-import org.assertj.swing.core.NameMatcher;
+import org.uitest4j.swing.core.BasicComponentFinder;
+import org.uitest4j.swing.core.ComponentFinder;
+import org.uitest4j.swing.core.ComponentMatcher;
+import org.uitest4j.swing.core.NameMatcher;
 import org.assertj.swing.exception.ComponentLookupException;
 import org.assertj.swing.timing.Condition;
 
@@ -83,7 +83,7 @@ public class ComponentFocusedCondition extends Condition {
 
   /**
    * Returns <code>true</code> if a component that matches the search criteria in this
-   * condition's <code>{@link org.assertj.swing.core.ComponentMatcher}</code> can be found.
+   * condition's <code>{@link org.uitest4j.swing.core.ComponentMatcher}</code> can be found.
    * Otherwise, this method returns <code>false</code>.
    * 
    * @return <code>true</code> if a matching component can be found, <code>false</code> otherwise.

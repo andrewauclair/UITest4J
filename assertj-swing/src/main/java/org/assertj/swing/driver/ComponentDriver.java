@@ -13,8 +13,8 @@
 package org.assertj.swing.driver;
 
 import org.assertj.core.description.Description;
-import org.assertj.swing.core.*;
-import org.assertj.swing.core.Robot;
+import org.uitest4j.swing.core.*;
+import org.uitest4j.swing.core.Robot;
 import org.assertj.swing.edt.GuiLazyLoadingDescription;
 import org.assertj.swing.internal.annotation.InternalApi;
 import org.assertj.swing.timing.Timeout;
@@ -29,8 +29,8 @@ import java.awt.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.uitest4j.swing.awt.AWT.visibleCenterOf;
-import static org.assertj.swing.core.MouseButton.LEFT_BUTTON;
-import static org.assertj.swing.core.MouseButton.RIGHT_BUTTON;
+import static org.uitest4j.swing.core.MouseButton.LEFT_BUTTON;
+import static org.uitest4j.swing.core.MouseButton.RIGHT_BUTTON;
 import static org.assertj.swing.driver.ComponentEnabledCondition.untilIsEnabled;
 import static org.assertj.swing.driver.ComponentPerformDefaultAccessibleActionTask.performDefaultAccessibleAction;
 import static org.assertj.swing.driver.ComponentPreconditions.checkEnabledAndShowing;

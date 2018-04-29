@@ -24,7 +24,7 @@ import org.assertj.swing.test.swing.TestWindow;
 import org.junit.jupiter.api.Test;
 
 /**
- * Tests for {@link JFileChooserFixture#JFileChooserFixture(org.assertj.swing.core.Robot)}.
+ * Tests for {@link JFileChooserFixture#JFileChooserFixture(org.uitest4j.swing.core.Robot)}.
  * 
  * @author Alex Ruiz
  * @author Yvonne Wang

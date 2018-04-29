@@ -25,7 +25,7 @@ import static org.assertj.swing.test.builder.JDialogs.dialog;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
- * Tests for {@link DialogFixture#DialogFixture(org.assertj.swing.core.Robot, String)}.
+ * Tests for {@link DialogFixture#DialogFixture(org.uitest4j.swing.core.Robot, String)}.
  * 
  * @author Alex Ruiz
  * @author Yvonne Wang

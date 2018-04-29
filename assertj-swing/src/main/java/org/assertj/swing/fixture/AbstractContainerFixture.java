@@ -12,8 +12,8 @@
  */
 package org.assertj.swing.fixture;
 
-import org.assertj.swing.core.*;
-import org.assertj.swing.core.Robot;
+import org.uitest4j.swing.core.*;
+import org.uitest4j.swing.core.Robot;
 import org.assertj.swing.driver.ComponentDriver;
 import org.assertj.swing.timing.Timeout;
 import org.uitest4j.swing.annotation.RunsInEDT;
@@ -25,7 +25,7 @@ import javax.swing.text.JTextComponent;
 import java.awt.*;
 
 import static org.assertj.core.util.Preconditions.checkNotNull;
-import static org.assertj.swing.core.ComponentLookupScope.SHOWING_ONLY;
+import static org.uitest4j.swing.core.ComponentLookupScope.SHOWING_ONLY;
 import static org.assertj.swing.timing.Pause.pause;
 import static org.assertj.swing.timing.Timeout.timeout;
 
@@ -56,7 +56,7 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
    * @throws NullPointerException if {@code type} is {@code null}.
    * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
    * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
-   * @see org.assertj.swing.core.ComponentFinder#findByType(Class)
+   * @see org.uitest4j.swing.core.ComponentFinder#findByType(Class)
    */
   public AbstractContainerFixture(@Nonnull Class<S> selfType, @Nonnull Robot robot, @Nonnull Class<? extends C> type) {
     super(selfType, robot, type);
@@ -74,7 +74,7 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
    * @throws NullPointerException if {@code type} is {@code null}.
    * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
    * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
-   * @see org.assertj.swing.core.ComponentFinder#findByName(String, Class)
+   * @see org.uitest4j.swing.core.ComponentFinder#findByName(String, Class)
    */
   public AbstractContainerFixture(@Nonnull Class<S> selfType, @Nonnull Robot robot, @Nullable String name,
                                   @Nonnull Class<? extends C> type) {

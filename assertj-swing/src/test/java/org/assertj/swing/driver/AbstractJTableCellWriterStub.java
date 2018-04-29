@@ -15,7 +15,7 @@ package org.assertj.swing.driver;
 import javax.annotation.Nonnull;
 import javax.swing.JTable;
 
-import org.assertj.swing.core.Robot;
+import org.uitest4j.swing.core.Robot;
 
 class AbstractJTableCellWriterStub extends AbstractJTableCellWriter {
   AbstractJTableCellWriterStub(Robot robot) {

@@ -14,8 +14,8 @@ package org.assertj.swing.fixture;
 
 import javax.annotation.Nonnull;
 
-import org.assertj.swing.core.MouseButton;
-import org.assertj.swing.core.MouseClickInfo;
+import org.uitest4j.swing.core.MouseButton;
+import org.uitest4j.swing.core.MouseClickInfo;
 
 /**
  * Simulates mouse input on an AWT or Swing {@code Component}.

@@ -16,7 +16,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.swing.AbstractButton;
 
-import org.assertj.swing.core.Robot;
+import org.uitest4j.swing.core.Robot;
 
 /**
  * Supports functional testing of {@code AbstractButton}s that have 2 states ("checked" and "unchecked.")

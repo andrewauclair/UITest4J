@@ -16,7 +16,7 @@ import java.awt.Component;
 
 import javax.annotation.Nonnull;
 
-import org.assertj.swing.core.GenericTypeMatcher;
+import org.uitest4j.swing.core.GenericTypeMatcher;
 
 /**
  * A matcher that always returns {@code false} in {@link #isMatching(Component)}.

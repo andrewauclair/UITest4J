@@ -12,9 +12,9 @@
  */
 package org.assertj.swing.fixture;
 
-import org.assertj.swing.core.ComponentLookupScope;
-import org.assertj.swing.core.Robot;
-import org.assertj.swing.core.Settings;
+import org.uitest4j.swing.core.ComponentLookupScope;
+import org.uitest4j.swing.core.Robot;
+import org.uitest4j.swing.core.Settings;
 import org.assertj.swing.driver.ComponentDriver;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -26,7 +26,7 @@ import java.util.Collection;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Lists.newArrayList;
-import static org.assertj.swing.core.ComponentLookupScope.*;
+import static org.uitest4j.swing.core.ComponentLookupScope.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 

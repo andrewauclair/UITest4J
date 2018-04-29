@@ -21,9 +21,9 @@ import java.util.Date;
 import javax.swing.JButton;
 
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
-import org.assertj.swing.core.BasicComponentFinder;
-import org.assertj.swing.core.ComponentFinder;
-import org.assertj.swing.core.Robot;
+import org.uitest4j.swing.core.BasicComponentFinder;
+import org.uitest4j.swing.core.ComponentFinder;
+import org.uitest4j.swing.core.Robot;
 import org.assertj.swing.driver.JComponentDriver;
 import org.assertj.swing.edt.GuiActionRunner;
 

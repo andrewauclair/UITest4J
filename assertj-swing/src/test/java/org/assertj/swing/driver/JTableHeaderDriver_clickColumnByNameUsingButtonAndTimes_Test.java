@@ -20,7 +20,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.Collection;
 
 import static org.assertj.core.util.Lists.newArrayList;
-import static org.assertj.swing.core.MouseButton.LEFT_BUTTON;
+import static org.uitest4j.swing.core.MouseButton.LEFT_BUTTON;
 
 /**
  * Tests for {@link JTableHeaderDriver#clickColumn(javax.swing.table.JTableHeader, String)}.

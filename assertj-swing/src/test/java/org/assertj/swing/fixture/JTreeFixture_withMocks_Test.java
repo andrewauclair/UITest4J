@@ -13,8 +13,8 @@
 package org.assertj.swing.fixture;
 
 import org.assertj.swing.cell.JTreeCellReader;
-import org.assertj.swing.core.MouseClickInfo;
-import org.assertj.swing.core.Robot;
+import org.uitest4j.swing.core.MouseClickInfo;
+import org.uitest4j.swing.core.Robot;
 import org.assertj.swing.driver.JTreeDriver;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -22,8 +22,8 @@ import org.junit.jupiter.api.Test;
 import javax.swing.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.core.MouseButton.MIDDLE_BUTTON;
-import static org.assertj.swing.core.MouseClickInfo.middleButton;
+import static org.uitest4j.swing.core.MouseButton.MIDDLE_BUTTON;
+import static org.uitest4j.swing.core.MouseClickInfo.middleButton;
 import static org.mockito.Mockito.*;
 
 /**

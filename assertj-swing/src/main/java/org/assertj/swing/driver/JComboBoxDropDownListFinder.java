@@ -12,9 +12,9 @@
  */
 package org.assertj.swing.driver;
 
-import org.assertj.swing.core.ComponentMatcher;
-import org.assertj.swing.core.Robot;
-import org.assertj.swing.core.TypeMatcher;
+import org.uitest4j.swing.core.ComponentMatcher;
+import org.uitest4j.swing.core.Robot;
+import org.uitest4j.swing.core.TypeMatcher;
 import org.assertj.swing.util.TimeoutWatch;
 import org.uitest4j.swing.annotation.RunsInEDT;
 

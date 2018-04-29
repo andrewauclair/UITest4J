@@ -20,8 +20,8 @@ import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import org.assertj.swing.core.GenericTypeMatcher;
-import org.assertj.swing.core.Robot;
+import org.uitest4j.swing.core.GenericTypeMatcher;
+import org.uitest4j.swing.core.Robot;
 import org.assertj.swing.fixture.DialogFixture;
 
 /**

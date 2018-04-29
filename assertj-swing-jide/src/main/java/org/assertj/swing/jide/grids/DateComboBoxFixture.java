@@ -17,7 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.util.Calendar;
 import java.util.Date;
 
-import org.assertj.swing.core.Robot;
+import org.uitest4j.swing.core.Robot;
 import org.assertj.swing.fixture.AbstractComponentFixture;
 import org.assertj.swing.jide.grids.driver.DateComboBoxDriver;
 

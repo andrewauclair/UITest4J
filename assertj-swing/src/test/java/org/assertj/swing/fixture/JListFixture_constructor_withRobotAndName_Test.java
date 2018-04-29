@@ -27,7 +27,7 @@ import org.assertj.swing.test.swing.TestWindow;
 import org.junit.jupiter.api.Test;
 
 /**
- * Tests for {@link JListFixture#JListFixture(org.assertj.swing.core.Robot, String)}.
+ * Tests for {@link JListFixture#JListFixture(org.uitest4j.swing.core.Robot, String)}.
  * 
  * @author Alex Ruiz
  * @author Yvonne Wang

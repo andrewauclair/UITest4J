@@ -26,7 +26,7 @@ import org.assertj.swing.test.swing.TestWindow;
 import org.junit.jupiter.api.Test;
 
 /**
- * Tests for {@link JSplitPaneFixture#JSplitPaneFixture(org.assertj.swing.core.Robot, String)}.
+ * Tests for {@link JSplitPaneFixture#JSplitPaneFixture(org.uitest4j.swing.core.Robot, String)}.
  * 
  * @author Alex Ruiz
  * @author Yvonne Wang

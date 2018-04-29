@@ -12,7 +12,7 @@
  */
 package org.assertj.swing.driver;
 
-import org.assertj.swing.core.TestRobots;
+import org.uitest4j.swing.core.TestRobots;
 import org.junit.jupiter.api.BeforeAll;
 
 import javax.swing.*;

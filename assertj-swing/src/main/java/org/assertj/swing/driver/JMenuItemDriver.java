@@ -12,7 +12,7 @@
  */
 package org.assertj.swing.driver;
 
-import org.assertj.swing.core.Robot;
+import org.uitest4j.swing.core.Robot;
 import org.assertj.swing.internal.annotation.InternalApi;
 import org.uitest4j.swing.annotation.RunsInEDT;
 
@@ -24,7 +24,7 @@ import java.awt.*;
 import static java.lang.Boolean.getBoolean;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.core.util.Strings.concat;
-import static org.assertj.swing.core.WindowAncestorFinder.windowAncestorOf;
+import static org.uitest4j.swing.core.WindowAncestorFinder.windowAncestorOf;
 import static org.assertj.swing.driver.ComponentPreconditions.checkEnabledAndShowing;
 import static org.assertj.swing.driver.JMenuPopupMenuQuery.popupMenuOf;
 import static org.assertj.swing.driver.WindowMoveToFrontTask.toFront;
@@ -75,7 +75,7 @@ public class JMenuItemDriver extends JComponentDriver {
    * Finds and selects the given {@code JMenuItem}.
    *
    * @param menuItem the {@code JMenuItem} to select.
-   * @throws IllegalStateException if {@link org.assertj.swing.core.Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and the
+   * @throws IllegalStateException if {@link org.uitest4j.swing.core.Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and the
    *           menu to select is disabled.
    * @throws IllegalStateException if the menu to select is not showing on the screen.
    * @throws org.assertj.swing.exception.ActionFailedException if the menu has a pop-up and it fails to show up.

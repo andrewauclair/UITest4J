@@ -12,7 +12,7 @@
  */
 package org.assertj.swing.fixture;
 
-import org.assertj.swing.core.MouseClickInfo;
+import org.uitest4j.swing.core.MouseClickInfo;
 import org.assertj.swing.data.TableCell;
 import org.assertj.swing.driver.JTableDriver;
 import org.junit.jupiter.api.BeforeEach;
@@ -23,8 +23,8 @@ import java.awt.*;
 import java.util.regex.Pattern;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.core.MouseButton.*;
-import static org.assertj.swing.core.MouseClickInfo.middleButton;
+import static org.uitest4j.swing.core.MouseButton.*;
+import static org.uitest4j.swing.core.MouseClickInfo.middleButton;
 import static org.assertj.swing.data.TableCell.row;
 import static org.mockito.Mockito.*;
 

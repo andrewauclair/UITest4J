@@ -12,7 +12,7 @@
  */
 package org.assertj.swing.driver;
 
-import org.assertj.swing.core.Robot;
+import org.uitest4j.swing.core.Robot;
 import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.internal.annotation.InternalApi;
 import org.assertj.swing.util.GenericRange;
@@ -25,7 +25,7 @@ import java.awt.*;
 
 import static javax.swing.JSplitPane.VERTICAL_SPLIT;
 import static org.assertj.core.util.Preconditions.checkNotNull;
-import static org.assertj.swing.core.MouseButton.LEFT_BUTTON;
+import static org.uitest4j.swing.core.MouseButton.LEFT_BUTTON;
 import static org.assertj.swing.driver.ComponentPreconditions.checkEnabledAndShowing;
 import static org.assertj.swing.driver.JSplitPaneLocationCalculator.locationToMoveDividerTo;
 import static org.assertj.swing.driver.JSplitPaneSetDividerLocationTask.setDividerLocation;

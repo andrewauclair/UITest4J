@@ -21,7 +21,7 @@ import java.util.Collection;
 import javax.annotation.Nonnull;
 
 /**
- * Error thrown when looking up a component using a {@link org.assertj.swing.core.ComponentFinder}.
+ * Error thrown when looking up a component using a {@link org.uitest4j.swing.core.ComponentFinder}.
  *
  * @author Alex Ruiz
  */

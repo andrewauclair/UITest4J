@@ -14,8 +14,8 @@ package org.assertj.swing.fixture;
 
 import org.assertj.swing.cell.JTableCellReader;
 import org.assertj.swing.cell.JTableCellWriter;
-import org.assertj.swing.core.MouseClickInfo;
-import org.assertj.swing.core.Robot;
+import org.uitest4j.swing.core.MouseClickInfo;
+import org.uitest4j.swing.core.Robot;
 import org.assertj.swing.data.TableCell;
 import org.assertj.swing.data.TableCellFinder;
 import org.assertj.swing.driver.JTableDriver;
@@ -29,9 +29,9 @@ import java.util.regex.Pattern;
 
 import static java.awt.Color.BLUE;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.core.MouseButton.LEFT_BUTTON;
-import static org.assertj.swing.core.MouseButton.MIDDLE_BUTTON;
-import static org.assertj.swing.core.MouseClickInfo.middleButton;
+import static org.uitest4j.swing.core.MouseButton.LEFT_BUTTON;
+import static org.uitest4j.swing.core.MouseButton.MIDDLE_BUTTON;
+import static org.uitest4j.swing.core.MouseClickInfo.middleButton;
 import static org.assertj.swing.data.TableCell.row;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;

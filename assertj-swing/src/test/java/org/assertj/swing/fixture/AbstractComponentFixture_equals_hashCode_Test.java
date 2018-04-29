@@ -28,7 +28,7 @@ import javax.swing.JPanel;
 
 import nl.jqno.equalsverifier.EqualsVerifier;
 
-import org.assertj.swing.core.Robot;
+import org.uitest4j.swing.core.Robot;
 import org.assertj.swing.driver.ComponentDriver;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.junit.jupiter.api.Test;

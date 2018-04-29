@@ -12,7 +12,7 @@
  */
 package org.assertj.swing.jide.action.driver;
 
-import org.assertj.swing.core.Robot;
+import org.uitest4j.swing.core.Robot;
 import org.assertj.swing.driver.JComponentDriver;
 
 /**

@@ -14,8 +14,8 @@ package org.assertj.swing.jide;
 
 import java.awt.Frame;
 
-import org.assertj.swing.core.GenericTypeMatcher;
-import org.assertj.swing.core.Robot;
+import org.uitest4j.swing.core.GenericTypeMatcher;
+import org.uitest4j.swing.core.Robot;
 import org.assertj.swing.fixture.FrameFixture;
 import org.assertj.swing.format.Formatting;
 import org.assertj.swing.jide.action.CommandBarFixture;

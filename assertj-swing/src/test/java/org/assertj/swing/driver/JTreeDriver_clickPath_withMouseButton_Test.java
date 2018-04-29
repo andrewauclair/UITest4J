@@ -13,10 +13,10 @@
 package org.assertj.swing.driver;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.core.MouseButton.RIGHT_BUTTON;
+import static org.uitest4j.swing.core.MouseButton.RIGHT_BUTTON;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import org.assertj.swing.core.MouseButton;
+import org.uitest4j.swing.core.MouseButton;
 import org.assertj.swing.exception.LocationUnavailableException;
 import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.recorder.ClickRecorder;
@@ -24,7 +24,7 @@ import org.assertj.swing.test.recorder.ClickRecorderManager;
 import org.junit.jupiter.api.Test;
 
 /**
- * Tests for {@link JTreeDriver#clickPath(javax.swing.JTree, String, org.assertj.swing.core.MouseButton)}.
+ * Tests for {@link JTreeDriver#clickPath(javax.swing.JTree, String, org.uitest4j.swing.core.MouseButton)}.
  * 
  * @author Alex Ruiz
  */

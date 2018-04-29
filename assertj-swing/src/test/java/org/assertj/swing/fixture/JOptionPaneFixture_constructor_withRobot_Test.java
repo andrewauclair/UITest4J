@@ -22,7 +22,7 @@ import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.junit.jupiter.api.Test;
 
 /**
- * Tests for {@link JOptionPaneFixture#JOptionPaneFixture(org.assertj.swing.core.Robot)}.
+ * Tests for {@link JOptionPaneFixture#JOptionPaneFixture(org.uitest4j.swing.core.Robot)}.
  * 
  * @author Alex Ruiz
  * @author Yvonne Wang

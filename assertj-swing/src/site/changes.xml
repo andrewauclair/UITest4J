@@ -57,18 +57,18 @@
         Added method 'descriptionAddendum' to class org.assertj.swing.timing.Condition.
       </action>
       <action dev="alexruiz" type="add" issue="FEST-286" due-to="Morten Breum Mikkelsen">
-        Class org.assertj.swing.core.ComponentFoundCondition now appends the component hierarchy to its description 
-        when a component cannot be found.
+          Class org.uitest4j.swing.core.ComponentFoundCondition now appends the component hierarchy to its description
+          when a component cannot be found.
       </action>
       <action dev="alexruiz" type="add" issue="FEST-291" due-to="Henning">
-        Added interface org.assertj.swing.core.ResettableComponentMatcher.
+          Added interface org.uitest4j.swing.core.ResettableComponentMatcher.
       </action>
       <action dev="alexruiz" type="add" issue="FEST-291" due-to="Henning">
-        Class org.assertj.swing.core.AbstractComponentMatcher now implements ResettableComponentMatcher.
+          Class org.uitest4j.swing.core.AbstractComponentMatcher now implements ResettableComponentMatcher.
       </action>
       <action dev="alexruiz" type="add" issue="FEST-291" due-to="Henning">
-        org.assertj.swing.core.ComponentFoundCondition now resets the given matcher in 'test' if the matcher is a 
-        ResettableComponentMatcher.
+          org.uitest4j.swing.core.ComponentFoundCondition now resets the given matcher in 'test' if the matcher is a
+          ResettableComponentMatcher.
       </action>
       <action dev="alexruiz" type="fix" issue="FEST-293" due-to="Morten Breum Mikkelsen">
         org.assertj.swing.data.TableCellInRowByValue now correctly performs matching on a JTable row by value.
@@ -82,8 +82,9 @@
         JTable.
       </action>
       <action dev="alexruiz" type="add" issue="FEST-302" due-to="Henning">
-        Added methods 'timeoutToFindSubMenu' to class org.assertj.swing.core.Settings to control the time to wait for a
-        sub-menu to show up on the screen.
+          Added methods 'timeoutToFindSubMenu' to class org.uitest4j.swing.core.Settings to control the time to wait for
+          a
+          sub-menu to show up on the screen.
       </action>
       <action dev="alexruiz" type="fix" issue="FEST-304" due-to="Peter Murray">
         All classes in the org.assertj.swing.finder package are now public. Any package-protected methods are now
@@ -100,11 +101,12 @@
         JTabbedPaneFixture now selects tabs that are not visible.
       </action>
       <action dev="alexruiz" type="add" issue="FEST-311" due-to="Dan Peder Eriksen">
-        Added class org.assertj.swing.core.EdtSafeCondition.
+          Added class org.uitest4j.swing.core.EdtSafeCondition.
       </action>
       <action dev="alexruiz" type="add" issue="FEST-312" due-to="Morten Breum Mikkelsen">
-        Class org.assertj.swing.core.ComponentFoundCondition now appends the list of components found to its description 
-        when multiple components match the condition's search criteria.
+          Class org.uitest4j.swing.core.ComponentFoundCondition now appends the list of components found to its
+          description
+          when multiple components match the condition's search criteria.
       </action>
       <action dev="alexruiz" type="add" issue="FEST-315" due-to="Olivier DOREMIEUX">
         Added class org.assertj.swing.keystroke.KeyStrokeMappingsParser to parses a text file containing the 
@@ -286,10 +288,10 @@
         Robot automatically performs any necessary scrolls to make a component visible before clicking it. 
       </action>
       <action dev="alexruiz" type="fix" isse="FEST-284" due-to="Steve Farrell">
-        Moved class Scrolling from package org.assertj.swing.driver to org.assertj.swing.core.
+          Moved class Scrolling from package org.assertj.swing.driver to org.uitest4j.swing.core.
       </action>
       <action dev="alexruiz" type="fix" isse="FEST-284" due-to="Steve Farrell">
-        Deprecated class org.assertj.swing.driver.Scrolling. Use org.assertj.swing.core.Scrolling instead.
+          Deprecated class org.assertj.swing.driver.Scrolling. Use org.uitest4j.swing.core.Scrolling instead.
       </action>
       <action dev="alexruiz" type="fix" isse="FEST-285" due-to="Steve Farrell">
         Fixed typo in error message displayed when a component to click is out of screen bounds.
@@ -650,8 +652,8 @@
         Class org.assertj.swing.timing.Timeout now throws NPE in constructor if the given TimeUnit is null.
       </action>
       <action dev="alexruiz" type="fix" issue="FEST-118" due-to="Olivier DOREMIEUX">
-        To activate a Window, org.assertj.swing.core.ActivateWindowTask now calls 'toFront and 'requestFocusInWindow' 
-        instead of two calls to 'toFront'.
+          To activate a Window, org.uitest4j.swing.core.ActivateWindowTask now calls 'toFront and 'requestFocusInWindow'
+          instead of two calls to 'toFront'.
       </action>
       <action dev="alexruiz" type="fix" issue="FEST-119" due-to="Eric Kolotyluk">
         Fixed implementation of 'requireSelection(String)' in JTreeDriver when a JTree has an invisible root.
@@ -670,11 +672,11 @@
         'fest-swing-junit-4.5'.
       </action>
       <action dev="alexruiz" type="fix" issue="FEST-37" due-to="Ondrej Medek">
-        Marked as 'final' all concrete classes in package org.assertj.swing.core.finder. 
+          Marked as 'final' all concrete classes in package org.uitest4j.swing.core.finder.
       </action>
       <action dev="alexruiz" type="add" issue="FEST-38" due-to="Ondrej Medek">
-        Added methods 'findAll(GenericTypeMatcher)' and 'findAll(Container, GenericTypeMatcher)' to 
-        class org.assertj.swing.core.ComponentMatcher.
+          Added methods 'findAll(GenericTypeMatcher)' and 'findAll(Container, GenericTypeMatcher)' to
+          class org.uitest4j.swing.core.ComponentMatcher.
       </action>
       <action dev="alexruiz" type="add" issue="FEST-46" due-to="Hayden Shorter">
         Created class Containers, which allows to places a given container inside a JFrame.
@@ -740,11 +742,11 @@
         Added method 'requireTabTitles(String...)' to org.assertj.swing.fixture.JTabbedPaneFixture.
       </action>
       <action dev="alexruiz" type="add" issue="FEST-12">
-        Added methods moveMouse(Point), moveMouse(int, int) and pressMouse(Point, MouseButton) to 
-        org.assertj.swing.core.Robot.  
+          Added methods moveMouse(Point), moveMouse(int, int) and pressMouse(Point, MouseButton) to
+          org.uitest4j.swing.core.Robot.
       </action>
       <action dev="alexruiz" type="add" issue="FEST-13">
-        Replaced org.assertj.swing.driver.DragAndDrop with org.assertj.swing.core.ComponentDragAndDrop. 
+          Replaced org.assertj.swing.driver.DragAndDrop with org.uitest4j.swing.core.ComponentDragAndDrop.
       </action>
       <action dev="alexruiz" type="add" issue="FEST-13">
         Class org.assertj.swing.driver.DragAndDrop is now deprecated and will be removed in version 2.0. 
@@ -797,26 +799,26 @@
         Added methods 'check' and 'uncheck' to org.assertj.swing.fixture.JRadioButtonFixture.
       </action>
       <action dev="alexruiz" type="fix" issue="280">
-        Matchers in org.assertj.swing.core.matcher now more search options for component matching (by type, by name,
-        by text/title.)
+          Matchers in org.uitest4j.swing.core.matcher now more search options for component matching (by type, by name,
+          by text/title.)
       </action>
       <action dev="alexruiz" type="fix" issue="280">
-        Replaced DialogByTitleMatcher with DialogMatcher in package org.assertj.swing.core.matcher.
+          Replaced DialogByTitleMatcher with DialogMatcher in package org.uitest4j.swing.core.matcher.
       </action>
       <action dev="alexruiz" type="fix" issue="280">
-        Replaced FrameByTitleMatcher with FrameMatcher in package org.assertj.swing.core.matcher.
+          Replaced FrameByTitleMatcher with FrameMatcher in package org.uitest4j.swing.core.matcher.
       </action>
       <action dev="alexruiz" type="fix" issue="280">
-        Replaced JButtonByTextMatcher with JButtonMatcher in package org.assertj.swing.core.matcher.
+          Replaced JButtonByTextMatcher with JButtonMatcher in package org.uitest4j.swing.core.matcher.
       </action>
       <action dev="alexruiz" type="fix" issue="280">
-        Replaced JLabelByTextMatcher with JLabelMatcher in package org.assertj.swing.core.matcher.
+          Replaced JLabelByTextMatcher with JLabelMatcher in package org.uitest4j.swing.core.matcher.
       </action>
       <action dev="alexruiz" type="add" issue="281" due-to="Konrad Garus">
         Class org.assertj.swing.fixture.ContainerFixture implements interface org.assertj.swing.fixture.ComponentContainerFixture.
       </action>
       <action dev="alexruiz" type="fix">
-        Moved SingleComponentHierarchy from package org.assertj.swing.core to org.assertj.swing.hierarchy.
+          Moved SingleComponentHierarchy from package org.uitest4j.swing.core to org.assertj.swing.hierarchy.
       </action>
       <action dev="alexruiz" type="fix">
         Made class org.assertj.swing.hierarchySingleComponentHierarchy public.
@@ -824,7 +826,7 @@
     </release>
     <release version="1.0rc2" date="2009-01-05" description="Subsequent release">
       <action dev="alexruiz" type="add" issue="139" due-to="Viet Nguyen">
-        Added method click(Point, MouseButton, int) to org.assertj.swing.core.Robot.
+          Added method click(Point, MouseButton, int) to org.uitest4j.swing.core.Robot.
       </action>
       <action dev="alexruiz" type="fix" issue="213" due-to="Jean-Francois Poilpret">
         org.assertj.swing.image.ScreenshotTaker hides the caret of a focused text component before taking a screenshot.
@@ -838,35 +840,36 @@
         JTableComboBoxEditorCellWriter by looking up the editor after it has been activated.
       </action>
       <action dev="alexruiz" type="fix" issue="257" due-to="Juhos Csaba-Zsolt">
-        Constructors in org.assertj.swing.core.GenericTypeMatcher now take the supported type as parameter to guarantee
-        correct casting in the 'isMatching' method.
+          Constructors in org.uitest4j.swing.core.GenericTypeMatcher now take the supported type as parameter to
+          guarantee
+          correct casting in the 'isMatching' method.
       </action>
       <action dev="alexruiz" type="fix" issue="268" due-to="Jean-Francois Poilpret">
         TestNG is a compile-scoped dependency of the fest-swing-testng module.
       </action>
       <action dev="alexruiz" type="add" issue="270" due-to="Slava Gurilev">
-        Added methods 'rotateMouseWheel(Component, int)' and 'rotateMouseWheel(int)' to org.assertj.swing.core.Robot.
+          Added methods 'rotateMouseWheel(Component, int)' and 'rotateMouseWheel(int)' to org.uitest4j.swing.core.Robot.
       </action>
       <action dev="alexruiz" type="fix" issue="271">
-        Renamed org.assertj.swing.core.RobotFixture to BasicRobot.
+          Renamed org.uitest4j.swing.core.RobotFixture to BasicRobot.
       </action>
       <action dev="alexruiz" type="remove" issue="273">
-        Removed class org.assertj.swing.core.AWTEventGenerator.
+          Removed class org.uitest4j.swing.core.AWTEventGenerator.
       </action>
       <action dev="alexruiz" type="remove" issue="273">
-        Removed class org.assertj.swing.core.EventMode.
+          Removed class org.uitest4j.swing.core.EventMode.
       </action>
       <action dev="alexruiz" type="remove" issue="273">
-        Removed class org.assertj.swing.core.InputEventGenerators.
+          Removed class org.uitest4j.swing.core.InputEventGenerators.
       </action>
       <action dev="alexruiz" type="remove" issue="274">
-        Removed methods 'invokeLater', 'invokeAndWait' and 'releaseLeftMouseButton' in org.assertj.swing.core.Robot.
+          Removed methods 'invokeLater', 'invokeAndWait' and 'releaseLeftMouseButton' in org.uitest4j.swing.core.Robot.
       </action>
     </release>
     <release version="1.0rc" date="2008-12-08" description="Subsequent release">
       <action dev="alexruiz" type="fix" issue="134" due-to="Woody Folsom">
-        org.assertj.swing.core.RobotFixture now throws ActionFailedException if the component to click is out of the 
-        boundaries of the screen.
+          org.uitest4j.swing.core.RobotFixture now throws ActionFailedException if the component to click is out of the
+          boundaries of the screen.
       </action>
       <action dev="alexruiz" type="fix" issue="177" due-to="Juhos Csaba-Zsolt">
         Fixed JTable cell-editing actions.
@@ -917,26 +920,29 @@
         Fixed implementation of method 'click' in org.assertj.swing.fixture.JTableCellFixture.
       </action>
       <action dev="alexruiz" type="fix" issue="231" due-to="Ken Geis">
-        Added method 'print(PrintStream, ComponentMatcher)' (and overloaded version) to 
-        org.assertj.swing.core.ComponentPrinter.
+          Added method 'print(PrintStream, ComponentMatcher)' (and overloaded version) to
+          org.uitest4j.swing.core.ComponentPrinter.
       </action>
       <action dev="alexruiz" type="fix" issue="232" due-to="Ken Geis">
         JTableFixture now correctly finds the index of a column given its identifier.
       </action>
       <action dev="alexruiz" type="fix" issue="235" due-to="Rick Juneson">
-        Method 'findAll' in org.assertj.swing.core.BasicComponentMatcher now returns the found components in the same order
-        every time it is called.
+          Method 'findAll' in org.uitest4j.swing.core.BasicComponentMatcher now returns the found components in the same
+          order
+          every time it is called.
       </action>
       <action dev="alexruiz" type="fix" issue="237" due-to="Simeon Fitch, Michael Hüttermann, vnguyen.sqa">
         All actions performed on GUI components (e.g. click) now throw IllegalStateException if the GUI component is
         not showing on the screen.
       </action>
       <action dev="alexruiz" type="fix" issue="239">
-        All Matchers in package org.assertj.swing.core.matcher now implement 'toString' to make troubleshooting of failing
-        component lookups easier.
+          All Matchers in package org.uitest4j.swing.core.matcher now implement 'toString' to make troubleshooting of
+          failing
+          component lookups easier.
       </action>
       <action dev="alexruiz" type="fix" issue="240">
-        Moved class ScreenLock from package org.assertj.swing.core to org.assertj.swing.lock to remove circular dependency.
+          Moved class ScreenLock from package org.uitest4j.swing.core to org.assertj.swing.lock to remove circular
+          dependency.
       </action>
       <action dev="alexruiz" type="fix" issue="241">
         Renamed class TableCellByColumnName (in package org.assertj.swing.data) to TableCellByColumnId.
@@ -955,7 +961,8 @@
         thier associated JLabel.
       </action>
       <action dev="alexruiz" type="add" issue="244">
-        Consolidated org.assertj.swing.core.NameMatcher and org.assertj.swing.core.NameAndTypeMatcher into one matcher.
+          Consolidated org.uitest4j.swing.core.NameMatcher and org.uitest4j.swing.core.NameAndTypeMatcher into one
+          matcher.
       </action>
       <action dev="alexruiz" type="fix" issue="246" due-to="Juhos Csaba-Zsolt">
         Fixed NullPointerException thrown in org.assertj.swing.driver.JListDriver when selecting an already selected item.
@@ -1003,7 +1010,7 @@
           org.assertj.swing.edt.GuiActionRunner and org.assertj.swing.edt.GuiTask.
       </action>
       <action dev="alexruiz" type="fix" issue="187">
-        Moved classes Condition, Pause and Timeout from package org.assertj.swing.core to org.assertj.swing.timing.
+          Moved classes Condition, Pause and Timeout from package org.uitest4j.swing.core to org.assertj.swing.timing.
       </action>
       <action dev="alexruiz, wanghy" type="fix" issue="187">
         Added methods 'pause(Condition[])' to org.assertj.swing.timing.Pause.
@@ -1023,8 +1030,9 @@
         Added method 'select(Object)' in org.assertj.swing.fixture.JSpinnerFixture.
       </action>
       <action dev="alexruiz" type="fix" issue="197" due-to="filimono">
-        Methods 'click(Component)' in org.assertj.swing.core.RobotFixture now click on the center of the visible area of 
-        the component, only if the component is an instance of javax.swing.JComponent.
+          Methods 'click(Component)' in org.uitest4j.swing.core.RobotFixture now click on the center of the visible area
+          of
+          the component, only if the component is an instance of javax.swing.JComponent.
       </action>
       <action dev="alexruiz" type="fix" issue="197" due-to="filimono">
           Added method 'centerOfVisibleRect(JComponent)' to org.uitest4j.swing.awt.AWT.
@@ -1065,7 +1073,7 @@
         Added method 'menuItemWithPath(String...)' to org.assertj.swing.fixture.JPopupMenuFixture.
       </action>
       <action dev="alexruiz, wanghy" type="fix" issue="158" due-to="vnguyen.sqa">
-        Added component matchers using commonly used search criteria to package org.assertj.swing.core.matchers.
+          Added component matchers using commonly used search criteria to package org.uitest4j.swing.core.matchers.
       </action>
       <action dev="alexruiz, wanghy" type="fix" issue="165" due-to="Simeon Fitch">
         Replaced method 'select(JMenuItem)' with 'click(JMenuItem)' in org.assertj.swing.fixture.JMenuItemFixture.
@@ -1101,8 +1109,9 @@
         Methods 'selectItem' ensure the drop-down list in a  JComboBox is hidden after a selection has been made.
       </action>
       <action dev="alexruiz" type="remove" issue="174" due-to="Simeon Fitch">
-        Added class org.assertj.swing.core.EmergencyAbortListener to abort running FEST-Swing tests using a predefined key 
-        combination.
+          Added class org.uitest4j.swing.core.EmergencyAbortListener to abort running FEST-Swing tests using a
+          predefined key
+          combination.
       </action>
       <action dev="wanghy" type="fix" issue="177" due-to="Juhos Csaba-Zsolt">
         JTableCellWriters now wait for the editor to show on the screen before starting editing a JTable cell.
@@ -1115,11 +1124,12 @@
         KeyboardInputSimulationFixture, MouseInputSimulationFixture and StateVerificationFixture.
       </action>
       <action dev="alexruiz" type="fix">
-        Moved classes KeyPressInfo and MouseClickInfo from package org.assertj.swing.fixture to org.assertj.swing.core.
+          Moved classes KeyPressInfo and MouseClickInfo from package org.assertj.swing.fixture to
+          org.uitest4j.swing.core.
       </action>
       <action dev="alexruiz" type="fix">
-        Replaced method 'pressAndReleaseKey(int keyCode, int modifiers)' with 
-        'pressAndReleaseKey(int keyCode, int... modifiers)' in org.assertj.swing.core.RobotFixture.
+          Replaced method 'pressAndReleaseKey(int keyCode, int modifiers)' with
+          'pressAndReleaseKey(int keyCode, int... modifiers)' in org.uitest4j.swing.core.RobotFixture.
       </action>
       <action dev="alexruiz" type="remove">
         Removed all methods related to keyboard input simulation from JListItemFixture and JTableCellFixture.
@@ -1137,7 +1147,7 @@
         Disabled components should not be modified by user-like actions.
       </action>
       <action dev="alexruiz, wanghy" type="add" issue="138" due-to="J. Simmons">
-        Added method 'cleanUpWithoutDisposingWindows' to Robot and RobotFixture in package 'org.assertj.swing.core'.
+        Added method 'cleanUpWithoutDisposingWindows' to Robot and RobotFixture in package 'org.uitest4j.swing.core'.
       </action>
       <action dev="alexruiz" type="fix" issue="140" due-to="Wim Deblauwe">
         Method 'selectItem(String)' in JComboBoxFixture now uses the specified cell reader to find a matching value in
@@ -1161,8 +1171,8 @@
         org.assertj.swing.fixture.JTableCellFixture.
       </action>
       <action dev="alexruiz" type="add" issue="144" due-to="Simeon Fitch">
-        Added methods 'findAll(ComponentMatcher)' and 'findAll(Container, ComponentMatcher)' to 
-        org.assertj.swing.core.ComponentFinder to look up all the components that match certain search criteria.
+          Added methods 'findAll(ComponentMatcher)' and 'findAll(Container, ComponentMatcher)' to
+          org.uitest4j.swing.core.ComponentFinder to look up all the components that match certain search criteria.
       </action>
       <action dev="alexruiz" type="fix" issue="145" due-to="Juhos Csaba-Zsolt">
         Fixed mapping of character '+' to a key stroke in org.assertj.swing.keystroke.KeyStrokeMappingProvider_en.
@@ -1181,8 +1191,8 @@
         JMenuItemFixture now supports the screen menu bar in Mac OS.
       </action>
       <action dev="wanghy" type="fix">
-        Fixed bug in org.assertj.swing.core.RobotFixture. Closing a window that is not shown resulted in an 
-        ActionFailedException.
+          Fixed bug in org.uitest4j.swing.core.RobotFixture. Closing a window that is not shown resulted in an
+          ActionFailedException.
       </action>
       <action dev="wanghy" type="add">
         Renamed methods 'slideToMax' and 'slideToMin' in JSliderFixture to 'slideToMaximum' and 'slideToMinimum'
@@ -1314,14 +1324,14 @@
         Fixed regression. JInternalFrameFixture extends ComponentFixture.
       </action>
       <action dev="wanghy" type="add">
-        Renamed method names that start with 'mouse' in org.assertj.swing.core.Robot. For example, method
-        'mouseMove' is now 'moveMouse'. This change was done to keep method naming consistency.
+          Renamed method names that start with 'mouse' in org.uitest4j.swing.core.Robot. For example, method
+          'mouseMove' is now 'moveMouse'. This change was done to keep method naming consistency.
       </action>
       <action dev="wanghy, alexruiz" type="add">
-        Added method 'pressModifiers(int)' and 'releaseModifiers(int)' to org.assertj.swing.core.Robot.
+          Added method 'pressModifiers(int)' and 'releaseModifiers(int)' to org.uitest4j.swing.core.Robot.
       </action>
       <action dev="alexruiz" type="add">
-        Added methods 'focus(Component)' and 'focusAndWaitForFocusGain(Component)' to org.assertj.swing.core.Robot.
+          Added methods 'focus(Component)' and 'focusAndWaitForFocusGain(Component)' to org.uitest4j.swing.core.Robot.
       </action>
     </release>
     <release version="0.9" date="2008-03-21" description="Subsequent release">
@@ -1342,9 +1352,9 @@
         should be retrieved from a Robot.
       </action>
       <action dev="alexruiz" type="add" issue="118" due-to="Lukasz Tutaj">
-        Added methods 'includeHierarchyIfComponentNotFound' and 
-        'includeHierarchyIfComponentNotFound(boolean)' to org.assertj.swing.core.ComponentFinder to indicate if the
-        component hierarchy should be included in a ComponentLookupException thrown when a component cannot be found.
+          Added methods 'includeHierarchyIfComponentNotFound' and
+          'includeHierarchyIfComponentNotFound(boolean)' to org.uitest4j.swing.core.ComponentFinder to indicate if the
+          component hierarchy should be included in a ComponentLookupException thrown when a component cannot be found.
       </action>
       <action dev="alexruiz" type="add" issue="95" due-to="Fabien Barbero">
         Added method 'component' to ComponentFixture. It returns the GUI component in a fixture.
@@ -1357,11 +1367,11 @@
         Added method 'requireNoJOptionPaneIsShowing' to RobotFixture.
       </action>
       <action dev="alexruiz" type="add">
-        Renamed ComponentPrinter to BasicComponentPrinter (in package org.assertj.swing.core). Introduced interface 
+        Renamed ComponentPrinter to BasicComponentPrinter (in package org.uitest4j.swing.core). Introduced interface
         ComponentPrinter.
       </action>
       <action dev="alexruiz" type="add">
-        Renamed ComponentFinder to BasicComponentFinder (in package org.assertj.swing.core). Introduced interface 
+        Renamed ComponentFinder to BasicComponentFinder (in package org.uitest4j.swing.core). Introduced interface
         ComponentFinder.
       </action>
       <action dev="alexruiz" type="fix">
@@ -1369,7 +1379,8 @@
         org.assertj.swing.util.Swing. 
       </action>
       <action dev="alexruiz" type="add">
-        Created interface org.assertj.swing.core.Robot and made RobotFixture implement it, to facilitate unit testing.
+          Created interface org.uitest4j.swing.core.Robot and made RobotFixture implement it, to facilitate unit
+          testing.
       </action>
       <action dev="alexruiz" type="add">
         Added method 'showPopupMenuAt(String)' to JListFixture.
@@ -1389,7 +1400,7 @@
         ComponentFinderTemplate uses the specified name to find a component.
       </action>
       <action dev="alexruiz" type="fix" issue="105" due-to="Woody Folsom">
-        Fixed constructors in ContainerFixture to use lookup scope from org.assertj.swing.core.Settings.
+          Fixed constructors in ContainerFixture to use lookup scope from org.uitest4j.swing.core.Settings.
       </action>
       <action dev="wanghy, alexruiz" type="add">
         Added method 'click(TableCell, MouseButton)' to JTableFixture.
@@ -1405,11 +1416,11 @@
         up for a single component.
       </action>
       <action dev="alexruiz" type="add">
-        Moved methods 'showPopupMenu' and 'findActivePopupMenu' from org.assertj.swing.core.RobotFixture to
-        org.assertj.swing.driver.JPopupMenuDriver.
+          Moved methods 'showPopupMenu' and 'findActivePopupMenu' from org.uitest4j.swing.core.RobotFixture to
+          org.assertj.swing.driver.JPopupMenuDriver.
       </action>
       <action dev="alexruiz" type="add" issue="104" due-to="Fabien Barbero">
-        Added method 'pressAndReleaseKey(int keyCode, int modifiers)' to org.assertj.swing.core.RobotFixture.
+          Added method 'pressAndReleaseKey(int keyCode, int modifiers)' to org.uitest4j.swing.core.RobotFixture.
       </action>
       <action dev="alexruiz, wanghy" type="add">
         Added the following component drivers to replace Abbot's testers: ComponentDriver, ContainerDriver,
@@ -1418,25 +1429,27 @@
         JTreeDriver. Component drivers are intended for internal use only.
       </action>
       <action dev="alexruiz" type="add">
-        Added method 'enterText(String)' to class org.assertj.swing.core.RobotFixture.
+          Added method 'enterText(String)' to class org.uitest4j.swing.core.RobotFixture.
       </action>
       <action dev="alexruiz" type="add">
-        Added method 'timeoutToFindPopup' to class org.assertj.swing.core.Settings. This method sets the number of 
-        milliseconds to wait before failing to find a pop-up menu that should appear.
+          Added method 'timeoutToFindPopup' to class org.uitest4j.swing.core.Settings. This method sets the number of
+          milliseconds to wait before failing to find a pop-up menu that should appear.
       </action>
       <action dev="alexruiz" type="add">
-        Added method 'click(Component, Point)' to org.assertj.swing.core.RobotFixture.
+          Added method 'click(Component, Point)' to org.uitest4j.swing.core.RobotFixture.
       </action>
       <action dev="alexruiz" type="add">
-        Added several constants to org.assertj.swing.core.Settings that indicate the operating system the tests are running 
-        on (e.g. 'IS_WINDOWS', 'IS_OS_X', etc.) 
+          Added several constants to org.uitest4j.swing.core.Settings that indicate the operating system the tests are
+          running
+          on (e.g. 'IS_WINDOWS', 'IS_OS_X', etc.)
       </action> 
       <action dev="alexruiz" type="fix">
-        Renamed method 'robotAutoDelay' to 'delayBetweenEvents' in class org.assertj.swing.core.Settings.
+          Renamed method 'robotAutoDelay' to 'delayBetweenEvents' in class org.uitest4j.swing.core.Settings.
       </action>
       <action dev="alexruiz" type="add">
-        Added method 'timeoutToBeVisible' to class org.assertj.swing.core.Settings. This method sets the the number of 
-        milliseconds to wait for a component to be visible. 
+          Added method 'timeoutToBeVisible' to class org.uitest4j.swing.core.Settings. This method sets the the number
+          of
+          milliseconds to wait for a component to be visible.
       </action> 
       <action dev="alexruiz" type="fix">
         Fixed bug in which IntrospectionComponentFormatter could show the value of the property 'showing'. 
@@ -1457,12 +1470,13 @@
       	Added JScrollBarFixture and JScrollPaneFixture.
       </action>
       <action dev="alexruiz, wanghy" type="fix" issue="81" due-to="Win Deblauwe">
-      	Component lookup using a org.assertj.swing.core.ComponentFinder now throws ComponentLookupException if more than
-      	one component matching the given search criteria is found.
+          Component lookup using a org.uitest4j.swing.core.ComponentFinder now throws ComponentLookupException if more
+          than
+          one component matching the given search criteria is found.
       </action>
       <action dev="alexruiz" type="fix" issue="81" due-to="Win Deblauwe">
-      	Moved 'print' methods from org.assertj.swing.core.ComponentFinder to the new class
-      	org.assertj.swing.core.ComponentPrinter.
+          Moved 'print' methods from org.uitest4j.swing.core.ComponentFinder to the new class
+          org.uitest4j.swing.core.ComponentPrinter.
       </action>
       <action dev="alexruiz" type="add">
       	Added NameAndTypeMatcher to lookup GUI components by name and type.
@@ -1483,11 +1497,11 @@
     		'printComponents(PrintStream, Class, Container)' to ComponentFinder.
     	</action>
     	<action dev="alexruiz" type="fix" issue="71" due-to="Wim Deblauwe">
-    		Added 'toString' implementation to org.assertj.swing.core.NameMatcher to facilitate debugging.
-    	</action>
+            Added 'toString' implementation to org.uitest4j.swing.core.NameMatcher to facilitate debugging.
+        </action>
     	<action dev="alexruiz" type="fix" issue="71" due-to="Wim Deblauwe">
-    		Added 'toString' implementation to org.assertj.swing.core.TypeMatcher to facilitate debugging.
-    	</action>
+            Added 'toString' implementation to org.uitest4j.swing.core.TypeMatcher to facilitate debugging.
+        </action>
     	<action dev="alexruiz" type="fix" issue="71" due-to="Wim Deblauwe">
     		Added 'toString' implementation to org.assertj.swing.fixture.JMenuItemMatcher to facilitate debugging.
     	</action>
@@ -1499,8 +1513,8 @@
 				Pause.
 			</action>
       <action dev="wanghy, alexruiz" type="add" issue="69" due-to="Wim Deblauwe">
-				Added method 'robotAutoDelay' in class 'org.assertj.swing.core.Settings' to configure test speed.
-			</action>      
+          Added method 'robotAutoDelay' in class 'org.uitest4j.swing.core.Settings' to configure test speed.
+      </action>
       <action dev="wanghy, alexruiz" type="add" issue="70" due-to="Ken Geis">
 				Added JInternalFrameFixture.
 			</action>      
@@ -1594,8 +1608,8 @@
 				Moved exception classes in package org.assertj.swing to org.assertj.swing.exception.
 			</action>
 			<action dev="alexruiz" type="fix" issue="59">
-				Moved classes in package org.assertj.swing to org.assertj.swing.core.
-			</action>
+                Moved classes in package org.assertj.swing to org.uitest4j.swing.core.
+            </action>
 			<action dev="alexruiz" type="fix" issue="59">
 				Renamed package org.assertj.swing.fixture.util to org.assertj.swing.finder.			
 			</action>
@@ -1606,10 +1620,10 @@
         Added class JOptionPaneFinder to find a JOptionPane with timeout support.                
       </action>
       <action dev="wanghy, alexruiz" type="add">
-        Added factory method 'timeout(long, java.util.concurrent.TimeUnit)' to class org.assertj.swing.core.Timeout.
+          Added factory method 'timeout(long, java.util.concurrent.TimeUnit)' to class org.uitest4j.swing.core.Timeout.
       </action>
       <action dev="wanghy" type="fix">
-        Renamed method 'time' to 'duration' in class org.assertj.swing.core.Timeout.
+          Renamed method 'time' to 'duration' in class org.uitest4j.swing.core.Timeout.
       </action>
       <action dev="wanghy" type="fix" due-to="John Stephi" issue="57">
         Renamed method 'checkbox' to 'checkBox' in ContainerFixture.

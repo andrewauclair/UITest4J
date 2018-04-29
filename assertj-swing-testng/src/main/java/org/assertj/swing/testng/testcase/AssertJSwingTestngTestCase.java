@@ -22,7 +22,7 @@ import org.testng.annotations.BeforeMethod;
 /**
  * Understands a template for test cases that use AssertJ-Swing and TestNG. This template installs a
  * <code>{@link FailOnThreadViolationRepaintManager}</code> to catch violations of Swing thread rules and manages both
- * creation and clean up of a <code>{@link org.assertj.swing.core.Robot}</code>.
+ * creation and clean up of a <code>{@link org.uitest4j.swing.core.Robot}</code>.
  *
  * @author Alex Ruiz
  */
@@ -37,7 +37,7 @@ public abstract class AssertJSwingTestngTestCase extends AssertJSwingTestCaseTem
   }
 
   /**
-   * Sets up this test's fixture, starting from creation of a new <code>{@link org.assertj.swing.core.Robot}</code>.
+   * Sets up this test's fixture, starting from creation of a new <code>{@link org.uitest4j.swing.core.Robot}</code>.
    *
    * @see #setUpRobot()
    * @see #onSetUp()
@@ -65,7 +65,7 @@ public abstract class AssertJSwingTestngTestCase extends AssertJSwingTestCaseTem
 
   /**
    * Cleans up any resources used in this test. After calling <code>{@link #onTearDown()}</code>, this method cleans up
-   * resources used by this test's <code>{@link org.assertj.swing.core.Robot}</code>.
+   * resources used by this test's <code>{@link org.uitest4j.swing.core.Robot}</code>.
    *
    * @see #cleanUp()
    * @see #onTearDown()

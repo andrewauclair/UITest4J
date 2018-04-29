@@ -19,7 +19,7 @@ import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.swing.*;
 
-import static org.assertj.swing.core.ComponentLookupScope.ALL;
+import static org.uitest4j.swing.core.ComponentLookupScope.ALL;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 /**

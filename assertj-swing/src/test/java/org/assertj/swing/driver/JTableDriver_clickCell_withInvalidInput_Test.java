@@ -18,14 +18,14 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.Collection;
 
 import static org.assertj.core.util.Lists.newArrayList;
-import static org.assertj.swing.core.MouseButton.LEFT_BUTTON;
+import static org.uitest4j.swing.core.MouseButton.LEFT_BUTTON;
 import static org.assertj.swing.data.TableCell.row;
 import static org.assertj.swing.test.data.ZeroAndNegativeProvider.zeroAndNegative;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * Tests for
- * {@link JTableDriver#click(javax.swing.JTable, org.assertj.swing.data.TableCell, org.assertj.swing.core.MouseButton, int)}
+ * {@link JTableDriver#click(javax.swing.JTable, org.assertj.swing.data.TableCell, org.uitest4j.swing.core.MouseButton, int)}
  * .
  * 
  * @author Alex Ruiz

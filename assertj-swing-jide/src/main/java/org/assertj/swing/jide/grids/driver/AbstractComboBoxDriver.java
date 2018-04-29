@@ -27,7 +27,7 @@ import javax.swing.JComponent;
 import org.assertj.core.description.Description;
 import org.assertj.core.util.Strings;
 import org.uitest4j.swing.annotation.RunsInEDT;
-import org.assertj.swing.core.KeyPressInfo;
+import org.uitest4j.swing.core.KeyPressInfo;
 import org.assertj.swing.driver.JComponentDriver;
 import org.assertj.swing.exception.LocationUnavailableException;
 import org.assertj.swing.query.ComponentEnabledQuery;
@@ -52,7 +52,7 @@ public class AbstractComboBoxDriver extends JComponentDriver {
 
   protected AbstractComboBoxCellReader _cellReader;
 
-  public AbstractComboBoxDriver(org.assertj.swing.core.Robot robot) {
+  public AbstractComboBoxDriver(org.uitest4j.swing.core.Robot robot) {
     super(robot);
     cellReader(new AbstractComboBoxCellReader());
   }

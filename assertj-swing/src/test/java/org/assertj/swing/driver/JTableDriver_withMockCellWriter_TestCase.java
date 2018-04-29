@@ -19,7 +19,7 @@ import org.junit.jupiter.api.BeforeEach;
 
 import javax.swing.*;
 
-import static org.assertj.swing.core.TestRobots.singletonRobotMock;
+import static org.uitest4j.swing.core.TestRobots.singletonRobotMock;
 import static org.assertj.swing.test.builder.JTables.table;
 import static org.mockito.Mockito.mock;
 

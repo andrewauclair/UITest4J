@@ -12,7 +12,7 @@
  */
 package org.assertj.swing.driver;
 
-import org.assertj.swing.core.ComponentMatcher;
+import org.uitest4j.swing.core.ComponentMatcher;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 
 import javax.annotation.Nonnull;

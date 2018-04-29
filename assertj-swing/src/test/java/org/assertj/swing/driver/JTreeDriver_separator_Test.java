@@ -16,7 +16,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.core.TestRobots.singletonRobotMock;
+import static org.uitest4j.swing.core.TestRobots.singletonRobotMock;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**

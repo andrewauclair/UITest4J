@@ -13,7 +13,7 @@
 package org.assertj.swing.driver;
 
 import org.assertj.core.util.VisibleForTesting;
-import org.assertj.swing.core.Robot;
+import org.uitest4j.swing.core.Robot;
 import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.exception.UnexpectedException;
 import org.assertj.swing.internal.annotation.InternalApi;

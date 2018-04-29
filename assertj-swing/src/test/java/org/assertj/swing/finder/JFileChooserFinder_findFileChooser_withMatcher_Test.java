@@ -19,13 +19,13 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import javax.annotation.Nonnull;
 import javax.swing.JFileChooser;
 
-import org.assertj.swing.core.GenericTypeMatcher;
+import org.uitest4j.swing.core.GenericTypeMatcher;
 import org.assertj.swing.exception.WaitTimedOutError;
 import org.assertj.swing.fixture.JFileChooserFixture;
 import org.junit.jupiter.api.Test;
 
 /**
- * Tests for {@link JFileChooserFinder#findFileChooser(org.assertj.swing.core.GenericTypeMatcher)}.
+ * Tests for {@link JFileChooserFinder#findFileChooser(org.uitest4j.swing.core.GenericTypeMatcher)}.
  * 
  * @author Alex Ruiz
  */

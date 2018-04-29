@@ -12,7 +12,7 @@
  */
 package org.assertj.swing.fixture;
 
-import static org.assertj.swing.core.MouseButton.LEFT_BUTTON;
+import static org.uitest4j.swing.core.MouseButton.LEFT_BUTTON;
 
 import java.util.regex.Pattern;
 
@@ -21,8 +21,8 @@ import javax.annotation.Nullable;
 import javax.swing.JList;
 
 import org.assertj.swing.cell.JListCellReader;
-import org.assertj.swing.core.MouseButton;
-import org.assertj.swing.core.Robot;
+import org.uitest4j.swing.core.MouseButton;
+import org.uitest4j.swing.core.Robot;
 import org.assertj.swing.driver.JListDriver;
 import org.assertj.swing.util.Range;
 

@@ -18,7 +18,7 @@ import org.assertj.swing.test.recorder.ToolkitClickRecorder;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.core.MouseButton.RIGHT_BUTTON;
+import static org.uitest4j.swing.core.MouseButton.RIGHT_BUTTON;
 import static org.assertj.swing.query.ComponentVisibleQuery.isVisible;
 
 /**

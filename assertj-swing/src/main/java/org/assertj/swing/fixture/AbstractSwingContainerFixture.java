@@ -19,7 +19,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.swing.JComponent;
 
-import org.assertj.swing.core.Robot;
+import org.uitest4j.swing.core.Robot;
 import org.assertj.swing.driver.JComponentDriver;
 
 /**
@@ -45,7 +45,7 @@ public abstract class AbstractSwingContainerFixture<S, C extends JComponent, D e
    * @throws NullPointerException if {@code type} is {@code null}.
    * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
    * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
-   * @see org.assertj.swing.core.ComponentFinder#findByType(Class)
+   * @see org.uitest4j.swing.core.ComponentFinder#findByType(Class)
    */
   public AbstractSwingContainerFixture(@Nonnull Class<S> selfType, @Nonnull Robot robot,
                                        @Nonnull Class<? extends C> type) {
@@ -63,7 +63,7 @@ public abstract class AbstractSwingContainerFixture<S, C extends JComponent, D e
    * @throws NullPointerException if {@code type} is {@code null}.
    * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
    * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
-   * @see org.assertj.swing.core.ComponentFinder#findByName(String, Class)
+   * @see org.uitest4j.swing.core.ComponentFinder#findByName(String, Class)
    */
   public AbstractSwingContainerFixture(@Nonnull Class<S> selfType, @Nonnull Robot robot, @Nullable String name,
                                        @Nonnull Class<? extends C> type) {

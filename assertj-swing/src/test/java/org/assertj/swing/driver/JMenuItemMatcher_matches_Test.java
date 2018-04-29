@@ -12,7 +12,7 @@
  */
 package org.assertj.swing.driver;
 
-import org.assertj.swing.core.ComponentFinder;
+import org.uitest4j.swing.core.ComponentFinder;
 import org.assertj.swing.test.core.SequentialEDTSafeTestCase;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.jupiter.api.Test;
@@ -22,7 +22,7 @@ import javax.swing.*;
 import java.awt.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.core.BasicComponentFinder.finderWithNewAwtHierarchy;
+import static org.uitest4j.swing.core.BasicComponentFinder.finderWithNewAwtHierarchy;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 /**

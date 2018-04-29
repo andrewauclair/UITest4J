@@ -16,7 +16,7 @@ import org.junit.jupiter.api.BeforeAll;
 
 import javax.swing.*;
 
-import static org.assertj.swing.core.TestRobots.singletonRobotMock;
+import static org.uitest4j.swing.core.TestRobots.singletonRobotMock;
 import static org.mockito.Mockito.mock;
 
 /**

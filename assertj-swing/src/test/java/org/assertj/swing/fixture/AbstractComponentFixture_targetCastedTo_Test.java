@@ -21,7 +21,7 @@ import java.util.concurrent.Callable;
 import javax.annotation.Nonnull;
 import javax.swing.JTable;
 
-import org.assertj.swing.core.Robot;
+import org.uitest4j.swing.core.Robot;
 import org.assertj.swing.driver.ComponentDriver;
 import org.assertj.swing.edt.GuiActionRunner;
 import org.junit.jupiter.api.Test;

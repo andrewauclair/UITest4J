@@ -21,8 +21,8 @@ import java.awt.Container;
 import javax.annotation.Nonnull;
 import javax.swing.JMenuItem;
 
-import org.assertj.swing.core.ComponentMatcher;
-import org.assertj.swing.core.Robot;
+import org.uitest4j.swing.core.ComponentMatcher;
+import org.uitest4j.swing.core.Robot;
 import org.assertj.swing.driver.JMenuItemMatcher;
 
 /**

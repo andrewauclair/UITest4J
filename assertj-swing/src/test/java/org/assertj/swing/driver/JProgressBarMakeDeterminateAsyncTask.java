@@ -24,7 +24,7 @@ import java.util.logging.Logger;
 import javax.annotation.Nonnull;
 import javax.swing.JProgressBar;
 
-import org.assertj.swing.core.Robot;
+import org.uitest4j.swing.core.Robot;
 
 /**
  * Asynchronously moves a {@code JProgressBar} to a determinate state, given an increment and a period of time in

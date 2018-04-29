@@ -13,12 +13,12 @@
 package org.assertj.swing.fixture;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.core.MouseButton.LEFT_BUTTON;
-import static org.assertj.swing.core.MouseButton.MIDDLE_BUTTON;
-import static org.assertj.swing.core.MouseButton.RIGHT_BUTTON;
+import static org.uitest4j.swing.core.MouseButton.LEFT_BUTTON;
+import static org.uitest4j.swing.core.MouseButton.MIDDLE_BUTTON;
+import static org.uitest4j.swing.core.MouseButton.RIGHT_BUTTON;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import org.assertj.swing.core.MouseClickInfo;
+import org.uitest4j.swing.core.MouseClickInfo;
 import org.junit.jupiter.api.Test;
 
 /**

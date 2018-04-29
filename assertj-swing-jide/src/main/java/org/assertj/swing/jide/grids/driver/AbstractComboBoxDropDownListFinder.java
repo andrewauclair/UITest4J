@@ -20,9 +20,9 @@ import java.util.List;
 import javax.swing.JList;
 
 import org.uitest4j.swing.annotation.RunsInEDT;
-import org.assertj.swing.core.ComponentMatcher;
-import org.assertj.swing.core.Robot;
-import org.assertj.swing.core.TypeMatcher;
+import org.uitest4j.swing.core.ComponentMatcher;
+import org.uitest4j.swing.core.Robot;
+import org.uitest4j.swing.core.TypeMatcher;
 
 /**
  * Understands look up of the <code>{@link javax.swing.JList}</code> in the pop-up raised by a

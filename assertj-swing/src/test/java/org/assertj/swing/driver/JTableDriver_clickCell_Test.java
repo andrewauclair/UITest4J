@@ -18,12 +18,12 @@ import org.assertj.swing.test.recorder.ClickRecorder;
 import org.assertj.swing.test.recorder.ClickRecorderManager;
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.swing.core.MouseButton.LEFT_BUTTON;
+import static org.uitest4j.swing.core.MouseButton.LEFT_BUTTON;
 import static org.assertj.swing.data.TableCell.row;
 
 /**
  * Tests for
- * {@link JTableDriver#click(javax.swing.JTable, org.assertj.swing.data.TableCell, org.assertj.swing.core.MouseButton, int)}
+ * {@link JTableDriver#click(javax.swing.JTable, org.assertj.swing.data.TableCell, org.uitest4j.swing.core.MouseButton, int)}
  * .
  *
  * @author Alex Ruiz

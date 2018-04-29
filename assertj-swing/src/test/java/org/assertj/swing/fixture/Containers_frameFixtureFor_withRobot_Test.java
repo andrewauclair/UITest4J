@@ -25,7 +25,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 /**
- * Tests for {@link Containers#frameFixtureFor(org.assertj.swing.core.Robot, java.awt.Container)}.
+ * Tests for {@link Containers#frameFixtureFor(org.uitest4j.swing.core.Robot, java.awt.Container)}.
  *
  * @author Christian Rösch
  */

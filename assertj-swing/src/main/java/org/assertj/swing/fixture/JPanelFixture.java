@@ -19,7 +19,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.swing.JPanel;
 
-import org.assertj.swing.core.Robot;
+import org.uitest4j.swing.core.Robot;
 import org.assertj.swing.driver.JComponentDriver;
 
 /**
@@ -103,7 +103,7 @@ public class JPanelFixture extends AbstractContainerFixture<JPanelFixture, JPane
    * Shows a pop-up menu using this fixture's {@code JPanel} as the invoker of the pop-up menu.
    *
    * @return a fixture that manages the displayed pop-up menu.
-   * @throws IllegalStateException if {@link org.assertj.swing.core.Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and this
+   * @throws IllegalStateException if {@link org.uitest4j.swing.core.Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and this
    *           fixture's {@code JPanel} is disabled.
    * @throws IllegalStateException if this fixture's {@code JPanel} is not showing on the screen.
    * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
@@ -118,7 +118,7 @@ public class JPanelFixture extends AbstractContainerFixture<JPanelFixture, JPane
    *
    * @param p the given point where to show the pop-up menu.
    * @return a fixture that manages the displayed pop-up menu.
-   * @throws IllegalStateException if {@link org.assertj.swing.core.Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and this
+   * @throws IllegalStateException if {@link org.uitest4j.swing.core.Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and this
    *           fixture's {@code JPanel} is disabled.
    * @throws IllegalStateException if this fixture's {@code JPanel} is not showing on the screen.
    * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.

@@ -14,8 +14,8 @@ package org.assertj.swing.testing;
 
 import javax.annotation.Nonnull;
 
-import org.assertj.swing.core.BasicRobot;
-import org.assertj.swing.core.Robot;
+import org.uitest4j.swing.core.BasicRobot;
+import org.uitest4j.swing.core.Robot;
 
 /**
  * Template for test cases that use AssertJ-Swing.

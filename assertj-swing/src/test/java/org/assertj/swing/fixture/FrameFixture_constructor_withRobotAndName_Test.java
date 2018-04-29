@@ -24,7 +24,7 @@ import static org.assertj.swing.test.builder.JFrames.frame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
- * Tests for {@link FrameFixture#FrameFixture(org.assertj.swing.core.Robot, String)}.
+ * Tests for {@link FrameFixture#FrameFixture(org.uitest4j.swing.core.Robot, String)}.
  * 
  * @author Alex Ruiz
  * @author Yvonne Wang

@@ -13,7 +13,7 @@
 package org.assertj.swing.jide.components;
 
 import org.assertj.core.util.Strings;
-import org.assertj.swing.core.Robot;
+import org.uitest4j.swing.core.Robot;
 import org.assertj.swing.fixture.AbstractContainerFixture;
 
 import com.jidesoft.status.StatusBar;
