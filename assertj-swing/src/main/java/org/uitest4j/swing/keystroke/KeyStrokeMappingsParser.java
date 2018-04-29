@@ -1,4 +1,4 @@
-/**
+/*
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
  *
@@ -20,15 +20,14 @@ import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 import java.io.*;
 import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import static java.lang.Thread.currentThread;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Closeables.closeQuietly;
-import static org.assertj.core.util.Lists.newArrayList;
 import static org.assertj.core.util.Preconditions.checkNotNullOrEmpty;
-import static org.assertj.core.util.Strings.concat;
 import static org.assertj.core.util.Strings.quote;
 import static org.uitest4j.swing.keystroke.KeyStrokeMapping.mapping;
 import static org.uitest4j.swing.keystroke.KeyStrokeMappingProvider.NO_MASK;
@@ -87,131 +86,142 @@ import static org.uitest4j.swing.util.Maps.newHashMap;
  * @author Alex Ruiz
  */
 public class KeyStrokeMappingsParser {
-  private static final Map<String, Character> SPECIAL_MAPPINGS = newHashMap();
+	private static final Map<String, Character> SPECIAL_MAPPINGS = newHashMap();
 
-  static {
-    SPECIAL_MAPPINGS.put("COMMA", ',');
-  }
+	static {
+		SPECIAL_MAPPINGS.put("COMMA", ',');
+	}
 
-  /**
-   * <p>
-   * Creates a {@link KeyStrokeMappingProvider} containing all the character-keystroke mappings specified in the file
-   * with the given name.
-   * </p>
-   *
-   * <p>
-   * <strong>Note:</strong> This attempts to read the file using {@link ClassLoader#getResourceAsStream(String)}.
-   * </p>
-   *
-   * @param fileName the name of the file to parse.
-   * @return the created {@code KeyStrokeMappingProvider}.
-   * @throws NullPointerException if the given name is {@code null}.
-   * @throws IllegalArgumentException if the given name is empty.
-   * @throws ParsingException if any error occurs during parsing.
-   * @see #parse(File)
-   */
-  @Nonnull public KeyStrokeMappingProvider parse(@Nonnull String fileName) {
-    checkNotNullOrEmpty(fileName);
-    try {
-      return parse(fileAsStream(fileName));
-    } catch (IOException e) {
-      throw new ParsingException(concat("An I/O error ocurred while parsing file ", fileName), e);
-    }
-  }
+	/**
+	 * <p>
+	 * Creates a {@link KeyStrokeMappingProvider} containing all the character-keystroke mappings specified in the file
+	 * with the given name.
+	 * </p>
+	 *
+	 * <p>
+	 * <strong>Note:</strong> This attempts to read the file using {@link ClassLoader#getResourceAsStream(String)}.
+	 * </p>
+	 *
+	 * @param fileName the name of the file to parse.
+	 * @return the created {@code KeyStrokeMappingProvider}.
+	 * @throws NullPointerException     if the given name is {@code null}.
+	 * @throws IllegalArgumentException if the given name is empty.
+	 * @throws ParsingException         if any error occurs during parsing.
+	 * @see #parse(File)
+	 */
+	@Nonnull
+	public KeyStrokeMappingProvider parse(@Nonnull String fileName) {
+		checkNotNullOrEmpty(fileName);
+		try {
+			return parse(fileAsStream(fileName));
+		}
+		catch (IOException e) {
+			throw new ParsingException("An I/O error ocurred while parsing file " + fileName, e);
+		}
+	}
 
-  @Nonnull private InputStream fileAsStream(String file) {
-    InputStream stream = currentThread().getContextClassLoader().getResourceAsStream(file);
-    if (stream == null) {
-      throw new ParsingException(String.format("Unable to open file %s", file));
-    }
-    return stream;
-  }
+	@Nonnull
+	private InputStream fileAsStream(String file) {
+		InputStream stream = currentThread().getContextClassLoader().getResourceAsStream(file);
+		if (stream == null) {
+			throw new ParsingException(String.format("Unable to open file %s", file));
+		}
+		return stream;
+	}
 
-  /**
-   * Creates a {@link KeyStrokeMappingProvider} containing all the character-keystroke mappings specified in the given
-   * file.
-   *
-   * @param file the file to parse.
-   * @return the created {@code KeyStrokeMappingProvider}.
-   * @throws NullPointerException if the given file is {@code null}.
-   * @throws AssertionError if the given file does not represent an existing file.
-   * @throws ParsingException if any error occurs during parsing.
-   */
-  @Nonnull public KeyStrokeMappingProvider parse(@Nonnull File file) {
-    assertThat(file).isFile();
-    try {
-      return parse(fileAsStream(file));
-    } catch (IOException e) {
-      throw new ParsingException(concat("An I/O error ocurred while parsing file ", file), e);
-    }
-  }
+	/**
+	 * Creates a {@link KeyStrokeMappingProvider} containing all the character-keystroke mappings specified in the given
+	 * file.
+	 *
+	 * @param file the file to parse.
+	 * @return the created {@code KeyStrokeMappingProvider}.
+	 * @throws NullPointerException if the given file is {@code null}.
+	 * @throws AssertionError       if the given file does not represent an existing file.
+	 * @throws ParsingException     if any error occurs during parsing.
+	 */
+	@Nonnull
+	public KeyStrokeMappingProvider parse(@Nonnull File file) {
+		assertThat(file).isFile();
+		try {
+			return parse(fileAsStream(file));
+		}
+		catch (IOException e) {
+			throw new ParsingException("An I/O error ocurred while parsing file " + file, e);
+		}
+	}
 
-  @Nonnull private InputStream fileAsStream(@Nonnull File file) {
-    try {
-      return new FileInputStream(file);
-    } catch (FileNotFoundException e) {
-      String msg = String.format("The file %s was not found", file.getPath());
-      throw new ParsingException(msg, e);
-    }
-  }
+	@Nonnull
+	private InputStream fileAsStream(@Nonnull File file) {
+		try {
+			return new FileInputStream(file);
+		}
+		catch (FileNotFoundException e) {
+			String msg = String.format("The file %s was not found", file.getPath());
+			throw new ParsingException(msg, e);
+		}
+	}
 
-  @Nonnull private KeyStrokeMappingProvider parse(@Nonnull InputStream input) throws IOException {
-    List<KeyStrokeMapping> mappings = newArrayList();
-    BufferedReader reader = new BufferedReader(new InputStreamReader(input));
-    try {
-      String line = reader.readLine();
-      while (line != null) {
-        mappings.add(mappingFrom(line));
-        line = reader.readLine();
-      }
-      return new ParsedKeyStrokeMappingProvider(mappings);
-    } finally {
-      closeQuietly(reader);
-    }
-  }
+	@Nonnull
+	private KeyStrokeMappingProvider parse(@Nonnull InputStream input) throws IOException {
+		List<KeyStrokeMapping> mappings = new ArrayList<>();
+		BufferedReader reader = new BufferedReader(new InputStreamReader(input));
+		try {
+			String line = reader.readLine();
+			while (line != null) {
+				mappings.add(mappingFrom(line));
+				line = reader.readLine();
+			}
+			return new ParsedKeyStrokeMappingProvider(mappings);
+		}
+		finally {
+			closeQuietly(reader);
+		}
+	}
 
-  @VisibleForTesting
-  @Nonnull
-  KeyStrokeMapping mappingFrom(@Nonnull String line) {
-    String[] parts = line.trim().split(",");
-    if (parts.length != 3) {
-      String msg = String.format("Line '%s' does not conform with pattern '{char}, {keycode}, {modifiers}'", line);
-      throw new ParsingException(msg);
-    }
-    char character = characterFrom(parts[0].trim());
-    int keyCode = keyCodeFrom(parts[1].trim());
-    int modifiers = modifiersFrom(parts[2].trim());
-    return mapping(character, keyCode, modifiers);
-  }
+	@VisibleForTesting
+	@Nonnull
+	KeyStrokeMapping mappingFrom(@Nonnull String line) {
+		String[] parts = line.trim().split(",");
+		if (parts.length != 3) {
+			String msg = String.format("Line '%s' does not conform with pattern '{char}, {keycode}, {modifiers}'", line);
+			throw new ParsingException(msg);
+		}
+		char character = characterFrom(parts[0].trim());
+		int keyCode = keyCodeFrom(parts[1].trim());
+		int modifiers = modifiersFrom(parts[2].trim());
+		return mapping(character, keyCode, modifiers);
+	}
 
-  private static char characterFrom(@Nonnull String s) {
-    if (SPECIAL_MAPPINGS.containsKey(s)) {
-      return SPECIAL_MAPPINGS.get(s);
-    }
-    if (s.length() == 1) {
-      return s.charAt(0);
-    }
-    throw new ParsingException(String.format("The text '%s' should have a single character", s));
-  }
+	private static char characterFrom(@Nonnull String s) {
+		if (SPECIAL_MAPPINGS.containsKey(s)) {
+			return SPECIAL_MAPPINGS.get(s);
+		}
+		if (s.length() == 1) {
+			return s.charAt(0);
+		}
+		throw new ParsingException(String.format("The text '%s' should have a single character", s));
+	}
 
-  private static int keyCodeFrom(@Nonnull String s) {
-    try {
-      Field field = KeyEvent.class.getField("VK_" + s);
-      return (int) field.get(null);
-    } catch (IllegalAccessException | NoSuchFieldException e) {
-      throw new ParsingException(concat("Unable to retrieve key code from text ", quote(s)), e);
-    }
-  }
+	private static int keyCodeFrom(@Nonnull String s) {
+		try {
+			Field field = KeyEvent.class.getField("VK_" + s);
+			return (int) field.get(null);
+		}
+		catch (IllegalAccessException | NoSuchFieldException e) {
+			throw new ParsingException("Unable to retrieve key code from text " + quote(s), e);
+		}
+	}
 
-  private static int modifiersFrom(@Nonnull String s) {
-    if ("NO_MASK".equals(s)) {
-      return NO_MASK;
-    }
-    try {
-      Field field = InputEvent.class.getField(s);
-      return (int) field.get(null);
-    } catch (IllegalAccessException | NoSuchFieldException e) {
-      throw new ParsingException(concat("Unable to retrieve modifiers from text ", quote(s)), e);
-    }
-  }
+	private static int modifiersFrom(@Nonnull String s) {
+		if ("NO_MASK".equals(s)) {
+			return NO_MASK;
+		}
+		try {
+			Field field = InputEvent.class.getField(s);
+			return (int) field.get(null);
+		}
+		catch (IllegalAccessException | NoSuchFieldException e) {
+			throw new ParsingException("Unable to retrieve modifiers from text " + quote(s), e);
+		}
+	}
 }

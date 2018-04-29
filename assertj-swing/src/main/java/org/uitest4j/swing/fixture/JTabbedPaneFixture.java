@@ -204,7 +204,8 @@ public class JTabbedPaneFixture extends
    * @throws IndexOutOfBoundsException if the given index is not within the {@code JTabbedPane} bounds.
    * @throws AssertionError if the tab at the given index is not enabled.
    */
-  @Nonnull public JTabbedPaneFixture requireEnabled(@Nonnull Index index) {
+  @Nonnull
+  public JTabbedPaneFixture requireEnabled(int index) {
     driver().requireTabEnabled(target(), index);
     return this;
   }
@@ -217,7 +218,8 @@ public class JTabbedPaneFixture extends
    * @throws IndexOutOfBoundsException if the given index is not within the {@code JTabbedPane} bounds.
    * @throws AssertionError if the tab at the given index is not disabled.
    */
-  @Nonnull public JTabbedPaneFixture requireDisabled(@Nonnull Index index) {
+  @Nonnull
+  public JTabbedPaneFixture requireDisabled(int index) {
     driver().requireTabDisabled(target(), index);
     return this;
   }

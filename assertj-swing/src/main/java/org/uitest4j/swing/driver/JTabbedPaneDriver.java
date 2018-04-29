@@ -21,6 +21,7 @@ import org.uitest4j.swing.edt.GuiQuery;
 import org.uitest4j.swing.exception.ActionFailedException;
 import org.uitest4j.swing.exception.LocationUnavailableException;
 import org.uitest4j.swing.internal.annotation.InternalApi;
+import org.uitest4j.swing.internal.assertions.OpenTest4JAssertions;
 import org.uitest4j.swing.util.Pair;
 import org.uitest4j.swing.util.PatternTextMatcher;
 import org.uitest4j.swing.util.StringTextMatcher;
@@ -42,6 +43,7 @@ import static org.uitest4j.swing.driver.JTabbedPaneSelectTabTask.setSelectedTab;
 import static org.uitest4j.swing.driver.JTabbedPaneTabTitlesQuery.tabTitlesOf;
 import static org.uitest4j.swing.driver.TextAssert.verifyThat;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
+import static org.uitest4j.swing.format.Formatting.format;
 
 /**
  * <p>
@@ -325,9 +327,11 @@ public class JTabbedPaneDriver extends JComponentDriver {
 	 * @throws AssertionError            if the tab at the given index is not enabled.
 	 */
 	@RunsInEDT
-	public void requireTabEnabled(@Nonnull JTabbedPane tabbedPane, @Nonnull Index index) {
+	public void requireTabEnabled(@Nonnull JTabbedPane tabbedPane, int index) {
 		boolean actualEnabled = isEnabledAt(tabbedPane, index);
-		assertThat(actualEnabled).as(enabledAtProperty(tabbedPane)).isTrue();
+//		assertThat(actualEnabled).as(enabledAtProperty(tabbedPane)).isTrue();
+
+		OpenTest4JAssertions.assertTrue(actualEnabled, () -> "Expected tab at index " + index + " to be enabled: " + format(tabbedPane));
 	}
 
 	/**
@@ -339,7 +343,7 @@ public class JTabbedPaneDriver extends JComponentDriver {
 	 * @throws AssertionError            if the tab at the given index is not disabled.
 	 */
 	@RunsInEDT
-	public void requireTabDisabled(@Nonnull JTabbedPane tabbedPane, @Nonnull Index index) {
+	public void requireTabDisabled(@Nonnull JTabbedPane tabbedPane, int index) {
 		boolean actualEnabled = isEnabledAt(tabbedPane, index);
 		assertThat(actualEnabled).as(enabledAtProperty(tabbedPane)).isFalse();
 	}
@@ -372,9 +376,8 @@ public class JTabbedPaneDriver extends JComponentDriver {
 	}
 
 	@RunsInEDT
-	@Nullable
-	private static boolean isEnabledAt(final @Nonnull JTabbedPane tabbedPane, final @Nonnull Index index) {
-		return execute(() -> tabbedPane.isEnabledAt(index.value));
+	private static boolean isEnabledAt(final @Nonnull JTabbedPane tabbedPane, final int index) {
+		return Objects.requireNonNull(execute(() -> tabbedPane.isEnabledAt(index)));
 	}
 
 	/**

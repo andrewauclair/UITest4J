@@ -110,13 +110,13 @@ class JTabbedPaneFixture_withMocks_Test {
 
   @Test
   void should_Call_RequireEnabled_In_Driver_And_Return_Self() {
-    assertThat(fixture.requireEnabled(atIndex(6))).isSameAs(fixture);
-    verify(fixture.driver()).requireTabEnabled(fixture.target(), atIndex(6));
+    assertThat(fixture.requireEnabled(6)).isSameAs(fixture);
+    verify(fixture.driver()).requireTabEnabled(fixture.target(), 6);
   }
 
   @Test
   void should_Call_RequireDisabled_In_Driver_And_Return_Self() {
-    assertThat(fixture.requireDisabled(atIndex(6))).isSameAs(fixture);
-    verify(fixture.driver()).requireTabDisabled(fixture.target(), atIndex(6));
+    assertThat(fixture.requireDisabled(6)).isSameAs(fixture);
+    verify(fixture.driver()).requireTabDisabled(fixture.target(), 6);
   }
 }

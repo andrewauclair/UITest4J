@@ -18,18 +18,18 @@ import org.junit.jupiter.api.Test;
 import static org.uitest4j.swing.data.Index.atIndex;
 
 /**
- * Tests for {@link JTabbedPaneDriver#requireTabDisabled(javax.swing.JTabbedPane, org.uitest4j.swing.data.Index)}.
+ * Tests for {@link JTabbedPaneDriver#requireTabDisabled(javax.swing.JTabbedPane, int)}.
  * 
  * @author William Bakker
  */
 class JTabbedPaneDriver_requireTabDisabled_Test extends JTabbedPaneDriver_TestCase {
   @Test
   void should_Fail_If_Tab_Is_Enabled() {
-    ExpectedException.assertContainsMessage(AssertionError.class, () -> driver.requireTabDisabled(tabbedPane, atIndex(0)), "property:'enabledAt'", "expected:<[fals]e> but was:<[tru]e>");
+    ExpectedException.assertContainsMessage(AssertionError.class, () -> driver.requireTabDisabled(tabbedPane, 0), "property:'enabledAt'", "expected:<[fals]e> but was:<[tru]e>");
   }
 
   @Test
   void should_Pass_If_Tab_Is_Disabled() {
-    driver.requireTabDisabled(tabbedPane, atIndex(2));
+    driver.requireTabDisabled(tabbedPane, 2);
   }
 }

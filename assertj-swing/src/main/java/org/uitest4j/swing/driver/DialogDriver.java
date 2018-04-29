@@ -16,6 +16,7 @@ import org.opentest4j.AssertionFailedError;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.internal.annotation.InternalApi;
+import org.uitest4j.swing.internal.assertions.OpenTest4JAssertions;
 
 import javax.annotation.Nonnull;
 import java.awt.*;
@@ -53,8 +54,6 @@ public class DialogDriver extends WindowDriver {
 	 */
 	@RunsInEDT
 	public void requireModal(@Nonnull Dialog dialog) {
-		if (!dialog.isModal()) {
-			throw new AssertionFailedError("Dialog should be modal: " + format(dialog));
-		}
+		OpenTest4JAssertions.assertTrue(dialog.isModal(), () -> "Dialog should be modal: " + format(dialog));
 	}
 }

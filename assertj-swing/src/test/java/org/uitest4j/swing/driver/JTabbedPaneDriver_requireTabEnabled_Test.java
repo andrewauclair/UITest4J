@@ -1,4 +1,4 @@
-/**
+/*
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
  *
@@ -12,24 +12,22 @@
  */
 package org.uitest4j.swing.driver;
 
-import org.uitest4j.swing.test.ExpectedException;
 import org.junit.jupiter.api.Test;
-
-import static org.uitest4j.swing.data.Index.atIndex;
+import org.uitest4j.swing.test.ExpectedException;
 
 /**
- * Tests for {@link JTabbedPaneDriver#requireTabEnabled(javax.swing.JTabbedPane, org.uitest4j.swing.data.Index)}.
+ * Tests for {@link JTabbedPaneDriver#requireTabEnabled(javax.swing.JTabbedPane, int)}.
  * 
  * @author William Bakker
  */
 class JTabbedPaneDriver_requireTabEnabled_Test extends JTabbedPaneDriver_TestCase {
   @Test
   void should_Fail_If_Tab_Is_Disabled() {
-    ExpectedException.assertContainsMessage(AssertionError.class, () -> driver.requireTabEnabled(tabbedPane, atIndex(2)), "property:'enabledAt'", "expected:<[tru]e> but was:<[fals]e>");
+    ExpectedException.assertOpenTest4jError(() -> driver.requireTabEnabled(tabbedPane, 2), "Expected tab at index 2 to be enabled: javax.swing.JTabbedPane[name=null, selectedTabIndex=0, selectedTabTitle='One', tabCount=3, tabTitles=[\"One\", \"Two\", \"Three\"], enabled=true, visible=true, showing=false");
   }
 
   @Test
   void should_Pass_If_Tab_Is_Enabled() {
-    driver.requireTabEnabled(tabbedPane, atIndex(0));
+    driver.requireTabEnabled(tabbedPane, 0);
   }
 }
