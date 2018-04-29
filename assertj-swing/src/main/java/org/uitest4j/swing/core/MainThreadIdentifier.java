@@ -1,4 +1,4 @@
-/**
+/*
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
  *
@@ -12,28 +12,27 @@
  */
 package org.uitest4j.swing.core;
 
-import static org.assertj.core.util.Preconditions.checkNotNull;
-
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.util.Objects;
 
 /**
  * Identifies the "main" thread.
- * 
+ *
  * @author Alex Ruiz
  */
 class MainThreadIdentifier {
-  @Nullable
-  Thread mainThreadIn(@Nonnull Thread[] threads) {
-    for (Thread t : threads) {
-      if (isMain(checkNotNull(t))) {
-        return t;
-      }
-    }
-    return null;
-  }
+	@Nullable
+	Thread mainThreadIn(@Nonnull Thread[] threads) {
+		for (Thread t : threads) {
+			if (isMain(Objects.requireNonNull(t))) {
+				return t;
+			}
+		}
+		return null;
+	}
 
-  private boolean isMain(@Nonnull Thread thread) {
-    return "main".equalsIgnoreCase(thread.getName());
-  }
+	private boolean isMain(@Nonnull Thread thread) {
+		return "main".equalsIgnoreCase(thread.getName());
+	}
 }

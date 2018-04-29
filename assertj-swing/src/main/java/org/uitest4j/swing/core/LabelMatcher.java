@@ -18,9 +18,9 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.swing.*;
 import java.awt.*;
+import java.util.Objects;
 
 import static org.assertj.core.util.Objects.areEqual;
-import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.core.util.Preconditions.checkNotNullOrEmpty;
 import static org.assertj.core.util.Strings.quote;
 
@@ -85,7 +85,7 @@ public class LabelMatcher extends AbstractComponentMatcher {
   public LabelMatcher(@Nullable String label, @Nonnull Class<? extends Component> type, boolean requireShowing) {
     super(requireShowing);
     this.label = checkNotNullOrEmpty(label).toString();
-    this.type = checkNotNull(type);
+    this.type = Objects.requireNonNull(type);
   }
 
   /**
@@ -118,7 +118,7 @@ public class LabelMatcher extends AbstractComponentMatcher {
       return false;
     }
     Component labeled = labelForComponent.getLabelFor();
-    return type.isInstance(labeled) && requireShowingMatches(checkNotNull(labeled));
+    return type.isInstance(labeled) && requireShowingMatches(Objects.requireNonNull(labeled));
   }
 
   @Override
