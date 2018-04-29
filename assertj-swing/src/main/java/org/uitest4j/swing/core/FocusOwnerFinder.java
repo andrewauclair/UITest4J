@@ -1,4 +1,4 @@
-/**
+/*
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
  *
@@ -20,9 +20,9 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.awt.*;
 import java.util.List;
+import java.util.Objects;
 
 import static org.assertj.core.util.Lists.newArrayList;
-import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
@@ -32,67 +32,72 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
  * @author Alex Ruiz
  */
 public final class FocusOwnerFinder {
-  private static final List<FocusOwnerFinderStrategy> STRATEGIES = newArrayList();
+	private static final List<FocusOwnerFinderStrategy> STRATEGIES = newArrayList();
 
-  static {
-    initializeStrategies();
-  }
+	static {
+		initializeStrategies();
+	}
 
-  @VisibleForTesting
-  static void initializeStrategies() {
-    replaceStrategiesWith(new ReflectionBasedFocusOwnerFinder(), new HierarchyBasedFocusOwnerFinder());
-  }
+	@VisibleForTesting
+	static void initializeStrategies() {
+		replaceStrategiesWith(new ReflectionBasedFocusOwnerFinder(), new HierarchyBasedFocusOwnerFinder());
+	}
 
-  @VisibleForTesting
-  static void replaceStrategiesWith(@Nonnull FocusOwnerFinderStrategy... strategies) {
-    STRATEGIES.clear();
-    STRATEGIES.addAll(newArrayList(strategies));
-  }
+	@VisibleForTesting
+	static void replaceStrategiesWith(@Nonnull FocusOwnerFinderStrategy... strategies) {
+		STRATEGIES.clear();
+		STRATEGIES.addAll(newArrayList(strategies));
+	}
 
-  @VisibleForTesting
-  static @Nonnull List<FocusOwnerFinderStrategy> strategies() {
-    return newArrayList(STRATEGIES);
-  }
+	@VisibleForTesting
+	static @Nonnull
+	List<FocusOwnerFinderStrategy> strategies() {
+		return newArrayList(STRATEGIES);
+	}
 
-  /**
-   * @return the focus owner. This method is executed in the event dispatch thread (EDT).
-   */
-  @RunsInEDT
-  @Nullable public static Component inEdtFocusOwner() {
-    return execute(() -> focusOwner());
-  }
+	/**
+	 * @return the focus owner. This method is executed in the event dispatch thread (EDT).
+	 */
+	@RunsInEDT
+	@Nullable
+	public static Component inEdtFocusOwner() {
+		return execute(() -> focusOwner());
+	}
 
-  /**
-   * <p>
-   * Returns the focus owner.
-   * </p>
-   *
-   * <p>
-   * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
-   * dispatch thread (EDT). Client code must call this method from the EDT.
-   * </p>
-   *
-   * @return the focus owner.
-   */
-  @RunsInCurrentThread
-  @Nullable public static Component focusOwner() {
-    for (FocusOwnerFinderStrategy strategy : STRATEGIES) {
-      Component focusOwner = focusOwnerFrom(checkNotNull(strategy));
-      if (focusOwner != null) {
-        return focusOwner;
-      }
-    }
-    return null;
-  }
+	/**
+	 * <p>
+	 * Returns the focus owner.
+	 * </p>
+	 *
+	 * <p>
+	 * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
+	 * dispatch thread (EDT). Client code must call this method from the EDT.
+	 * </p>
+	 *
+	 * @return the focus owner.
+	 */
+	@RunsInCurrentThread
+	@Nullable
+	public static Component focusOwner() {
+		for (FocusOwnerFinderStrategy strategy : STRATEGIES) {
+			Component focusOwner = focusOwnerFrom(Objects.requireNonNull(strategy));
+			if (focusOwner != null) {
+				return focusOwner;
+			}
+		}
+		return null;
+	}
 
-  @Nullable private static Component focusOwnerFrom(@Nonnull FocusOwnerFinderStrategy strategy) {
-    try {
-      return strategy.focusOwner();
-    } catch (Exception e) {
-      return null;
-    }
-  }
+	@Nullable
+	private static Component focusOwnerFrom(@Nonnull FocusOwnerFinderStrategy strategy) {
+		try {
+			return strategy.focusOwner();
+		}
+		catch (Exception e) {
+			return null;
+		}
+	}
 
-  private FocusOwnerFinder() {
-  }
+	private FocusOwnerFinder() {
+	}
 }

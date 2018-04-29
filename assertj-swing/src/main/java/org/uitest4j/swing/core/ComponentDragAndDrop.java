@@ -1,4 +1,4 @@
-/**
+/*
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
  *
@@ -12,13 +12,13 @@
  */
 package org.uitest4j.swing.core;
 
-import org.uitest4j.swing.util.TimeoutWatch;
 import org.uitest4j.swing.annotation.RunsInEDT;
+import org.uitest4j.swing.util.TimeoutWatch;
 
 import javax.annotation.Nonnull;
 import java.awt.*;
+import java.util.Objects;
 
-import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.uitest4j.swing.exception.ActionFailedException.actionFailure;
 import static org.uitest4j.swing.timing.Pause.pause;
 import static org.uitest4j.swing.util.Platform.isMacintosh;
@@ -31,127 +31,131 @@ import static org.uitest4j.swing.util.TimeoutWatch.startWatchWithTimeoutOf;
  * @author Alex Ruiz
  */
 public class ComponentDragAndDrop {
-  private final Robot robot;
+	private final Robot robot;
 
-  /**
-   * Creates a new {@link ComponentDragAndDrop}.
-   *
-   * @param robot the robot to use to simulate user input.
-   */
-  public ComponentDragAndDrop(@Nonnull Robot robot) {
-    this.robot = robot;
-  }
+	/**
+	 * Creates a new {@link ComponentDragAndDrop}.
+	 *
+	 * @param robot the robot to use to simulate user input.
+	 */
+	public ComponentDragAndDrop(@Nonnull Robot robot) {
+		this.robot = robot;
+	}
 
-  /** Number of pixels traversed before a drag starts. */
-  public static final int DRAG_THRESHOLD = isWindows() || isMacintosh() ? 10 : 16;
+	/**
+	 * Number of pixels traversed before a drag starts.
+	 */
+	public static final int DRAG_THRESHOLD = isWindows() || isMacintosh() ? 10 : 16;
 
-  /**
-   * Performs a drag action at the given location.
-   *
-   * @param target the target AWT or Swing {@code Component}.
-   * @param where the point where to start the drag action.
-   */
-  @RunsInEDT
-  public void drag(@Nonnull Component target, @Nonnull Point where) {
-    robot.pressMouse(target, where, robot.settings().dragButton());
-    int dragDelay = settings().dragDelay();
-    if (dragDelay > delayBetweenEvents()) {
-      pause(dragDelay);
-    }
-    mouseMove(target, where.x, where.y);
-    robot.waitForIdle();
-  }
+	/**
+	 * Performs a drag action at the given location.
+	 *
+	 * @param target the target AWT or Swing {@code Component}.
+	 * @param where  the point where to start the drag action.
+	 */
+	@RunsInEDT
+	public void drag(@Nonnull Component target, @Nonnull Point where) {
+		robot.pressMouse(target, where, robot.settings().dragButton());
+		int dragDelay = settings().dragDelay();
+		if (dragDelay > delayBetweenEvents()) {
+			pause(dragDelay);
+		}
+		mouseMove(target, where.x, where.y);
+		robot.waitForIdle();
+	}
 
-  private void mouseMove(@Nonnull Component target, int x, int y) {
-    if (isWindows() || isMacintosh()) {
-      mouseMoveOnWindowsAndMacintosh(target, x, y);
-      return;
-    }
-    mouseMove(target, point(x + DRAG_THRESHOLD / 2, y + DRAG_THRESHOLD / 2),
-              point(x + DRAG_THRESHOLD, y + DRAG_THRESHOLD), point(x + DRAG_THRESHOLD / 2, y + DRAG_THRESHOLD / 2),
-              point(x, y));
-  }
+	private void mouseMove(@Nonnull Component target, int x, int y) {
+		if (isWindows() || isMacintosh()) {
+			mouseMoveOnWindowsAndMacintosh(target, x, y);
+			return;
+		}
+		mouseMove(target, point(x + DRAG_THRESHOLD / 2, y + DRAG_THRESHOLD / 2),
+				point(x + DRAG_THRESHOLD, y + DRAG_THRESHOLD), point(x + DRAG_THRESHOLD / 2, y + DRAG_THRESHOLD / 2),
+				point(x, y));
+	}
 
-  @RunsInEDT
-  private void mouseMoveOnWindowsAndMacintosh(@Nonnull Component target, int x, int y) {
-    Dimension size = target.getSize();
-    int dx = distance(x, size.width);
-    int dy = distance(y, size.height);
-    if (dx == 0 && dy == 0) {
-      dx = DRAG_THRESHOLD;
-    }
-    mouseMove(target, point(x + dx / 4, y + dy / 4), point(x + dx / 2, y + dy / 2), point(x + dx, y + dy),
-              point(x + dx + 1, y + dy));
-  }
+	@RunsInEDT
+	private void mouseMoveOnWindowsAndMacintosh(@Nonnull Component target, int x, int y) {
+		Dimension size = target.getSize();
+		int dx = distance(x, size.width);
+		int dy = distance(y, size.height);
+		if (dx == 0 && dy == 0) {
+			dx = DRAG_THRESHOLD;
+		}
+		mouseMove(target, point(x + dx / 4, y + dy / 4), point(x + dx / 2, y + dy / 2), point(x + dx, y + dy),
+				point(x + dx + 1, y + dy));
+	}
 
-  private int distance(int coordinate, int dimension) {
-    return coordinate + DRAG_THRESHOLD < dimension ? DRAG_THRESHOLD : 0;
-  }
+	private int distance(int coordinate, int dimension) {
+		return coordinate + DRAG_THRESHOLD < dimension ? DRAG_THRESHOLD : 0;
+	}
 
-  @Nonnull private Point point(int x, int y) {
-    return new Point(x, y);
-  }
+	@Nonnull
+	private Point point(int x, int y) {
+		return new Point(x, y);
+	}
 
-  /**
-   * <p>
-   * Ends a drag operation, releasing the mouse button over the given target location.
-   * </p>
-   *
-   * <p>
-   * This method is tuned for native drag/drop operations, so if you get odd behavior, you might try using a simple
-   * {@link Robot#moveMouse(Component, int, int)} and {@link Robot#releaseMouseButtons()}.
-   *
-   * @param target the target AWT or Swing {@code Component}.
-   * @param where the point where the drag operation ends.
-   * @throws org.uitest4j.swing.exception.ActionFailedException if there is no drag action in effect.
-   */
-  @RunsInEDT
-  public void drop(@Nonnull Component target, @Nonnull Point where) {
-    dragOver(target, where);
-    TimeoutWatch watch = startWatchWithTimeoutOf(settings().eventPostingDelay() * 4);
-    while (!robot.isDragging()) {
-      if (watch.isTimeOut()) {
-        throw actionFailure("There is no drag in effect");
-      }
-      pause();
-    }
-    int dropDelay = settings().dropDelay();
-    int delayBetweenEvents = delayBetweenEvents();
-    if (dropDelay > delayBetweenEvents) {
-      pause(dropDelay - delayBetweenEvents);
-    }
-    robot.releaseMouseButtons();
-    robot.waitForIdle();
-  }
+	/**
+	 * <p>
+	 * Ends a drag operation, releasing the mouse button over the given target location.
+	 * </p>
+	 * <p>
+	 * <p>
+	 * This method is tuned for native drag/drop operations, so if you get odd behavior, you might try using a simple
+	 * {@link Robot#moveMouse(Component, int, int)} and {@link Robot#releaseMouseButtons()}.
+	 *
+	 * @param target the target AWT or Swing {@code Component}.
+	 * @param where  the point where the drag operation ends.
+	 * @throws org.uitest4j.swing.exception.ActionFailedException if there is no drag action in effect.
+	 */
+	@RunsInEDT
+	public void drop(@Nonnull Component target, @Nonnull Point where) {
+		dragOver(target, where);
+		TimeoutWatch watch = startWatchWithTimeoutOf(settings().eventPostingDelay() * 4);
+		while (!robot.isDragging()) {
+			if (watch.isTimeOut()) {
+				throw actionFailure("There is no drag in effect");
+			}
+			pause();
+		}
+		int dropDelay = settings().dropDelay();
+		int delayBetweenEvents = delayBetweenEvents();
+		if (dropDelay > delayBetweenEvents) {
+			pause(dropDelay - delayBetweenEvents);
+		}
+		robot.releaseMouseButtons();
+		robot.waitForIdle();
+	}
 
-  private int delayBetweenEvents() {
-    return settings().delayBetweenEvents();
-  }
+	private int delayBetweenEvents() {
+		return settings().delayBetweenEvents();
+	}
 
-  @Nonnull private Settings settings() {
-    return robot.settings();
-  }
+	@Nonnull
+	private Settings settings() {
+		return robot.settings();
+	}
 
-  /**
-   * Move the mouse appropriately to get from the source to the destination. Enter/exit events will be generated where
-   * appropriate.
-   *
-   * @param target the target AWT or Swing {@code Component}.
-   * @param where the point to drag over.
-   */
-  public void dragOver(@Nonnull Component target, @Nonnull Point where) {
-    dragOver(target, where.x, where.y);
-  }
+	/**
+	 * Move the mouse appropriately to get from the source to the destination. Enter/exit events will be generated where
+	 * appropriate.
+	 *
+	 * @param target the target AWT or Swing {@code Component}.
+	 * @param where  the point to drag over.
+	 */
+	public void dragOver(@Nonnull Component target, @Nonnull Point where) {
+		dragOver(target, where.x, where.y);
+	}
 
-  private void dragOver(@Nonnull Component target, int x, int y) {
-    robot.moveMouse(target, x - 4, y);
-    robot.moveMouse(target, x, y);
-  }
+	private void dragOver(@Nonnull Component target, int x, int y) {
+		robot.moveMouse(target, x - 4, y);
+		robot.moveMouse(target, x, y);
+	}
 
-  private void mouseMove(@Nonnull Component target, @Nonnull Point... points) {
-    for (Point p : points) {
-      checkNotNull(p);
-      robot.moveMouse(target, p.x, p.y);
-    }
-  }
+	private void mouseMove(@Nonnull Component target, @Nonnull Point... points) {
+		for (Point p : points) {
+			Objects.requireNonNull(p);
+			robot.moveMouse(target, p.x, p.y);
+		}
+	}
 }

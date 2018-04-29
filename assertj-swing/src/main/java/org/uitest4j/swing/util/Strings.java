@@ -14,6 +14,7 @@ package org.uitest4j.swing.util;
 
 import static org.assertj.core.util.Objects.areEqual;
 
+import java.util.Objects;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
@@ -21,6 +22,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import org.assertj.core.util.Preconditions;
+import org.opentest4j.AssertionFailedError;
 
 /**
  * Utility methods related to {@code String}s.
@@ -116,6 +118,22 @@ public final class Strings {
    */
   public static boolean isNullOrEmpty(String s) {
     return s == null || s.isEmpty();
+  }
+
+  /**
+   *
+   * @param str the {@code String} to check.
+   * @param name the name of the string to use in the AssertionFailedError, if one is thrown.
+   * @return {@Code String} the input string is checks have passed.
+   * @throws NullPointerException if the given string was null.
+   * @throws AssertionFailedError if the given string was empty.
+   */
+  public static String checkNotNullOrEmpty(String str, String name) {
+    Objects.requireNonNull(str);
+    if (str.isEmpty()) {
+      throw new AssertionFailedError(name + " should be non-empty string.");
+    }
+    return str;
   }
 
   private Strings() {

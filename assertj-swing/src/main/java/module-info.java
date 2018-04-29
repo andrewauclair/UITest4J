@@ -11,6 +11,7 @@
  * Copyright 2012-2015 the original author or authors.
  */
 module org.uitest4j.core {
+    requires org.opentest4j;
     requires assertj.core;
     requires java.desktop;
     requires java.logging;
