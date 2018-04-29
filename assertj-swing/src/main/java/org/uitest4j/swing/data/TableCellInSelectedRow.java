@@ -1,24 +1,24 @@
-/**
+/*
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
- *
+ * <p>
  * http://www.apache.org/licenses/LICENSE-2.0
- *
+ * <p>
  * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
  * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
- *
+ * <p>
  * Copyright 2012-2015 the original author or authors.
  */
 package org.uitest4j.swing.data;
 
-import org.uitest4j.swing.cell.JTableCellReader;
 import org.uitest4j.swing.annotation.RunsInEDT;
+import org.uitest4j.swing.cell.JTableCellReader;
 
 import javax.annotation.Nonnull;
 import javax.swing.*;
+import java.util.Objects;
 
-import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 import static org.uitest4j.swing.exception.ActionFailedException.actionFailure;
 
@@ -39,74 +39,77 @@ import static org.uitest4j.swing.exception.ActionFailedException.actionFailure;
  * @author Alex Ruiz
  */
 public class TableCellInSelectedRow implements TableCellFinder {
-  /**
-   * <p>
-   * Starting point for the creation of a {@link TableCellInSelectedRow}.
-   * </p>
-   *
-   * <p>
-   * Example:
-   * </p>
-   *
-   * <pre>
-   * // import static org.uitest4j.swing.data.TableCellInSelectedRow.row;
-   * TableCellInSelectedRow cell = selectedRow().column(2);
-   * </pre>
-   *
-   * @return the created builder.
-   */
-  @Nonnull public static TableCellBuilder selectedRow() {
-    return new TableCellBuilder();
-  }
+	/**
+	 * <p>
+	 * Starting point for the creation of a {@link TableCellInSelectedRow}.
+	 * </p>
+	 *
+	 * <p>
+	 * Example:
+	 * </p>
+	 *
+	 * <pre>
+	 * // import static org.uitest4j.swing.data.TableCellInSelectedRow.row;
+	 * TableCellInSelectedRow cell = selectedRow().column(2);
+	 * </pre>
+	 *
+	 * @return the created builder.
+	 */
+	@Nonnull
+	public static TableCellBuilder selectedRow() {
+		return new TableCellBuilder();
+	}
 
-  /**
-   * Factory of {@link TableCellInSelectedRow}s.
-   *
-   * @author Alex Ruiz
-   */
-  public static class TableCellBuilder {
-    /**
-     * Creates a new table cell finder.
-     *
-     * @param column the column index of the cell to find.
-     * @return the created finder.
-     */
-    @Nonnull public TableCellInSelectedRow column(int column) {
-      return new TableCellInSelectedRow(column);
-    }
-  }
+	/**
+	 * Factory of {@link TableCellInSelectedRow}s.
+	 *
+	 * @author Alex Ruiz
+	 */
+	public static class TableCellBuilder {
+		/**
+		 * Creates a new table cell finder.
+		 *
+		 * @param column the column index of the cell to find.
+		 * @return the created finder.
+		 */
+		@Nonnull
+		public TableCellInSelectedRow column(int column) {
+			return new TableCellInSelectedRow(column);
+		}
+	}
 
-  private final int column;
+	private final int column;
 
-  protected TableCellInSelectedRow(int column) {
-    this.column = column;
-  }
+	protected TableCellInSelectedRow(int column) {
+		this.column = column;
+	}
 
-  /**
-   * Finds a cell in the given {@code JTable} that belongs to the first selected row and has a matching column index.
-   *
-   * @param table the target {@code JTable}.
-   * @param cellReader knows how to read the contents of a cell in a {@code JTable}.
-   * @return the cell found, if any.
-   * @throws org.uitest4j.swing.exception.ActionFailedException if a matching cell could not be found.
-   */
-  @Override
-  @Nonnull public TableCell findCell(@Nonnull JTable table, @Nonnull JTableCellReader cellReader) {
-    int selectedRow = selectedRowOf(table);
-    if (selectedRow == -1) {
-      throw actionFailure("The given JTable does not have any selection");
-    }
-    return new TableCell(selectedRow, column);
-  }
+	/**
+	 * Finds a cell in the given {@code JTable} that belongs to the first selected row and has a matching column index.
+	 *
+	 * @param table the target {@code JTable}.
+	 * @param cellReader knows how to read the contents of a cell in a {@code JTable}.
+	 * @return the cell found, if any.
+	 * @throws org.uitest4j.swing.exception.ActionFailedException if a matching cell could not be found.
+	 */
+	@Override
+	@Nonnull
+	public TableCell findCell(@Nonnull JTable table, @Nonnull JTableCellReader cellReader) {
+		int selectedRow = selectedRowOf(table);
+		if (selectedRow == -1) {
+			throw actionFailure("The given JTable does not have any selection");
+		}
+		return new TableCell(selectedRow, column);
+	}
 
-  @RunsInEDT
-  private static int selectedRowOf(final JTable table) {
-    Integer result = execute(() -> table.getSelectedRow());
-    return checkNotNull(result);
-  }
+	@RunsInEDT
+	private static int selectedRowOf(final JTable table) {
+		Integer result = execute(table::getSelectedRow);
+		return Objects.requireNonNull(result);
+	}
 
-  @Override
-  public String toString() {
-    return String.format("%s[column=%d]", getClass().getName(), column);
-  }
+	@Override
+	public String toString() {
+		return String.format("%s[column=%d]", getClass().getName(), column);
+	}
 }

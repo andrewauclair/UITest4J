@@ -18,10 +18,10 @@ import org.uitest4j.swing.edt.GuiQuery;
 
 import javax.annotation.Nonnull;
 import javax.swing.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import static org.assertj.core.util.Lists.newArrayList;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
@@ -37,7 +37,7 @@ final class JListSelectionValuesQuery {
 		List<String> result = execute(new GuiQuery<>() {
 			@Override
 			protected List<String> executeInEDT() {
-				List<String> values = newArrayList();
+				List<String> values = new ArrayList<>();
 				int[] selectedIndices = list.getSelectedIndices();
 				for (int index : selectedIndices) {
 					values.add(cellReader.valueAt(list, index));

@@ -18,10 +18,10 @@ import org.uitest4j.swing.hierarchy.ComponentHierarchy;
 import javax.annotation.Nonnull;
 import java.awt.*;
 import java.util.Collection;
+import java.util.LinkedHashSet;
 import java.util.Objects;
 import java.util.Set;
 
-import static org.assertj.core.util.Sets.newLinkedHashSet;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
@@ -34,7 +34,7 @@ final class FinderDelegate {
 	@RunsInEDT
 	@Nonnull
 	Collection<Component> find(@Nonnull ComponentHierarchy h, @Nonnull ComponentMatcher m) {
-		Set<Component> found = newLinkedHashSet();
+		Set<Component> found = new LinkedHashSet<>();
 		for (Component c : rootsOf(h)) {
 			find(h, m, Objects.requireNonNull(c), found);
 		}
@@ -69,7 +69,7 @@ final class FinderDelegate {
 	@RunsInEDT
 	@Nonnull
 	<T extends Component> Collection<T> find(@Nonnull ComponentHierarchy h, @Nonnull GenericTypeMatcher<T> m) {
-		Set<T> found = newLinkedHashSet();
+		Set<T> found = new LinkedHashSet<>();
 		for (Component c : rootsOf(h)) {
 			find(h, m, Objects.requireNonNull(c), found);
 		}

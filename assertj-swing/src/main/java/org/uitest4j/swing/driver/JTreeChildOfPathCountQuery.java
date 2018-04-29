@@ -1,4 +1,4 @@
-/**
+/*
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
  *
@@ -17,8 +17,8 @@ import org.uitest4j.swing.annotation.RunsInEDT;
 import javax.annotation.Nonnull;
 import javax.swing.*;
 import javax.swing.tree.TreePath;
+import java.util.Objects;
 
-import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
@@ -27,11 +27,11 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
  * @author Alex Ruiz
  */
 final class JTreeChildOfPathCountQuery {
-  @RunsInEDT
-  static int childCount(final @Nonnull JTree tree, final @Nonnull TreePath path) {
-    return checkNotNull(execute(() -> tree.getModel().getChildCount(path.getLastPathComponent())));
-  }
+	@RunsInEDT
+	static int childCount(final @Nonnull JTree tree, final @Nonnull TreePath path) {
+		return Objects.requireNonNull(execute(() -> tree.getModel().getChildCount(path.getLastPathComponent())));
+	}
 
-  private JTreeChildOfPathCountQuery() {
-  }
+	private JTreeChildOfPathCountQuery() {
+	}
 }

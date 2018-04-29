@@ -1,4 +1,4 @@
-/**
+/*
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
  *
@@ -12,17 +12,14 @@
  */
 package org.uitest4j.swing.data;
 
-import org.uitest4j.swing.cell.JTableCellReader;
-import org.uitest4j.swing.exception.ActionFailedException;
 import org.uitest4j.swing.annotation.RunsInEDT;
+import org.uitest4j.swing.cell.JTableCellReader;
 
 import javax.annotation.Nonnull;
 import javax.swing.*;
+import java.util.Objects;
 
 import static java.lang.String.valueOf;
-import static org.assertj.core.util.Preconditions.checkNotNull;
-import static org.assertj.core.util.Strings.concat;
-import static org.assertj.core.util.Strings.quote;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 import static org.uitest4j.swing.exception.ActionFailedException.actionFailure;
 import static org.uitest4j.swing.query.JTableColumnByIdentifierQuery.columnIndexByIdentifier;
@@ -44,89 +41,91 @@ import static org.uitest4j.swing.query.JTableColumnByIdentifierQuery.columnIndex
  * @author Alex Ruiz
  */
 public class TableCellByColumnId implements TableCellFinder {
-  public final int row;
-  public final Object columnId;
+	public final int row;
+	public final Object columnId;
 
-  /**
-   * Starting point for the creation of a {@link TableCellByColumnId}.
-   * <p>
-   * Example:
-   * </p>
-   *
-   * <pre>
-   * // import static org.uitest4j.swing.data.TableCellByColumnId.row;
-   * TableCellByColumnId cell = row(5).columnId(&quot;hobbyColumn&quot;);
-   * </pre>
-   *
-   * @param row the row index of the table cell to find.
-   * @return the created builder.
-   */
-  public static TableCellBuilder row(int row) {
-    return new TableCellBuilder(row);
-  }
+	/**
+	 * Starting point for the creation of a {@link TableCellByColumnId}.
+	 * <p>
+	 * Example:
+	 * </p>
+	 *
+	 * <pre>
+	 * // import static org.uitest4j.swing.data.TableCellByColumnId.row;
+	 * TableCellByColumnId cell = row(5).columnId(&quot;hobbyColumn&quot;);
+	 * </pre>
+	 *
+	 * @param row the row index of the table cell to find.
+	 * @return the created builder.
+	 */
+	public static TableCellBuilder row(int row) {
+		return new TableCellBuilder(row);
+	}
 
-  /**
-   * Factory of {@link TableCellByColumnId}s.
-   *
-   * @author Alex Ruiz
-   */
-  public static class TableCellBuilder {
-    private final int row;
+	/**
+	 * Factory of {@link TableCellByColumnId}s.
+	 *
+	 * @author Alex Ruiz
+	 */
+	public static class TableCellBuilder {
+		private final int row;
 
-    TableCellBuilder(int row) {
-      this.row = row;
-    }
+		TableCellBuilder(int row) {
+			this.row = row;
+		}
 
-    /**
-     * Creates a new table cell finder using the row index specified in {@link TableCellByColumnId#row(int)} and the
-     * column id specified as the argument in this method.
-     *
-     * @param columnId the name of the column in the table cell to find.
-     * @return the created finder.
-     */
-    public TableCellByColumnId columnId(@Nonnull Object columnId) {
-      return new TableCellByColumnId(row, columnId);
-    }
-  }
+		/**
+		 * Creates a new table cell finder using the row index specified in {@link TableCellByColumnId#row(int)} and the
+		 * column id specified as the argument in this method.
+		 *
+		 * @param columnId the name of the column in the table cell to find.
+		 * @return the created finder.
+		 */
+		public TableCellByColumnId columnId(@Nonnull Object columnId) {
+			return new TableCellByColumnId(row, columnId);
+		}
+	}
 
-  protected TableCellByColumnId(int row, @Nonnull Object columnId) {
-    this.row = row;
-    this.columnId = columnId;
-  }
+	protected TableCellByColumnId(int row, @Nonnull Object columnId) {
+		this.row = row;
+		this.columnId = columnId;
+	}
 
-  /**
-   * Finds a cell in the given {@code JTable} that has a matching row index and column id.
-   *
-   * @param table the target {@code JTable}.
-   * @param cellReader knows how to read the contents of a cell in a {@code JTable}.
-   * @return the cell found, if any.
-   * @throws org.uitest4j.swing.exception.ActionFailedException if a matching cell could not be found.
-   */
-  @RunsInEDT
-  @Override
-  @Nonnull public TableCell findCell(@Nonnull JTable table, @Nonnull JTableCellReader cellReader) {
-    return findCell(table, row, columnId);
-  }
+	/**
+	 * Finds a cell in the given {@code JTable} that has a matching row index and column id.
+	 *
+	 * @param table      the target {@code JTable}.
+	 * @param cellReader knows how to read the contents of a cell in a {@code JTable}.
+	 * @return the cell found, if any.
+	 * @throws org.uitest4j.swing.exception.ActionFailedException if a matching cell could not be found.
+	 */
+	@RunsInEDT
+	@Override
+	@Nonnull
+	public TableCell findCell(@Nonnull JTable table, @Nonnull JTableCellReader cellReader) {
+		return findCell(table, row, columnId);
+	}
 
-  @RunsInEDT
-  @Nonnull private static TableCell findCell(final @Nonnull JTable table, final int row, final @Nonnull Object columnId) {
-    TableCell result = execute(() -> {
-      int column = columnIndexByIdentifier(table, columnId);
-      if (column == -1) {
-        failColumnIndexNotFound(columnId);
-      }
-      table.convertColumnIndexToView(table.getColumn(columnId).getModelIndex());
-      return new TableCell(row, column);
-    });
-    return checkNotNull(result);
-  }
+	@RunsInEDT
+	@Nonnull
+	private static TableCell findCell(final @Nonnull JTable table, final int row, final @Nonnull Object columnId) {
+		TableCell result = execute(() -> {
+			int column = columnIndexByIdentifier(table, columnId);
+			if (column == -1) {
+				failColumnIndexNotFound(columnId);
+			}
+			table.convertColumnIndexToView(table.getColumn(columnId).getModelIndex());
+			return new TableCell(row, column);
+		});
+		return Objects.requireNonNull(result);
+	}
 
-  private static ActionFailedException failColumnIndexNotFound(Object columnId) {
-    throw actionFailure(concat("Unable to find a column with id ", quote(columnId)));
-  }
+	private static void failColumnIndexNotFound(Object columnId) {
+		throw actionFailure("Unable to find a column with id " + '"' + columnId + '"');
+	}
 
-  @Override
-  public String toString() {
-    return concat(getClass().getName(), "[row=", valueOf(row), ", columnId=", quote(columnId), "]");
-  }
+	@Override
+	public String toString() {
+		return getClass().getName() + "[row=" + valueOf(row) + ", columnId=\"" + columnId + "\"]";
+	}
 }

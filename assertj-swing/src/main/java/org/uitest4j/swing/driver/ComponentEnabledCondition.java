@@ -1,4 +1,4 @@
-/**
+/*
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
  *
@@ -13,52 +13,54 @@
 package org.uitest4j.swing.driver;
 
 import org.assertj.core.description.Description;
+import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.edt.GuiLazyLoadingDescription;
 import org.uitest4j.swing.timing.Condition;
-import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.annotation.Nonnull;
 import java.awt.*;
+import java.util.Objects;
 
-import static org.assertj.core.util.Preconditions.checkNotNull;
-import static org.assertj.core.util.Strings.concat;
 import static org.uitest4j.swing.format.Formatting.format;
 import static org.uitest4j.swing.query.ComponentEnabledQuery.isEnabled;
 
 /**
  * Verifies that an AWT or Swing {@code Component} is enabled.
- * 
+ *
  * @author Yvonne Wang
  */
 class ComponentEnabledCondition extends Condition {
-  private Component c;
+	private Component c;
 
-  static @Nonnull ComponentEnabledCondition untilIsEnabled(@Nonnull Component c) {
-    return new ComponentEnabledCondition(c);
-  }
+	static @Nonnull
+	ComponentEnabledCondition untilIsEnabled(@Nonnull Component c) {
+		return new ComponentEnabledCondition(c);
+	}
 
-  private ComponentEnabledCondition(@Nonnull Component c) {
-    super(description(c));
-    this.c = c;
-  }
+	private ComponentEnabledCondition(@Nonnull Component c) {
+		super(description(c));
+		this.c = c;
+	}
 
-  @Nonnull private static Description description(final @Nonnull Component c) {
-    return new GuiLazyLoadingDescription() {
-      @Override
-      @Nonnull protected String loadDescription() {
-        return concat(format(c), " to be enabled");
-      }
-    };
-  }
+	@Nonnull
+	private static Description description(final @Nonnull Component c) {
+		return new GuiLazyLoadingDescription() {
+			@Override
+			@Nonnull
+			protected String loadDescription() {
+				return format(c) + " to be enabled";
+			}
+		};
+	}
 
-  @RunsInEDT
-  @Override
-  public boolean test() {
-    return isEnabled(checkNotNull(c));
-  }
+	@RunsInEDT
+	@Override
+	public boolean test() {
+		return isEnabled(Objects.requireNonNull(c));
+	}
 
-  @Override
-  protected void done() {
-    c = null;
-  }
+	@Override
+	protected void done() {
+		c = null;
+	}
 }

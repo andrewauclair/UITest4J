@@ -1,4 +1,4 @@
-/**
+/*
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
  *
@@ -12,13 +12,13 @@
  */
 package org.uitest4j.swing.driver;
 
-import org.uitest4j.swing.cell.JComboBoxCellReader;
 import org.uitest4j.swing.annotation.RunsInEDT;
+import org.uitest4j.swing.cell.JComboBoxCellReader;
 
 import javax.annotation.Nonnull;
 import javax.swing.*;
+import java.util.Objects;
 
-import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
@@ -28,19 +28,20 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
  * @author Alex Ruiz
  */
 final class JComboBoxContentQuery {
-  @RunsInEDT
-  static @Nonnull String[] contents(final @Nonnull JComboBox<?> comboBox, final @Nonnull JComboBoxCellReader cellReader) {
-    String[] result = execute(() -> {
-      int itemCount = comboBox.getItemCount();
-      String[] values = new String[itemCount];
-      for (int i = 0; i < itemCount; i++) {
-        values[i] = cellReader.valueAt(comboBox, i);
-      }
-      return values;
-    });
-    return checkNotNull(result);
-  }
+	@RunsInEDT
+	static @Nonnull
+	String[] contents(final @Nonnull JComboBox<?> comboBox, final @Nonnull JComboBoxCellReader cellReader) {
+		String[] result = execute(() -> {
+			int itemCount = comboBox.getItemCount();
+			String[] values = new String[itemCount];
+			for (int i = 0; i < itemCount; i++) {
+				values[i] = cellReader.valueAt(comboBox, i);
+			}
+			return values;
+		});
+		return Objects.requireNonNull(result);
+	}
 
-  private JComboBoxContentQuery() {
-  }
+	private JComboBoxContentQuery() {
+	}
 }
