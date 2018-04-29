@@ -17,7 +17,7 @@ import org.uitest4j.swing.cell.JListCellReader;
 import org.uitest4j.swing.core.MouseButton;
 import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.exception.LocationUnavailableException;
-import org.assertj.swing.internal.annotation.InternalApi;
+import org.uitest4j.swing.internal.annotation.InternalApi;
 import org.assertj.swing.util.Pair;
 import org.assertj.swing.util.PatternTextMatcher;
 import org.assertj.swing.util.Range.From;

@@ -13,7 +13,7 @@
 package org.uitest4j.swing.driver;
 
 import org.uitest4j.swing.core.Robot;
-import org.assertj.swing.internal.annotation.InternalApi;
+import org.uitest4j.swing.internal.annotation.InternalApi;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.uitest4j.swing.annotation.RunsInEDT;
 

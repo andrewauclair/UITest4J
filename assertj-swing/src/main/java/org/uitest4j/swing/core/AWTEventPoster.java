@@ -22,7 +22,7 @@ import java.awt.Toolkit;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import org.assertj.swing.input.InputState;
+import org.uitest4j.swing.input.InputState;
 import org.assertj.swing.monitor.WindowMonitor;
 
 /**

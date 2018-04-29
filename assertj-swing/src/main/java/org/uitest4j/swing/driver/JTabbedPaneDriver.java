@@ -19,7 +19,7 @@ import org.uitest4j.swing.data.Index;
 import org.uitest4j.swing.edt.GuiQuery;
 import org.uitest4j.swing.exception.ActionFailedException;
 import org.uitest4j.swing.exception.LocationUnavailableException;
-import org.assertj.swing.internal.annotation.InternalApi;
+import org.uitest4j.swing.internal.annotation.InternalApi;
 import org.assertj.swing.util.Pair;
 import org.assertj.swing.util.PatternTextMatcher;
 import org.assertj.swing.util.StringTextMatcher;

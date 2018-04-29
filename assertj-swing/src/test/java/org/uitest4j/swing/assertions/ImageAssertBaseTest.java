@@ -18,7 +18,7 @@ import static org.mockito.Mockito.mock;
 import java.awt.image.BufferedImage;
 
 import org.assertj.core.api.BaseTestTemplate;
-import org.assertj.swing.internal.assertions.Images;
+import org.uitest4j.swing.internal.assertions.Images;
 
 /**
  * Base class for {@link ImageAssert} tests.

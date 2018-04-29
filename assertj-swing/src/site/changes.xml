@@ -109,17 +109,18 @@
           when multiple components match the condition's search criteria.
       </action>
       <action dev="alexruiz" type="add" issue="FEST-315" due-to="Olivier DOREMIEUX">
-        Added class org.assertj.swing.keystroke.KeyStrokeMappingsParser to parses a text file containing the 
-        character-keystroke mappings and creates a KeyStrokeMappingProvider from those mappings. 
+          Added class org.uitest4j.swing.keystroke.KeyStrokeMappingsParser to parses a text file containing the
+          character-keystroke mappings and creates a KeyStrokeMappingProvider from those mappings.
       </action>
       <action dev="alexruiz" type="fix" issue="FEST-318" due-to="Olivier DOREMIEUX">
-        org.assertj.swing.keystroke.KeyStrokeMap now loads mappings based on Operating System and locale. 
+          org.uitest4j.swing.keystroke.KeyStrokeMap now loads mappings based on Operating System and locale.
       </action>
       <action dev="alexruiz" type="fix" issue="FEST-318" due-to="Olivier DOREMIEUX">
-        Replaced method 'reloadFromLocale' with 'reloadFromSystemSettings' in org.assertj.swing.keystroke.KeyStrokeMap. 
+          Replaced method 'reloadFromLocale' with 'reloadFromSystemSettings' in
+          org.uitest4j.swing.keystroke.KeyStrokeMap.
       </action>
       <action dev="alexruiz" type="fix" issue="FEST-318" due-to="Olivier DOREMIEUX">
-        Deprecated method 'reloadFromLocale' in org.assertj.swing.keystroke.KeyStrokeMap. 
+          Deprecated method 'reloadFromLocale' in org.uitest4j.swing.keystroke.KeyStrokeMap.
       </action>
       <action dev="alexruiz" type="fix" issue="FEST-319" due-to="Olivier DOREMIEUX">
         Created new project (fest-keyboard-mapping) that hosts the code for the keyboard mapping tool.
@@ -703,8 +704,9 @@
         JListFixture.) 
       </action>
       <action dev="alexruiz" type="add" issue="FEST-117" due-to="Uli Schrempp">
-        Added class org.assertj.swing.keystroke.KeyStrokeMappingProvider_de. KeyStrokeMapping now uses this provider if the 
-        language of the default Locale is German.
+          Added class org.uitest4j.swing.keystroke.KeyStrokeMappingProvider_de. KeyStrokeMapping now uses this provider
+          if the
+          language of the default Locale is German.
       </action>
       <action dev="alexruiz" type="add" issue="FEST-120" due-to="Olivier DOREMIEUX">
         Added method 'text' to JSpinnerFixture.
@@ -980,7 +982,7 @@
           item.
       </action>
       <action dev="alexruiz" type="fix" issue="246" due-to="Marc Johen">
-        By default org.assertj.swing.keystroke.KeyStrokeMap uses an English keyboard mapping.
+          By default org.uitest4j.swing.keystroke.KeyStrokeMap uses an English keyboard mapping.
       </action>
       <action dev="alexruiz" type="fix" issue="248" due-to="Juhos Csaba-Zsolt">
         Made methods/classes related to JTableCellWriter accessible for better code reuse.
@@ -1192,7 +1194,7 @@
           org.uitest4j.swing.core.ComponentFinder to look up all the components that match certain search criteria.
       </action>
       <action dev="alexruiz" type="fix" issue="145" due-to="Juhos Csaba-Zsolt">
-        Fixed mapping of character '+' to a key stroke in org.assertj.swing.keystroke.KeyStrokeMappingProvider_en.
+          Fixed mapping of character '+' to a key stroke in org.uitest4j.swing.keystroke.KeyStrokeMappingProvider_en.
       </action>
       <action dev="alexruiz" type="fix" issue="147" due-to="Juhos Csaba-Zsolt">
         Fixed multiple selection in JListDriver, JTableDriver and JTreeDriver.

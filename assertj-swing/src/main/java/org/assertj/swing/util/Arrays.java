@@ -23,7 +23,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import org.assertj.core.presentation.StandardRepresentation;
-import org.assertj.swing.internal.annotation.InternalApi;
+import org.uitest4j.swing.internal.annotation.InternalApi;
 
 /**
  * Utility methods for arrays.

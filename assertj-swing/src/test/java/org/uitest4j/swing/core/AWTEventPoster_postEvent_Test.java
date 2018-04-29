@@ -25,7 +25,7 @@ import java.awt.Component;
 import java.awt.EventQueue;
 import java.awt.Toolkit;
 
-import org.assertj.swing.input.InputState;
+import org.uitest4j.swing.input.InputState;
 import org.assertj.swing.monitor.WindowMonitor;
 import org.assertj.swing.test.awt.TestComponents;
 import org.assertj.swing.test.core.EDTSafeTestCase;

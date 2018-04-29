@@ -14,7 +14,7 @@ package org.uitest4j.swing.driver;
 
 import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.edt.GuiQuery;
-import org.assertj.swing.internal.annotation.InternalApi;
+import org.uitest4j.swing.internal.annotation.InternalApi;
 import org.assertj.swing.util.GenericRange;
 import org.assertj.swing.util.Pair;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;

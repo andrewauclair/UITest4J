@@ -16,7 +16,7 @@ import org.assertj.core.util.VisibleForTesting;
 import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.edt.GuiQuery;
 import org.uitest4j.swing.exception.UnexpectedException;
-import org.assertj.swing.internal.annotation.InternalApi;
+import org.uitest4j.swing.internal.annotation.InternalApi;
 import org.assertj.swing.util.Pair;
 import org.assertj.swing.util.Triple;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;

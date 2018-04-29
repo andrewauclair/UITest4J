@@ -19,7 +19,7 @@ import java.util.Comparator;
 import org.assertj.core.api.AbstractAssert;
 import org.assertj.core.data.Offset;
 import org.assertj.core.util.VisibleForTesting;
-import org.assertj.swing.internal.assertions.Images;
+import org.uitest4j.swing.internal.assertions.Images;
 
 /**
  * Assertion methods for images.

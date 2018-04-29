@@ -22,7 +22,7 @@ import org.uitest4j.swing.data.TableCell;
 import org.uitest4j.swing.data.TableCellFinder;
 import org.uitest4j.swing.edt.GuiQuery;
 import org.uitest4j.swing.exception.ActionFailedException;
-import org.assertj.swing.internal.annotation.InternalApi;
+import org.uitest4j.swing.internal.annotation.InternalApi;
 import org.assertj.swing.util.Arrays;
 import org.assertj.swing.util.Pair;
 import org.assertj.swing.util.PatternTextMatcher;

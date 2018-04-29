@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.image;
 
-import org.assertj.swing.internal.annotation.IORuntimeException;
+import org.uitest4j.swing.internal.annotation.IORuntimeException;
 import org.assertj.swing.util.RobotFactory;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

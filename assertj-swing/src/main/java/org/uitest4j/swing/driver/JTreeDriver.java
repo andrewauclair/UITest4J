@@ -21,7 +21,7 @@ import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.edt.GuiQuery;
 import org.uitest4j.swing.exception.LocationUnavailableException;
 import org.uitest4j.swing.exception.WaitTimedOutError;
-import org.assertj.swing.internal.annotation.InternalApi;
+import org.uitest4j.swing.internal.annotation.InternalApi;
 import org.assertj.swing.util.ArrayPreconditions;
 import org.assertj.swing.util.Pair;
 import org.assertj.swing.util.Triple;

@@ -14,7 +14,7 @@ package org.uitest4j.swing.driver;
 
 import org.assertj.core.util.VisibleForTesting;
 import org.uitest4j.swing.exception.LocationUnavailableException;
-import org.assertj.swing.internal.annotation.InternalApi;
+import org.uitest4j.swing.internal.annotation.InternalApi;
 import org.assertj.swing.util.StringTextMatcher;
 import org.assertj.swing.util.TextMatcher;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;

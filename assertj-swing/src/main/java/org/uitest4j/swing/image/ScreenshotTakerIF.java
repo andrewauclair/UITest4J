@@ -27,7 +27,7 @@ public interface ScreenshotTakerIF {
    * @throws IllegalArgumentException if the given file path is empty.
    * @throws IllegalArgumentException if the given file path does not end with ".png".
    * @throws IllegalArgumentException if the given file path belongs to a non-empty directory.
-   * @throws org.assertj.swing.internal.annotation.IORuntimeException if an I/O error prevents the image from being
+   * @throws org.uitest4j.swing.internal.annotation.IORuntimeException if an I/O error prevents the image from being
    *           saved as a file.
    */
   void saveDesktopAsPng(String imageFilePath);
@@ -49,7 +49,7 @@ public interface ScreenshotTakerIF {
    * @throws IllegalArgumentException if the given file path is empty.
    * @throws IllegalArgumentException if the given file path does not end with ".png".
    * @throws IllegalArgumentException if the given file path belongs to a non-empty directory.
-   * @throws org.assertj.swing.internal.annotation.IORuntimeException if an I/O error prevents the image from being
+   * @throws org.uitest4j.swing.internal.annotation.IORuntimeException if an I/O error prevents the image from being
    *           saved as a file.
    */
   void saveComponentAsPng(Component c, String imageFilePath);
@@ -72,7 +72,7 @@ public interface ScreenshotTakerIF {
    * @throws IllegalArgumentException if the given file path is empty.
    * @throws IllegalArgumentException if the given file path does not end with ".png".
    * @throws IllegalArgumentException if the given file path belongs to a non-empty directory.
-   * @throws org.assertj.swing.internal.annotation.IORuntimeException if an I/O error prevents the image from being
+   * @throws org.uitest4j.swing.internal.annotation.IORuntimeException if an I/O error prevents the image from being
    *           saved as a file.
    */
   void saveImage(BufferedImage image, String filePath);

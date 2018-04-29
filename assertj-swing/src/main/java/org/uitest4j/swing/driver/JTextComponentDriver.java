@@ -15,7 +15,7 @@ package org.uitest4j.swing.driver;
 import org.assertj.core.description.Description;
 import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.exception.ActionFailedException;
-import org.assertj.swing.internal.annotation.InternalApi;
+import org.uitest4j.swing.internal.annotation.InternalApi;
 import org.assertj.swing.util.Pair;
 import org.assertj.swing.util.Platform;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
