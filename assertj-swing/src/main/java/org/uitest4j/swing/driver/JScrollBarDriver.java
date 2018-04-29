@@ -13,7 +13,7 @@
 package org.uitest4j.swing.driver;
 
 import org.uitest4j.swing.core.Robot;
-import org.assertj.swing.edt.GuiQuery;
+import org.uitest4j.swing.edt.GuiQuery;
 import org.assertj.swing.internal.annotation.InternalApi;
 import org.assertj.swing.util.GenericRange;
 import org.assertj.swing.util.Pair;
@@ -30,7 +30,7 @@ import static org.assertj.core.util.Strings.concat;
 import static org.uitest4j.swing.driver.ComponentPreconditions.checkEnabledAndShowing;
 import static org.uitest4j.swing.driver.JScrollBarSetValueTask.setValue;
 import static org.uitest4j.swing.driver.JScrollBarValueQuery.valueOf;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
  * <p>

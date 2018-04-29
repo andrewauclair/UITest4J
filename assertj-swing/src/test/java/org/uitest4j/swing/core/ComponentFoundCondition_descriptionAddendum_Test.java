@@ -24,7 +24,7 @@ import javax.swing.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.uitest4j.swing.core.BasicComponentFinder.finderWithNewAwtHierarchy;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.timing.Pause.pause;
 
 /**

@@ -24,7 +24,7 @@ import java.awt.*;
 import java.util.logging.Logger;
 
 import static org.assertj.core.util.Strings.concat;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.test.builder.JFrames.frame;
 import static org.assertj.swing.timing.Pause.pause;
 

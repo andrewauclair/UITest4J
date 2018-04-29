@@ -18,7 +18,7 @@ import javax.swing.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Strings.concat;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
  * Base test case in {@link JTreeDriver} related to expanding/collapsing cells in a {@code JTree}.

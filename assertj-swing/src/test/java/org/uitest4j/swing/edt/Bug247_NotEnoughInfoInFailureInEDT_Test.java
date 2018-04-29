@@ -10,12 +10,12 @@
  *
  * Copyright 2012-2015 the original author or authors.
  */
-package org.assertj.swing.edt;
+package org.uitest4j.swing.edt;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Fail.fail;
 import static org.assertj.core.util.Strings.concat;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 import org.junit.jupiter.api.Test;
 

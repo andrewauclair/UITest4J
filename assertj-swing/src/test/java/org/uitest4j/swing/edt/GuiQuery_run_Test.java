@@ -10,7 +10,7 @@
  *
  * Copyright 2012-2015 the original author or authors.
  */
-package org.assertj.swing.edt;
+package org.uitest4j.swing.edt;
 
 import org.assertj.swing.exception.ActionFailedException;
 import org.junit.jupiter.api.Test;
@@ -18,16 +18,18 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
- * Tests for {@link GuiTask#run()}.
+ * Tests for {@link GuiQuery#run()}.
  * 
+ * @author Yvonne Wang
  * @author Alex Ruiz
  */
-class GuiTask_run_Test {
+class GuiQuery_run_Test {
   @Test
   void should_Throw_Error_If_Not_Called_In_EDT() {
-    assertThrows(ActionFailedException.class, () -> new GuiTask() {
+    assertThrows(ActionFailedException.class, () -> new GuiQuery<Integer>() {
       @Override
-      protected void executeInEDT() {
+      protected Integer executeInEDT() {
+        return null;
       }
     }.run());
   }

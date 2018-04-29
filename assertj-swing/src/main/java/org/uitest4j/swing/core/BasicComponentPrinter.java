@@ -24,7 +24,7 @@ import java.awt.*;
 import java.io.PrintStream;
 
 import static org.assertj.core.util.Preconditions.checkNotNull;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.format.Formatting.format;
 import static org.assertj.swing.hierarchy.NewHierarchy.ignoreExistingComponents;
 

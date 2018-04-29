@@ -38,7 +38,7 @@ import static org.uitest4j.swing.driver.JTableCellPreconditions.checkCellIndices
 import static org.uitest4j.swing.driver.JTableCellPreconditions.validateCellIsEditable;
 import static org.uitest4j.swing.driver.JTableStopCellEditingTask.checkStateAndStopEditing;
 import static org.uitest4j.swing.driver.JTableStopCellEditingTask.stopEditing;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.exception.ActionFailedException.actionFailure;
 import static org.assertj.swing.timing.Pause.pause;
 

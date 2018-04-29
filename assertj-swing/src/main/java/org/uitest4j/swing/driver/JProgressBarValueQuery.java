@@ -17,7 +17,7 @@ import org.uitest4j.swing.annotation.RunsInEDT;
 import javax.swing.*;
 
 import static org.assertj.core.util.Preconditions.checkNotNull;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
  * Returns the value of a {@code JProgressBar}. This query is executed in the event dispatch thread (EDT).

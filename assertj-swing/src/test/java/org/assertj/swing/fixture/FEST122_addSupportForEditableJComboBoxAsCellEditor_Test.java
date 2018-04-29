@@ -21,7 +21,7 @@ import javax.swing.table.TableColumn;
 import java.awt.*;
 
 import static org.uitest4j.swing.data.TableCell.row;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
  * Test case for bug <a href="http://jira.codehaus.org/browse/FEST-122" target="_blank">FEST-122</a>.

@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.driver;
 
-import org.assertj.swing.edt.GuiQuery;
+import org.uitest4j.swing.edt.GuiQuery;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.uitest4j.swing.annotation.RunsInEDT;
 
@@ -23,7 +23,7 @@ import javax.swing.tree.TreePath;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.uitest4j.swing.driver.ComponentPreconditions.checkEnabledAndShowing;
 import static org.uitest4j.swing.driver.JTreeAddRootIfInvisibleTask.addRootIfInvisible;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
  * Finds a path in a {@code JTree} that matches a given {@code String}. This query is executed in the event dispatch

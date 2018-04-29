@@ -23,7 +23,7 @@ import java.util.logging.Logger;
 import static java.awt.Adjustable.VERTICAL;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Strings.concat;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.test.builder.JButtons.button;
 import static org.assertj.swing.test.builder.JDialogs.dialog;
 import static org.assertj.swing.test.builder.JFrames.frame;

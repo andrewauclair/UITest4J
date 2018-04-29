@@ -10,9 +10,24 @@
  *
  * Copyright 2012-2015 the original author or authors.
  */
+package org.uitest4j.swing.edt;
+
+import org.assertj.swing.exception.EdtViolationException;
+import org.junit.jupiter.api.Test;
+
+import javax.swing.*;
+
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 /**
- * Ensure that {@code Component} access is done in the event dispatch thread (EDT).
+ * Tests for {@link FailOnThreadViolationRepaintManager#install()}.
  * 
  * @author Alex Ruiz
  */
-package org.assertj.swing.edt;
+class FailOnThreadViolationRepaintManager_install_Test {
+  @Test
+  void should_Throw_Error_In_Case_Of_EDT_Access_Violation() {
+    FailOnThreadViolationRepaintManager.install();
+    assertThrows(EdtViolationException.class, JTextField::new);
+  }
+}

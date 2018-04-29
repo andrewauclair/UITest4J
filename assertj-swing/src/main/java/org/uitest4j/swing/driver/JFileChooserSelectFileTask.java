@@ -24,7 +24,7 @@ import static javax.swing.JFileChooser.DIRECTORIES_ONLY;
 import static javax.swing.JFileChooser.FILES_ONLY;
 import static org.assertj.core.util.Strings.concat;
 import static org.uitest4j.swing.driver.ComponentPreconditions.checkEnabledAndShowing;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.format.Formatting.format;
 
 /**

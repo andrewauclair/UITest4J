@@ -22,7 +22,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 
-import org.assertj.swing.edt.GuiActionRunner;
+import org.uitest4j.swing.edt.GuiActionRunner;
 import org.assertj.swing.finder.JFileChooserFinder;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.junit.jupiter.api.Disabled;

@@ -838,8 +838,9 @@
         org.assertj.swing.image.ScreenshotTaker hides the caret of a focused text component before taking a screenshot.
       </action>
       <action dev="alexruiz" type="fix" issue="247" due-to="Juhos Csaba-Zsolt">
-        org.assertj.swing.edt.GuiActionRunner appends stack trace of current thread to an exception thrown in the event
-        dispatch thread.
+          org.uitest4j.swing.edt.GuiActionRunner appends stack trace of current thread to an exception thrown in the
+          event
+          dispatch thread.
       </action>
       <action dev="alexruiz" type="fix" issue="251" due-to="Juhos Csaba-Zsolt">
           JTable cell editor lookup fixed in org.uitest4j.swing.driver.JTableTextComponentEditorCellWriter and
@@ -888,8 +889,8 @@
           Fixed code snippet in Javadoc for class org.uitest4j.swing.data.TableCell.
       </action>
       <action dev="alexruiz, wanghy" type="fix" issue="216" due-to="Tarjei Skorgenes">
-        Replaced condition to verify a GuiAction is executed in the event dispatch thread with a 
-        java.util.concurrent.CountDownLatch in org.assertj.swing.edt.GuiActionRunner
+          Replaced condition to verify a GuiAction is executed in the event dispatch thread with a
+          java.util.concurrent.CountDownLatch in org.uitest4j.swing.edt.GuiActionRunner
       </action>
       <action dev="alexruiz" type="fix" issue="216" due-to="Simeon Fitch, Michael Hüttermann, Jean-Francois Poilpret">
         Consolidated fine-grained GUI tasks into new coarsed-grained ones.
@@ -899,8 +900,8 @@
       </action>
       <action dev="alexruiz, wanghy" type="add" issue="216" 
         due-to="Simeon Fitch, Michael Hüttermann, Jean-Francois Poilpret">
-        Added org.assertj.swing.edt.GuiLazyLoadingDescription to lazy-load the description of a 
-        org.assertj.swing.timing.Condition (which is executed in the event dispatch thread.)
+          Added org.uitest4j.swing.edt.GuiLazyLoadingDescription to lazy-load the description of a
+          org.assertj.swing.timing.Condition (which is executed in the event dispatch thread.)
       </action>
       <action dev="alexruiz" type="add" issue="216">
         Added annotations RunsInCurrentThread and RunsInEDT in package org.assertj.swing.annotations.
@@ -961,7 +962,8 @@
         Added SwingHelper project as a dependency.
       </action>
       <action dev="alexruiz" type="add" issue="242">
-        Added org.assertj.swing.edt.FailOnThreadViolationRepaintManager to force tests that violate EDT access to fail.
+          Added org.uitest4j.swing.edt.FailOnThreadViolationRepaintManager to force tests that violate EDT access to
+          fail.
       </action>
       <action dev="alexruiz" type="add" issue="244" due-to="Michel Lohr">
         Added method 'findByLabel' (and overloaded versions) to ComponentFinder to look up components by the text of
@@ -1007,15 +1009,16 @@
         BasicJTableCellReader obtains the value of a cell from a JTable, not from a TableModel.
       </action>
       <action dev="alexruiz, wanghy" type="fix" issue="187">
-        Introduced GuiActionRunner, GuiQuery and GuiTask in package org.assertj.swing.edt to execute queries or tasks in 
-        the event dispatch thread. 
+          Introduced GuiActionRunner, GuiQuery and GuiTask in package org.uitest4j.swing.edt to execute queries or tasks
+          in
+          the event dispatch thread.
       </action>
       <action dev="alexruiz" type="fix" issue="187">
           Moved class AWT from package org.assertj.swing.util to org.uitest4j.swing.awt.
       </action>
       <action dev="alexruiz, wanghy" type="fix" issue="187">
           Removed method 'runInEventThreadAndWait' in org.uitest4j.swing.awt.AWT. Replaced with
-          org.assertj.swing.edt.GuiActionRunner and org.assertj.swing.edt.GuiTask.
+          org.uitest4j.swing.edt.GuiActionRunner and org.uitest4j.swing.edt.GuiTask.
       </action>
       <action dev="alexruiz" type="fix" issue="187">
           Moved classes Condition, Pause and Timeout from package org.uitest4j.swing.core to org.assertj.swing.timing.

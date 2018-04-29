@@ -477,9 +477,9 @@ public abstract class AbstractComponentFixture<S, C extends Component, D extends
    * </p>
    * <p>
    * <strong>Note:</strong> Access to the GUI component returned by this method <em>must</em> be executed in the event
-   * dispatch thread (EDT). To do so, please execute a {@link org.assertj.swing.edt.GuiQuery GuiQuery} or
-   * {@link org.assertj.swing.edt.GuiTask GuiTask} (depending on what you need to do), inside a
-   * {@link org.assertj.swing.edt.GuiActionRunner}. To learn more about Swing threading, please read the <a
+   * dispatch thread (EDT). To do so, please execute a {@link org.uitest4j.swing.edt.GuiQuery GuiQuery} or
+   * {@link org.uitest4j.swing.edt.GuiTask GuiTask} (depending on what you need to do), inside a
+   * {@link org.uitest4j.swing.edt.GuiActionRunner}. To learn more about Swing threading, please read the <a
    * href="http://java.sun.com/javase/6/docs/api/javax/swing/package-summary.html#threading" target="_blank">Swing
    * Threading Policy</a>.
    * </p>

@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.core;
 
-import org.assertj.swing.edt.GuiQuery;
+import org.uitest4j.swing.edt.GuiQuery;
 import org.assertj.swing.fixture.JButtonFixture;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
@@ -24,7 +24,7 @@ import java.awt.*;
 import static java.awt.BorderLayout.CENTER;
 import static javax.swing.Box.createVerticalStrut;
 import static javax.swing.BoxLayout.Y_AXIS;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
  * Tests for {@link Scrolling#scrollToVisible(Robot, javax.swing.JComponent)}.

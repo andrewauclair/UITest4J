@@ -14,7 +14,7 @@ package org.assertj.swing.fixture;
 
 import static java.awt.BorderLayout.NORTH;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.awt.BorderLayout;

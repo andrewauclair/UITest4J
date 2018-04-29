@@ -19,7 +19,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.uitest4j.swing.driver.JInternalFrameAction.MAXIMIZE;
 import static org.uitest4j.swing.driver.JInternalFrameIconQuery.isIconified;
 import static org.uitest4j.swing.driver.JInternalFrameSetMaximumTask.setMaximum;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
  * Tests for

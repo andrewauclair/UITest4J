@@ -13,7 +13,7 @@
 package org.uitest4j.swing.core;
 
 import org.assertj.core.util.VisibleForTesting;
-import org.assertj.swing.edt.GuiQuery;
+import org.uitest4j.swing.edt.GuiQuery;
 import org.assertj.swing.exception.ComponentLookupException;
 import org.assertj.swing.exception.UnexpectedException;
 import org.assertj.swing.exception.WaitTimedOutError;
@@ -65,7 +65,7 @@ import static org.uitest4j.swing.core.MouseButton.LEFT_BUTTON;
 import static org.uitest4j.swing.core.MouseButton.RIGHT_BUTTON;
 import static org.uitest4j.swing.core.Scrolling.scrollToVisible;
 import static org.uitest4j.swing.core.WindowAncestorFinder.windowAncestorOf;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.exception.ActionFailedException.actionFailure;
 import static org.assertj.swing.format.Formatting.format;
 import static org.assertj.swing.format.Formatting.inEdtFormat;

@@ -13,7 +13,7 @@
 package org.uitest4j.swing.driver;
 
 import org.uitest4j.swing.cell.JComboBoxCellReader;
-import org.assertj.swing.edt.GuiQuery;
+import org.uitest4j.swing.edt.GuiQuery;
 import org.assertj.swing.util.Pair;
 import org.uitest4j.swing.annotation.RunsInEDT;
 
@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
 import javax.swing.*;
 
 import static org.assertj.core.util.Preconditions.checkNotNull;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
  * Returns the selected value of a {@code JComboBox} as plain text. This query is executed in the event dispatch thread

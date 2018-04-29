@@ -13,7 +13,7 @@
 package org.assertj.swing.fixture;
 
 import org.uitest4j.swing.core.Robot;
-import org.assertj.swing.edt.GuiActionRunner;
+import org.uitest4j.swing.edt.GuiActionRunner;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;

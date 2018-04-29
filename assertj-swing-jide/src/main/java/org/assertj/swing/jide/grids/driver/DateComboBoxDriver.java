@@ -12,7 +12,7 @@
  */
 package org.assertj.swing.jide.grids.driver;
 
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 import static org.junit.Assert.assertTrue;
 
 import java.util.Calendar;
@@ -25,7 +25,7 @@ import org.uitest4j.swing.core.BasicComponentFinder;
 import org.uitest4j.swing.core.ComponentFinder;
 import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.driver.JComponentDriver;
-import org.assertj.swing.edt.GuiActionRunner;
+import org.uitest4j.swing.edt.GuiActionRunner;
 
 import com.jidesoft.combobox.DateChooserPanel;
 import com.jidesoft.combobox.DateComboBox;

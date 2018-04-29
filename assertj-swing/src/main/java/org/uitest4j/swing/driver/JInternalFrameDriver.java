@@ -14,7 +14,7 @@ package org.uitest4j.swing.driver;
 
 import org.assertj.core.util.VisibleForTesting;
 import org.uitest4j.swing.core.Robot;
-import org.assertj.swing.edt.GuiQuery;
+import org.uitest4j.swing.edt.GuiQuery;
 import org.assertj.swing.exception.UnexpectedException;
 import org.assertj.swing.internal.annotation.InternalApi;
 import org.assertj.swing.util.Pair;
@@ -38,7 +38,7 @@ import static org.uitest4j.swing.driver.JInternalFrameSetIconTask.setIcon;
 import static org.uitest4j.swing.driver.JInternalFrameSetMaximumTask.setMaximum;
 import static org.uitest4j.swing.driver.JInternalFrameTitleQuery.titleOf;
 import static org.uitest4j.swing.driver.WindowLikeContainers.*;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.exception.ActionFailedException.actionFailure;
 import static org.assertj.swing.format.Formatting.format;
 

@@ -18,7 +18,7 @@ import org.uitest4j.swing.annotation.RunsInEDT;
 import javax.swing.tree.DefaultTreeModel;
 
 import static org.uitest4j.swing.driver.JTreeDriver_TestCase.MyWindow.decorate;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.test.swing.TreeNodeFactory.node;
 
 /**

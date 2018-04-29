@@ -13,7 +13,7 @@
 package org.assertj.swing.fixture;
 
 import static org.assertj.core.util.Lists.newArrayList;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 import static org.mockito.Mockito.mock;
 
 import java.awt.Component;

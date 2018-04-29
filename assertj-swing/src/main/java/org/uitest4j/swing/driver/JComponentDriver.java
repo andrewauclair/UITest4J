@@ -29,7 +29,7 @@ import static org.uitest4j.swing.driver.Actions.findActionKey;
 import static org.uitest4j.swing.driver.JComponentToolTipQuery.toolTipOf;
 import static org.uitest4j.swing.driver.KeyStrokes.findKeyStrokesForAction;
 import static org.uitest4j.swing.driver.TextAssert.verifyThat;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.exception.ActionFailedException.actionFailure;
 
 /**

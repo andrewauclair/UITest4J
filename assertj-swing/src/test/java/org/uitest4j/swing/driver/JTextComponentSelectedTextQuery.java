@@ -18,7 +18,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.swing.text.JTextComponent;
 
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
  * Returns the selected text of a {@code JTextComponent}. This query is executed in the event dispatch thread (EDT).

@@ -12,7 +12,7 @@
  */
 package org.assertj.swing.jide.grids.driver;
 
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 import org.uitest4j.swing.annotation.RunsInEDT;
 

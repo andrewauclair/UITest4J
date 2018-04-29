@@ -13,7 +13,7 @@
 package org.assertj.swing.monitor;
 
 import org.assertj.core.util.VisibleForTesting;
-import org.assertj.swing.edt.GuiQuery;
+import org.uitest4j.swing.edt.GuiQuery;
 import org.assertj.swing.util.ToolkitProvider;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.uitest4j.swing.annotation.RunsInEDT;
@@ -24,7 +24,7 @@ import java.awt.*;
 import java.util.Collection;
 
 import static org.assertj.core.util.Preconditions.checkNotNull;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
  * Monitor that keeps track of all known root AWT or Swing {@code Window}s (showing, hidden, closed).

@@ -29,7 +29,7 @@ import static javax.swing.JOptionPane.ERROR_MESSAGE;
 import static javax.swing.JOptionPane.showMessageDialog;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.uitest4j.swing.driver.JTableCellValueQuery.cellValueOf;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
  * Tests for <a href="http://code.google.com/p/fest/issues/detail?id=219" target="_blank">Bug 219</a>.

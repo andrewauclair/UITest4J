@@ -15,7 +15,7 @@ package org.assertj.swing.jide.grids.driver;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Strings.concat;
 import static org.assertj.core.util.Strings.quote;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 import java.awt.Component;
 import java.util.ArrayList;
@@ -29,8 +29,8 @@ import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.driver.ComponentPreconditions;
 import org.uitest4j.swing.driver.JListDriver;
-import org.assertj.swing.edt.GuiActionRunner;
-import org.assertj.swing.edt.GuiQuery;
+import org.uitest4j.swing.edt.GuiActionRunner;
+import org.uitest4j.swing.edt.GuiQuery;
 import org.assertj.swing.exception.LocationUnavailableException;
 
 import com.jidesoft.combobox.AbstractComboBox;

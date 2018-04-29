@@ -28,7 +28,7 @@ import static org.uitest4j.swing.core.WindowAncestorFinder.windowAncestorOf;
 import static org.uitest4j.swing.driver.ComponentPreconditions.checkEnabledAndShowing;
 import static org.uitest4j.swing.driver.JMenuPopupMenuQuery.popupMenuOf;
 import static org.uitest4j.swing.driver.WindowMoveToFrontTask.toFront;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.exception.ActionFailedException.actionFailure;
 import static org.assertj.swing.format.Formatting.format;
 import static org.assertj.swing.timing.Pause.pause;

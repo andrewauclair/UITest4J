@@ -22,7 +22,7 @@ import javax.swing.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.uitest4j.swing.driver.JInternalFrameAction.DEICONIFY;
 import static org.uitest4j.swing.driver.JInternalFrameAction.ICONIFY;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
  * Tests for {@link JInternalFrameSetIconTask#setIcon(JInternalFrame, JInternalFrameAction)}.

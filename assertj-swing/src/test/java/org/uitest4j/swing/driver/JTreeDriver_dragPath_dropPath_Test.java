@@ -19,7 +19,7 @@ import javax.swing.*;
 import javax.swing.tree.DefaultMutableTreeNode;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.test.swing.TreeNodeFactory.node;
 
 /**

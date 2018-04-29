@@ -23,7 +23,7 @@ import javax.swing.JTable;
 
 import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.driver.ComponentDriver;
-import org.assertj.swing.edt.GuiActionRunner;
+import org.uitest4j.swing.edt.GuiActionRunner;
 import org.junit.jupiter.api.Test;
 
 /**

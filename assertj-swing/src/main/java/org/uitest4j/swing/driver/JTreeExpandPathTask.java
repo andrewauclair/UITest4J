@@ -19,7 +19,7 @@ import javax.swing.*;
 import javax.swing.tree.TreePath;
 
 import static org.uitest4j.swing.driver.JTreeAddRootIfInvisibleTask.addRootIfInvisible;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
  * Ensures that the node identified by the specified path is expanded and viewable. This task is executed in the event

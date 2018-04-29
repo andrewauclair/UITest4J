@@ -13,7 +13,7 @@
 package org.uitest4j.swing.driver;
 
 import org.uitest4j.swing.core.Robot;
-import org.assertj.swing.edt.GuiQuery;
+import org.uitest4j.swing.edt.GuiQuery;
 import org.assertj.swing.util.Pair;
 import org.uitest4j.swing.annotation.RunsInEDT;
 
@@ -23,7 +23,7 @@ import java.awt.*;
 
 import static java.lang.Boolean.parseBoolean;
 import static org.assertj.core.util.Preconditions.checkNotNull;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
  * {@link org.uitest4j.swing.cell.JTableCellWriter} that knows how to use {@code JTextComponent}s as cell editors.

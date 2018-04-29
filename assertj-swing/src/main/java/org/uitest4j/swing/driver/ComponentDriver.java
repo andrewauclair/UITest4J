@@ -15,7 +15,7 @@ package org.uitest4j.swing.driver;
 import org.assertj.core.description.Description;
 import org.uitest4j.swing.core.*;
 import org.uitest4j.swing.core.Robot;
-import org.assertj.swing.edt.GuiLazyLoadingDescription;
+import org.uitest4j.swing.edt.GuiLazyLoadingDescription;
 import org.assertj.swing.internal.annotation.InternalApi;
 import org.assertj.swing.timing.Timeout;
 import org.assertj.swing.util.TimeoutWatch;
@@ -35,7 +35,7 @@ import static org.uitest4j.swing.driver.ComponentEnabledCondition.untilIsEnabled
 import static org.uitest4j.swing.driver.ComponentPerformDefaultAccessibleActionTask.performDefaultAccessibleAction;
 import static org.uitest4j.swing.driver.ComponentPreconditions.checkEnabledAndShowing;
 import static org.uitest4j.swing.driver.ComponentPreconditions.checkShowing;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.format.Formatting.format;
 import static org.assertj.swing.query.ComponentEnabledQuery.isEnabled;
 import static org.assertj.swing.query.ComponentHasFocusQuery.hasFocus;

@@ -21,7 +21,7 @@ import org.uitest4j.swing.annotation.RunsInEDT;
 import javax.swing.*;
 import javax.swing.table.TableColumnModel;
 
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
  * Fix for <a href="http://code.google.com/p/fest/issues/detail?id=232" target="_blank">issue 232</a>.

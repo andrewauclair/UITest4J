@@ -16,7 +16,7 @@ import org.assertj.core.description.Description;
 import org.assertj.core.util.VisibleForTesting;
 import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.data.Index;
-import org.assertj.swing.edt.GuiQuery;
+import org.uitest4j.swing.edt.GuiQuery;
 import org.assertj.swing.exception.ActionFailedException;
 import org.assertj.swing.exception.LocationUnavailableException;
 import org.assertj.swing.internal.annotation.InternalApi;
@@ -41,7 +41,7 @@ import static org.uitest4j.swing.driver.JTabbedPaneSelectTabQuery.selectedTabInd
 import static org.uitest4j.swing.driver.JTabbedPaneSelectTabTask.setSelectedTab;
 import static org.uitest4j.swing.driver.JTabbedPaneTabTitlesQuery.tabTitlesOf;
 import static org.uitest4j.swing.driver.TextAssert.verifyThat;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
  * <p>

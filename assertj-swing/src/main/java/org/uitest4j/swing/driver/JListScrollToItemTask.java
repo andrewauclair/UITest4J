@@ -13,7 +13,7 @@
 package org.uitest4j.swing.driver;
 
 import org.uitest4j.swing.cell.JListCellReader;
-import org.assertj.swing.edt.GuiQuery;
+import org.uitest4j.swing.edt.GuiQuery;
 import org.assertj.swing.util.Pair;
 import org.assertj.swing.util.TextMatcher;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
@@ -30,7 +30,7 @@ import static org.uitest4j.swing.driver.JListCellBoundsQuery.cellBounds;
 import static org.uitest4j.swing.driver.JListCellCenterQuery.cellCenter;
 import static org.uitest4j.swing.driver.JListItemPreconditions.checkIndexInBounds;
 import static org.uitest4j.swing.driver.JListMatchingItemQuery.matchingItemIndex;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
  * Performs scrolling to a specific element in a {@code JList}.

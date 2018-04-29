@@ -21,7 +21,7 @@ import javax.swing.*;
 
 import static javax.swing.JOptionPane.INFORMATION_MESSAGE;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
  * Tests for {@link JOptionPaneMessageTypeQuery#messageTypeOf(JOptionPane)}.

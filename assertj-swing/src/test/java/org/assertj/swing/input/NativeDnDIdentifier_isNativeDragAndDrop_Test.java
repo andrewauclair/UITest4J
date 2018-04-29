@@ -12,7 +12,7 @@
  */
 package org.assertj.swing.input;
 
-import org.assertj.swing.edt.FailOnThreadViolationRepaintManager;
+import org.uitest4j.swing.edt.FailOnThreadViolationRepaintManager;
 import org.assertj.swing.test.core.EDTSafeTestCase;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

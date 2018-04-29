@@ -23,7 +23,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.uitest4j.swing.driver.JTextComponentSelectedTextQuery.selectedTextOf;
 import static org.uitest4j.swing.driver.JTextComponentSetEditableTask.setTextFieldEditable;
 import static org.uitest4j.swing.driver.JTextComponentTextQuery.textOf;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.test.task.ComponentSetEnabledTask.disable;
 
 /**

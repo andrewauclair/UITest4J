@@ -51,7 +51,7 @@ import static org.uitest4j.swing.driver.JListSelectionValueQuery.NO_SELECTION_VA
 import static org.uitest4j.swing.driver.JListSelectionValueQuery.singleSelectionValue;
 import static org.uitest4j.swing.driver.JListSelectionValuesQuery.selectionValues;
 import static org.uitest4j.swing.driver.TextAssert.verifyThat;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.util.ArrayPreconditions.checkNotNullOrEmpty;
 import static org.assertj.swing.util.Arrays.format;
 

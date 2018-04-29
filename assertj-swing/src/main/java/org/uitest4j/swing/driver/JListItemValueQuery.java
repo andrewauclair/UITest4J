@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
 import javax.swing.*;
 
 import static org.uitest4j.swing.driver.JListItemPreconditions.checkIndexInBounds;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
  * Returns the value, as text, of an item in a {@code JList}. This query is executed in the event dispatch thread (EDT).

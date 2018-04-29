@@ -27,7 +27,7 @@ import static java.awt.BorderLayout.CENTER;
 import static java.awt.BorderLayout.SOUTH;
 import static org.assertj.core.util.Strings.concat;
 import static org.assertj.core.util.Strings.quote;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
  * Tests for <a href="http://code.google.com/p/fest/issues/detail?id=195" target="_blank">Bug 195</a>.

@@ -13,7 +13,7 @@
 package org.uitest4j.swing.driver;
 
 import org.uitest4j.swing.core.Robot;
-import org.assertj.swing.edt.GuiQuery;
+import org.uitest4j.swing.edt.GuiQuery;
 import org.assertj.swing.internal.annotation.InternalApi;
 import org.assertj.swing.util.GenericRange;
 import org.assertj.swing.util.Pair;
@@ -27,7 +27,7 @@ import java.awt.*;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.uitest4j.swing.driver.ComponentPreconditions.checkEnabledAndShowing;
 import static org.uitest4j.swing.driver.JSliderSetValueTask.setValue;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
  * <p>

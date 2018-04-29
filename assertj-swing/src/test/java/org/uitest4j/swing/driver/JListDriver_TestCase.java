@@ -26,7 +26,7 @@ import java.util.concurrent.Callable;
 
 import static javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION;
 import static org.uitest4j.swing.driver.JListSetSelectedIndexTask.setSelectedIndex;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.test.task.ComponentSetEnabledTask.disable;
 
 /**

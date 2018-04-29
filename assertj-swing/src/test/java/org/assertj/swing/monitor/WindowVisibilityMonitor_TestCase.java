@@ -23,7 +23,7 @@ import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
 import java.awt.event.WindowListener;
 
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.monitor.TestWindows.newWindowsMock;
 import static org.assertj.swing.test.builder.JTextFields.textField;
 import static org.assertj.swing.test.core.MethodInvocations.Args.args;

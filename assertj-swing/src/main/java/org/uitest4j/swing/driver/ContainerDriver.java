@@ -14,7 +14,7 @@ package org.uitest4j.swing.driver;
 
 import org.assertj.core.util.VisibleForTesting;
 import org.uitest4j.swing.core.Robot;
-import org.assertj.swing.edt.GuiQuery;
+import org.uitest4j.swing.edt.GuiQuery;
 import org.assertj.swing.internal.annotation.InternalApi;
 import org.assertj.swing.util.Pair;
 import org.assertj.swing.util.Triple;
@@ -34,7 +34,7 @@ import static org.uitest4j.swing.driver.ComponentMoveTask.moveComponent;
 import static org.uitest4j.swing.driver.ComponentPreconditions.checkEnabledAndShowing;
 import static org.uitest4j.swing.driver.ComponentPreconditions.checkShowing;
 import static org.uitest4j.swing.driver.ComponentSetSizeTask.setComponentSize;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.format.Formatting.format;
 
 /**

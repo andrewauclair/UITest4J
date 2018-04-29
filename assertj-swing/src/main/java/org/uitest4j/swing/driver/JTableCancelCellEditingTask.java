@@ -21,7 +21,7 @@ import javax.swing.table.TableCellEditor;
 
 import static org.uitest4j.swing.driver.JTableCellPreconditions.checkCellIndicesInBounds;
 import static org.uitest4j.swing.driver.JTableCellPreconditions.validateCellIsEditable;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
  * Cancels editing of a cell in a {@code JTable}. This task is executed in the event dispatch thread (EDT).

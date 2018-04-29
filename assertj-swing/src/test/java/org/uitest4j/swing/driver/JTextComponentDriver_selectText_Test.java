@@ -23,7 +23,7 @@ import static javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS;
 import static javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.uitest4j.swing.driver.JTextComponentSelectedTextQuery.selectedTextOf;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
  * Tests for {@link JTextComponentDriver#selectText(javax.swing.text.JTextComponent, String)}.

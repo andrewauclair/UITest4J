@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.core;
 
-import org.assertj.swing.edt.GuiQuery;
+import org.uitest4j.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.recorder.ClickRecorder;
 import org.assertj.swing.test.recorder.ClickRecorderManager;
@@ -26,7 +26,7 @@ import static java.awt.BorderLayout.CENTER;
 import static javax.swing.Box.createVerticalStrut;
 import static javax.swing.BoxLayout.Y_AXIS;
 import static org.uitest4j.swing.core.MouseButton.LEFT_BUTTON;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
  * Tests for bug <a href="http://jira.codehaus.org/browse/FEST-284" target="_blank">FEST_284</a>.

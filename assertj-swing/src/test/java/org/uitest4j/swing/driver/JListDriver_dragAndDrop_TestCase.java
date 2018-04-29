@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.driver;
 
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 import org.assertj.swing.test.swing.TestList;
 

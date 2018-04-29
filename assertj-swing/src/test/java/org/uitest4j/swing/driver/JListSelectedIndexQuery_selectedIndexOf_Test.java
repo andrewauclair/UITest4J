@@ -26,7 +26,7 @@ import java.util.Collection;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Lists.newArrayList;
 import static org.uitest4j.swing.driver.JListSetSelectedIndexTask.setSelectedIndex;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
  * Tests for {@link JListSelectedIndexQuery#selectedIndexOf(JList)}.

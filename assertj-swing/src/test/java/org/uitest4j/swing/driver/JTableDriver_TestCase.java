@@ -28,7 +28,7 @@ import static java.lang.Integer.parseInt;
 import static javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.uitest4j.swing.driver.JTableClearSelectionTask.clearSelectionOf;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.test.task.ComponentSetEnabledTask.disable;
 
 /**

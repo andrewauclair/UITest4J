@@ -22,7 +22,7 @@ import java.awt.*;
 
 import static javax.swing.JSplitPane.VERTICAL_SPLIT;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
  * Tests for {@link JSplitPaneSetDividerLocationTask#setDividerLocation(JSplitPane, int)}.

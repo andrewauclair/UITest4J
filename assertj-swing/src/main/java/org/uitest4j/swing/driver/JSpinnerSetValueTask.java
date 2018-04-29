@@ -18,7 +18,7 @@ import javax.annotation.Nonnull;
 import javax.swing.*;
 
 import static org.uitest4j.swing.driver.ComponentPreconditions.checkEnabledAndShowing;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
  * Sets a value in a {@code JSpinner}. This task is executed in the event dispatch thread (EDT).

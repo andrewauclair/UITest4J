@@ -28,7 +28,7 @@ import static org.uitest4j.swing.driver.ComponentPreconditions.checkEnabledAndSh
 import static org.uitest4j.swing.driver.FrameTitleQuery.titleOf;
 import static org.uitest4j.swing.driver.WindowLikeContainers.iconifyButtonLocation;
 import static org.uitest4j.swing.driver.WindowLikeContainers.maximizeButtonLocation;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.exception.ActionFailedException.actionFailure;
 
 /**

@@ -21,7 +21,7 @@ import static org.uitest4j.swing.driver.JTableCellValueQuery.cellValueOf;
 import static org.uitest4j.swing.driver.JTableDriver_TestCase.MyWindow.COLUMN_COUNT;
 import static org.uitest4j.swing.driver.JTableDriver_TestCase.MyWindow.ROW_COUNT;
 import static org.uitest4j.swing.driver.JTableRowCountQuery.rowCountOf;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.test.swing.TestTable.columnNames;
 import static org.assertj.swing.test.swing.TestTable.createCellValueFrom;
 

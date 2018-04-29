@@ -12,7 +12,7 @@
  */
 package org.assertj.swing.test.core;
 
-import org.assertj.swing.edt.FailOnThreadViolationRepaintManager;
+import org.uitest4j.swing.edt.FailOnThreadViolationRepaintManager;
 import org.junit.jupiter.api.BeforeAll;
 
 /**

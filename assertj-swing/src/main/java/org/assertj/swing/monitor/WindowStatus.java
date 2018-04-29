@@ -21,7 +21,7 @@ import java.awt.*;
 import java.util.logging.Logger;
 
 import static java.util.logging.Level.WARNING;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.monitor.WindowMetrics.absoluteCenterOf;
 import static org.assertj.swing.query.ComponentSizeQuery.sizeOf;
 

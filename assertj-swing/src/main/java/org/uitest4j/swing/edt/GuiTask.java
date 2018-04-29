@@ -10,7 +10,7 @@
  *
  * Copyright 2012-2015 the original author or authors.
  */
-package org.assertj.swing.edt;
+package org.uitest4j.swing.edt;
 
 import static javax.swing.SwingUtilities.isEventDispatchThread;
 

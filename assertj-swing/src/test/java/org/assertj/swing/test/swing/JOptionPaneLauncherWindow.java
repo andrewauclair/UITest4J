@@ -23,7 +23,7 @@ import java.awt.event.MouseEvent;
 
 import static javax.swing.JOptionPane.PLAIN_MESSAGE;
 import static javax.swing.JOptionPane.showMessageDialog;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
  * {@code JFrame} that launches a {@code JOptionPane} using a configurable delay.

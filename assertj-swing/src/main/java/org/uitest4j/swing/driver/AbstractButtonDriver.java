@@ -28,7 +28,7 @@ import static org.uitest4j.swing.driver.AbstractButtonArmedQuery.isArmed;
 import static org.uitest4j.swing.driver.AbstractButtonSelectedQuery.isSelected;
 import static org.uitest4j.swing.driver.ComponentPreconditions.checkEnabledAndShowing;
 import static org.uitest4j.swing.driver.TextAssert.verifyThat;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
  * <p>

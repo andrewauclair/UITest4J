@@ -13,7 +13,7 @@
 package org.uitest4j.swing.driver;
 
 import org.assertj.core.description.Description;
-import org.assertj.swing.edt.GuiLazyLoadingDescription;
+import org.uitest4j.swing.edt.GuiLazyLoadingDescription;
 import org.assertj.swing.timing.Condition;
 import org.assertj.swing.timing.Timeout;
 import org.uitest4j.swing.annotation.RunsInEDT;

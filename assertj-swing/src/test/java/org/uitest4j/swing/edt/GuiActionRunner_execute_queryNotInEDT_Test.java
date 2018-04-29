@@ -10,7 +10,7 @@
  *
  * Copyright 2012-2015 the original author or authors.
  */
-package org.assertj.swing.edt;
+package org.uitest4j.swing.edt;
 
 import org.assertj.swing.exception.UnexpectedException;
 import org.assertj.swing.test.core.MethodInvocations;
@@ -19,15 +19,15 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 /**
- * Tests for {@link GuiActionRunner#execute(GuiTask)}.
+ * Tests for {@link GuiActionRunner#execute(GuiQuery)}.
  * 
  * @author Alex Ruiz
  */
-public class GuiActionRunner_execute_taskNotInEDT_Test extends SequentialEDTSafeTestCase {
+public class GuiActionRunner_execute_queryNotInEDT_Test extends SequentialEDTSafeTestCase {
   private boolean executeInEDT;
 
   @Override
@@ -42,21 +42,23 @@ public class GuiActionRunner_execute_taskNotInEDT_Test extends SequentialEDTSafe
   }
 
   @Test
-  void should_Execute_Task() {
-    TestGuiTask task = new TestGuiTask();
+  void should_Execute_Query() {
+    String valueToReturnWhenExecuted = "Hello";
+    TestGuiQuery query = new TestGuiQuery(valueToReturnWhenExecuted);
     GuiActionRunner.executeInEDT(false);
-    GuiActionRunner.execute(task);
-    assertThat(task.wasExecutedInEDT()).isFalse();
-    task.requireInvoked("executeInEDT");
+    String result = GuiActionRunner.execute(query);
+    assertThat(result).isSameAs(valueToReturnWhenExecuted);
+    assertThat(query.wasExecutedInEDT()).isFalse();
+    query.requireInvoked("executeInEDT");
   }
 
   @Test
   void should_Wrap_Any_Thrown_Exception() {
-    TestGuiTask task = mock(TestGuiTask.class);
+    TestGuiQuery query = mock(TestGuiQuery.class);
     RuntimeException error = expectedError();
-    doThrow(error).when(task).executeInEDT();
+    when(query.executeInEDT()).thenThrow(error);
     GuiActionRunner.executeInEDT(false);
-    UnexpectedException unexpectedException = assertThrows(UnexpectedException.class, () -> GuiActionRunner.execute(task));
+    UnexpectedException unexpectedException = assertThrows(UnexpectedException.class, () -> GuiActionRunner.execute(query));
     assertThat(unexpectedException.getCause()).isEqualTo(error);
   }
 
@@ -64,15 +66,18 @@ public class GuiActionRunner_execute_taskNotInEDT_Test extends SequentialEDTSafe
     return new RuntimeException("Thrown on purpose");
   }
 
-  private static class TestGuiTask extends GuiTask {
+  private static class TestGuiQuery extends GuiQuery<String> {
     private final MethodInvocations methodInvocations = new MethodInvocations();
+    private final String valueToReturnWhenExecuted;
 
-    TestGuiTask() {
+    TestGuiQuery(String valueToReturnWhenExecuted) {
+      this.valueToReturnWhenExecuted = valueToReturnWhenExecuted;
     }
 
     @Override
-    protected void executeInEDT() {
+    protected String executeInEDT() {
       methodInvocations.invoked("executeInEDT");
+      return valueToReturnWhenExecuted;
     }
 
     MethodInvocations requireInvoked(String methodName) {

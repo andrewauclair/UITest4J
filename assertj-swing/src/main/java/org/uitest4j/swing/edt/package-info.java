@@ -10,27 +10,9 @@
  *
  * Copyright 2012-2015 the original author or authors.
  */
-package org.assertj.swing.edt;
-
-import org.assertj.swing.exception.ActionFailedException;
-import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertThrows;
-
 /**
- * Tests for {@link GuiQuery#run()}.
+ * Ensure that {@code Component} access is done in the event dispatch thread (EDT).
  * 
- * @author Yvonne Wang
  * @author Alex Ruiz
  */
-class GuiQuery_run_Test {
-  @Test
-  void should_Throw_Error_If_Not_Called_In_EDT() {
-    assertThrows(ActionFailedException.class, () -> new GuiQuery<Integer>() {
-      @Override
-      protected Integer executeInEDT() {
-        return null;
-      }
-    }.run());
-  }
-}
+package org.uitest4j.swing.edt;

@@ -14,7 +14,7 @@ package org.uitest4j.swing.core;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.uitest4j.swing.core.ComponentLookupScope.DEFAULT;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 import java.awt.Component;
 

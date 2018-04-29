@@ -29,7 +29,7 @@ import static org.uitest4j.swing.driver.JFileChooserApproveButtonTextQuery.appro
 import static org.uitest4j.swing.driver.JFileChooserCancelButtonTextQuery.cancelButtonText;
 import static org.uitest4j.swing.driver.JFileChooserSelectFileTask.setSelectedFile;
 import static org.uitest4j.swing.driver.JFileChooserSelectFileTask.setSelectedFiles;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
  * Supports functional testing of {@code JFileChooser}s.

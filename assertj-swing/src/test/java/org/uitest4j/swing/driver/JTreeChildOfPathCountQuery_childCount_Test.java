@@ -24,7 +24,7 @@ import javax.swing.tree.TreePath;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Strings.concat;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
  * Tests for {@link JTreeChildOfPathCountQuery#childCount(JTree, TreePath)}.

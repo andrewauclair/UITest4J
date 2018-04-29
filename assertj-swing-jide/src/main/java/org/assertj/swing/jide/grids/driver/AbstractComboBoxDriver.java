@@ -16,7 +16,7 @@ import static javax.swing.text.DefaultEditorKit.deletePrevCharAction;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.fail;
 import static org.assertj.core.util.Preconditions.checkNotNull;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 import java.awt.Component;
 
@@ -120,7 +120,7 @@ public class AbstractComboBoxDriver extends JComponentDriver {
 
   @RunsInEDT
   private static Component accessibleEditorOf(final AbstractComboBox comboBox) {
-    return org.assertj.swing.edt.GuiActionRunner.execute(() -> {
+    return org.uitest4j.swing.edt.GuiActionRunner.execute(() -> {
       AbstractComboBoxAccessibleEditorValidator.validateEditorIsAccessible(comboBox);
       return comboBox.getEditor().getEditorComponent();
     });
@@ -238,7 +238,7 @@ public class AbstractComboBoxDriver extends JComponentDriver {
 
   @RunsInEDT
   private static void inEdtValidateEditorIsAccessible(final AbstractComboBox comboBox) {
-    org.assertj.swing.edt.GuiActionRunner.execute(() -> AbstractComboBoxAccessibleEditorValidator.validateEditorIsAccessible(comboBox));
+    org.uitest4j.swing.edt.GuiActionRunner.execute(() -> AbstractComboBoxAccessibleEditorValidator.validateEditorIsAccessible(comboBox));
   }
 
   /**

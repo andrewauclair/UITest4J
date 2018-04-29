@@ -12,7 +12,7 @@
  */
 package org.assertj.swing.monitor;
 
-import org.assertj.swing.edt.FailOnThreadViolationRepaintManager;
+import org.uitest4j.swing.edt.FailOnThreadViolationRepaintManager;
 import org.assertj.swing.lock.ScreenLock;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.jupiter.api.AfterEach;
@@ -25,7 +25,7 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyZeroInteractions;
 

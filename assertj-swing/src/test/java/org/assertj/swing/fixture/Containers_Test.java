@@ -15,7 +15,7 @@ package org.assertj.swing.fixture;
 import static java.awt.GridBagConstraints.REMAINDER;
 import static javax.swing.BorderFactory.createEmptyBorder;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;

@@ -12,8 +12,8 @@
  */
 package org.assertj.swing.test.builder;
 
-import org.assertj.swing.edt.GuiActionRunner;
-import org.assertj.swing.edt.GuiQuery;
+import org.uitest4j.swing.edt.GuiActionRunner;
+import org.uitest4j.swing.edt.GuiQuery;
 import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.swing.*;

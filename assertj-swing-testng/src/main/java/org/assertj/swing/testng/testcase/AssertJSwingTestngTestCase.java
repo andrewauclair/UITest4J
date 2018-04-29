@@ -12,7 +12,7 @@
  */
 package org.assertj.swing.testng.testcase;
 
-import org.assertj.swing.edt.FailOnThreadViolationRepaintManager;
+import org.uitest4j.swing.edt.FailOnThreadViolationRepaintManager;
 import org.assertj.swing.testing.AssertJSwingTestCaseTemplate;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
