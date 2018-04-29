@@ -24,7 +24,7 @@ import java.awt.event.ActionListener;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.finder.WindowFinder.findFrame;
+import static org.uitest4j.swing.finder.WindowFinder.findFrame;
 
 /**
  * Test for <a href="http://code.google.com/p/fest/issues/detail?id=157" target="_blank">issue 157</a>.

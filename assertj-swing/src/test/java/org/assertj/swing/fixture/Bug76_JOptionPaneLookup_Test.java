@@ -12,7 +12,7 @@
  */
 package org.assertj.swing.fixture;
 
-import org.assertj.swing.finder.JOptionPaneFinder;
+import org.uitest4j.swing.finder.JOptionPaneFinder;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.annotation.RunsInEDT;

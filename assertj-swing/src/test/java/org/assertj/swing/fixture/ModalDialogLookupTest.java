@@ -25,7 +25,7 @@ import java.awt.event.ActionListener;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.finder.WindowFinder.findDialog;
+import static org.uitest4j.swing.finder.WindowFinder.findDialog;
 
 /**
  * Tests lookup of a modal dialog. This test tries to reproduce the problem reported at <a

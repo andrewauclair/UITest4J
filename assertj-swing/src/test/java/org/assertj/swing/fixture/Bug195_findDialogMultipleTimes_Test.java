@@ -13,7 +13,7 @@
 package org.assertj.swing.fixture;
 
 import org.uitest4j.swing.core.GenericTypeMatcher;
-import org.assertj.swing.finder.WindowFinder;
+import org.uitest4j.swing.finder.WindowFinder;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.annotation.RunsInEDT;
