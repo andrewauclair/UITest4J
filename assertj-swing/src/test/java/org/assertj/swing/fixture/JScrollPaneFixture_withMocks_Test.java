@@ -13,7 +13,7 @@
 package org.assertj.swing.fixture;
 
 import org.uitest4j.swing.core.Robot;
-import org.assertj.swing.driver.JScrollPaneDriver;
+import org.uitest4j.swing.driver.JScrollPaneDriver;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

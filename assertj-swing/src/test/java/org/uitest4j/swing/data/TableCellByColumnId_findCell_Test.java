@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.data;
 
-import org.assertj.swing.driver.BasicJTableCellReader;
+import org.uitest4j.swing.driver.BasicJTableCellReader;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 

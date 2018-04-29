@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
 import javax.swing.JLabel;
 
 import org.uitest4j.swing.core.Robot;
-import org.assertj.swing.driver.JLabelDriver;
+import org.uitest4j.swing.driver.JLabelDriver;
 
 /**
  * Supports functional testing of {@code JLabel}s.

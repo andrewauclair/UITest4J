@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 import javax.swing.JSplitPane;
 
 import org.uitest4j.swing.core.Robot;
-import org.assertj.swing.driver.JSplitPaneDriver;
+import org.uitest4j.swing.driver.JSplitPaneDriver;
 
 /**
  * Supports functional testing of {@code JSplitPane}s.

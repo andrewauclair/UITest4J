@@ -14,7 +14,7 @@ package org.assertj.swing.fixture;
 
 import org.uitest4j.swing.cell.JComboBoxCellReader;
 import org.uitest4j.swing.core.Robot;
-import org.assertj.swing.driver.JComboBoxDriver;
+import org.uitest4j.swing.driver.JComboBoxDriver;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

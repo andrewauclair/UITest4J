@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 import javax.swing.JSlider;
 
 import org.uitest4j.swing.core.Robot;
-import org.assertj.swing.driver.JSliderDriver;
+import org.uitest4j.swing.driver.JSliderDriver;
 
 /**
  * Supports functional testing of {@code JSlider}s.

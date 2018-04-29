@@ -21,7 +21,7 @@ import javax.annotation.Nonnull;
 import javax.swing.JTextField;
 
 import org.uitest4j.swing.core.Robot;
-import org.assertj.swing.driver.JComponentDriver;
+import org.uitest4j.swing.driver.JComponentDriver;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.jupiter.api.Test;

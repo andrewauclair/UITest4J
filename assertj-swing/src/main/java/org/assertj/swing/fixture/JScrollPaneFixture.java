@@ -18,7 +18,7 @@ import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 
 import org.uitest4j.swing.core.Robot;
-import org.assertj.swing.driver.JScrollPaneDriver;
+import org.uitest4j.swing.driver.JScrollPaneDriver;
 
 /**
  * Supports functional testing of {@code JScrollPane}s.

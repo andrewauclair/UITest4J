@@ -21,7 +21,7 @@ import javax.swing.JList;
 
 import org.uitest4j.swing.cell.JComboBoxCellReader;
 import org.uitest4j.swing.core.Robot;
-import org.assertj.swing.driver.JComboBoxDriver;
+import org.uitest4j.swing.driver.JComboBoxDriver;
 
 /**
  * <p>

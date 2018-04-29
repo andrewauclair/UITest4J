@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
 import javax.swing.JInternalFrame;
 
 import org.uitest4j.swing.core.Robot;
-import org.assertj.swing.driver.JInternalFrameDriver;
+import org.uitest4j.swing.driver.JInternalFrameDriver;
 
 /**
  * Supports functional testing of {@code JInternalFrame}s

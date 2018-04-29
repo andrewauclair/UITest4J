@@ -19,7 +19,7 @@ import javax.swing.JButton;
 
 import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.core.matcher.JButtonMatcher;
-import org.assertj.swing.driver.JComponentDriver;
+import org.uitest4j.swing.driver.JComponentDriver;
 
 import com.jidesoft.pane.CollapsiblePane;
 

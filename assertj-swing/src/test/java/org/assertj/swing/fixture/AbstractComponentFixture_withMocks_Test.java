@@ -15,7 +15,7 @@ package org.assertj.swing.fixture;
 import org.uitest4j.swing.core.KeyPressInfo;
 import org.uitest4j.swing.core.MouseClickInfo;
 import org.uitest4j.swing.core.Robot;
-import org.assertj.swing.driver.ComponentDriver;
+import org.uitest4j.swing.driver.ComponentDriver;
 import org.assertj.swing.timing.Timeout;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

@@ -16,7 +16,7 @@ import javax.annotation.Nonnull;
 import javax.swing.JFrame;
 
 import org.uitest4j.swing.core.Robot;
-import org.assertj.swing.driver.FrameDriver;
+import org.uitest4j.swing.driver.FrameDriver;
 
 /**
  * Implementation of {@link AbstractContainerFixture} to be used for testing.

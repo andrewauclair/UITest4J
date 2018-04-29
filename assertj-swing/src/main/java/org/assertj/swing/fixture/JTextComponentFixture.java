@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
 import javax.swing.text.JTextComponent;
 
 import org.uitest4j.swing.core.Robot;
-import org.assertj.swing.driver.JTextComponentDriver;
+import org.uitest4j.swing.driver.JTextComponentDriver;
 
 /**
  * Supports functional testing of {@code JTextComponent}s.

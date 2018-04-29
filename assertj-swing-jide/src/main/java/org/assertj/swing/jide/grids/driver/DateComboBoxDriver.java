@@ -24,7 +24,7 @@ import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.uitest4j.swing.core.BasicComponentFinder;
 import org.uitest4j.swing.core.ComponentFinder;
 import org.uitest4j.swing.core.Robot;
-import org.assertj.swing.driver.JComponentDriver;
+import org.uitest4j.swing.driver.JComponentDriver;
 import org.assertj.swing.edt.GuiActionRunner;
 
 import com.jidesoft.combobox.DateChooserPanel;

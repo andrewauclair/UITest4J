@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 import javax.swing.JMenuItem;
 
 import org.uitest4j.swing.core.Robot;
-import org.assertj.swing.driver.JMenuItemDriver;
+import org.uitest4j.swing.driver.JMenuItemDriver;
 
 /**
  * Supports functional testing of {@code JMenuItem}s.

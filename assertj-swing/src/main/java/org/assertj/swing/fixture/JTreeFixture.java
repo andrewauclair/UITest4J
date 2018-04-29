@@ -21,7 +21,7 @@ import org.uitest4j.swing.cell.JTreeCellReader;
 import org.uitest4j.swing.core.MouseButton;
 import org.uitest4j.swing.core.MouseClickInfo;
 import org.uitest4j.swing.core.Robot;
-import org.assertj.swing.driver.JTreeDriver;
+import org.uitest4j.swing.driver.JTreeDriver;
 
 /**
  * <p>
@@ -54,7 +54,7 @@ import org.assertj.swing.driver.JTreeDriver;
  *
  * <p>
  * The conversion between the values given in tests and the values being displayed by a {@code JTree} renderer is
- * performed by a {@link JTreeCellReader}. This fixture uses a {@link org.assertj.swing.driver.BasicJTreeCellReader} by
+ * performed by a {@link JTreeCellReader}. This fixture uses a {@link org.uitest4j.swing.driver.BasicJTreeCellReader} by
  * default.
  * </p>
  *
@@ -680,7 +680,7 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
   /**
    * Updates the implementation of {@link JTreeCellReader} to use when comparing internal values of a {@code JTree} and
    * the values expected in a test. The default implementation to use is
-   * {@link org.assertj.swing.driver.BasicJTreeCellReader}.
+   * {@link org.uitest4j.swing.driver.BasicJTreeCellReader}.
    *
    * @param cellReader the new {@code JTreeCellValueReader} to use.
    * @throws NullPointerException if {@code cellReader} is {@code null}.

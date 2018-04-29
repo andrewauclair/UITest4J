@@ -13,7 +13,7 @@
 package org.assertj.swing.jide.action.driver;
 
 import org.uitest4j.swing.core.Robot;
-import org.assertj.swing.driver.JComponentDriver;
+import org.uitest4j.swing.driver.JComponentDriver;
 
 /**
  * A Driver for the Jide {@link com.jidesoft.action.CommandBar} class.

@@ -28,7 +28,7 @@ import org.assertj.core.description.Description;
 import org.assertj.core.util.Strings;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.core.KeyPressInfo;
-import org.assertj.swing.driver.JComponentDriver;
+import org.uitest4j.swing.driver.JComponentDriver;
 import org.assertj.swing.exception.LocationUnavailableException;
 import org.assertj.swing.query.ComponentEnabledQuery;
 
@@ -39,7 +39,7 @@ import com.jidesoft.converter.ObjectConverter;
 
 /**
  * A driver for an {@link com.jidesoft.combobox.AbstractComboBox}. This is loosely based
- * on the {@link org.assertj.swing.driver.JComboBoxDriver} class so a familiar usage pattern
+ * on the {@link org.uitest4j.swing.driver.JComboBoxDriver} class so a familiar usage pattern
  * will exist between Swing combo boxes and JIDE combo boxes.
  *
  * @author Peter Murray

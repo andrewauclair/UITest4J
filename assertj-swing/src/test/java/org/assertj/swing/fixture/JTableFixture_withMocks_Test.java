@@ -18,7 +18,7 @@ import org.uitest4j.swing.core.MouseClickInfo;
 import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.data.TableCell;
 import org.uitest4j.swing.data.TableCellFinder;
-import org.assertj.swing.driver.JTableDriver;
+import org.uitest4j.swing.driver.JTableDriver;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

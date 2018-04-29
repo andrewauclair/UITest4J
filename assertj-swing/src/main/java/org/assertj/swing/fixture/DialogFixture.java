@@ -18,7 +18,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import org.uitest4j.swing.core.Robot;
-import org.assertj.swing.driver.DialogDriver;
+import org.uitest4j.swing.driver.DialogDriver;
 
 /**
  * Supports functional testing of {@code Dialog}s.

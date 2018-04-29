@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 import javax.swing.JScrollBar;
 
 import org.uitest4j.swing.core.Robot;
-import org.assertj.swing.driver.JScrollBarDriver;
+import org.uitest4j.swing.driver.JScrollBarDriver;
 
 /**
  * Supports functional testing of {@code JScrollBar}s.

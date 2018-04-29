@@ -22,7 +22,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import org.uitest4j.swing.core.Robot;
-import org.assertj.swing.driver.WindowDriver;
+import org.uitest4j.swing.driver.WindowDriver;
 
 /**
  * Supports functional testing of {@code Window}.

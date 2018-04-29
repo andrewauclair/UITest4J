@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
 import javax.swing.AbstractButton;
 
 import org.uitest4j.swing.core.Robot;
-import org.assertj.swing.driver.AbstractButtonDriver;
+import org.uitest4j.swing.driver.AbstractButtonDriver;
 
 /**
  * Supports functional testing of {@code AbstractButton}s.

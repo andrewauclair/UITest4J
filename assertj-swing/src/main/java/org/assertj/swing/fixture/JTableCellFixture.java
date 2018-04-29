@@ -27,7 +27,7 @@ import org.assertj.core.util.VisibleForTesting;
 import org.uitest4j.swing.core.MouseButton;
 import org.uitest4j.swing.core.MouseClickInfo;
 import org.uitest4j.swing.data.TableCell;
-import org.assertj.swing.driver.JTableDriver;
+import org.uitest4j.swing.driver.JTableDriver;
 
 /**
  * <p>

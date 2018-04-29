@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
 import javax.swing.JOptionPane;
 
 import org.uitest4j.swing.core.Robot;
-import org.assertj.swing.driver.JOptionPaneDriver;
+import org.uitest4j.swing.driver.JOptionPaneDriver;
 
 /**
  * Supports functional testing of {@code JOptionPane}s.

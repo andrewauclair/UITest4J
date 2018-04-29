@@ -14,7 +14,7 @@ package org.assertj.swing.fixture;
 
 import org.uitest4j.swing.core.GenericTypeMatcher;
 import org.uitest4j.swing.core.Robot;
-import org.assertj.swing.driver.JPopupMenuDriver;
+import org.uitest4j.swing.driver.JPopupMenuDriver;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

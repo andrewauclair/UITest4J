@@ -18,7 +18,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import org.uitest4j.swing.core.Robot;
-import org.assertj.swing.driver.FrameDriver;
+import org.uitest4j.swing.driver.FrameDriver;
 
 /**
  * Supports functional testing of {@code Frame}s.

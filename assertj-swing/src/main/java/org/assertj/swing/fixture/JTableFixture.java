@@ -14,7 +14,7 @@ package org.assertj.swing.fixture;
 
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.core.util.Strings.concat;
-import static org.assertj.swing.driver.ComponentDriver.propertyName;
+import static org.uitest4j.swing.driver.ComponentDriver.propertyName;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -34,7 +34,7 @@ import org.uitest4j.swing.core.MouseClickInfo;
 import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.data.TableCell;
 import org.uitest4j.swing.data.TableCellFinder;
-import org.assertj.swing.driver.JTableDriver;
+import org.uitest4j.swing.driver.JTableDriver;
 
 /**
  * <p>
@@ -43,7 +43,7 @@ import org.assertj.swing.driver.JTableDriver;
  *
  * <p>
  * The conversion between the values given in tests and the values being displayed by a {@code JTable} renderer is
- * performed by a {@link JTableCellReader}. This fixture uses a {@link org.assertj.swing.driver.BasicJTableCellReader}
+ * performed by a {@link JTableCellReader}. This fixture uses a {@link org.uitest4j.swing.driver.BasicJTableCellReader}
  * by default.
  * </p>
  *

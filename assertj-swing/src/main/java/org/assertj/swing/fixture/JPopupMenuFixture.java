@@ -19,7 +19,7 @@ import javax.swing.JPopupMenu;
 
 import org.uitest4j.swing.core.GenericTypeMatcher;
 import org.uitest4j.swing.core.Robot;
-import org.assertj.swing.driver.JPopupMenuDriver;
+import org.uitest4j.swing.driver.JPopupMenuDriver;
 
 /**
  * Supports functional testing of {@code JPopupMenu}s

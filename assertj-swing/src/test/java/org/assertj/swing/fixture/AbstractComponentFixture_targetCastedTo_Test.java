@@ -22,7 +22,7 @@ import javax.annotation.Nonnull;
 import javax.swing.JTable;
 
 import org.uitest4j.swing.core.Robot;
-import org.assertj.swing.driver.ComponentDriver;
+import org.uitest4j.swing.driver.ComponentDriver;
 import org.assertj.swing.edt.GuiActionRunner;
 import org.junit.jupiter.api.Test;
 

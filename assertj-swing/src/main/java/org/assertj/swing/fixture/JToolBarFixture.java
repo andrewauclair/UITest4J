@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
 import javax.swing.JToolBar;
 
 import org.uitest4j.swing.core.Robot;
-import org.assertj.swing.driver.JToolBarDriver;
+import org.uitest4j.swing.driver.JToolBarDriver;
 
 /**
  * Supports functional testing of {@code JToolBar}s.

@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 import javax.swing.JSpinner;
 
 import org.uitest4j.swing.core.Robot;
-import org.assertj.swing.driver.JSpinnerDriver;
+import org.uitest4j.swing.driver.JSpinnerDriver;
 
 /**
  * Supports functional testing of {@code JSpinner}s:

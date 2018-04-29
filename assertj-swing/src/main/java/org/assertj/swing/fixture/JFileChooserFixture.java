@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
 import javax.swing.JFileChooser;
 
 import org.uitest4j.swing.core.Robot;
-import org.assertj.swing.driver.JFileChooserDriver;
+import org.uitest4j.swing.driver.JFileChooserDriver;
 
 /**
  * Supports functional testing of {@code JFileChooser}s.

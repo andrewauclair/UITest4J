@@ -14,7 +14,7 @@ package org.assertj.swing.fixture;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Preconditions.checkNotNull;
-import static org.assertj.swing.driver.ComponentDriver.propertyName;
+import static org.uitest4j.swing.driver.ComponentDriver.propertyName;
 import static org.assertj.swing.format.Formatting.format;
 
 import java.awt.Color;
@@ -29,7 +29,7 @@ import org.uitest4j.swing.core.KeyPressInfo;
 import org.uitest4j.swing.core.MouseButton;
 import org.uitest4j.swing.core.MouseClickInfo;
 import org.uitest4j.swing.core.Robot;
-import org.assertj.swing.driver.ComponentDriver;
+import org.uitest4j.swing.driver.ComponentDriver;
 import org.assertj.swing.exception.ComponentLookupException;
 import org.assertj.swing.query.ComponentEnabledQuery;
 import org.assertj.swing.timing.Timeout;

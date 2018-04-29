@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
 import javax.swing.JComponent;
 
 import org.uitest4j.swing.core.Robot;
-import org.assertj.swing.driver.JComponentDriver;
+import org.uitest4j.swing.driver.JComponentDriver;
 
 /**
  * Supports functional testing of {@code JComponent}s capable of invoking {@code JPopupMenu}s.

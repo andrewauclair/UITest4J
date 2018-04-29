@@ -18,7 +18,7 @@ import java.lang.reflect.Method;
 
 import javax.swing.JTable;
 
-import org.assertj.swing.driver.BasicJTableCellReader;
+import org.uitest4j.swing.driver.BasicJTableCellReader;
 
 import com.jidesoft.combobox.ListComboBox;
 

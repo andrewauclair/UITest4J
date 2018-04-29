@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
 import javax.swing.JProgressBar;
 
 import org.uitest4j.swing.core.Robot;
-import org.assertj.swing.driver.JProgressBarDriver;
+import org.uitest4j.swing.driver.JProgressBarDriver;
 import org.assertj.swing.timing.Timeout;
 
 /**

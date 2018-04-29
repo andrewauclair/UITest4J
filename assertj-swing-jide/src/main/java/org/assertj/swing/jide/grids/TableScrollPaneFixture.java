@@ -16,7 +16,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.data.TableCell;
-import org.assertj.swing.driver.JTableDriver;
+import org.uitest4j.swing.driver.JTableDriver;
 import org.assertj.swing.fixture.JScrollPaneFixture;
 
 import com.jidesoft.grid.TableScrollPane;

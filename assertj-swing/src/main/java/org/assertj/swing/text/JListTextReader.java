@@ -14,7 +14,7 @@ package org.assertj.swing.text;
 
 import org.assertj.core.util.VisibleForTesting;
 import org.uitest4j.swing.cell.JListCellReader;
-import org.assertj.swing.driver.BasicJListCellReader;
+import org.uitest4j.swing.driver.BasicJListCellReader;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 
 import javax.annotation.Nonnull;

@@ -23,7 +23,7 @@ import javax.swing.JList;
 import org.uitest4j.swing.cell.JListCellReader;
 import org.uitest4j.swing.core.MouseButton;
 import org.uitest4j.swing.core.Robot;
-import org.assertj.swing.driver.JListDriver;
+import org.uitest4j.swing.driver.JListDriver;
 import org.assertj.swing.util.Range;
 
 /**
@@ -33,7 +33,7 @@ import org.assertj.swing.util.Range;
  *
  * <p>
  * The conversion between the values given in tests and the values being displayed by a {@code JList} renderer is
- * performed by a {@link JListCellReader}. This fixture uses a {@link org.assertj.swing.driver.BasicJListCellReader} by default.
+ * performed by a {@link JListCellReader}. This fixture uses a {@link org.uitest4j.swing.driver.BasicJListCellReader} by default.
  * </p>
  *
  * @author Alex Ruiz

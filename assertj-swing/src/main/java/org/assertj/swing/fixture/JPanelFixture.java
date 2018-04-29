@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
 import javax.swing.JPanel;
 
 import org.uitest4j.swing.core.Robot;
-import org.assertj.swing.driver.JComponentDriver;
+import org.uitest4j.swing.driver.JComponentDriver;
 
 /**
  * Supports functional testing of {@code JPanel}s.

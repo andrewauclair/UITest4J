@@ -23,7 +23,7 @@ import javax.swing.JMenuItem;
 
 import org.uitest4j.swing.core.ComponentMatcher;
 import org.uitest4j.swing.core.Robot;
-import org.assertj.swing.driver.JMenuItemMatcher;
+import org.uitest4j.swing.driver.JMenuItemMatcher;
 
 /**
  * Looks up of {@code JMenuItem}s.

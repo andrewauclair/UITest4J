@@ -23,7 +23,7 @@ import javax.swing.table.JTableHeader;
 
 import org.uitest4j.swing.core.MouseClickInfo;
 import org.uitest4j.swing.core.Robot;
-import org.assertj.swing.driver.JTableHeaderDriver;
+import org.uitest4j.swing.driver.JTableHeaderDriver;
 
 /**
  * Supports functional testing of {@code JTableHeader}s.

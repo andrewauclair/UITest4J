@@ -15,7 +15,7 @@ package org.uitest4j.swing.data;
 import static org.uitest4j.swing.data.TableCellByColumnId.row;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import org.assertj.swing.driver.BasicJTableCellReader;
+import org.uitest4j.swing.driver.BasicJTableCellReader;
 import org.assertj.swing.exception.ActionFailedException;
 import org.junit.jupiter.api.Test;
 

@@ -15,7 +15,7 @@ package org.assertj.swing.fixture;
 import org.uitest4j.swing.cell.JTreeCellReader;
 import org.uitest4j.swing.core.MouseClickInfo;
 import org.uitest4j.swing.core.Robot;
-import org.assertj.swing.driver.JTreeDriver;
+import org.uitest4j.swing.driver.JTreeDriver;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

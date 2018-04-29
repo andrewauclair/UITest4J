@@ -20,7 +20,7 @@ import javax.swing.JTabbedPane;
 
 import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.data.Index;
-import org.assertj.swing.driver.JTabbedPaneDriver;
+import org.uitest4j.swing.driver.JTabbedPaneDriver;
 
 /**
  * Supports functional testing of {@code JTabbedPane}s.

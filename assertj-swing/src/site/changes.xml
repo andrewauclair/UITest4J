@@ -27,7 +27,7 @@
         Added KeyStrokeMappingProvider for French MacOS.
       </action>
       <action dev="alexruiz" type="fix" issue="FEST-348" due-to="Olivier DOREMIEUX">
-        Fixed implementation of "selectAll" in class org.assertj.swing.driver.JTextComponentDriver.
+          Fixed implementation of "selectAll" in class org.uitest4j.swing.driver.JTextComponentDriver.
       </action>
       <action dev="wanghy" type="remove" issue="FEST-354">
         Removed class org.assertj.swing.util.SystemProperties.
@@ -290,10 +290,10 @@
         Robot automatically performs any necessary scrolls to make a component visible before clicking it. 
       </action>
       <action dev="alexruiz" type="fix" isse="FEST-284" due-to="Steve Farrell">
-          Moved class Scrolling from package org.assertj.swing.driver to org.uitest4j.swing.core.
+          Moved class Scrolling from package org.uitest4j.swing.driver to org.uitest4j.swing.core.
       </action>
       <action dev="alexruiz" type="fix" isse="FEST-284" due-to="Steve Farrell">
-          Deprecated class org.assertj.swing.driver.Scrolling. Use org.uitest4j.swing.core.Scrolling instead.
+          Deprecated class org.uitest4j.swing.driver.Scrolling. Use org.uitest4j.swing.core.Scrolling instead.
       </action>
       <action dev="alexruiz" type="fix" isse="FEST-285" due-to="Steve Farrell">
         Fixed typo in error message displayed when a component to click is out of screen bounds.
@@ -748,34 +748,37 @@
           org.uitest4j.swing.core.Robot.
       </action>
       <action dev="alexruiz" type="add" issue="FEST-13">
-          Replaced org.assertj.swing.driver.DragAndDrop with org.uitest4j.swing.core.ComponentDragAndDrop.
+          Replaced org.uitest4j.swing.driver.DragAndDrop with org.uitest4j.swing.core.ComponentDragAndDrop.
       </action>
       <action dev="alexruiz" type="add" issue="FEST-13">
-        Class org.assertj.swing.driver.DragAndDrop is now deprecated and will be removed in version 2.0. 
+          Class org.uitest4j.swing.driver.DragAndDrop is now deprecated and will be removed in version 2.0.
       </action>
       <action dev="alexruiz" type="fix" issue="FEST-14" due-to="Ken Geis">
-        Failure to activate cell editor in org.assertj.swing.driver.AbstractJTableCellWriter now throw an 
-        ActionFailureException with the message "Unable to find or activate cell editor".
+          Failure to activate cell editor in org.uitest4j.swing.driver.AbstractJTableCellWriter now throw an
+          ActionFailureException with the message "Unable to find or activate cell editor".
       </action>
       <action dev="alexruiz" type="fix" issue="FEST-15" due-to="Gino John">
-        org.assertj.swing.driver.JTreeDriver now adds the root to the path to expand, if the JTree has its root invisible.
+          org.uitest4j.swing.driver.JTreeDriver now adds the root to the path to expand, if the JTree has its root
+          invisible.
       </action>
       <action dev="alexruiz" type="add" issue="FEST-16" due-to="Peter Hulst">
         Added method 'selectFiles(File...)' to org.assertj.swing.fixture.JFileChooserFixture.
       </action>
       <action dev="alexruiz" type="fix" issue="FEST-17" due-to="Sergey Parilin">
-        org.assertj.swing.driver.JSpinnerDriver correctly selects the current text of a JSpinner before entering new text.
+          org.uitest4j.swing.driver.JSpinnerDriver correctly selects the current text of a JSpinner before entering new
+          text.
       </action>
       <action dev="alexruiz" type="add" issue="FEST-18" due-to="Ian Henehan">
         Added methods 'moveToFront' and 'moveToBack' to FrameFixture and DialogFixture.      
       </action>
       <action dev="alexruiz" type="add" issue="FEST-19" due-to="Juhos Csaba-Zsolt">
-        org.assertj.swing.driver.JSpinnerDriver sets the focus on the editor and waits for the editor to be focused before
-        entering new text.
+          org.uitest4j.swing.driver.JSpinnerDriver sets the focus on the editor and waits for the editor to be focused
+          before
+          entering new text.
       </action>
       <action dev="alexruiz" type="fix" issue="FEST-20" due-to="Ken Geis">
-        org.assertj.swing.driver.JTableTextComponentEditorCellWriter now correctly catches ActionFailedException when
-        the cell editor cannot be activated by pressing the key 'F2'.
+          org.uitest4j.swing.driver.JTableTextComponentEditorCellWriter now correctly catches ActionFailedException when
+          the cell editor cannot be activated by pressing the key 'F2'.
       </action>
       <action dev="alexruiz" type="fix" issue="FEST-48" due-to="vnguyen.sqa">
         Parameters values in TestNG test methods are now used to generate name of image file containing desktop 
@@ -789,13 +792,14 @@
         org.assertj.swing.testng.listener.ScreenshotOnFailureListener instead.
       </action>
       <action dev="alexruiz" type="fix" issue="FEST-65" due-to="Cimballi">
-        org.assertj.swing.driver.JListDriver now clicks in the middle of the visible rectangle of a cell, when selecting
-        an item in a JList.
+          org.uitest4j.swing.driver.JListDriver now clicks in the middle of the visible rectangle of a cell, when
+          selecting
+          an item in a JList.
       </action>
     </release>
     <release version="1.0" date="2009-01-15" description="Subsequent release">
       <action dev="alexruiz" type="add" issue="238" due-to="Juhos Csaba-Zsolt">
-        Added class org.assertj.swing.driver.Scrolling.
+          Added class org.uitest4j.swing.driver.Scrolling.
       </action>
       <action dev="alexruiz" type="add" issue="277" due-to="Juhos Csaba-Zsolt">
         Added methods 'check' and 'uncheck' to org.assertj.swing.fixture.JRadioButtonFixture.
@@ -838,8 +842,8 @@
         dispatch thread.
       </action>
       <action dev="alexruiz" type="fix" issue="251" due-to="Juhos Csaba-Zsolt">
-        JTable cell editor lookup fixed in org.assertj.swing.driver.JTableTextComponentEditorCellWriter and 
-        JTableComboBoxEditorCellWriter by looking up the editor after it has been activated.
+          JTable cell editor lookup fixed in org.uitest4j.swing.driver.JTableTextComponentEditorCellWriter and
+          JTableComboBoxEditorCellWriter by looking up the editor after it has been activated.
       </action>
       <action dev="alexruiz" type="fix" issue="257" due-to="Juhos Csaba-Zsolt">
           Constructors in org.uitest4j.swing.core.GenericTypeMatcher now take the supported type as parameter to
@@ -891,7 +895,7 @@
         Consolidated fine-grained GUI tasks into new coarsed-grained ones.
       </action>
       <action dev="alexruiz" type="remove" issue="216">
-        Removed org.assertj.swing.driver.JListLocation.
+          Removed org.uitest4j.swing.driver.JListLocation.
       </action>
       <action dev="alexruiz, wanghy" type="add" issue="216" 
         due-to="Simeon Fitch, Michael Hüttermann, Jean-Francois Poilpret">
@@ -905,15 +909,16 @@
         Added annotations from "Java Concurrency in Practice" as dependency.
       </action>
       <action dev="alexruiz" type="fix" issue="219" due-to="Matthias Otterbach">
-        Fixed implementation of method 'enterValue(JTable, int, int, String)' in
-        org.assertj.swing.driver.JTableTextComponentEditorCellWriter.
+          Fixed implementation of method 'enterValue(JTable, int, int, String)' in
+          org.uitest4j.swing.driver.JTableTextComponentEditorCellWriter.
       </action>
       <action dev="alexruiz" type="fix" issue="222" due-to="Daniel F. Surdyk, III">
         Fixed error message when the index of a JTable cell is out of bounds.
       </action>
       <action dev="alexruiz" type="fix" issue="225" due-to="Jan Zuchhold">
-        org.assertj.swing.driver.JTableTextComponentEditorCellWriter now presses the 'F2' key to start editing a table cell
-        that uses a JTextComponent as editor.
+          org.uitest4j.swing.driver.JTableTextComponentEditorCellWriter now presses the 'F2' key to start editing a
+          table cell
+          that uses a JTextComponent as editor.
       </action>
       <action dev="alexruiz" type="fix" issue="228" due-to="Ken Geis">
         Modal dialogs do not blocks tests anymore (as long as tests use the event dispatch thread correctly.)
@@ -967,7 +972,8 @@
           matcher.
       </action>
       <action dev="alexruiz" type="fix" issue="246" due-to="Juhos Csaba-Zsolt">
-        Fixed NullPointerException thrown in org.assertj.swing.driver.JListDriver when selecting an already selected item.
+          Fixed NullPointerException thrown in org.uitest4j.swing.driver.JListDriver when selecting an already selected
+          item.
       </action>
       <action dev="alexruiz" type="fix" issue="246" due-to="Marc Johen">
         By default org.assertj.swing.keystroke.KeyStrokeMap uses an English keyboard mapping.
@@ -994,7 +1000,7 @@
         JTableCellFixture from a row index and column name.
       </action>
       <action dev="alexruiz" type="add" issue="170" due-to="Juhos Csaba-Zsolt">
-          Replaced org.assertj.swing.driver.JTableCell and org.assertj.swing.fixture.TableCell with
+          Replaced org.uitest4j.swing.driver.JTableCell and org.assertj.swing.fixture.TableCell with
           org.uitest4j.swing.data.TableCell.
       </action>
       <action dev="alexruiz" type="fix" issue="186" due-to="Michael Hüttermann">
@@ -1051,7 +1057,7 @@
         of the event is a java.awt.Component before performing a cast.
       </action>
       <action dev="alexruiz" type="fix" issue="202" due-to="Juhos Csaba-Zsolt">
-        Class org.assertj.swing.driver.DragAndDrop is now public.
+          Class org.uitest4j.swing.driver.DragAndDrop is now public.
       </action>
       <action dev="alexruiz, wanghy" type="add" issue="204" due-to="Juhos Csaba-Zsolt">
         Added method 'rowCount' to org.assertj.swing.fixture.JTableFixture.
@@ -1183,7 +1189,7 @@
         Fixed multiple selection in JListDriver, JTableDriver and JTreeDriver.
       </action>
       <action dev="wanghy" type="fix" issue="152" due-to="Juhos Csaba-Zsolt">
-        Fixed implementation of 'selectItems(JList, int, int)' in org.assertj.swing.driver.JListDriver.
+          Fixed implementation of 'selectItems(JList, int, int)' in org.uitest4j.swing.driver.JListDriver.
       </action>
       <action dev="alexruiz, wanghy" type="fix" issue="153" due-to="Juhos Csaba-Zsolt">
         All fixtures now throw IllegalArgumentException if any constructor argument is null (with the exception of
@@ -1419,7 +1425,7 @@
       </action>
       <action dev="alexruiz" type="add">
           Moved methods 'showPopupMenu' and 'findActivePopupMenu' from org.uitest4j.swing.core.RobotFixture to
-          org.assertj.swing.driver.JPopupMenuDriver.
+          org.uitest4j.swing.driver.JPopupMenuDriver.
       </action>
       <action dev="alexruiz" type="add" issue="104" due-to="Fabien Barbero">
           Added method 'pressAndReleaseKey(int keyCode, int modifiers)' to org.uitest4j.swing.core.RobotFixture.

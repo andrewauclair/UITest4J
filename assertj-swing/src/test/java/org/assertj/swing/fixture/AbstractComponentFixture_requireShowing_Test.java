@@ -15,7 +15,7 @@ package org.assertj.swing.fixture;
 import org.uitest4j.swing.core.ComponentLookupScope;
 import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.core.Settings;
-import org.assertj.swing.driver.ComponentDriver;
+import org.uitest4j.swing.driver.ComponentDriver;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
