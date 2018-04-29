@@ -12,7 +12,7 @@
  */
 package org.assertj.swing.junit.ant;
 
-import org.assertj.swing.image.ScreenshotTaker;
+import org.uitest4j.swing.image.ScreenshotTaker;
 import org.junit.jupiter.api.BeforeAll;
 
 import java.awt.image.BufferedImage;

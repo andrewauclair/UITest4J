@@ -23,7 +23,7 @@ import javax.annotation.Nonnull;
 import javax.swing.JTextField;
 
 /**
- * Tests for {@link FinderDelegate#find(org.assertj.swing.hierarchy.ComponentHierarchy, GenericTypeMatcher)}.
+ * Tests for {@link FinderDelegate#find(org.uitest4j.swing.hierarchy.ComponentHierarchy, GenericTypeMatcher)}.
  * 
  * @author Alex Ruiz
  */

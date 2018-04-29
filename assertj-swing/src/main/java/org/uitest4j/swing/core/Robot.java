@@ -21,7 +21,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.swing.JPopupMenu;
 
-import org.assertj.swing.hierarchy.ComponentHierarchy;
+import org.uitest4j.swing.hierarchy.ComponentHierarchy;
 
 /**
  * Simulates user input on an AWT or Swing {@code Component}.

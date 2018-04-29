@@ -12,7 +12,7 @@
  */
 package org.assertj.swing.junit.ant;
 
-import static org.assertj.swing.image.ImageFileExtensions.PNG;
+import static org.uitest4j.swing.image.ImageFileExtensions.PNG;
 import static org.assertj.swing.junit.ant.CommonConstants.UTF_8;
 
 import java.awt.image.BufferedImage;

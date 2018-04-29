@@ -17,7 +17,7 @@ import java.util.Collection;
 
 import javax.annotation.Nonnull;
 
-import org.assertj.swing.hierarchy.ExistingHierarchy;
+import org.uitest4j.swing.hierarchy.ExistingHierarchy;
 
 /**
  * Obtains all the root AWT and Swing {@code Container}s of an {@link ExistingHierarchy}.

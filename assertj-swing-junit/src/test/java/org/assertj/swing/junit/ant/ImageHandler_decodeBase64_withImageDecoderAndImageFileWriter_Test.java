@@ -19,14 +19,14 @@ import static org.easymock.classextension.EasyMock.createMock;
 
 import java.awt.image.BufferedImage;
 
-import org.assertj.swing.image.ImageFileWriter;
+import org.uitest4j.swing.image.ImageFileWriter;
 import org.fest.mocks.EasyMockTemplate;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
  * Tests for
- * <code>{@link ImageHandler#decodeBase64AndSaveAsPng(String, String, ImageDecoder, org.assertj.swing.image.ImageFileWriter)}</code>
+ * <code>{@link ImageHandler#decodeBase64AndSaveAsPng(String, String, ImageDecoder, org.uitest4j.swing.image.ImageFileWriter)}</code>
  * .
  * 
  * @author Alex Ruiz

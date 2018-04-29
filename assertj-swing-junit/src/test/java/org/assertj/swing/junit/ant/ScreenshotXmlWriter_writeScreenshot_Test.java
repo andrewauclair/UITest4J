@@ -24,7 +24,7 @@ import java.awt.image.BufferedImage;
 
 import junit.framework.TestResult;
 
-import org.assertj.swing.image.ScreenshotTaker;
+import org.uitest4j.swing.image.ScreenshotTaker;
 import org.assertj.swing.junit.xml.XmlDocument;
 import org.assertj.swing.junit.xml.XmlNode;
 import org.fest.mocks.EasyMockTemplate;

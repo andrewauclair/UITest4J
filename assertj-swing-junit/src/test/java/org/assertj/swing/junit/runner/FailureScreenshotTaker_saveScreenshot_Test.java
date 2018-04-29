@@ -21,7 +21,7 @@ import static org.easymock.classextension.EasyMock.createMock;
 import java.io.File;
 import java.io.IOException;
 
-import org.assertj.swing.image.ScreenshotTaker;
+import org.uitest4j.swing.image.ScreenshotTaker;
 import org.fest.mocks.EasyMockTemplate;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

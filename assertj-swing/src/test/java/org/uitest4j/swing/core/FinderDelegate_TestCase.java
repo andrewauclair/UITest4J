@@ -12,8 +12,8 @@
  */
 package org.uitest4j.swing.core;
 
-import org.assertj.swing.hierarchy.ComponentHierarchy;
-import org.assertj.swing.hierarchy.NewHierarchy;
+import org.uitest4j.swing.hierarchy.ComponentHierarchy;
+import org.uitest4j.swing.hierarchy.NewHierarchy;
 import org.assertj.swing.test.core.SequentialEDTSafeTestCase;
 import org.assertj.swing.test.swing.TestWindow;
 import org.uitest4j.swing.annotation.RunsInEDT;

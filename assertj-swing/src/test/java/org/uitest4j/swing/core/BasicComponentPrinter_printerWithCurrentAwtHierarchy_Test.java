@@ -14,7 +14,7 @@ package org.uitest4j.swing.core;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.assertj.swing.hierarchy.ExistingHierarchy;
+import org.uitest4j.swing.hierarchy.ExistingHierarchy;
 import org.junit.jupiter.api.Test;
 
 /**

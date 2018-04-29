@@ -25,7 +25,7 @@ import java.util.List;
 
 import javax.swing.JFrame;
 
-import org.assertj.swing.hierarchy.ComponentHierarchy;
+import org.uitest4j.swing.hierarchy.ComponentHierarchy;
 import org.assertj.swing.test.core.EDTSafeTestCase;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;

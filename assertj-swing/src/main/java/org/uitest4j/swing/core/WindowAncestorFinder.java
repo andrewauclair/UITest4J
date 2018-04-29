@@ -12,8 +12,8 @@
  */
 package org.uitest4j.swing.core;
 
-import org.assertj.swing.hierarchy.ComponentHierarchy;
-import org.assertj.swing.hierarchy.ExistingHierarchy;
+import org.uitest4j.swing.hierarchy.ComponentHierarchy;
+import org.uitest4j.swing.hierarchy.ExistingHierarchy;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 
 import javax.annotation.Nonnull;

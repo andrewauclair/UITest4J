@@ -13,7 +13,7 @@
 package org.assertj.swing.testng.listener;
 
 import static org.assertj.core.util.Strings.join;
-import static org.assertj.swing.image.ImageFileExtensions.PNG;
+import static org.uitest4j.swing.image.ImageFileExtensions.PNG;
 
 import java.util.ArrayList;
 import java.util.List;

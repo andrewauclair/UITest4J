@@ -13,9 +13,9 @@
 package org.uitest4j.swing.core;
 
 import org.uitest4j.swing.exception.ComponentLookupException;
-import org.assertj.swing.hierarchy.ComponentHierarchy;
-import org.assertj.swing.hierarchy.ExistingHierarchy;
-import org.assertj.swing.hierarchy.SingleComponentHierarchy;
+import org.uitest4j.swing.hierarchy.ComponentHierarchy;
+import org.uitest4j.swing.hierarchy.ExistingHierarchy;
+import org.uitest4j.swing.hierarchy.SingleComponentHierarchy;
 import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.annotation.Nonnull;
@@ -32,7 +32,7 @@ import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.core.util.Strings.concat;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 import static org.uitest4j.swing.format.Formatting.format;
-import static org.assertj.swing.hierarchy.NewHierarchy.ignoreExistingComponents;
+import static org.uitest4j.swing.hierarchy.NewHierarchy.ignoreExistingComponents;
 
 /**
  * Default implementation of {@link ComponentFinder}.

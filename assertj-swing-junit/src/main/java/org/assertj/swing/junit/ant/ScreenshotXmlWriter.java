@@ -13,7 +13,7 @@
 package org.assertj.swing.junit.ant;
 
 import static org.assertj.core.util.Strings.join;
-import static org.assertj.swing.image.ImageFileExtensions.PNG;
+import static org.uitest4j.swing.image.ImageFileExtensions.PNG;
 import static org.assertj.swing.junit.ant.ImageHandler.encodeBase64;
 import static org.assertj.swing.junit.ant.Tests.testClassNameFrom;
 import static org.assertj.swing.junit.ant.Tests.testMethodNameFrom;
@@ -24,7 +24,7 @@ import java.awt.image.BufferedImage;
 
 import junit.framework.Test;
 
-import org.assertj.swing.image.ScreenshotTaker;
+import org.uitest4j.swing.image.ScreenshotTaker;
 import org.assertj.swing.junit.xml.XmlNode;
 
 /**

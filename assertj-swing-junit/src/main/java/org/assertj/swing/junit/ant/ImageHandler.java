@@ -19,7 +19,7 @@ import static org.assertj.swing.util.Strings.isNullOrEmpty;
 import java.awt.image.BufferedImage;
 import java.util.logging.Logger;
 
-import org.assertj.swing.image.ImageFileWriter;
+import org.uitest4j.swing.image.ImageFileWriter;
 
 /**
  * Understands base64 encoding and decoding of an image.

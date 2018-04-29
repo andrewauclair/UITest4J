@@ -16,7 +16,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import org.uitest4j.swing.core.BasicRobot;
 import org.uitest4j.swing.core.Robot;
-import org.assertj.swing.hierarchy.ExistingHierarchy;
+import org.uitest4j.swing.hierarchy.ExistingHierarchy;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

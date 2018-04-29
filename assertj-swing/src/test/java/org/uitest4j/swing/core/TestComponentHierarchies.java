@@ -14,7 +14,7 @@ package org.uitest4j.swing.core;
 
 import static org.mockito.Mockito.mock;
 
-import org.assertj.swing.hierarchy.ComponentHierarchy;
+import org.uitest4j.swing.hierarchy.ComponentHierarchy;
 
 /**
  * Implementations of {@link ComponentHierarchy} to be used for testing.

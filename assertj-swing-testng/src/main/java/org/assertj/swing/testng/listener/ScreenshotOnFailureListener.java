@@ -25,10 +25,10 @@ import java.util.logging.Logger;
 
 import org.assertj.core.util.VisibleForTesting;
 import org.uitest4j.swing.annotation.GUITestFinder;
-import org.assertj.swing.image.ImageException;
-import org.assertj.swing.image.NoopScreenshotTaker;
-import org.assertj.swing.image.ScreenshotTaker;
-import org.assertj.swing.image.ScreenshotTakerIF;
+import org.uitest4j.swing.image.ImageException;
+import org.uitest4j.swing.image.NoopScreenshotTaker;
+import org.uitest4j.swing.image.ScreenshotTaker;
+import org.uitest4j.swing.image.ScreenshotTakerIF;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.Reporter;

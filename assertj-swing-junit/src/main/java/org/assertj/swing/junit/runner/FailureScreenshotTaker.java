@@ -16,15 +16,15 @@ import static java.io.File.separator;
 import static java.util.logging.Level.WARNING;
 import static org.assertj.core.util.Strings.concat;
 import static org.assertj.core.util.Strings.quote;
-import static org.assertj.swing.image.ImageFileExtensions.PNG;
+import static org.uitest4j.swing.image.ImageFileExtensions.PNG;
 
 import java.awt.GraphicsEnvironment;
 import java.io.File;
 import java.util.logging.Logger;
 
-import org.assertj.swing.image.NoopScreenshotTaker;
-import org.assertj.swing.image.ScreenshotTaker;
-import org.assertj.swing.image.ScreenshotTakerIF;
+import org.uitest4j.swing.image.NoopScreenshotTaker;
+import org.uitest4j.swing.image.ScreenshotTaker;
+import org.uitest4j.swing.image.ScreenshotTakerIF;
 
 /**
  * Understands taking a screenshot of the desktop when a GUI test fails.

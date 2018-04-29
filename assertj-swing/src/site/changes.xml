@@ -825,7 +825,7 @@
           org.uitest4j.swing.fixture.ComponentContainerFixture.
       </action>
       <action dev="alexruiz" type="fix">
-          Moved SingleComponentHierarchy from package org.uitest4j.swing.core to org.assertj.swing.hierarchy.
+          Moved SingleComponentHierarchy from package org.uitest4j.swing.core to org.uitest4j.swing.hierarchy.
       </action>
       <action dev="alexruiz" type="fix">
         Made class org.assertj.swing.hierarchySingleComponentHierarchy public.
@@ -836,7 +836,8 @@
           Added method click(Point, MouseButton, int) to org.uitest4j.swing.core.Robot.
       </action>
       <action dev="alexruiz" type="fix" issue="213" due-to="Jean-Francois Poilpret">
-        org.assertj.swing.image.ScreenshotTaker hides the caret of a focused text component before taking a screenshot.
+          org.uitest4j.swing.image.ScreenshotTaker hides the caret of a focused text component before taking a
+          screenshot.
       </action>
       <action dev="alexruiz" type="fix" issue="247" due-to="Juhos Csaba-Zsolt">
           org.uitest4j.swing.edt.GuiActionRunner appends stack trace of current thread to an exception thrown in the
@@ -883,8 +884,8 @@
         Fixed JTable cell-editing actions.
       </action>
       <action dev="alexruiz" type="fix" issue="213" due-to="Jean-Francois Poilpret">
-        org.assertj.swing.image.ScreenshotTaker now hides the cursor of the focused JTextComponent when taking a 
-        screenshot.
+          org.uitest4j.swing.image.ScreenshotTaker now hides the cursor of the focused JTextComponent when taking a
+          screenshot.
       </action>
       <action dev="alexruiz" type="fix" issue="214" due-to="Michael Hüttermann">
           Fixed code snippet in Javadoc for class org.uitest4j.swing.data.TableCell.
@@ -1658,7 +1659,8 @@
         Added class JPanelFixture.        
       </action>
       <action dev="alexruiz" type="fix">
-        Moved ImageException and ScreenshotTaker from package org.assertj.swing.util to package org.assertj.swing.image.        
+          Moved ImageException and ScreenshotTaker from package org.assertj.swing.util to package
+          org.uitest4j.swing.image.
       </action>
       <action dev="alexruiz" type="fix">
           Renamed org.assertj.swing.util.GUITests to org.uitest4j.swing.annotation.GUITestFinder.

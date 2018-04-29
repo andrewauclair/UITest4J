@@ -16,7 +16,7 @@ import static org.apache.tools.ant.taskdefs.optional.junit.XMLConstants.ERROR;
 import junit.framework.Test;
 
 import org.apache.tools.ant.taskdefs.optional.junit.JUnitTest;
-import org.assertj.swing.image.ImageException;
+import org.uitest4j.swing.image.ImageException;
 import org.assertj.swing.junit.xml.XmlNode;
 
 /**

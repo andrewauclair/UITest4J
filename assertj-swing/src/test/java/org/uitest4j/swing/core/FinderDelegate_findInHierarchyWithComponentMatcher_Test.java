@@ -24,7 +24,7 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 
 /**
- * Tests for {@link FinderDelegate#find(org.assertj.swing.hierarchy.ComponentHierarchy, ComponentMatcher)}.
+ * Tests for {@link FinderDelegate#find(org.uitest4j.swing.hierarchy.ComponentHierarchy, ComponentMatcher)}.
  * 
  * @author Alex Ruiz
  */
