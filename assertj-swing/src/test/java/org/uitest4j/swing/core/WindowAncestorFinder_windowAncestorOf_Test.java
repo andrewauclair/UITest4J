@@ -24,7 +24,7 @@ import java.awt.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.query.ComponentParentQuery.parentOf;
+import static org.uitest4j.swing.query.ComponentParentQuery.parentOf;
 
 /**
  * Tests for {@link WindowAncestorFinder#windowAncestorOf(java.awt.Component)}.

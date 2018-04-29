@@ -37,10 +37,10 @@ import static org.uitest4j.swing.driver.ComponentPreconditions.checkEnabledAndSh
 import static org.uitest4j.swing.driver.ComponentPreconditions.checkShowing;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 import static org.uitest4j.swing.format.Formatting.format;
-import static org.assertj.swing.query.ComponentEnabledQuery.isEnabled;
-import static org.assertj.swing.query.ComponentHasFocusQuery.hasFocus;
-import static org.assertj.swing.query.ComponentSizeQuery.sizeOf;
-import static org.assertj.swing.query.ComponentVisibleQuery.isVisible;
+import static org.uitest4j.swing.query.ComponentEnabledQuery.isEnabled;
+import static org.uitest4j.swing.query.ComponentHasFocusQuery.hasFocus;
+import static org.uitest4j.swing.query.ComponentSizeQuery.sizeOf;
+import static org.uitest4j.swing.query.ComponentVisibleQuery.isVisible;
 import static org.assertj.swing.timing.Pause.pause;
 import static org.assertj.swing.util.TimeoutWatch.startWatchWithTimeoutOf;
 

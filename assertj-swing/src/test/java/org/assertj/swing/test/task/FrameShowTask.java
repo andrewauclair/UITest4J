@@ -19,7 +19,7 @@ import org.uitest4j.swing.annotation.RunsInEDT;
 import javax.annotation.Nonnull;
 import java.awt.*;
 
-import static org.assertj.swing.query.ComponentShowingQuery.isShowing;
+import static org.uitest4j.swing.query.ComponentShowingQuery.isShowing;
 import static org.assertj.swing.test.query.FrameActiveQuery.isActive;
 import static org.assertj.swing.timing.Pause.pause;
 

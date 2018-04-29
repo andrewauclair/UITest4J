@@ -30,7 +30,7 @@ import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.core.KeyPressInfo;
 import org.uitest4j.swing.driver.JComponentDriver;
 import org.uitest4j.swing.exception.LocationUnavailableException;
-import org.assertj.swing.query.ComponentEnabledQuery;
+import org.uitest4j.swing.query.ComponentEnabledQuery;
 
 import com.jidesoft.combobox.AbstractComboBox;
 import com.jidesoft.combobox.PopupPanel;

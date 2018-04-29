@@ -17,7 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.awt.Window;
 import java.util.Collection;
 
-import org.assertj.swing.monitor.WindowMonitor;
+import org.uitest4j.swing.monitor.WindowMonitor;
 import org.junit.jupiter.api.Test;
 
 /**

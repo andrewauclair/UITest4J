@@ -18,7 +18,7 @@ import org.uitest4j.swing.annotation.RunsInEDT;
 import javax.swing.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.query.ComponentSizeQuery.sizeOf;
+import static org.uitest4j.swing.query.ComponentSizeQuery.sizeOf;
 
 /**
  * Tests for {@link JInternalFrameDriver#resizeHeight(JInternalFrame, int)}.

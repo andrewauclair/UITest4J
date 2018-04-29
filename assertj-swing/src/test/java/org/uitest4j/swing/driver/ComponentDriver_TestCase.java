@@ -23,7 +23,7 @@ import java.awt.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.uitest4j.swing.driver.JTextComponentTextQuery.textOf;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.query.ComponentHasFocusQuery.hasFocus;
+import static org.uitest4j.swing.query.ComponentHasFocusQuery.hasFocus;
 import static org.assertj.swing.test.task.ComponentSetEnabledTask.disable;
 import static org.assertj.swing.timing.Pause.pause;
 

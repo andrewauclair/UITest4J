@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.driver;
 
-import static org.assertj.swing.query.ComponentSizeQuery.sizeOf;
+import static org.uitest4j.swing.query.ComponentSizeQuery.sizeOf;
 
 import java.awt.Dimension;
 

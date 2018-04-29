@@ -23,8 +23,8 @@ import java.awt.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.query.ComponentLocationOnScreenQuery.locationOnScreen;
-import static org.assertj.swing.query.ComponentShowingQuery.isShowing;
+import static org.uitest4j.swing.query.ComponentLocationOnScreenQuery.locationOnScreen;
+import static org.uitest4j.swing.query.ComponentShowingQuery.isShowing;
 import static org.assertj.swing.test.task.ComponentRequestFocusAndWaitForFocusGainTask.giveFocusAndWaitTillIsFocused;
 import static org.assertj.swing.test.task.ComponentSetPopupMenuTask.createAndSetPopupMenu;
 

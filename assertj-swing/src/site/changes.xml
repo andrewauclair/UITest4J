@@ -1062,8 +1062,9 @@
           path visible before showing a JPopupMenu.
       </action>
       <action dev="wanghy" type="fix" issue="201" due-to="Juhos Csaba-Zsolt">
-        Method 'eventDispatched(AWTEvent)' in org.assertj.swing.monitor.WindowAvailabilityMonitor now checks if the source 
-        of the event is a java.awt.Component before performing a cast.
+          Method 'eventDispatched(AWTEvent)' in org.uitest4j.swing.monitor.WindowAvailabilityMonitor now checks if the
+          source
+          of the event is a java.awt.Component before performing a cast.
       </action>
       <action dev="alexruiz" type="fix" issue="202" due-to="Juhos Csaba-Zsolt">
           Class org.uitest4j.swing.driver.DragAndDrop is now public.

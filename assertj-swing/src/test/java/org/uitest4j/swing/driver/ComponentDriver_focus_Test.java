@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.driver;
 
-import static org.assertj.swing.query.ComponentHasFocusQuery.hasFocus;
+import static org.uitest4j.swing.query.ComponentHasFocusQuery.hasFocus;
 import static org.assertj.swing.timing.Pause.pause;
 
 import org.assertj.swing.test.ExpectedException;

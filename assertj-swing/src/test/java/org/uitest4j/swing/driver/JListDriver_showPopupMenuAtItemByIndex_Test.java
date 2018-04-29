@@ -14,7 +14,7 @@ package org.uitest4j.swing.driver;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.uitest4j.swing.core.MouseButton.RIGHT_BUTTON;
-import static org.assertj.swing.query.ComponentVisibleQuery.isVisible;
+import static org.uitest4j.swing.query.ComponentVisibleQuery.isVisible;
 
 import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.recorder.ClickRecorderManager;

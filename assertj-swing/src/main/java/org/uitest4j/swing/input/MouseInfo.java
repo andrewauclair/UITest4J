@@ -23,7 +23,7 @@ import static java.awt.event.InputEvent.BUTTON1_DOWN_MASK;
 import static java.awt.event.InputEvent.BUTTON2_DOWN_MASK;
 import static java.awt.event.InputEvent.BUTTON3_DOWN_MASK;
 import static java.awt.event.MouseEvent.*;
-import static org.assertj.swing.query.ComponentShowingQuery.isShowing;
+import static org.uitest4j.swing.query.ComponentShowingQuery.isShowing;
 
 /**
  * A description mouse-related operations.

@@ -14,7 +14,7 @@ package org.uitest4j.swing.finder;
 
 import static java.util.concurrent.TimeUnit.MILLISECONDS;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.query.ComponentShowingQuery.isShowing;
+import static org.uitest4j.swing.query.ComponentShowingQuery.isShowing;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import javax.annotation.Nonnull;

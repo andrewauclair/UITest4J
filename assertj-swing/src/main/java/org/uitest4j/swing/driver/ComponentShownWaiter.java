@@ -22,7 +22,7 @@ import java.awt.*;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 
-import static org.assertj.swing.query.ComponentVisibleQuery.isVisible;
+import static org.uitest4j.swing.query.ComponentVisibleQuery.isVisible;
 import static org.assertj.swing.timing.Pause.pause;
 import static org.assertj.swing.util.TimeoutWatch.startWatchWithTimeoutOf;
 

@@ -13,8 +13,8 @@
 package org.uitest4j.swing.core;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.query.ComponentShowingQuery.isShowing;
-import static org.assertj.swing.query.ComponentVisibleQuery.isVisible;
+import static org.uitest4j.swing.query.ComponentShowingQuery.isShowing;
+import static org.uitest4j.swing.query.ComponentVisibleQuery.isVisible;
 import static org.assertj.swing.test.task.ComponentSetVisibleTask.hide;
 import static org.assertj.swing.timing.Pause.pause;
 

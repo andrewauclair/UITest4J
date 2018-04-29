@@ -13,7 +13,7 @@
 package org.uitest4j.swing.driver;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.query.ComponentVisibleQuery.isVisible;
+import static org.uitest4j.swing.query.ComponentVisibleQuery.isVisible;
 
 import org.junit.jupiter.api.Test;
 

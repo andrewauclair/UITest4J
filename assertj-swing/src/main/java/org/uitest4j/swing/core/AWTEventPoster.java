@@ -23,7 +23,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import org.uitest4j.swing.input.InputState;
-import org.assertj.swing.monitor.WindowMonitor;
+import org.uitest4j.swing.monitor.WindowMonitor;
 
 /**
  * Posts {@code AWTEvent}s in an AWT {@code EventQueue}.

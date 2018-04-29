@@ -21,7 +21,7 @@ import javax.swing.*;
 import java.awt.*;
 
 import static org.assertj.core.util.Preconditions.checkNotNull;
-import static org.assertj.swing.query.ComponentShowingQuery.isShowing;
+import static org.uitest4j.swing.query.ComponentShowingQuery.isShowing;
 
 /**
  * Location of a {@code JMenuItem}.

@@ -13,7 +13,7 @@
 package org.uitest4j.swing.driver;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.query.ComponentSizeQuery.sizeOf;
+import static org.uitest4j.swing.query.ComponentSizeQuery.sizeOf;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 

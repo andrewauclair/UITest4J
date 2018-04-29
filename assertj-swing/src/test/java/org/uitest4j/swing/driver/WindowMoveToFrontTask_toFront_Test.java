@@ -23,7 +23,7 @@ import static java.lang.String.valueOf;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Strings.concat;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.query.ComponentHasFocusQuery.hasFocus;
+import static org.uitest4j.swing.query.ComponentHasFocusQuery.hasFocus;
 
 /**
  * Tests for {@link WindowMoveToFrontTask#toFront(java.awt.Window)}.

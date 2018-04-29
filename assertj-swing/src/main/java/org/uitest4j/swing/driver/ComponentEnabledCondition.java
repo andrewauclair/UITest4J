@@ -23,7 +23,7 @@ import java.awt.*;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.core.util.Strings.concat;
 import static org.uitest4j.swing.format.Formatting.format;
-import static org.assertj.swing.query.ComponentEnabledQuery.isEnabled;
+import static org.uitest4j.swing.query.ComponentEnabledQuery.isEnabled;
 
 /**
  * Verifies that an AWT or Swing {@code Component} is enabled.

@@ -14,7 +14,7 @@ package org.assertj.swing.test.swing;
 
 import static org.assertj.core.util.Strings.concat;
 import static org.uitest4j.swing.format.Formatting.format;
-import static org.assertj.swing.query.ComponentHasFocusQuery.hasFocus;
+import static org.uitest4j.swing.query.ComponentHasFocusQuery.hasFocus;
 
 import java.awt.Component;
 

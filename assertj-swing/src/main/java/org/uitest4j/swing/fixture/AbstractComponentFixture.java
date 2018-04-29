@@ -31,7 +31,7 @@ import org.uitest4j.swing.core.MouseClickInfo;
 import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.driver.ComponentDriver;
 import org.uitest4j.swing.exception.ComponentLookupException;
-import org.assertj.swing.query.ComponentEnabledQuery;
+import org.uitest4j.swing.query.ComponentEnabledQuery;
 import org.assertj.swing.timing.Timeout;
 
 /**

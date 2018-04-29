@@ -19,8 +19,8 @@ import org.assertj.swing.test.swing.TestWindow;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.annotation.ThreadSafeAction;
 
-import static org.assertj.swing.query.ComponentLocationOnScreenQuery.locationOnScreen;
-import static org.assertj.swing.query.ComponentSizeQuery.sizeOf;
+import static org.uitest4j.swing.query.ComponentLocationOnScreenQuery.locationOnScreen;
+import static org.uitest4j.swing.query.ComponentSizeQuery.sizeOf;
 import static org.assertj.swing.test.task.ComponentSetEnabledTask.disable;
 import static org.assertj.swing.test.task.FrameSetResizableTask.setResizable;
 
