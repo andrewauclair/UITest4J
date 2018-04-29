@@ -1,4 +1,4 @@
-/**
+/*
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
  *
@@ -13,6 +13,7 @@
 package org.uitest4j.swing.test;
 
 import org.junit.jupiter.api.function.Executable;
+import org.opentest4j.AssertionFailedError;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,8 +28,13 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  * Allows in-test specification of expected exception types and messages.
  *
  * @author Alex Ruiz
+ * @author Andrew Auclair
  */
 public final class ExpectedException {
+  public static void assertOpenTest4jError(Executable executable, String message) {
+    assertContainsMessage(AssertionFailedError.class, executable, message);
+  }
+
   public static void assertAssertionError(Executable executable, String message) {
     assertContainsMessage(AssertionError.class, executable, message);
   }

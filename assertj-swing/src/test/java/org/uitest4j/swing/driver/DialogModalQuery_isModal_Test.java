@@ -12,6 +12,9 @@
  */
 package org.uitest4j.swing.driver;
 
+import org.junit.jupiter.api.Test;
+import org.mockito.internal.matchers.Null;
+import org.uitest4j.swing.test.ExpectedException;
 import org.uitest4j.swing.test.core.MethodInvocations;
 import org.uitest4j.swing.test.core.RobotBasedTestCase;
 import org.uitest4j.swing.test.data.BooleanProvider;
@@ -26,6 +29,7 @@ import java.util.Collection;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Lists.newArrayList;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 import static org.uitest4j.swing.test.task.DialogSetModalTask.makeModal;
 
@@ -57,13 +61,34 @@ class DialogModalQuery_isModal_Test extends RobotBasedTestCase {
     dialog.requireInvoked("isModal");
   }
 
+  @Test
+  void driver_requireModal_should_not_throw_exception_when_dialog_is_modal() {
+    makeModal(dialog, true);
+    robot.waitForIdle();
+    dialog.startRecording();
+    DialogDriver driver = new DialogDriver(robot);
+    driver.requireModal(dialog);
+    dialog.requireInvoked("isModal");
+  }
+
+  @Test
+  void driver_requireModal_should_throw_exception_when_dialog_is_not_modal() {
+    makeModal(dialog, false);
+    robot.waitForIdle();
+    dialog.startRecording();
+    DialogDriver driver = new DialogDriver(robot);
+    ExpectedException.assertOpenTest4jError(() -> driver.requireModal(dialog),
+            "Dialog should be modal: org.uitest4j.swing.driver.DialogModalQuery_isModal_Test$MyDialog[name='dialog0', title='DialogModalQuery_isModal_Test', enabled=true, modal=false, visible=false, showing=false]");
+    dialog.requireInvoked("isModal");
+  }
+
   private static class MyDialog extends TestDialog {
     private boolean recording;
     private final MethodInvocations methodInvocations = new MethodInvocations();
 
     @RunsInEDT
     static MyDialog createNew() {
-      return execute(() -> new MyDialog());
+      return execute(MyDialog::new);
     }
 
     private MyDialog() {
