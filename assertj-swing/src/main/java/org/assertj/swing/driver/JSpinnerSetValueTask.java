@@ -12,13 +12,13 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.swing.driver.ComponentPreconditions.checkEnabledAndShowing;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.annotation.Nonnull;
-import javax.swing.JSpinner;
+import javax.swing.*;
 
-import org.assertj.swing.annotation.RunsInEDT;
+import static org.assertj.swing.driver.ComponentPreconditions.checkEnabledAndShowing;
+import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 /**
  * Sets a value in a {@code JSpinner}. This task is executed in the event dispatch thread (EDT).

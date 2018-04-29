@@ -12,14 +12,14 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.driver.JTableCellValueQuery.cellValueOf;
-
-import java.awt.Dimension;
-
-import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.junit.jupiter.api.Test;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import java.awt.*;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.swing.driver.JTableCellValueQuery.cellValueOf;
 
 /**
  * Tests for <a href="http://code.google.com/p/fest/issues/detail?id=225" target="_blank">Bug 225</a>.

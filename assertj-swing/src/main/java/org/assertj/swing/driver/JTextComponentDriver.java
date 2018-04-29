@@ -12,15 +12,30 @@
  */
 package org.assertj.swing.driver;
 
+import org.assertj.core.description.Description;
+import org.assertj.swing.core.Robot;
+import org.assertj.swing.exception.ActionFailedException;
+import org.assertj.swing.internal.annotation.InternalApi;
+import org.assertj.swing.util.Pair;
+import org.assertj.swing.util.Platform;
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import javax.swing.*;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.JTextComponent;
+import java.awt.*;
+import java.util.regex.Pattern;
+
 import static java.lang.Math.max;
 import static java.lang.Math.min;
 import static java.lang.String.valueOf;
 import static javax.swing.text.DefaultEditorKit.deletePrevCharAction;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Preconditions.checkNotNull;
-import static org.assertj.core.util.Strings.concat;
-import static org.assertj.core.util.Strings.isNullOrEmpty;
-import static org.assertj.core.util.Strings.quote;
+import static org.assertj.core.util.Strings.*;
 import static org.assertj.swing.driver.ComponentPreconditions.checkEnabledAndShowing;
 import static org.assertj.swing.driver.JTextComponentEditableQuery.isEditable;
 import static org.assertj.swing.driver.JTextComponentSelectAllTask.selectAllText;
@@ -31,28 +46,6 @@ import static org.assertj.swing.driver.TextAssert.verifyThat;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.exception.ActionFailedException.actionFailure;
 import static org.assertj.swing.format.Formatting.format;
-
-import java.awt.Container;
-import java.awt.Point;
-import java.awt.Rectangle;
-import java.util.regex.Pattern;
-
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.swing.CellRendererPane;
-import javax.swing.JComponent;
-import javax.swing.JTextField;
-import javax.swing.text.BadLocationException;
-import javax.swing.text.JTextComponent;
-
-import org.assertj.core.description.Description;
-import org.assertj.swing.annotation.RunsInCurrentThread;
-import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.core.Robot;
-import org.assertj.swing.exception.ActionFailedException;
-import org.assertj.swing.internal.annotation.InternalApi;
-import org.assertj.swing.util.Pair;
-import org.assertj.swing.util.Platform;
 
 /**
  * <p>

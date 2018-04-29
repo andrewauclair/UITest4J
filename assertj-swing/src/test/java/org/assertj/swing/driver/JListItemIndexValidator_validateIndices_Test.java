@@ -12,13 +12,13 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.swing.edt.GuiActionRunner.execute;
-
-import javax.swing.JList;
-
-import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.test.ExpectedException;
 import org.junit.jupiter.api.Test;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.swing.*;
+
+import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 /**
  * Tests for {@link JListItemPreconditions#checkIndexInBounds(JList, int)}.

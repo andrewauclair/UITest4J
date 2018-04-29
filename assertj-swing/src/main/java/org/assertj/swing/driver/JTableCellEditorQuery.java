@@ -12,14 +12,13 @@
  */
 package org.assertj.swing.driver;
 
-import java.awt.Component;
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import javax.swing.JTable;
+import javax.swing.*;
 import javax.swing.table.TableCellEditor;
-
-import org.assertj.swing.annotation.RunsInCurrentThread;
+import java.awt.*;
 
 /**
  * <p>

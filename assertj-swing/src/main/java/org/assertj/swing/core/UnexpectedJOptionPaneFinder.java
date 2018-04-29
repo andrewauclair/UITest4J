@@ -12,17 +12,16 @@
  */
 package org.assertj.swing.core;
 
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.annotation.Nonnull;
+import javax.swing.*;
+import java.awt.*;
+import java.util.List;
+
 import static org.assertj.core.api.Fail.fail;
 import static org.assertj.core.util.Lists.newArrayList;
 import static org.assertj.swing.format.Formatting.format;
-
-import java.awt.Component;
-import java.util.List;
-
-import javax.annotation.Nonnull;
-import javax.swing.JOptionPane;
-
-import org.assertj.swing.annotation.RunsInEDT;
 
 /**
  * Finds {@code JOptionPane}s that are showing up on the screen and are not expected.

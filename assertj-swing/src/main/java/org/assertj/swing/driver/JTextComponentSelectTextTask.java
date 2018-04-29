@@ -12,10 +12,10 @@
  */
 package org.assertj.swing.driver;
 
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
+
 import javax.annotation.Nonnull;
 import javax.swing.text.JTextComponent;
-
-import org.assertj.swing.annotation.RunsInCurrentThread;
 
 /**
  * <p>

@@ -12,14 +12,14 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.driver.ComponentLocationQuery.locationOf;
-
-import java.awt.Point;
-
-import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.test.awt.FluentPoint;
 import org.junit.jupiter.api.Test;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import java.awt.*;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.swing.driver.ComponentLocationQuery.locationOf;
 
 /**
  * Tests for {@link JInternalFrameDriver#move(javax.swing.JInternalFrame, java.awt.Point)}.

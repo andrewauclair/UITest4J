@@ -12,17 +12,15 @@
  */
 package org.assertj.swing.test.task;
 
-import static org.assertj.swing.query.ComponentShowingQuery.isShowing;
-import static org.assertj.swing.timing.Pause.pause;
-
-import java.awt.Dialog;
-import java.awt.Dimension;
+import org.assertj.swing.timing.Condition;
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
+import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.annotation.Nonnull;
+import java.awt.*;
 
-import org.assertj.swing.annotation.RunsInCurrentThread;
-import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.timing.Condition;
+import static org.assertj.swing.query.ComponentShowingQuery.isShowing;
+import static org.assertj.swing.timing.Pause.pause;
 
 /**
  * Makes a {@code Dialog} visible.

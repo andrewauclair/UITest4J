@@ -12,12 +12,12 @@
  */
 package org.assertj.swing.driver;
 
-import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.annotation.ThreadSafeAction;
 import org.assertj.swing.test.awt.FluentDimension;
 import org.assertj.swing.test.awt.FluentPoint;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
+import org.uitest4j.swing.annotation.RunsInEDT;
+import org.uitest4j.swing.annotation.ThreadSafeAction;
 
 import static org.assertj.swing.query.ComponentLocationOnScreenQuery.locationOnScreen;
 import static org.assertj.swing.query.ComponentSizeQuery.sizeOf;

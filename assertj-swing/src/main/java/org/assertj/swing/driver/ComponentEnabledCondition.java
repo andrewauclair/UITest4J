@@ -12,19 +12,18 @@
  */
 package org.assertj.swing.driver;
 
+import org.assertj.core.description.Description;
+import org.assertj.swing.edt.GuiLazyLoadingDescription;
+import org.assertj.swing.timing.Condition;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.annotation.Nonnull;
+import java.awt.*;
+
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.core.util.Strings.concat;
 import static org.assertj.swing.format.Formatting.format;
 import static org.assertj.swing.query.ComponentEnabledQuery.isEnabled;
-
-import java.awt.Component;
-
-import javax.annotation.Nonnull;
-
-import org.assertj.core.description.Description;
-import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiLazyLoadingDescription;
-import org.assertj.swing.timing.Condition;
 
 /**
  * Verifies that an AWT or Swing {@code Component} is enabled.

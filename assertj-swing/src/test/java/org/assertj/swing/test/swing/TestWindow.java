@@ -12,22 +12,18 @@
  */
 package org.assertj.swing.test.swing;
 
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.annotation.Nonnull;
+import javax.swing.*;
+import java.awt.*;
+
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.test.task.FrameShowTask.packAndShow;
 import static org.assertj.swing.test.task.FrameShowTask.waitForShowing;
 import static org.assertj.swing.test.task.WindowDestroyTask.hideAndDispose;
-
-import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.Point;
-
-import javax.annotation.Nonnull;
-import javax.swing.JFrame;
-
-import org.assertj.swing.annotation.RunsInCurrentThread;
-import org.assertj.swing.annotation.RunsInEDT;
 
 /**
  * The base {@code Window} for all GUI tests.

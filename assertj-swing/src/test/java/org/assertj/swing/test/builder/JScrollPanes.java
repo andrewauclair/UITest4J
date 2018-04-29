@@ -12,17 +12,15 @@
  */
 package org.assertj.swing.test.builder;
 
+import org.assertj.swing.edt.GuiQuery;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.swing.*;
+import java.awt.*;
+
 import static javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS;
 import static javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
-
-import java.awt.Component;
-import java.awt.Dimension;
-
-import javax.swing.JScrollPane;
-
-import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
  * Factory of {@code JScrollPane}s.

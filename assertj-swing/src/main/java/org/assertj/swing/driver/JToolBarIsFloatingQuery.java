@@ -12,17 +12,15 @@
  */
 package org.assertj.swing.driver;
 
-import static javax.swing.SwingUtilities.getWindowAncestor;
-
-import java.awt.Frame;
-import java.awt.Window;
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
 
 import javax.annotation.Nonnull;
-import javax.swing.JToolBar;
+import javax.swing.*;
 import javax.swing.plaf.ToolBarUI;
 import javax.swing.plaf.basic.BasicToolBarUI;
+import java.awt.*;
 
-import org.assertj.swing.annotation.RunsInCurrentThread;
+import static javax.swing.SwingUtilities.getWindowAncestor;
 
 /**
  * <p>

@@ -12,18 +12,17 @@
  */
 package org.assertj.swing.driver;
 
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
+
+import javax.annotation.Nonnull;
+import javax.swing.*;
+import java.awt.*;
+import java.util.Map;
+
 import static java.awt.Adjustable.HORIZONTAL;
 import static java.awt.Adjustable.VERTICAL;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.swing.util.Maps.newHashMap;
-
-import java.awt.Point;
-import java.util.Map;
-
-import javax.annotation.Nonnull;
-import javax.swing.JScrollBar;
-
-import org.assertj.swing.annotation.RunsInCurrentThread;
 
 /**
  * A location in a {@code JScrollBar}.

@@ -12,15 +12,13 @@
  */
 package org.assertj.swing.query;
 
-import static org.assertj.swing.edt.GuiActionRunner.execute;
-
-import java.awt.Component;
-import java.awt.Container;
+import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.awt.*;
 
-import org.assertj.swing.annotation.RunsInEDT;
+import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 /**
  * Returns the parent of an AWT or Swing {@code Component}. This query is executed in the event dispatch thread (EDT).

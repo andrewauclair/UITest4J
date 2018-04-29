@@ -12,14 +12,14 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.swing.driver.JTreeAddRootIfInvisibleTask.addRootIfInvisible;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.annotation.Nonnull;
-import javax.swing.JTree;
+import javax.swing.*;
 import javax.swing.tree.TreePath;
 
-import org.assertj.swing.annotation.RunsInEDT;
+import static org.assertj.swing.driver.JTreeAddRootIfInvisibleTask.addRootIfInvisible;
+import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 /**
  * Ensures that the node identified by the specified path is expanded and viewable. This task is executed in the event

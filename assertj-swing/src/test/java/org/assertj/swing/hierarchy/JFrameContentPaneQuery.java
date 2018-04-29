@@ -12,15 +12,14 @@
  */
 package org.assertj.swing.hierarchy;
 
-import static org.assertj.core.util.Preconditions.checkNotNull;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
-
-import java.awt.Container;
+import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.annotation.Nonnull;
-import javax.swing.JFrame;
+import javax.swing.*;
+import java.awt.*;
 
-import org.assertj.swing.annotation.RunsInEDT;
+import static org.assertj.core.util.Preconditions.checkNotNull;
+import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 /**
  * Returns the content pane object of a given {@code JFrame}. This query is executed in the event dispatch thread (EDT).

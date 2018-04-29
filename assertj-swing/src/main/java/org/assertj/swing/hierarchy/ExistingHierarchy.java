@@ -12,21 +12,18 @@
  */
 package org.assertj.swing.hierarchy;
 
-import static org.assertj.core.util.Lists.newArrayList;
-import static org.assertj.swing.awt.AWT.isAppletViewer;
-import static org.assertj.swing.awt.AWT.isSharedInvisibleFrame;
+import org.assertj.core.util.VisibleForTesting;
+import org.assertj.swing.monitor.WindowMonitor;
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
 
-import java.awt.Component;
-import java.awt.Container;
-import java.awt.Window;
+import javax.annotation.Nonnull;
+import java.awt.*;
 import java.util.Collection;
 import java.util.List;
 
-import javax.annotation.Nonnull;
-
-import org.assertj.core.util.VisibleForTesting;
-import org.assertj.swing.annotation.RunsInCurrentThread;
-import org.assertj.swing.monitor.WindowMonitor;
+import static org.assertj.core.util.Lists.newArrayList;
+import static org.assertj.swing.awt.AWT.isAppletViewer;
+import static org.assertj.swing.awt.AWT.isSharedInvisibleFrame;
 
 /**
  * Provides access to the current AWT hierarchy.

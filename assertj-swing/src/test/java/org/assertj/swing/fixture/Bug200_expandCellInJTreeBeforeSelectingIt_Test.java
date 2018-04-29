@@ -12,23 +12,19 @@
  */
 package org.assertj.swing.fixture;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
-
-import java.awt.Dimension;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-
-import javax.swing.JMenuItem;
-import javax.swing.JPopupMenu;
-import javax.swing.JScrollPane;
-import javax.swing.JTree;
-import javax.swing.tree.DefaultMutableTreeNode;
-
-import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.jupiter.api.Test;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.swing.*;
+import javax.swing.tree.DefaultMutableTreeNode;
+import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 /**
  * Tests for <a href="http://code.google.com/p/fest/issues/detail?id=200" target="_blank">Bug 200</a>.

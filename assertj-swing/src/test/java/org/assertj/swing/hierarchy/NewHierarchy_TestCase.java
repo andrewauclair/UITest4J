@@ -12,19 +12,18 @@
  */
 package org.assertj.swing.hierarchy;
 
+import org.assertj.swing.test.awt.ToolkitStub;
+import org.assertj.swing.test.core.SequentialEDTSafeTestCase;
+import org.assertj.swing.test.swing.TestWindow;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.swing.*;
+
 import static java.awt.AWTEvent.COMPONENT_EVENT_MASK;
 import static java.awt.AWTEvent.WINDOW_EVENT_MASK;
 import static org.assertj.core.util.Arrays.array;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.test.awt.Toolkits.newToolkitStub;
-
-import javax.swing.JComboBox;
-import javax.swing.JTextField;
-
-import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.test.awt.ToolkitStub;
-import org.assertj.swing.test.core.SequentialEDTSafeTestCase;
-import org.assertj.swing.test.swing.TestWindow;
 
 /**
  * Base test case for {@link NewHierarchy}.

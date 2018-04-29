@@ -12,7 +12,7 @@
  */
 package org.assertj.swing.junit.ant;
 
-import org.assertj.swing.annotation.GUITest;
+import org.uitest4j.swing.annotation.GUITest;
 
 /**
  * Understands a test case with GUI tests and regular non-GUI tests.

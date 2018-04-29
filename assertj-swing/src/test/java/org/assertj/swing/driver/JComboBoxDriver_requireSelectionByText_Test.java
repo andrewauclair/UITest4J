@@ -12,15 +12,14 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.swing.edt.GuiActionRunner.execute;
-
-import java.util.regex.Pattern;
-
-import javax.swing.JComboBox;
-
-import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.test.ExpectedException;
 import org.junit.jupiter.api.Test;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.swing.*;
+import java.util.regex.Pattern;
+
+import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 /**
  * Tests for {@link JComboBoxDriver#requireSelection(javax.swing.JComboBox, String)}.

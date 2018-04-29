@@ -12,7 +12,7 @@
  */
 package org.assertj.swing.junit.runner;
 
-import org.assertj.swing.annotation.GUITest;
+import org.uitest4j.swing.annotation.GUITest;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

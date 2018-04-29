@@ -12,13 +12,13 @@
  */
 package org.assertj.swing.driver;
 
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.swing.*;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Strings.concat;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
-
-import javax.swing.JTree;
-
-import org.assertj.swing.annotation.RunsInEDT;
 
 /**
  * Base test case in {@link JTreeDriver} related to expanding/collapsing cells in a {@code JTree}.

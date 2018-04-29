@@ -12,14 +12,13 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.core.util.Preconditions.checkNotNull;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
-
-import java.awt.Dialog;
+import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.annotation.Nonnull;
+import java.awt.*;
 
-import org.assertj.swing.annotation.RunsInEDT;
+import static org.assertj.core.util.Preconditions.checkNotNull;
+import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 /**
  * Indicates whether an AWT or Swing {@code Dialog} is modal. This action is executed in the event dispatch thread

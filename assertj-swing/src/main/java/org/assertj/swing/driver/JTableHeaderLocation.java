@@ -12,16 +12,14 @@
  */
 package org.assertj.swing.driver;
 
-import java.awt.Point;
-import java.awt.Rectangle;
-
-import javax.annotation.Nonnull;
-import javax.swing.table.JTableHeader;
-
-import org.assertj.swing.annotation.RunsInCurrentThread;
 import org.assertj.swing.exception.LocationUnavailableException;
 import org.assertj.swing.util.Pair;
 import org.assertj.swing.util.TextMatcher;
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
+
+import javax.annotation.Nonnull;
+import javax.swing.table.JTableHeader;
+import java.awt.*;
 
 /**
  * Location of a {@code JTableHeader} (a coordinate, column index or value).

@@ -12,17 +12,17 @@
  */
 package org.assertj.swing.core;
 
-import static org.assertj.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.finder.WindowFinder.findFrame;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-
-import java.awt.Dimension;
-
-import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.exception.WaitTimedOutError;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.jupiter.api.Test;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import java.awt.*;
+
+import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.assertj.swing.finder.WindowFinder.findFrame;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * Test case for <a href="http://code.google.com/p/fest/issues/detail?id=108">Bug 108</a>.

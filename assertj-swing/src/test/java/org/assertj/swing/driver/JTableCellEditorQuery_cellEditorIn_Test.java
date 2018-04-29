@@ -12,12 +12,12 @@
  */
 package org.assertj.swing.driver;
 
-import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TableRenderDemo;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
+import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.swing.*;
 import javax.swing.text.JTextComponent;

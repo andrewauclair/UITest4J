@@ -12,22 +12,16 @@
  */
 package org.assertj.swing.fixture;
 
-import static org.assertj.swing.edt.GuiActionRunner.execute;
-
-import java.awt.Container;
-import java.awt.Frame;
-import java.awt.event.ActionEvent;
-
-import javax.swing.AbstractAction;
-import javax.swing.JButton;
-import javax.swing.JDialog;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-
-import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.finder.JOptionPaneFinder;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.junit.jupiter.api.Test;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+
+import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 /**
  * Test for <a href="http://code.google.com/p/fest/issues/detail?id=76">Bug 76</a>.

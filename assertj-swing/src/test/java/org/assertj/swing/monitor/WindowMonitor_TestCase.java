@@ -12,22 +12,18 @@
  */
 package org.assertj.swing.monitor;
 
+import org.assertj.swing.test.awt.ToolkitStub;
+import org.assertj.swing.test.core.SequentialEDTSafeTestCase;
+import org.assertj.swing.test.swing.TestWindow;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import java.awt.*;
+
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.monitor.TestContexts.newMockContext;
 import static org.assertj.swing.monitor.TestWindows.newWindowsMock;
 import static org.assertj.swing.test.awt.Toolkits.newToolkitStub;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.reset;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-
-import java.awt.Frame;
-import java.awt.Window;
-
-import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.test.awt.ToolkitStub;
-import org.assertj.swing.test.core.SequentialEDTSafeTestCase;
-import org.assertj.swing.test.swing.TestWindow;
+import static org.mockito.Mockito.*;
 
 /**
  * Base test case for {@link WindowMonitor}.

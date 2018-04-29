@@ -12,11 +12,11 @@
  */
 package org.assertj.swing.data;
 
-import javax.annotation.Nonnull;
-import javax.swing.JTable;
-
-import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.cell.JTableCellReader;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.annotation.Nonnull;
+import javax.swing.*;
 
 /**
  * Finds a cell in a {@code JTable}.

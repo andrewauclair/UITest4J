@@ -12,21 +12,6 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.core.util.Preconditions.checkNotNull;
-import static org.assertj.swing.core.MouseButton.LEFT_BUTTON;
-import static org.assertj.swing.driver.ComponentPreconditions.checkEnabledAndShowing;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.timing.Pause.pause;
-
-import java.awt.Point;
-import java.util.regex.Pattern;
-
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.swing.JPopupMenu;
-import javax.swing.table.JTableHeader;
-
-import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.core.MouseButton;
 import org.assertj.swing.core.Robot;
 import org.assertj.swing.internal.annotation.InternalApi;
@@ -34,6 +19,20 @@ import org.assertj.swing.util.Pair;
 import org.assertj.swing.util.PatternTextMatcher;
 import org.assertj.swing.util.StringTextMatcher;
 import org.assertj.swing.util.TextMatcher;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import javax.swing.*;
+import javax.swing.table.JTableHeader;
+import java.awt.*;
+import java.util.regex.Pattern;
+
+import static org.assertj.core.util.Preconditions.checkNotNull;
+import static org.assertj.swing.core.MouseButton.LEFT_BUTTON;
+import static org.assertj.swing.driver.ComponentPreconditions.checkEnabledAndShowing;
+import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.assertj.swing.timing.Pause.pause;
 
 /**
  * <p>

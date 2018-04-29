@@ -12,22 +12,19 @@
  */
 package org.assertj.swing.core;
 
+import org.junit.jupiter.api.Test;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.annotation.Nonnull;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.MouseWheelEvent;
+import java.awt.event.MouseWheelListener;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Arrays.array;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
-
-import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.event.MouseWheelEvent;
-import java.awt.event.MouseWheelListener;
-
-import javax.annotation.Nonnull;
-import javax.swing.JList;
-import javax.swing.JScrollPane;
-
-import org.assertj.swing.annotation.RunsInEDT;
-import org.junit.jupiter.api.Test;
 
 /**
  * Tests for {@link BasicRobot#rotateMouseWheel(java.awt.Component, int)}.

@@ -12,23 +12,16 @@
  */
 package org.assertj.swing.driver;
 
-import static java.awt.BorderLayout.EAST;
-import static java.awt.BorderLayout.NORTH;
-import static java.awt.BorderLayout.SOUTH;
-import static java.awt.BorderLayout.WEST;
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
+
+import javax.annotation.Nonnull;
+import javax.swing.*;
+import java.awt.*;
+
+import static java.awt.BorderLayout.*;
 import static java.lang.Math.max;
 import static javax.swing.SwingConstants.HORIZONTAL;
 import static org.assertj.swing.util.Arrays.format;
-
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.Insets;
-import java.awt.Point;
-
-import javax.annotation.Nonnull;
-import javax.swing.JToolBar;
-
-import org.assertj.swing.annotation.RunsInCurrentThread;
 
 /**
  * A visible location on a {@code JToolBar}.

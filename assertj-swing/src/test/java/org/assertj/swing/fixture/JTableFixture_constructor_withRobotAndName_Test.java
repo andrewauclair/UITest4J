@@ -12,21 +12,18 @@
  */
 package org.assertj.swing.fixture;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-
-import java.awt.Component;
-import java.awt.Dimension;
-
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-
-import org.assertj.swing.annotation.RunsInCurrentThread;
 import org.assertj.swing.exception.ComponentLookupException;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.jupiter.api.Test;
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
+
+import javax.swing.*;
+import java.awt.*;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * Tests for {@link JTableFixture#JTableFixture(org.assertj.swing.core.Robot, String)}.

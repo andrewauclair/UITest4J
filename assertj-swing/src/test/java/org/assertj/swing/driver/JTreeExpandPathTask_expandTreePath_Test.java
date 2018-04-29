@@ -12,22 +12,21 @@
  */
 package org.assertj.swing.driver;
 
+import org.assertj.swing.test.core.RobotBasedTestCase;
+import org.assertj.swing.test.swing.TestWindow;
+import org.junit.jupiter.api.Test;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.swing.*;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.TreePath;
+import java.awt.*;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Arrays.array;
 import static org.assertj.swing.driver.JTreeExpandedPathQuery.isExpanded;
 import static org.assertj.swing.driver.JTreeSetRootVisibleTask.setRootVisible;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
-
-import java.awt.Dimension;
-
-import javax.swing.JTree;
-import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.TreePath;
-
-import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.test.core.RobotBasedTestCase;
-import org.assertj.swing.test.swing.TestWindow;
-import org.junit.jupiter.api.Test;
 
 /**
  * Tests for {@link JTreeExpandPathTask#expandTreePath(JTree, TreePath)}.

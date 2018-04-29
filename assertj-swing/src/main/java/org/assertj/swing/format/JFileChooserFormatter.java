@@ -12,18 +12,15 @@
  */
 package org.assertj.swing.format;
 
-import static javax.swing.JFileChooser.CUSTOM_DIALOG;
-import static javax.swing.JFileChooser.OPEN_DIALOG;
-import static javax.swing.JFileChooser.SAVE_DIALOG;
-import static org.assertj.core.util.Strings.quote;
-
-import java.awt.Component;
+import org.assertj.core.presentation.StandardRepresentation;
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
 
 import javax.annotation.Nonnull;
-import javax.swing.JFileChooser;
+import javax.swing.*;
+import java.awt.*;
 
-import org.assertj.core.presentation.StandardRepresentation;
-import org.assertj.swing.annotation.RunsInCurrentThread;
+import static javax.swing.JFileChooser.*;
+import static org.assertj.core.util.Strings.quote;
 
 /**
  * Formatter for {@code JFileChooser}s.

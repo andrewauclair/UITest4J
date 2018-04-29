@@ -12,13 +12,13 @@
  */
 package org.assertj.swing.hierarchy;
 
-import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.lock.ScreenLock;
 import org.assertj.swing.test.core.EDTSafeTestCase;
 import org.assertj.swing.test.swing.TestDialog;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.swing.*;
 import java.awt.*;

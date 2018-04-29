@@ -12,11 +12,10 @@
  */
 package org.assertj.swing.driver;
 
-import java.awt.Component;
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
 
 import javax.annotation.Nullable;
-
-import org.assertj.swing.annotation.RunsInCurrentThread;
+import java.awt.*;
 
 /**
  * <p>

@@ -12,11 +12,11 @@
  */
 package org.assertj.swing.monitor;
 
-import static org.assertj.swing.edt.GuiActionRunner.execute;
-
-import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.jupiter.api.Test;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 /**
  * Tests for {@link Windows#markExisting(java.awt.Window)}.

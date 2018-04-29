@@ -12,29 +12,19 @@
  */
 package org.assertj.swing.monitor;
 
-import static java.awt.AWTEvent.COMPONENT_EVENT_MASK;
-import static java.awt.AWTEvent.WINDOW_EVENT_MASK;
-import static java.awt.event.ComponentEvent.COMPONENT_SHOWN;
-import static java.awt.event.WindowEvent.WINDOW_CLOSED;
-import static java.awt.event.WindowEvent.WINDOW_CLOSING;
-import static java.awt.event.WindowEvent.WINDOW_FIRST;
-import static java.awt.event.WindowEvent.WINDOW_LAST;
-import static java.awt.event.WindowEvent.WINDOW_OPENED;
-import static org.assertj.swing.listener.WeakEventListener.attachAsWeakEventListener;
-import static org.assertj.swing.query.ComponentParentQuery.parentOf;
+import org.uitest4j.swing.annotation.RunsInEDT;
 
-import java.applet.Applet;
-import java.awt.AWTEvent;
-import java.awt.Component;
-import java.awt.FileDialog;
-import java.awt.Toolkit;
-import java.awt.Window;
+import javax.annotation.Nonnull;
+import java.awt.*;
 import java.awt.event.AWTEventListener;
 import java.awt.event.ComponentEvent;
 
-import javax.annotation.Nonnull;
-
-import org.assertj.swing.annotation.RunsInEDT;
+import static java.awt.AWTEvent.COMPONENT_EVENT_MASK;
+import static java.awt.AWTEvent.WINDOW_EVENT_MASK;
+import static java.awt.event.ComponentEvent.COMPONENT_SHOWN;
+import static java.awt.event.WindowEvent.*;
+import static org.assertj.swing.listener.WeakEventListener.attachAsWeakEventListener;
+import static org.assertj.swing.query.ComponentParentQuery.parentOf;
 
 /**
  * Monitor for AWT or Swing {@code Component}s, and event queues.

@@ -12,15 +12,14 @@
  */
 package org.assertj.swing.test.builder;
 
-import static org.assertj.core.util.Arrays.isNullOrEmpty;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import org.assertj.swing.edt.GuiQuery;
+import org.uitest4j.swing.annotation.RunsInEDT;
 
+import javax.swing.*;
 import java.awt.event.ActionListener;
 
-import javax.swing.JButton;
-
-import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
+import static org.assertj.core.util.Arrays.isNullOrEmpty;
+import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 /**
  * Factory of {@link JButton}s.

@@ -12,14 +12,13 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.core.util.Strings.concat;
-import static org.assertj.swing.format.Formatting.format;
-
-import java.awt.Component;
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
 
 import javax.annotation.Nonnull;
+import java.awt.*;
 
-import org.assertj.swing.annotation.RunsInCurrentThread;
+import static org.assertj.core.util.Strings.concat;
+import static org.assertj.swing.format.Formatting.format;
 
 /**
  * Verifies correct state of a {@code Component}.

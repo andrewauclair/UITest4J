@@ -19,7 +19,7 @@ import java.util.List;
 
 import javax.swing.JList;
 
-import org.assertj.swing.annotation.RunsInEDT;
+import org.uitest4j.swing.annotation.RunsInEDT;
 import org.assertj.swing.core.ComponentMatcher;
 import org.assertj.swing.core.Robot;
 import org.assertj.swing.core.TypeMatcher;

@@ -12,13 +12,13 @@
  */
 package org.assertj.swing.monitor;
 
-import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.edt.FailOnThreadViolationRepaintManager;
 import org.assertj.swing.lock.ScreenLock;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.swing.*;
 import java.awt.*;

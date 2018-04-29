@@ -12,16 +12,15 @@
  */
 package org.assertj.swing.hierarchy;
 
+import org.junit.jupiter.api.Test;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.swing.*;
+import java.awt.*;
+
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.test.builder.JButtons.button;
 import static org.assertj.swing.test.builder.JDialogs.dialog;
-
-import java.awt.Component;
-
-import javax.swing.JDialog;
-
-import org.assertj.swing.annotation.RunsInEDT;
-import org.junit.jupiter.api.Test;
 
 /**
  * Tests for {@link WindowFilter#recognize(Component)}.

@@ -12,6 +12,14 @@
  */
 package org.assertj.swing.format;
 
+import org.assertj.swing.test.core.EDTSafeTestCase;
+import org.junit.jupiter.api.Test;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.swing.*;
+import java.awt.*;
+import java.util.logging.Logger;
+
 import static java.awt.Adjustable.VERTICAL;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Strings.concat;
@@ -31,39 +39,6 @@ import static org.assertj.swing.test.builder.JSliders.slider;
 import static org.assertj.swing.test.builder.JSpinners.spinner;
 import static org.assertj.swing.test.builder.JTextFields.textField;
 import static org.assertj.swing.test.builder.JToggleButtons.toggleButton;
-
-import java.awt.Component;
-import java.util.logging.Logger;
-
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JDialog;
-import javax.swing.JFileChooser;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JLayeredPane;
-import javax.swing.JList;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JPasswordField;
-import javax.swing.JPopupMenu;
-import javax.swing.JProgressBar;
-import javax.swing.JRootPane;
-import javax.swing.JScrollBar;
-import javax.swing.JScrollPane;
-import javax.swing.JSlider;
-import javax.swing.JSpinner;
-import javax.swing.JTabbedPane;
-import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.JToggleButton;
-import javax.swing.JTree;
-
-import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.test.core.EDTSafeTestCase;
-import org.junit.jupiter.api.Test;
 
 /**
  * Tests for {@link Formatting#format(Component)}.

@@ -12,14 +12,13 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.swing.edt.GuiActionRunner.execute;
-
-import java.awt.Frame;
+import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.awt.*;
 
-import org.assertj.swing.annotation.RunsInEDT;
+import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 /**
  * Returns the title of a given {@code Frame}. This task is executed in the event dispatch thread (EDT).

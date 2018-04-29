@@ -12,12 +12,11 @@
  */
 package org.assertj.swing.driver;
 
-import java.awt.Point;
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
 
 import javax.annotation.Nonnull;
-import javax.swing.JScrollBar;
-
-import org.assertj.swing.annotation.RunsInCurrentThread;
+import javax.swing.*;
+import java.awt.*;
 
 /**
  * <p>

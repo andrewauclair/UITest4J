@@ -12,27 +12,22 @@
  */
 package org.assertj.swing.fixture;
 
+import org.assertj.swing.core.GenericTypeMatcher;
+import org.assertj.swing.finder.WindowFinder;
+import org.assertj.swing.test.core.RobotBasedTestCase;
+import org.junit.jupiter.api.Test;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.annotation.Nonnull;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+
 import static java.awt.BorderLayout.CENTER;
 import static java.awt.BorderLayout.SOUTH;
 import static org.assertj.core.util.Strings.concat;
 import static org.assertj.core.util.Strings.quote;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
-
-import java.awt.BorderLayout;
-import java.awt.Dialog;
-import java.awt.event.ActionEvent;
-
-import javax.annotation.Nonnull;
-import javax.swing.AbstractAction;
-import javax.swing.JButton;
-import javax.swing.JDialog;
-import javax.swing.JLabel;
-
-import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.core.GenericTypeMatcher;
-import org.assertj.swing.finder.WindowFinder;
-import org.assertj.swing.test.core.RobotBasedTestCase;
-import org.junit.jupiter.api.Test;
 
 /**
  * Tests for <a href="http://code.google.com/p/fest/issues/detail?id=195" target="_blank">Bug 195</a>.

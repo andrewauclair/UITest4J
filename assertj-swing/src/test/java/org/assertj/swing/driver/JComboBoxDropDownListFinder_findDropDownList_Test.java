@@ -12,24 +12,18 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.util.Arrays.array;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
-
-import java.util.Timer;
-import java.util.TimerTask;
-
-import javax.swing.JComboBox;
-import javax.swing.JList;
-import javax.swing.JMenuItem;
-import javax.swing.JPopupMenu;
-import javax.swing.JTextField;
-import javax.swing.ListModel;
-
-import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.jupiter.api.Test;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.swing.*;
+import java.util.Timer;
+import java.util.TimerTask;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.util.Arrays.array;
+import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 /**
  * Tests for {@link JComboBoxDropDownListFinder#findDropDownList()}.

@@ -12,19 +12,14 @@
  */
 package org.assertj.swing.hierarchy;
 
-import static org.assertj.swing.hierarchy.JInternalFrameDesktopPaneQuery.desktopPaneOf;
-
-import java.awt.Component;
-import java.awt.Container;
-import java.awt.Window;
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import javax.swing.JInternalFrame;
-import javax.swing.JPopupMenu;
-import javax.swing.MenuElement;
+import javax.swing.*;
+import java.awt.*;
 
-import org.assertj.swing.annotation.RunsInCurrentThread;
+import static org.assertj.swing.hierarchy.JInternalFrameDesktopPaneQuery.desktopPaneOf;
 
 /**
  * <p>

@@ -12,13 +12,12 @@
  */
 package org.assertj.swing.core.matcher;
 
-import java.util.regex.Pattern;
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.swing.text.JTextComponent;
-
-import org.assertj.swing.annotation.RunsInCurrentThread;
+import java.util.regex.Pattern;
 
 /**
  * Matches {@code JTextComponent}s by name, text or visibility on the screen.

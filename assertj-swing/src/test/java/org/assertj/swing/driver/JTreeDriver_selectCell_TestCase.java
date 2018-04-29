@@ -12,17 +12,17 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.util.Arrays.array;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.test.task.JTreeSelectRowTask.selectRow;
+import org.uitest4j.swing.annotation.RunsInEDT;
 
-import javax.swing.JTree;
+import javax.swing.*;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeSelectionModel;
 import javax.swing.tree.TreePath;
 
-import org.assertj.swing.annotation.RunsInEDT;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.util.Arrays.array;
+import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.assertj.swing.test.task.JTreeSelectRowTask.selectRow;
 
 /**
  * Test case for {@link JTreeDriver} that involves selecting cells in a {@code JTree}.

@@ -12,6 +12,30 @@
  */
 package org.assertj.swing.driver;
 
+import org.assertj.core.description.Description;
+import org.assertj.core.util.VisibleForTesting;
+import org.assertj.swing.cell.JTreeCellReader;
+import org.assertj.swing.core.MouseButton;
+import org.assertj.swing.core.MouseClickInfo;
+import org.assertj.swing.core.Robot;
+import org.assertj.swing.edt.GuiQuery;
+import org.assertj.swing.exception.LocationUnavailableException;
+import org.assertj.swing.exception.WaitTimedOutError;
+import org.assertj.swing.internal.annotation.InternalApi;
+import org.assertj.swing.util.ArrayPreconditions;
+import org.assertj.swing.util.Pair;
+import org.assertj.swing.util.Triple;
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import javax.swing.*;
+import javax.swing.plaf.TreeUI;
+import javax.swing.plaf.basic.BasicTreeUI;
+import javax.swing.tree.TreePath;
+import java.awt.*;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.core.util.Preconditions.checkNotNullOrEmpty;
@@ -33,33 +57,6 @@ import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.exception.ActionFailedException.actionFailure;
 import static org.assertj.swing.timing.Pause.pause;
 import static org.assertj.swing.util.Platform.controlOrCommandKey;
-
-import java.awt.Point;
-import java.awt.Rectangle;
-
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.swing.JPopupMenu;
-import javax.swing.JTree;
-import javax.swing.plaf.TreeUI;
-import javax.swing.plaf.basic.BasicTreeUI;
-import javax.swing.tree.TreePath;
-
-import org.assertj.core.description.Description;
-import org.assertj.core.util.VisibleForTesting;
-import org.assertj.swing.annotation.RunsInCurrentThread;
-import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.cell.JTreeCellReader;
-import org.assertj.swing.core.MouseButton;
-import org.assertj.swing.core.MouseClickInfo;
-import org.assertj.swing.core.Robot;
-import org.assertj.swing.edt.GuiQuery;
-import org.assertj.swing.exception.LocationUnavailableException;
-import org.assertj.swing.exception.WaitTimedOutError;
-import org.assertj.swing.internal.annotation.InternalApi;
-import org.assertj.swing.util.ArrayPreconditions;
-import org.assertj.swing.util.Pair;
-import org.assertj.swing.util.Triple;
 
 /**
  * <p>

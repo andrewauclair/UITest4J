@@ -12,13 +12,12 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.swing.edt.GuiActionRunner.execute;
-
-import java.awt.Window;
+import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.annotation.Nonnull;
+import java.awt.*;
 
-import org.assertj.swing.annotation.RunsInEDT;
+import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 /**
  * Moves a {@code Window} to the front and gives it input focus. This task is executed in the event dispatch thread

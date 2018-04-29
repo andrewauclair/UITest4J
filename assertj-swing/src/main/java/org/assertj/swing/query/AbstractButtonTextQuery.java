@@ -12,13 +12,13 @@
  */
 package org.assertj.swing.query;
 
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import javax.swing.AbstractButton;
+import javax.swing.*;
 
-import org.assertj.swing.annotation.RunsInEDT;
+import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 /**
  * Returns the text of a Swing {@code AbstractButton}.

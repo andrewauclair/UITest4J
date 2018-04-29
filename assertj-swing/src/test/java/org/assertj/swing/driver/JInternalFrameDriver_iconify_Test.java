@@ -12,15 +12,15 @@
  */
 package org.assertj.swing.driver;
 
+import org.assertj.swing.test.ExpectedException;
+import org.junit.jupiter.api.Test;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.swing.*;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.driver.JInternalFrameIconQuery.isIconified;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
-
-import javax.swing.JInternalFrame;
-
-import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.test.ExpectedException;
-import org.junit.jupiter.api.Test;
 
 /**
  * Tests for {@link JInternalFrameDriver#iconify(JInternalFrame)}.

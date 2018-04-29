@@ -12,11 +12,11 @@
  */
 package org.assertj.swing.cell;
 
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
+
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import javax.swing.JComboBox;
-
-import org.assertj.swing.annotation.RunsInCurrentThread;
+import javax.swing.*;
 
 /**
  * <p>

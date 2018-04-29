@@ -12,16 +12,15 @@
  */
 package org.assertj.swing.test.swing;
 
+import org.assertj.swing.timing.Condition;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.swing.*;
+
 import static javax.swing.SwingUtilities.invokeLater;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.test.swing.JOptionPaneHost.host;
 import static org.assertj.swing.timing.Pause.pause;
-
-import javax.swing.JDialog;
-import javax.swing.JOptionPane;
-
-import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.timing.Condition;
 
 /**
  * Launches a {@code JOptionPane}.

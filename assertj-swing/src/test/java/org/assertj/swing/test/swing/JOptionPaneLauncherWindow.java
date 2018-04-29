@@ -12,20 +12,18 @@
  */
 package org.assertj.swing.test.swing;
 
-import static javax.swing.JOptionPane.PLAIN_MESSAGE;
-import static javax.swing.JOptionPane.showMessageDialog;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
+import org.uitest4j.swing.annotation.RunsInEDT;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-import javax.swing.JButton;
-import javax.swing.Timer;
-
-import org.assertj.swing.annotation.RunsInCurrentThread;
-import org.assertj.swing.annotation.RunsInEDT;
+import static javax.swing.JOptionPane.PLAIN_MESSAGE;
+import static javax.swing.JOptionPane.showMessageDialog;
+import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 /**
  * {@code JFrame} that launches a {@code JOptionPane} using a configurable delay.

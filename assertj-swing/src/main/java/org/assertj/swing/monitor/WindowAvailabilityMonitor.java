@@ -12,22 +12,16 @@
  */
 package org.assertj.swing.monitor;
 
-import static java.awt.AWTEvent.MOUSE_EVENT_MASK;
-import static java.awt.AWTEvent.MOUSE_MOTION_EVENT_MASK;
-import static java.awt.AWTEvent.PAINT_EVENT_MASK;
-import static javax.swing.SwingUtilities.getWindowAncestor;
-import static org.assertj.swing.listener.WeakEventListener.attachAsWeakEventListener;
+import org.uitest4j.swing.annotation.RunsInEDT;
 
-import java.awt.AWTEvent;
-import java.awt.Component;
-import java.awt.Toolkit;
-import java.awt.Window;
+import javax.annotation.Nonnull;
+import java.awt.*;
 import java.awt.event.AWTEventListener;
 import java.awt.event.MouseEvent;
 
-import javax.annotation.Nonnull;
-
-import org.assertj.swing.annotation.RunsInEDT;
+import static java.awt.AWTEvent.*;
+import static javax.swing.SwingUtilities.getWindowAncestor;
+import static org.assertj.swing.listener.WeakEventListener.attachAsWeakEventListener;
 
 /**
  * Event listener that monitors when a window is ready to receive OS-level event input.

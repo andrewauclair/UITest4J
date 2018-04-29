@@ -12,15 +12,15 @@
  */
 package org.assertj.swing.test.swing;
 
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+
 import static java.lang.String.valueOf;
 import static javax.swing.ListSelectionModel.SINGLE_SELECTION;
 import static org.assertj.core.util.Strings.concat;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
-
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-
-import org.assertj.swing.annotation.RunsInEDT;
 
 /**
  * <p>

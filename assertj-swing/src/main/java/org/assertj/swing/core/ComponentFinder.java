@@ -12,14 +12,12 @@
  */
 package org.assertj.swing.core;
 
-import java.awt.Component;
-import java.awt.Container;
-import java.util.Collection;
+import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-
-import org.assertj.swing.annotation.RunsInEDT;
+import java.awt.*;
+import java.util.Collection;
 
 /**
  * Looks up AWT and Swing {@code Component}s based on different search criteria, such as a {@code Component}'s name,

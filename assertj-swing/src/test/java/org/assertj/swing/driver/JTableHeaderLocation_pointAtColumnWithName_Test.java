@@ -12,12 +12,12 @@
  */
 package org.assertj.swing.driver;
 
-import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.exception.LocationUnavailableException;
 import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.util.Pair;
 import org.assertj.swing.util.TextMatcher;
 import org.junit.jupiter.api.Test;
+import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.swing.table.JTableHeader;
 import java.awt.*;

@@ -12,24 +12,18 @@
  */
 package org.assertj.swing.monitor;
 
+import org.assertj.swing.util.RobotFactory;
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.annotation.Nonnull;
+import java.awt.*;
+import java.util.logging.Logger;
+
 import static java.util.logging.Level.WARNING;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.monitor.WindowMetrics.absoluteCenterOf;
 import static org.assertj.swing.query.ComponentSizeQuery.sizeOf;
-
-import java.awt.AWTException;
-import java.awt.Dimension;
-import java.awt.Insets;
-import java.awt.Point;
-import java.awt.Robot;
-import java.awt.Window;
-import java.util.logging.Logger;
-
-import javax.annotation.Nonnull;
-
-import org.assertj.swing.annotation.RunsInCurrentThread;
-import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.util.RobotFactory;
 
 /**
  * Verification of the state of a window.

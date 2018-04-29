@@ -12,22 +12,10 @@
  */
 package org.assertj.swing.test.swing;
 
-import static java.awt.BorderLayout.CENTER;
-import static javax.swing.JOptionPane.ERROR_MESSAGE;
-import static javax.swing.JOptionPane.INFORMATION_MESSAGE;
-import static javax.swing.JOptionPane.QUESTION_MESSAGE;
-import static javax.swing.JOptionPane.UNINITIALIZED_VALUE;
-import static javax.swing.JOptionPane.VALUE_PROPERTY;
-import static javax.swing.JOptionPane.WARNING_MESSAGE;
-import static javax.swing.JRootPane.ERROR_DIALOG;
-import static javax.swing.JRootPane.INFORMATION_DIALOG;
-import static javax.swing.JRootPane.PLAIN_DIALOG;
-import static javax.swing.JRootPane.QUESTION_DIALOG;
-import static javax.swing.JRootPane.WARNING_DIALOG;
-import static javax.swing.UIManager.getLookAndFeel;
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
 
-import java.awt.BorderLayout;
-import java.awt.Dialog;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.awt.event.WindowAdapter;
@@ -35,10 +23,10 @@ import java.awt.event.WindowEvent;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
-import javax.swing.JDialog;
-import javax.swing.JOptionPane;
-
-import org.assertj.swing.annotation.RunsInCurrentThread;
+import static java.awt.BorderLayout.CENTER;
+import static javax.swing.JOptionPane.*;
+import static javax.swing.JRootPane.*;
+import static javax.swing.UIManager.getLookAndFeel;
 
 /**
  * {@code JDialog} that hosts a {@code JOptionPane}.

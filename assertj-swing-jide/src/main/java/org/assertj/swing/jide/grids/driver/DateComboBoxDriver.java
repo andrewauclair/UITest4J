@@ -20,7 +20,7 @@ import java.util.Date;
 
 import javax.swing.JButton;
 
-import org.assertj.swing.annotation.RunsInCurrentThread;
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.assertj.swing.core.BasicComponentFinder;
 import org.assertj.swing.core.ComponentFinder;
 import org.assertj.swing.core.Robot;

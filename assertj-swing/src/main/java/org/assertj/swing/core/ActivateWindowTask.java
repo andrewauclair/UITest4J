@@ -12,13 +12,12 @@
  */
 package org.assertj.swing.core;
 
-import static org.assertj.swing.edt.GuiActionRunner.execute;
-
-import java.awt.Window;
+import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.annotation.Nonnull;
+import java.awt.*;
 
-import org.assertj.swing.annotation.RunsInEDT;
+import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 /**
  * Activates an AWT {@code Window}. "Activate" means that the given window is brought to the front and then gets the

@@ -12,10 +12,21 @@
  */
 package org.assertj.swing.keystroke;
 
-import static java.awt.event.KeyEvent.VK_BACK_SPACE;
-import static java.awt.event.KeyEvent.VK_DELETE;
-import static java.awt.event.KeyEvent.VK_ENTER;
-import static java.awt.event.KeyEvent.VK_ESCAPE;
+import org.assertj.swing.driver.JTextComponentDriver;
+import org.assertj.swing.test.core.RobotBasedTestCase;
+import org.assertj.swing.test.recorder.KeyRecorder;
+import org.assertj.swing.test.swing.TestWindow;
+import org.assertj.swing.timing.Condition;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.swing.*;
+import javax.swing.text.JTextComponent;
+import java.awt.*;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
+
+import static java.awt.event.KeyEvent.*;
 import static java.lang.String.valueOf;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Lists.newArrayList;
@@ -24,25 +35,6 @@ import static org.assertj.core.util.Strings.quote;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.timing.Pause.pause;
 import static org.assertj.swing.util.Maps.newHashMap;
-
-import java.awt.Dimension;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-
-import javax.swing.JTextArea;
-import javax.swing.KeyStroke;
-import javax.swing.text.JTextComponent;
-
-import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.driver.JTextComponentDriver;
-import org.assertj.swing.test.core.RobotBasedTestCase;
-import org.assertj.swing.test.recorder.KeyRecorder;
-import org.assertj.swing.test.swing.TestWindow;
-import org.assertj.swing.timing.Condition;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.MethodSource;
 
 /**
  * Test case for implementations of {@link KeyStrokeMappingProvider}.

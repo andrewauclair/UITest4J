@@ -12,12 +12,11 @@
  */
 package org.assertj.swing.driver;
 
-import java.awt.Component;
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
 
 import javax.annotation.Nullable;
-import javax.swing.JLabel;
-
-import org.assertj.swing.annotation.RunsInCurrentThread;
+import javax.swing.*;
+import java.awt.*;
 
 /**
  * Default implementation of {@link CellRendererReader}.

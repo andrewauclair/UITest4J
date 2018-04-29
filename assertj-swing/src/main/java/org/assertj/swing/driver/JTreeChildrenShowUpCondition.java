@@ -12,15 +12,15 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.core.util.Strings.concat;
-import static org.assertj.swing.driver.JTreeChildOfPathCountQuery.childCount;
+import org.assertj.swing.timing.Condition;
+import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.annotation.Nonnull;
-import javax.swing.JTree;
+import javax.swing.*;
 import javax.swing.tree.TreePath;
 
-import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.timing.Condition;
+import static org.assertj.core.util.Strings.concat;
+import static org.assertj.swing.driver.JTreeChildOfPathCountQuery.childCount;
 
 /**
  * Verifies that the children of a node in a {@code JTree} are displayed.

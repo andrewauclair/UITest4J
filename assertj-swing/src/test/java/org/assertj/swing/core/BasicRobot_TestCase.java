@@ -12,22 +12,19 @@
  */
 package org.assertj.swing.core;
 
-import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.test.core.EDTSafeTestCase;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.annotation.Nonnull;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ComponentEvent;
-import java.awt.event.ComponentListener;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.query.ComponentLocationOnScreenQuery.locationOnScreen;
 import static org.assertj.swing.query.ComponentShowingQuery.isShowing;
 import static org.assertj.swing.test.task.ComponentRequestFocusAndWaitForFocusGainTask.giveFocusAndWaitTillIsFocused;
 import static org.assertj.swing.test.task.ComponentSetPopupMenuTask.createAndSetPopupMenu;

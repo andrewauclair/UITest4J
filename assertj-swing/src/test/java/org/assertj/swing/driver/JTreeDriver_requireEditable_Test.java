@@ -12,11 +12,11 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.swing.driver.JTreeSetEditableTask.setEditable;
-
-import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.test.ExpectedException;
 import org.junit.jupiter.api.Test;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import static org.assertj.swing.driver.JTreeSetEditableTask.setEditable;
 
 /**
  * Tests for {@link JTreeDriver#requireEditable(javax.swing.JTree)}.

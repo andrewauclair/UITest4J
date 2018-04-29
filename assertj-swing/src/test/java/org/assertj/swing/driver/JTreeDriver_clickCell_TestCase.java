@@ -12,14 +12,13 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import org.uitest4j.swing.annotation.RunsInEDT;
 
-import java.awt.Point;
-
-import javax.swing.JTree;
+import javax.swing.*;
 import javax.swing.tree.TreePath;
+import java.awt.*;
 
-import org.assertj.swing.annotation.RunsInEDT;
+import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 /**
  * Test case for {@link JTreeDriver} that involves clicking/double-clicking a cell.

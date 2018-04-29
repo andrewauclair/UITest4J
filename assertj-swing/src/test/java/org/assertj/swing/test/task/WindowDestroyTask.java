@@ -12,15 +12,14 @@
  */
 package org.assertj.swing.test.task;
 
-import static org.assertj.swing.edt.GuiActionRunner.execute;
-
-import java.awt.Window;
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
+import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.awt.*;
 
-import org.assertj.swing.annotation.RunsInCurrentThread;
-import org.assertj.swing.annotation.RunsInEDT;
+import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 /**
  * Hides and disposes a {@code Window}.

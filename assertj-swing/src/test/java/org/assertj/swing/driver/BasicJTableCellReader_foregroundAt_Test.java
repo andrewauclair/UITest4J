@@ -12,19 +12,16 @@
  */
 package org.assertj.swing.driver;
 
+import org.junit.jupiter.api.Test;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.annotation.Nonnull;
+import javax.swing.*;
+import java.awt.*;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
-
-import java.awt.Color;
-import java.awt.Component;
-
-import javax.annotation.Nonnull;
-import javax.swing.JLabel;
-import javax.swing.JTable;
-
-import org.assertj.swing.annotation.RunsInEDT;
-import org.junit.jupiter.api.Test;
 
 /**
  * Tests for {@link BasicJTableCellReader#foregroundAt(JTable, int, int)}.

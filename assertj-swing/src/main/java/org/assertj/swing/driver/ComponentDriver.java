@@ -12,6 +12,20 @@
  */
 package org.assertj.swing.driver;
 
+import org.assertj.core.description.Description;
+import org.assertj.swing.core.*;
+import org.assertj.swing.core.Robot;
+import org.assertj.swing.edt.GuiLazyLoadingDescription;
+import org.assertj.swing.internal.annotation.InternalApi;
+import org.assertj.swing.timing.Timeout;
+import org.assertj.swing.util.TimeoutWatch;
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.annotation.Nonnull;
+import javax.swing.*;
+import java.awt.*;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.swing.awt.AWT.visibleCenterOf;
@@ -29,30 +43,6 @@ import static org.assertj.swing.query.ComponentSizeQuery.sizeOf;
 import static org.assertj.swing.query.ComponentVisibleQuery.isVisible;
 import static org.assertj.swing.timing.Pause.pause;
 import static org.assertj.swing.util.TimeoutWatch.startWatchWithTimeoutOf;
-
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.Point;
-
-import javax.annotation.Nonnull;
-import javax.swing.JMenu;
-import javax.swing.JPopupMenu;
-
-import org.assertj.core.description.Description;
-import org.assertj.swing.annotation.RunsInCurrentThread;
-import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.core.ComponentDragAndDrop;
-import org.assertj.swing.core.KeyPressInfo;
-import org.assertj.swing.core.MouseButton;
-import org.assertj.swing.core.MouseClickInfo;
-import org.assertj.swing.core.Robot;
-import org.assertj.swing.core.Settings;
-import org.assertj.swing.edt.GuiLazyLoadingDescription;
-import org.assertj.swing.internal.annotation.InternalApi;
-import org.assertj.swing.timing.Timeout;
-import org.assertj.swing.util.TimeoutWatch;
 
 /**
  * <p>

@@ -12,21 +12,20 @@
  */
 package org.assertj.swing.driver;
 
+import org.assertj.core.presentation.StandardRepresentation;
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.annotation.Nonnull;
+import javax.swing.*;
+import java.io.File;
+
 import static javax.swing.JFileChooser.DIRECTORIES_ONLY;
 import static javax.swing.JFileChooser.FILES_ONLY;
 import static org.assertj.core.util.Strings.concat;
 import static org.assertj.swing.driver.ComponentPreconditions.checkEnabledAndShowing;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.format.Formatting.format;
-
-import java.io.File;
-
-import javax.annotation.Nonnull;
-import javax.swing.JFileChooser;
-
-import org.assertj.core.presentation.StandardRepresentation;
-import org.assertj.swing.annotation.RunsInCurrentThread;
-import org.assertj.swing.annotation.RunsInEDT;
 
 /**
  * Selects a file in a {@code JFileChooser}. This task is executed in the event dispatch thread (EDT).

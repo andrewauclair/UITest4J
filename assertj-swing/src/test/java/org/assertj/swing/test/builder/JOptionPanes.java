@@ -12,11 +12,11 @@
  */
 package org.assertj.swing.test.builder;
 
-import javax.swing.JOptionPane;
-
-import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.edt.GuiActionRunner;
 import org.assertj.swing.edt.GuiQuery;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.swing.*;
 
 /**
  * Factory of {@code JOptionPane}s.

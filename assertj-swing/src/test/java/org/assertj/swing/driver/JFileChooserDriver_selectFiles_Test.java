@@ -12,19 +12,18 @@
  */
 package org.assertj.swing.driver;
 
+import org.assertj.swing.test.ExpectedException;
+import org.junit.jupiter.api.Test;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.swing.*;
+import java.io.File;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Arrays.array;
 import static org.assertj.core.util.Files.newTemporaryFile;
 import static org.assertj.core.util.Files.newTemporaryFolder;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
-
-import java.io.File;
-
-import javax.swing.JFileChooser;
-
-import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.test.ExpectedException;
-import org.junit.jupiter.api.Test;
 
 /**
  * Tests for {@link JFileChooserDriver#selectFiles(javax.swing.JFileChooser, java.io.File[])}.

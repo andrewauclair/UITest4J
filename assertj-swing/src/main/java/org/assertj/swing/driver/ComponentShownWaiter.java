@@ -12,20 +12,19 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.swing.query.ComponentVisibleQuery.isVisible;
-import static org.assertj.swing.timing.Pause.pause;
-import static org.assertj.swing.util.TimeoutWatch.startWatchWithTimeoutOf;
-
-import java.awt.Component;
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
+import org.assertj.swing.exception.WaitTimedOutError;
+import org.assertj.swing.util.TimeoutWatch;
+import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.awt.*;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 
-import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.exception.WaitTimedOutError;
-import org.assertj.swing.util.TimeoutWatch;
+import static org.assertj.swing.query.ComponentVisibleQuery.isVisible;
+import static org.assertj.swing.timing.Pause.pause;
+import static org.assertj.swing.util.TimeoutWatch.startWatchWithTimeoutOf;
 
 /**
  * Waits until a particular AWT or Swing {@code Component} shows up on the screen.

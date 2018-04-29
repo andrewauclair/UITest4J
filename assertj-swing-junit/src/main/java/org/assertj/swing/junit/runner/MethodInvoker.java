@@ -12,7 +12,7 @@
  */
 package org.assertj.swing.junit.runner;
 
-import static org.assertj.swing.annotation.GUITestFinder.isGUITest;
+import static org.uitest4j.swing.annotation.GUITestFinder.isGUITest;
 import static org.assertj.swing.junit.runner.Formatter.testNameFrom;
 
 import java.lang.reflect.Method;

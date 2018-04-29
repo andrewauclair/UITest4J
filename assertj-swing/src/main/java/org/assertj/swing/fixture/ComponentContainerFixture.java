@@ -12,37 +12,15 @@
  */
 package org.assertj.swing.fixture;
 
-import java.awt.Component;
-import java.awt.Dialog;
+import org.assertj.swing.core.GenericTypeMatcher;
+import org.assertj.swing.timing.Timeout;
+import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import javax.swing.JComboBox;
-import javax.swing.JFileChooser;
-import javax.swing.JInternalFrame;
-import javax.swing.JLabel;
-import javax.swing.JList;
-import javax.swing.JMenuItem;
-import javax.swing.JPanel;
-import javax.swing.JProgressBar;
-import javax.swing.JRadioButton;
-import javax.swing.JScrollBar;
-import javax.swing.JScrollPane;
-import javax.swing.JSlider;
-import javax.swing.JSpinner;
-import javax.swing.JSplitPane;
-import javax.swing.JTabbedPane;
-import javax.swing.JTable;
-import javax.swing.JToggleButton;
-import javax.swing.JToolBar;
-import javax.swing.JTree;
+import javax.swing.*;
 import javax.swing.text.JTextComponent;
-
-import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.core.GenericTypeMatcher;
-import org.assertj.swing.timing.Timeout;
+import java.awt.*;
 
 /**
  * Looks up AWT or Swing {@code Component}s in a {@code Container}.

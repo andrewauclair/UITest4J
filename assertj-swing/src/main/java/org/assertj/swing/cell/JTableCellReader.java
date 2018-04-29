@@ -12,14 +12,12 @@
  */
 package org.assertj.swing.cell;
 
-import java.awt.Color;
-import java.awt.Font;
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import javax.swing.JTable;
-
-import org.assertj.swing.annotation.RunsInCurrentThread;
+import javax.swing.*;
+import java.awt.*;
 
 /**
  * <p>

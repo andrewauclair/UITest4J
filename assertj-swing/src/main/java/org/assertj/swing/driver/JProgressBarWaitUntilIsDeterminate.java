@@ -12,18 +12,18 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.swing.driver.JProgressBarIndeterminateQuery.isIndeterminate;
-import static org.assertj.swing.format.Formatting.format;
-import static org.assertj.swing.timing.Pause.pause;
-
-import javax.annotation.Nonnull;
-import javax.swing.JProgressBar;
-
 import org.assertj.core.description.Description;
-import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.edt.GuiLazyLoadingDescription;
 import org.assertj.swing.timing.Condition;
 import org.assertj.swing.timing.Timeout;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.annotation.Nonnull;
+import javax.swing.*;
+
+import static org.assertj.swing.driver.JProgressBarIndeterminateQuery.isIndeterminate;
+import static org.assertj.swing.format.Formatting.format;
+import static org.assertj.swing.timing.Pause.pause;
 
 /**
  * EDT-safe task that waits until the value of a {@code JProgressBar} is equal to the given expected value.

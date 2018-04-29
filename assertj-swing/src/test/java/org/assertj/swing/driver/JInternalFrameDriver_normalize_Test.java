@@ -12,14 +12,14 @@
  */
 package org.assertj.swing.driver;
 
+import org.junit.jupiter.api.Test;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.driver.JInternalFrameAction.MAXIMIZE;
 import static org.assertj.swing.driver.JInternalFrameIconQuery.isIconified;
 import static org.assertj.swing.driver.JInternalFrameSetMaximumTask.setMaximum;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
-
-import org.assertj.swing.annotation.RunsInEDT;
-import org.junit.jupiter.api.Test;
 
 /**
  * Tests for

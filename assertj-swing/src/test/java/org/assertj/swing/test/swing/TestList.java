@@ -12,18 +12,16 @@
  */
 package org.assertj.swing.test.swing;
 
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.swing.*;
+import java.util.List;
+
 import static javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Lists.newArrayList;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
-
-import java.util.List;
-
-import javax.swing.DefaultListModel;
-import javax.swing.JList;
-
-import org.assertj.swing.annotation.RunsInCurrentThread;
-import org.assertj.swing.annotation.RunsInEDT;
 
 /**
  * <p>

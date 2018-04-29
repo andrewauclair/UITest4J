@@ -12,6 +12,14 @@
  */
 package org.assertj.swing.image;
 
+import org.assertj.swing.test.core.SequentialEDTSafeTestCase;
+import org.assertj.swing.test.swing.TestWindow;
+import org.junit.jupiter.api.Test;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.swing.*;
+import java.io.File;
+
 import static org.assertj.core.util.Files.temporaryFolderPath;
 import static org.assertj.core.util.Strings.concat;
 import static org.assertj.swing.assertions.Assertions.assertThat;
@@ -19,16 +27,6 @@ import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.image.RandomFileNameCreator.randomFileName;
 import static org.assertj.swing.query.ComponentSizeQuery.sizeOf;
 import static org.assertj.swing.util.ImageReader.readImageFrom;
-
-import java.io.File;
-
-import javax.swing.JButton;
-import javax.swing.JTextField;
-
-import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.test.core.SequentialEDTSafeTestCase;
-import org.assertj.swing.test.swing.TestWindow;
-import org.junit.jupiter.api.Test;
 
 /**
  * Tests for {@link ScreenshotTaker#saveComponentAsPng(java.awt.Component, String)}.

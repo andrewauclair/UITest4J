@@ -12,17 +12,17 @@
  */
 package org.assertj.swing.query;
 
-import static org.assertj.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.test.core.MethodInvocations.Args.args;
-
-import javax.swing.table.TableColumn;
-
-import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.test.core.MethodInvocations;
 import org.assertj.swing.test.core.MethodInvocations.Args;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestTable;
 import org.assertj.swing.test.swing.TestWindow;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.swing.table.TableColumn;
+
+import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.assertj.swing.test.core.MethodInvocations.Args.args;
 
 /**
  * Base test case for {@link JTableColumnByIdentifierQuery}.

@@ -12,13 +12,13 @@
  */
 package org.assertj.swing.edt;
 
-import static org.assertj.core.util.Preconditions.checkNotNull;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import org.assertj.core.description.Description;
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
 
 import javax.annotation.Nonnull;
 
-import org.assertj.core.description.Description;
-import org.assertj.swing.annotation.RunsInCurrentThread;
+import static org.assertj.core.util.Preconditions.checkNotNull;
+import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 /**
  * {@code Description} that loads its text lazily, in the event dispatch thread (EDT).

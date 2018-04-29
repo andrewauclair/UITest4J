@@ -12,13 +12,13 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.core.util.Preconditions.checkNotNull;
+import org.assertj.swing.data.TableCell;
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
 
 import javax.annotation.Nonnull;
-import javax.swing.JTable;
+import javax.swing.*;
 
-import org.assertj.swing.annotation.RunsInCurrentThread;
-import org.assertj.swing.data.TableCell;
+import static org.assertj.core.util.Preconditions.checkNotNull;
 
 /**
  * Verifies correct argument values and state of {@code JTable} cells.

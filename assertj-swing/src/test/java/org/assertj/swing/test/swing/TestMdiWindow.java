@@ -12,16 +12,14 @@
  */
 package org.assertj.swing.test.swing;
 
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.swing.*;
+import java.awt.*;
+
 import static org.assertj.core.util.Strings.concat;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
-
-import java.awt.Dimension;
-
-import javax.swing.JDesktopPane;
-import javax.swing.JInternalFrame;
-
-import org.assertj.swing.annotation.RunsInCurrentThread;
-import org.assertj.swing.annotation.RunsInEDT;
 
 /**
  * An MDI frame.

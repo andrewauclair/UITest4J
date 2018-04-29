@@ -12,15 +12,14 @@
  */
 package org.assertj.swing.monitor;
 
-import java.awt.Window;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.annotation.Nonnull;
+import java.awt.*;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-
-import javax.annotation.Nonnull;
-
-import org.assertj.swing.annotation.RunsInEDT;
 
 /**
  * Keeps track of window visibility state.

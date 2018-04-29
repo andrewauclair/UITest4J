@@ -12,16 +12,15 @@
  */
 package org.assertj.swing.driver;
 
+import org.assertj.swing.test.recorder.ClickRecorder;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.swing.table.JTableHeader;
+import java.awt.*;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.test.task.ComponentSetEnabledTask.disable;
-
-import java.awt.Point;
-
-import javax.swing.table.JTableHeader;
-
-import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.test.recorder.ClickRecorder;
 
 /**
  * Base test case for {@link JTableHeaderDriver}.

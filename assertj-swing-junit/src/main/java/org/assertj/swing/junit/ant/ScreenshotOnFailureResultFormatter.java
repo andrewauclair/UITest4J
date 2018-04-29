@@ -23,7 +23,7 @@ import org.assertj.swing.junit.xml.XmlNode;
  * Understands a JUnit XML report formatter that takes a screenshot when a GUI test fails.
  * <p>
  * <strong>Note:</strong> A test is consider a GUI test if it is marked with the annotation
- * <code>{@link org.assertj.swing.annotation.GUITest}</code>.
+ * <code>{@link org.uitest4j.swing.annotation.GUITest}</code>.
  * </p>
  * 
  * @author Alex Ruiz

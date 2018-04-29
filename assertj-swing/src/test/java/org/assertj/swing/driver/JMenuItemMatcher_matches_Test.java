@@ -12,22 +12,18 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.core.BasicComponentFinder.finderWithNewAwtHierarchy;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
-
-import java.awt.Component;
-import java.awt.Dimension;
-
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-
-import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.core.ComponentFinder;
 import org.assertj.swing.test.core.SequentialEDTSafeTestCase;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.jupiter.api.Test;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.swing.*;
+import java.awt.*;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.swing.core.BasicComponentFinder.finderWithNewAwtHierarchy;
+import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 /**
  * Tests for {@link JMenuItemMatcher#matches(Component)}.

@@ -12,11 +12,11 @@
  */
 package org.assertj.swing.query;
 
-import javax.annotation.Nonnull;
-import javax.swing.JTable;
-import javax.swing.table.TableColumn;
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
 
-import org.assertj.swing.annotation.RunsInCurrentThread;
+import javax.annotation.Nonnull;
+import javax.swing.*;
+import javax.swing.table.TableColumn;
 
 /**
  * An action that returns the index of a column in a {@code JTable} whose identifier matches the given one.

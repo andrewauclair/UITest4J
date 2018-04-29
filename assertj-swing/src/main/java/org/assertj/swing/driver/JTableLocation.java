@@ -12,16 +12,14 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.core.util.Preconditions.checkNotNull;
-
-import java.awt.Point;
-import java.awt.Rectangle;
+import org.assertj.swing.data.TableCell;
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
 
 import javax.annotation.Nonnull;
-import javax.swing.JTable;
+import javax.swing.*;
+import java.awt.*;
 
-import org.assertj.swing.annotation.RunsInCurrentThread;
-import org.assertj.swing.data.TableCell;
+import static org.assertj.core.util.Preconditions.checkNotNull;
 
 /**
  * A visible location on a {@code JTable}.

@@ -12,25 +12,20 @@
  */
 package org.assertj.swing.core;
 
-import static java.awt.event.KeyEvent.VK_E;
-import static java.awt.event.KeyEvent.VK_H;
-import static java.awt.event.KeyEvent.VK_L;
-import static java.awt.event.KeyEvent.VK_O;
-import static java.awt.event.KeyEvent.VK_SHIFT;
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.util.Lists.newArrayList;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import org.assertj.swing.test.core.RobotBasedTestCase;
+import org.assertj.swing.test.swing.TestWindow;
+import org.junit.jupiter.api.Test;
+import org.uitest4j.swing.annotation.RunsInEDT;
 
+import javax.swing.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.List;
 
-import javax.swing.JTextField;
-
-import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.test.core.RobotBasedTestCase;
-import org.assertj.swing.test.swing.TestWindow;
-import org.junit.jupiter.api.Test;
+import static java.awt.event.KeyEvent.*;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.util.Lists.newArrayList;
+import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 /**
  * Test case for <a href="http://code.google.com/p/fest/issues/detail?id=245">Bug 245</a>.

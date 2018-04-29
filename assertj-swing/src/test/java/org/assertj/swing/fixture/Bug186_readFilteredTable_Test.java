@@ -12,24 +12,23 @@
  */
 package org.assertj.swing.fixture;
 
-import static javax.swing.RowFilter.regexFilter;
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.data.TableCell.row;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
-
-import java.awt.Dimension;
-
-import javax.swing.JTextField;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
-import javax.swing.table.TableModel;
-import javax.swing.table.TableRowSorter;
-
-import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestTable;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.jupiter.api.Test;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.swing.*;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
+import java.awt.*;
+
+import static javax.swing.RowFilter.regexFilter;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.swing.data.TableCell.row;
+import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 /**
  * Tests for <a href="http://code.google.com/p/fest/issues/detail?id=186" target="_blank">Bug 186</a>.

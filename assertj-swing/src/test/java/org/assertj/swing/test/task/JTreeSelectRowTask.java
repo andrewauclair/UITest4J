@@ -12,12 +12,12 @@
  */
 package org.assertj.swing.test.task;
 
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.annotation.Nonnull;
-import javax.swing.JTree;
+import javax.swing.*;
 
-import org.assertj.swing.annotation.RunsInEDT;
+import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 /**
  * Selects a single row in a {@code JTree}. This task is executed in the event dispatch thread (EDT).

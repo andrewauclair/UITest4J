@@ -12,26 +12,24 @@
  */
 package org.assertj.swing.driver;
 
-import static javax.swing.JOptionPane.ERROR_MESSAGE;
-import static javax.swing.JOptionPane.showMessageDialog;
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.driver.JTableCellValueQuery.cellValueOf;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
-
-import java.awt.Container;
-
-import javax.swing.DefaultCellEditor;
-import javax.swing.JTextField;
-import javax.swing.text.AttributeSet;
-import javax.swing.text.BadLocationException;
-import javax.swing.text.PlainDocument;
-
-import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.cell.JTableCellWriter;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestTable;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.jupiter.api.Test;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.swing.*;
+import javax.swing.text.AttributeSet;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.PlainDocument;
+import java.awt.*;
+
+import static javax.swing.JOptionPane.ERROR_MESSAGE;
+import static javax.swing.JOptionPane.showMessageDialog;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.swing.driver.JTableCellValueQuery.cellValueOf;
+import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 /**
  * Tests for <a href="http://code.google.com/p/fest/issues/detail?id=219" target="_blank">Bug 219</a>.

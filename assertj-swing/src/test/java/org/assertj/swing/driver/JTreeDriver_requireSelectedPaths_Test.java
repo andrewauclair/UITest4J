@@ -12,16 +12,16 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.core.util.Arrays.array;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import org.assertj.swing.test.ExpectedException;
+import org.junit.jupiter.api.Test;
+import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreeNode;
 import javax.swing.tree.TreePath;
 
-import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.test.ExpectedException;
-import org.junit.jupiter.api.Test;
+import static org.assertj.core.util.Arrays.array;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * Tests for {@link JTreeDriver#requireSelection(javax.swing.JTree, String[])}.

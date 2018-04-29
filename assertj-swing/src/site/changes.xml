@@ -1587,8 +1587,9 @@
         Added support for taking screenshots of failing tests with JUnit inside an IDE.
       </action>
 			<action dev="alexruiz" type="fix" issue="59">
-				Moved org.swing.fest.GUITest and org.assertj.swing.util.GUITestFinder to package org.assertj.swing.annotation.
-			</action>
+                Moved org.swing.fest.GUITest and org.assertj.swing.util.GUITestFinder to package
+                org.uitest4j.swing.annotation.
+            </action>
 			<action dev="alexruiz" type="fix" issue="59">
 				Moved exception classes in package org.assertj.swing to org.assertj.swing.exception.
 			</action>
@@ -1630,7 +1631,7 @@
         Moved ImageException and ScreenshotTaker from package org.assertj.swing.util to package org.assertj.swing.image.        
       </action>
       <action dev="alexruiz" type="fix">
-        Renamed org.assertj.swing.util.GUITests to org.assertj.swing.annotation.GUITestFinder.
+          Renamed org.assertj.swing.util.GUITests to org.uitest4j.swing.annotation.GUITestFinder.
       </action>
       <action dev="wanghy" type="add" issue="45">
         Add timeout for RobotFixture.wait(Condition): RobotFixture.wait(Condition, Timeout).

@@ -12,14 +12,14 @@
  */
 package org.assertj.swing.driver;
 
+import org.assertj.swing.test.ExpectedException;
+import org.junit.jupiter.api.Test;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.driver.JInternalFrameAction.DEICONIFY;
 import static org.assertj.swing.driver.JInternalFrameIconQuery.isIconified;
 import static org.assertj.swing.driver.JInternalFrameSetIconTask.setIcon;
-
-import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.test.ExpectedException;
-import org.junit.jupiter.api.Test;
 
 /**
  * Tests for {@link JInternalFrameDriver#deiconify(JInternalFrame)}.

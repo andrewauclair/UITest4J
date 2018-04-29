@@ -12,17 +12,12 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.swing.util.Platform.isOSX;
-import static org.assertj.swing.util.Platform.isWindows;
-import static org.assertj.swing.util.Platform.isWindowsXP;
-
-import java.awt.Container;
-import java.awt.Insets;
-import java.awt.Point;
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
 
 import javax.annotation.Nonnull;
+import java.awt.*;
 
-import org.assertj.swing.annotation.RunsInCurrentThread;
+import static org.assertj.swing.util.Platform.*;
 
 /**
  * Utility methods related to window-like containers.

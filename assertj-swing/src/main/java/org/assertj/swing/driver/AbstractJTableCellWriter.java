@@ -12,6 +12,22 @@
  */
 package org.assertj.swing.driver;
 
+import org.assertj.swing.cell.JTableCellWriter;
+import org.assertj.swing.core.ComponentFoundCondition;
+import org.assertj.swing.core.ComponentMatcher;
+import org.assertj.swing.core.Robot;
+import org.assertj.swing.core.TypeMatcher;
+import org.assertj.swing.exception.ActionFailedException;
+import org.assertj.swing.exception.WaitTimedOutError;
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import javax.swing.*;
+import javax.swing.table.TableCellEditor;
+import java.awt.*;
+
 import static java.lang.String.valueOf;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.core.util.Strings.concat;
@@ -25,24 +41,6 @@ import static org.assertj.swing.driver.JTableStopCellEditingTask.stopEditing;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.exception.ActionFailedException.actionFailure;
 import static org.assertj.swing.timing.Pause.pause;
-
-import java.awt.Component;
-import java.awt.Point;
-
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.swing.JTable;
-import javax.swing.table.TableCellEditor;
-
-import org.assertj.swing.annotation.RunsInCurrentThread;
-import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.cell.JTableCellWriter;
-import org.assertj.swing.core.ComponentFoundCondition;
-import org.assertj.swing.core.ComponentMatcher;
-import org.assertj.swing.core.Robot;
-import org.assertj.swing.core.TypeMatcher;
-import org.assertj.swing.exception.ActionFailedException;
-import org.assertj.swing.exception.WaitTimedOutError;
 
 /**
  * Template for implementations of {@link JTableCellWriter}.

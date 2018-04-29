@@ -12,14 +12,14 @@
  */
 package org.assertj.swing.core;
 
-import static org.assertj.swing.edt.GuiActionRunner.execute;
-
-import javax.swing.JButton;
-
-import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.test.core.SequentialEDTSafeTestCase;
 import org.assertj.swing.test.io.PrintStreamStub;
 import org.assertj.swing.test.swing.TestWindow;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.swing.*;
+
+import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 /**
  * Base test case for {@link BasicComponentPrinter}.

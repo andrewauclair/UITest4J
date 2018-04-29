@@ -12,18 +12,17 @@
  */
 package org.assertj.swing.driver;
 
-import static java.awt.Color.BLUE;
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
-
-import java.awt.Color;
-import java.awt.Dimension;
-
-import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.test.core.MethodInvocations;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.jupiter.api.Test;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import java.awt.*;
+
+import static java.awt.Color.BLUE;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 /**
  * Tests for {@link ComponentDriver#backgroundOf(java.awt.Component)}.

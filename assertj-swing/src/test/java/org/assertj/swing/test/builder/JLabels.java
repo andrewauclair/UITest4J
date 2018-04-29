@@ -12,12 +12,12 @@
  */
 package org.assertj.swing.test.builder;
 
-import static org.assertj.swing.edt.GuiActionRunner.execute;
-
-import javax.swing.JLabel;
-
-import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.edt.GuiQuery;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.swing.*;
+
+import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 /**
  * Factory of {@code JLabel}s.

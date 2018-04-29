@@ -12,13 +12,13 @@
  */
 package org.assertj.swing.test.builder;
 
+import org.assertj.swing.edt.GuiQuery;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.swing.*;
+
 import static java.awt.Adjustable.HORIZONTAL;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
-
-import javax.swing.JScrollBar;
-
-import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
  * Factory of {@code JScrollBar}s.

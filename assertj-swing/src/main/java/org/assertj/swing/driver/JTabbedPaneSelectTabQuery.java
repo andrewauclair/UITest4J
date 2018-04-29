@@ -12,14 +12,14 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.swing.data.Index.atIndex;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import org.assertj.swing.data.Index;
+import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.annotation.Nonnull;
-import javax.swing.JTabbedPane;
+import javax.swing.*;
 
-import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.data.Index;
+import static org.assertj.swing.data.Index.atIndex;
+import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 /**
  * Fetches the selected tab index in a {@code JTabbedPane}.

@@ -12,23 +12,21 @@
  */
 package org.assertj.swing.core;
 
+import org.assertj.swing.hierarchy.ComponentHierarchy;
+import org.assertj.swing.hierarchy.ExistingHierarchy;
+import org.assertj.swing.hierarchy.SingleComponentHierarchy;
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import java.awt.*;
+import java.io.PrintStream;
+
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.format.Formatting.format;
 import static org.assertj.swing.hierarchy.NewHierarchy.ignoreExistingComponents;
-
-import java.awt.Component;
-import java.awt.Container;
-import java.io.PrintStream;
-
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
-import org.assertj.swing.annotation.RunsInCurrentThread;
-import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.hierarchy.ComponentHierarchy;
-import org.assertj.swing.hierarchy.ExistingHierarchy;
-import org.assertj.swing.hierarchy.SingleComponentHierarchy;
 
 /**
  * Default implementation of {@link ComponentPrinter}.

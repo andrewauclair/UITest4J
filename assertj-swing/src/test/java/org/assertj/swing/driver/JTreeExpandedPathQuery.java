@@ -12,14 +12,14 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.core.util.Preconditions.checkNotNull;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.annotation.Nonnull;
-import javax.swing.JTree;
+import javax.swing.*;
 import javax.swing.tree.TreePath;
 
-import org.assertj.swing.annotation.RunsInEDT;
+import static org.assertj.core.util.Preconditions.checkNotNull;
+import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 /**
  * Indicates whether the node (in a {@code JTree}) identified by the given path is expanded. This query is executed in

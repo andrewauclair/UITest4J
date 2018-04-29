@@ -12,6 +12,17 @@
  */
 package org.assertj.swing.driver;
 
+import org.assertj.swing.core.Robot;
+import org.assertj.swing.internal.annotation.InternalApi;
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import javax.swing.*;
+import java.awt.*;
+import java.util.regex.Pattern;
+
 import static java.awt.event.KeyEvent.VK_UNDEFINED;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.swing.driver.Actions.findActionKey;
@@ -20,20 +31,6 @@ import static org.assertj.swing.driver.KeyStrokes.findKeyStrokesForAction;
 import static org.assertj.swing.driver.TextAssert.verifyThat;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.exception.ActionFailedException.actionFailure;
-
-import java.awt.Point;
-import java.awt.Rectangle;
-import java.util.regex.Pattern;
-
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.swing.JComponent;
-import javax.swing.KeyStroke;
-
-import org.assertj.swing.annotation.RunsInCurrentThread;
-import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.core.Robot;
-import org.assertj.swing.internal.annotation.InternalApi;
 
 /**
  * <p>

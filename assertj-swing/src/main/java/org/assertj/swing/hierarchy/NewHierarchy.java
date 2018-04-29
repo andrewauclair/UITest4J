@@ -12,22 +12,18 @@
  */
 package org.assertj.swing.hierarchy;
 
+import org.assertj.core.util.VisibleForTesting;
+import org.assertj.swing.util.ToolkitProvider;
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
+
+import javax.annotation.Nonnull;
+import java.awt.*;
+import java.util.Collection;
+
 import static java.awt.AWTEvent.COMPONENT_EVENT_MASK;
 import static java.awt.AWTEvent.WINDOW_EVENT_MASK;
 import static org.assertj.core.util.Lists.emptyList;
 import static org.assertj.swing.listener.WeakEventListener.attachAsWeakEventListener;
-
-import java.awt.Component;
-import java.awt.Container;
-import java.awt.Toolkit;
-import java.awt.Window;
-import java.util.Collection;
-
-import javax.annotation.Nonnull;
-
-import org.assertj.core.util.VisibleForTesting;
-import org.assertj.swing.annotation.RunsInCurrentThread;
-import org.assertj.swing.util.ToolkitProvider;
 
 /**
  * <p>

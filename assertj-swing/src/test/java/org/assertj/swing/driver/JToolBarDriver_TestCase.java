@@ -12,23 +12,16 @@
  */
 package org.assertj.swing.driver;
 
+import org.assertj.swing.test.core.RobotBasedTestCase;
+import org.assertj.swing.test.swing.TestWindow;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.swing.*;
+import java.awt.*;
+
 import static java.awt.BorderLayout.NORTH;
 import static javax.swing.SwingUtilities.getWindowAncestor;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
-
-import java.awt.BorderLayout;
-import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.Point;
-import java.awt.Rectangle;
-import java.awt.Window;
-
-import javax.swing.JLabel;
-import javax.swing.JToolBar;
-
-import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.test.core.RobotBasedTestCase;
-import org.assertj.swing.test.swing.TestWindow;
 
 /**
  * Base test class for {@link JToolBarDriver}.

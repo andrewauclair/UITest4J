@@ -12,6 +12,17 @@
  */
 package org.assertj.swing.driver;
 
+import org.assertj.swing.core.Robot;
+import org.assertj.swing.edt.GuiQuery;
+import org.assertj.swing.internal.annotation.InternalApi;
+import org.assertj.swing.util.GenericRange;
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.annotation.Nonnull;
+import javax.swing.*;
+import java.awt.*;
+
 import static javax.swing.JSplitPane.VERTICAL_SPLIT;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.swing.core.MouseButton.LEFT_BUTTON;
@@ -19,18 +30,6 @@ import static org.assertj.swing.driver.ComponentPreconditions.checkEnabledAndSho
 import static org.assertj.swing.driver.JSplitPaneLocationCalculator.locationToMoveDividerTo;
 import static org.assertj.swing.driver.JSplitPaneSetDividerLocationTask.setDividerLocation;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
-
-import java.awt.Point;
-
-import javax.annotation.Nonnull;
-import javax.swing.JSplitPane;
-
-import org.assertj.swing.annotation.RunsInCurrentThread;
-import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.core.Robot;
-import org.assertj.swing.edt.GuiQuery;
-import org.assertj.swing.internal.annotation.InternalApi;
-import org.assertj.swing.util.GenericRange;
 
 /**
  * <p>

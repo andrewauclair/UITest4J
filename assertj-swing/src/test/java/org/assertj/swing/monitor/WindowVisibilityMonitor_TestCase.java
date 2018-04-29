@@ -12,21 +12,21 @@
  */
 package org.assertj.swing.monitor;
 
-import static org.assertj.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.monitor.TestWindows.newWindowsMock;
-import static org.assertj.swing.test.builder.JTextFields.textField;
-import static org.assertj.swing.test.core.MethodInvocations.Args.args;
-
-import java.awt.Component;
-import java.awt.event.ComponentEvent;
-import java.awt.event.ComponentListener;
-import java.awt.event.WindowListener;
-
-import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.test.core.MethodInvocations;
 import org.assertj.swing.test.core.MethodInvocations.Args;
 import org.assertj.swing.test.core.SequentialEDTSafeTestCase;
 import org.assertj.swing.test.swing.TestWindow;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import java.awt.*;
+import java.awt.event.ComponentEvent;
+import java.awt.event.ComponentListener;
+import java.awt.event.WindowListener;
+
+import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.assertj.swing.monitor.TestWindows.newWindowsMock;
+import static org.assertj.swing.test.builder.JTextFields.textField;
+import static org.assertj.swing.test.core.MethodInvocations.Args.args;
 
 /**
  * Tests for {@link WindowVisibilityMonitor}.

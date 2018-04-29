@@ -12,10 +12,38 @@
  */
 package org.assertj.swing.core;
 
-import static java.awt.event.InputEvent.*;
-import static java.awt.event.KeyEvent.CHAR_UNDEFINED;
-import static java.awt.event.KeyEvent.KEY_TYPED;
-import static java.awt.event.KeyEvent.VK_UNDEFINED;
+import org.assertj.core.util.VisibleForTesting;
+import org.assertj.swing.edt.GuiQuery;
+import org.assertj.swing.exception.ComponentLookupException;
+import org.assertj.swing.exception.UnexpectedException;
+import org.assertj.swing.exception.WaitTimedOutError;
+import org.assertj.swing.hierarchy.ComponentHierarchy;
+import org.assertj.swing.hierarchy.ExistingHierarchy;
+import org.assertj.swing.input.InputState;
+import org.assertj.swing.lock.ScreenLock;
+import org.assertj.swing.monitor.WindowMonitor;
+import org.assertj.swing.util.Pair;
+import org.assertj.swing.util.TimeoutWatch;
+import org.assertj.swing.util.ToolkitProvider;
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import javax.annotation.concurrent.GuardedBy;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.InvocationEvent;
+import java.awt.event.KeyEvent;
+import java.awt.event.WindowEvent;
+import java.util.Collection;
+import java.util.List;
+import java.util.Set;
+
+import static java.awt.event.InputEvent.BUTTON1_DOWN_MASK;
+import static java.awt.event.InputEvent.BUTTON2_DOWN_MASK;
+import static java.awt.event.InputEvent.BUTTON3_DOWN_MASK;
+import static java.awt.event.KeyEvent.*;
 import static java.awt.event.WindowEvent.WINDOW_CLOSING;
 import static java.lang.System.currentTimeMillis;
 import static java.lang.System.lineSeparator;
@@ -48,46 +76,6 @@ import static org.assertj.swing.timing.Pause.pause;
 import static org.assertj.swing.util.Modifiers.keysFor;
 import static org.assertj.swing.util.Modifiers.updateModifierWithKeyCode;
 import static org.assertj.swing.util.TimeoutWatch.startWatchWithTimeoutOf;
-
-import java.applet.Applet;
-import java.awt.Component;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.EventQueue;
-import java.awt.Point;
-import java.awt.Toolkit;
-import java.awt.Window;
-import java.awt.event.InvocationEvent;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.util.Collection;
-import java.util.List;
-import java.util.Set;
-
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.concurrent.GuardedBy;
-import javax.swing.JComponent;
-import javax.swing.JMenu;
-import javax.swing.JMenuItem;
-import javax.swing.JPopupMenu;
-import javax.swing.KeyStroke;
-
-import org.assertj.core.util.VisibleForTesting;
-import org.assertj.swing.annotation.RunsInCurrentThread;
-import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
-import org.assertj.swing.exception.ComponentLookupException;
-import org.assertj.swing.exception.UnexpectedException;
-import org.assertj.swing.exception.WaitTimedOutError;
-import org.assertj.swing.hierarchy.ComponentHierarchy;
-import org.assertj.swing.hierarchy.ExistingHierarchy;
-import org.assertj.swing.input.InputState;
-import org.assertj.swing.lock.ScreenLock;
-import org.assertj.swing.monitor.WindowMonitor;
-import org.assertj.swing.util.Pair;
-import org.assertj.swing.util.TimeoutWatch;
-import org.assertj.swing.util.ToolkitProvider;
 
 /**
  * Default implementation of {@link Robot}.

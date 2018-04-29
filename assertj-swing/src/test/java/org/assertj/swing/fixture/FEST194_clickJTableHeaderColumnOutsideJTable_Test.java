@@ -12,24 +12,21 @@
  */
 package org.assertj.swing.fixture;
 
+import org.assertj.swing.test.core.RobotBasedTestCase;
+import org.assertj.swing.test.swing.TestWindow;
+import org.junit.jupiter.api.Test;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.swing.*;
+import javax.swing.table.TableColumn;
+import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
 import static javax.swing.JTable.AUTO_RESIZE_OFF;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Arrays.array;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
-
-import java.awt.Dimension;
-import java.awt.GridLayout;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.table.TableColumn;
-
-import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.test.core.RobotBasedTestCase;
-import org.assertj.swing.test.swing.TestWindow;
-import org.junit.jupiter.api.Test;
 
 /**
  * Test case for bug <a href="http://jira.codehaus.org/browse/FEST-194" target="_blank">FEST-194</a>

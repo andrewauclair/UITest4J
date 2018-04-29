@@ -12,15 +12,13 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.swing.awt.AWT.centerOf;
-
-import java.awt.Point;
-import java.awt.Rectangle;
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
 
 import javax.annotation.Nonnull;
-import javax.swing.JList;
+import javax.swing.*;
+import java.awt.*;
 
-import org.assertj.swing.annotation.RunsInCurrentThread;
+import static org.assertj.swing.awt.AWT.centerOf;
 
 /**
  * Calculates the centre of a cell in a {@code JList}.

@@ -12,26 +12,25 @@
  */
 package org.assertj.swing.format;
 
-import static org.assertj.core.util.Lists.newArrayList;
-import static org.assertj.core.util.Preconditions.checkNotNull;
-import static org.assertj.core.util.Strings.concat;
-import static org.assertj.core.util.Strings.quote;
-import static org.assertj.swing.exception.ActionFailedException.actionFailure;
-import static org.assertj.swing.util.Maps.newHashMap;
+import org.assertj.core.presentation.StandardRepresentation;
+import org.assertj.swing.util.Arrays;
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
 
-import java.awt.Component;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import java.awt.*;
 import java.beans.BeanInfo;
 import java.beans.Introspector;
 import java.beans.PropertyDescriptor;
 import java.util.List;
 import java.util.Map;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
-import org.assertj.core.presentation.StandardRepresentation;
-import org.assertj.swing.annotation.RunsInCurrentThread;
-import org.assertj.swing.util.Arrays;
+import static org.assertj.core.util.Lists.newArrayList;
+import static org.assertj.core.util.Preconditions.checkNotNull;
+import static org.assertj.core.util.Strings.concat;
+import static org.assertj.core.util.Strings.quote;
+import static org.assertj.swing.exception.ActionFailedException.actionFailure;
+import static org.assertj.swing.util.Maps.newHashMap;
 
 /**
  * Formatter that uses <a href="http://docs.oracle.com/javase/tutorial/javabeans/index.html"

@@ -12,18 +12,17 @@
  */
 package org.assertj.swing.driver;
 
+import org.assertj.swing.cell.JListCellReader;
+import org.assertj.swing.edt.GuiQuery;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.annotation.Nonnull;
+import javax.swing.*;
+import java.util.List;
+
 import static org.assertj.core.util.Lists.newArrayList;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
-
-import java.util.List;
-
-import javax.annotation.Nonnull;
-import javax.swing.JList;
-
-import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.cell.JListCellReader;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
  * Returns an array of {@code String}s that represents the selection of a given {@code JList}. This query is executed in

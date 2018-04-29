@@ -12,14 +12,14 @@
  */
 package org.assertj.swing.driver;
 
-import static javax.swing.JOptionPane.QUESTION_MESSAGE;
-import static org.assertj.swing.test.swing.JOptionPaneLauncher.pack;
-
-import javax.swing.JOptionPane;
-
-import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.test.ExpectedException;
 import org.junit.jupiter.api.Test;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.swing.*;
+
+import static javax.swing.JOptionPane.QUESTION_MESSAGE;
+import static org.assertj.swing.test.swing.JOptionPaneLauncher.pack;
 
 /**
  * Tests for {@link JOptionPaneDriver#requireQuestionMessage(JOptionPane)}.

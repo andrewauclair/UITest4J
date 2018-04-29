@@ -12,20 +12,18 @@
  */
 package org.assertj.swing.fixture;
 
-import static org.assertj.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.timing.Timeout.timeout;
-
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.JButton;
-import javax.swing.JFileChooser;
-
-import org.assertj.swing.annotation.RunsInCurrentThread;
-import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.jupiter.api.Test;
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.assertj.swing.timing.Timeout.timeout;
 
 /**
  * Test case for bug <a href="http://jira.codehaus.org/browse/FEST-303" target="_blank">FEST-303</a>.

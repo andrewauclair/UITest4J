@@ -12,6 +12,20 @@
  */
 package org.assertj.swing.driver;
 
+import org.assertj.swing.cell.JListCellReader;
+import org.assertj.swing.edt.GuiQuery;
+import org.assertj.swing.util.StringTextMatcher;
+import org.assertj.swing.util.TextMatcher;
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import javax.swing.*;
+import java.awt.*;
+import java.util.List;
+import java.util.Set;
+
 import static java.util.Collections.sort;
 import static org.assertj.core.util.Lists.newArrayList;
 import static org.assertj.core.util.Preconditions.checkNotNull;
@@ -19,22 +33,6 @@ import static org.assertj.core.util.Sets.newHashSet;
 import static org.assertj.swing.driver.JListCellBoundsQuery.cellBounds;
 import static org.assertj.swing.driver.JListCellCenterQuery.cellCenter;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
-
-import java.awt.Point;
-import java.awt.Rectangle;
-import java.util.List;
-import java.util.Set;
-
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.swing.JList;
-
-import org.assertj.swing.annotation.RunsInCurrentThread;
-import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.cell.JListCellReader;
-import org.assertj.swing.edt.GuiQuery;
-import org.assertj.swing.util.StringTextMatcher;
-import org.assertj.swing.util.TextMatcher;
 
 /**
  * Looks up the first item in a {@code JList} whose value matches a given one. This query is executed in the event

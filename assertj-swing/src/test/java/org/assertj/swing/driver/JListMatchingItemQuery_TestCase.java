@@ -12,20 +12,18 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.core.util.Arrays.array;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
-import static org.mockito.Mockito.mock;
-
-import java.awt.Dimension;
-
-import javax.swing.JList;
-import javax.swing.JScrollPane;
-
-import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.cell.JListCellReader;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
 import org.assertj.swing.util.TextMatcher;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.swing.*;
+import java.awt.*;
+
+import static org.assertj.core.util.Arrays.array;
+import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.mockito.Mockito.mock;
 
 /**
  * Base test case for {@link JListMatchingItemQuery}.

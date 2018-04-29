@@ -12,18 +12,16 @@
  */
 package org.assertj.swing.core;
 
-import static org.assertj.swing.awt.AWT.invokerOf;
-
-import java.awt.Component;
-import java.awt.Window;
+import org.assertj.swing.hierarchy.ComponentHierarchy;
+import org.assertj.swing.hierarchy.ExistingHierarchy;
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import javax.swing.MenuElement;
+import javax.swing.*;
+import java.awt.*;
 
-import org.assertj.swing.annotation.RunsInCurrentThread;
-import org.assertj.swing.hierarchy.ComponentHierarchy;
-import org.assertj.swing.hierarchy.ExistingHierarchy;
+import static org.assertj.swing.awt.AWT.invokerOf;
 
 /**
  * Looks up an AWT or Swing {@code Component}'s {@code Window} ancestor.

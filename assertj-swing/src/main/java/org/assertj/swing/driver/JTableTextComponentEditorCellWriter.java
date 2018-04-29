@@ -12,20 +12,19 @@
  */
 package org.assertj.swing.driver;
 
-import static java.awt.event.KeyEvent.VK_F2;
-import static org.assertj.core.util.Preconditions.checkNotNull;
-import static org.assertj.swing.core.MouseButton.LEFT_BUTTON;
-
-import java.awt.Point;
+import org.assertj.swing.core.Robot;
+import org.assertj.swing.exception.ActionFailedException;
+import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import javax.swing.JTable;
+import javax.swing.*;
 import javax.swing.text.JTextComponent;
+import java.awt.*;
 
-import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.core.Robot;
-import org.assertj.swing.exception.ActionFailedException;
+import static java.awt.event.KeyEvent.VK_F2;
+import static org.assertj.core.util.Preconditions.checkNotNull;
+import static org.assertj.swing.core.MouseButton.LEFT_BUTTON;
 
 /**
  * {@link org.assertj.swing.cell.JTableCellWriter} that knows how to use {@code JTextComponent}s as cell editors.

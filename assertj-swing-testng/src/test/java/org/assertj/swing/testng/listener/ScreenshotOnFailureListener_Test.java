@@ -25,7 +25,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 
-import org.assertj.swing.annotation.GUITest;
+import org.uitest4j.swing.annotation.GUITest;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.testng.Reporter;

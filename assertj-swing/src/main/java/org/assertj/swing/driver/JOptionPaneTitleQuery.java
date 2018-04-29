@@ -12,15 +12,14 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.swing.edt.GuiActionRunner.execute;
-
-import java.awt.Dialog;
+import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import javax.swing.JOptionPane;
+import javax.swing.*;
+import java.awt.*;
 
-import org.assertj.swing.annotation.RunsInEDT;
+import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 /**
  * Returns the title of a {@code JOptionPane}. This query is executed in the event dispatch thread (EDT).

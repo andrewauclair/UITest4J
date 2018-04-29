@@ -12,11 +12,10 @@
  */
 package org.assertj.swing.text;
 
-import java.awt.Component;
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
 
 import javax.annotation.Nonnull;
-
-import org.assertj.swing.annotation.RunsInCurrentThread;
+import java.awt.*;
 
 /**
  * Reads the text of an AWT or Swing {@code Component}.

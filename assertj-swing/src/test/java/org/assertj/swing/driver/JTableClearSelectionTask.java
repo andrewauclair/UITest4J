@@ -12,11 +12,11 @@
  */
 package org.assertj.swing.driver;
 
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.swing.*;
+
 import static org.assertj.swing.edt.GuiActionRunner.execute;
-
-import javax.swing.JTable;
-
-import org.assertj.swing.annotation.RunsInEDT;
 
 /**
  * Clears the selection in a {@code JTable}. This task is executed in the event dispatch thread (EDT).

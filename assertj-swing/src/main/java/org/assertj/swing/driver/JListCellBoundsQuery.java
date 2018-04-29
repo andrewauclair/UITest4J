@@ -12,15 +12,14 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.swing.driver.JListItemPreconditions.checkIndexInBounds;
-
-import java.awt.Rectangle;
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import javax.swing.JList;
+import javax.swing.*;
+import java.awt.*;
 
-import org.assertj.swing.annotation.RunsInCurrentThread;
+import static org.assertj.swing.driver.JListItemPreconditions.checkIndexInBounds;
 
 /**
  * <p>

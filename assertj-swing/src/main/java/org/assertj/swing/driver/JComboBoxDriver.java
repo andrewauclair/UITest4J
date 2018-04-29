@@ -12,6 +12,26 @@
  */
 package org.assertj.swing.driver;
 
+import org.assertj.core.description.Description;
+import org.assertj.core.util.VisibleForTesting;
+import org.assertj.swing.cell.JComboBoxCellReader;
+import org.assertj.swing.core.Robot;
+import org.assertj.swing.exception.ComponentLookupException;
+import org.assertj.swing.exception.LocationUnavailableException;
+import org.assertj.swing.internal.annotation.InternalApi;
+import org.assertj.swing.util.Pair;
+import org.assertj.swing.util.PatternTextMatcher;
+import org.assertj.swing.util.StringTextMatcher;
+import org.assertj.swing.util.TextMatcher;
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import javax.swing.*;
+import java.awt.*;
+import java.util.regex.Pattern;
+
 import static javax.swing.text.DefaultEditorKit.deletePrevCharAction;
 import static javax.swing.text.DefaultEditorKit.selectAllAction;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -32,30 +52,6 @@ import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.exception.ActionFailedException.actionFailure;
 import static org.assertj.swing.format.Formatting.format;
 import static org.assertj.swing.util.Arrays.format;
-
-import java.awt.Component;
-import java.util.regex.Pattern;
-
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.swing.ComboBoxEditor;
-import javax.swing.JComboBox;
-import javax.swing.JComponent;
-import javax.swing.JList;
-
-import org.assertj.core.description.Description;
-import org.assertj.core.util.VisibleForTesting;
-import org.assertj.swing.annotation.RunsInCurrentThread;
-import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.cell.JComboBoxCellReader;
-import org.assertj.swing.core.Robot;
-import org.assertj.swing.exception.ComponentLookupException;
-import org.assertj.swing.exception.LocationUnavailableException;
-import org.assertj.swing.internal.annotation.InternalApi;
-import org.assertj.swing.util.Pair;
-import org.assertj.swing.util.PatternTextMatcher;
-import org.assertj.swing.util.StringTextMatcher;
-import org.assertj.swing.util.TextMatcher;
 
 /**
  * <p>

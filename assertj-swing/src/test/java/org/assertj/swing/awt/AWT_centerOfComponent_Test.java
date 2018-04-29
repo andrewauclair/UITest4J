@@ -12,16 +12,15 @@
  */
 package org.assertj.swing.awt;
 
+import org.assertj.swing.test.core.EDTSafeTestCase;
+import org.junit.jupiter.api.Test;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import java.awt.*;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.test.builder.JTextFields.textField;
-
-import java.awt.Component;
-import java.awt.Point;
-
-import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.test.core.EDTSafeTestCase;
-import org.junit.jupiter.api.Test;
 
 /**
  * Tests for {@link AWT#centerOf(java.awt.Component)}.

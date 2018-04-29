@@ -12,18 +12,15 @@
  */
 package org.assertj.swing.hierarchy;
 
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
+
+import javax.annotation.Nonnull;
+import java.awt.*;
+import java.util.Collection;
+
 import static org.assertj.core.util.Arrays.isNullOrEmpty;
 import static org.assertj.core.util.Lists.emptyList;
 import static org.assertj.core.util.Lists.newArrayList;
-
-import java.awt.Component;
-import java.awt.Container;
-import java.awt.Window;
-import java.util.Collection;
-
-import javax.annotation.Nonnull;
-
-import org.assertj.swing.annotation.RunsInCurrentThread;
 
 /**
  * Find children {@code Component}s in a {@code Window}.

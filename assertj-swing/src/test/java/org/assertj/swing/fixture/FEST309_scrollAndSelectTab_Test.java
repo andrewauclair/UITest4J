@@ -12,24 +12,21 @@
  */
 package org.assertj.swing.fixture;
 
+import org.assertj.swing.test.core.RobotBasedTestCase;
+import org.assertj.swing.test.swing.TestWindow;
+import org.assertj.swing.timing.Pause;
+import org.junit.jupiter.api.Test;
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.swing.*;
+import java.awt.*;
+
 import static java.awt.BorderLayout.CENTER;
 import static javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT;
 import static javax.swing.SwingConstants.BOTTOM;
 import static org.assertj.core.util.Strings.concat;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
-
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-
-import javax.swing.JPanel;
-import javax.swing.JTabbedPane;
-
-import org.assertj.swing.annotation.RunsInCurrentThread;
-import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.test.core.RobotBasedTestCase;
-import org.assertj.swing.test.swing.TestWindow;
-import org.assertj.swing.timing.Pause;
-import org.junit.jupiter.api.Test;
 
 /**
  * Test case for bug <a href="http://jira.codehaus.org/browse/FEST-309" target="_blank">FEST-309</a>.

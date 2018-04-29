@@ -12,13 +12,12 @@
  */
 package org.assertj.swing.core.matcher;
 
-import java.awt.Dialog;
-import java.util.regex.Pattern;
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-
-import org.assertj.swing.annotation.RunsInCurrentThread;
+import java.awt.*;
+import java.util.regex.Pattern;
 
 /**
  * Matches AWT or Swing {@code Dialog}s by name, title or visibility on the screen.

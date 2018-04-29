@@ -12,16 +12,14 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.swing.edt.GuiActionRunner.execute;
-
-import java.awt.Dimension;
-
-import javax.swing.JScrollBar;
-import javax.swing.JScrollPane;
-
-import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.swing.*;
+import java.awt.*;
+
+import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 /**
  * Base test case for {@link JScrollPaneDriver}.

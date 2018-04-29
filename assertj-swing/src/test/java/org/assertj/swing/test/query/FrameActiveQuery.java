@@ -12,13 +12,12 @@
  */
 package org.assertj.swing.test.query;
 
-import static org.assertj.swing.edt.GuiActionRunner.execute;
-
-import java.awt.Frame;
+import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.annotation.Nonnull;
+import java.awt.*;
 
-import org.assertj.swing.annotation.RunsInEDT;
+import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 /**
  * Returns whether a {@code Frame} is currently active. This query is executed in the event dispatch thread (EDT).

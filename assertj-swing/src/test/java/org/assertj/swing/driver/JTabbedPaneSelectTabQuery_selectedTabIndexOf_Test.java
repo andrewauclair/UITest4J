@@ -12,20 +12,18 @@
  */
 package org.assertj.swing.driver;
 
+import org.assertj.swing.test.core.RobotBasedTestCase;
+import org.assertj.swing.test.swing.TestWindow;
+import org.junit.jupiter.api.Test;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.swing.*;
+import java.awt.*;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.data.Index.atIndex;
 import static org.assertj.swing.driver.JTabbedPaneSelectTabQuery.selectedTabIndexOf;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
-
-import java.awt.Dimension;
-
-import javax.swing.JPanel;
-import javax.swing.JTabbedPane;
-
-import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.test.core.RobotBasedTestCase;
-import org.assertj.swing.test.swing.TestWindow;
-import org.junit.jupiter.api.Test;
 
 /**
  * Tests for {@link JTabbedPaneSelectTabQuery#selectedTabIndexOf(JTabbedPane)}.

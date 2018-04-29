@@ -12,13 +12,13 @@
  */
 package org.assertj.swing.core;
 
-import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.exception.WaitTimedOutError;
 import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.core.EDTSafeTestCase;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.swing.*;
 import java.util.logging.Logger;

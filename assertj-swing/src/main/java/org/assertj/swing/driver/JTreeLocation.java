@@ -12,18 +12,16 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.swing.util.Arrays.format;
-
-import java.awt.Point;
-import java.awt.Rectangle;
-
-import javax.annotation.Nonnull;
-import javax.swing.JTree;
-import javax.swing.tree.TreePath;
-
-import org.assertj.swing.annotation.RunsInCurrentThread;
 import org.assertj.swing.exception.LocationUnavailableException;
 import org.assertj.swing.util.Pair;
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
+
+import javax.annotation.Nonnull;
+import javax.swing.*;
+import javax.swing.tree.TreePath;
+import java.awt.*;
+
+import static org.assertj.swing.util.Arrays.format;
 
 /**
  * A visible location on a {@code JTree}. A row index or a {@link String}ified {@code TreePath} (i.e. each

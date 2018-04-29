@@ -12,11 +12,10 @@
  */
 package org.assertj.swing.format;
 
-import java.awt.Component;
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
 
 import javax.annotation.Nonnull;
-
-import org.assertj.swing.annotation.RunsInCurrentThread;
+import java.awt.*;
 
 /**
  * Returns a {@code String} representation of a given AWT or Swing {@code Component}.

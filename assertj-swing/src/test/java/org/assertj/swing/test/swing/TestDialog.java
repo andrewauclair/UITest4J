@@ -12,24 +12,18 @@
  */
 package org.assertj.swing.test.swing;
 
+import org.assertj.swing.test.task.FrameShowTask;
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.swing.*;
+import java.awt.*;
+
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.test.swing.TestWindow.DEFAULT_WINDOW_LOCATION;
 import static org.assertj.swing.test.task.DialogShowTask.packAndShow;
 import static org.assertj.swing.test.task.DialogShowTask.waitForShowing;
 import static org.assertj.swing.test.task.WindowDestroyTask.hideAndDispose;
-
-import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.Frame;
-import java.awt.Point;
-import java.awt.Window;
-
-import javax.swing.JDialog;
-
-import org.assertj.swing.annotation.RunsInCurrentThread;
-import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.test.task.FrameShowTask;
 
 /**
  * Base dialog for all GUI tests.

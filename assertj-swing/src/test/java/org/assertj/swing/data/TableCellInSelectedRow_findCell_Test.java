@@ -12,10 +12,10 @@
  */
 package org.assertj.swing.data;
 
-import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.driver.BasicJTableCellReader;
 import org.assertj.swing.exception.ActionFailedException;
 import org.junit.jupiter.api.Test;
+import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.swing.*;
 

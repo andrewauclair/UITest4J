@@ -12,15 +12,15 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.swing.driver.JListItemPreconditions.checkIndexInBounds;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import org.assertj.swing.cell.JListCellReader;
+import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import javax.swing.JList;
+import javax.swing.*;
 
-import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.cell.JListCellReader;
+import static org.assertj.swing.driver.JListItemPreconditions.checkIndexInBounds;
+import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 /**
  * Returns the value, as text, of an item in a {@code JList}. This query is executed in the event dispatch thread (EDT).

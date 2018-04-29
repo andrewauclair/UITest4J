@@ -12,18 +12,17 @@
  */
 package org.assertj.swing.core;
 
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import javax.swing.*;
+import java.awt.*;
+
 import static org.assertj.core.util.Objects.areEqual;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.core.util.Preconditions.checkNotNullOrEmpty;
 import static org.assertj.core.util.Strings.quote;
-
-import java.awt.Component;
-
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.swing.JLabel;
-
-import org.assertj.swing.annotation.RunsInCurrentThread;
 
 /**
  * Matches an AWT or Swing {@code Component} by the text of the associated {@code JLabel} and (optionally) by type.

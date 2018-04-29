@@ -12,11 +12,10 @@
  */
 package org.assertj.swing.hierarchy;
 
-import java.awt.Window;
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
 
 import javax.annotation.Nonnull;
-
-import org.assertj.swing.annotation.RunsInCurrentThread;
+import java.awt.*;
 
 /**
  * Task that given a {@link WindowFilter}, marks a given {@code Window} as "ignored" if it is already implicitly ignored

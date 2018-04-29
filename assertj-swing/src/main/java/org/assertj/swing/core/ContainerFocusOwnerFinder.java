@@ -12,14 +12,11 @@
  */
 package org.assertj.swing.core;
 
-import java.awt.Component;
-import java.awt.Container;
-import java.awt.Window;
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-
-import org.assertj.swing.annotation.RunsInCurrentThread;
+import java.awt.*;
 
 /**
  * Finds the focus owner of an AWT or Swing {@code Container}.

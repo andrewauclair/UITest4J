@@ -12,10 +12,10 @@
  */
 package org.assertj.swing.text;
 
-import javax.annotation.Nonnull;
-import javax.swing.AbstractButton;
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
 
-import org.assertj.swing.annotation.RunsInCurrentThread;
+import javax.annotation.Nonnull;
+import javax.swing.*;
 
 /**
  * Reads the text displayed in a Swing {@code AbstractButton}.

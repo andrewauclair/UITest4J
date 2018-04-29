@@ -12,13 +12,12 @@
  */
 package org.assertj.swing.hierarchy;
 
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
+
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import javax.swing.JDesktopPane;
-import javax.swing.JInternalFrame;
+import javax.swing.*;
 import javax.swing.JInternalFrame.JDesktopIcon;
-
-import org.assertj.swing.annotation.RunsInCurrentThread;
 
 /**
  * <p>

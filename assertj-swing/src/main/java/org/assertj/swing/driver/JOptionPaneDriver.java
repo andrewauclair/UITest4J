@@ -12,11 +12,18 @@
  */
 package org.assertj.swing.driver;
 
-import static javax.swing.JOptionPane.ERROR_MESSAGE;
-import static javax.swing.JOptionPane.INFORMATION_MESSAGE;
-import static javax.swing.JOptionPane.PLAIN_MESSAGE;
-import static javax.swing.JOptionPane.QUESTION_MESSAGE;
-import static javax.swing.JOptionPane.WARNING_MESSAGE;
+import org.assertj.core.description.Description;
+import org.assertj.swing.core.Robot;
+import org.assertj.swing.core.matcher.JButtonMatcher;
+import org.assertj.swing.internal.annotation.InternalApi;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import javax.swing.*;
+import java.util.regex.Pattern;
+
+import static javax.swing.JOptionPane.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.swing.driver.JOptionPaneMessageQuery.messageOf;
@@ -25,20 +32,6 @@ import static org.assertj.swing.driver.JOptionPaneMessageTypes.messageTypeAsText
 import static org.assertj.swing.driver.JOptionPaneOptionsQuery.optionsOf;
 import static org.assertj.swing.driver.JOptionPaneTitleQuery.titleOf;
 import static org.assertj.swing.driver.TextAssert.verifyThat;
-
-import java.util.regex.Pattern;
-
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.swing.JButton;
-import javax.swing.JOptionPane;
-import javax.swing.UIManager;
-
-import org.assertj.core.description.Description;
-import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.core.Robot;
-import org.assertj.swing.core.matcher.JButtonMatcher;
-import org.assertj.swing.internal.annotation.InternalApi;
 
 /**
  * <p>

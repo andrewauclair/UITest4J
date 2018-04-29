@@ -12,17 +12,15 @@
  */
 package org.assertj.swing.test.builder;
 
+import org.assertj.swing.edt.GuiQuery;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.swing.*;
+import java.awt.*;
+
 import static org.assertj.core.util.Arrays.isNullOrEmpty;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.test.builder.JTabbedPanes.Tab.tab;
-
-import java.awt.Component;
-
-import javax.swing.JPanel;
-import javax.swing.JTabbedPane;
-
-import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
  * Factory of {@code JTabbedPane}s.

@@ -12,14 +12,12 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.swing.edt.GuiActionRunner.execute;
-
-import java.awt.Point;
-import java.awt.Rectangle;
+import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.swing.table.JTableHeader;
+import java.awt.*;
 
-import org.assertj.swing.annotation.RunsInEDT;
+import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 /**
  * Base test case for {@link JTableHeaderLocation}.

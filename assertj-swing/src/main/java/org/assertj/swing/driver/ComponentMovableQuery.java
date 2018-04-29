@@ -12,14 +12,11 @@
  */
 package org.assertj.swing.driver;
 
-import java.awt.Component;
-import java.awt.Dialog;
-import java.awt.Frame;
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
 
 import javax.annotation.Nullable;
-import javax.swing.JInternalFrame;
-
-import org.assertj.swing.annotation.RunsInCurrentThread;
+import javax.swing.*;
+import java.awt.*;
 
 /**
  * Indicates whether it is possible for the user to move the given AWT or Swing {{@code Component}. This query is

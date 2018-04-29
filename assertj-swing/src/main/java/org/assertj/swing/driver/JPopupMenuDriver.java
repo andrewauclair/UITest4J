@@ -12,17 +12,16 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.swing.driver.JPopupMenuElementsAsTextQuery.menuElementsAsText;
-
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.swing.JMenuItem;
-import javax.swing.JPopupMenu;
-
-import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.core.GenericTypeMatcher;
 import org.assertj.swing.core.Robot;
 import org.assertj.swing.internal.annotation.InternalApi;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import javax.swing.*;
+
+import static org.assertj.swing.driver.JPopupMenuElementsAsTextQuery.menuElementsAsText;
 
 /**
  * <p>

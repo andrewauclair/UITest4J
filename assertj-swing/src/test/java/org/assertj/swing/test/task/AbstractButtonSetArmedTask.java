@@ -12,12 +12,12 @@
  */
 package org.assertj.swing.test.task;
 
-import static org.assertj.swing.edt.GuiActionRunner.execute;
+import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.annotation.Nonnull;
-import javax.swing.AbstractButton;
+import javax.swing.*;
 
-import org.assertj.swing.annotation.RunsInEDT;
+import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 /**
  * Arms/disarms a Swing {@code AbstractButton}. This task is executed in the event dispatch thread (EDT).

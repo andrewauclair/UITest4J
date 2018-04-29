@@ -14,11 +14,11 @@ package org.assertj.swing.junit.ant;
 
 import java.lang.reflect.Method;
 
-import org.assertj.swing.annotation.GUITestFinder;
+import org.uitest4j.swing.annotation.GUITestFinder;
 
 /**
  * Understands utility methods related to GUI tests. A GUI test is a class or method annotated with
- * <code>{@link org.assertj.swing.annotation.GUITest}</code>.
+ * <code>{@link org.uitest4j.swing.annotation.GUITest}</code>.
  * 
  * @author Alex Ruiz
  */

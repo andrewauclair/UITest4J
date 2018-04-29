@@ -12,17 +12,15 @@
  */
 package org.assertj.swing.fixture;
 
-import static org.assertj.swing.core.ComponentLookupScope.ALL;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
-
-import javax.swing.JList;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-
-import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.jupiter.api.Test;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.swing.*;
+
+import static org.assertj.swing.core.ComponentLookupScope.ALL;
+import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 /**
  * Fix for <a href="http://code.google.com/p/fest/issues/detail?id=20&can=2&q=" target="_blank">issue 20</a>.

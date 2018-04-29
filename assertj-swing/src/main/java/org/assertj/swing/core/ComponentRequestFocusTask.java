@@ -12,13 +12,12 @@
  */
 package org.assertj.swing.core;
 
-import static org.assertj.swing.edt.GuiActionRunner.execute;
-
-import java.awt.Component;
+import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.annotation.Nonnull;
+import java.awt.*;
 
-import org.assertj.swing.annotation.RunsInEDT;
+import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 /**
  * Task that request input focus for an AWT or Swing {@code Component}.

@@ -12,15 +12,14 @@
  */
 package org.assertj.swing.test.builder;
 
-import static org.assertj.swing.edt.GuiActionRunner.execute;
-
-import javax.swing.JFrame;
-
-import org.assertj.swing.annotation.RunsInCurrentThread;
-import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.edt.GuiQuery;
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
+import org.uitest4j.swing.annotation.RunsInEDT;
 
+import javax.swing.*;
 import java.awt.*;
+
+import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 /**
  * Factory of {@code JFrame}s.

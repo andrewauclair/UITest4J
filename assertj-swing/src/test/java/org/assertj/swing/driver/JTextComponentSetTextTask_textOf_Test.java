@@ -12,18 +12,18 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.test.core.MethodInvocations.Args.args;
-
-import javax.swing.JTextField;
-
-import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.test.core.MethodInvocations;
 import org.assertj.swing.test.core.MethodInvocations.Args;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.jupiter.api.Test;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.swing.*;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.assertj.swing.test.core.MethodInvocations.Args.args;
 
 /**
  * Tests for {@link JTextComponentSetTextTask#setTextIn(javax.swing.text.JTextComponent, String)}.

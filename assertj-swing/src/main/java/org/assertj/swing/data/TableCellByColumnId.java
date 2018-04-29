@@ -12,6 +12,13 @@
  */
 package org.assertj.swing.data;
 
+import org.assertj.swing.cell.JTableCellReader;
+import org.assertj.swing.exception.ActionFailedException;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.annotation.Nonnull;
+import javax.swing.*;
+
 import static java.lang.String.valueOf;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.core.util.Strings.concat;
@@ -19,13 +26,6 @@ import static org.assertj.core.util.Strings.quote;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.exception.ActionFailedException.actionFailure;
 import static org.assertj.swing.query.JTableColumnByIdentifierQuery.columnIndexByIdentifier;
-
-import javax.annotation.Nonnull;
-import javax.swing.JTable;
-
-import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.cell.JTableCellReader;
-import org.assertj.swing.exception.ActionFailedException;
 
 /**
  * <p>

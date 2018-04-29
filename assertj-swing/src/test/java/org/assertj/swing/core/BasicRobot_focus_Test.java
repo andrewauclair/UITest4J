@@ -12,16 +12,15 @@
  */
 package org.assertj.swing.core;
 
-import static org.assertj.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.test.task.ComponentRequestFocusAndWaitForFocusGainTask.waitTillHasFocus;
-
-import java.awt.Component;
+import org.junit.jupiter.api.Test;
+import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.annotation.Nonnull;
-import javax.swing.JButton;
+import javax.swing.*;
+import java.awt.*;
 
-import org.assertj.swing.annotation.RunsInEDT;
-import org.junit.jupiter.api.Test;
+import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.assertj.swing.test.task.ComponentRequestFocusAndWaitForFocusGainTask.waitTillHasFocus;
 
 /**
  * Tests for {@link BasicRobot#focus(java.awt.Component)}.

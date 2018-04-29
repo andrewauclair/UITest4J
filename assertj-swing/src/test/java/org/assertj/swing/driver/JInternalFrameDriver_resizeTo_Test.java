@@ -12,14 +12,14 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.query.ComponentSizeQuery.sizeOf;
-
-import java.awt.Dimension;
-
-import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.test.awt.FluentDimension;
 import org.junit.jupiter.api.Test;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import java.awt.*;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.swing.query.ComponentSizeQuery.sizeOf;
 
 /**
  * Tests for {@link JInternalFrameDriver#resizeTo(javax.swing.JInternalFrame, java.awt.Dimension)}.

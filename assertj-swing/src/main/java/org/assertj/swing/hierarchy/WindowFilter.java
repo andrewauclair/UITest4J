@@ -12,18 +12,16 @@
  */
 package org.assertj.swing.hierarchy;
 
-import static org.assertj.swing.awt.AWT.isSharedInvisibleFrame;
-import static org.assertj.swing.util.Maps.newWeakHashMap;
-
-import java.awt.Component;
-import java.awt.Window;
-import java.util.Collection;
-import java.util.Map;
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.awt.*;
+import java.util.Collection;
+import java.util.Map;
 
-import org.assertj.swing.annotation.RunsInCurrentThread;
+import static org.assertj.swing.awt.AWT.isSharedInvisibleFrame;
+import static org.assertj.swing.util.Maps.newWeakHashMap;
 
 /**
  * A filter of windows to ignore in a component hierarchy.

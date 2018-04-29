@@ -12,13 +12,13 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.swing.edt.GuiActionRunner.execute;
-
-import javax.swing.JTable;
-
-import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.test.swing.TableDialogEditDemo;
 import org.assertj.swing.test.swing.TestWindow;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.swing.*;
+
+import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 /**
  * A frame hosting {@link TableDialogEditDemo}.

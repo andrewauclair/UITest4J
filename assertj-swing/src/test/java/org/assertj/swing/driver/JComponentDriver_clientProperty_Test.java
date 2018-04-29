@@ -12,14 +12,14 @@
  */
 package org.assertj.swing.driver;
 
+import org.junit.jupiter.api.Test;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.swing.*;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-
-import javax.swing.JComponent;
-
-import org.assertj.swing.annotation.RunsInEDT;
-import org.junit.jupiter.api.Test;
 
 /**
  * Tests for {@link JComponentDriver#clientProperty(JComponent, Object)}.

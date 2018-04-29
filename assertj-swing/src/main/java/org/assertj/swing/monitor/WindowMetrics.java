@@ -12,13 +12,10 @@
  */
 package org.assertj.swing.monitor;
 
-import java.awt.Insets;
-import java.awt.Point;
-import java.awt.Window;
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
 
 import javax.annotation.Nonnull;
-
-import org.assertj.swing.annotation.RunsInCurrentThread;
+import java.awt.*;
 
 /**
  * @author Alex Ruiz

@@ -12,6 +12,15 @@
  */
 package org.assertj.swing.driver;
 
+import org.assertj.swing.core.Robot;
+import org.assertj.swing.internal.annotation.InternalApi;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import javax.swing.*;
+import java.io.File;
+
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.core.util.Preconditions.checkNotNullOrEmpty;
 import static org.assertj.swing.core.matcher.JButtonMatcher.withText;
@@ -21,18 +30,6 @@ import static org.assertj.swing.driver.JFileChooserCancelButtonTextQuery.cancelB
 import static org.assertj.swing.driver.JFileChooserSelectFileTask.setSelectedFile;
 import static org.assertj.swing.driver.JFileChooserSelectFileTask.setSelectedFiles;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
-
-import java.io.File;
-
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.swing.JButton;
-import javax.swing.JFileChooser;
-import javax.swing.JTextField;
-
-import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.core.Robot;
-import org.assertj.swing.internal.annotation.InternalApi;
 
 /**
  * Supports functional testing of {@code JFileChooser}s.

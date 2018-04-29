@@ -12,13 +12,12 @@
  */
 package org.assertj.swing.test.task;
 
-import static org.assertj.swing.edt.GuiActionRunner.execute;
-
-import java.awt.Dialog;
+import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.annotation.Nonnull;
+import java.awt.*;
 
-import org.assertj.swing.annotation.RunsInEDT;
+import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 /**
  * Makes an AWT or Swing {@code Dialog} modal. This task is {@code not} executed in the event dispatch thread (EDT).

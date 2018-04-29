@@ -24,7 +24,7 @@ import java.lang.reflect.Method;
 import java.util.logging.Logger;
 
 import org.assertj.core.util.VisibleForTesting;
-import org.assertj.swing.annotation.GUITestFinder;
+import org.uitest4j.swing.annotation.GUITestFinder;
 import org.assertj.swing.image.ImageException;
 import org.assertj.swing.image.NoopScreenshotTaker;
 import org.assertj.swing.image.ScreenshotTaker;
@@ -38,7 +38,7 @@ import org.testng.Reporter;
  * fails.
  * <p>
  * <strong>Note:</strong> A test is consider a GUI test if it is marked with the annotation
- * <code>{@link org.assertj.swing.annotation.GUITest}</code>.
+ * <code>{@link org.uitest4j.swing.annotation.GUITest}</code>.
  * </p>
  * <p>
  * To use this listener, we just need to make TestNG aware of it. The following is an example using Ant:

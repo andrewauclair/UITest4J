@@ -26,7 +26,7 @@ import javax.swing.JComponent;
 
 import org.assertj.core.description.Description;
 import org.assertj.core.util.Strings;
-import org.assertj.swing.annotation.RunsInEDT;
+import org.uitest4j.swing.annotation.RunsInEDT;
 import org.assertj.swing.core.KeyPressInfo;
 import org.assertj.swing.driver.JComponentDriver;
 import org.assertj.swing.exception.LocationUnavailableException;

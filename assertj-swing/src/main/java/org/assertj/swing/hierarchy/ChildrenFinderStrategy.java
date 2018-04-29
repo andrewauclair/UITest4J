@@ -12,13 +12,11 @@
  */
 package org.assertj.swing.hierarchy;
 
-import java.awt.Component;
-import java.awt.Container;
-import java.util.Collection;
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
 
 import javax.annotation.Nonnull;
-
-import org.assertj.swing.annotation.RunsInCurrentThread;
+import java.awt.*;
+import java.util.Collection;
 
 /**
  * Finds children {@code Component}s in an AWT or Swing {@code Container}.

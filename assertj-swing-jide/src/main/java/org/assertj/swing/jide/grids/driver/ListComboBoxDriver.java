@@ -25,7 +25,7 @@ import javax.swing.JList;
 import javax.swing.text.JTextComponent;
 
 import org.assertj.core.presentation.StandardRepresentation;
-import org.assertj.swing.annotation.RunsInEDT;
+import org.uitest4j.swing.annotation.RunsInEDT;
 import org.assertj.swing.core.Robot;
 import org.assertj.swing.driver.ComponentPreconditions;
 import org.assertj.swing.driver.JListDriver;

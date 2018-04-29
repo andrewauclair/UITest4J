@@ -12,9 +12,9 @@
  */
 package org.assertj.swing.core;
 
-import org.assertj.swing.annotation.RunsInEDT;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
+import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.swing.text.JTextComponent;
 import java.util.Collection;

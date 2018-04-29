@@ -12,18 +12,16 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.core.util.Preconditions.checkNotNull;
-import static org.assertj.swing.driver.ModelValueToString.asText;
-
-import java.awt.Component;
+import org.assertj.swing.cell.JListCellReader;
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import javax.swing.JList;
-import javax.swing.ListSelectionModel;
+import javax.swing.*;
+import java.awt.*;
 
-import org.assertj.swing.annotation.RunsInCurrentThread;
-import org.assertj.swing.cell.JListCellReader;
+import static org.assertj.core.util.Preconditions.checkNotNull;
+import static org.assertj.swing.driver.ModelValueToString.asText;
 
 /**
  * Default implementation of {@link JListCellReader}.

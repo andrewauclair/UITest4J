@@ -12,6 +12,17 @@
  */
 package org.assertj.swing.driver;
 
+import org.assertj.swing.core.Robot;
+import org.assertj.swing.internal.annotation.InternalApi;
+import org.assertj.swing.timing.Timeout;
+import org.assertj.swing.util.Pair;
+import org.uitest4j.swing.annotation.RunsInEDT;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import javax.swing.*;
+import java.util.regex.Pattern;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.swing.driver.JProgressBarIndeterminateQuery.isIndeterminate;
@@ -22,18 +33,6 @@ import static org.assertj.swing.driver.JProgressBarWaitUntilIsDeterminate.waitUn
 import static org.assertj.swing.driver.JProgressBarWaitUntilValueIsEqualToExpectedTask.waitUntilValueIsEqualToExpected;
 import static org.assertj.swing.driver.TextAssert.verifyThat;
 import static org.assertj.swing.timing.Timeout.timeout;
-
-import java.util.regex.Pattern;
-
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.swing.JProgressBar;
-
-import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.core.Robot;
-import org.assertj.swing.internal.annotation.InternalApi;
-import org.assertj.swing.timing.Timeout;
-import org.assertj.swing.util.Pair;
 
 /**
  * <p>
