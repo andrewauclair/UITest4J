@@ -12,12 +12,12 @@
  */
 package org.uitest4j.swing.input;
 
-import org.assertj.swing.test.core.EDTSafeTestCase;
+import org.uitest4j.swing.test.core.EDTSafeTestCase;
 import org.junit.jupiter.api.BeforeEach;
 
 import java.awt.*;
 
-import static org.assertj.swing.test.builder.JTextFields.textField;
+import static org.uitest4j.swing.test.builder.JTextFields.textField;
 
 /**
  * Base test case for {@link DragDropInfo}.

@@ -12,8 +12,8 @@
  */
 package org.uitest4j.swing.core;
 
-import org.assertj.swing.test.ExpectedException;
-import org.assertj.swing.test.core.EDTSafeTestCase;
+import org.uitest4j.swing.test.ExpectedException;
+import org.uitest4j.swing.test.core.EDTSafeTestCase;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -22,7 +22,7 @@ import java.util.List;
 
 import static org.assertj.core.util.Lists.newArrayList;
 import static org.uitest4j.swing.core.UnexpectedJOptionPaneFinder.OPTION_PANE_MATCHER;
-import static org.assertj.swing.test.builder.JOptionPanes.optionPane;
+import static org.uitest4j.swing.test.builder.JOptionPanes.optionPane;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 

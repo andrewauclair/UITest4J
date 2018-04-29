@@ -14,14 +14,14 @@ package org.uitest4j.swing.hierarchy;
 
 import static java.util.Collections.emptyList;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.builder.JTextFields.textField;
+import static org.uitest4j.swing.test.builder.JTextFields.textField;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import java.awt.Component;
 import java.util.Collection;
 
-import org.assertj.swing.test.core.EDTSafeTestCase;
+import org.uitest4j.swing.test.core.EDTSafeTestCase;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

@@ -22,7 +22,7 @@ import static org.uitest4j.swing.timing.Timeout.timeout;
 
 import javax.swing.JTextField;
 
-import org.assertj.swing.test.recorder.KeyRecorder;
+import org.uitest4j.swing.test.recorder.KeyRecorder;
 import org.uitest4j.swing.timing.Condition;
 import org.junit.jupiter.api.Test;
 

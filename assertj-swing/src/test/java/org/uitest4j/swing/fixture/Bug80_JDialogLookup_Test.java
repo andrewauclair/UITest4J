@@ -24,7 +24,7 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import org.assertj.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.core.RobotBasedTestCase;
 import org.junit.jupiter.api.Test;
 
 /**

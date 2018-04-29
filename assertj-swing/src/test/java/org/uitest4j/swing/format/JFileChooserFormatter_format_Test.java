@@ -12,8 +12,8 @@
  */
 package org.uitest4j.swing.format;
 
-import org.assertj.swing.test.core.SequentialEDTSafeTestCase;
-import org.assertj.swing.test.swing.TestWindow;
+import org.uitest4j.swing.test.core.SequentialEDTSafeTestCase;
+import org.uitest4j.swing.test.swing.TestWindow;
 import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.annotation.RunsInEDT;
 
@@ -23,7 +23,7 @@ import static javax.swing.JFileChooser.OPEN_DIALOG;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Strings.concat;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.test.query.JFileChooserCurrentDirectoryQuery.currentDirectoryOf;
+import static org.uitest4j.swing.test.query.JFileChooserCurrentDirectoryQuery.currentDirectoryOf;
 
 /**
  * Tests for {@link JFileChooserFormatter#format(java.awt.Component)}.

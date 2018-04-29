@@ -13,9 +13,9 @@
 package org.uitest4j.swing.monitor;
 
 import org.uitest4j.swing.listener.WeakEventListener;
-import org.assertj.swing.test.awt.ToolkitStub;
-import org.assertj.swing.test.core.EDTSafeTestCase;
-import org.assertj.swing.test.swing.TestWindow;
+import org.uitest4j.swing.test.awt.ToolkitStub;
+import org.uitest4j.swing.test.core.EDTSafeTestCase;
+import org.uitest4j.swing.test.swing.TestWindow;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -30,8 +30,8 @@ import static java.awt.event.WindowEvent.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.uitest4j.swing.monitor.TestContexts.newMockContext;
 import static org.uitest4j.swing.monitor.TestWindows.newWindowsMock;
-import static org.assertj.swing.test.awt.Toolkits.newToolkitStub;
-import static org.assertj.swing.test.builder.JTextFields.textField;
+import static org.uitest4j.swing.test.awt.Toolkits.newToolkitStub;
+import static org.uitest4j.swing.test.builder.JTextFields.textField;
 import static org.mockito.Mockito.*;
 
 /**

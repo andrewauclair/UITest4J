@@ -12,9 +12,9 @@
  */
 package org.uitest4j.swing.core;
 
-import org.assertj.swing.test.core.SequentialEDTSafeTestCase;
-import org.assertj.swing.test.io.PrintStreamStub;
-import org.assertj.swing.test.swing.TestWindow;
+import org.uitest4j.swing.test.core.SequentialEDTSafeTestCase;
+import org.uitest4j.swing.test.io.PrintStreamStub;
+import org.uitest4j.swing.test.swing.TestWindow;
 import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.swing.*;

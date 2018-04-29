@@ -12,12 +12,12 @@
  */
 package org.uitest4j.swing.driver;
 
-import static org.assertj.swing.test.util.StopWatch.startNewStopWatch;
+import static org.uitest4j.swing.test.util.StopWatch.startNewStopWatch;
 
 import java.util.concurrent.CountDownLatch;
 
-import org.assertj.swing.test.ExpectedException;
-import org.assertj.swing.test.util.StopWatch;
+import org.uitest4j.swing.test.ExpectedException;
+import org.uitest4j.swing.test.util.StopWatch;
 import org.junit.jupiter.api.Test;
 
 /**

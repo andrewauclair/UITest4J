@@ -16,7 +16,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.awt.Dimension;
 
-import org.assertj.swing.test.ExpectedException;
+import org.uitest4j.swing.test.ExpectedException;
 import org.junit.jupiter.api.Test;
 
 /**

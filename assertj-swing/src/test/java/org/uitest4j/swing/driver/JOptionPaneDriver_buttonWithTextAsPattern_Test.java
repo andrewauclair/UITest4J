@@ -16,7 +16,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.uitest4j.swing.driver.AbstractButtonTextQuery.textOf;
-import static org.assertj.swing.test.swing.JOptionPaneLauncher.launch;
+import static org.uitest4j.swing.test.swing.JOptionPaneLauncher.launch;
 
 import java.util.regex.Pattern;
 

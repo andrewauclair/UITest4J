@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.driver;
 
-import org.assertj.swing.test.swing.CustomCellRenderer;
+import org.uitest4j.swing.test.swing.CustomCellRenderer;
 import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.uitest4j.swing.annotation.RunsInEDT;

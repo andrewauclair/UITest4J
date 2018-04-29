@@ -16,7 +16,7 @@ import static org.uitest4j.swing.query.ComponentSizeQuery.sizeOf;
 
 import java.awt.Dimension;
 
-import org.assertj.swing.test.ExpectedException;
+import org.uitest4j.swing.test.ExpectedException;
 import org.junit.jupiter.api.Test;
 
 /**

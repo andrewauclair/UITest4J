@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.input;
 
-import org.assertj.swing.test.swing.TestWindow;
+import org.uitest4j.swing.test.swing.TestWindow;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

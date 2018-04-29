@@ -12,13 +12,13 @@
  */
 package org.uitest4j.swing.format;
 
-import org.assertj.swing.test.core.EDTSafeTestCase;
+import org.uitest4j.swing.test.core.EDTSafeTestCase;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import javax.swing.*;
 
-import static org.assertj.swing.test.builder.JComboBoxes.comboBox;
+import static org.uitest4j.swing.test.builder.JComboBoxes.comboBox;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**

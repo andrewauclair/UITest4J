@@ -14,7 +14,7 @@ package org.uitest4j.swing.driver;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.uitest4j.swing.data.TableCell.row;
-import static org.assertj.swing.test.builder.JTextFields.textField;
+import static org.uitest4j.swing.test.builder.JTextFields.textField;
 import static org.mockito.Mockito.when;
 
 import java.awt.Component;

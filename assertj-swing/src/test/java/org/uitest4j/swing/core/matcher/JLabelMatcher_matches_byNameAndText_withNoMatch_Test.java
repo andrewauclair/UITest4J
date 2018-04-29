@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.core.matcher;
 
-import org.assertj.swing.test.core.EDTSafeTestCase;
+import org.uitest4j.swing.test.core.EDTSafeTestCase;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
@@ -21,7 +21,7 @@ import java.util.Collection;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Lists.newArrayList;
-import static org.assertj.swing.test.builder.JLabels.label;
+import static org.uitest4j.swing.test.builder.JLabels.label;
 
 /**
  * Tests for {@link JLabelMatcher#matches(java.awt.Component)}.

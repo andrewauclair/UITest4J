@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.driver;
 
-import static org.assertj.swing.test.task.ComponentSetPopupMenuTask.createAndSetPopupMenu;
+import static org.uitest4j.swing.test.task.ComponentSetPopupMenuTask.createAndSetPopupMenu;
 
 import javax.swing.JPopupMenu;
 

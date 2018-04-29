@@ -14,7 +14,7 @@ package org.uitest4j.swing.internal.assertions.images;
 
 import org.assertj.core.api.AssertionInfo;
 import org.uitest4j.swing.internal.assertions.ImagesBaseTest;
-import org.assertj.swing.test.ExpectedException;
+import org.uitest4j.swing.test.ExpectedException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -23,7 +23,7 @@ import java.awt.*;
 import static java.awt.Color.BLUE;
 import static org.assertj.core.util.FailureMessages.actualIsNull;
 import static org.uitest4j.swing.assertions.error.ShouldHaveDimension.shouldHaveDimension;
-import static org.assertj.swing.test.awt.AwtTestData.newImage;
+import static org.uitest4j.swing.test.awt.AwtTestData.newImage;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.verify;
 

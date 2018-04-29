@@ -16,7 +16,7 @@ import static java.awt.Frame.MAXIMIZED_BOTH;
 import static java.awt.Frame.NORMAL;
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.assertj.swing.test.ExpectedException;
+import org.uitest4j.swing.test.ExpectedException;
 import org.junit.jupiter.api.Test;
 
 /**

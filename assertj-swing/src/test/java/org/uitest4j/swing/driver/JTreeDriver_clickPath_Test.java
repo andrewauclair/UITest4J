@@ -15,9 +15,9 @@ package org.uitest4j.swing.driver;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.uitest4j.swing.exception.LocationUnavailableException;
-import org.assertj.swing.test.ExpectedException;
-import org.assertj.swing.test.recorder.ClickRecorder;
-import org.assertj.swing.test.recorder.ClickRecorderManager;
+import org.uitest4j.swing.test.ExpectedException;
+import org.uitest4j.swing.test.recorder.ClickRecorder;
+import org.uitest4j.swing.test.recorder.ClickRecorderManager;
 import org.junit.jupiter.api.Test;
 
 /**

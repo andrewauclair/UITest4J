@@ -14,7 +14,7 @@ package org.uitest4j.swing.finder;
 
 import javax.swing.JDialog;
 
-import org.assertj.swing.test.swing.WindowLauncher.DialogToLaunch;
+import org.uitest4j.swing.test.swing.WindowLauncher.DialogToLaunch;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;

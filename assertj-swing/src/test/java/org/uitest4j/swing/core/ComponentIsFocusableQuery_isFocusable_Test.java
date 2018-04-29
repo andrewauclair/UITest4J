@@ -12,8 +12,8 @@
  */
 package org.uitest4j.swing.core;
 
-import org.assertj.swing.test.core.EDTSafeTestCase;
-import org.assertj.swing.test.data.BooleanProvider;
+import org.uitest4j.swing.test.core.EDTSafeTestCase;
+import org.uitest4j.swing.test.data.BooleanProvider;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;

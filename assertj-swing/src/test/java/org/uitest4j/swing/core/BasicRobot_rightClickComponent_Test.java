@@ -16,7 +16,7 @@ import static org.uitest4j.swing.core.MouseButton.RIGHT_BUTTON;
 
 import javax.swing.JTextField;
 
-import org.assertj.swing.test.recorder.ClickRecorder;
+import org.uitest4j.swing.test.recorder.ClickRecorder;
 import org.junit.jupiter.api.Test;
 
 /**

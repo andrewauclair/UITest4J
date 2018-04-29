@@ -18,7 +18,7 @@ import static org.uitest4j.swing.driver.JProgressBarIndeterminateQuery.isIndeter
 import static org.uitest4j.swing.driver.JProgressBarMakeDeterminateAsyncTask.makeDeterminate;
 
 import org.uitest4j.swing.exception.WaitTimedOutError;
-import org.assertj.swing.test.ExpectedException;
+import org.uitest4j.swing.test.ExpectedException;
 import org.junit.jupiter.api.Test;
 
 /**

@@ -15,7 +15,7 @@ package org.uitest4j.swing.driver;
 import static org.uitest4j.swing.query.ComponentHasFocusQuery.hasFocus;
 import static org.uitest4j.swing.timing.Pause.pause;
 
-import org.assertj.swing.test.ExpectedException;
+import org.uitest4j.swing.test.ExpectedException;
 import org.uitest4j.swing.timing.Condition;
 import org.junit.jupiter.api.Test;
 

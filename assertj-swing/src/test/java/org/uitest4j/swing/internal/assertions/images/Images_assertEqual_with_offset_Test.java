@@ -14,7 +14,7 @@ package org.uitest4j.swing.internal.assertions.images;
 
 import org.assertj.core.api.AssertionInfo;
 import org.uitest4j.swing.internal.assertions.ImagesBaseTest;
-import org.assertj.swing.test.ExpectedException;
+import org.uitest4j.swing.test.ExpectedException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -27,8 +27,8 @@ import static org.uitest4j.swing.assertions.data.Point.atPoint;
 import static org.uitest4j.swing.assertions.error.ShouldBeEqualColors.shouldBeEqualColors;
 import static org.uitest4j.swing.assertions.error.ShouldBeEqualImages.shouldBeEqualImages;
 import static org.uitest4j.swing.assertions.error.ShouldHaveDimension.shouldHaveDimension;
-import static org.assertj.swing.test.ErrorMessages.offsetIsNull;
-import static org.assertj.swing.test.awt.AwtTestData.*;
+import static org.uitest4j.swing.test.ErrorMessages.offsetIsNull;
+import static org.uitest4j.swing.test.awt.AwtTestData.*;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.verify;
 

@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.core;
 
-import static org.assertj.swing.test.awt.Toolkits.singletonToolkitMock;
+import static org.uitest4j.swing.test.awt.Toolkits.singletonToolkitMock;
 import static org.mockito.Mockito.verify;
 
 import java.awt.Toolkit;

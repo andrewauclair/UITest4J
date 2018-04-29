@@ -15,7 +15,7 @@ package org.uitest4j.swing.awt;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.builder.JTextFields.textField;
+import static org.uitest4j.swing.test.builder.JTextFields.textField;
 
 /**
  * Tests for {@link AWT#isAppletViewer(java.awt.Component)}.

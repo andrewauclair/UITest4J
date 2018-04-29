@@ -20,8 +20,8 @@ import java.awt.Point;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
 
-import org.assertj.swing.test.core.RobotBasedTestCase;
-import org.assertj.swing.test.swing.TestWindow;
+import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.swing.TestWindow;
 import org.junit.jupiter.api.Test;
 
 /**

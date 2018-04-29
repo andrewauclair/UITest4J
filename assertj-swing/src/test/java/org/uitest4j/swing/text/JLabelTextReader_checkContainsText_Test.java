@@ -18,7 +18,7 @@ import static org.mockito.Mockito.when;
 
 import javax.swing.JLabel;
 
-import org.assertj.swing.test.core.EDTSafeTestCase;
+import org.uitest4j.swing.test.core.EDTSafeTestCase;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

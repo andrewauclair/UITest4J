@@ -18,8 +18,8 @@ import org.junit.jupiter.api.Test;
 import java.awt.*;
 import java.awt.event.AWTEventListener;
 
-import static org.assertj.swing.test.awt.TestAWTEvents.singletonAWTEventMock;
-import static org.assertj.swing.test.awt.Toolkits.newToolkitMock;
+import static org.uitest4j.swing.test.awt.TestAWTEvents.singletonAWTEventMock;
+import static org.uitest4j.swing.test.awt.Toolkits.newToolkitMock;
 import static org.mockito.Mockito.*;
 
 /**

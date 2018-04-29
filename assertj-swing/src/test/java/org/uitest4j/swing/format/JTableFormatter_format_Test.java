@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.format;
 
-import org.assertj.swing.test.core.EDTSafeTestCase;
+import org.uitest4j.swing.test.core.EDTSafeTestCase;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -21,7 +21,7 @@ import javax.swing.*;
 import static javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.test.builder.JTables.table;
+import static org.uitest4j.swing.test.builder.JTables.table;
 
 /**
  * Tests for {@link JTableFormatter#format(java.awt.Component)}.

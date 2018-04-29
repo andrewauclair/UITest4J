@@ -13,10 +13,10 @@
 package org.uitest4j.swing.driver;
 
 import org.uitest4j.swing.core.Robot;
-import org.assertj.swing.test.ExpectedException;
-import org.assertj.swing.test.core.RobotBasedTestCase;
-import org.assertj.swing.test.swing.TestMdiWindow;
-import org.assertj.swing.test.task.ComponentSetEnabledTask;
+import org.uitest4j.swing.test.ExpectedException;
+import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.swing.TestMdiWindow;
+import org.uitest4j.swing.test.task.ComponentSetEnabledTask;
 import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.annotation.RunsInEDT;
 
@@ -24,9 +24,9 @@ import javax.swing.*;
 import java.awt.*;
 
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.test.builder.JButtons.button;
-import static org.assertj.swing.test.builder.JDialogs.dialog;
-import static org.assertj.swing.test.builder.JFrames.frame;
+import static org.uitest4j.swing.test.builder.JButtons.button;
+import static org.uitest4j.swing.test.builder.JDialogs.dialog;
+import static org.uitest4j.swing.test.builder.JFrames.frame;
 import static org.mockito.Mockito.mock;
 
 /**

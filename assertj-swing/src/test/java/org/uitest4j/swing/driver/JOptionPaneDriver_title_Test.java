@@ -15,7 +15,7 @@ package org.uitest4j.swing.driver;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.swing.JOptionPaneLauncher.pack;
+import static org.uitest4j.swing.test.swing.JOptionPaneLauncher.pack;
 
 import javax.swing.JOptionPane;
 

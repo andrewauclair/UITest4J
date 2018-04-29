@@ -12,14 +12,14 @@
  */
 package org.uitest4j.swing.input;
 
-import org.assertj.swing.test.awt.ToolkitStub;
+import org.uitest4j.swing.test.awt.ToolkitStub;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import javax.annotation.Nonnull;
 import java.awt.*;
 
-import static org.assertj.swing.test.awt.Toolkits.newToolkitStub;
+import static org.uitest4j.swing.test.awt.Toolkits.newToolkitStub;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 

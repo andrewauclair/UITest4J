@@ -14,7 +14,7 @@ package org.uitest4j.swing.driver;
 
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
-import org.assertj.swing.test.swing.TestList;
+import org.uitest4j.swing.test.swing.TestList;
 
 /**
  * Base test case for drag and drop in {@link JListDriver}.

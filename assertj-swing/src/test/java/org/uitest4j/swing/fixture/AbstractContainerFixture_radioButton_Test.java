@@ -14,9 +14,9 @@ package org.uitest4j.swing.fixture;
 
 import org.uitest4j.swing.core.GenericTypeMatcher;
 import org.uitest4j.swing.exception.ComponentLookupException;
-import org.assertj.swing.test.ExpectedException;
-import org.assertj.swing.test.core.RobotBasedTestCase;
-import org.assertj.swing.test.swing.TestWindow;
+import org.uitest4j.swing.test.ExpectedException;
+import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.swing.TestWindow;
 import org.junit.jupiter.api.Test;
 
 import javax.annotation.Nonnull;
@@ -25,7 +25,7 @@ import javax.swing.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.test.core.NeverMatchingComponentMatcher.neverMatches;
+import static org.uitest4j.swing.test.core.NeverMatchingComponentMatcher.neverMatches;
 
 /**
  * Tests lookups of {@code JRadioButton}s in {@link AbstractContainerFixture}.

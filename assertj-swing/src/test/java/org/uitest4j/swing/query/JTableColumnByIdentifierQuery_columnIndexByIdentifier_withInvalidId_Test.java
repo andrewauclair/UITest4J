@@ -15,7 +15,7 @@ package org.uitest4j.swing.query;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.core.MethodInvocations.Args.args;
+import static org.uitest4j.swing.test.core.MethodInvocations.Args.args;
 
 /**
  * Tests for {@link JTableColumnByIdentifierQuery#columnIndexByIdentifier(javax.swing.JTable, Object)}.

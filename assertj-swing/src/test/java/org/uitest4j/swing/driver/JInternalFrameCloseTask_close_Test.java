@@ -16,8 +16,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import javax.swing.JInternalFrame;
 
-import org.assertj.swing.test.core.RobotBasedTestCase;
-import org.assertj.swing.test.swing.TestMdiWindow;
+import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.swing.TestMdiWindow;
 import org.junit.jupiter.api.Test;
 
 /**

@@ -12,8 +12,8 @@
  */
 package org.uitest4j.swing.hierarchy;
 
-import org.assertj.swing.test.core.SequentialEDTSafeTestCase;
-import org.assertj.swing.test.swing.TestMdiWindow;
+import org.uitest4j.swing.test.core.SequentialEDTSafeTestCase;
+import org.uitest4j.swing.test.swing.TestMdiWindow;
 import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.annotation.RunsInEDT;
 

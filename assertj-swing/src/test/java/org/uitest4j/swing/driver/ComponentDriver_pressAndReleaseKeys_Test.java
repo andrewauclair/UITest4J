@@ -17,7 +17,7 @@ import static java.awt.event.KeyEvent.VK_C;
 import static java.awt.event.KeyEvent.VK_E;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import org.assertj.swing.test.ExpectedException;
+import org.uitest4j.swing.test.ExpectedException;
 import org.junit.jupiter.api.Test;
 
 /**

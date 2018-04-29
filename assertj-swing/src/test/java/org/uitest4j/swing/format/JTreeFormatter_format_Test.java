@@ -12,8 +12,8 @@
  */
 package org.uitest4j.swing.format;
 
-import org.assertj.swing.test.builder.JTrees;
-import org.assertj.swing.test.core.EDTSafeTestCase;
+import org.uitest4j.swing.test.builder.JTrees;
+import org.uitest4j.swing.test.core.EDTSafeTestCase;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.annotation.RunsInEDT;
@@ -25,8 +25,8 @@ import javax.swing.tree.TreeSelectionModel;
 import static javax.swing.tree.TreeSelectionModel.CONTIGUOUS_TREE_SELECTION;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.test.task.JTreeSelectRowTask.selectRow;
-import static org.assertj.swing.test.task.JTreeSetSelectionModelTask.setSelectionModel;
+import static org.uitest4j.swing.test.task.JTreeSelectRowTask.selectRow;
+import static org.uitest4j.swing.test.task.JTreeSetSelectionModelTask.setSelectionModel;
 
 /**
  * Base test case for {@link JTreeFormatter#format(java.awt.Component)}.

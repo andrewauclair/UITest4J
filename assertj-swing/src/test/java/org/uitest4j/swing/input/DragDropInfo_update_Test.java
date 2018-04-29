@@ -17,7 +17,7 @@ import static java.awt.event.MouseEvent.MOUSE_MOVED;
 import static java.awt.event.MouseEvent.MOUSE_PRESSED;
 import static java.awt.event.MouseEvent.MOUSE_RELEASED;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.builder.JComboBoxes.comboBox;
+import static org.uitest4j.swing.test.builder.JComboBoxes.comboBox;
 
 import java.awt.event.MouseEvent;
 

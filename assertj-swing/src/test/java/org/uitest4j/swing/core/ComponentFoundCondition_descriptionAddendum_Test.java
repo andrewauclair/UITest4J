@@ -13,8 +13,8 @@
 package org.uitest4j.swing.core;
 
 import org.uitest4j.swing.exception.WaitTimedOutError;
-import org.assertj.swing.test.ExpectedException;
-import org.assertj.swing.test.swing.TestWindow;
+import org.uitest4j.swing.test.ExpectedException;
+import org.uitest4j.swing.test.swing.TestWindow;
 import org.uitest4j.swing.timing.Condition;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;

@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.driver;
 
-import org.assertj.swing.test.recorder.ClickRecorder;
+import org.uitest4j.swing.test.recorder.ClickRecorder;
 import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.swing.table.JTableHeader;
@@ -20,7 +20,7 @@ import java.awt.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.test.task.ComponentSetEnabledTask.disable;
+import static org.uitest4j.swing.test.task.ComponentSetEnabledTask.disable;
 
 /**
  * Base test case for {@link JTableHeaderDriver}.

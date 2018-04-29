@@ -30,7 +30,7 @@ import nl.jqno.equalsverifier.EqualsVerifier;
 
 import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.driver.ComponentDriver;
-import org.assertj.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.core.RobotBasedTestCase;
 import org.junit.jupiter.api.Test;
 
 /**

@@ -13,7 +13,7 @@
 package org.uitest4j.swing.monitor;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.core.MethodInvocations.Args.args;
+import static org.uitest4j.swing.test.core.MethodInvocations.Args.args;
 import static org.mockito.Mockito.verifyZeroInteractions;
 
 import java.awt.event.WindowEvent;

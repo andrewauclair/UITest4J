@@ -12,8 +12,8 @@
  */
 package org.uitest4j.swing.driver;
 
-import org.assertj.swing.test.core.RobotBasedTestCase;
-import org.assertj.swing.test.swing.TestWindow;
+import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.swing.TestWindow;
 import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.swing.*;
@@ -22,7 +22,7 @@ import java.awt.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.uitest4j.swing.driver.JScrollBarValueQuery.valueOf;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.test.task.ComponentSetEnabledTask.disable;
+import static org.uitest4j.swing.test.task.ComponentSetEnabledTask.disable;
 
 /**
  * Base test case for {@link JScrollBarDriver}.

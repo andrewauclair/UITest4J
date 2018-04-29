@@ -13,9 +13,9 @@
 package org.uitest4j.swing.driver;
 
 import org.uitest4j.swing.data.TableCell;
-import org.assertj.swing.test.ExpectedException;
-import org.assertj.swing.test.recorder.ClickRecorder;
-import org.assertj.swing.test.recorder.ClickRecorderManager;
+import org.uitest4j.swing.test.ExpectedException;
+import org.uitest4j.swing.test.recorder.ClickRecorder;
+import org.uitest4j.swing.test.recorder.ClickRecorderManager;
 import org.junit.jupiter.api.Test;
 
 import javax.swing.*;
@@ -23,7 +23,7 @@ import javax.swing.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.uitest4j.swing.core.MouseButton.RIGHT_BUTTON;
 import static org.uitest4j.swing.data.TableCell.row;
-import static org.assertj.swing.test.task.ComponentSetPopupMenuTask.createAndSetPopupMenu;
+import static org.uitest4j.swing.test.task.ComponentSetPopupMenuTask.createAndSetPopupMenu;
 
 /**
  * Tests for {@link JTableDriver#showPopupMenuAt(javax.swing.JTable, org.uitest4j.swing.data.TableCell)}.

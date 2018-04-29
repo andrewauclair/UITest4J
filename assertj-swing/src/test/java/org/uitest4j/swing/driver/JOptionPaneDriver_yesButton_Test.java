@@ -14,7 +14,7 @@ package org.uitest4j.swing.driver;
 
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.swing.test.swing.JOptionPaneLauncher.launch;
+import static org.uitest4j.swing.test.swing.JOptionPaneLauncher.launch;
 
 import javax.swing.JButton;
 import javax.swing.JOptionPane;

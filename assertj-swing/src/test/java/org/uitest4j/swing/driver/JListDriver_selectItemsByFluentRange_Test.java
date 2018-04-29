@@ -17,7 +17,7 @@ import static org.assertj.core.util.Arrays.array;
 import static org.uitest4j.swing.util.Range.from;
 import static org.uitest4j.swing.util.Range.to;
 
-import org.assertj.swing.test.ExpectedException;
+import org.uitest4j.swing.test.ExpectedException;
 import org.junit.jupiter.api.Test;
 
 /**

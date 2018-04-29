@@ -13,13 +13,13 @@
 package org.uitest4j.swing.fixture;
 
 import org.uitest4j.swing.exception.ComponentLookupException;
-import org.assertj.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.core.RobotBasedTestCase;
 import org.junit.jupiter.api.Test;
 
 import java.awt.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.builder.JDialogs.dialog;
+import static org.uitest4j.swing.test.builder.JDialogs.dialog;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**

@@ -13,7 +13,7 @@
 package org.uitest4j.swing.hierarchy;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.builder.JTextFields.textField;
+import static org.uitest4j.swing.test.builder.JTextFields.textField;
 
 import java.awt.Component;
 

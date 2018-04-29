@@ -12,8 +12,8 @@
  */
 package org.uitest4j.swing.driver;
 
-import org.assertj.swing.test.recorder.ClickRecorder;
-import org.assertj.swing.test.recorder.ClickRecorderManager;
+import org.uitest4j.swing.test.recorder.ClickRecorder;
+import org.uitest4j.swing.test.recorder.ClickRecorderManager;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 

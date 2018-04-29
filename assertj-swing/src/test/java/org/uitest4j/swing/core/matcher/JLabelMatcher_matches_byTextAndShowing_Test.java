@@ -12,8 +12,8 @@
  */
 package org.uitest4j.swing.core.matcher;
 
-import org.assertj.swing.test.core.SequentialEDTSafeTestCase;
-import org.assertj.swing.test.swing.TestWindow;
+import org.uitest4j.swing.test.core.SequentialEDTSafeTestCase;
+import org.uitest4j.swing.test.swing.TestWindow;
 import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.annotation.RunsInEDT;
 
@@ -21,7 +21,7 @@ import javax.swing.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.test.builder.JLabels.label;
+import static org.uitest4j.swing.test.builder.JLabels.label;
 
 /**
  * Tests for {@link JLabelMatcher#matches(java.awt.Component)}.

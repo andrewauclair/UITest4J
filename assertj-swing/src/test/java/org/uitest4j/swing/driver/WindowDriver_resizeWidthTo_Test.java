@@ -18,8 +18,8 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.awt.Dimension;
 
-import org.assertj.swing.test.ExpectedException;
-import org.assertj.swing.test.awt.FluentDimension;
+import org.uitest4j.swing.test.ExpectedException;
+import org.uitest4j.swing.test.awt.FluentDimension;
 import org.junit.jupiter.api.Test;
 
 /**

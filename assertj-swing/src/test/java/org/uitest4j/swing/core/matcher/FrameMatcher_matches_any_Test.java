@@ -13,10 +13,10 @@
 package org.uitest4j.swing.core.matcher;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.builder.JFrames.frame;
-import static org.assertj.swing.test.builder.JTextFields.textField;
+import static org.uitest4j.swing.test.builder.JFrames.frame;
+import static org.uitest4j.swing.test.builder.JTextFields.textField;
 
-import org.assertj.swing.test.core.EDTSafeTestCase;
+import org.uitest4j.swing.test.core.EDTSafeTestCase;
 import org.junit.jupiter.api.Test;
 
 /**

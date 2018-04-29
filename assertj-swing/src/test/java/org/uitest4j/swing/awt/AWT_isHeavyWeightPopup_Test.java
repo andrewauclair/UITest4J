@@ -13,16 +13,16 @@
 package org.uitest4j.swing.awt;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.awt.TestWindows.singletonWindowMock;
-import static org.assertj.swing.test.builder.JDialogs.dialog;
-import static org.assertj.swing.test.builder.JFrames.frame;
+import static org.uitest4j.swing.test.awt.TestWindows.singletonWindowMock;
+import static org.uitest4j.swing.test.builder.JDialogs.dialog;
+import static org.uitest4j.swing.test.builder.JFrames.frame;
 
 import java.awt.Window;
 
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 
-import org.assertj.swing.test.core.EDTSafeTestCase;
+import org.uitest4j.swing.test.core.EDTSafeTestCase;
 import org.junit.jupiter.api.Test;
 
 /**

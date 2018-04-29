@@ -12,13 +12,13 @@
  */
 package org.uitest4j.swing.assertions.data;
 
-import org.assertj.swing.test.ExpectedException;
+import org.uitest4j.swing.test.ExpectedException;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.data.Offset.offset;
 import static org.uitest4j.swing.assertions.data.RgbColor.color;
-import static org.assertj.swing.test.ErrorMessages.offsetIsNull;
+import static org.uitest4j.swing.test.ErrorMessages.offsetIsNull;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 

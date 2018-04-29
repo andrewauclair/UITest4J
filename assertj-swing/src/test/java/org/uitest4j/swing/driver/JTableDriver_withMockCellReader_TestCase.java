@@ -13,14 +13,14 @@
 package org.uitest4j.swing.driver;
 
 import org.uitest4j.swing.cell.JTableCellReader;
-import org.assertj.swing.test.core.EDTSafeTestCase;
+import org.uitest4j.swing.test.core.EDTSafeTestCase;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 
 import javax.swing.*;
 
 import static org.uitest4j.swing.core.TestRobots.singletonRobotMock;
-import static org.assertj.swing.test.builder.JTables.table;
+import static org.uitest4j.swing.test.builder.JTables.table;
 import static org.mockito.Mockito.mock;
 
 /**

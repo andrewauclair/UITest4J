@@ -13,8 +13,8 @@
 package org.uitest4j.swing.exception;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.builder.JLabels.label;
-import static org.assertj.swing.test.builder.JTextFields.textField;
+import static org.uitest4j.swing.test.builder.JLabels.label;
+import static org.uitest4j.swing.test.builder.JTextFields.textField;
 
 import java.awt.Component;
 import java.util.List;

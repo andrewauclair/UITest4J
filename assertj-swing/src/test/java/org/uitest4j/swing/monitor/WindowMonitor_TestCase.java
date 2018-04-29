@@ -12,9 +12,9 @@
  */
 package org.uitest4j.swing.monitor;
 
-import org.assertj.swing.test.awt.ToolkitStub;
-import org.assertj.swing.test.core.SequentialEDTSafeTestCase;
-import org.assertj.swing.test.swing.TestWindow;
+import org.uitest4j.swing.test.awt.ToolkitStub;
+import org.uitest4j.swing.test.core.SequentialEDTSafeTestCase;
+import org.uitest4j.swing.test.swing.TestWindow;
 import org.uitest4j.swing.annotation.RunsInEDT;
 
 import java.awt.*;
@@ -22,7 +22,7 @@ import java.awt.*;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 import static org.uitest4j.swing.monitor.TestContexts.newMockContext;
 import static org.uitest4j.swing.monitor.TestWindows.newWindowsMock;
-import static org.assertj.swing.test.awt.Toolkits.newToolkitStub;
+import static org.uitest4j.swing.test.awt.Toolkits.newToolkitStub;
 import static org.mockito.Mockito.*;
 
 /**

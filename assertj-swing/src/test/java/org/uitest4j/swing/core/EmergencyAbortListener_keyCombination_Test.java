@@ -24,7 +24,7 @@ import static org.uitest4j.swing.core.InputModifiers.isControlDown;
 import static org.uitest4j.swing.core.InputModifiers.isMetaDown;
 import static org.uitest4j.swing.core.InputModifiers.isShiftDown;
 import static org.uitest4j.swing.core.KeyPressInfo.keyCode;
-import static org.assertj.swing.test.awt.Toolkits.singletonToolkitMock;
+import static org.uitest4j.swing.test.awt.Toolkits.singletonToolkitMock;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 

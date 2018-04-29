@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.awt.Dimension;
 
-import org.assertj.swing.test.awt.FluentDimension;
+import org.uitest4j.swing.test.awt.FluentDimension;
 import org.junit.jupiter.api.Test;
 
 /**

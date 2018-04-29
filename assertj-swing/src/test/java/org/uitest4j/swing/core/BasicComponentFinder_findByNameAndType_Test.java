@@ -18,7 +18,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 
 import org.uitest4j.swing.exception.ComponentLookupException;
-import org.assertj.swing.test.ExpectedException;
+import org.uitest4j.swing.test.ExpectedException;
 import org.junit.jupiter.api.Test;
 
 /**

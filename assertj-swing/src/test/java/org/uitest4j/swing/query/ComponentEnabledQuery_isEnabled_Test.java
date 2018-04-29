@@ -12,10 +12,10 @@
  */
 package org.uitest4j.swing.query;
 
-import org.assertj.swing.test.core.MethodInvocations;
-import org.assertj.swing.test.core.RobotBasedTestCase;
-import org.assertj.swing.test.data.BooleanProvider;
-import org.assertj.swing.test.swing.TestWindow;
+import org.uitest4j.swing.test.core.MethodInvocations;
+import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.data.BooleanProvider;
+import org.uitest4j.swing.test.swing.TestWindow;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.uitest4j.swing.annotation.RunsInEDT;
@@ -25,7 +25,7 @@ import java.util.Collection;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Lists.newArrayList;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.test.task.ComponentSetEnabledTask.setEnabled;
+import static org.uitest4j.swing.test.task.ComponentSetEnabledTask.setEnabled;
 
 /**
  * Tests for {@link ComponentEnabledQuery#isEnabled(java.awt.Component)}.

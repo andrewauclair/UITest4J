@@ -15,7 +15,7 @@ package org.uitest4j.swing.core;
 import javax.swing.JTextField;
 
 import org.uitest4j.swing.exception.ComponentLookupException;
-import org.assertj.swing.test.ExpectedException;
+import org.uitest4j.swing.test.ExpectedException;
 import org.junit.jupiter.api.Test;
 
 /**

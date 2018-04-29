@@ -16,7 +16,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import org.uitest4j.swing.data.TableCell;
 import org.uitest4j.swing.exception.ActionFailedException;
-import org.assertj.swing.test.ExpectedException;
+import org.uitest4j.swing.test.ExpectedException;
 import org.junit.jupiter.api.Test;
 
 /**

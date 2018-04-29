@@ -13,9 +13,9 @@
 package org.uitest4j.swing.core;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.awt.TestAWTEvents.singletonAWTEventMock;
-import static org.assertj.swing.test.awt.Toolkits.newToolkitMock;
-import static org.assertj.swing.test.util.StopWatch.startNewStopWatch;
+import static org.uitest4j.swing.test.awt.TestAWTEvents.singletonAWTEventMock;
+import static org.uitest4j.swing.test.awt.Toolkits.newToolkitMock;
+import static org.uitest4j.swing.test.util.StopWatch.startNewStopWatch;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -27,9 +27,9 @@ import java.awt.Toolkit;
 
 import org.uitest4j.swing.input.InputState;
 import org.uitest4j.swing.monitor.WindowMonitor;
-import org.assertj.swing.test.awt.TestComponents;
-import org.assertj.swing.test.core.EDTSafeTestCase;
-import org.assertj.swing.test.util.StopWatch;
+import org.uitest4j.swing.test.awt.TestComponents;
+import org.uitest4j.swing.test.core.EDTSafeTestCase;
+import org.uitest4j.swing.test.util.StopWatch;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

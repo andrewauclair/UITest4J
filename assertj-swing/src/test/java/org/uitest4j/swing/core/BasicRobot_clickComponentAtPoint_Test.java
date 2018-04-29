@@ -16,7 +16,7 @@ import static org.uitest4j.swing.core.MouseButton.LEFT_BUTTON;
 
 import java.awt.Point;
 
-import org.assertj.swing.test.recorder.ClickRecorder;
+import org.uitest4j.swing.test.recorder.ClickRecorder;
 import org.junit.jupiter.api.Test;
 
 /**

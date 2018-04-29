@@ -16,7 +16,7 @@ import static org.mockito.Mockito.mock;
 
 import java.awt.Toolkit;
 
-import org.assertj.swing.test.core.SequentialEDTSafeTestCase;
+import org.uitest4j.swing.test.core.SequentialEDTSafeTestCase;
 
 /**
  * Base test case for {@link Platform}.

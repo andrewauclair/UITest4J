@@ -16,7 +16,7 @@ import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.swing.*;
 
-import static org.assertj.swing.test.task.ComponentSetPopupMenuTask.createAndSetPopupMenu;
+import static org.uitest4j.swing.test.task.ComponentSetPopupMenuTask.createAndSetPopupMenu;
 
 /**
  * Base test case for {@link ComponentDriver} that verify that a {@code JPopupMenu} is invoked by a {@code Component}.

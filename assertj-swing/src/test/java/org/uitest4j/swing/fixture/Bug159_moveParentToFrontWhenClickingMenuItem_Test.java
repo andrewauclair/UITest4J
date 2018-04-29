@@ -12,10 +12,10 @@
  */
 package org.uitest4j.swing.fixture;
 
-import org.assertj.swing.test.core.RobotBasedTestCase;
-import org.assertj.swing.test.recorder.ClickRecorder;
-import org.assertj.swing.test.recorder.ClickRecorderManager;
-import org.assertj.swing.test.swing.TestWindow;
+import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.recorder.ClickRecorder;
+import org.uitest4j.swing.test.recorder.ClickRecorderManager;
+import org.uitest4j.swing.test.swing.TestWindow;
 import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.annotation.RunsInEDT;
 
@@ -25,7 +25,7 @@ import java.util.logging.Logger;
 
 import static org.assertj.core.util.Strings.concat;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.test.builder.JFrames.frame;
+import static org.uitest4j.swing.test.builder.JFrames.frame;
 import static org.uitest4j.swing.timing.Pause.pause;
 
 /**

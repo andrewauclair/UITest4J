@@ -13,12 +13,12 @@
 package org.uitest4j.swing.timing;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.util.StopWatch.startNewStopWatch;
+import static org.uitest4j.swing.test.util.StopWatch.startNewStopWatch;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.concurrent.TimeUnit;
 
-import org.assertj.swing.test.util.StopWatch;
+import org.uitest4j.swing.test.util.StopWatch;
 import org.junit.jupiter.api.Test;
 
 /**

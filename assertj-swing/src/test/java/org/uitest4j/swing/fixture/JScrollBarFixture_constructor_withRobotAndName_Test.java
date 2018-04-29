@@ -20,8 +20,8 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import javax.swing.JScrollBar;
 
 import org.uitest4j.swing.exception.ComponentLookupException;
-import org.assertj.swing.test.core.RobotBasedTestCase;
-import org.assertj.swing.test.swing.TestWindow;
+import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.swing.TestWindow;
 import org.junit.jupiter.api.Test;
 
 /**

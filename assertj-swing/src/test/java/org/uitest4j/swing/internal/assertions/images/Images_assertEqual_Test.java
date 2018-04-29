@@ -14,7 +14,7 @@ package org.uitest4j.swing.internal.assertions.images;
 
 import org.assertj.core.api.AssertionInfo;
 import org.uitest4j.swing.internal.assertions.ImagesBaseTest;
-import org.assertj.swing.test.ExpectedException;
+import org.uitest4j.swing.test.ExpectedException;
 import org.junit.jupiter.api.Test;
 
 import java.awt.*;
@@ -22,7 +22,7 @@ import java.awt.image.BufferedImage;
 
 import static java.awt.Color.BLUE;
 import static org.uitest4j.swing.assertions.data.Point.atPoint;
-import static org.assertj.swing.test.awt.AwtTestData.*;
+import static org.uitest4j.swing.test.awt.AwtTestData.*;
 
 /**
  * Tests for <code>{@link Images#assertEqual(AssertionInfo, BufferedImage, BufferedImage)}</code>.

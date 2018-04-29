@@ -12,12 +12,12 @@
  */
 package org.uitest4j.swing.monitor;
 
-import org.assertj.swing.test.awt.ToolkitStub;
+import org.uitest4j.swing.test.awt.ToolkitStub;
 import org.junit.jupiter.api.BeforeEach;
 
 import static java.awt.AWTEvent.*;
 import static org.uitest4j.swing.monitor.TestWindows.newWindowsMock;
-import static org.assertj.swing.test.awt.Toolkits.newToolkitStub;
+import static org.uitest4j.swing.test.awt.Toolkits.newToolkitStub;
 
 /**
  * Base test case for {@link WindowAvailabilityMonitor}.

@@ -13,14 +13,14 @@
 package org.uitest4j.swing.fixture;
 
 import org.uitest4j.swing.lock.ScreenLock;
-import org.assertj.swing.test.core.EDTSafeTestCase;
+import org.uitest4j.swing.test.core.EDTSafeTestCase;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import java.awt.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.builder.JFrames.frame;
+import static org.uitest4j.swing.test.builder.JFrames.frame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**

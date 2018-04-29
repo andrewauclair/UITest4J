@@ -26,8 +26,8 @@ import java.awt.Dimension;
 import java.awt.MouseInfo;
 import java.awt.Point;
 
-import org.assertj.swing.test.core.SequentialEDTSafeTestCase;
-import org.assertj.swing.test.swing.TestWindow;
+import org.uitest4j.swing.test.core.SequentialEDTSafeTestCase;
+import org.uitest4j.swing.test.swing.TestWindow;
 import org.uitest4j.swing.timing.Condition;
 import org.uitest4j.swing.util.RobotFactory;
 import org.junit.jupiter.api.Test;

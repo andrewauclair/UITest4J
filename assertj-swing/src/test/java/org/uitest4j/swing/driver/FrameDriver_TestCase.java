@@ -12,17 +12,17 @@
  */
 package org.uitest4j.swing.driver;
 
-import org.assertj.swing.test.awt.FluentDimension;
-import org.assertj.swing.test.awt.FluentPoint;
-import org.assertj.swing.test.core.RobotBasedTestCase;
-import org.assertj.swing.test.swing.TestWindow;
+import org.uitest4j.swing.test.awt.FluentDimension;
+import org.uitest4j.swing.test.awt.FluentPoint;
+import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.swing.TestWindow;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.annotation.ThreadSafeAction;
 
 import static org.uitest4j.swing.query.ComponentLocationOnScreenQuery.locationOnScreen;
 import static org.uitest4j.swing.query.ComponentSizeQuery.sizeOf;
-import static org.assertj.swing.test.task.ComponentSetEnabledTask.disable;
-import static org.assertj.swing.test.task.FrameSetResizableTask.setResizable;
+import static org.uitest4j.swing.test.task.ComponentSetEnabledTask.disable;
+import static org.uitest4j.swing.test.task.FrameSetResizableTask.setResizable;
 
 /**
  * Base test case for {@link FrameDriver}.

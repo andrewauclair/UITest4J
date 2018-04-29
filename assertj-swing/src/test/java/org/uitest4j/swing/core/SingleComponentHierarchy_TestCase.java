@@ -14,8 +14,8 @@ package org.uitest4j.swing.core;
 
 import org.uitest4j.swing.hierarchy.ComponentHierarchy;
 import org.uitest4j.swing.hierarchy.SingleComponentHierarchy;
-import org.assertj.swing.test.core.EDTSafeTestCase;
-import org.assertj.swing.test.swing.TestWindow;
+import org.uitest4j.swing.test.core.EDTSafeTestCase;
+import org.uitest4j.swing.test.swing.TestWindow;
 import org.junit.jupiter.api.BeforeEach;
 
 import static org.uitest4j.swing.core.TestComponentHierarchies.newComponentHierarchyMock;

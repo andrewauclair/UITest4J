@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.core;
 
-import org.assertj.swing.test.ExpectedException;
+import org.uitest4j.swing.test.ExpectedException;
 import org.uitest4j.swing.timing.Condition;
 import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.annotation.RunsInEDT;

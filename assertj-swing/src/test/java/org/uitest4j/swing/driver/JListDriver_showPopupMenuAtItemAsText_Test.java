@@ -12,9 +12,9 @@
  */
 package org.uitest4j.swing.driver;
 
-import org.assertj.swing.test.ExpectedException;
-import org.assertj.swing.test.recorder.ClickRecorderManager;
-import org.assertj.swing.test.recorder.ToolkitClickRecorder;
+import org.uitest4j.swing.test.ExpectedException;
+import org.uitest4j.swing.test.recorder.ClickRecorderManager;
+import org.uitest4j.swing.test.recorder.ToolkitClickRecorder;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

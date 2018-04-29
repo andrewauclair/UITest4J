@@ -16,9 +16,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.uitest4j.swing.core.MouseButton.RIGHT_BUTTON;
 import static org.uitest4j.swing.query.ComponentVisibleQuery.isVisible;
 
-import org.assertj.swing.test.ExpectedException;
-import org.assertj.swing.test.recorder.ClickRecorderManager;
-import org.assertj.swing.test.recorder.ToolkitClickRecorder;
+import org.uitest4j.swing.test.ExpectedException;
+import org.uitest4j.swing.test.recorder.ClickRecorderManager;
+import org.uitest4j.swing.test.recorder.ToolkitClickRecorder;
 import org.junit.jupiter.api.Test;
 
 /**

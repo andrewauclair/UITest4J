@@ -14,7 +14,7 @@ package org.uitest4j.swing.core;
 
 import static org.uitest4j.swing.core.MouseButton.LEFT_BUTTON;
 
-import org.assertj.swing.test.recorder.ClickRecorder;
+import org.uitest4j.swing.test.recorder.ClickRecorder;
 import org.junit.jupiter.api.Test;
 
 /**

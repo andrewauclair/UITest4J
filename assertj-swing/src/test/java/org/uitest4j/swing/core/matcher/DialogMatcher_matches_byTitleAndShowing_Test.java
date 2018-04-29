@@ -13,13 +13,13 @@
 package org.uitest4j.swing.core.matcher;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.builder.JDialogs.dialog;
+import static org.uitest4j.swing.test.builder.JDialogs.dialog;
 
 import javax.swing.JDialog;
 
-import org.assertj.swing.test.core.SequentialEDTSafeTestCase;
-import org.assertj.swing.test.swing.TestDialog;
-import org.assertj.swing.test.swing.TestWindow;
+import org.uitest4j.swing.test.core.SequentialEDTSafeTestCase;
+import org.uitest4j.swing.test.swing.TestDialog;
+import org.uitest4j.swing.test.swing.TestWindow;
 import org.junit.jupiter.api.Test;
 
 /**

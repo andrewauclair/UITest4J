@@ -20,7 +20,7 @@ import java.awt.event.WindowEvent;
 import java.time.Duration;
 import java.util.concurrent.CountDownLatch;
 
-import org.assertj.swing.test.swing.TestWindow;
+import org.uitest4j.swing.test.swing.TestWindow;
 import org.junit.jupiter.api.Test;
 
 /**

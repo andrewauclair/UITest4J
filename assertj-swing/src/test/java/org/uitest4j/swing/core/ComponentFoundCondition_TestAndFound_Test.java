@@ -14,7 +14,7 @@ package org.uitest4j.swing.core;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.uitest4j.swing.core.BasicComponentFinder.finderWithNewAwtHierarchy;
-import static org.assertj.swing.test.swing.TestWindow.createNewWindow;
+import static org.uitest4j.swing.test.swing.TestWindow.createNewWindow;
 
 import java.awt.Component;
 
@@ -22,8 +22,8 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.swing.JTextField;
 
-import org.assertj.swing.test.core.RobotBasedTestCase;
-import org.assertj.swing.test.swing.TestWindow;
+import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.swing.TestWindow;
 import org.junit.jupiter.api.Test;
 
 /**

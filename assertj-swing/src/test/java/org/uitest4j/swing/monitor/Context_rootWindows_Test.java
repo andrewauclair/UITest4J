@@ -19,7 +19,7 @@ import static org.mockito.Mockito.when;
 import java.awt.Window;
 import java.util.Collection;
 
-import org.assertj.swing.test.swing.TestWindow;
+import org.uitest4j.swing.test.swing.TestWindow;
 import org.junit.jupiter.api.Test;
 
 /**

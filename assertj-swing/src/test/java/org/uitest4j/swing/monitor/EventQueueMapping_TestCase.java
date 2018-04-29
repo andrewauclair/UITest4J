@@ -12,15 +12,15 @@
  */
 package org.uitest4j.swing.monitor;
 
-import org.assertj.swing.test.awt.ToolkitStub;
-import org.assertj.swing.test.core.EDTSafeTestCase;
+import org.uitest4j.swing.test.awt.ToolkitStub;
+import org.uitest4j.swing.test.core.EDTSafeTestCase;
 import org.junit.jupiter.api.BeforeEach;
 
 import java.awt.*;
 import java.lang.ref.WeakReference;
 import java.util.Map;
 
-import static org.assertj.swing.test.awt.Toolkits.newToolkitStub;
+import static org.uitest4j.swing.test.awt.Toolkits.newToolkitStub;
 
 /**
  * Base test case for {@link EventQueueMapping}.

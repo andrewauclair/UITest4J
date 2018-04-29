@@ -13,8 +13,8 @@
 package org.uitest4j.swing.core;
 
 import static java.awt.AWTEvent.KEY_EVENT_MASK;
-import static org.assertj.swing.test.awt.TestAWTEventListeners.singletonAWTEventListenerMock;
-import static org.assertj.swing.test.awt.Toolkits.newToolkitMock;
+import static org.uitest4j.swing.test.awt.TestAWTEventListeners.singletonAWTEventListenerMock;
+import static org.uitest4j.swing.test.awt.Toolkits.newToolkitMock;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;

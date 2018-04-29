@@ -16,7 +16,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.awt.TestComponents.newComponentMock;
+import static org.uitest4j.swing.test.awt.TestComponents.newComponentMock;
 import static org.mockito.Mockito.when;
 
 import java.awt.Component;

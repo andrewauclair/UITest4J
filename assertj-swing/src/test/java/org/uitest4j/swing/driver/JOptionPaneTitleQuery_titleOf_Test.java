@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.driver;
 
-import org.assertj.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.core.RobotBasedTestCase;
 import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.annotation.RunsInEDT;
 
@@ -20,7 +20,7 @@ import javax.swing.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.test.swing.JOptionPaneLauncher.launch;
+import static org.uitest4j.swing.test.swing.JOptionPaneLauncher.launch;
 
 /**
  * Tests for {@link JOptionPaneTitleQuery#titleOf(JOptionPane)}.

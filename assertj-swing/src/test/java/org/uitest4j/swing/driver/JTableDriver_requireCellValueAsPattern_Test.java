@@ -16,7 +16,7 @@ import static org.uitest4j.swing.data.TableCell.row;
 
 import java.util.regex.Pattern;
 
-import org.assertj.swing.test.ExpectedException;
+import org.uitest4j.swing.test.ExpectedException;
 import org.junit.jupiter.api.Test;
 
 /**

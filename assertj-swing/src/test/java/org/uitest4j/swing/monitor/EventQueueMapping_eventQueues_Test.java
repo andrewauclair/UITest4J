@@ -13,13 +13,13 @@
 package org.uitest4j.swing.monitor;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.awt.Toolkits.newToolkitStub;
-import static org.assertj.swing.test.builder.JTextFields.textField;
+import static org.uitest4j.swing.test.awt.Toolkits.newToolkitStub;
+import static org.uitest4j.swing.test.builder.JTextFields.textField;
 
 import java.awt.EventQueue;
 import java.util.Collection;
 
-import org.assertj.swing.test.awt.ToolkitStub;
+import org.uitest4j.swing.test.awt.ToolkitStub;
 import org.junit.jupiter.api.Test;
 
 /**

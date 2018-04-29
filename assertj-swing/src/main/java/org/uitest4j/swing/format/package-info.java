@@ -26,7 +26,7 @@
  * The following are some examples of the output of the some of the provided component formatters.
  * </p>
  * <ul>
- * <li>{@code org.assertj.swing.test.TestFrame[name='frame', title='FormattingTest', enabled=true, showing=true]}</li>
+ * <li>{@code org.uitest4j.swing.test.TestFrame[name='frame', title='FormattingTest', enabled=true, showing=true]}</li>
  * <li>{@code javax.swing.JButton[name='button', text='A button', enabled=false]}</li>
  * <li>
  * {@code javax.swing.JList[name='list', selectedValues=['One', 2], contents=['One', 2, 'Three', 4], selectionMode=MULTIPLE_INTERVAL_SELECTION, enabled=true]}

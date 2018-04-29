@@ -12,15 +12,15 @@
  */
 package org.uitest4j.swing.driver;
 
-import org.assertj.swing.test.core.EDTSafeTestCase;
+import org.uitest4j.swing.test.core.EDTSafeTestCase;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import javax.swing.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.builder.JButtons.button;
-import static org.assertj.swing.test.builder.JLabels.label;
+import static org.uitest4j.swing.test.builder.JButtons.button;
+import static org.uitest4j.swing.test.builder.JLabels.label;
 
 /**
  * Tests for {@link BasicCellRendererReader#valueFrom(java.awt.Component)}.

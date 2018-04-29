@@ -14,8 +14,8 @@ package org.uitest4j.swing.driver;
 
 import org.uitest4j.swing.cell.JTableCellWriter;
 import org.uitest4j.swing.exception.ActionFailedException;
-import org.assertj.swing.test.ExpectedException;
-import org.assertj.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.ExpectedException;
+import org.uitest4j.swing.test.core.RobotBasedTestCase;
 import org.junit.jupiter.api.function.Executable;
 import org.uitest4j.swing.annotation.RunsInEDT;
 

@@ -13,13 +13,13 @@
 package org.uitest4j.swing.driver;
 
 import org.uitest4j.swing.exception.WaitTimedOutError;
-import org.assertj.swing.test.core.RobotBasedTestCase;
-import org.assertj.swing.test.swing.TestWindow;
-import org.assertj.swing.test.util.StopWatch;
+import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.swing.TestWindow;
+import org.uitest4j.swing.test.util.StopWatch;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.util.StopWatch.startNewStopWatch;
+import static org.uitest4j.swing.test.util.StopWatch.startNewStopWatch;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**

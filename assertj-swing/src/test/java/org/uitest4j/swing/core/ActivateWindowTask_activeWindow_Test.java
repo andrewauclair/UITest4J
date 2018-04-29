@@ -13,9 +13,9 @@
 package org.uitest4j.swing.core;
 
 import static org.assertj.core.util.Strings.concat;
-import static org.assertj.swing.test.builder.JFrames.frame;
-import static org.assertj.swing.test.task.FrameShowTask.packAndShow;
-import static org.assertj.swing.test.task.WindowDestroyTask.hideAndDispose;
+import static org.uitest4j.swing.test.builder.JFrames.frame;
+import static org.uitest4j.swing.test.task.FrameShowTask.packAndShow;
+import static org.uitest4j.swing.test.task.WindowDestroyTask.hideAndDispose;
 import static org.uitest4j.swing.timing.Pause.pause;
 
 import java.awt.Component;
@@ -23,7 +23,7 @@ import java.awt.Dimension;
 
 import javax.swing.JFrame;
 
-import org.assertj.swing.test.core.SequentialEDTSafeTestCase;
+import org.uitest4j.swing.test.core.SequentialEDTSafeTestCase;
 import org.uitest4j.swing.timing.Condition;
 import org.junit.jupiter.api.Test;
 

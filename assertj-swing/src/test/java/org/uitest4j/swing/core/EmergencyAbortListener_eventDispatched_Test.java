@@ -16,9 +16,9 @@ import static java.awt.event.InputEvent.*;
 import static java.awt.event.KeyEvent.KEY_PRESSED;
 import static java.awt.event.KeyEvent.VK_A;
 import static java.awt.event.KeyEvent.VK_Z;
-import static org.assertj.swing.test.awt.TestAWTEvents.newAWTEventMock;
-import static org.assertj.swing.test.awt.Toolkits.singletonToolkitMock;
-import static org.assertj.swing.test.builder.JButtons.button;
+import static org.uitest4j.swing.test.awt.TestAWTEvents.newAWTEventMock;
+import static org.uitest4j.swing.test.awt.Toolkits.singletonToolkitMock;
+import static org.uitest4j.swing.test.builder.JButtons.button;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyZeroInteractions;
@@ -27,7 +27,7 @@ import static org.mockito.Mockito.when;
 import java.awt.AWTEvent;
 import java.awt.event.KeyEvent;
 
-import org.assertj.swing.test.core.EDTSafeTestCase;
+import org.uitest4j.swing.test.core.EDTSafeTestCase;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

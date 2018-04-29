@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.driver;
 
-import org.assertj.swing.test.ExpectedException;
+import org.uitest4j.swing.test.ExpectedException;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
@@ -20,7 +20,7 @@ import java.util.Collection;
 
 import static org.assertj.core.util.Lists.newArrayList;
 import static org.assertj.core.util.Strings.concat;
-import static org.assertj.swing.test.data.ZeroAndNegativeProvider.zeroAndNegative;
+import static org.uitest4j.swing.test.data.ZeroAndNegativeProvider.zeroAndNegative;
 
 /**
  * Tests for {@link JSpinnerDriver#decrement(javax.swing.JSpinner, int)}.

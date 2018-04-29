@@ -19,8 +19,8 @@ import javax.swing.*;
 import java.awt.*;
 
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.test.builder.JButtons.button;
-import static org.assertj.swing.test.builder.JDialogs.dialog;
+import static org.uitest4j.swing.test.builder.JButtons.button;
+import static org.uitest4j.swing.test.builder.JDialogs.dialog;
 
 /**
  * Tests for {@link WindowFilter#recognize(Component)}.

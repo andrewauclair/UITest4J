@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.core;
 
-import static org.assertj.swing.test.builder.JFrames.frame;
+import static org.uitest4j.swing.test.builder.JFrames.frame;
 import static org.mockito.Mockito.verify;
 
 import javax.swing.JFrame;

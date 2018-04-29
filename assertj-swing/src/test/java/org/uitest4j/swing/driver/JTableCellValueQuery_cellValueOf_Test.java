@@ -12,17 +12,17 @@
  */
 package org.uitest4j.swing.driver;
 
-import org.assertj.swing.test.core.MethodInvocations;
-import org.assertj.swing.test.core.MethodInvocations.Args;
-import org.assertj.swing.test.core.RobotBasedTestCase;
-import org.assertj.swing.test.swing.TestTable;
-import org.assertj.swing.test.swing.TestWindow;
+import org.uitest4j.swing.test.core.MethodInvocations;
+import org.uitest4j.swing.test.core.MethodInvocations.Args;
+import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.swing.TestTable;
+import org.uitest4j.swing.test.swing.TestWindow;
 import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.annotation.RunsInEDT;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.test.core.MethodInvocations.Args.args;
+import static org.uitest4j.swing.test.core.MethodInvocations.Args.args;
 
 /**
  * Tests for {@link JTableCellValueQuery#cellValueOf(javax.swing.JTable, int, int)}.

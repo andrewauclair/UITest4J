@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.finder;
 
-import static org.assertj.swing.test.core.NeverMatchingComponentMatcher.neverMatches;
+import static org.uitest4j.swing.test.core.NeverMatchingComponentMatcher.neverMatches;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import javax.swing.JDialog;

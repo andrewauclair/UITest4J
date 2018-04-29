@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.format;
 
-import org.assertj.swing.test.core.EDTSafeTestCase;
+import org.uitest4j.swing.test.core.EDTSafeTestCase;
 import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.annotation.RunsInEDT;
 
@@ -24,21 +24,21 @@ import static java.awt.Adjustable.VERTICAL;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Strings.concat;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.test.builder.JButtons.button;
-import static org.assertj.swing.test.builder.JDialogs.dialog;
-import static org.assertj.swing.test.builder.JFrames.frame;
-import static org.assertj.swing.test.builder.JLabels.label;
-import static org.assertj.swing.test.builder.JMenuBars.menuBar;
-import static org.assertj.swing.test.builder.JMenuItems.menuItem;
-import static org.assertj.swing.test.builder.JPanels.panel;
-import static org.assertj.swing.test.builder.JPopupMenus.popupMenu;
-import static org.assertj.swing.test.builder.JProgressBars.progressBar;
-import static org.assertj.swing.test.builder.JScrollBars.scrollBar;
-import static org.assertj.swing.test.builder.JScrollPanes.scrollPane;
-import static org.assertj.swing.test.builder.JSliders.slider;
-import static org.assertj.swing.test.builder.JSpinners.spinner;
-import static org.assertj.swing.test.builder.JTextFields.textField;
-import static org.assertj.swing.test.builder.JToggleButtons.toggleButton;
+import static org.uitest4j.swing.test.builder.JButtons.button;
+import static org.uitest4j.swing.test.builder.JDialogs.dialog;
+import static org.uitest4j.swing.test.builder.JFrames.frame;
+import static org.uitest4j.swing.test.builder.JLabels.label;
+import static org.uitest4j.swing.test.builder.JMenuBars.menuBar;
+import static org.uitest4j.swing.test.builder.JMenuItems.menuItem;
+import static org.uitest4j.swing.test.builder.JPanels.panel;
+import static org.uitest4j.swing.test.builder.JPopupMenus.popupMenu;
+import static org.uitest4j.swing.test.builder.JProgressBars.progressBar;
+import static org.uitest4j.swing.test.builder.JScrollBars.scrollBar;
+import static org.uitest4j.swing.test.builder.JScrollPanes.scrollPane;
+import static org.uitest4j.swing.test.builder.JSliders.slider;
+import static org.uitest4j.swing.test.builder.JSpinners.spinner;
+import static org.uitest4j.swing.test.builder.JTextFields.textField;
+import static org.uitest4j.swing.test.builder.JToggleButtons.toggleButton;
 
 /**
  * Tests for {@link Formatting#format(Component)}.

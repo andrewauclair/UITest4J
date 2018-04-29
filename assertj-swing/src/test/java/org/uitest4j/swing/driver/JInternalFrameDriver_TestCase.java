@@ -12,8 +12,8 @@
  */
 package org.uitest4j.swing.driver;
 
-import org.assertj.swing.test.core.RobotBasedTestCase;
-import org.assertj.swing.test.swing.TestWindow;
+import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.swing.TestWindow;
 import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.swing.*;
@@ -25,7 +25,7 @@ import static org.assertj.core.util.Strings.concat;
 import static org.uitest4j.swing.driver.JInternalFrameAction.ICONIFY;
 import static org.uitest4j.swing.driver.JInternalFrameSetIconTask.setIcon;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.test.task.ComponentSetEnabledTask.disable;
+import static org.uitest4j.swing.test.task.ComponentSetEnabledTask.disable;
 
 /**
  * Base test case for {@link JInternalFrameDriver}.

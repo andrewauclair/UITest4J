@@ -22,7 +22,7 @@ import javax.swing.tree.TreePath;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Arrays.array;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.test.task.JTreeSelectRowTask.selectRow;
+import static org.uitest4j.swing.test.task.JTreeSelectRowTask.selectRow;
 
 /**
  * Test case for {@link JTreeDriver} that involves selecting cells in a {@code JTree}.

@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.assertions;
 
-import static org.assertj.swing.test.awt.AwtTestData.fivePixelBlueImage;
+import static org.uitest4j.swing.test.awt.AwtTestData.fivePixelBlueImage;
 import static org.mockito.Mockito.mock;
 
 import java.awt.image.BufferedImage;

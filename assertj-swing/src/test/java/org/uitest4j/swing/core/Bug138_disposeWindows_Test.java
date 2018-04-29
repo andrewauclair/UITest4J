@@ -14,8 +14,8 @@ package org.uitest4j.swing.core;
 
 import static org.assertj.core.util.Lists.newArrayList;
 import static org.uitest4j.swing.core.TestComponentHierarchies.newComponentHierarchyMock;
-import static org.assertj.swing.test.builder.JFrames.frame;
-import static org.assertj.swing.test.task.WindowDestroyTask.hideAndDisposeInEDT;
+import static org.uitest4j.swing.test.builder.JFrames.frame;
+import static org.uitest4j.swing.test.task.WindowDestroyTask.hideAndDisposeInEDT;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyZeroInteractions;
 import static org.mockito.Mockito.when;
@@ -26,7 +26,7 @@ import java.util.List;
 import javax.swing.JFrame;
 
 import org.uitest4j.swing.hierarchy.ComponentHierarchy;
-import org.assertj.swing.test.core.EDTSafeTestCase;
+import org.uitest4j.swing.test.core.EDTSafeTestCase;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

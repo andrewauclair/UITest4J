@@ -20,7 +20,7 @@ import java.util.Collection;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Lists.newArrayList;
 import static org.uitest4j.swing.data.TableCell.row;
-import static org.assertj.swing.test.swing.TestTable.createCellValueFrom;
+import static org.uitest4j.swing.test.swing.TestTable.createCellValueFrom;
 
 /**
  * Tests for {@link JTableDriver#value(javax.swing.JTable, org.uitest4j.swing.data.TableCell)}.

@@ -22,7 +22,7 @@ import java.util.Collection;
 import static java.awt.event.MouseEvent.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Lists.newArrayList;
-import static org.assertj.swing.test.builder.JComboBoxes.comboBox;
+import static org.uitest4j.swing.test.builder.JComboBoxes.comboBox;
 
 /**
  * Tests for {@link DragDropInfo#update(java.awt.event.MouseEvent)}.

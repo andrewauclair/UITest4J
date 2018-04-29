@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.monitor;
 
-import org.assertj.swing.test.swing.TestWindow;
+import org.uitest4j.swing.test.swing.TestWindow;
 import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.annotation.RunsInEDT;
 

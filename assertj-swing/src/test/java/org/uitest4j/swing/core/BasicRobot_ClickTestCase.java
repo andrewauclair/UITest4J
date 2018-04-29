@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.core;
 
-import org.assertj.swing.test.recorder.ClickRecorderManager;
+import org.uitest4j.swing.test.recorder.ClickRecorderManager;
 
 /**
  * Base case for tests for {@link BasicRobot} that test clicks.

@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.driver;
 
-import static org.assertj.swing.test.builder.JTables.table;
+import static org.uitest4j.swing.test.builder.JTables.table;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.uitest4j.swing.data.TableCell;

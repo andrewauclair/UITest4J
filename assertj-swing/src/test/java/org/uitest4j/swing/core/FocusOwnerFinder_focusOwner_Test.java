@@ -18,7 +18,7 @@ import static org.mockito.Mockito.when;
 
 import java.awt.Component;
 
-import org.assertj.swing.test.builder.JLabels;
+import org.uitest4j.swing.test.builder.JLabels;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

@@ -13,13 +13,13 @@
 package org.uitest4j.swing.input;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.awt.TestAWTEventListeners.newAWTEventListenerMock;
+import static org.uitest4j.swing.test.awt.TestAWTEventListeners.newAWTEventListenerMock;
 
 import java.awt.event.AWTEventListener;
 import java.util.List;
 
 import org.uitest4j.swing.listener.WeakEventListener;
-import org.assertj.swing.test.awt.ToolkitStub;
+import org.uitest4j.swing.test.awt.ToolkitStub;
 
 /**
  * Test case for {@link EventNormalizer} and subclasses.

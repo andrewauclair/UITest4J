@@ -23,7 +23,7 @@ import javax.swing.JDialog;
 import org.uitest4j.swing.core.GenericTypeMatcher;
 import org.uitest4j.swing.exception.WaitTimedOutError;
 import org.uitest4j.swing.fixture.DialogFixture;
-import org.assertj.swing.test.swing.WindowLauncher.DialogToLaunch;
+import org.uitest4j.swing.test.swing.WindowLauncher.DialogToLaunch;
 import org.junit.jupiter.api.Test;
 
 /**

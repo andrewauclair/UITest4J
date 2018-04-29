@@ -20,7 +20,7 @@ import java.util.Collection;
 import static java.lang.Integer.parseInt;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Lists.newArrayList;
-import static org.assertj.swing.test.core.MethodInvocations.Args.args;
+import static org.uitest4j.swing.test.core.MethodInvocations.Args.args;
 
 /**
  * Tests for {@link JTableColumnByIdentifierQuery#columnIndexByIdentifier(javax.swing.JTable, Object)}.

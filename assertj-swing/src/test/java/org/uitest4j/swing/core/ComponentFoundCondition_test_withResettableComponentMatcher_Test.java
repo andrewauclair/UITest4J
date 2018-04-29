@@ -12,8 +12,8 @@
  */
 package org.uitest4j.swing.core;
 
-import static org.assertj.swing.test.awt.TestComponents.singletonComponentMock;
-import static org.assertj.swing.test.awt.TestContainers.singletonContainerMock;
+import static org.uitest4j.swing.test.awt.TestComponents.singletonComponentMock;
+import static org.uitest4j.swing.test.awt.TestContainers.singletonContainerMock;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -21,7 +21,7 @@ import static org.mockito.Mockito.when;
 import java.awt.Container;
 
 import org.uitest4j.swing.exception.ComponentLookupException;
-import org.assertj.swing.test.core.EDTSafeTestCase;
+import org.uitest4j.swing.test.core.EDTSafeTestCase;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

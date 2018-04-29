@@ -13,7 +13,7 @@
 package org.uitest4j.swing.input;
 
 import org.uitest4j.swing.edt.FailOnThreadViolationRepaintManager;
-import org.assertj.swing.test.core.EDTSafeTestCase;
+import org.uitest4j.swing.test.core.EDTSafeTestCase;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -21,7 +21,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.builder.JLabels.label;
+import static org.uitest4j.swing.test.builder.JLabels.label;
 
 /**
  * Tests for {@link NativeDndIdentifier#isNativeDragAndDrop(java.awt.AWTEvent)}.

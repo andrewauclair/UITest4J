@@ -12,14 +12,14 @@
  */
 package org.uitest4j.swing.driver;
 
-import org.assertj.swing.test.ExpectedException;
+import org.uitest4j.swing.test.ExpectedException;
 import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.swing.*;
 
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.test.task.ComponentSetVisibleTask.hide;
+import static org.uitest4j.swing.test.task.ComponentSetVisibleTask.hide;
 
 /**
  * Tests for {@link JInternalFrameDriver#maximize(javax.swing.JInternalFrame)}.

@@ -15,7 +15,7 @@ package org.uitest4j.swing.listener;
 import static javax.swing.SwingUtilities.isEventDispatchThread;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.test.awt.TestAWTEvents.singletonAWTEventMock;
+import static org.uitest4j.swing.test.awt.TestAWTEvents.singletonAWTEventMock;
 import static org.uitest4j.swing.timing.Pause.pause;
 
 import java.awt.AWTEvent;

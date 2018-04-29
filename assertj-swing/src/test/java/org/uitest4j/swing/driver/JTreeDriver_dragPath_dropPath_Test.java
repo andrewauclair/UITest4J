@@ -20,7 +20,7 @@ import javax.swing.tree.DefaultMutableTreeNode;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.test.swing.TreeNodeFactory.node;
+import static org.uitest4j.swing.test.swing.TreeNodeFactory.node;
 
 /**
  * Tests for {@link JTreeDriver#drag(javax.swing.JTree, String)} and {@link JTreeDriver#drop(javax.swing.JTree, String)}

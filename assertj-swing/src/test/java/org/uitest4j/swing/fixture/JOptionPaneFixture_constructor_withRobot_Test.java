@@ -13,12 +13,12 @@
 package org.uitest4j.swing.fixture;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.builder.JOptionPanes.optionPane;
-import static org.assertj.swing.test.swing.JOptionPaneLauncher.launch;
+import static org.uitest4j.swing.test.builder.JOptionPanes.optionPane;
+import static org.uitest4j.swing.test.swing.JOptionPaneLauncher.launch;
 
 import javax.swing.JOptionPane;
 
-import org.assertj.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.core.RobotBasedTestCase;
 import org.junit.jupiter.api.Test;
 
 /**

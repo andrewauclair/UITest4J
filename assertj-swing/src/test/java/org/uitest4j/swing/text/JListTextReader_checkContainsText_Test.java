@@ -20,8 +20,8 @@ import javax.annotation.Nonnull;
 import javax.swing.JList;
 
 import org.uitest4j.swing.cell.JListCellReader;
-import org.assertj.swing.test.core.EDTSafeTestCase;
-import org.assertj.swing.test.swing.TestListModel;
+import org.uitest4j.swing.test.core.EDTSafeTestCase;
+import org.uitest4j.swing.test.swing.TestListModel;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

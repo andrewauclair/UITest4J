@@ -22,7 +22,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 
 import static org.assertj.core.data.Offset.offset;
-import static org.assertj.swing.test.awt.AwtTestData.fivePixelBlueImage;
+import static org.uitest4j.swing.test.awt.AwtTestData.fivePixelBlueImage;
 import static org.mockito.Mockito.spy;
 
 /**

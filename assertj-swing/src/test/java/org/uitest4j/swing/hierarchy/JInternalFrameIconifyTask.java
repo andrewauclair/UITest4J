@@ -19,7 +19,7 @@ import javax.annotation.Nonnull;
 import javax.swing.*;
 
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.test.query.JInternalFrameIconifiedQuery.isIconified;
+import static org.uitest4j.swing.test.query.JInternalFrameIconifiedQuery.isIconified;
 import static org.uitest4j.swing.timing.Pause.pause;
 
 /**

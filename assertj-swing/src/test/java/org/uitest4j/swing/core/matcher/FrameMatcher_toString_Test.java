@@ -14,7 +14,7 @@ package org.uitest4j.swing.core.matcher;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.assertj.swing.test.core.EDTSafeTestCase;
+import org.uitest4j.swing.test.core.EDTSafeTestCase;
 import org.junit.jupiter.api.Test;
 
 /**

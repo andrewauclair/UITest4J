@@ -21,8 +21,8 @@ import java.awt.event.WindowEvent;
 
 import static java.awt.event.WindowEvent.*;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.awt.TestAWTEvents.singletonAWTEventMock;
-import static org.assertj.swing.test.builder.JFrames.frame;
+import static org.uitest4j.swing.test.awt.TestAWTEvents.singletonAWTEventMock;
+import static org.uitest4j.swing.test.builder.JFrames.frame;
 
 /**
  * Tests for {@link DisposedWindowMonitor#isDuplicateDispose(AWTEvent)}.

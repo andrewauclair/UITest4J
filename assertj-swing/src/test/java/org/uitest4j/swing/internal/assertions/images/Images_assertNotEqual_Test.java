@@ -14,9 +14,9 @@ package org.uitest4j.swing.internal.assertions.images;
 
 import static java.awt.Color.BLUE;
 import static org.uitest4j.swing.assertions.error.ShouldNotBeEqualImages.shouldNotBeEqualImages;
-import static org.assertj.swing.test.awt.AwtTestData.fivePixelBlueImage;
-import static org.assertj.swing.test.awt.AwtTestData.fivePixelYellowImage;
-import static org.assertj.swing.test.awt.AwtTestData.newImage;
+import static org.uitest4j.swing.test.awt.AwtTestData.fivePixelBlueImage;
+import static org.uitest4j.swing.test.awt.AwtTestData.fivePixelYellowImage;
+import static org.uitest4j.swing.test.awt.AwtTestData.newImage;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.verify;
 

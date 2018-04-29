@@ -22,7 +22,7 @@ import static java.awt.event.InputEvent.*;
 import static java.awt.event.KeyEvent.VK_A;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Lists.newArrayList;
-import static org.assertj.swing.test.awt.TestComponents.singletonComponentMock;
+import static org.uitest4j.swing.test.awt.TestComponents.singletonComponentMock;
 
 /**
  * Tests for {@link InputModifiers#modifiersMatch(java.awt.event.InputEvent, int)}.

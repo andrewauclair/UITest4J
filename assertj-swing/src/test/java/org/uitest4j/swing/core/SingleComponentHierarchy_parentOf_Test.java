@@ -13,8 +13,8 @@
 package org.uitest4j.swing.core;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.builder.JFrames.frame;
-import static org.assertj.swing.test.builder.JLabels.label;
+import static org.uitest4j.swing.test.builder.JFrames.frame;
+import static org.uitest4j.swing.test.builder.JLabels.label;
 import static org.mockito.Mockito.when;
 
 import java.awt.Container;

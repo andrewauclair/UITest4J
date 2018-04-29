@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.driver;
 
-import org.assertj.swing.test.swing.TestTable;
+import org.uitest4j.swing.test.swing.TestTable;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -22,8 +22,8 @@ import static org.uitest4j.swing.driver.JTableDriver_TestCase.MyWindow.COLUMN_CO
 import static org.uitest4j.swing.driver.JTableDriver_TestCase.MyWindow.ROW_COUNT;
 import static org.uitest4j.swing.driver.JTableRowCountQuery.rowCountOf;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.test.swing.TestTable.columnNames;
-import static org.assertj.swing.test.swing.TestTable.createCellValueFrom;
+import static org.uitest4j.swing.test.swing.TestTable.columnNames;
+import static org.uitest4j.swing.test.swing.TestTable.createCellValueFrom;
 
 /**
  * Tests for {@link JTableDriver#drag(javax.swing.JTable, org.uitest4j.swing.data.TableCell)} and

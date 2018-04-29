@@ -13,7 +13,7 @@
 package org.uitest4j.swing.fixture;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.builder.JTextFields.textField;
+import static org.uitest4j.swing.test.builder.JTextFields.textField;
 
 import java.awt.Container;
 
@@ -22,8 +22,8 @@ import javax.swing.JTextField;
 
 import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.driver.JComponentDriver;
-import org.assertj.swing.test.core.RobotBasedTestCase;
-import org.assertj.swing.test.swing.TestWindow;
+import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.swing.TestWindow;
 import org.junit.jupiter.api.Test;
 
 /**

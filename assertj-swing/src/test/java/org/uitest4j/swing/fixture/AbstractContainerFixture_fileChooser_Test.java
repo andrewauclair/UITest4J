@@ -15,9 +15,9 @@ package org.uitest4j.swing.fixture;
 import org.uitest4j.swing.core.GenericTypeMatcher;
 import org.uitest4j.swing.exception.ComponentLookupException;
 import org.uitest4j.swing.exception.WaitTimedOutError;
-import org.assertj.swing.test.ExpectedException;
-import org.assertj.swing.test.core.RobotBasedTestCase;
-import org.assertj.swing.test.swing.JFileChooserLauncherWindow;
+import org.uitest4j.swing.test.ExpectedException;
+import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.swing.JFileChooserLauncherWindow;
 import org.junit.jupiter.api.Test;
 
 import javax.annotation.Nonnull;

@@ -12,9 +12,9 @@
  */
 package org.uitest4j.swing.core;
 
-import org.assertj.swing.test.core.SequentialEDTSafeTestCase;
-import org.assertj.swing.test.swing.TestDialog;
-import org.assertj.swing.test.swing.TestWindow;
+import org.uitest4j.swing.test.core.SequentialEDTSafeTestCase;
+import org.uitest4j.swing.test.swing.TestDialog;
+import org.uitest4j.swing.test.swing.TestWindow;
 import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.annotation.RunsInEDT;
 
@@ -23,8 +23,8 @@ import java.awt.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.test.awt.TestContainers.singletonContainerMock;
-import static org.assertj.swing.test.task.ComponentRequestFocusAndWaitForFocusGainTask.giveFocusAndWaitTillIsFocused;
+import static org.uitest4j.swing.test.awt.TestContainers.singletonContainerMock;
+import static org.uitest4j.swing.test.task.ComponentRequestFocusAndWaitForFocusGainTask.giveFocusAndWaitTillIsFocused;
 
 /**
  * Tests for {@link ContainerFocusOwnerFinder#focusOwnerOf(Container)}.

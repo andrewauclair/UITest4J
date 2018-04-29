@@ -13,7 +13,7 @@
 package org.uitest4j.swing.core;
 
 import org.assertj.core.util.Arrays;
-import org.assertj.swing.test.recorder.KeyRecorder;
+import org.uitest4j.swing.test.recorder.KeyRecorder;
 import org.uitest4j.swing.timing.Condition;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;

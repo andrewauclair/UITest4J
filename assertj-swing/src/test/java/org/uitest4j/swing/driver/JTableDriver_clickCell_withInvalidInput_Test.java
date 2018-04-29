@@ -20,7 +20,7 @@ import java.util.Collection;
 import static org.assertj.core.util.Lists.newArrayList;
 import static org.uitest4j.swing.core.MouseButton.LEFT_BUTTON;
 import static org.uitest4j.swing.data.TableCell.row;
-import static org.assertj.swing.test.data.ZeroAndNegativeProvider.zeroAndNegative;
+import static org.uitest4j.swing.test.data.ZeroAndNegativeProvider.zeroAndNegative;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**

@@ -12,8 +12,8 @@
  */
 package org.uitest4j.swing.driver;
 
-import org.assertj.swing.test.swing.TableDialogEditDemo;
-import org.assertj.swing.test.swing.TestWindow;
+import org.uitest4j.swing.test.swing.TableDialogEditDemo;
+import org.uitest4j.swing.test.swing.TestWindow;
 import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.swing.*;

@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.driver;
 
-import org.assertj.swing.test.ExpectedException;
+import org.uitest4j.swing.test.ExpectedException;
 import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.annotation.RunsInEDT;
 
@@ -20,7 +20,7 @@ import javax.swing.*;
 import java.io.File;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.query.JFileChooserCurrentDirectoryQuery.currentDirectoryOf;
+import static org.uitest4j.swing.test.query.JFileChooserCurrentDirectoryQuery.currentDirectoryOf;
 
 /**
  * Tests for {@link JFileChooserDriver#setCurrentDirectory(javax.swing.JFileChooser, java.io.File)}.

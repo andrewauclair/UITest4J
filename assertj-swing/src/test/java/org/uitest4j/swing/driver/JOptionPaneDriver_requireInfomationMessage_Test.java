@@ -12,10 +12,10 @@
  */
 package org.uitest4j.swing.driver;
 
-import org.assertj.swing.test.ExpectedException;
+import org.uitest4j.swing.test.ExpectedException;
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.swing.test.swing.JOptionPaneLauncher.pack;
+import static org.uitest4j.swing.test.swing.JOptionPaneLauncher.pack;
 
 import javax.swing.JOptionPane;
 

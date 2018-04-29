@@ -13,7 +13,7 @@
 package org.uitest4j.swing.core;
 
 import org.uitest4j.swing.exception.EdtViolationException;
-import org.assertj.swing.test.data.BooleanProvider;
+import org.uitest4j.swing.test.data.BooleanProvider;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 

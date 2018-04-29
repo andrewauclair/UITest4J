@@ -12,14 +12,14 @@
  */
 package org.uitest4j.swing.driver;
 
-import org.assertj.swing.test.swing.TestTree;
+import org.uitest4j.swing.test.swing.TestTree;
 import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.swing.tree.DefaultTreeModel;
 
 import static org.uitest4j.swing.driver.JTreeDriver_TestCase.MyWindow.decorate;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.test.swing.TreeNodeFactory.node;
+import static org.uitest4j.swing.test.swing.TreeNodeFactory.node;
 
 /**
  * Base test case related to drag and drop in a {@code JTree} using {@link JTreeDriver}.
