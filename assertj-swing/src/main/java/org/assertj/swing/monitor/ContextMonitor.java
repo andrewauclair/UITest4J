@@ -23,7 +23,7 @@ import static java.awt.AWTEvent.COMPONENT_EVENT_MASK;
 import static java.awt.AWTEvent.WINDOW_EVENT_MASK;
 import static java.awt.event.ComponentEvent.COMPONENT_SHOWN;
 import static java.awt.event.WindowEvent.*;
-import static org.assertj.swing.listener.WeakEventListener.attachAsWeakEventListener;
+import static org.uitest4j.swing.listener.WeakEventListener.attachAsWeakEventListener;
 import static org.assertj.swing.query.ComponentParentQuery.parentOf;
 
 /**

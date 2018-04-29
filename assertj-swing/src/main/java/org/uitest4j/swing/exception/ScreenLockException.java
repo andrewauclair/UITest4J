@@ -15,7 +15,7 @@ package org.uitest4j.swing.exception;
 import javax.annotation.Nonnull;
 
 /**
- * Error thrown when acquiring or releasing a {@link org.assertj.swing.lock.ScreenLock}.
+ * Error thrown when acquiring or releasing a {@link org.uitest4j.swing.lock.ScreenLock}.
  *
  * @author Alex Ruiz
  */

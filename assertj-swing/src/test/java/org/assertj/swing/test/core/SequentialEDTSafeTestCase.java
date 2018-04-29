@@ -12,7 +12,7 @@
  */
 package org.assertj.swing.test.core;
 
-import org.assertj.swing.lock.ScreenLock;
+import org.uitest4j.swing.lock.ScreenLock;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 

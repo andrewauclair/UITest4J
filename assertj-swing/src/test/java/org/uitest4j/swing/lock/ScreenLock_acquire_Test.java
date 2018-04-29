@@ -10,45 +10,43 @@
  *
  * Copyright 2012-2015 the original author or authors.
  */
-package org.assertj.swing.lock;
+package org.uitest4j.swing.lock;
 
-import org.uitest4j.swing.exception.ScreenLockException;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
+import static edu.umd.cs.mtc.TestFramework.runOnce;
+import static org.assertj.core.api.Assertions.assertThat;
+
+import edu.umd.cs.mtc.MultithreadedTestCase;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertThrows;
-
 /**
- * Tests for {@link ScreenLock#release(Object)}.
+ * Tests for {@link ScreenLock#acquire(Object)}.
  * 
  * @author Alex Ruiz
  */
-class ScreenLock_release_Test {
+public class ScreenLock_acquire_Test extends MultithreadedTestCase {
   private ScreenLock lock;
   private Object owner;
 
-  @BeforeEach
-  void setUp() {
+  @Override
+  public void initialize() {
     lock = new ScreenLock();
     owner = new Object();
   }
 
-  @AfterEach
-  void tearDown() {
+  public void thread1() {
+    lock.acquire(owner);
+    assertThat(lock.acquiredBy(owner)).isTrue();
+  }
+
+  @Override
+  public void finish() {
     if (lock.acquiredBy(owner)) {
       lock.release(owner);
     }
   }
 
   @Test
-  void should_Throw_Error_If_Trying_To_Release_With_Different_Owner() {
-    lock.acquire(owner);
-    assertThrows(ScreenLockException.class, () -> lock.release(new Object()));
-  }
-
-  @Test
-  void should_Throw_Error_If_Trying_To_Release_Without_Being_Locked() {
-    assertThrows(ScreenLockException.class, () -> lock.release(owner));
+  void should_Not_Block_If_Current_Owner_Tries_To_Acquire_Lock_Again() throws Throwable {
+    runOnce(new ScreenLock_acquire_Test());
   }
 }

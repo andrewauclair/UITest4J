@@ -18,7 +18,7 @@ import static org.assertj.swing.test.awt.TestAWTEventListeners.newAWTEventListen
 import java.awt.event.AWTEventListener;
 import java.util.List;
 
-import org.assertj.swing.listener.WeakEventListener;
+import org.uitest4j.swing.listener.WeakEventListener;
 import org.assertj.swing.test.awt.ToolkitStub;
 
 /**

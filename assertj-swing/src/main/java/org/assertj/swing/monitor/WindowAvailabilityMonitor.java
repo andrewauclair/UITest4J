@@ -21,7 +21,7 @@ import java.awt.event.MouseEvent;
 
 import static java.awt.AWTEvent.*;
 import static javax.swing.SwingUtilities.getWindowAncestor;
-import static org.assertj.swing.listener.WeakEventListener.attachAsWeakEventListener;
+import static org.uitest4j.swing.listener.WeakEventListener.attachAsWeakEventListener;
 
 /**
  * Event listener that monitors when a window is ready to receive OS-level event input.

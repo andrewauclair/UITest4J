@@ -38,13 +38,13 @@
     </release>
     <release version="1.2rc" date="2010-04-26" description="Subsequent release">
       <action dev="alexruiz" type="fix" issue="FEST-23" due-to="Dan Dyer">
-        org.assertj.swing.lock.ScreenLock does not deadlock in the presence of multiple threads.
+          org.uitest4j.swing.lock.ScreenLock does not deadlock in the presence of multiple threads.
       </action>
       <action dev="alexruiz" type="fix" issue="FEST-23" due-to="Dan Dyer">
-        org.assertj.swing.lock.ScreenLock does not deadlock if current lock owner tries to re-acquire the lock.
+          org.uitest4j.swing.lock.ScreenLock does not deadlock if current lock owner tries to re-acquire the lock.
       </action>
       <action dev="alexruiz" type="fix" issue="FEST-23" due-to="Dan Dyer">
-        Added method 'acquired' to org.assertj.swing.lock.ScreenLock
+          Added method 'acquired' to org.uitest4j.swing.lock.ScreenLock
       </action>
       <action dev="alexruiz" type="fix" issue="FEST-177">
         org.assertj.swing.testng.listener.ScreenshotOnFailureListener creates the output directory if it does not exist
@@ -953,7 +953,7 @@
           component lookups easier.
       </action>
       <action dev="alexruiz" type="fix" issue="240">
-          Moved class ScreenLock from package org.uitest4j.swing.core to org.assertj.swing.lock to remove circular
+          Moved class ScreenLock from package org.uitest4j.swing.core to org.uitest4j.swing.lock to remove circular
           dependency.
       </action>
       <action dev="alexruiz" type="fix" issue="241">

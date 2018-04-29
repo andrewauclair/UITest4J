@@ -10,7 +10,7 @@
  *
  * Copyright 2012-2015 the original author or authors.
  */
-package org.assertj.swing.listener;
+package org.uitest4j.swing.listener;
 
 import java.awt.AWTEvent;
 import java.awt.Toolkit;

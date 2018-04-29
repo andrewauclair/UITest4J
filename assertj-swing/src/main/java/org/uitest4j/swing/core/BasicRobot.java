@@ -20,7 +20,7 @@ import org.uitest4j.swing.exception.WaitTimedOutError;
 import org.uitest4j.swing.hierarchy.ComponentHierarchy;
 import org.uitest4j.swing.hierarchy.ExistingHierarchy;
 import org.uitest4j.swing.input.InputState;
-import org.assertj.swing.lock.ScreenLock;
+import org.uitest4j.swing.lock.ScreenLock;
 import org.assertj.swing.monitor.WindowMonitor;
 import org.assertj.swing.util.Pair;
 import org.assertj.swing.util.TimeoutWatch;

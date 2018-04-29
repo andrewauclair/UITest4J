@@ -17,7 +17,7 @@ import static org.assertj.swing.test.builder.JFrames.frame;
 
 import javax.swing.JFrame;
 
-import org.assertj.swing.lock.ScreenLock;
+import org.uitest4j.swing.lock.ScreenLock;
 import org.assertj.swing.test.core.EDTSafeTestCase;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.jupiter.api.Test;

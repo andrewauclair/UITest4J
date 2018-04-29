@@ -22,4 +22,4 @@
  * 
  * @author Alex Ruiz
  */
-package org.assertj.swing.listener;
+package org.uitest4j.swing.listener;

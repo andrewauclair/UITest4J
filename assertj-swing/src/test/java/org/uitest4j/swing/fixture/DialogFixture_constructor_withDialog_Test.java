@@ -12,8 +12,7 @@
  */
 package org.uitest4j.swing.fixture;
 
-import org.assertj.swing.lock.ScreenLock;
-import org.assertj.swing.test.ScreenLockReleaser;
+import org.uitest4j.swing.lock.ScreenLock;
 import org.assertj.swing.test.core.EDTSafeTestCase;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;

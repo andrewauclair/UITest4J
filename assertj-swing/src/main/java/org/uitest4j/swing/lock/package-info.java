@@ -16,4 +16,4 @@
  * 
  * @author Alex Ruiz
  */
-package org.assertj.swing.lock;
+package org.uitest4j.swing.lock;

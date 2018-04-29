@@ -12,7 +12,7 @@
  */
 package org.assertj.swing.monitor;
 
-import org.assertj.swing.listener.WeakEventListener;
+import org.uitest4j.swing.listener.WeakEventListener;
 import org.assertj.swing.test.awt.ToolkitStub;
 import org.assertj.swing.test.core.EDTSafeTestCase;
 import org.assertj.swing.test.swing.TestWindow;

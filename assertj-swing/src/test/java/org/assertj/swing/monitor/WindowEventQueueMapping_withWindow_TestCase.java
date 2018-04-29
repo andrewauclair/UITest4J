@@ -13,7 +13,7 @@
 package org.assertj.swing.monitor;
 
 import org.uitest4j.swing.edt.FailOnThreadViolationRepaintManager;
-import org.assertj.swing.lock.ScreenLock;
+import org.uitest4j.swing.lock.ScreenLock;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;

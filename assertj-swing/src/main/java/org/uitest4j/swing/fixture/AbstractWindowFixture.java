@@ -280,7 +280,7 @@ public abstract class AbstractWindowFixture<S, C extends Window, D extends Windo
   }
 
   /**
-   * Cleans up any used resources (keyboard, mouse, open windows and {@link org.assertj.swing.lock.ScreenLock}) used by
+   * Cleans up any used resources (keyboard, mouse, open windows and {@link org.uitest4j.swing.lock.ScreenLock}) used by
    * this robot.
    */
   public final void cleanUp() {

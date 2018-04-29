@@ -22,7 +22,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.awt.event.AWTEventListener;
 import java.util.List;
 
-import org.assertj.swing.listener.WeakEventListener;
+import org.uitest4j.swing.listener.WeakEventListener;
 import org.junit.jupiter.api.Test;
 
 /**

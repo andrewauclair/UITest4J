@@ -107,14 +107,14 @@ public interface Robot {
   void focusAndWaitForFocusGain(@Nonnull Component c);
 
   /**
-   * Cleans up any used resources (keyboard, mouse, open windows and {@link org.assertj.swing.lock.ScreenLock}) used by
+   * Cleans up any used resources (keyboard, mouse, open windows and {@link org.uitest4j.swing.lock.ScreenLock}) used by
    * this {@code Robot}.
    */
   void cleanUp();
 
   /**
    * <p>
-   * Cleans up any used resources (keyboard, mouse and {@link org.assertj.swing.lock.ScreenLock}) used by this
+   * Cleans up any used resources (keyboard, mouse and {@link org.uitest4j.swing.lock.ScreenLock}) used by this
    * {@code Robot}. This method <strong>does not</strong> dispose any open windows.
    * </p>
    *

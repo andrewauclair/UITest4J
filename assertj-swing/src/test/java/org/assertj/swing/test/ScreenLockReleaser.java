@@ -12,7 +12,7 @@
  */
 package org.assertj.swing.test;
 
-import org.assertj.swing.lock.ScreenLock;
+import org.uitest4j.swing.lock.ScreenLock;
 import org.junit.rules.TestRule;
 import org.junit.runner.Description;
 import org.junit.runners.model.Statement;
