@@ -1,8 +1,22 @@
 language: java
-sudo: false
 
-jdk:
-    - openjdk9
-    - oraclejdk9
-    - openjdk10
-    - oraclejdk10
+before_install:
+  - wget https://github.com/sormuras/bach/raw/master/install-jdk.sh
+
+matrix:
+  include:
+# 10
+    - env: JDK='Oracle JDK 10'
+      install: . ./install-jdk.sh -F 10 -L BCL
+    - env: JDK='OpenJDK 10'
+      install: . ./install-jdk.sh -F 10 -L GPL
+# 11
+    - env: JDK='Oracle JDK 11'
+      install: . ./install-jdk.sh -F 11 -L BCL
+    - env: JDK='OpenJDK 11'
+      install: . ./install-jdk.sh -F 11 -L GPL
+
+script:
+  - echo PATH = ${PATH}
+  - echo JAVA_HOME = ${JAVA_HOME}
+  - java -version
