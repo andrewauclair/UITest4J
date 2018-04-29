@@ -29,7 +29,6 @@ import java.util.Objects;
 
 import static java.lang.System.lineSeparator;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.util.Strings.concat;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 import static org.uitest4j.swing.format.Formatting.format;
 import static org.uitest4j.swing.hierarchy.NewHierarchy.ignoreExistingComponents;
@@ -306,10 +305,10 @@ public final class BasicComponentFinder implements ComponentFinder {
 	@RunsInEDT
 	@Nonnull
 	private ComponentLookupException componentNotFound(@Nonnull ComponentHierarchy h, @Nonnull ComponentMatcher m) {
-		String message = concat("Unable to find component using matcher ", m, ".");
+		String message = "Unable to find component using matcher " + m + ".";
 		if (includeHierarchyIfComponentNotFound()) {
-			message = concat(message, lineSeparator(), lineSeparator(), "Component hierarchy:", lineSeparator(),
-					formattedHierarchy(root(h)));
+			message = message + lineSeparator() + lineSeparator() + "Component hierarchy:" + lineSeparator() +
+					formattedHierarchy(root(h));
 		}
 		throw new ComponentLookupException(message);
 	}

@@ -1,4 +1,4 @@
-/**
+/*
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
  *
@@ -16,8 +16,8 @@ import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.annotation.Nonnull;
 import javax.swing.*;
+import java.util.Objects;
 
-import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
@@ -26,12 +26,13 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
  * @author Alex Ruiz
  */
 final class JListSelectionIndicesQuery {
-  @RunsInEDT
-  static @Nonnull int[] selectedIndices(final @Nonnull JList<?> list) {
-    int[] result = execute(() -> list.getSelectedIndices());
-    return checkNotNull(result);
-  }
+	@RunsInEDT
+	static @Nonnull
+	int[] selectedIndices(final @Nonnull JList<?> list) {
+		int[] result = execute(list::getSelectedIndices);
+		return Objects.requireNonNull(result);
+	}
 
-  private JListSelectionIndicesQuery() {
-  }
+	private JListSelectionIndicesQuery() {
+	}
 }

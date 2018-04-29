@@ -19,10 +19,11 @@ import org.uitest4j.swing.annotation.RunsInEDT;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
-import static org.assertj.core.util.Lists.newArrayList;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
@@ -32,7 +33,7 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
  * @author Alex Ruiz
  */
 public final class FocusOwnerFinder {
-	private static final List<FocusOwnerFinderStrategy> STRATEGIES = newArrayList();
+	private static final List<FocusOwnerFinderStrategy> STRATEGIES = new ArrayList<>();
 
 	static {
 		initializeStrategies();
@@ -46,13 +47,13 @@ public final class FocusOwnerFinder {
 	@VisibleForTesting
 	static void replaceStrategiesWith(@Nonnull FocusOwnerFinderStrategy... strategies) {
 		STRATEGIES.clear();
-		STRATEGIES.addAll(newArrayList(strategies));
+		STRATEGIES.addAll(Arrays.asList(strategies));
 	}
 
 	@VisibleForTesting
 	static @Nonnull
 	List<FocusOwnerFinderStrategy> strategies() {
-		return newArrayList(STRATEGIES);
+		return new ArrayList<>(STRATEGIES);
 	}
 
 	/**
@@ -61,7 +62,7 @@ public final class FocusOwnerFinder {
 	@RunsInEDT
 	@Nullable
 	public static Component inEdtFocusOwner() {
-		return execute(() -> focusOwner());
+		return execute(FocusOwnerFinder::focusOwner);
 	}
 
 	/**

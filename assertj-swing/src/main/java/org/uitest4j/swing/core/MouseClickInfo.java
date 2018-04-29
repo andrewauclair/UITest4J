@@ -15,7 +15,6 @@ package org.uitest4j.swing.core;
 import javax.annotation.Nonnull;
 import java.util.Objects;
 
-import static org.assertj.core.util.Strings.concat;
 import static org.uitest4j.swing.core.MouseButton.*;
 
 /**
@@ -127,6 +126,6 @@ public final class MouseClickInfo {
 	@Override
 	@Nonnull
 	public String toString() {
-		return concat(String.format("%s[button=%s, times=%d]", getClass().getName(), button.toString(), times));
+		return String.format("%s[button=%s, times=%d]", getClass().getName(), button.toString(), times);
 	}
 }

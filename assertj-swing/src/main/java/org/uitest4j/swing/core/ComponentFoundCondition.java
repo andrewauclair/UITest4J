@@ -1,4 +1,4 @@
-/**
+/*
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
  *
@@ -14,7 +14,6 @@ package org.uitest4j.swing.core;
 
 import static java.lang.System.lineSeparator;
 import static java.util.Collections.emptyList;
-import static org.assertj.core.util.Strings.concat;
 
 import java.awt.Component;
 import java.awt.Container;
@@ -42,7 +41,7 @@ public final class ComponentFoundCondition extends Condition {
 
   private Component found;
 
-  private final AtomicReference<ComponentLookupException> notFoundError = new AtomicReference<ComponentLookupException>();
+  private final AtomicReference<ComponentLookupException> notFoundError = new AtomicReference<>();
 
   /**
    * Creates a new {@link ComponentFoundCondition}.
@@ -136,7 +135,7 @@ public final class ComponentFoundCondition extends Condition {
     if (error == null) {
       return EMPTY_TEXT;
     }
-    return concat(lineSeparator(), error.getMessage());
+    return lineSeparator() + error.getMessage();
   }
 
   /**
