@@ -20,7 +20,8 @@ import javax.annotation.Nonnull;
 import javax.swing.*;
 import javax.swing.tree.TreePath;
 
-import static org.assertj.core.util.Preconditions.checkNotNull;
+import java.util.Objects;
+
 import static org.uitest4j.swing.driver.ComponentPreconditions.checkEnabledAndShowing;
 import static org.uitest4j.swing.driver.JTreeAddRootIfInvisibleTask.addRootIfInvisible;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
@@ -44,14 +45,14 @@ final class JTreeMatchingPathQuery {
         return matchingPathWithRootIfInvisible(tree, path, pathFinder);
       }
     });
-    return checkNotNull(result);
+    return Objects.requireNonNull(result);
   }
 
   @RunsInEDT
   static @Nonnull TreePath matchingPathFor(final @Nonnull JTree tree, final @Nonnull String path,
                                            final @Nonnull JTreePathFinder pathFinder) {
     TreePath result = execute(() -> matchingPathWithRootIfInvisible(tree, path, pathFinder));
-    return checkNotNull(result);
+    return Objects.requireNonNull(result);
   }
 
   @RunsInCurrentThread

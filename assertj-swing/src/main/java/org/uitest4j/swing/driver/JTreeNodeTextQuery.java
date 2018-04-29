@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
 import javax.swing.*;
 import javax.swing.tree.TreePath;
 
-import static org.assertj.core.util.Preconditions.checkNotNull;
+import java.util.Objects;
+
 import static org.uitest4j.swing.driver.JTreeMatchingPathQuery.matchingPathWithRootIfInvisible;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
@@ -34,7 +35,7 @@ final class JTreeNodeTextQuery {
                                    final @Nonnull JTreePathFinder pathFinder) {
     return execute(() -> {
       TreePath matchingPath = location.pathFor(tree, row);
-      return pathFinder.cellReader().valueAt(tree, checkNotNull(matchingPath.getLastPathComponent()));
+      return pathFinder.cellReader().valueAt(tree, Objects.requireNonNull(matchingPath.getLastPathComponent()));
     });
   }
 
@@ -43,7 +44,7 @@ final class JTreeNodeTextQuery {
                                    final @Nonnull JTreePathFinder pathFinder) {
     return execute(() -> {
       TreePath matchingPath = matchingPathWithRootIfInvisible(tree, path, pathFinder);
-      return pathFinder.cellReader().valueAt(tree, checkNotNull(matchingPath.getLastPathComponent()));
+      return pathFinder.cellReader().valueAt(tree, Objects.requireNonNull(matchingPath.getLastPathComponent()));
     });
   }
 

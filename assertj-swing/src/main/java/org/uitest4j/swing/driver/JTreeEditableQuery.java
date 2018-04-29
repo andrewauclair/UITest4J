@@ -17,7 +17,8 @@ import org.uitest4j.swing.annotation.RunsInEDT;
 import javax.annotation.Nonnull;
 import javax.swing.*;
 
-import static org.assertj.core.util.Preconditions.checkNotNull;
+import java.util.Objects;
+
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
@@ -29,7 +30,7 @@ final class JTreeEditableQuery {
   @RunsInEDT
   static boolean isEditable(final @Nonnull JTree tree) {
     Boolean result = execute(() -> tree.isEditable());
-    return checkNotNull(result);
+    return Objects.requireNonNull(result);
   }
 
   private JTreeEditableQuery() {

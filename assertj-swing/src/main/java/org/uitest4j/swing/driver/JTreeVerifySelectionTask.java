@@ -20,11 +20,11 @@ import javax.annotation.Nonnull;
 import javax.swing.*;
 import javax.swing.tree.TreePath;
 import java.util.Arrays;
+import java.util.Objects;
 
 import static java.util.Arrays.sort;
 import static org.assertj.core.api.Fail.fail;
 import static org.assertj.core.util.Objects.areEqual;
-import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.uitest4j.swing.driver.JTreeMatchingPathQuery.matchingPathWithRootIfInvisible;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 import static org.uitest4j.swing.util.Arrays.format;
@@ -80,7 +80,7 @@ final class JTreeVerifySelectionTask {
       failNotEqualSelection(errMsg, selection, selectionPaths);
     }
     for (int i = 0; i < selectionCount; i++) {
-      TreePath expected = matchingPathWithRootIfInvisible(tree, checkNotNull(selection[i]), pathFinder);
+      TreePath expected = matchingPathWithRootIfInvisible(tree, Objects.requireNonNull(selection[i]), pathFinder);
       TreePath actual = selectionPaths[i];
       if (!areEqual(expected, actual)) {
         failNotEqualSelection(errMsg, selection, selectionPaths);

@@ -19,7 +19,8 @@ import javax.annotation.Nonnull;
 import javax.swing.*;
 import javax.swing.table.TableCellEditor;
 
-import static org.assertj.core.util.Preconditions.checkNotNull;
+import java.util.Objects;
+
 import static org.uitest4j.swing.driver.JTableCellPreconditions.checkCellIndicesInBounds;
 import static org.uitest4j.swing.driver.JTableCellPreconditions.validateCellIsEditable;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
@@ -52,13 +53,13 @@ final class JTableStopCellEditingTask {
 
   @RunsInCurrentThread
   private static void doStopCellEditing(@Nonnull JTable table, int row, int column) {
-    TableCellEditor editor = checkNotNull(table.getCellEditor(row, column));
+    TableCellEditor editor = Objects.requireNonNull(table.getCellEditor(row, column));
     doStopCellEditing(editor);
   }
 
   @RunsInCurrentThread
   private static void doStopCellEditing(@Nonnull TableCellEditor cellEditor) {
-    checkNotNull(cellEditor);
+    Objects.requireNonNull(cellEditor);
     cellEditor.stopCellEditing();
   }
 

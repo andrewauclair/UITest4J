@@ -18,8 +18,8 @@ import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import javax.annotation.Nonnull;
 import javax.swing.*;
 import java.awt.*;
+import java.util.Objects;
 
-import static org.assertj.core.util.Preconditions.checkNotNull;
 
 /**
  * <p>
@@ -40,7 +40,7 @@ final class PointAndParentForScrollingJTextFieldQuery {
     Point origin = new Point(textField.getX(), textField.getY());
     Container parent = textField.getParent();
     while (parent != null && !(parent instanceof JComponent) && !(parent instanceof CellRendererPane)) {
-      origin = addRectangleToPoint(checkNotNull(parent.getBounds()), origin);
+      origin = addRectangleToPoint(Objects.requireNonNull(parent.getBounds()), origin);
       parent = parent.getParent();
     }
     return Pair.of(origin, parent);

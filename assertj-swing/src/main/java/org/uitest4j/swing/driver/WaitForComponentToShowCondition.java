@@ -12,12 +12,12 @@
  */
 package org.uitest4j.swing.driver;
 
-import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.core.util.Strings.concat;
 import static org.uitest4j.swing.format.Formatting.format;
 import static org.uitest4j.swing.query.ComponentShowingQuery.isShowing;
 
 import java.awt.Component;
+import java.util.Objects;
 
 import javax.annotation.Nonnull;
 
@@ -44,7 +44,7 @@ public class WaitForComponentToShowCondition extends Condition {
 
   private WaitForComponentToShowCondition(@Nonnull Component c) {
     super(concat("Component ", format(c), " to show on the screen"));
-    this.c = checkNotNull(c);
+    this.c = Objects.requireNonNull(c);
   }
 
   /**

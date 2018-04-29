@@ -17,8 +17,8 @@ import org.uitest4j.swing.annotation.RunsInEDT;
 import javax.annotation.Nonnull;
 import javax.swing.*;
 import java.awt.*;
+import java.util.Objects;
 
-import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
@@ -31,8 +31,8 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 final class MenuElementComponentQuery {
   @RunsInEDT
   static @Nonnull Component componentIn(final @Nonnull MenuElement menuElement) {
-    Component result = execute(() -> menuElement.getComponent());
-    return checkNotNull(result);
+    Component result = execute(menuElement::getComponent);
+    return Objects.requireNonNull(result);
   }
 
   private MenuElementComponentQuery() {

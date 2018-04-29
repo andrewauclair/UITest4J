@@ -126,12 +126,12 @@ public final class Strings {
    * @param name the name of the string to use in the AssertionFailedError, if one is thrown.
    * @return {@Code String} the input string is checks have passed.
    * @throws NullPointerException if the given string was null.
-   * @throws AssertionFailedError if the given string was empty.
+   * @throws IllegalArgumentException if the given string was empty.
    */
   public static String checkNotNullOrEmpty(String str, String name) {
     Objects.requireNonNull(str);
     if (str.isEmpty()) {
-      throw new AssertionFailedError(name + " should be non-empty string.");
+      throw new IllegalArgumentException(name + " should be non-empty string.");
     }
     return str;
   }

@@ -21,9 +21,9 @@ import javax.annotation.Nullable;
 import javax.swing.*;
 import javax.swing.text.JTextComponent;
 import java.awt.*;
+import java.util.Objects;
 
 import static java.awt.event.KeyEvent.VK_F2;
-import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.uitest4j.swing.core.MouseButton.LEFT_BUTTON;
 
 /**
@@ -64,7 +64,7 @@ public class JTableTextComponentEditorCellWriter extends AbstractJTableCellWrite
       textComponent = activateEditorWithDoubleClick(table, row, column, cellLocation);
     }
     cellEditor(cellEditor(table, row, column));
-    return checkNotNull(textComponent);
+    return Objects.requireNonNull(textComponent);
   }
 
   @RunsInEDT
