@@ -18,7 +18,7 @@ import org.assertj.swing.test.recorder.ClickRecorder;
 import org.assertj.swing.test.recorder.ClickRecorderManager;
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.swing.awt.AWT.centerOf;
+import static org.uitest4j.swing.awt.AWT.centerOf;
 import static org.assertj.swing.core.MouseButton.*;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 

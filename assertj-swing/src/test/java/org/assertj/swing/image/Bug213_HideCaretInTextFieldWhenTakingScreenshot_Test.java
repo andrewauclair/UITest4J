@@ -20,7 +20,7 @@ import org.uitest4j.swing.annotation.RunsInEDT;
 import javax.swing.*;
 import java.awt.image.BufferedImage;
 
-import static org.assertj.swing.assertions.Assertions.assertThat;
+import static org.uitest4j.swing.assertions.Assertions.assertThat;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 /**

@@ -996,11 +996,11 @@
         the event dispatch thread. 
       </action>
       <action dev="alexruiz" type="fix" issue="187">
-        Moved class AWT from package org.assertj.swing.util to org.assertj.swing.awt.
+          Moved class AWT from package org.assertj.swing.util to org.uitest4j.swing.awt.
       </action>
       <action dev="alexruiz, wanghy" type="fix" issue="187">
-        Removed method 'runInEventThreadAndWait' in org.assertj.swing.awt.AWT. Replaced with 
-        org.assertj.swing.edt.GuiActionRunner and org.assertj.swing.edt.GuiTask.
+          Removed method 'runInEventThreadAndWait' in org.uitest4j.swing.awt.AWT. Replaced with
+          org.assertj.swing.edt.GuiActionRunner and org.assertj.swing.edt.GuiTask.
       </action>
       <action dev="alexruiz" type="fix" issue="187">
         Moved classes Condition, Pause and Timeout from package org.assertj.swing.core to org.assertj.swing.timing.
@@ -1027,7 +1027,7 @@
         the component, only if the component is an instance of javax.swing.JComponent.
       </action>
       <action dev="alexruiz" type="fix" issue="197" due-to="filimono">
-        Added method 'centerOfVisibleRect(JComponent)' to org.assertj.swing.awt.AWT.
+          Added method 'centerOfVisibleRect(JComponent)' to org.uitest4j.swing.awt.AWT.
       </action>
       <action dev="alexruiz" type="fix" issue="197" due-to="filimono">
         Added methods 'scrollToMaximum' and 'scrollToMinimum' to org.assertj.swing.fixture.JScrollBarDriver.

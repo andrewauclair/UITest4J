@@ -22,8 +22,8 @@ import java.util.Collection;
 import java.util.List;
 
 import static org.assertj.core.util.Lists.newArrayList;
-import static org.assertj.swing.awt.AWT.isAppletViewer;
-import static org.assertj.swing.awt.AWT.isSharedInvisibleFrame;
+import static org.uitest4j.swing.awt.AWT.isAppletViewer;
+import static org.uitest4j.swing.awt.AWT.isSharedInvisibleFrame;
 
 /**
  * Provides access to the current AWT hierarchy.

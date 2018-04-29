@@ -23,7 +23,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.awt.AWT.centerOf;
+import static org.uitest4j.swing.awt.AWT.centerOf;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.timing.Pause.pause;
 

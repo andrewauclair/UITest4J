@@ -22,7 +22,7 @@ import java.awt.*;
 
 import static java.awt.Color.BLUE;
 import static org.assertj.core.util.FailureMessages.actualIsNull;
-import static org.assertj.swing.assertions.error.ShouldHaveDimension.shouldHaveDimension;
+import static org.uitest4j.swing.assertions.error.ShouldHaveDimension.shouldHaveDimension;
 import static org.assertj.swing.test.awt.AwtTestData.newImage;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.verify;

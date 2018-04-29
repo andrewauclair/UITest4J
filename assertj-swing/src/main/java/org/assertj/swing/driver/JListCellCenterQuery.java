@@ -18,7 +18,7 @@ import javax.annotation.Nonnull;
 import javax.swing.*;
 import java.awt.*;
 
-import static org.assertj.swing.awt.AWT.centerOf;
+import static org.uitest4j.swing.awt.AWT.centerOf;
 
 /**
  * Calculates the centre of a cell in a {@code JList}.

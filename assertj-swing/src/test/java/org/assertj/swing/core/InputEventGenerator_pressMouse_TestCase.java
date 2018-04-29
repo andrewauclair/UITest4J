@@ -23,7 +23,7 @@ import java.util.Collection;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Lists.newArrayList;
-import static org.assertj.swing.awt.AWT.centerOf;
+import static org.uitest4j.swing.awt.AWT.centerOf;
 import static org.assertj.swing.timing.Pause.pause;
 
 /**

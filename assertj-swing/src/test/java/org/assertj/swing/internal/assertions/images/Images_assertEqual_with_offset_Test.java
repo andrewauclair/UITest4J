@@ -23,10 +23,10 @@ import java.awt.image.BufferedImage;
 
 import static java.awt.Color.BLUE;
 import static org.assertj.core.data.Offset.offset;
-import static org.assertj.swing.assertions.data.Point.atPoint;
-import static org.assertj.swing.assertions.error.ShouldBeEqualColors.shouldBeEqualColors;
-import static org.assertj.swing.assertions.error.ShouldBeEqualImages.shouldBeEqualImages;
-import static org.assertj.swing.assertions.error.ShouldHaveDimension.shouldHaveDimension;
+import static org.uitest4j.swing.assertions.data.Point.atPoint;
+import static org.uitest4j.swing.assertions.error.ShouldBeEqualColors.shouldBeEqualColors;
+import static org.uitest4j.swing.assertions.error.ShouldBeEqualImages.shouldBeEqualImages;
+import static org.uitest4j.swing.assertions.error.ShouldHaveDimension.shouldHaveDimension;
 import static org.assertj.swing.test.ErrorMessages.offsetIsNull;
 import static org.assertj.swing.test.awt.AwtTestData.*;
 import static org.junit.jupiter.api.Assertions.assertThrows;

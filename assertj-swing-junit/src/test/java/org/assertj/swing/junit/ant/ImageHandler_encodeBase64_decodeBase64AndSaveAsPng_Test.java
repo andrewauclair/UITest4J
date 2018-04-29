@@ -18,7 +18,7 @@ import static java.io.File.separator;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Files.newTemporaryFolder;
 import static org.assertj.core.util.Strings.concat;
-import static org.assertj.swing.assertions.Assertions.assertThat;
+import static org.uitest4j.swing.assertions.Assertions.assertThat;
 import static org.assertj.swing.util.ImageReader.readImageFrom;
 
 import java.awt.image.BufferedImage;

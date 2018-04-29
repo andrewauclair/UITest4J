@@ -19,7 +19,7 @@ import org.junit.jupiter.api.Test;
 
 import java.awt.*;
 
-import static org.assertj.swing.awt.AWT.centerOf;
+import static org.uitest4j.swing.awt.AWT.centerOf;
 
 /**
  * Tests for {@link ComponentDriver#click(java.awt.Component, java.awt.Point)}.

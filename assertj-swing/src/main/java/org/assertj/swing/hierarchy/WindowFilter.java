@@ -20,7 +20,7 @@ import java.awt.*;
 import java.util.Collection;
 import java.util.Map;
 
-import static org.assertj.swing.awt.AWT.isSharedInvisibleFrame;
+import static org.uitest4j.swing.awt.AWT.isSharedInvisibleFrame;
 import static org.assertj.swing.util.Maps.newWeakHashMap;
 
 /**

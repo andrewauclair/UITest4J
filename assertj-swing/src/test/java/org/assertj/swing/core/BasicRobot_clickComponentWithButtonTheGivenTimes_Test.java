@@ -21,7 +21,7 @@ import javax.swing.*;
 import java.util.Collection;
 
 import static org.assertj.core.util.Lists.newArrayList;
-import static org.assertj.swing.awt.AWT.centerOf;
+import static org.uitest4j.swing.awt.AWT.centerOf;
 import static org.assertj.swing.core.ClickingDataProvider.clickingData;
 
 /**

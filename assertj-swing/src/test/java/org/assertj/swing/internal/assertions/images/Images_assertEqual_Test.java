@@ -21,7 +21,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 
 import static java.awt.Color.BLUE;
-import static org.assertj.swing.assertions.data.Point.atPoint;
+import static org.uitest4j.swing.assertions.data.Point.atPoint;
 import static org.assertj.swing.test.awt.AwtTestData.*;
 
 /**

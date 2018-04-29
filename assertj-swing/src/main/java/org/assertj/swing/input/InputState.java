@@ -17,7 +17,7 @@ import static java.awt.AWTEvent.MOUSE_EVENT_MASK;
 import static java.awt.AWTEvent.MOUSE_MOTION_EVENT_MASK;
 import static javax.swing.SwingUtilities.getDeepestComponentAt;
 import static org.assertj.core.util.Preconditions.checkNotNull;
-import static org.assertj.swing.awt.AWT.locationOnScreenOf;
+import static org.uitest4j.swing.awt.AWT.locationOnScreenOf;
 import static org.assertj.swing.input.MouseInfo.BUTTON_MASK;
 
 import java.awt.AWTEvent;

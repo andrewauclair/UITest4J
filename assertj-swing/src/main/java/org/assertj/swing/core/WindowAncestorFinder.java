@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
 import javax.swing.*;
 import java.awt.*;
 
-import static org.assertj.swing.awt.AWT.invokerOf;
+import static org.uitest4j.swing.awt.AWT.invokerOf;
 
 /**
  * Looks up an AWT or Swing {@code Component}'s {@code Window} ancestor.

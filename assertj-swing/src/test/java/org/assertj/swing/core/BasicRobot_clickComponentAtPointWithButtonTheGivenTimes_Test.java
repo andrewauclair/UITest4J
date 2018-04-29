@@ -22,8 +22,8 @@ import java.util.Collection;
 
 import static org.assertj.core.util.Lists.newArrayList;
 import static org.assertj.core.util.Preconditions.checkNotNull;
-import static org.assertj.swing.awt.AWT.locationOnScreenOf;
-import static org.assertj.swing.awt.AWT.visibleCenterOf;
+import static org.uitest4j.swing.awt.AWT.locationOnScreenOf;
+import static org.uitest4j.swing.awt.AWT.visibleCenterOf;
 import static org.assertj.swing.core.ClickingDataProvider.clickingData;
 
 /**

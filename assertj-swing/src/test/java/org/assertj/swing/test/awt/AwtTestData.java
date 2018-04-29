@@ -13,13 +13,13 @@
 package org.assertj.swing.test.awt;
 
 import static java.awt.image.BufferedImage.TYPE_INT_ARGB;
-import static org.assertj.swing.assertions.data.RgbColor.color;
+import static org.uitest4j.swing.assertions.data.RgbColor.color;
 
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
-import org.assertj.swing.assertions.data.RgbColor;
+import org.uitest4j.swing.assertions.data.RgbColor;
 
 /**
  * @author Alex Ruiz

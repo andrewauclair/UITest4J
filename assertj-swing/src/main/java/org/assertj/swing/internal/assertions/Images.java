@@ -14,11 +14,11 @@ package org.assertj.swing.internal.assertions;
 
 import static org.assertj.core.data.Offset.offset;
 import static org.assertj.core.util.Objects.areEqual;
-import static org.assertj.swing.assertions.data.RgbColor.color;
-import static org.assertj.swing.assertions.error.ShouldBeEqualColors.shouldBeEqualColors;
-import static org.assertj.swing.assertions.error.ShouldBeEqualImages.shouldBeEqualImages;
-import static org.assertj.swing.assertions.error.ShouldHaveDimension.shouldHaveDimension;
-import static org.assertj.swing.assertions.error.ShouldNotBeEqualImages.shouldNotBeEqualImages;
+import static org.uitest4j.swing.assertions.data.RgbColor.color;
+import static org.uitest4j.swing.assertions.error.ShouldBeEqualColors.shouldBeEqualColors;
+import static org.uitest4j.swing.assertions.error.ShouldBeEqualImages.shouldBeEqualImages;
+import static org.uitest4j.swing.assertions.error.ShouldHaveDimension.shouldHaveDimension;
+import static org.uitest4j.swing.assertions.error.ShouldNotBeEqualImages.shouldNotBeEqualImages;
 import static org.assertj.swing.internal.assertions.ColorComparisonResult.ARE_EQUAL;
 import static org.assertj.swing.internal.assertions.ColorComparisonResult.notEqual;
 
@@ -31,7 +31,7 @@ import org.assertj.core.error.ErrorMessageFactory;
 import org.assertj.core.internal.Failures;
 import org.assertj.core.internal.Objects;
 import org.assertj.core.util.VisibleForTesting;
-import org.assertj.swing.assertions.data.RgbColor;
+import org.uitest4j.swing.assertions.data.RgbColor;
 
 /**
  * Reusable assertions for <code>{@link BufferedImage}</code>s.

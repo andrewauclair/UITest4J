@@ -13,7 +13,7 @@
 package org.assertj.swing.internal.assertions.images;
 
 import static java.awt.Color.BLUE;
-import static org.assertj.swing.assertions.error.ShouldNotBeEqualImages.shouldNotBeEqualImages;
+import static org.uitest4j.swing.assertions.error.ShouldNotBeEqualImages.shouldNotBeEqualImages;
 import static org.assertj.swing.test.awt.AwtTestData.fivePixelBlueImage;
 import static org.assertj.swing.test.awt.AwtTestData.fivePixelYellowImage;
 import static org.assertj.swing.test.awt.AwtTestData.newImage;

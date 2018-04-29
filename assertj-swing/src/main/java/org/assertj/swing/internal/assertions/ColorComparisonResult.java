@@ -12,10 +12,10 @@
  */
 package org.assertj.swing.internal.assertions;
 
-import static org.assertj.swing.assertions.data.Point.atPoint;
+import static org.uitest4j.swing.assertions.data.Point.atPoint;
 
-import org.assertj.swing.assertions.data.Point;
-import org.assertj.swing.assertions.data.RgbColor;
+import org.uitest4j.swing.assertions.data.Point;
+import org.uitest4j.swing.assertions.data.RgbColor;
 
 /**
  * @author Yvonne Wang
