@@ -19,7 +19,7 @@ import javax.annotation.Nonnull;
 import java.awt.*;
 
 import static org.assertj.core.util.Strings.concat;
-import static org.assertj.swing.exception.ActionFailedException.actionFailure;
+import static org.uitest4j.swing.exception.ActionFailedException.actionFailure;
 import static org.assertj.swing.format.Formatting.format;
 
 /**

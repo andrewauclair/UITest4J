@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.core;
 
-import org.assertj.swing.exception.ComponentLookupException;
+import org.uitest4j.swing.exception.ComponentLookupException;
 import org.assertj.swing.test.ExpectedException;
 import org.junit.jupiter.api.Test;
 

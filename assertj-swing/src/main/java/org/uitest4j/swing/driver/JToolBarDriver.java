@@ -31,7 +31,7 @@ import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.uitest4j.swing.driver.ComponentPreconditions.checkEnabledAndShowing;
 import static org.uitest4j.swing.driver.JToolBarIsFloatingQuery.isJToolBarFloating;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.exception.ActionFailedException.actionFailure;
+import static org.uitest4j.swing.exception.ActionFailedException.actionFailure;
 import static org.assertj.swing.format.Formatting.format;
 
 /**
@@ -79,7 +79,7 @@ public class JToolBarDriver extends JComponentDriver {
    * @throws IllegalStateException if the {@code JToolBar} is disabled.
    * @throws IllegalStateException if the {@code JToolBar} is not showing on the screen.
    * @throws IllegalStateException if the {@code JToolBar} is not floatable.
-   * @throws org.assertj.swing.exception.ActionFailedException if the {@code JToolBar} cannot be dragged.
+   * @throws org.uitest4j.swing.exception.ActionFailedException if the {@code JToolBar} cannot be dragged.
    */
   public void makeFloat(@Nonnull JToolBar toolBar) {
     Pair<Point, Pair<Window, Point>> floatInfo = floatInfo(toolBar, location());
@@ -96,7 +96,7 @@ public class JToolBarDriver extends JComponentDriver {
    * @throws IllegalStateException if the {@code JToolBar} is disabled.
    * @throws IllegalStateException if the {@code JToolBar} is not showing on the screen.
    * @throws IllegalStateException if the {@code JToolBar} is not floatable.
-   * @throws org.assertj.swing.exception.ActionFailedException if the {@code JToolBar} cannot be dragged.
+   * @throws org.uitest4j.swing.exception.ActionFailedException if the {@code JToolBar} cannot be dragged.
    */
   @RunsInEDT
   public void floatTo(@Nonnull JToolBar toolBar, int x, int y) {
@@ -160,7 +160,7 @@ public class JToolBarDriver extends JComponentDriver {
    * @throws IllegalStateException if the {@code JToolBar} is disabled.
    * @throws IllegalStateException if the {@code JToolBar} is not showing on the screen.
    * @throws IllegalArgumentException if the constraint has an invalid value.
-   * @throws org.assertj.swing.exception.ActionFailedException if the dock container cannot be found.
+   * @throws org.uitest4j.swing.exception.ActionFailedException if the dock container cannot be found.
    */
   @RunsInEDT
   public void unfloat(@Nonnull JToolBar toolBar, @Nonnull String constraint) {

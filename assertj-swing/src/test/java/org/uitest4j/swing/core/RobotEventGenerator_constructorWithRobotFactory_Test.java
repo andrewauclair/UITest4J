@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.core;
 
-import org.assertj.swing.exception.UnexpectedException;
+import org.uitest4j.swing.exception.UnexpectedException;
 import org.assertj.swing.util.RobotFactory;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

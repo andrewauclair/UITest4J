@@ -20,7 +20,7 @@ import javax.annotation.Nonnull;
 import javax.swing.JButton;
 import javax.swing.JTree;
 
-import org.assertj.swing.exception.ComponentLookupException;
+import org.uitest4j.swing.exception.ComponentLookupException;
 import org.junit.jupiter.api.Test;
 
 /**

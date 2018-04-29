@@ -56,8 +56,8 @@ public class JComboBoxFixture extends AbstractJPopupMenuInvokerFixture<JComboBox
    * @param robot performs simulation of user events on a {@code JComboBox}.
    * @param comboBoxName the name of the {@code JComboBox} to find using the given {@code Robot}.
    * @throws NullPointerException if {@code robot} is {@code null}.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a matching {@code JComboBox} could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching {@code JComboBox} is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching {@code JComboBox} could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching {@code JComboBox} is found.
    */
   public JComboBoxFixture(@Nonnull Robot robot, @Nullable String comboBoxName) {
     super(JComboBoxFixture.class, robot, comboBoxName, JComboBox.class);
@@ -112,7 +112,7 @@ public class JComboBoxFixture extends AbstractJPopupMenuInvokerFixture<JComboBox
    * 
    * @param text the text of the item to select. It can be a regular expression.
    * @return this fixture.
-   * @throws org.assertj.swing.exception.LocationUnavailableException if an element matching the given text cannot be found.
+   * @throws org.uitest4j.swing.exception.LocationUnavailableException if an element matching the given text cannot be found.
    * @throws IllegalStateException if this fixture's {@code JComboBox} is disabled.
    * @throws IllegalStateException if this fixture's {@code JComboBox} is not showing on the screen.
    * @see #replaceCellReader(JComboBoxCellReader)
@@ -129,7 +129,7 @@ public class JComboBoxFixture extends AbstractJPopupMenuInvokerFixture<JComboBox
    * 
    * @param pattern the regular expression pattern to match.
    * @return this fixture.
-   * @throws org.assertj.swing.exception.LocationUnavailableException if an element matching the given pattern cannot be found.
+   * @throws org.uitest4j.swing.exception.LocationUnavailableException if an element matching the given pattern cannot be found.
    * @throws IllegalStateException if this fixture's {@code JComboBox} is disabled.
    * @throws IllegalStateException if this fixture's {@code JComboBox} is not showing on the screen.
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
@@ -300,7 +300,7 @@ public class JComboBoxFixture extends AbstractJPopupMenuInvokerFixture<JComboBox
    * @throws IllegalStateException if this fixture's {@code JComboBox} is disabled.
    * @throws IllegalStateException if this fixture's {@code JComboBox} is not showing on the screen.
    * @throws IllegalStateException if this fixture's {@code JComboBox} is not editable.
-   * @throws org.assertj.swing.exception.ActionFailedException if this fixture's {@code JComboBox} does not have an editor.
+   * @throws org.uitest4j.swing.exception.ActionFailedException if this fixture's {@code JComboBox} does not have an editor.
    */
   @Nonnull public JComboBoxFixture enterText(@Nonnull String text) {
     driver().enterText(target(), text);
@@ -311,7 +311,7 @@ public class JComboBoxFixture extends AbstractJPopupMenuInvokerFixture<JComboBox
    * Finds and returns the {@code JList} in the pop-up raised by this fixture's {@code JComboBox}.
    * 
    * @return the {@code JList} in the pop-up raised by this fixture's {@code JComboBox}.
-   * @throws org.assertj.swing.exception.ComponentLookupException if the {@code JList} in the pop-up could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if the {@code JList} in the pop-up could not be found.
    */
   @Nonnull public JList list() {
     return driver().dropDownList();

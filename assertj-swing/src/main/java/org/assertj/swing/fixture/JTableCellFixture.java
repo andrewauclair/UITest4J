@@ -183,7 +183,7 @@ public class JTableCellFixture implements ItemFixture<JTableCellFixture> {
    * @throws IllegalStateException if this fixture's {@code JTable} is not showing on the screen.
    * @throws IllegalStateException if this cell is not editable.
    * @throws IndexOutOfBoundsException if any of the indices (row and column) is out of bounds.
-   * @throws org.assertj.swing.exception.ActionFailedException if this writer is unable to handle the underlying cell
+   * @throws org.uitest4j.swing.exception.ActionFailedException if this writer is unable to handle the underlying cell
    *           editor.
    * @see JTableFixture#replaceCellWriter(org.uitest4j.swing.cell.JTableCellWriter)
    * @see org.uitest4j.swing.cell.JTableCellWriter
@@ -207,7 +207,7 @@ public class JTableCellFixture implements ItemFixture<JTableCellFixture> {
    * @throws IllegalStateException if this fixture's {@code JTable} is not showing on the screen.
    * @throws IllegalStateException if this cell is not editable.
    * @throws IndexOutOfBoundsException if any of the indices (row and column) is out of bounds.
-   * @throws org.assertj.swing.exception.ActionFailedException if this writer is unable to handle the underlying cell
+   * @throws org.uitest4j.swing.exception.ActionFailedException if this writer is unable to handle the underlying cell
    *           editor.
    * @see JTableFixture#replaceCellWriter(org.uitest4j.swing.cell.JTableCellWriter)
    * @see org.uitest4j.swing.cell.JTableCellWriter
@@ -245,7 +245,7 @@ public class JTableCellFixture implements ItemFixture<JTableCellFixture> {
    * @throws IllegalStateException if this fixture's {@code JTable} is not showing on the screen.
    * @throws IllegalStateException if this cell is not editable.
    * @throws IndexOutOfBoundsException if any of the indices (row and column) is out of bounds.
-   * @throws org.assertj.swing.exception.ActionFailedException if this writer is unable to handle the underlying cell
+   * @throws org.uitest4j.swing.exception.ActionFailedException if this writer is unable to handle the underlying cell
    *           editor.
    * @see JTableFixture#replaceCellWriter(org.uitest4j.swing.cell.JTableCellWriter)
    * @see org.uitest4j.swing.cell.JTableCellWriter
@@ -298,7 +298,7 @@ public class JTableCellFixture implements ItemFixture<JTableCellFixture> {
    * @throws IllegalStateException if this fixture's {@code JTable} is not showing on the screen.
    * @throws IllegalStateException if this cell is not editable.
    * @throws IndexOutOfBoundsException if any of the indices (row and column) is out of bounds.
-   * @throws org.assertj.swing.exception.ActionFailedException if this driver's {@code JTableCellValueReader} is unable
+   * @throws org.uitest4j.swing.exception.ActionFailedException if this driver's {@code JTableCellValueReader} is unable
    *           to enter the given value.
    * @see JTableFixture#replaceCellWriter(org.uitest4j.swing.cell.JTableCellWriter)
    * @see org.uitest4j.swing.cell.JTableCellWriter
@@ -409,7 +409,7 @@ public class JTableCellFixture implements ItemFixture<JTableCellFixture> {
    * Shows a pop-up menu using this fixture's table cell as the invoker of the pop-up menu.
    *
    * @return a fixture that manages the displayed pop-up menu.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
    */
   @Override
   @Nonnull public JPopupMenuFixture showPopupMenu() {

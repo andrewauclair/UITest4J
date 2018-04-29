@@ -10,25 +10,22 @@
  *
  * Copyright 2012-2015 the original author or authors.
  */
-package org.assertj.swing.exception;
+package org.uitest4j.swing.exception;
 
-import javax.annotation.Nonnull;
+import static org.assertj.core.api.Assertions.assertThat;
+
+import org.junit.jupiter.api.Test;
 
 /**
- * Error thrown when a wait (for some condition) times out.
- *
- * @author Yvonne Wang
+ * Tests for {@link LocationUnavailableException#LocationUnavailableException(String, Throwable)}.
+ * 
+ * @author Alex Ruiz
  */
-public final class WaitTimedOutError extends RuntimeException {
-  /** Generated serial version UID. */
-  private static final long serialVersionUID = 4272325985481493108L;
-
-  /**
-   * Creates a new {@link WaitTimedOutError}.
-   *
-   * @param message the detail message.
-   */
-  public WaitTimedOutError(@Nonnull String message) {
-    super(message);
+public class LocationUnavailableException_constructor_withCause_Test {
+  @Test
+  public void should_Create_Error_With_Cause() {
+    Throwable cause = new Throwable();
+    LocationUnavailableException e = new LocationUnavailableException("A Failure", cause);
+    assertThat(e.getCause()).isSameAs(cause);
   }
 }

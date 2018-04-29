@@ -14,7 +14,7 @@ package org.uitest4j.swing.edt;
 
 import static javax.swing.SwingUtilities.isEventDispatchThread;
 
-import org.assertj.swing.exception.ActionFailedException;
+import org.uitest4j.swing.exception.ActionFailedException;
 
 /**
  * Task that should be executed in the event dispatch thread (EDT).

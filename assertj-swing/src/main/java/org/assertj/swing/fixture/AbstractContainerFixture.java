@@ -54,8 +54,8 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
    * @param type the type of the {@code Container} to find using the given {@code Robot}.
    * @throws NullPointerException if {@code robot} is {@code null}.
    * @throws NullPointerException if {@code type} is {@code null}.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching component is found.
    * @see org.uitest4j.swing.core.ComponentFinder#findByType(Class)
    */
   public AbstractContainerFixture(@Nonnull Class<S> selfType, @Nonnull Robot robot, @Nonnull Class<? extends C> type) {
@@ -72,8 +72,8 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
    * @param type the type of the {@code Container} to find using the given {@code Robot}.
    * @throws NullPointerException if {@code robot} is {@code null}.
    * @throws NullPointerException if {@code type} is {@code null}.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching component is found.
    * @see org.uitest4j.swing.core.ComponentFinder#findByName(String, Class)
    */
   public AbstractContainerFixture(@Nonnull Class<S> selfType, @Nonnull Robot robot, @Nullable String name,
@@ -591,8 +591,8 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
    * @param <T> the type of component to find.
    * @param type the class for the type.
    * @return the found component.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching component is found.
    */
   protected final @Nonnull <T extends Component> T findByType(@Nonnull Class<T> type) {
     return finder().findByType(target(), type, requireShowing());
@@ -605,8 +605,8 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
    * @param <T> the type of component to find.
    * @param type the class for the type.
    * @return the found component.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching component is found.
    */
   protected final @Nonnull <T extends Component> T findByName(@Nullable String name, @Nonnull Class<T> type) {
     return finder().findByName(target(), name, type, requireShowing());
@@ -619,8 +619,8 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
    * @param <T> the type of component to find.
    * @param matcher the matcher to use to find the component.
    * @return the found component.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching component is found.
    */
   protected final @Nonnull <T extends Component> T find(@Nonnull GenericTypeMatcher<? extends T> matcher) {
     return finder().find(target(), matcher);

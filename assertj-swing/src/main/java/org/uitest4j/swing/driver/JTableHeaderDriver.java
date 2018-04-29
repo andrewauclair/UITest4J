@@ -99,7 +99,7 @@ public class JTableHeaderDriver extends JComponentDriver {
    * @param columnName the column name to match. It can be a regular expression.
    * @throws IllegalStateException if the {@code JTableHeader} is disabled.
    * @throws IllegalStateException if the {@code JTableHeader} is not showing on the screen.
-   * @throws org.assertj.swing.exception.LocationUnavailableException if a column with a matching name cannot be found.
+   * @throws org.uitest4j.swing.exception.LocationUnavailableException if a column with a matching name cannot be found.
    */
   @RunsInEDT
   public void clickColumn(@Nonnull JTableHeader tableHeader, @Nullable String columnName) {
@@ -114,7 +114,7 @@ public class JTableHeaderDriver extends JComponentDriver {
    * @throws IllegalStateException if the {@code JTableHeader} is disabled.
    * @throws IllegalStateException if the {@code JTableHeader} is not showing on the screen.
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
-   * @throws org.assertj.swing.exception.LocationUnavailableException if a column with a matching name cannot be found.
+   * @throws org.uitest4j.swing.exception.LocationUnavailableException if a column with a matching name cannot be found.
    */
   @RunsInEDT
   public void clickColumn(@Nonnull JTableHeader tableHeader, @Nonnull Pattern columnNamePattern) {
@@ -130,7 +130,7 @@ public class JTableHeaderDriver extends JComponentDriver {
    * @param times the number of times to click.
    * @throws IllegalStateException if the {@code JTableHeader} is disabled.
    * @throws IllegalStateException if the {@code JTableHeader} is not showing on the screen.
-   * @throws org.assertj.swing.exception.LocationUnavailableException if a column with a matching name cannot be found.
+   * @throws org.uitest4j.swing.exception.LocationUnavailableException if a column with a matching name cannot be found.
    */
   @RunsInEDT
   public void clickColumn(@Nonnull JTableHeader tableHeader, @Nullable String columnName, @Nonnull MouseButton button,
@@ -149,7 +149,7 @@ public class JTableHeaderDriver extends JComponentDriver {
    * @throws IllegalStateException if the {@code JTableHeader} is disabled.
    * @throws IllegalStateException if the {@code JTableHeader} is not showing on the screen.
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
-   * @throws org.assertj.swing.exception.LocationUnavailableException if a column with a matching name cannot be found.
+   * @throws org.uitest4j.swing.exception.LocationUnavailableException if a column with a matching name cannot be found.
    */
   @RunsInEDT
   public void clickColumn(@Nonnull JTableHeader tableHeader, @Nonnull Pattern columnNamePattern,
@@ -173,7 +173,7 @@ public class JTableHeaderDriver extends JComponentDriver {
    * @throws IllegalStateException if the {@code JTableHeader} is disabled.
    * @throws IllegalStateException if the {@code JTableHeader} is not showing on the screen.
    * @throws IndexOutOfBoundsException if the index is out of bounds.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
    */
   @RunsInEDT
   @Nonnull public JPopupMenu showPopupMenu(@Nonnull JTableHeader tableHeader, int columnIndex) {
@@ -200,7 +200,7 @@ public class JTableHeaderDriver extends JComponentDriver {
    * @return the displayed pop-up menu.
    * @throws IllegalStateException if the {@code JTableHeader} is disabled.
    * @throws IllegalStateException if the {@code JTableHeader} is not showing on the screen.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
    */
   @RunsInEDT
   @Nonnull public JPopupMenu showPopupMenu(@Nonnull JTableHeader tableHeader, @Nullable String columnName) {
@@ -216,7 +216,7 @@ public class JTableHeaderDriver extends JComponentDriver {
    * @throws IllegalStateException if the {@code JTableHeader} is disabled.
    * @throws IllegalStateException if the {@code JTableHeader} is not showing on the screen.
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
    */
   @RunsInEDT
   @Nonnull public JPopupMenu showPopupMenu(@Nonnull JTableHeader tableHeader, @Nonnull Pattern pattern) {

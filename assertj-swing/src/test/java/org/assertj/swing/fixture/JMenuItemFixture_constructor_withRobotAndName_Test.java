@@ -20,7 +20,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
-import org.assertj.swing.exception.ComponentLookupException;
+import org.uitest4j.swing.exception.ComponentLookupException;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.jupiter.api.Test;

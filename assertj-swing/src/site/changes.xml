@@ -1616,8 +1616,8 @@
                 org.uitest4j.swing.annotation.
             </action>
 			<action dev="alexruiz" type="fix" issue="59">
-				Moved exception classes in package org.assertj.swing to org.assertj.swing.exception.
-			</action>
+                Moved exception classes in package org.assertj.swing to org.uitest4j.swing.exception.
+            </action>
 			<action dev="alexruiz" type="fix" issue="59">
                 Moved classes in package org.assertj.swing to org.uitest4j.swing.core.
             </action>

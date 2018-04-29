@@ -14,9 +14,9 @@ package org.uitest4j.swing.core;
 
 import org.assertj.core.util.VisibleForTesting;
 import org.uitest4j.swing.edt.GuiQuery;
-import org.assertj.swing.exception.ComponentLookupException;
-import org.assertj.swing.exception.UnexpectedException;
-import org.assertj.swing.exception.WaitTimedOutError;
+import org.uitest4j.swing.exception.ComponentLookupException;
+import org.uitest4j.swing.exception.UnexpectedException;
+import org.uitest4j.swing.exception.WaitTimedOutError;
 import org.assertj.swing.hierarchy.ComponentHierarchy;
 import org.assertj.swing.hierarchy.ExistingHierarchy;
 import org.assertj.swing.input.InputState;
@@ -66,7 +66,7 @@ import static org.uitest4j.swing.core.MouseButton.RIGHT_BUTTON;
 import static org.uitest4j.swing.core.Scrolling.scrollToVisible;
 import static org.uitest4j.swing.core.WindowAncestorFinder.windowAncestorOf;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.exception.ActionFailedException.actionFailure;
+import static org.uitest4j.swing.exception.ActionFailedException.actionFailure;
 import static org.assertj.swing.format.Formatting.format;
 import static org.assertj.swing.format.Formatting.inEdtFormat;
 import static org.assertj.swing.hierarchy.NewHierarchy.ignoreExistingComponents;
@@ -889,7 +889,7 @@ public class BasicRobot implements Robot {
    *
    * @param c the given {@code Component}.
    * @return {@code true} if the given {@code Component} is ready for input, {@code false} otherwise.
-   * @throws org.assertj.swing.exception.ActionFailedException if the given {@code Component} does not have a
+   * @throws org.uitest4j.swing.exception.ActionFailedException if the given {@code Component} does not have a
    *           {@code Window} ancestor.
    */
   @Override

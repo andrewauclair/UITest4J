@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.edt;
 
-import org.assertj.swing.exception.EdtViolationException;
+import org.uitest4j.swing.exception.EdtViolationException;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;

@@ -29,7 +29,7 @@ import org.assertj.core.util.Strings;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.core.KeyPressInfo;
 import org.uitest4j.swing.driver.JComponentDriver;
-import org.assertj.swing.exception.LocationUnavailableException;
+import org.uitest4j.swing.exception.LocationUnavailableException;
 import org.assertj.swing.query.ComponentEnabledQuery;
 
 import com.jidesoft.combobox.AbstractComboBox;

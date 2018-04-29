@@ -24,7 +24,7 @@ import javax.swing.*;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.uitest4j.swing.data.TableCell.row;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.exception.ActionFailedException.actionFailure;
+import static org.uitest4j.swing.exception.ActionFailedException.actionFailure;
 
 /**
  * Returns the first cell in a {@code JTable} whose value matches the given one. This query is executed in the event

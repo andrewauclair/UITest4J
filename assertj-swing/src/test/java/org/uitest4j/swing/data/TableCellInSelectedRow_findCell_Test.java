@@ -13,7 +13,7 @@
 package org.uitest4j.swing.data;
 
 import org.uitest4j.swing.driver.BasicJTableCellReader;
-import org.assertj.swing.exception.ActionFailedException;
+import org.uitest4j.swing.exception.ActionFailedException;
 import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.annotation.RunsInEDT;
 

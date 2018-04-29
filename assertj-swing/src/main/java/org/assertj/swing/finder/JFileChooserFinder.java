@@ -133,7 +133,7 @@ public class JFileChooserFinder extends ComponentFinderTemplate<JFileChooser> {
    *
    * @param robot contains the underlying finding to delegate the search to.
    * @return a {@code JFileChooserFixture} managing the found {@code JFileChooser}.
-   * @throws org.assertj.swing.exception.WaitTimedOutError if a {@code JFileChooser} could not be found.
+   * @throws org.uitest4j.swing.exception.WaitTimedOutError if a {@code JFileChooser} could not be found.
    */
   @Override
   @Nonnull public JFileChooserFixture using(@Nonnull Robot robot) {

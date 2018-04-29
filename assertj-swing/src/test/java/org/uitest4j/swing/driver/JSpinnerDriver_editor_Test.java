@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.driver;
 
-import org.assertj.swing.exception.ComponentLookupException;
+import org.uitest4j.swing.exception.ComponentLookupException;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;

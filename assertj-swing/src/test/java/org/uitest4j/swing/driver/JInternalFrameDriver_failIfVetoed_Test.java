@@ -16,8 +16,8 @@ import static org.uitest4j.swing.driver.JInternalFrameAction.MAXIMIZE;
 
 import java.beans.PropertyVetoException;
 
-import org.assertj.swing.exception.ActionFailedException;
-import org.assertj.swing.exception.UnexpectedException;
+import org.uitest4j.swing.exception.ActionFailedException;
+import org.uitest4j.swing.exception.UnexpectedException;
 import org.assertj.swing.test.ExpectedException;
 import org.junit.jupiter.api.Test;
 

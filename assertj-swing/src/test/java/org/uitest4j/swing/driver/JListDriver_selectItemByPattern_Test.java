@@ -16,7 +16,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.regex.Pattern;
 
-import org.assertj.swing.exception.LocationUnavailableException;
+import org.uitest4j.swing.exception.LocationUnavailableException;
 import org.assertj.swing.test.ExpectedException;
 import org.junit.jupiter.api.Test;
 

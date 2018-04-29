@@ -15,7 +15,7 @@ package org.uitest4j.swing.driver;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import org.assertj.swing.exception.LocationUnavailableException;
+import org.uitest4j.swing.exception.LocationUnavailableException;
 import org.junit.jupiter.api.Test;
 
 /**

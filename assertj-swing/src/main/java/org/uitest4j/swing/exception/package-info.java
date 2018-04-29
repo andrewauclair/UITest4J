@@ -10,22 +10,9 @@
  *
  * Copyright 2012-2015 the original author or authors.
  */
-package org.assertj.swing.exception;
-
-import static org.assertj.core.api.Assertions.assertThat;
-
-import org.junit.jupiter.api.Test;
-
 /**
- * Tests for {@link ActionFailedException#actionFailure(String, Throwable)}.
+ * Exceptions.
  * 
  * @author Alex Ruiz
  */
-public class ActionFailedException_actionFailure_withCause_Test {
-  @Test
-  public void should_Create_Error_With_Cause() {
-    Throwable cause = new Throwable();
-    ActionFailedException actionFailure = ActionFailedException.actionFailure("A Failure", cause);
-    assertThat(actionFailure.getCause()).isSameAs(cause);
-  }
-}
+package org.uitest4j.swing.exception;

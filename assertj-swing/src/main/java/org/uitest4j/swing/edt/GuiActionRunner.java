@@ -15,7 +15,7 @@ package org.uitest4j.swing.edt;
 import static javax.swing.SwingUtilities.invokeLater;
 import static javax.swing.SwingUtilities.isEventDispatchThread;
 import static org.assertj.core.util.Throwables.appendStackTraceInCurrentThreadToThrowable;
-import static org.assertj.swing.exception.UnexpectedException.unexpected;
+import static org.uitest4j.swing.exception.UnexpectedException.unexpected;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.CountDownLatch;
@@ -63,7 +63,7 @@ public class GuiActionRunner {
    * @param query the query to execute.
    * @param <T> the return type of the action to execute.
    * @return the result of the query executed in the main thread.
-   * @throws org.assertj.swing.exception.UnexpectedException wrapping any <b>checked</b> exception thrown when executing
+   * @throws org.uitest4j.swing.exception.UnexpectedException wrapping any <b>checked</b> exception thrown when executing
    *           the given query in the event dispatch thread (EDT). Unchecked exceptions are re-thrown without any
    *           wrapping.
    * @see #execute(GuiQuery)
@@ -84,7 +84,7 @@ public class GuiActionRunner {
    * @param query the query to execute.
    * @param <T> the return type of the action to execute.
    * @return the result of the query executed in the main thread.
-   * @throws org.assertj.swing.exception.UnexpectedException wrapping any <b>checked</b> exception thrown when executing
+   * @throws org.uitest4j.swing.exception.UnexpectedException wrapping any <b>checked</b> exception thrown when executing
    *           the given query in the
    *           event dispatch thread (EDT). Unchecked exceptions are re-thrown without any wrapping.
    * @see #executeInEDT()
@@ -111,7 +111,7 @@ public class GuiActionRunner {
    * execution.
    *
    * @param task the task to execute.
-   * @throws org.assertj.swing.exception.UnexpectedException wrapping any <b>checked</b> exception thrown when executing
+   * @throws org.uitest4j.swing.exception.UnexpectedException wrapping any <b>checked</b> exception thrown when executing
    *           the given query in the event dispatch thread (EDT). Unchecked exceptions are re-thrown without any
    *           wrapping.
    * @see #executeInEDT()
@@ -131,7 +131,7 @@ public class GuiActionRunner {
    * execution.
    *
    * @param task the task to execute.
-   * @throws org.assertj.swing.exception.UnexpectedException wrapping any <b>checked</b> exception thrown when executing
+   * @throws org.uitest4j.swing.exception.UnexpectedException wrapping any <b>checked</b> exception thrown when executing
    *           the given query in the
    *           event dispatch thread (EDT). Unchecked exceptions are re-thrown without any wrapping.
    * @see #executeInEDT()
@@ -177,10 +177,10 @@ public class GuiActionRunner {
   }
 
   /**
-   * Wraps, with a {@link org.assertj.swing.exception.UnexpectedException}, and re-throws any caught exception in the given action.
+   * Wraps, with a {@link org.uitest4j.swing.exception.UnexpectedException}, and re-throws any caught exception in the given action.
    *
    * @param action the given action that may have a caught exception during its execution.
-   * @throws org.assertj.swing.exception.UnexpectedException wrapping any <b>checked</b> exception thrown when executing the given query in the
+   * @throws org.uitest4j.swing.exception.UnexpectedException wrapping any <b>checked</b> exception thrown when executing the given query in the
    *           event dispatch thread (EDT). Unchecked exceptions are re-thrown without any wrapping.
    */
   private static void rethrowCaughtExceptionIn(@Nonnull GuiAction action) {

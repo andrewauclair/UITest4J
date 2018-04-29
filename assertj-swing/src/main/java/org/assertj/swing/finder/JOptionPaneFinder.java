@@ -115,7 +115,7 @@ public class JOptionPaneFinder extends ComponentFinderTemplate<JOptionPane> {
    *
    * @param robot contains the underlying finding to delegate the search to.
    * @return a {@code JOptionPaneFixture} managing the found {@code JOptionPane}.
-   * @throws org.assertj.swing.exception.WaitTimedOutError if a {@code JOptionPane} could not be found.
+   * @throws org.uitest4j.swing.exception.WaitTimedOutError if a {@code JOptionPane} could not be found.
    */
   @Override
   @Nonnull public JOptionPaneFixture using(@Nonnull Robot robot) {

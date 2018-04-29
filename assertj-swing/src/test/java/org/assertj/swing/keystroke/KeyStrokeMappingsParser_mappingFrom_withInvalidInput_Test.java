@@ -12,7 +12,7 @@
  */
 package org.assertj.swing.keystroke;
 
-import org.assertj.swing.exception.ParsingException;
+import org.uitest4j.swing.exception.ParsingException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

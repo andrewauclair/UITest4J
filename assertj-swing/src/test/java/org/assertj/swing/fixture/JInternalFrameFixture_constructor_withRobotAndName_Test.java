@@ -16,7 +16,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import org.assertj.swing.exception.ComponentLookupException;
+import org.uitest4j.swing.exception.ComponentLookupException;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestMdiWindow;
 import org.junit.jupiter.api.Test;

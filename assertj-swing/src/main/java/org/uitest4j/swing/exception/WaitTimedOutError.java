@@ -10,27 +10,25 @@
  *
  * Copyright 2012-2015 the original author or authors.
  */
-package org.assertj.swing.exception;
+package org.uitest4j.swing.exception;
 
 import javax.annotation.Nonnull;
 
 /**
- * Error thrown when a EDT violation is detected. For more details, please read the <a
- * href="http://java.sun.com/javase/6/docs/api/javax/swing/package-summary.html#threading" target="_blank">Swing's
- * Threading Policy</a>.
+ * Error thrown when a wait (for some condition) times out.
  *
- * @author Alex Ruiz
+ * @author Yvonne Wang
  */
-public class EdtViolationException extends RuntimeException {
+public final class WaitTimedOutError extends RuntimeException {
   /** Generated serial version UID. */
-  private static final long serialVersionUID = -4009316969453779435L;
+  private static final long serialVersionUID = 4272325985481493108L;
 
   /**
-   * Creates a new {@link EdtViolationException}.
+   * Creates a new {@link WaitTimedOutError}.
    *
    * @param message the detail message.
    */
-  public EdtViolationException(@Nonnull String message) {
+  public WaitTimedOutError(@Nonnull String message) {
     super(message);
   }
 }

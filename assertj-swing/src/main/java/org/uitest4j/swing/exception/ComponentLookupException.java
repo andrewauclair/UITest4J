@@ -10,7 +10,7 @@
  *
  * Copyright 2012-2015 the original author or authors.
  */
-package org.assertj.swing.exception;
+package org.uitest4j.swing.exception;
 
 import static java.util.Collections.unmodifiableCollection;
 import static org.assertj.core.util.Lists.newArrayList;

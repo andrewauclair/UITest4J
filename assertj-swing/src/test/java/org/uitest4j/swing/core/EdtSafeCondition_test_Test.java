@@ -12,9 +12,8 @@
  */
 package org.uitest4j.swing.core;
 
-import org.assertj.swing.exception.EdtViolationException;
+import org.uitest4j.swing.exception.EdtViolationException;
 import org.assertj.swing.test.data.BooleanProvider;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 

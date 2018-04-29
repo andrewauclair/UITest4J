@@ -31,7 +31,7 @@ public interface TableCellFinder {
    * @param table the target {@code JTable}.
    * @param cellReader knows how to read the contents of a cell in a {@code JTable}.
    * @return the cell found, if any.
-   * @throws org.assertj.swing.exception.ActionFailedException if a matching cell could not be found.
+   * @throws org.uitest4j.swing.exception.ActionFailedException if a matching cell could not be found.
    */
   @RunsInEDT
   @Nonnull

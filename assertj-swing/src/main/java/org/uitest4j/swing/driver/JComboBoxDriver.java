@@ -16,8 +16,8 @@ import org.assertj.core.description.Description;
 import org.assertj.core.util.VisibleForTesting;
 import org.uitest4j.swing.cell.JComboBoxCellReader;
 import org.uitest4j.swing.core.Robot;
-import org.assertj.swing.exception.ComponentLookupException;
-import org.assertj.swing.exception.LocationUnavailableException;
+import org.uitest4j.swing.exception.ComponentLookupException;
+import org.uitest4j.swing.exception.LocationUnavailableException;
 import org.assertj.swing.internal.annotation.InternalApi;
 import org.assertj.swing.util.Pair;
 import org.assertj.swing.util.PatternTextMatcher;
@@ -49,7 +49,7 @@ import static org.uitest4j.swing.driver.JComboBoxSelectionValueQuery.selection;
 import static org.uitest4j.swing.driver.JComboBoxSetSelectedIndexTask.setSelectedIndex;
 import static org.uitest4j.swing.driver.TextAssert.verifyThat;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.exception.ActionFailedException.actionFailure;
+import static org.uitest4j.swing.exception.ActionFailedException.actionFailure;
 import static org.assertj.swing.format.Formatting.format;
 import static org.assertj.swing.util.Arrays.format;
 
@@ -392,7 +392,7 @@ public class JComboBoxDriver extends JComponentDriver {
    * @throws IllegalStateException if the {@code JComboBox} is disabled.
    * @throws IllegalStateException if the {@code JComboBox} is not showing on the screen.
    * @throws IllegalStateException if the {@code JComboBox} is not editable.
-   * @throws org.assertj.swing.exception.ActionFailedException if the {@code JComboBox} does not have an editor.
+   * @throws org.uitest4j.swing.exception.ActionFailedException if the {@code JComboBox} does not have an editor.
    */
   @RunsInEDT
   public void enterText(final @Nonnull JComboBox<?> comboBox, @Nonnull String text) {

@@ -20,7 +20,7 @@ import javax.swing.*;
 
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.exception.ActionFailedException.actionFailure;
+import static org.uitest4j.swing.exception.ActionFailedException.actionFailure;
 
 /**
  * <p>
@@ -88,7 +88,7 @@ public class TableCellInSelectedRow implements TableCellFinder {
    * @param table the target {@code JTable}.
    * @param cellReader knows how to read the contents of a cell in a {@code JTable}.
    * @return the cell found, if any.
-   * @throws org.assertj.swing.exception.ActionFailedException if a matching cell could not be found.
+   * @throws org.uitest4j.swing.exception.ActionFailedException if a matching cell could not be found.
    */
   @Override
   @Nonnull public TableCell findCell(@Nonnull JTable table, @Nonnull JTableCellReader cellReader) {

@@ -13,8 +13,8 @@
 package org.assertj.swing.fixture;
 
 import org.uitest4j.swing.core.GenericTypeMatcher;
-import org.assertj.swing.exception.ComponentLookupException;
-import org.assertj.swing.exception.WaitTimedOutError;
+import org.uitest4j.swing.exception.ComponentLookupException;
+import org.uitest4j.swing.exception.WaitTimedOutError;
 import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.JFileChooserLauncherWindow;

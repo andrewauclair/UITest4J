@@ -49,8 +49,8 @@ public class JTabbedPaneFixture extends
    * @param robot performs simulation of user events on a {@code JTabbedPane}.
    * @param tabbedPaneName the name of the {@code JTabbedPane} to find using the given {@code Robot}.
    * @throws NullPointerException if {@code robot} is {@code null}.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a matching {@code JTabbedPane} could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching {@code JTabbedPane} is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching {@code JTabbedPane} could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching {@code JTabbedPane} is found.
    */
   public JTabbedPaneFixture(@Nonnull Robot robot, @Nonnull String tabbedPaneName) {
     super(JTabbedPaneFixture.class, robot, tabbedPaneName, JTabbedPane.class);
@@ -91,7 +91,7 @@ public class JTabbedPaneFixture extends
    * @return this fixture.
    * @throws IllegalStateException if this fixture's {@code JTabbedPane} is disabled.
    * @throws IllegalStateException if this fixture's {@code JTabbedPane} is not showing on the screen.
-   * @throws org.assertj.swing.exception.LocationUnavailableException if a tab matching the given title could not be found.
+   * @throws org.uitest4j.swing.exception.LocationUnavailableException if a tab matching the given title could not be found.
    */
   @Nonnull public JTabbedPaneFixture selectTab(@Nullable String title) {
     driver().selectTab(target(), title);
@@ -106,7 +106,7 @@ public class JTabbedPaneFixture extends
    * @throws IllegalStateException if this fixture's {@code JTabbedPane} is disabled.
    * @throws IllegalStateException if this fixture's {@code JTabbedPane} is not showing on the screen.
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
-   * @throws org.assertj.swing.exception.LocationUnavailableException if a tab matching the given regular expression pattern could not be found.
+   * @throws org.uitest4j.swing.exception.LocationUnavailableException if a tab matching the given regular expression pattern could not be found.
    */
   @Nonnull public JTabbedPaneFixture selectTab(@Nonnull Pattern pattern) {
     driver().selectTab(target(), pattern);

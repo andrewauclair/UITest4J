@@ -44,8 +44,8 @@ public class JSplitPaneFixture extends
    * 
    * @param robot performs simulation of user events on a {@code JSplitPane}.
    * @param spinnerName the name of the {@code JSplitPane} to find using the given {@code Robot}.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a matching {@code JSplitPane} could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching {@code JSplitPane} is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching {@code JSplitPane} could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching {@code JSplitPane} is found.
    */
   public JSplitPaneFixture(@Nonnull Robot robot, @Nullable String spinnerName) {
     super(JSplitPaneFixture.class, robot, spinnerName, JSplitPane.class);

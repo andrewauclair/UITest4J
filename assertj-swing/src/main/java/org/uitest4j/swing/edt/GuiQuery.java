@@ -13,7 +13,7 @@
 package org.uitest4j.swing.edt;
 
 import static javax.swing.SwingUtilities.isEventDispatchThread;
-import static org.assertj.swing.exception.ActionFailedException.actionFailure;
+import static org.uitest4j.swing.exception.ActionFailedException.actionFailure;
 
 import javax.annotation.Nullable;
 
@@ -30,7 +30,7 @@ public abstract class GuiQuery<T> extends GuiAction {
   /**
    * Executes the query in the event dispatch thread (EDT). This method waits until the action has finish its execution.
    *
-   * @throws org.assertj.swing.exception.ActionFailedException if this task is not executed in the event dispatch thread
+   * @throws org.uitest4j.swing.exception.ActionFailedException if this task is not executed in the event dispatch thread
    *           (EDT).
    */
   @Override

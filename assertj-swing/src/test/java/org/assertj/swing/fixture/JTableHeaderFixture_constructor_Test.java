@@ -18,7 +18,6 @@ import static org.mockito.Mockito.mock;
 
 import javax.swing.table.JTableHeader;
 
-import org.assertj.swing.exception.ComponentLookupException;
 import org.junit.jupiter.api.Test;
 
 /**

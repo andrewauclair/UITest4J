@@ -18,7 +18,7 @@ import static org.uitest4j.swing.core.MouseClickInfo.rightButton;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.uitest4j.swing.core.MouseClickInfo;
-import org.assertj.swing.exception.LocationUnavailableException;
+import org.uitest4j.swing.exception.LocationUnavailableException;
 import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.recorder.ClickRecorder;
 import org.assertj.swing.test.recorder.ClickRecorderManager;

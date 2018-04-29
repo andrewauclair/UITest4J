@@ -56,8 +56,8 @@ public class DialogFixture extends AbstractWindowFixture<DialogFixture, Dialog, 
    * @param robot performs simulation of user events on a {@code Dialog}.
    * @param dialogName the name of the {@code Dialog} to find using the given {@code Robot}.
    * @throws NullPointerException if {@code robot} is {@code null}.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code Dialog} having a matching name could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code Dialog} having a matching name is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code Dialog} having a matching name could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code Dialog} having a matching name is found.
    */
   public DialogFixture(@Nonnull Robot robot, @Nullable String dialogName) {
     super(DialogFixture.class, robot, dialogName, Dialog.class);
@@ -68,8 +68,8 @@ public class DialogFixture extends AbstractWindowFixture<DialogFixture, Dialog, 
    * hierarchy.
    * 
    * @param dialogName the name of the {@code Dialog} to find.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code Dialog} having a matching name could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code Dialog} having a matching name is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code Dialog} having a matching name could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code Dialog} having a matching name is found.
    * @see org.uitest4j.swing.core.BasicRobot#robotWithCurrentAwtHierarchy()
    */
   public DialogFixture(@Nullable String dialogName) {

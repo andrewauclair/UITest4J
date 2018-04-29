@@ -10,25 +10,35 @@
  *
  * Copyright 2012-2015 the original author or authors.
  */
-package org.assertj.swing.exception;
+package org.uitest4j.swing.exception;
 
 import javax.annotation.Nonnull;
 
 /**
- * Error thrown when acquiring or releasing a {@link org.assertj.swing.lock.ScreenLock}.
+ * Error raised when the location of an AWT or Swing {@code Component} cannot be provided.
  *
  * @author Alex Ruiz
  */
-public final class ScreenLockException extends RuntimeException {
+public class LocationUnavailableException extends RuntimeException {
   /** Generated serial version UID. */
-  private static final long serialVersionUID = -7782735097422953775L;
+  private static final long serialVersionUID = 8659958720164983120L;
 
   /**
-   * Creates a new {@link ScreenLockException}.
+   * Creates a new {@link LocationUnavailableException}.
    *
    * @param message the detail message.
    */
-  public ScreenLockException(@Nonnull String message) {
+  public LocationUnavailableException(@Nonnull String message) {
     super(message);
+  }
+
+  /**
+   * Creates a new {@link LocationUnavailableException}.
+   *
+   * @param message the detail message.
+   * @param cause the cause of the error.
+   */
+  public LocationUnavailableException(@Nonnull String message, @Nonnull Throwable cause) {
+    super(message, cause);
   }
 }

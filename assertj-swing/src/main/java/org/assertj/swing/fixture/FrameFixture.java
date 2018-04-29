@@ -59,8 +59,8 @@ public class FrameFixture extends AbstractWindowFixture<FrameFixture, Frame, Fra
    * @param robot performs user events on the given window and verifies expected output.
    * @param name the name of the {@code Frame} to find using the given {@code Robot}.
    * @throws NullPointerException if the given robot is {@code null}.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code Frame} having a matching name could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code Frame} having a matching name is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code Frame} having a matching name could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code Frame} having a matching name is found.
    */
   public FrameFixture(@Nonnull Robot robot, @Nullable String name) {
     super(FrameFixture.class, robot, name, Frame.class);
@@ -71,8 +71,8 @@ public class FrameFixture extends AbstractWindowFixture<FrameFixture, Frame, Fra
    * hierarchy.
    *
    * @param name the name of the {@code Frame} to find.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code Frame} having a matching name could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code Frame} having a matching name is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code Frame} having a matching name could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code Frame} having a matching name is found.
    */
   public FrameFixture(@Nullable String name) {
     super(FrameFixture.class, name, Frame.class);
@@ -109,7 +109,7 @@ public class FrameFixture extends AbstractWindowFixture<FrameFixture, Frame, Fra
    * Simulates a user maximizing this fixture's {@code Frame}.
    *
    * @return this fixture.
-   * @throws org.assertj.swing.exception.ActionFailedException if the operating system does not support maximizing frames.
+   * @throws org.uitest4j.swing.exception.ActionFailedException if the operating system does not support maximizing frames.
    */
   @Override
   @Nonnull public FrameFixture maximize() {

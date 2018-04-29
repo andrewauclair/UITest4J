@@ -64,9 +64,9 @@ public class JPopupMenuDriver extends JComponentDriver {
    * @param popupMenu the target {@code JPopupMenu}.
    * @param name the name to match.
    * @return the {@code JMenuItem} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JMenuItem} having a matching name could
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JMenuItem} having a matching name could
    *           not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JMenuItem} having a matching
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code JMenuItem} having a matching
    *           name is found.
    */
   @RunsInEDT
@@ -80,7 +80,7 @@ public class JPopupMenuDriver extends JComponentDriver {
    * @param popupMenu the target {@code JPopupMenu}.
    * @param matcher contains the search criteria for finding a {@code JMenuItem}.
    * @return the {@code JMenuItem} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JMenuItem} that matches the given search
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JMenuItem} that matches the given search
    *           criteria could not be found. Or if more than one {@code JMenuItem} that matches the given search criteria
    *           is found.
    */

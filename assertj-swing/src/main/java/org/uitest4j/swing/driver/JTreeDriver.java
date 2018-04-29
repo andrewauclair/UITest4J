@@ -19,8 +19,8 @@ import org.uitest4j.swing.core.MouseButton;
 import org.uitest4j.swing.core.MouseClickInfo;
 import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.edt.GuiQuery;
-import org.assertj.swing.exception.LocationUnavailableException;
-import org.assertj.swing.exception.WaitTimedOutError;
+import org.uitest4j.swing.exception.LocationUnavailableException;
+import org.uitest4j.swing.exception.WaitTimedOutError;
 import org.assertj.swing.internal.annotation.InternalApi;
 import org.assertj.swing.util.ArrayPreconditions;
 import org.assertj.swing.util.Pair;
@@ -54,7 +54,7 @@ import static org.uitest4j.swing.driver.JTreeToggleExpandStateTask.toggleExpandS
 import static org.uitest4j.swing.driver.JTreeVerifySelectionTask.checkHasSelection;
 import static org.uitest4j.swing.driver.JTreeVerifySelectionTask.checkNoSelection;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.exception.ActionFailedException.actionFailure;
+import static org.uitest4j.swing.exception.ActionFailedException.actionFailure;
 import static org.assertj.swing.timing.Pause.pause;
 import static org.assertj.swing.util.Platform.controlOrCommandKey;
 
@@ -303,7 +303,7 @@ public class JTreeDriver extends JComponentDriver {
    * @throws IndexOutOfBoundsException if the given row is less than zero or equal than or greater than the number of
    *           visible rows in the {@code JTree}.
    * @throws LocationUnavailableException if a tree path for the given row cannot be found.
-   * @throws org.assertj.swing.exception.ActionFailedException if this method fails to expand the row.
+   * @throws org.uitest4j.swing.exception.ActionFailedException if this method fails to expand the row.
    */
   @RunsInEDT
   public void expandRow(@Nonnull JTree tree, int row) {
@@ -329,7 +329,7 @@ public class JTreeDriver extends JComponentDriver {
    * @throws IndexOutOfBoundsException if the given row is less than zero or equal than or greater than the number of
    *           visible rows in the {@code JTree}.
    * @throws LocationUnavailableException if a tree path for the given row cannot be found.
-   * @throws org.assertj.swing.exception.ActionFailedException if this method fails to collapse the row.
+   * @throws org.uitest4j.swing.exception.ActionFailedException if this method fails to collapse the row.
    */
   @RunsInEDT
   public void collapseRow(@Nonnull JTree tree, int row) {
@@ -355,7 +355,7 @@ public class JTreeDriver extends JComponentDriver {
    * @throws IndexOutOfBoundsException if the given row is less than zero or equal than or greater than the number of
    *           visible rows in the {@code JTree}.
    * @throws LocationUnavailableException if a tree path for the given row cannot be found.
-   * @throws org.assertj.swing.exception.ActionFailedException if this method fails to toggle the row.
+   * @throws org.uitest4j.swing.exception.ActionFailedException if this method fails to toggle the row.
    */
   @RunsInEDT
   public void toggleRow(@Nonnull JTree tree, int row) {
@@ -394,7 +394,7 @@ public class JTreeDriver extends JComponentDriver {
    * @throws IllegalStateException if the {@code JTree} is disabled.
    * @throws IllegalStateException if the {@code JTree} is not showing on the screen.
    * @throws LocationUnavailableException if the given path cannot be found.
-   * @throws org.assertj.swing.exception.ActionFailedException if this method fails to expand the path.
+   * @throws org.uitest4j.swing.exception.ActionFailedException if this method fails to expand the path.
    */
   @RunsInEDT
   public void expandPath(@Nonnull JTree tree, @Nonnull String path) {
@@ -417,7 +417,7 @@ public class JTreeDriver extends JComponentDriver {
    * @throws IllegalStateException if the {@code JTree} is disabled.
    * @throws IllegalStateException if the {@code JTree} is not showing on the screen.
    * @throws LocationUnavailableException if the given path cannot be found.
-   * @throws org.assertj.swing.exception.ActionFailedException if this method fails to collapse the path.
+   * @throws org.uitest4j.swing.exception.ActionFailedException if this method fails to collapse the path.
    */
   @RunsInEDT
   public void collapsePath(@Nonnull JTree tree, @Nonnull String path) {
@@ -661,7 +661,7 @@ public class JTreeDriver extends JComponentDriver {
    * @return a driver that manages the displayed pop-up menu.
    * @throws IllegalStateException if the {@code JTree} is disabled.
    * @throws IllegalStateException if the {@code JTree} is not showing on the screen.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
    * @throws IndexOutOfBoundsException if the given row is less than zero or equal than or greater than the number of
    *           visible rows in the {@code JTree}.
    * @throws LocationUnavailableException if a tree path for the given row cannot be found.
@@ -682,7 +682,7 @@ public class JTreeDriver extends JComponentDriver {
    * @return a driver that manages the displayed pop-up menu.
    * @throws IllegalStateException if the {@code JTree} is disabled.
    * @throws IllegalStateException if the {@code JTree} is not showing on the screen.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
    * @throws LocationUnavailableException if the given path cannot be found.
    * @see #replaceSeparator(String)
    */
@@ -731,7 +731,7 @@ public class JTreeDriver extends JComponentDriver {
    * @throws IndexOutOfBoundsException if the given row is less than zero or equal than or greater than the number of
    *           visible rows in the {@code JTree}.
    * @throws LocationUnavailableException if a tree path for the given row cannot be found.
-   * @throws org.assertj.swing.exception.ActionFailedException if there is no drag action in effect.
+   * @throws org.uitest4j.swing.exception.ActionFailedException if there is no drag action in effect.
    */
   @RunsInEDT
   public void drop(@Nonnull JTree tree, int row) {
@@ -801,7 +801,7 @@ public class JTreeDriver extends JComponentDriver {
    * @throws IllegalStateException if the {@code JTree} is disabled.
    * @throws IllegalStateException if the {@code JTree} is not showing on the screen.
    * @throws LocationUnavailableException if the given path cannot be found.
-   * @throws org.assertj.swing.exception.ActionFailedException if there is no drag action in effect.
+   * @throws org.uitest4j.swing.exception.ActionFailedException if there is no drag action in effect.
    * @see #replaceSeparator(String)
    */
   @RunsInEDT

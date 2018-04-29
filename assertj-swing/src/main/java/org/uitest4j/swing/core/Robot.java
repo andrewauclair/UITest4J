@@ -131,7 +131,7 @@ public interface Robot {
    * Simulates a user clicking once the given AWT or Swing {@code Component} using the left mouse button.
    *
    * @param c the {@code Component} to click on.
-   * @throws org.assertj.swing.exception.ActionFailedException if the {@code Component} to click is out of the
+   * @throws org.uitest4j.swing.exception.ActionFailedException if the {@code Component} to click is out of the
    *           boundaries of the screen.
    */
   void click(@Nonnull Component c);
@@ -140,7 +140,7 @@ public interface Robot {
    * Simulates a user right-clicking the given AWT or Swing {@code Component}.
    *
    * @param c the {@code Component} to click on.
-   * @throws org.assertj.swing.exception.ActionFailedException if the {@code Component} to click is out of the
+   * @throws org.uitest4j.swing.exception.ActionFailedException if the {@code Component} to click is out of the
    *           boundaries of the screen.
    */
   void rightClick(@Nonnull Component c);
@@ -150,7 +150,7 @@ public interface Robot {
    *
    * @param c the {@code Component} to click on.
    * @param button the mouse button to use.
-   * @throws org.assertj.swing.exception.ActionFailedException if the {@code Component} to click is out of the
+   * @throws org.uitest4j.swing.exception.ActionFailedException if the {@code Component} to click is out of the
    *           boundaries of the screen.
    */
   void click(@Nonnull Component c, @Nonnull MouseButton button);
@@ -159,7 +159,7 @@ public interface Robot {
    * Simulates a user double-clicking the given AWT or Swing {@code Component}.
    *
    * @param c the {@code Component} to click on.
-   * @throws org.assertj.swing.exception.ActionFailedException if the {@code Component} to click is out of the
+   * @throws org.uitest4j.swing.exception.ActionFailedException if the {@code Component} to click is out of the
    *           boundaries of the screen.
    */
   void doubleClick(@Nonnull Component c);
@@ -170,7 +170,7 @@ public interface Robot {
    * @param c the {@code Component} to click on.
    * @param button the mouse button to click.
    * @param times the number of times to click the given mouse button.
-   * @throws org.assertj.swing.exception.ActionFailedException if the {@code Component} to click is out of the
+   * @throws org.uitest4j.swing.exception.ActionFailedException if the {@code Component} to click is out of the
    *           boundaries of the screen.
    */
   void click(@Nonnull Component c, @Nonnull MouseButton button, int times);
@@ -180,7 +180,7 @@ public interface Robot {
    *
    * @param c the {@code Component} to click on.
    * @param where the given coordinates, relative to the given {@code Component}.
-   * @throws org.assertj.swing.exception.ActionFailedException if the {@code Component} to click is out of the
+   * @throws org.uitest4j.swing.exception.ActionFailedException if the {@code Component} to click is out of the
    *           boundaries of the screen.
    */
   void click(@Nonnull Component c, @Nonnull Point where);
@@ -193,7 +193,7 @@ public interface Robot {
    * @param where the given coordinates, relative to the given {@code Component}.
    * @param button the mouse button to click.
    * @param times the number of times to click the given mouse button.
-   * @throws org.assertj.swing.exception.ActionFailedException if the {@code Component} to click is out of the
+   * @throws org.uitest4j.swing.exception.ActionFailedException if the {@code Component} to click is out of the
    *           boundaries of the screen.
    */
   void click(@Nonnull Component c, @Nonnull Point where, @Nonnull MouseButton button, int times);
@@ -298,7 +298,7 @@ public interface Robot {
    *
    * @param c the given {@code Component}.
    * @param p the given coordinates, relative to the given {@code Component}.
-   * @throws org.assertj.swing.exception.ActionFailedException if the given {@code Component} is not showing and ready
+   * @throws org.uitest4j.swing.exception.ActionFailedException if the given {@code Component} is not showing and ready
    *           for input.
    */
   void moveMouse(@Nonnull Component c, @Nonnull Point p);
@@ -310,7 +310,7 @@ public interface Robot {
    * @param c the given {@code Component}.
    * @param x X coordinate, relative to the given {@code Component}.
    * @param y Y coordinate, relative to the given {@code Component}.
-   * @throws org.assertj.swing.exception.ActionFailedException if the given {@code Component} is not showing and ready
+   * @throws org.uitest4j.swing.exception.ActionFailedException if the given {@code Component} is not showing and ready
    *           for input.
    */
   void moveMouse(@Nonnull Component c, int x, int y);
@@ -497,7 +497,7 @@ public interface Robot {
    *
    * @param c the given {@code Component}.
    * @return {@code true} if the given {@code Component} is ready for input, {@code false} otherwise.
-   * @throws org.assertj.swing.exception.ActionFailedException if the given {@code Component} does not have a
+   * @throws org.uitest4j.swing.exception.ActionFailedException if the given {@code Component} does not have a
    *           {@code Window} ancestor.
    */
   boolean isReadyForInput(@Nonnull Component c);
@@ -507,7 +507,7 @@ public interface Robot {
    *
    * @param invoker the {@code Component} to invoke the {@code JPopupMenu} from.
    * @return the displayed {@code JPopupMenu}.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JPopupMenu} cannot be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JPopupMenu} cannot be found.
    */
   @Nonnull
   JPopupMenu showPopupMenu(@Nonnull Component invoker);
@@ -518,7 +518,7 @@ public interface Robot {
    * @param invoker the {@code Component} to invoke the {@code JPopupMenu} from.
    * @param location the given coordinates for the {@code JPopupMenu}.
    * @return the displayed {@code JPopupMenu}.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JPopupMenu} cannot be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JPopupMenu} cannot be found.
    */
   @Nonnull
   JPopupMenu showPopupMenu(@Nonnull Component invoker, @Nonnull Point location);

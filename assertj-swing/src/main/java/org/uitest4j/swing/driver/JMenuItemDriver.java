@@ -29,7 +29,7 @@ import static org.uitest4j.swing.driver.ComponentPreconditions.checkEnabledAndSh
 import static org.uitest4j.swing.driver.JMenuPopupMenuQuery.popupMenuOf;
 import static org.uitest4j.swing.driver.WindowMoveToFrontTask.toFront;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.exception.ActionFailedException.actionFailure;
+import static org.uitest4j.swing.exception.ActionFailedException.actionFailure;
 import static org.assertj.swing.format.Formatting.format;
 import static org.assertj.swing.timing.Pause.pause;
 import static org.assertj.swing.util.Platform.isOSX;
@@ -78,7 +78,7 @@ public class JMenuItemDriver extends JComponentDriver {
    * @throws IllegalStateException if {@link org.uitest4j.swing.core.Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and the
    *           menu to select is disabled.
    * @throws IllegalStateException if the menu to select is not showing on the screen.
-   * @throws org.assertj.swing.exception.ActionFailedException if the menu has a pop-up and it fails to show up.
+   * @throws org.uitest4j.swing.exception.ActionFailedException if the menu has a pop-up and it fails to show up.
    */
   @RunsInEDT
   public void click(@Nonnull JMenuItem menuItem) {

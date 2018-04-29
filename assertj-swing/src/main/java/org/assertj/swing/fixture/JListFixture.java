@@ -49,8 +49,8 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
    * @param robot performs simulation of user events on a {@code JList}.
    * @param listName the name of the {@code JList} to find using the given {@code Robot}.
    * @throws NullPointerException if {@code robot} is {@code null}.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a matching {@code JList} could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching {@code JList} is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching {@code JList} could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching {@code JList} is found.
    */
   public JListFixture(@Nonnull Robot robot, @Nullable String listName) {
     super(JListFixture.class, robot, listName, JList.class);
@@ -127,7 +127,7 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
    *
    * @param text the text of the item. It can be a regular expression.
    * @return a fixture that manages the list item specified by the given text.
-   * @throws org.assertj.swing.exception.LocationUnavailableException if an element matching the given text cannot be found.
+   * @throws org.uitest4j.swing.exception.LocationUnavailableException if an element matching the given text cannot be found.
    */
   @Nonnull public JListItemFixture item(@Nullable String text) {
     return new JListItemFixture(this, driver().indexOf(target(), text));
@@ -138,7 +138,7 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
    *
    * @param pattern the regular expression pattern to match.
    * @return a fixture that manages the list item whose text matches the given regular expression pattern.
-   * @throws org.assertj.swing.exception.LocationUnavailableException if an element matching the given text cannot be found.
+   * @throws org.uitest4j.swing.exception.LocationUnavailableException if an element matching the given text cannot be found.
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
    */
   @Nonnull public JListItemFixture item(@Nonnull Pattern pattern) {
@@ -182,7 +182,7 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
    * @return this fixture.
    * @throws IllegalStateException if this fixture's {@code JList} is disabled.
    * @throws IllegalStateException if this fixture's {@code JList} is not showing on the screen.
-   * @throws org.assertj.swing.exception.LocationUnavailableException if an element matching the given text cannot be found.
+   * @throws org.uitest4j.swing.exception.LocationUnavailableException if an element matching the given text cannot be found.
    * @see #item(String)
    * @see JListItemFixture#select()
    * @see #replaceCellReader(JListCellReader)
@@ -201,7 +201,7 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
    * @return this fixture.
    * @throws IllegalStateException if this fixture's {@code JList} is disabled.
    * @throws IllegalStateException if this fixture's {@code JList} is not showing on the screen.
-   * @throws org.assertj.swing.exception.LocationUnavailableException if an element matching the given text cannot be found.
+   * @throws org.uitest4j.swing.exception.LocationUnavailableException if an element matching the given text cannot be found.
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
    * @see #item(Pattern)
    * @see JListItemFixture#select()
@@ -359,7 +359,7 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
    * @throws IllegalArgumentException if the given array is empty.
    * @throws IllegalStateException if this fixture's {@code JList} is disabled.
    * @throws IllegalStateException if this fixture's {@code JList} is not showing on the screen.
-   * @throws org.assertj.swing.exception.LocationUnavailableException if an element matching the any of the given values cannot be found.
+   * @throws org.uitest4j.swing.exception.LocationUnavailableException if an element matching the any of the given values cannot be found.
    * @see #replaceCellReader(JListCellReader)
    */
   @Nonnull public JListFixture selectItems(@Nonnull String... items) {
@@ -378,7 +378,7 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
    * @throws IllegalArgumentException if the given array is empty.
    * @throws IllegalStateException if this fixture's {@code JList} is disabled.
    * @throws IllegalStateException if this fixture's {@code JList} is not showing on the screen.
-   * @throws org.assertj.swing.exception.LocationUnavailableException if an element matching the any of the given regular expression patterns cannot
+   * @throws org.uitest4j.swing.exception.LocationUnavailableException if an element matching the any of the given regular expression patterns cannot
    *           be found.
    * @see #replaceCellReader(JListCellReader)
    */
@@ -411,7 +411,7 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
    * @return this fixture.
    * @throws IllegalStateException if this fixture's {@code JList} is disabled.
    * @throws IllegalStateException if this fixture's {@code JList} is not showing on the screen.
-   * @throws org.assertj.swing.exception.LocationUnavailableException if an element matching the given text cannot be found.
+   * @throws org.uitest4j.swing.exception.LocationUnavailableException if an element matching the given text cannot be found.
    * @see #item(String)
    * @see JListItemFixture#select()
    * @see #replaceCellReader(JListCellReader)
@@ -429,7 +429,7 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
    * @return this fixture.
    * @throws IllegalStateException if this fixture's {@code JList} is disabled.
    * @throws IllegalStateException if this fixture's {@code JList} is not showing on the screen.
-   * @throws org.assertj.swing.exception.LocationUnavailableException if an element matching the given text cannot be found.
+   * @throws org.uitest4j.swing.exception.LocationUnavailableException if an element matching the given text cannot be found.
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
    * @see #item(Pattern)
    * @see JListItemFixture#select()
@@ -515,7 +515,7 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
    * @throws IllegalStateException if this fixture's {@code JList} is not showing on the screen.
    * @throws IndexOutOfBoundsException if the given index is negative or greater than the index of the last item in the
    *           {@code JList}.
-   * @throws org.assertj.swing.exception.ActionFailedException if there is no drag action in effect.
+   * @throws org.uitest4j.swing.exception.ActionFailedException if there is no drag action in effect.
    */
   @Nonnull public JListFixture drop(int index) {
     driver().drop(target(), index);
@@ -531,7 +531,7 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
    * @throws IllegalStateException if this fixture's {@code JList} is not showing on the screen.
    * @throws IndexOutOfBoundsException if the given index is negative or greater than the index of the last item in the
    *           {@code JList}.
-   * @throws org.assertj.swing.exception.ActionFailedException if there is no drag action in effect.
+   * @throws org.uitest4j.swing.exception.ActionFailedException if there is no drag action in effect.
    * @see #drop(int)
    */
   @Nonnull public JListFixture dropAbove(int index) {
@@ -547,7 +547,7 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
    * @throws IllegalStateException if this fixture's {@code JList} is not showing on the screen.
    * @throws IndexOutOfBoundsException if the given index is negative or greater than the index of the last item in the
    *           {@code JList}.
-   * @throws org.assertj.swing.exception.ActionFailedException if there is no drag action in effect.
+   * @throws org.uitest4j.swing.exception.ActionFailedException if there is no drag action in effect.
    * @see #drop(int)
    */
   @Nonnull public JListFixture dropBelow(int index) {
@@ -561,7 +561,7 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
    * @param text the text of the item to drag. It can be a regular expression.
    * @throws IllegalStateException if this fixture's {@code JList} is disabled.
    * @throws IllegalStateException if this fixture's {@code JList} is not showing on the screen.
-   * @throws org.assertj.swing.exception.LocationUnavailableException if an element matching the given text cannot be found.
+   * @throws org.uitest4j.swing.exception.LocationUnavailableException if an element matching the given text cannot be found.
    * @return this fixture.
    */
   @Nonnull public JListFixture drag(@Nullable String text) {
@@ -576,8 +576,8 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
    * @return this fixture.
    * @throws IllegalStateException if this fixture's {@code JList} is disabled.
    * @throws IllegalStateException if this fixture's {@code JList} is not showing on the screen.
-   * @throws org.assertj.swing.exception.LocationUnavailableException if an element matching the given text cannot be found.
-   * @throws org.assertj.swing.exception.ActionFailedException if there is no drag action in effect.
+   * @throws org.uitest4j.swing.exception.LocationUnavailableException if an element matching the given text cannot be found.
+   * @throws org.uitest4j.swing.exception.ActionFailedException if there is no drag action in effect.
    */
   @Nonnull public JListFixture drop(@Nullable String text) {
     driver().drop(target(), text);
@@ -593,7 +593,7 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
    * @throws IllegalStateException if this fixture's {@code JList} is disabled.
    * @throws IllegalStateException if this fixture's {@code JList} is not showing on the screen.
    * @throws NullPointerException if the given regular expression pattern in {@code null}.
-   * @throws org.assertj.swing.exception.LocationUnavailableException if an element matching the given regular expression pattern cannot be found.
+   * @throws org.uitest4j.swing.exception.LocationUnavailableException if an element matching the given regular expression pattern cannot be found.
    */
   @Nonnull public JListFixture drag(@Nonnull Pattern pattern) {
     driver().drag(target(), pattern);
@@ -608,8 +608,8 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
    * @throws IllegalStateException if this fixture's {@code JList} is disabled.
    * @throws IllegalStateException if this fixture's {@code JList} is not showing on the screen.
    * @throws NullPointerException if the given regular expression pattern in {@code null}.
-   * @throws org.assertj.swing.exception.LocationUnavailableException if an element matching the given text cannot be found.
-   * @throws org.assertj.swing.exception.ActionFailedException if there is no drag action in effect.
+   * @throws org.uitest4j.swing.exception.LocationUnavailableException if an element matching the given text cannot be found.
+   * @throws org.uitest4j.swing.exception.ActionFailedException if there is no drag action in effect.
    */
   @Nonnull public JListFixture drop(@Nonnull Pattern pattern) {
     driver().drop(target(), pattern);
@@ -623,7 +623,7 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
    * @return a fixture that manages the displayed pop-up menu.
    * @throws IllegalStateException if this fixture's {@code JList} is disabled.
    * @throws IllegalStateException if this fixture's {@code JList} is not showing on the screen.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
    * @throws IndexOutOfBoundsException if the given index is negative or greater than the index of the last item in the
    *           {@code JList}.
    */
@@ -638,8 +638,8 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
    * @return a fixture that manages the displayed pop-up menu.
    * @throws IllegalStateException if this fixture's {@code JList} is disabled.
    * @throws IllegalStateException if this fixture's {@code JList} is not showing on the screen.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
-   * @throws org.assertj.swing.exception.LocationUnavailableException if an element matching the given value cannot be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
+   * @throws org.uitest4j.swing.exception.LocationUnavailableException if an element matching the given value cannot be found.
    */
   @Nonnull public JPopupMenuFixture showPopupMenuAt(@Nullable String text) {
     return new JPopupMenuFixture(robot(), driver().showPopupMenu(target(), text));
@@ -654,8 +654,8 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
    * @throws IllegalStateException if this fixture's {@code JList} is disabled.
    * @throws IllegalStateException if this fixture's {@code JList} is not showing on the screen.
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
-   * @throws org.assertj.swing.exception.LocationUnavailableException if an element matching the given value cannot be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
+   * @throws org.uitest4j.swing.exception.LocationUnavailableException if an element matching the given value cannot be found.
    */
   @Nonnull public JPopupMenuFixture showPopupMenuAt(@Nonnull Pattern pattern) {
     return new JPopupMenuFixture(robot(), driver().showPopupMenu(target(), pattern));

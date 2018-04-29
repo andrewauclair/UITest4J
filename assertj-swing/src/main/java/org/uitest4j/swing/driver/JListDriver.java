@@ -16,7 +16,7 @@ import org.assertj.core.description.Description;
 import org.uitest4j.swing.cell.JListCellReader;
 import org.uitest4j.swing.core.MouseButton;
 import org.uitest4j.swing.core.Robot;
-import org.assertj.swing.exception.LocationUnavailableException;
+import org.uitest4j.swing.exception.LocationUnavailableException;
 import org.assertj.swing.internal.annotation.InternalApi;
 import org.assertj.swing.util.Pair;
 import org.assertj.swing.util.PatternTextMatcher;
@@ -608,7 +608,7 @@ public class JListDriver extends JComponentDriver {
    * @throws IllegalStateException if the {@code JList} is disabled.
    * @throws IllegalStateException if the {@code JList} is not showing on the screen.
    * @throws LocationUnavailableException if an element matching the given value cannot be found.
-   * @throws org.assertj.swing.exception.ActionFailedException if there is no drag action in effect.
+   * @throws org.uitest4j.swing.exception.ActionFailedException if there is no drag action in effect.
    */
   @RunsInEDT
   public void drop(@Nonnull JList<?> list, @Nullable String value) {
@@ -624,7 +624,7 @@ public class JListDriver extends JComponentDriver {
    * @throws IllegalStateException if the {@code JList} is not showing on the screen.
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
    * @throws LocationUnavailableException if an element matching the given value cannot be found.
-   * @throws org.assertj.swing.exception.ActionFailedException if there is no drag action in effect.
+   * @throws org.uitest4j.swing.exception.ActionFailedException if there is no drag action in effect.
    */
   public void drop(@Nonnull JList<?> list, @Nonnull Pattern pattern) {
     drop(list, new PatternTextMatcher(pattern));
@@ -670,7 +670,7 @@ public class JListDriver extends JComponentDriver {
    * @throws IllegalStateException if the {@code JList} is not showing on the screen.
    * @throws IndexOutOfBoundsException if the given index is negative or greater than the index of the last item in the
    *           {@code JList}.
-   * @throws org.assertj.swing.exception.ActionFailedException if there is no drag action in effect.
+   * @throws org.uitest4j.swing.exception.ActionFailedException if there is no drag action in effect.
    */
   @RunsInEDT
   public void drop(@Nonnull JList<?> list, int index) {
@@ -687,7 +687,7 @@ public class JListDriver extends JComponentDriver {
    * @return a fixture that manages the displayed pop-up menu.
    * @throws IllegalStateException if the {@code JList} is disabled.
    * @throws IllegalStateException if the {@code JList} is not showing on the screen.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
    * @throws LocationUnavailableException if an element matching the given value cannot be found.
    */
   @RunsInEDT
@@ -704,7 +704,7 @@ public class JListDriver extends JComponentDriver {
    * @throws IllegalStateException if the {@code JList} is disabled.
    * @throws IllegalStateException if the {@code JList} is not showing on the screen.
    * @throws NullPointerException if the regular expression pattern is {@code null}.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
    * @throws LocationUnavailableException if an element matching the given value cannot be found.
    */
   @RunsInEDT
@@ -732,7 +732,7 @@ public class JListDriver extends JComponentDriver {
    * @return a driver that manages the displayed pop-up menu.
    * @throws IllegalStateException if the {@code JList} is disabled.
    * @throws IllegalStateException if the {@code JList} is not showing on the screen.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
    * @throws IndexOutOfBoundsException if the given index is negative or greater than the index of the last item in the
    *           {@code JList}.
    */

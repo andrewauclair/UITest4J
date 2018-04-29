@@ -17,7 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import javax.swing.JButton;
 import javax.swing.JTree;
 
-import org.assertj.swing.exception.ComponentLookupException;
+import org.uitest4j.swing.exception.ComponentLookupException;
 import org.assertj.swing.test.ExpectedException;
 import org.junit.jupiter.api.Test;
 

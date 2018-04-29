@@ -39,7 +39,7 @@ public interface JTableCellWriter {
    * @throws IllegalStateException if the {@code JTable} is not showing on the screen.
    * @throws IllegalStateException if the {@code JTable} cell is not editable.
    * @throws IndexOutOfBoundsException if any of the indices (row and column) is out of bounds.
-   * @throws org.assertj.swing.exception.ActionFailedException if an editor for the given cell cannot be found or cannot
+   * @throws org.uitest4j.swing.exception.ActionFailedException if an editor for the given cell cannot be found or cannot
    *           be activated.
    */
   void enterValue(@Nonnull JTable table, int row, int column, @Nonnull String value);
@@ -55,7 +55,7 @@ public interface JTableCellWriter {
    * @throws IllegalStateException if the {@code JTable} is not showing on the screen.
    * @throws IllegalStateException if the {@code JTable} cell is not editable.
    * @throws IndexOutOfBoundsException if any of the indices (row and column) is out of bounds.
-   * @throws org.assertj.swing.exception.ActionFailedException if an editor for the given cell cannot be found or cannot
+   * @throws org.uitest4j.swing.exception.ActionFailedException if an editor for the given cell cannot be found or cannot
    *           be activated.
    * @see #editorForCell(JTable, int, int)
    */
@@ -72,7 +72,7 @@ public interface JTableCellWriter {
    * @throws IllegalStateException if the {@code JTable} is not showing on the screen.
    * @throws IllegalStateException if the {@code JTable} cell is not editable.
    * @throws IndexOutOfBoundsException if any of the indices (row and column) is out of bounds.
-   * @throws org.assertj.swing.exception.ActionFailedException if an editor for the given cell cannot be found or cannot
+   * @throws org.uitest4j.swing.exception.ActionFailedException if an editor for the given cell cannot be found or cannot
    *           be activated.
    * @see #editorForCell(JTable, int, int)
    */
@@ -89,7 +89,7 @@ public interface JTableCellWriter {
    * @throws IllegalStateException if the {@code JTable} is not showing on the screen.
    * @throws IllegalStateException if the {@code JTable} cell is not editable.
    * @throws IndexOutOfBoundsException if any of the indices (row and column) is out of bounds.
-   * @throws org.assertj.swing.exception.ActionFailedException if an editor for the given cell cannot be found or cannot
+   * @throws org.uitest4j.swing.exception.ActionFailedException if an editor for the given cell cannot be found or cannot
    *           be activated.
    * @see #editorForCell(JTable, int, int)
    */

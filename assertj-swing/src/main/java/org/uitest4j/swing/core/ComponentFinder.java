@@ -52,8 +52,8 @@ public interface ComponentFinder {
    * @param <T> the type of the component to find.
    * @param type the class of the component to find.
    * @return the found component.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching component is found.
    * @see Robot#settings()
    * @see Settings#componentLookupScope()
    * @see ComponentLookupScope
@@ -68,8 +68,8 @@ public interface ComponentFinder {
    * @param type the class of the component to find.
    * @param showing indicates whether the component to find should be visible (or showing) or not.
    * @return the found component.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching component is found.
    * @see #findByType(Class)
    */
   @Nonnull
@@ -105,8 +105,8 @@ public interface ComponentFinder {
    * @param <T> the type of the component to find.
    * @param type the class of the component to find.
    * @return the found component.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching component is found.
    * @see Robot#settings()
    * @see Settings#componentLookupScope()
    * @see ComponentLookupScope
@@ -122,8 +122,8 @@ public interface ComponentFinder {
    * @param type the class of the component to find.
    * @param showing indicates whether the component to find should be visible (or showing) or not.
    * @return the found component.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching component is found.
    * @see #findByType(Container, Class)
    */
   @Nonnull
@@ -168,8 +168,8 @@ public interface ComponentFinder {
    *
    * @param label the text of the {@code JLabel} associated to the component to find.
    * @return the found component.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching component is found.
    * @see javax.swing.JLabel#getLabelFor()
    * @see javax.swing.JLabel#setLabelFor(Component)
    * @see Robot#settings()
@@ -189,8 +189,8 @@ public interface ComponentFinder {
    * @param <T> the type of the component to find.
    * @param type the class of the component to find.
    * @return the found component.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching component is found.
    * @see #findByLabel(String)
    * @see javax.swing.JLabel#getLabelFor()
    * @see javax.swing.JLabel#setLabelFor(Component)
@@ -209,8 +209,8 @@ public interface ComponentFinder {
    * @param type the class of the component to find.
    * @param showing indicates whether the component to find should be visible (or showing) or not.
    * @return the found component.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching component is found.
    * @see #findByLabel(String)
    * @see javax.swing.JLabel#getLabelFor()
    * @see javax.swing.JLabel#setLabelFor(Component)
@@ -224,8 +224,8 @@ public interface ComponentFinder {
    * @param label the text of the {@code JLabel} associated to the component to find.
    * @param showing indicates whether the component to find should be visible (or showing) or not.
    * @return the found component.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching component is found.
    * @see #findByLabel(String)
    * @see javax.swing.JLabel#getLabelFor()
    * @see javax.swing.JLabel#setLabelFor(Component)
@@ -242,8 +242,8 @@ public interface ComponentFinder {
    * @param root the root used as the starting point of the search.
    * @param label the text of the {@code JLabel} associated to the component to find.
    * @return the found component.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching component is found.
    * @see #findByLabel(String)
    * @see javax.swing.JLabel#getLabelFor()
    * @see javax.swing.JLabel#setLabelFor(Component)
@@ -262,8 +262,8 @@ public interface ComponentFinder {
    * @param label the text of the {@code JLabel} associated to the component to find.
    * @param showing indicates whether the component to find should be visible (or showing) or not.
    * @return the found component.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching component is found.
    * @see #findByLabel(String)
    * @see javax.swing.JLabel#getLabelFor()
    * @see javax.swing.JLabel#setLabelFor(Component)
@@ -282,8 +282,8 @@ public interface ComponentFinder {
    * @param <T> the type of the component to find.
    * @param type the class of the component to find.
    * @return the found component.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching component is found.
    * @see #findByLabel(String)
    * @see javax.swing.JLabel#getLabelFor()
    * @see javax.swing.JLabel#setLabelFor(Component)
@@ -304,8 +304,8 @@ public interface ComponentFinder {
    * @param type the class of the component to find.
    * @param showing indicates whether the component to find should be visible (or showing) or not.
    * @return the found component.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching component is found.
    * @see #findByLabel(String)
    * @see javax.swing.JLabel#getLabelFor()
    * @see javax.swing.JLabel#setLabelFor(Component)
@@ -352,8 +352,8 @@ public interface ComponentFinder {
    *
    * @param name the name of the component to find.
    * @return the found component.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching component is found.
    * @see Robot#settings()
    * @see Settings#componentLookupScope()
    * @see ComponentLookupScope
@@ -371,8 +371,8 @@ public interface ComponentFinder {
    * @param <T> the type of the component to find.
    * @param type the class of the component to find.
    * @return the found component.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching component is found.
    * @see Robot#settings()
    * @see Settings#componentLookupScope()
    * @see ComponentLookupScope
@@ -389,8 +389,8 @@ public interface ComponentFinder {
    * @param type the class of the component to find.
    * @param showing indicates whether the component to find should be visible (or showing) or not.
    * @return the found component.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching component is found.
    * @see #findByName(String)
    */
   @Nonnull
@@ -402,8 +402,8 @@ public interface ComponentFinder {
    * @param name the name of the component to find.
    * @param showing indicates whether the component to find should be visible (or showing) or not.
    * @return the found component.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching component is found.
    * @see #findByName(String)
    */
   @Nonnull
@@ -418,8 +418,8 @@ public interface ComponentFinder {
    * @param root the root used as the starting point of the search.
    * @param name the name of the component to find.
    * @return the found component.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching component is found.
    * @see Robot#settings()
    * @see Settings#componentLookupScope()
    * @see ComponentLookupScope
@@ -435,8 +435,8 @@ public interface ComponentFinder {
    * @param name the name of the component to find.
    * @param showing indicates whether the component to find should be visible (or showing) or not.
    * @return the found component.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching component is found.
    * @see #findByName(String)
    */
   @Nonnull
@@ -453,8 +453,8 @@ public interface ComponentFinder {
    * @param <T> the type of the component to find.
    * @param type the class of the component to find.
    * @return the found component.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching component is found.
    * @see Robot#settings()
    * @see Settings#componentLookupScope()
    * @see ComponentLookupScope
@@ -472,8 +472,8 @@ public interface ComponentFinder {
    * @param type the class of the component to find.
    * @param showing indicates whether the component to find should be visible (or showing) or not.
    * @return the found component.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching component is found.
    * @see #findByName(String)
    */
   @Nonnull
@@ -487,8 +487,8 @@ public interface ComponentFinder {
    *
    * @param m the matcher to use to find the component of interest.
    * @return the found component.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching component is found.
    */
   @Nonnull
   Component find(@Nonnull ComponentMatcher m);
@@ -501,8 +501,8 @@ public interface ComponentFinder {
    * @param <T> the type of the component to find.
    * @param m the matcher to use to find the component of interest.
    * @return the found component.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching component is found.
    */
   @Nonnull
   <T extends Component> T find(@Nonnull GenericTypeMatcher<T> m);
@@ -516,8 +516,8 @@ public interface ComponentFinder {
    * @param <T> the type of the component to find.
    * @param m the matcher to use to find the component.
    * @return the found component.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching component is found.
    */
   @Nonnull
   <T extends Component> T find(@Nonnull Container root, @Nonnull GenericTypeMatcher<T> m);
@@ -530,8 +530,8 @@ public interface ComponentFinder {
    * @param root the root used as the starting point of the search.
    * @param m the matcher to use to find the component.
    * @return the found component.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching component is found.
    */
   @Nonnull
   Component find(@Nullable Container root, @Nonnull ComponentMatcher m);
@@ -585,17 +585,17 @@ public interface ComponentFinder {
   <T extends Component> Collection<T> findAll(@Nonnull Container root, @Nonnull GenericTypeMatcher<T> m);
 
   /**
-   * Returns whether the message in a {@link org.assertj.swing.exception.ComponentLookupException} should include the
+   * Returns whether the message in a {@link org.uitest4j.swing.exception.ComponentLookupException} should include the
    * current component hierarchy.
    * The default value is {@code true}.
    *
    * @return {@code true} if the component hierarchy is included as part of the
-   *         {@code org.assertj.swing.exception.ComponentLookupException} message, {@code false} otherwise.
+   *         {@code org.uitest4j.swing.exception.ComponentLookupException} message, {@code false} otherwise.
    */
   boolean includeHierarchyIfComponentNotFound();
 
   /**
-   * Updates whether the message in a {@link org.assertj.swing.exception.ComponentLookupException} should include the
+   * Updates whether the message in a {@link org.uitest4j.swing.exception.ComponentLookupException} should include the
    * current component hierarchy.
    * The default value is {@code true}.
    *

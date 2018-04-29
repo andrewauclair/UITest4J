@@ -38,8 +38,8 @@ public class JInternalFrameFixture extends
    * @param robot performs simulation of user events on a {@code JInternalFrame}.
    * @param internalFrameName the name of the {@code JInternalFrame} to find using the given {@code Robot}.
    * @throws NullPointerException if {@code robot} is {@code null}.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a matching {@code JInternalFrame} could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching {@code JInternalFrame} is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching {@code JInternalFrame} could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching {@code JInternalFrame} is found.
    */
   public JInternalFrameFixture(@Nonnull Robot robot, @Nullable String internalFrameName) {
     super(JInternalFrameFixture.class, robot, internalFrameName, JInternalFrame.class);
@@ -128,7 +128,7 @@ public class JInternalFrameFixture extends
    * Simulates a user deiconifying this fixture's {@code JInternalFrame}.
    *
    * @return this fixture.
-   * @throws org.assertj.swing.exception.ActionFailedException if the {@code JInternalFrame} vetoes the action.
+   * @throws org.uitest4j.swing.exception.ActionFailedException if the {@code JInternalFrame} vetoes the action.
    */
   @Override
   @Nonnull public JInternalFrameFixture deiconify() {
@@ -140,8 +140,8 @@ public class JInternalFrameFixture extends
    * Simulates a user iconifying this fixture's {@code JInternalFrame}.
    *
    * @return this fixture.
-   * @throws org.assertj.swing.exception.ActionFailedException if the given {@code JInternalFrame} is not iconifiable.
-   * @throws org.assertj.swing.exception.ActionFailedException if the {@code JInternalFrame} vetoes the action.
+   * @throws org.uitest4j.swing.exception.ActionFailedException if the given {@code JInternalFrame} is not iconifiable.
+   * @throws org.uitest4j.swing.exception.ActionFailedException if the {@code JInternalFrame} vetoes the action.
    */
   @Override
   @Nonnull public JInternalFrameFixture iconify() {
@@ -153,8 +153,8 @@ public class JInternalFrameFixture extends
    * Simulates a user maximizing this fixture's {@code JInternalFrame}, deconifying it first if it is iconified.
    *
    * @return this fixture.
-   * @throws org.assertj.swing.exception.ActionFailedException if the given {@code JInternalFrame} is not maximizable.
-   * @throws org.assertj.swing.exception.ActionFailedException if the {@code JInternalFrame} vetoes the action.
+   * @throws org.uitest4j.swing.exception.ActionFailedException if the given {@code JInternalFrame} is not maximizable.
+   * @throws org.uitest4j.swing.exception.ActionFailedException if the {@code JInternalFrame} vetoes the action.
    */
   @Override
   @Nonnull public JInternalFrameFixture maximize() {
@@ -166,7 +166,7 @@ public class JInternalFrameFixture extends
    * Simulates a user normalizing this fixture's {@code JInternalFrame}, deconifying it first if it is iconified.
    *
    * @return this fixture.
-   * @throws org.assertj.swing.exception.ActionFailedException if the {@code JInternalFrame} vetoes the action.
+   * @throws org.uitest4j.swing.exception.ActionFailedException if the {@code JInternalFrame} vetoes the action.
    */
   @Override
   @Nonnull public JInternalFrameFixture normalize() {
@@ -177,7 +177,7 @@ public class JInternalFrameFixture extends
   /**
    * Simulates a user closing this fixture's {@code JInternalFrame}.
    *
-   * @throws org.assertj.swing.exception.ActionFailedException if the {@code JInternalFrame} is not closable.
+   * @throws org.uitest4j.swing.exception.ActionFailedException if the {@code JInternalFrame} is not closable.
    */
   @Override
   public void close() {
@@ -258,7 +258,7 @@ public class JInternalFrameFixture extends
    * @throws IllegalStateException if {@link org.uitest4j.swing.core.Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and this
    *           fixture's {@code JInternalFrame} is disabled.
    * @throws IllegalStateException if this fixture's {@code JInternalFrame} is not showing on the screen.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
    */
   @Override
   @Nonnull public JPopupMenuFixture showPopupMenu() {
@@ -274,7 +274,7 @@ public class JInternalFrameFixture extends
    * @throws IllegalStateException if {@link org.uitest4j.swing.core.Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and this
    *           fixture's {@code JInternalFrame} is disabled.
    * @throws IllegalStateException if this fixture's {@code JInternalFrame} is not showing on the screen.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
    */
   @Override
   @Nonnull public JPopupMenuFixture showPopupMenuAt(@Nonnull Point p) {

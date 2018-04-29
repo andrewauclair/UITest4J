@@ -162,7 +162,7 @@ public class JOptionPaneDriver extends JComponentDriver {
    *
    * @param optionPane the target {@code JOptionPane}.
    * @return the "OK" button.
-   * @throws org.assertj.swing.exception.ComponentLookupException if the a "OK" button cannot be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if the a "OK" button cannot be found.
    */
   @RunsInEDT
   @Nonnull public JButton okButton(@Nonnull JOptionPane optionPane) {
@@ -174,7 +174,7 @@ public class JOptionPaneDriver extends JComponentDriver {
    *
    * @param optionPane the target {@code JOptionPane}.
    * @return the "Cancel" button.
-   * @throws org.assertj.swing.exception.ComponentLookupException if the a "Cancel" button cannot be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if the a "Cancel" button cannot be found.
    */
   @RunsInEDT
   @Nonnull public JButton cancelButton(@Nonnull JOptionPane optionPane) {
@@ -186,7 +186,7 @@ public class JOptionPaneDriver extends JComponentDriver {
    *
    * @param optionPane the target {@code JOptionPane}.
    * @return the "Yes" button.
-   * @throws org.assertj.swing.exception.ComponentLookupException if the a "Yes" button cannot be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if the a "Yes" button cannot be found.
    */
   @RunsInEDT
   @Nonnull public JButton yesButton(@Nonnull JOptionPane optionPane) {
@@ -198,7 +198,7 @@ public class JOptionPaneDriver extends JComponentDriver {
    *
    * @param optionPane the target {@code JOptionPane}.
    * @return the "No" button.
-   * @throws org.assertj.swing.exception.ComponentLookupException if the a "No" button cannot be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if the a "No" button cannot be found.
    */
   @RunsInEDT
   @Nonnull public JButton noButton(@Nonnull JOptionPane optionPane) {
@@ -216,7 +216,7 @@ public class JOptionPaneDriver extends JComponentDriver {
    * @param optionPane the target {@code JOptionPane}.
    * @param text the text of the button to find and return. It can be a regular expression.
    * @return a button containing the given text.
-   * @throws org.assertj.swing.exception.ComponentLookupException if the a button with the given text cannot be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if the a button with the given text cannot be found.
    */
   @RunsInEDT
   @Nonnull public JButton buttonWithText(@Nonnull JOptionPane optionPane, @Nullable String text) {
@@ -230,7 +230,7 @@ public class JOptionPaneDriver extends JComponentDriver {
    * @param pattern the regular expression pattern to match.
    * @return a button containing the given text.
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
-   * @throws org.assertj.swing.exception.ComponentLookupException if the a button with the given text cannot be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if the a button with the given text cannot be found.
    */
   @RunsInEDT
   @Nonnull public JButton buttonWithText(@Nonnull JOptionPane optionPane, @Nonnull Pattern pattern) {

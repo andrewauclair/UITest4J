@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.driver;
 
-import org.assertj.swing.exception.ActionFailedException;
+import org.uitest4j.swing.exception.ActionFailedException;
 import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;

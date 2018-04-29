@@ -32,8 +32,8 @@ public interface ComponentContainerFixture {
    * Returns a {@link JButton} found in this fixture's {@code Container}.
    *
    * @return a fixture that manages the {@code JButton} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JButton} could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JButton} is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JButton} could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code JButton} is found.
    */
   @RunsInEDT
   @Nonnull
@@ -44,9 +44,9 @@ public interface ComponentContainerFixture {
    *
    * @param matcher contains the search criteria for finding a {@code JButton}.
    * @return a fixture that manages the {@code JButton} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JButton} that matches the given search
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JButton} that matches the given search
    *           criteria could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JButton} that matches the
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code JButton} that matches the
    *           given search criteria is found.
    */
   @RunsInEDT
@@ -58,9 +58,9 @@ public interface ComponentContainerFixture {
    *
    * @param name the name to match.
    * @return a fixture that manages the {@code JButton} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JButton} having a matching name could not
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JButton} having a matching name could not
    *           be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JButton} having a matching
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code JButton} having a matching
    *           name is found.
    */
   @RunsInEDT
@@ -71,8 +71,8 @@ public interface ComponentContainerFixture {
    * Returns a {@code JCheckBox} found in this fixture's {@code Container}.
    *
    * @return a fixture that manages the {@code JCheckBox} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JCheckBox} could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JCheckBox} is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JCheckBox} could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code JCheckBox} is found.
    */
   @RunsInEDT
   @Nonnull
@@ -83,9 +83,9 @@ public interface ComponentContainerFixture {
    *
    * @param matcher contains the search criteria for finding a {@code JCheckBox}.
    * @return a fixture that manages the {@code JCheckBox} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JCheckBox} that matches the given search
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JCheckBox} that matches the given search
    *           criteria could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JCheckBox} that matches the
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code JCheckBox} that matches the
    *           given search criteria is
    *           found.
    */
@@ -98,7 +98,7 @@ public interface ComponentContainerFixture {
    *
    * @param name the name to match.
    * @return a fixture that manages the {@code JCheckBox} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JCheckBox} having a matching name could
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JCheckBox} having a matching name could
    *           not be found.
    */
   @RunsInEDT
@@ -109,8 +109,8 @@ public interface ComponentContainerFixture {
    * Returns a {@code JComboBox} found in this fixture's {@code Container}.
    *
    * @return a fixture that manages the {@code JComboBox} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JComboBox} could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JComboBox} is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JComboBox} could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code JComboBox} is found.
    */
   @RunsInEDT
   @Nonnull
@@ -121,9 +121,9 @@ public interface ComponentContainerFixture {
    *
    * @param matcher contains the search criteria for finding a {@code JComboBox}.
    * @return a fixture that manages the {@code JComboBox} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JComboBox} that matches the given search
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JComboBox} that matches the given search
    *           criteria could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JComboBox} that matches the
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code JComboBox} that matches the
    *           given search criteria is
    *           found.
    */
@@ -136,9 +136,9 @@ public interface ComponentContainerFixture {
    *
    * @param name the name to match.
    * @return a fixture that manages the {@code JComboBox} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JComboBox} having a matching name could
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JComboBox} having a matching name could
    *           not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JComboBox} having a matching
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code JComboBox} having a matching
    *           name is found.
    */
   @RunsInEDT
@@ -150,7 +150,7 @@ public interface ComponentContainerFixture {
    * {@link #defaultDialogLookupTimeout()} as the default lookup timeout.
    *
    * @return a fixture that manages the {@code Dialog} found.
-   * @throws org.assertj.swing.exception.WaitTimedOutError if a {@code Dialog} could not be found.
+   * @throws org.uitest4j.swing.exception.WaitTimedOutError if a {@code Dialog} could not be found.
    * @see #dialog(Timeout)
    */
   @RunsInEDT
@@ -162,7 +162,7 @@ public interface ComponentContainerFixture {
    *
    * @param timeout the amount of time to wait for a {@code Dialog} to be found.
    * @return a fixture that manages the {@code Dialog} found.
-   * @throws org.assertj.swing.exception.WaitTimedOutError if a {@code Dialog} could not be found.
+   * @throws org.uitest4j.swing.exception.WaitTimedOutError if a {@code Dialog} could not be found.
    */
   @RunsInEDT
   @Nonnull
@@ -174,7 +174,7 @@ public interface ComponentContainerFixture {
    *
    * @param matcher contains the search criteria for finding a {@code Dialog}.
    * @return a fixture that manages the {@code Dialog} found.
-   * @throws org.assertj.swing.exception.WaitTimedOutError if a {@code Dialog} that matches the given search criteria
+   * @throws org.uitest4j.swing.exception.WaitTimedOutError if a {@code Dialog} that matches the given search criteria
    *           could not be found.
    * @see #dialog(GenericTypeMatcher, Timeout)
    */
@@ -188,7 +188,7 @@ public interface ComponentContainerFixture {
    * @param matcher contains the search criteria for finding a {@code Dialog}.
    * @param timeout the amount of time to wait for a {@code Dialog} to be found.
    * @return a fixture that manages the {@code Dialog} found.
-   * @throws org.assertj.swing.exception.WaitTimedOutError if a {@code Dialog} that matches the given search criteria
+   * @throws org.uitest4j.swing.exception.WaitTimedOutError if a {@code Dialog} that matches the given search criteria
    *           could not be found.
    */
   @RunsInEDT
@@ -201,7 +201,7 @@ public interface ComponentContainerFixture {
    *
    * @param name the name to match.
    * @return a fixture that manages the {@code Dialog} found.
-   * @throws org.assertj.swing.exception.WaitTimedOutError if a {@code Dialog} that a matching name could not be found.
+   * @throws org.uitest4j.swing.exception.WaitTimedOutError if a {@code Dialog} that a matching name could not be found.
    * @see #dialog(String, Timeout)
    */
   @RunsInEDT
@@ -214,7 +214,7 @@ public interface ComponentContainerFixture {
    * @param name the name to match.
    * @param timeout the amount of time to wait for a {@code Dialog} to be found.
    * @return a fixture that manages the {@code Dialog} found.
-   * @throws org.assertj.swing.exception.WaitTimedOutError if a {@code Dialog} that a matching name could not be found.
+   * @throws org.uitest4j.swing.exception.WaitTimedOutError if a {@code Dialog} that a matching name could not be found.
    */
   @RunsInEDT
   @Nonnull
@@ -225,7 +225,7 @@ public interface ComponentContainerFixture {
    * {@link #defaultDialogLookupTimeout()} as the default lookup timeout.
    *
    * @return a fixture that manages the {@code JFileChooser} found.
-   * @throws org.assertj.swing.exception.WaitTimedOutError if a {@code JFileChooser} could not be found.
+   * @throws org.uitest4j.swing.exception.WaitTimedOutError if a {@code JFileChooser} could not be found.
    * @see #fileChooser(Timeout)
    */
   @RunsInEDT
@@ -237,7 +237,7 @@ public interface ComponentContainerFixture {
    *
    * @param timeout the amount of time to wait for a {@code JFileChooser} to be found.
    * @return a fixture that manages the {@code JFileChooser} found.
-   * @throws org.assertj.swing.exception.WaitTimedOutError if a {@code JFileChooser} could not be found.
+   * @throws org.uitest4j.swing.exception.WaitTimedOutError if a {@code JFileChooser} could not be found.
    */
   @RunsInEDT
   @Nonnull
@@ -249,7 +249,7 @@ public interface ComponentContainerFixture {
    *
    * @param matcher contains the search criteria for finding a {@code JFileChooser}.
    * @return a fixture that manages the {@code JFileChooser} found.
-   * @throws org.assertj.swing.exception.WaitTimedOutError if a {@code JFileChooser} could not be found.
+   * @throws org.uitest4j.swing.exception.WaitTimedOutError if a {@code JFileChooser} could not be found.
    * @see #fileChooser(GenericTypeMatcher, Timeout)
    */
   @RunsInEDT
@@ -262,7 +262,7 @@ public interface ComponentContainerFixture {
    * @param matcher contains the search criteria for finding a {@code JFileChooser}.
    * @param timeout the amount of time to wait for a {@code JFileChooser} to be found.
    * @return a fixture that manages the {@code JFileChooser} found.
-   * @throws org.assertj.swing.exception.WaitTimedOutError if a {@code JFileChooser} could not be found.
+   * @throws org.uitest4j.swing.exception.WaitTimedOutError if a {@code JFileChooser} could not be found.
    */
   @RunsInEDT
   @Nonnull
@@ -274,7 +274,7 @@ public interface ComponentContainerFixture {
    *
    * @param name the name to match.
    * @return a fixture that manages the {@code JFileChooser} found.
-   * @throws org.assertj.swing.exception.WaitTimedOutError if a {@code JFileChooser} could not be found.
+   * @throws org.uitest4j.swing.exception.WaitTimedOutError if a {@code JFileChooser} could not be found.
    * @see #fileChooser(String, Timeout)
    */
   @RunsInEDT
@@ -287,7 +287,7 @@ public interface ComponentContainerFixture {
    * @param name the name to match.
    * @param timeout the amount of time to wait for a {@code JFileChooser} to be found.
    * @return a fixture that manages the {@code JFileChooser} found.
-   * @throws org.assertj.swing.exception.WaitTimedOutError if a {@code JFileChooser} could not be found.
+   * @throws org.uitest4j.swing.exception.WaitTimedOutError if a {@code JFileChooser} could not be found.
    */
   @RunsInEDT
   @Nonnull
@@ -297,8 +297,8 @@ public interface ComponentContainerFixture {
    * Returns a {@link JInternalFrame} found in this fixture's {@code Container}.
    *
    * @return a fixture that manages the {@code JInternalFrame} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JInternalFrame} could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JInternalFrame} is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JInternalFrame} could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code JInternalFrame} is found.
    */
   @RunsInEDT
   @Nonnull
@@ -309,9 +309,9 @@ public interface ComponentContainerFixture {
    *
    * @param matcher contains the search criteria for finding a {@code JInternalFrame}.
    * @return a fixture that manages the {@code JInternalFrame} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JInternalFrame} that matches the given
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JInternalFrame} that matches the given
    *           search criteria could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JInternalFrame} that matches
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code JInternalFrame} that matches
    *           the given search criteria is found.
    */
   @RunsInEDT
@@ -323,9 +323,9 @@ public interface ComponentContainerFixture {
    *
    * @param name the name to match.
    * @return a fixture that manages the {@code JInternalFrame} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JInternalFrame} having a matching name
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JInternalFrame} having a matching name
    *           could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JInternalFrame} having a
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code JInternalFrame} having a
    *           matching name is found.
    */
   @RunsInEDT
@@ -336,8 +336,8 @@ public interface ComponentContainerFixture {
    * Returns a {@code JLabel} found in this fixture's {@code Container}.
    *
    * @return a fixture that manages the {@code JLabel} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JLabel} could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JLabel} is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JLabel} could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code JLabel} is found.
    */
   @RunsInEDT
   @Nonnull
@@ -348,9 +348,9 @@ public interface ComponentContainerFixture {
    *
    * @param matcher contains the search criteria for finding a {@code JLabel}.
    * @return a fixture that manages the {@code JLabel} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JLabel} that matches the given search
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JLabel} that matches the given search
    *           criteria could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JLabel} that matches the given
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code JLabel} that matches the given
    *           search criteria is found.
    */
   @RunsInEDT
@@ -362,9 +362,9 @@ public interface ComponentContainerFixture {
    *
    * @param name the name to match.
    * @return a fixture that manages the {@code JLabel} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JLabel} having a matching name could not
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JLabel} having a matching name could not
    *           be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JLabel} having a matching name
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code JLabel} having a matching name
    *           could is found.
    */
   @RunsInEDT
@@ -375,8 +375,8 @@ public interface ComponentContainerFixture {
    * Returns a {@code JList} found in this fixture's {@code Container}.
    *
    * @return a fixture that manages the {@code JList} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JList} could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JList} is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JList} could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code JList} is found.
    */
   @RunsInEDT
   @Nonnull
@@ -387,9 +387,9 @@ public interface ComponentContainerFixture {
    *
    * @param matcher contains the search criteria for finding a {@code JList}.
    * @return a fixture that manages the {@code JList} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JList} that matches the given search
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JList} that matches the given search
    *           criteria could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JList} that matches the given
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code JList} that matches the given
    *           search criteria is found.
    */
   @RunsInEDT
@@ -401,9 +401,9 @@ public interface ComponentContainerFixture {
    *
    * @param name the name to match.
    * @return a fixture that manages the {@code JList} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JList} having a matching name could not be
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JList} having a matching name could not be
    *           found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JList} having a matching name
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code JList} having a matching name
    *           is found.
    */
   @RunsInEDT
@@ -423,7 +423,7 @@ public interface ComponentContainerFixture {
    *
    * @param path the path of the menu to find.
    * @return a fixture that manages the {@code JMenuItem} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JMenuItem} under the given path could not
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JMenuItem} under the given path could not
    *           be found.
    * @throws AssertionError if the {@code Component} found under the given path is not a {@code JMenuItem}.
    */
@@ -436,9 +436,9 @@ public interface ComponentContainerFixture {
    *
    * @param name the name to match.
    * @return a fixture that manages the {@code JMenuItem} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JMenuItem} having a matching name could
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JMenuItem} having a matching name could
    *           not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JMenuItem} having a matching
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code JMenuItem} having a matching
    *           name is found.
    */
   @RunsInEDT
@@ -451,9 +451,9 @@ public interface ComponentContainerFixture {
    *
    * @param matcher contains the search criteria for finding a {@code JMenuItem}.
    * @return a fixture that manages the {@code JMenuItem} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JMenuItem} that matches the given search
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JMenuItem} that matches the given search
    *           criteria could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JMenuItem} that matches the
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code JMenuItem} that matches the
    *           given search criteria is
    *           found.
    */
@@ -466,7 +466,7 @@ public interface ComponentContainerFixture {
    * {@link #defaultDialogLookupTimeout()} as the default lookup timeout.
    *
    * @return a fixture that manages the {@code JOptionPane} found.
-   * @throws org.assertj.swing.exception.WaitTimedOutError if a {@code JOptionPane} could not be found.
+   * @throws org.uitest4j.swing.exception.WaitTimedOutError if a {@code JOptionPane} could not be found.
    * @see #optionPane(Timeout)
    */
   @RunsInEDT
@@ -478,7 +478,7 @@ public interface ComponentContainerFixture {
    *
    * @param timeout the amount of time to wait for a {@code JOptionPane} to be found.
    * @return a fixture that manages the {@code JOptionPane} found.
-   * @throws org.assertj.swing.exception.WaitTimedOutError if a {@code JOptionPane} could not be found.
+   * @throws org.uitest4j.swing.exception.WaitTimedOutError if a {@code JOptionPane} could not be found.
    */
   @RunsInEDT
   @Nonnull
@@ -488,8 +488,8 @@ public interface ComponentContainerFixture {
    * Returns a {@code JPanel} found in this fixture's {@code Container}.
    *
    * @return a fixture that manages the {@code JPanel} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JPanel} could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JPanel} is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JPanel} could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code JPanel} is found.
    */
   @RunsInEDT
   @Nonnull
@@ -500,9 +500,9 @@ public interface ComponentContainerFixture {
    *
    * @param matcher contains the search criteria for finding a {@code JPanel}.
    * @return a fixture that manages the {@code JPanel} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JPanel} that matches the given search
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JPanel} that matches the given search
    *           criteria could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JPanel} that matches the given
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code JPanel} that matches the given
    *           search criteria is found.
    */
   @RunsInEDT
@@ -514,7 +514,7 @@ public interface ComponentContainerFixture {
    *
    * @param name the name to match.
    * @return a fixture that manages the {@code JPanel} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JPanel} having a matching name could not
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JPanel} having a matching name could not
    *           be found.
    */
   @RunsInEDT
@@ -525,8 +525,8 @@ public interface ComponentContainerFixture {
    * Returns a {@code JProgressBar} found in this fixture's {@code Container}.
    *
    * @return a fixture that manages the {@code JProgressBar} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JProgressBar} could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JProgressBar} is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JProgressBar} could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code JProgressBar} is found.
    */
   @RunsInEDT
   @Nonnull
@@ -537,10 +537,10 @@ public interface ComponentContainerFixture {
    *
    * @param matcher contains the search criteria for finding a {@code JProgressBar}.
    * @return a fixture that manages the {@code JProgressBar} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JProgressBar} that matches the given
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JProgressBar} that matches the given
    *           search criteria could not be
    *           found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JProgressBar} that matches the
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code JProgressBar} that matches the
    *           given search criteria is
    *           found.
    */
@@ -553,7 +553,7 @@ public interface ComponentContainerFixture {
    *
    * @param name the name to match.
    * @return a fixture that manages the {@code JProgressBar} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JProgressBar} having a matching name could
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JProgressBar} having a matching name could
    *           not be found.
    */
   @RunsInEDT
@@ -564,8 +564,8 @@ public interface ComponentContainerFixture {
    * Returns a {@code JRadioButton} found in this fixture's {@code Container}.
    *
    * @return a fixture that manages the {@code JRadioButton} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JRadioButton} could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JRadioButton} is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JRadioButton} could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code JRadioButton} is found.
    */
   @RunsInEDT
   @Nonnull
@@ -576,10 +576,10 @@ public interface ComponentContainerFixture {
    *
    * @param matcher contains the search criteria for finding a {@code JRadioButton}.
    * @return a fixture that manages the {@code JRadioButton} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JRadioButton} that matches the given
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JRadioButton} that matches the given
    *           search criteria could not be
    *           found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JRadioButton} that matches the
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code JRadioButton} that matches the
    *           given search criteria is
    *           found.
    */
@@ -592,9 +592,9 @@ public interface ComponentContainerFixture {
    *
    * @param name the name to match.
    * @return a fixture that manages the {@code JRadioButton} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JRadioButton} having a matching name could
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JRadioButton} having a matching name could
    *           not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JRadioButton} having a
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code JRadioButton} having a
    *           matching name is found.
    */
   @RunsInEDT
@@ -605,8 +605,8 @@ public interface ComponentContainerFixture {
    * Returns a {@code JScrollBar} found in this fixture's {@code Container}.
    *
    * @return a fixture that manages the {@code JScrollBar} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JScrollBar} could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JScrollBar} is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JScrollBar} could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code JScrollBar} is found.
    */
   @RunsInEDT
   @Nonnull
@@ -617,9 +617,9 @@ public interface ComponentContainerFixture {
    *
    * @param matcher contains the search criteria for finding a {@code JScrollBar}.
    * @return a fixture that manages the {@code JScrollBar} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JScrollBar} that matches the given search
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JScrollBar} that matches the given search
    *           criteria could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JScrollBar} that matches the
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code JScrollBar} that matches the
    *           given search criteria is
    *           found.
    */
@@ -632,9 +632,9 @@ public interface ComponentContainerFixture {
    *
    * @param name the name to match.
    * @return a fixture that manages the {@code JScrollBar} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JScrollBar} having a matching name could
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JScrollBar} having a matching name could
    *           not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JScrollBar} having a matching
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code JScrollBar} having a matching
    *           name is found.
    */
   @RunsInEDT
@@ -645,8 +645,8 @@ public interface ComponentContainerFixture {
    * Returns a {@code JScrollPane} found in this fixture's {@code Container}.
    *
    * @return a fixture that manages the {@code JScrollPane} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JScrollPane} could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JScrollPane} is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JScrollPane} could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code JScrollPane} is found.
    */
   @RunsInEDT
   @Nonnull
@@ -657,10 +657,10 @@ public interface ComponentContainerFixture {
    *
    * @param matcher contains the search criteria for finding a {@code JScrollPane}.
    * @return a fixture that manages the {@code JScrollPane} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JScrollPane} that matches the given search
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JScrollPane} that matches the given search
    *           criteria could not be
    *           found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JScrollPane} that matches the
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code JScrollPane} that matches the
    *           given search criteria is
    *           found.
    */
@@ -673,9 +673,9 @@ public interface ComponentContainerFixture {
    *
    * @param name the name to match.
    * @return a fixture that manages the {@code JScrollPane} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JScrollPane} having a matching name could
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JScrollPane} having a matching name could
    *           not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JScrollPane} having a matching
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code JScrollPane} having a matching
    *           name is found.
    */
   @RunsInEDT
@@ -686,8 +686,8 @@ public interface ComponentContainerFixture {
    * Returns a {@code JSlider} found in this fixture's {@code Container}.
    *
    * @return a fixture that manages the {@code JSlider} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JSlider} could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JSlider} is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JSlider} could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code JSlider} is found.
    */
   @RunsInEDT
   @Nonnull
@@ -698,9 +698,9 @@ public interface ComponentContainerFixture {
    *
    * @param matcher contains the search criteria for finding a {@code JSlider}.
    * @return a fixture that manages the {@code JSlider} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JSlider} that matches the given search
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JSlider} that matches the given search
    *           criteria could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JSlider} that matches the
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code JSlider} that matches the
    *           given search criteria is found.
    */
   @RunsInEDT
@@ -712,9 +712,9 @@ public interface ComponentContainerFixture {
    *
    * @param name the name to match.
    * @return a fixture that manages the {@code JSlider} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JSlider} having a matching name could not
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JSlider} having a matching name could not
    *           be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JSlider} having a matching
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code JSlider} having a matching
    *           name is found.
    */
   @RunsInEDT
@@ -725,8 +725,8 @@ public interface ComponentContainerFixture {
    * Returns a {@code JSpinner} found in this fixture's {@code Container}.
    *
    * @return a fixture that manages the {@code JSpinner} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JSpinner} could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JSpinner} is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JSpinner} could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code JSpinner} is found.
    */
   @RunsInEDT
   @Nonnull
@@ -737,9 +737,9 @@ public interface ComponentContainerFixture {
    *
    * @param matcher contains the search criteria for finding a {@code JSpinner}.
    * @return a fixture that manages the {@code JSpinner} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JSpinner} that matches the given search
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JSpinner} that matches the given search
    *           criteria could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JSpinner} that matches the
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code JSpinner} that matches the
    *           given search criteria is found.
    */
   @RunsInEDT
@@ -751,9 +751,9 @@ public interface ComponentContainerFixture {
    *
    * @param name the name to match.
    * @return a fixture that manages the {@code JSpinner} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JSpinner} having a matching name could not
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JSpinner} having a matching name could not
    *           be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JSpinner} having a matching
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code JSpinner} having a matching
    *           name is found.
    */
   @RunsInEDT
@@ -764,8 +764,8 @@ public interface ComponentContainerFixture {
    * Returns the {@code JSplitPane} found in this fixture's {@code Container}.
    *
    * @return a fixture that manages the {@code JSplitPane} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JSplitPane} could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JSplitPane} is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JSplitPane} could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code JSplitPane} is found.
    */
   @RunsInEDT
   @Nonnull
@@ -776,9 +776,9 @@ public interface ComponentContainerFixture {
    *
    * @param matcher contains the search criteria for finding a {@code JSplitPane}.
    * @return a fixture that manages the {@code JSplitPane} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JSplitPane} that matches the given search
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JSplitPane} that matches the given search
    *           criteria could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JSplitPane} that matches the
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code JSplitPane} that matches the
    *           given search criteria is
    *           found.
    */
@@ -791,9 +791,9 @@ public interface ComponentContainerFixture {
    *
    * @param name the name to match.
    * @return a fixture that manages the {@code JSplitPane} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JSplitPane} having a matching name could
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JSplitPane} having a matching name could
    *           not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JSplitPane} having a matching
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code JSplitPane} having a matching
    *           name is found.
    */
   @RunsInEDT
@@ -804,8 +804,8 @@ public interface ComponentContainerFixture {
    * Returns a {@code JTabbedPane} found in this fixture's {@code Container}.
    *
    * @return a fixture that manages the {@code JTabbedPane} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JTabbedPane} could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JTabbedPane} is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JTabbedPane} could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code JTabbedPane} is found.
    */
   @RunsInEDT
   @Nonnull
@@ -816,10 +816,10 @@ public interface ComponentContainerFixture {
    *
    * @param matcher contains the search criteria for finding a {@code JTabbedPane}.
    * @return a fixture that manages the {@code JTabbedPane} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JTabbedPane} that matches the given search
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JTabbedPane} that matches the given search
    *           criteria could not be
    *           found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JTabbedPane} that matches the
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code JTabbedPane} that matches the
    *           given search criteria is
    *           found.
    */
@@ -832,9 +832,9 @@ public interface ComponentContainerFixture {
    *
    * @param name the name to match.
    * @return a fixture that manages the {@code JTabbedPane} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JTabbedPane} having a matching name could
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JTabbedPane} having a matching name could
    *           not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JTabbedPane} having a matching
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code JTabbedPane} having a matching
    *           name is found.
    */
   @RunsInEDT
@@ -845,9 +845,9 @@ public interface ComponentContainerFixture {
    * Returns a {@code JTable} found in this fixture's {@code Container}.
    *
    * @return a fixture that manages the {@code JTable} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JTable} having a matching name could not
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JTable} having a matching name could not
    *           be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JTable} having a matching name
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code JTable} having a matching name
    *           is found.
    */
   @RunsInEDT
@@ -859,9 +859,9 @@ public interface ComponentContainerFixture {
    *
    * @param matcher contains the search criteria for finding a {@code JTable}.
    * @return a fixture that manages the {@code JTable} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JTable} that matches the given search
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JTable} that matches the given search
    *           criteria could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JTable} that matches the given
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code JTable} that matches the given
    *           search criteria is found.
    */
   @RunsInEDT
@@ -873,9 +873,9 @@ public interface ComponentContainerFixture {
    *
    * @param name the name to match.
    * @return a fixture that manages the {@code JTable} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JTable} having a matching name could not
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JTable} having a matching name could not
    *           be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JTable} having a matching name
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code JTable} having a matching name
    *           is found.
    */
   @RunsInEDT
@@ -886,9 +886,9 @@ public interface ComponentContainerFixture {
    * Returns a {@code JTextComponent} found in this fixture's {@code Container}.
    *
    * @return a fixture that manages the {@code JTextComponent} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JTextComponent} having a matching name
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JTextComponent} having a matching name
    *           could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JTextComponent} having a
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code JTextComponent} having a
    *           matching name is found.
    */
   @RunsInEDT
@@ -901,10 +901,10 @@ public interface ComponentContainerFixture {
    *
    * @param matcher contains the search criteria for finding a {@code JTextComponent}.
    * @return a fixture that manages the {@code JTextComponent} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JTextComponent} that matches the given
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JTextComponent} that matches the given
    *           search criteria could not be
    *           found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JTextComponent} that matches
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code JTextComponent} that matches
    *           the given search criteria is
    *           found.
    */
@@ -918,9 +918,9 @@ public interface ComponentContainerFixture {
    *
    * @param name the name to match.
    * @return a fixture that manages the {@code JTextComponent} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JTextComponent} having a matching name
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JTextComponent} having a matching name
    *           could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JTextComponent} having a
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code JTextComponent} having a
    *           matching name is found.
    */
   JTextComponentFixture textBox(String name);
@@ -929,8 +929,8 @@ public interface ComponentContainerFixture {
    * Returns a {@code JToggleButton} found in this fixture's {@code Container}.
    *
    * @return a fixture that manages the {@code JToggleButton} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JToggleButton} could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JToggleButton} is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JToggleButton} could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code JToggleButton} is found.
    */
   @RunsInEDT
   @Nonnull
@@ -941,10 +941,10 @@ public interface ComponentContainerFixture {
    *
    * @param matcher contains the search criteria for finding a {@code JToggleButton}.
    * @return a fixture that manages the {@code JToggleButton} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JToggleButton} that matches the given
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JToggleButton} that matches the given
    *           search criteria could not be
    *           found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JToggleButton} that matches
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code JToggleButton} that matches
    *           the given search criteria is
    *           found.
    */
@@ -957,9 +957,9 @@ public interface ComponentContainerFixture {
    *
    * @param name the name to match.
    * @return a fixture that manages the {@code JToggleButton} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JToggleButton} having a matching name
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JToggleButton} having a matching name
    *           could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JToggleButton} having a
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code JToggleButton} having a
    *           matching name is found.
    */
   @RunsInEDT
@@ -970,9 +970,9 @@ public interface ComponentContainerFixture {
    * Returns a {@code JToolBar} found in this fixture's {@code Container}.
    *
    * @return a fixture that manages the {@code JToolBar} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JToolBar} having a matching name could not
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JToolBar} having a matching name could not
    *           be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JToolBar} having a matching
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code JToolBar} having a matching
    *           name could is found.
    */
   @RunsInEDT
@@ -984,9 +984,9 @@ public interface ComponentContainerFixture {
    *
    * @param matcher contains the search criteria for finding a {@code JToolBar}.
    * @return a fixture that manages the {@code JToolBar} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JToolBar} that matches the given search
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JToolBar} that matches the given search
    *           criteria could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JToolBar} that matches the
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code JToolBar} that matches the
    *           given search criteria is found.
    */
   @RunsInEDT
@@ -998,9 +998,9 @@ public interface ComponentContainerFixture {
    *
    * @param name the name to match.
    * @return a fixture that manages the {@code JToolBar} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JToolBar} having a matching name could not
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JToolBar} having a matching name could not
    *           be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JToolBar} having a matching
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code JToolBar} having a matching
    *           name is found.
    */
   @RunsInEDT
@@ -1011,9 +1011,9 @@ public interface ComponentContainerFixture {
    * Returns a {@code JTree} found in this fixture's {@code Container}.
    *
    * @return a fixture that manages the {@code JTree} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JTree} having a matching name could not be
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JTree} having a matching name could not be
    *           found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JTree} having a matching name
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code JTree} having a matching name
    *           is found.
    */
   @RunsInEDT
@@ -1025,9 +1025,9 @@ public interface ComponentContainerFixture {
    *
    * @param matcher contains the search criteria for finding a {@code JTree}.
    * @return a fixture that manages the {@code JTree} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JTree} that matches the given search
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JTree} that matches the given search
    *           criteria could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JTree} that matches the given
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code JTree} that matches the given
    *           search criteria is found.
    */
   @RunsInEDT
@@ -1039,9 +1039,9 @@ public interface ComponentContainerFixture {
    *
    * @param name the name to match.
    * @return a fixture that manages the {@code JTree} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JTree} having a matching name could not be
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JTree} having a matching name could not be
    *           found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JTree} having a matching name
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code JTree} having a matching name
    *           is found.
    */
   @RunsInEDT

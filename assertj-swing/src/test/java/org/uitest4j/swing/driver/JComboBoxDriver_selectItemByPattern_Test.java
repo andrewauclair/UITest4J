@@ -14,7 +14,7 @@ package org.uitest4j.swing.driver;
 
 import java.util.regex.Pattern;
 
-import org.assertj.swing.exception.LocationUnavailableException;
+import org.uitest4j.swing.exception.LocationUnavailableException;
 import org.assertj.swing.test.ExpectedException;
 import org.junit.jupiter.api.Test;
 

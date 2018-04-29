@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import javax.annotation.Nonnull;
 import javax.swing.JButton;
 
-import org.assertj.swing.exception.ComponentLookupException;
+import org.uitest4j.swing.exception.ComponentLookupException;
 import org.junit.jupiter.api.Test;
 
 /**

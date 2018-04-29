@@ -50,7 +50,7 @@ public abstract class AbstractTwoStateButtonFixture<S, T extends AbstractButton>
    * @param type the type of the {@code AbstractButton} to find using the given {@code Robot}.
    * @throws NullPointerException if {@code robot} is {@code null}.
    * @throws NullPointerException if {@code type} is {@code null}.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a matching {@code AbstractButton} could not be
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching {@code AbstractButton} could not be
    *           found. Or if more than one matching {@code AbstractButton} is found.
    */
   public AbstractTwoStateButtonFixture(@Nonnull Class<S> selfType, @Nonnull Robot robot, @Nullable String buttonName,

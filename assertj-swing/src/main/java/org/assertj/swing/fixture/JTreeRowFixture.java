@@ -46,7 +46,7 @@ public class JTreeRowFixture implements JTreeNodeFixture<JTreeRowFixture> {
    * @return this fixture.
    * @throws IllegalStateException if the {@code JTree} is disabled.
    * @throws IllegalStateException if the {@code JTree} is not showing on the screen.
-   * @throws org.assertj.swing.exception.ActionFailedException if this method fails to expand the row.
+   * @throws org.uitest4j.swing.exception.ActionFailedException if this method fails to expand the row.
    */
   @Override
   @Nonnull public JTreeRowFixture expand() {
@@ -60,7 +60,7 @@ public class JTreeRowFixture implements JTreeNodeFixture<JTreeRowFixture> {
    * @return this fixture.
    * @throws IllegalStateException if the {@code JTree} is disabled.
    * @throws IllegalStateException if the {@code JTree} is not showing on the screen.
-   * @throws org.assertj.swing.exception.ActionFailedException if this method fails to collapse the row.
+   * @throws org.uitest4j.swing.exception.ActionFailedException if this method fails to collapse the row.
    */
   @Override
   @Nonnull public JTreeRowFixture collapse() {
@@ -183,7 +183,7 @@ public class JTreeRowFixture implements JTreeNodeFixture<JTreeRowFixture> {
    * @return this fixture.
    * @throws IllegalStateException if the {@code JTree} is disabled.
    * @throws IllegalStateException if the {@code JTree} is not showing on the screen.
-   * @throws org.assertj.swing.exception.ActionFailedException if there is no drag action in effect.
+   * @throws org.uitest4j.swing.exception.ActionFailedException if there is no drag action in effect.
    */
   @Override
   @Nonnull public JTreeRowFixture drop() {
@@ -197,7 +197,7 @@ public class JTreeRowFixture implements JTreeNodeFixture<JTreeRowFixture> {
    * @return a fixture that handles functional testing of the displayed pop-up menu.
    * @throws IllegalStateException if the {@code JTree} is disabled.
    * @throws IllegalStateException if the {@code JTree} is not showing on the screen.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
    */
   @Override
   @Nonnull public JPopupMenuFixture showPopupMenu() {

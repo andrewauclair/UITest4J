@@ -13,7 +13,7 @@
 package org.uitest4j.swing.driver;
 
 import org.uitest4j.swing.core.Robot;
-import org.assertj.swing.exception.ActionFailedException;
+import org.uitest4j.swing.exception.ActionFailedException;
 import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.annotation.Nonnull;

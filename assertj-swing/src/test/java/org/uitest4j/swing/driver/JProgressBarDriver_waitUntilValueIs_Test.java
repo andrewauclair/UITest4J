@@ -17,7 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.uitest4j.swing.driver.JProgressBarIncrementValueAsyncTask.with;
 import static org.uitest4j.swing.driver.JProgressBarValueQuery.valueOf;
 
-import org.assertj.swing.exception.WaitTimedOutError;
+import org.uitest4j.swing.exception.WaitTimedOutError;
 import org.assertj.swing.test.ExpectedException;
 import org.junit.jupiter.api.Test;
 

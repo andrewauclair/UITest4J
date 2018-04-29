@@ -23,7 +23,7 @@ import javax.annotation.Nonnull;
 import javax.swing.JTable;
 
 import org.uitest4j.swing.cell.JTableCellReader;
-import org.assertj.swing.exception.ActionFailedException;
+import org.uitest4j.swing.exception.ActionFailedException;
 import org.junit.jupiter.api.Test;
 
 /**

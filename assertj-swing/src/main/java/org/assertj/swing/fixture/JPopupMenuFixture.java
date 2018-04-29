@@ -52,9 +52,9 @@ public class JPopupMenuFixture extends AbstractJComponentFixture<JPopupMenuFixtu
    *
    * @param name the name to match.
    * @return a fixture that manages the {@code JMenuItem} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JMenuItem} having a matching name could
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JMenuItem} having a matching name could
    *           not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JMenuItem} having a matching
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code JMenuItem} having a matching
    *           name is found.
    */
   @Nonnull public JMenuItemFixture menuItem(@Nullable String name) {
@@ -67,9 +67,9 @@ public class JPopupMenuFixture extends AbstractJComponentFixture<JPopupMenuFixtu
    *
    * @param matcher contains the search criteria for finding a {@code JMenuItem}.
    * @return a fixture that manages the {@code JMenuItem} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JMenuItem} that matches the given search
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JMenuItem} that matches the given search
    *           criteria could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JMenuItem} that matches the
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code JMenuItem} that matches the
    *           given search criteria is
    *           found.
    */
@@ -93,7 +93,7 @@ public class JPopupMenuFixture extends AbstractJComponentFixture<JPopupMenuFixtu
    *
    * @param path the path of the menu to find.
    * @return a fixture that manages the {@code JMenuItem} found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JMenuItem} under the given path could not
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code JMenuItem} under the given path could not
    *           be found.
    * @throws AssertionError if the {@code Component} found under the given path is not a {@code JMenuItem}.
    */

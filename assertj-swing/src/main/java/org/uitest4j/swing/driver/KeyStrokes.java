@@ -19,7 +19,7 @@ import javax.swing.*;
 import java.util.List;
 
 import static org.assertj.core.util.Lists.newArrayList;
-import static org.assertj.swing.exception.ActionFailedException.actionFailure;
+import static org.uitest4j.swing.exception.ActionFailedException.actionFailure;
 
 /**
  * <p>

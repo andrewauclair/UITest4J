@@ -31,7 +31,7 @@ import org.uitest4j.swing.driver.ComponentPreconditions;
 import org.uitest4j.swing.driver.JListDriver;
 import org.uitest4j.swing.edt.GuiActionRunner;
 import org.uitest4j.swing.edt.GuiQuery;
-import org.assertj.swing.exception.LocationUnavailableException;
+import org.uitest4j.swing.exception.LocationUnavailableException;
 
 import com.jidesoft.combobox.AbstractComboBox;
 import com.jidesoft.combobox.ListComboBox;
@@ -133,7 +133,7 @@ public class ListComboBoxDriver extends AbstractComboBoxDriver {
    * @param comboBox the target <code>AbstractComboBox</code>.
    * @param index the given index.
    * @return the value of the element under the given index.
-   * @throws org.assertj.swing.exception.LocationUnavailableException if the given index is negative or greater than the
+   * @throws org.uitest4j.swing.exception.LocationUnavailableException if the given index is negative or greater than the
    *           index of the last item in the <code>AbstractComboBox</code>.
    * @see #cellReader(AbstractComboBoxCellReader)
    */

@@ -12,8 +12,7 @@
  */
 package org.assertj.swing.fixture;
 
-import org.assertj.swing.exception.ComponentLookupException;
-import org.assertj.swing.test.ScreenLockReleaser;
+import org.uitest4j.swing.exception.ComponentLookupException;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.junit.jupiter.api.Test;
 

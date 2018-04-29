@@ -20,7 +20,7 @@ import javax.annotation.Nonnull;
 import javax.swing.JOptionPane;
 
 import org.uitest4j.swing.core.GenericTypeMatcher;
-import org.assertj.swing.exception.WaitTimedOutError;
+import org.uitest4j.swing.exception.WaitTimedOutError;
 import org.assertj.swing.fixture.JOptionPaneFixture;
 import org.junit.jupiter.api.Test;
 

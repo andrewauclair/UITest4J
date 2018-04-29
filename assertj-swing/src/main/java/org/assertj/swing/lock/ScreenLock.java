@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
 
-import org.assertj.swing.exception.ScreenLockException;
+import org.uitest4j.swing.exception.ScreenLockException;
 
 /**
  * A lock that each GUI test should acquire before being executed, to guarantee sequential execution of GUI tests and to

@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.core;
 
-import org.assertj.swing.exception.ComponentLookupException;
+import org.uitest4j.swing.exception.ComponentLookupException;
 import org.assertj.swing.hierarchy.ComponentHierarchy;
 import org.assertj.swing.hierarchy.ExistingHierarchy;
 import org.assertj.swing.hierarchy.SingleComponentHierarchy;

@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.driver;
 
-import org.assertj.swing.exception.WaitTimedOutError;
+import org.uitest4j.swing.exception.WaitTimedOutError;
 import org.assertj.swing.util.TimeoutWatch;
 import org.uitest4j.swing.annotation.RunsInEDT;
 

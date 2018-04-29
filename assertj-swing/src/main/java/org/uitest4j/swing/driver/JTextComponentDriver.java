@@ -14,7 +14,7 @@ package org.uitest4j.swing.driver;
 
 import org.assertj.core.description.Description;
 import org.uitest4j.swing.core.Robot;
-import org.assertj.swing.exception.ActionFailedException;
+import org.uitest4j.swing.exception.ActionFailedException;
 import org.assertj.swing.internal.annotation.InternalApi;
 import org.assertj.swing.util.Pair;
 import org.assertj.swing.util.Platform;
@@ -44,7 +44,7 @@ import static org.uitest4j.swing.driver.JTextComponentSetTextTask.setTextIn;
 import static org.uitest4j.swing.driver.PointAndParentForScrollingJTextFieldQuery.pointAndParentForScrolling;
 import static org.uitest4j.swing.driver.TextAssert.verifyThat;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.exception.ActionFailedException.actionFailure;
+import static org.uitest4j.swing.exception.ActionFailedException.actionFailure;
 import static org.assertj.swing.format.Formatting.format;
 
 /**

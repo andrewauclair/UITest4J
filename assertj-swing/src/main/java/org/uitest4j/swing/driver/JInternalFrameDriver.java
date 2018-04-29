@@ -15,7 +15,7 @@ package org.uitest4j.swing.driver;
 import org.assertj.core.util.VisibleForTesting;
 import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.edt.GuiQuery;
-import org.assertj.swing.exception.UnexpectedException;
+import org.uitest4j.swing.exception.UnexpectedException;
 import org.assertj.swing.internal.annotation.InternalApi;
 import org.assertj.swing.util.Pair;
 import org.assertj.swing.util.Triple;
@@ -39,7 +39,7 @@ import static org.uitest4j.swing.driver.JInternalFrameSetMaximumTask.setMaximum;
 import static org.uitest4j.swing.driver.JInternalFrameTitleQuery.titleOf;
 import static org.uitest4j.swing.driver.WindowLikeContainers.*;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.exception.ActionFailedException.actionFailure;
+import static org.uitest4j.swing.exception.ActionFailedException.actionFailure;
 import static org.assertj.swing.format.Formatting.format;
 
 /**
@@ -97,7 +97,7 @@ public class JInternalFrameDriver extends JComponentDriver {
    * @param internalFrame the target {@code JInternalFrame}.
    * @throws IllegalStateException if the {@code JInternalFrame} is not maximisable.
    * @throws IllegalStateException if the {@code JInternalFrame} is not showing on the screen.
-   * @throws org.assertj.swing.exception.ActionFailedException if the {@code JInternalFrame} vetoes the action.
+   * @throws org.uitest4j.swing.exception.ActionFailedException if the {@code JInternalFrame} vetoes the action.
    */
   @RunsInEDT
   public void maximize(@Nonnull JInternalFrame internalFrame) {
@@ -131,7 +131,7 @@ public class JInternalFrameDriver extends JComponentDriver {
    *
    * @param internalFrame the target {@code JInternalFrame}.
    * @throws IllegalStateException if the {@code JInternalFrame} is not showing on the screen.
-   * @throws org.assertj.swing.exception.ActionFailedException if the {@code JInternalFrame} vetoes the action.
+   * @throws org.uitest4j.swing.exception.ActionFailedException if the {@code JInternalFrame} vetoes the action.
    */
   @RunsInEDT
   public void normalize(@Nonnull JInternalFrame internalFrame) {
@@ -187,7 +187,7 @@ public class JInternalFrameDriver extends JComponentDriver {
    * @param internalFrame the target {@code JInternalFrame}.
    * @throws IllegalStateException if the {@code JInternalFrame} is not showing on the screen.
    * @throws IllegalStateException if the {@code JInternalFrame} is not iconifiable.
-   * @throws org.assertj.swing.exception.ActionFailedException if the {@code JInternalFrame} vetoes the action.
+   * @throws org.uitest4j.swing.exception.ActionFailedException if the {@code JInternalFrame} vetoes the action.
    */
   @RunsInEDT
   public void iconify(@Nonnull JInternalFrame internalFrame) {
@@ -229,7 +229,7 @@ public class JInternalFrameDriver extends JComponentDriver {
    *
    * @param internalFrame the target {@code JInternalFrame}.
    * @throws IllegalStateException if the {@code JInternalFrame} is not showing on the screen.
-   * @throws org.assertj.swing.exception.ActionFailedException if the {@code JInternalFrame} vetoes the action.
+   * @throws org.uitest4j.swing.exception.ActionFailedException if the {@code JInternalFrame} vetoes the action.
    */
   @RunsInEDT
   public void deiconify(@Nonnull JInternalFrame internalFrame) {

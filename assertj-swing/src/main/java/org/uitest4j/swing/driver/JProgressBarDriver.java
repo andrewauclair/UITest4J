@@ -135,7 +135,7 @@ public class JProgressBarDriver extends JComponentDriver implements TextDisplayD
    * @param value the expected value.
    * @throws IllegalArgumentException if the given value is less than the {@code JProgressBar}'s minimum value.
    * @throws IllegalArgumentException if the given value is greater than the {@code JProgressBar}'s maximum value.
-   * @throws org.assertj.swing.exception.WaitTimedOutError if the value of the {@code JProgressBar} does not reach the
+   * @throws org.uitest4j.swing.exception.WaitTimedOutError if the value of the {@code JProgressBar} does not reach the
    *           expected value within 30
    *           seconds.
    */
@@ -153,7 +153,7 @@ public class JProgressBarDriver extends JComponentDriver implements TextDisplayD
    * @throws IllegalArgumentException if the given value is less than the {@code JProgressBar}'s minimum value.
    * @throws IllegalArgumentException if the given value is greater than the {@code JProgressBar}'s maximum value.
    * @throws NullPointerException if the given timeout is {@code null}.
-   * @throws org.assertj.swing.exception.WaitTimedOutError if the value of the {@code JProgressBar} does not reach the
+   * @throws org.uitest4j.swing.exception.WaitTimedOutError if the value of the {@code JProgressBar} does not reach the
    *           expected value within the
    *           specified timeout.
    */
@@ -182,7 +182,7 @@ public class JProgressBarDriver extends JComponentDriver implements TextDisplayD
    * Waits until the value of the given {@code JProgressBar} is in determinate mode.
    *
    * @param progressBar the target {@code JProgressBar}.
-   * @throws org.assertj.swing.exception.WaitTimedOutError if the {@code JProgressBar} does not reach determinate mode
+   * @throws org.uitest4j.swing.exception.WaitTimedOutError if the {@code JProgressBar} does not reach determinate mode
    *           within 30 seconds.
    */
   @RunsInEDT
@@ -196,7 +196,7 @@ public class JProgressBarDriver extends JComponentDriver implements TextDisplayD
    * @param progressBar the target {@code JProgressBar}.
    * @param timeout the amount of time to wait.
    * @throws NullPointerException if the given timeout is {@code null}.
-   * @throws org.assertj.swing.exception.WaitTimedOutError if the {@code JProgressBar} does not reach determinate mode
+   * @throws org.uitest4j.swing.exception.WaitTimedOutError if the {@code JProgressBar} does not reach determinate mode
    *           within the specified timeout.
    */
   @RunsInEDT

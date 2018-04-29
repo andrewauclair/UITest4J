@@ -23,7 +23,7 @@ import java.awt.Dimension;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
-import org.assertj.swing.exception.ActionFailedException;
+import org.uitest4j.swing.exception.ActionFailedException;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.jupiter.api.Test;

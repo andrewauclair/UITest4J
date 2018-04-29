@@ -19,7 +19,7 @@ import javax.annotation.Nonnull;
 import java.awt.*;
 
 import static org.assertj.core.util.Preconditions.checkNotNull;
-import static org.assertj.swing.exception.ActionFailedException.actionFailure;
+import static org.uitest4j.swing.exception.ActionFailedException.actionFailure;
 import static org.assertj.swing.timing.Pause.pause;
 import static org.assertj.swing.util.Platform.isMacintosh;
 import static org.assertj.swing.util.Platform.isWindows;
@@ -103,7 +103,7 @@ public class ComponentDragAndDrop {
    *
    * @param target the target AWT or Swing {@code Component}.
    * @param where the point where the drag operation ends.
-   * @throws org.assertj.swing.exception.ActionFailedException if there is no drag action in effect.
+   * @throws org.uitest4j.swing.exception.ActionFailedException if there is no drag action in effect.
    */
   @RunsInEDT
   public void drop(@Nonnull Component target, @Nonnull Point where) {

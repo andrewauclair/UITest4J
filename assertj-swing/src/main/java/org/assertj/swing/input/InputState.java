@@ -35,7 +35,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
 
-import org.assertj.swing.exception.UnexpectedException;
+import org.uitest4j.swing.exception.UnexpectedException;
 import org.assertj.swing.listener.EventDispatchThreadedEventListener;
 
 /**

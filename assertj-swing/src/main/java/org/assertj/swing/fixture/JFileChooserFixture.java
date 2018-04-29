@@ -34,8 +34,8 @@ public class JFileChooserFixture extends
    * 
    * @param robot performs simulation of user events on a {@code JFileChooser}.
    * @throws NullPointerException if {@code robot} is {@code null}.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a matching {@code JFileChooser} could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching {@code JFileChooser} is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching {@code JFileChooser} could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching {@code JFileChooser} is found.
    */
   public JFileChooserFixture(@Nonnull Robot robot) {
     super(JFileChooserFixture.class, robot, JFileChooser.class);
@@ -59,8 +59,8 @@ public class JFileChooserFixture extends
    * @param robot performs simulation of user events on a {@code JFileChooser}.
    * @param fileChooserName the name of the {@code JFileChooser} to find using the given {@code RobotFixture}.
    * @throws NullPointerException if {@code robot} is {@code null}.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a matching {@code JFileChooser} could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching {@code JFileChooser} is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching {@code JFileChooser} could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching {@code JFileChooser} is found.
    */
   public JFileChooserFixture(@Nonnull Robot robot, @Nullable String fileChooserName) {
     super(JFileChooserFixture.class, robot, fileChooserName, JFileChooser.class);
@@ -74,7 +74,7 @@ public class JFileChooserFixture extends
   /**
    * Simulates a user pressing the "Approve" button in this fixture's {@code JFileChooser}.
    * 
-   * @throws org.assertj.swing.exception.ComponentLookupException if the "Approve" button cannot be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if the "Approve" button cannot be found.
    * @throws IllegalStateException if the "Approve" button is disabled.
    * @throws IllegalStateException if the "Approve" button is not showing on the screen.
    */
@@ -86,7 +86,7 @@ public class JFileChooserFixture extends
    * Finds the "Approve" button in this fixture's {@code JFileChooser}.
    * 
    * @return the found "Approve" button.
-   * @throws org.assertj.swing.exception.ComponentLookupException if the "Approve" button cannot be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if the "Approve" button cannot be found.
    */
   @Nonnull public JButtonFixture approveButton() {
     return new JButtonFixture(robot(), driver().approveButton(target()));
@@ -95,7 +95,7 @@ public class JFileChooserFixture extends
   /**
    * Simulates a user pressing the "Cancel" button in this fixture's {@code JFileChooser}.
    * 
-   * @throws org.assertj.swing.exception.ComponentLookupException if the "Cancel" button cannot be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if the "Cancel" button cannot be found.
    * @throws IllegalStateException if the "Cancel" button is disabled.
    * @throws IllegalStateException if the "Cancel" button is not showing on the screen.
    */
@@ -107,7 +107,7 @@ public class JFileChooserFixture extends
    * Finds the "Cancel" button in this fixture's {@code JFileChooser}.
    * 
    * @return the found "Cancel" button.
-   * @throws org.assertj.swing.exception.ComponentLookupException if the "Cancel" button cannot be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if the "Cancel" button cannot be found.
    */
   @Nonnull public JButtonFixture cancelButton() {
     return new JButtonFixture(robot(), driver().cancelButton(target()));
@@ -118,7 +118,7 @@ public class JFileChooserFixture extends
    * {@code JFileChooser}.
    * 
    * @return the created fixture.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a matching textToMatch field could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching textToMatch field could not be found.
    */
   @Nonnull public JTextComponentFixture fileNameTextBox() {
     return new JTextComponentFixture(robot(), driver().fileNameTextBox(target()));

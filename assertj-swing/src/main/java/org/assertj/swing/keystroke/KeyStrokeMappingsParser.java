@@ -13,7 +13,7 @@
 package org.assertj.swing.keystroke;
 
 import org.assertj.core.util.VisibleForTesting;
-import org.assertj.swing.exception.ParsingException;
+import org.uitest4j.swing.exception.ParsingException;
 
 import javax.annotation.Nonnull;
 import java.awt.event.InputEvent;

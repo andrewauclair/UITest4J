@@ -71,7 +71,7 @@ public class JTableHeaderFixture extends
    * @return this fixture.
    * @throws IllegalStateException if this fixture's {@code JTableHeader} is disabled.
    * @throws IllegalStateException if this fixture's {@code JTableHeader} is not showing on the screen.
-   * @throws org.assertj.swing.exception.LocationUnavailableException if a column with a matching name cannot be found.
+   * @throws org.uitest4j.swing.exception.LocationUnavailableException if a column with a matching name cannot be found.
    */
   @Nonnull public JTableHeaderFixture clickColumn(@Nullable String columnName) {
     driver().clickColumn(target(), columnName);
@@ -87,7 +87,7 @@ public class JTableHeaderFixture extends
    * @throws IllegalStateException if this fixture's {@code JTableHeader} is disabled.
    * @throws IllegalStateException if this fixture's {@code JTableHeader} is not showing on the screen.
    * @throws NullPointerException if the given regular expression is {@code null}.
-   * @throws org.assertj.swing.exception.LocationUnavailableException if a column with a matching name cannot be found.
+   * @throws org.uitest4j.swing.exception.LocationUnavailableException if a column with a matching name cannot be found.
    */
   @Nonnull public JTableHeaderFixture clickColumn(@Nonnull Pattern columnNamePattern) {
     driver().clickColumn(target(), columnNamePattern);
@@ -122,7 +122,7 @@ public class JTableHeaderFixture extends
    * @throws NullPointerException if the given {@code MouseClickInfo} is {@code null}.
    * @throws IllegalStateException if this fixture's {@code JTableHeader} is disabled.
    * @throws IllegalStateException if this fixture's {@code JTableHeader} is not showing on the screen.
-   * @throws org.assertj.swing.exception.LocationUnavailableException if a column with a matching name cannot be found.
+   * @throws org.uitest4j.swing.exception.LocationUnavailableException if a column with a matching name cannot be found.
    */
   @Nonnull public JTableHeaderFixture clickColumn(@Nullable String columnName, @Nonnull MouseClickInfo mouseClickInfo) {
     checkNotNull(mouseClickInfo);
@@ -141,7 +141,7 @@ public class JTableHeaderFixture extends
    * @throws IllegalStateException if this fixture's {@code JTableHeader} is disabled.
    * @throws IllegalStateException if this fixture's {@code JTableHeader} is not showing on the screen.
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
-   * @throws org.assertj.swing.exception.LocationUnavailableException if a column with a matching name cannot be found.
+   * @throws org.uitest4j.swing.exception.LocationUnavailableException if a column with a matching name cannot be found.
    */
   @Nonnull public JTableHeaderFixture clickColumn(@Nonnull Pattern columnNamePattern,
       @Nonnull MouseClickInfo mouseClickInfo) {
@@ -158,7 +158,7 @@ public class JTableHeaderFixture extends
    * @throws IllegalStateException if this fixture's {@code JTableHeader} is disabled.
    * @throws IllegalStateException if this fixture's {@code JTableHeader} is not showing on the screen.
    * @throws IndexOutOfBoundsException if the index is out of bounds.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
    */
   @Nonnull public JPopupMenuFixture showPopupMenuAt(int columnIndex) {
     JPopupMenu popupMenu = driver().showPopupMenu(target(), columnIndex);
@@ -172,7 +172,7 @@ public class JTableHeaderFixture extends
    * @return a fixture that manages the displayed pop-up menu.
    * @throws IllegalStateException if this fixture's {@code JTableHeader} is disabled.
    * @throws IllegalStateException if this fixture's {@code JTableHeader} is not showing on the screen.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
    */
   @Nonnull public JPopupMenuFixture showPopupMenuAt(@Nullable String columnName) {
     JPopupMenu popupMenu = driver().showPopupMenu(target(), columnName);
@@ -188,7 +188,7 @@ public class JTableHeaderFixture extends
    * @throws IllegalStateException if this fixture's {@code JTableHeader} is disabled.
    * @throws IllegalStateException if this fixture's {@code JTableHeader} is not showing on the screen.
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
    */
   @Nonnull public JPopupMenuFixture showPopupMenuAt(@Nonnull Pattern columnNamePattern) {
     JPopupMenu popupMenu = driver().showPopupMenu(target(), columnNamePattern);

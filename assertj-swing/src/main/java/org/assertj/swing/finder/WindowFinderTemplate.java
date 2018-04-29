@@ -93,7 +93,7 @@ public abstract class WindowFinderTemplate<T extends Window> extends ComponentFi
    * 
    * @param robot contains the underlying finding to delegate the search to.
    * @return a fixture capable of managing the found {@code Window}.
-   * @throws org.assertj.swing.exception.WaitTimedOutError if a {@code Window} with the given name or of the given type
+   * @throws org.uitest4j.swing.exception.WaitTimedOutError if a {@code Window} with the given name or of the given type
    *           could not be found.
    */
   @Override

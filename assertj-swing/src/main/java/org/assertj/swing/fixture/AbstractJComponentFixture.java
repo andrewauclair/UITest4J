@@ -41,8 +41,8 @@ public abstract class AbstractJComponentFixture<S, T extends JComponent, D exten
    * @param type the type of the {@code JComponent} to find using the given {@code Robot}.
    * @throws NullPointerException if {@code robot} is {@code null}.
    * @throws NullPointerException if {@code type} is {@code null}.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching component is found.
    */
   public AbstractJComponentFixture(@Nonnull Class<S> selfType, @Nonnull Robot robot, @Nonnull Class<? extends T> type) {
     super(selfType, robot, type);
@@ -57,7 +57,7 @@ public abstract class AbstractJComponentFixture<S, T extends JComponent, D exten
    * @param type the type of the {@code JComponent} to find using the given {@code Robot}.
    * @throws NullPointerException if {@code robot} is {@code null}.
    * @throws NullPointerException if {@code type} is {@code null}.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found. Or if more
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching component could not be found. Or if more
    *           than one matching component is found.
    */
   public AbstractJComponentFixture(@Nonnull Class<S> selfType, @Nonnull Robot robot, @Nullable String name,

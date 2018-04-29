@@ -34,8 +34,8 @@ public class JOptionPaneFixture extends AbstractContainerFixture<JOptionPaneFixt
    * 
    * @param robot finds a showing {@code JOptionPane}, which will be managed by this fixture.
    * @throws NullPointerException if {@code robot} is {@code null}.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a showing {@code JOptionPane} could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one showing {@code JOptionPane} is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a showing {@code JOptionPane} could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one showing {@code JOptionPane} is found.
    */
   public JOptionPaneFixture(@Nonnull Robot robot) {
     this(robot, findShowingOptionPane(robot));
@@ -75,7 +75,7 @@ public class JOptionPaneFixture extends AbstractContainerFixture<JOptionPaneFixt
    * and platform-independent.
    * 
    * @return a fixture wrapping the "OK" button.
-   * @throws org.assertj.swing.exception.ComponentLookupException if the a "OK" button cannot be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if the a "OK" button cannot be found.
    */
   @Nonnull public JButtonFixture okButton() {
     return new JButtonFixture(robot(), driver().okButton(target()));
@@ -86,7 +86,7 @@ public class JOptionPaneFixture extends AbstractContainerFixture<JOptionPaneFixt
    * locale-independent and platform-independent.
    * 
    * @return a fixture wrapping the "Cancel" button.
-   * @throws org.assertj.swing.exception.ComponentLookupException if the a "Cancel" button cannot be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if the a "Cancel" button cannot be found.
    */
   @Nonnull public JButtonFixture cancelButton() {
     return new JButtonFixture(robot(), driver().cancelButton(target()));
@@ -97,7 +97,7 @@ public class JOptionPaneFixture extends AbstractContainerFixture<JOptionPaneFixt
    * locale-independent and platform-independent.
    * 
    * @return a fixture wrapping the "Yes" button.
-   * @throws org.assertj.swing.exception.ComponentLookupException if the a "Yes" button cannot be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if the a "Yes" button cannot be found.
    */
   @Nonnull public JButtonFixture yesButton() {
     return new JButtonFixture(robot(), driver().yesButton(target()));
@@ -108,7 +108,7 @@ public class JOptionPaneFixture extends AbstractContainerFixture<JOptionPaneFixt
    * and platform-independent.
    * 
    * @return a fixture wrapping the "No" button.
-   * @throws org.assertj.swing.exception.ComponentLookupException if the a "No" button cannot be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if the a "No" button cannot be found.
    */
   @Nonnull public JButtonFixture noButton() {
     return new JButtonFixture(robot(), driver().noButton(target()));
@@ -119,7 +119,7 @@ public class JOptionPaneFixture extends AbstractContainerFixture<JOptionPaneFixt
    * 
    * @param text the text of the button to find. It can be a regular expression.
    * @return a fixture wrapping a button matching the given text.
-   * @throws org.assertj.swing.exception.ComponentLookupException if the a button with the given text cannot be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if the a button with the given text cannot be found.
    */
   @Nonnull public JButtonFixture buttonWithText(@Nullable String text) {
     return new JButtonFixture(robot(), driver().buttonWithText(target(), text));
@@ -131,7 +131,7 @@ public class JOptionPaneFixture extends AbstractContainerFixture<JOptionPaneFixt
    * @param pattern the regular expression pattern to match.
    * @return a fixture wrapping a button matching the given regular expression pattern.
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
-   * @throws org.assertj.swing.exception.ComponentLookupException if the a button with the given text cannot be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if the a button with the given text cannot be found.
    */
   @Nonnull public JButtonFixture buttonWithText(@Nonnull Pattern pattern) {
     return new JButtonFixture(robot(), driver().buttonWithText(target(), pattern));

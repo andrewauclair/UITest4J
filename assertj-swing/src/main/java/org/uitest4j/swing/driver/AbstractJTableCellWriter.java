@@ -17,8 +17,8 @@ import org.uitest4j.swing.core.ComponentFoundCondition;
 import org.uitest4j.swing.core.ComponentMatcher;
 import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.core.TypeMatcher;
-import org.assertj.swing.exception.ActionFailedException;
-import org.assertj.swing.exception.WaitTimedOutError;
+import org.uitest4j.swing.exception.ActionFailedException;
+import org.uitest4j.swing.exception.WaitTimedOutError;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.uitest4j.swing.annotation.RunsInEDT;
 
@@ -39,7 +39,7 @@ import static org.uitest4j.swing.driver.JTableCellPreconditions.validateCellIsEd
 import static org.uitest4j.swing.driver.JTableStopCellEditingTask.checkStateAndStopEditing;
 import static org.uitest4j.swing.driver.JTableStopCellEditingTask.stopEditing;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.exception.ActionFailedException.actionFailure;
+import static org.uitest4j.swing.exception.ActionFailedException.actionFailure;
 import static org.assertj.swing.timing.Pause.pause;
 
 /**

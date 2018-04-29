@@ -43,9 +43,9 @@ public abstract class AbstractWindowFixture<S, C extends Window, D extends Windo
    * @param selfType the "self type."
    * @param type the type of {@code Window} to find using the created {@code Robot}.
    * @throws NullPointerException if the given {@code Window} type is {@code null}.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code Window} having a matching type could not
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code Window} having a matching type could not
    *           be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code Window} having a matching type
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code Window} having a matching type
    *           is found.
    * @see org.uitest4j.swing.core.BasicRobot#robotWithCurrentAwtHierarchy()
    */
@@ -61,9 +61,9 @@ public abstract class AbstractWindowFixture<S, C extends Window, D extends Windo
    * @param type the type of {@code Window} to find using the given {@code Robot}.
    * @throws NullPointerException if the given robot is {@code null}.
    * @throws NullPointerException if the given {@code Window} type is {@code null}.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code Window} having a matching type could not
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code Window} having a matching type could not
    *           be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code Window} having a matching type
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code Window} having a matching type
    *           is found.
    */
   public AbstractWindowFixture(@Nonnull Class<S> selfType, @Nonnull Robot robot, @Nonnull Class<? extends C> type) {
@@ -78,9 +78,9 @@ public abstract class AbstractWindowFixture<S, C extends Window, D extends Windo
    * @param name the name of the {@code Window} to find.
    * @param type the type of {@code Window} to find using the created {@code Robot}.
    * @throws NullPointerException if the given {@code Window} type is {@code null}.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code Window} having a matching name could not
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code Window} having a matching name could not
    *           be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code Window} having a matching name
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code Window} having a matching name
    *           is found.
    * @see org.uitest4j.swing.core.BasicRobot#robotWithCurrentAwtHierarchy()
    */
@@ -97,9 +97,9 @@ public abstract class AbstractWindowFixture<S, C extends Window, D extends Windo
    * @param type the type of {@code Window} to find using the given {@code Robot}.
    * @throws NullPointerException if the given robot is {@code null}.
    * @throws NullPointerException if the given {@code Window} type is {@code null}.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code Window} having a matching name could not
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code Window} having a matching name could not
    *           be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code Window} having a matching name
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code Window} having a matching name
    *           is found.
    */
   public AbstractWindowFixture(@Nonnull Class<S> selfType, @Nonnull Robot robot, @Nullable String name,
@@ -137,8 +137,8 @@ public abstract class AbstractWindowFixture<S, C extends Window, D extends Windo
    *
    * @param p the point to move this fixture's {@code Window} to.
    * @return this fixture.
-   * @throws org.assertj.swing.exception.ActionFailedException if the {@code Window} is not movable.
-   * @throws org.assertj.swing.exception.ActionFailedException if the given {@code Window} is not showing on the screen.
+   * @throws org.uitest4j.swing.exception.ActionFailedException if the {@code Window} is not movable.
+   * @throws org.uitest4j.swing.exception.ActionFailedException if the given {@code Window} is not showing on the screen.
    */
   @Override
   public final @Nonnull S moveTo(@Nonnull Point p) {
@@ -187,7 +187,7 @@ public abstract class AbstractWindowFixture<S, C extends Window, D extends Windo
    *
    * @param height the height that this fixture's {@code Window} should have after being resized.
    * @return this fixture.
-   * @throws org.assertj.swing.exception.ActionFailedException if the {@code Window} is not resizable.
+   * @throws org.uitest4j.swing.exception.ActionFailedException if the {@code Window} is not resizable.
    */
   @Override
   public final @Nonnull S resizeHeightTo(int height) {
@@ -200,7 +200,7 @@ public abstract class AbstractWindowFixture<S, C extends Window, D extends Windo
    *
    * @param size the size that the target window should have after being resized.
    * @return this fixture.
-   * @throws org.assertj.swing.exception.ActionFailedException if the {@code Window} is not resizable.
+   * @throws org.uitest4j.swing.exception.ActionFailedException if the {@code Window} is not resizable.
    */
   @Override
   public final @Nonnull S resizeTo(@Nonnull Dimension size) {
@@ -213,7 +213,7 @@ public abstract class AbstractWindowFixture<S, C extends Window, D extends Windo
    *
    * @param width the width that this fixture's {@code Window} should have after being resized.
    * @return this fixture.
-   * @throws org.assertj.swing.exception.ActionFailedException if the {@code Window} is not resizable.
+   * @throws org.uitest4j.swing.exception.ActionFailedException if the {@code Window} is not resizable.
    */
   @Override
   public final @Nonnull S resizeWidthTo(int width) {
@@ -249,7 +249,7 @@ public abstract class AbstractWindowFixture<S, C extends Window, D extends Windo
    * @throws IllegalStateException if {@link Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and this
    *           fixture's {@code Window} is disabled.
    * @throws IllegalStateException if this fixture's {@code Window} is not showing on the screen.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
    */
   @Override
   public final @Nonnull JPopupMenuFixture showPopupMenu() {
@@ -264,7 +264,7 @@ public abstract class AbstractWindowFixture<S, C extends Window, D extends Windo
    * @throws IllegalStateException if {@link Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and this
    *           fixture's {@code Window} is disabled.
    * @throws IllegalStateException if this fixture's {@code Window} is not showing on the screen.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
    */
   @Override
   public final @Nonnull JPopupMenuFixture showPopupMenuAt(@Nonnull Point p) {

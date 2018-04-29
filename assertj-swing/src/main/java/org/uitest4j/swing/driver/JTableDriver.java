@@ -21,7 +21,7 @@ import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.data.TableCell;
 import org.uitest4j.swing.data.TableCellFinder;
 import org.uitest4j.swing.edt.GuiQuery;
-import org.assertj.swing.exception.ActionFailedException;
+import org.uitest4j.swing.exception.ActionFailedException;
 import org.assertj.swing.internal.annotation.InternalApi;
 import org.assertj.swing.util.Arrays;
 import org.assertj.swing.util.Pair;
@@ -53,7 +53,7 @@ import static org.uitest4j.swing.driver.JTableMatchingCellQuery.cellWithValue;
 import static org.uitest4j.swing.driver.JTableRowCellSelectedQuery.isCellSelected;
 import static org.uitest4j.swing.driver.TextAssert.verifyThat;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.exception.ActionFailedException.actionFailure;
+import static org.uitest4j.swing.exception.ActionFailedException.actionFailure;
 import static org.assertj.swing.query.JTableColumnByIdentifierQuery.columnIndexByIdentifier;
 import static org.assertj.swing.util.ArrayPreconditions.checkNotNullOrEmpty;
 import static org.assertj.swing.util.Arrays.equal;
@@ -473,7 +473,7 @@ public class JTableDriver extends JComponentDriver {
    * @throws NullPointerException if the cell is {@code null}.
    * @throws IllegalStateException if the {@code JTable} is disabled. Or if the {@code JTable} is not showing on the
    *           screen.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
    */
   @RunsInEDT
   @Nonnull public JPopupMenu showPopupMenuAt(@Nonnull JTable table, @Nonnull TableCell cell) {

@@ -26,7 +26,7 @@ import javax.annotation.Nullable;
 
 import org.assertj.core.description.Description;
 import org.assertj.core.description.TextDescription;
-import org.assertj.swing.exception.ComponentLookupException;
+import org.uitest4j.swing.exception.ComponentLookupException;
 import org.assertj.swing.timing.Condition;
 
 /**

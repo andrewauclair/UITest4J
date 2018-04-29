@@ -259,7 +259,7 @@ public class ComponentDriver {
    *
    * @param c the target {@code Component}.
    * @param timeout the time this fixture will wait for the {@code Component} to be enabled.
-   * @throws org.assertj.swing.exception.WaitTimedOutError if the {@code Component} is never enabled.
+   * @throws org.uitest4j.swing.exception.WaitTimedOutError if the {@code Component} is never enabled.
    */
   @RunsInEDT
   public void requireEnabled(@Nonnull Component c, @Nonnull Timeout timeout) {
@@ -434,7 +434,7 @@ public class ComponentDriver {
    * @param c the target {@code Component}.
    * @throws IllegalStateException if the {@code Component} is disabled.
    * @throws IllegalStateException if the {@code Component} is not showing on the screen.
-   * @throws org.assertj.swing.exception.ActionFailedException if there is no drag action in effect.
+   * @throws org.uitest4j.swing.exception.ActionFailedException if there is no drag action in effect.
    */
   @RunsInEDT
   public void drop(@Nonnull Component c) {
@@ -452,7 +452,7 @@ public class ComponentDriver {
    *
    * @param c the target {@code Component}.
    * @param where the point where the drag operation ends.
-   * @throws org.assertj.swing.exception.ActionFailedException if there is no drag action in effect.
+   * @throws org.uitest4j.swing.exception.ActionFailedException if there is no drag action in effect.
    */
   @RunsInEDT
   protected final void drop(@Nonnull Component c, @Nonnull Point where) {
@@ -481,7 +481,7 @@ public class ComponentDriver {
    * </p>
    *
    * @param c the given {@code Component}.
-   * @throws org.assertj.swing.exception.ActionFailedException if something goes wrong.
+   * @throws org.uitest4j.swing.exception.ActionFailedException if something goes wrong.
    */
   @RunsInCurrentThread
   protected final void performAccessibleActionOf(@Nonnull Component c) {
@@ -535,7 +535,7 @@ public class ComponentDriver {
    * @throws IllegalStateException if {@link Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and the
    *           {@code Component} is disabled.
    * @throws IllegalStateException if the {@code Component} is not showing on the screen.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
    */
   @RunsInEDT
   @Nonnull public JPopupMenu invokePopupMenu(@Nonnull Component c) {
@@ -554,7 +554,7 @@ public class ComponentDriver {
    * @throws IllegalStateException if {@link Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and the
    *           {@code Component} is disabled.
    * @throws IllegalStateException if the {@code Component} is not showing on the screen.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
    */
   @RunsInEDT
   @Nonnull public JPopupMenu invokePopupMenu(@Nonnull Component c, @Nonnull Point p) {

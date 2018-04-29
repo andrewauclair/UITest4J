@@ -30,7 +30,7 @@ import org.uitest4j.swing.core.MouseButton;
 import org.uitest4j.swing.core.MouseClickInfo;
 import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.driver.ComponentDriver;
-import org.assertj.swing.exception.ComponentLookupException;
+import org.uitest4j.swing.exception.ComponentLookupException;
 import org.assertj.swing.query.ComponentEnabledQuery;
 import org.assertj.swing.timing.Timeout;
 
@@ -72,8 +72,8 @@ public abstract class AbstractComponentFixture<S, C extends Component, D extends
    * @param type the type of the {@code Component} to find using the given {@code Robot}.
    * @throws NullPointerException if {@code robot} is {@code null}.
    * @throws NullPointerException if {@code type} is {@code null}.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching component is found.
    */
   public AbstractComponentFixture(@Nonnull Class<S> selfType, @Nonnull Robot robot, @Nonnull Class<? extends C> type) {
     this(selfType, robot, findTarget(robot, type));
@@ -94,8 +94,8 @@ public abstract class AbstractComponentFixture<S, C extends Component, D extends
    * @param type the type of the {@code Component} to find using the given {@code Robot}.
    * @throws NullPointerException if {@code robot} is {@code null}.
    * @throws NullPointerException if {@code type} is {@code null}.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching component is found.
    */
   public AbstractComponentFixture(@Nonnull Class<S> selfType, @Nonnull Robot robot, @Nullable String name,
                                   @Nonnull Class<? extends C> type) {
@@ -229,7 +229,7 @@ public abstract class AbstractComponentFixture<S, C extends Component, D extends
    * @return this fixture.
    * @throws IllegalStateException if this fixture's {@code Component} is disabled.
    * @throws IllegalStateException if this fixture's {@code Component} is not showing on the screen.
-   * @throws org.assertj.swing.exception.ActionFailedException if there is no drag action in effect.
+   * @throws org.uitest4j.swing.exception.ActionFailedException if there is no drag action in effect.
    */
   public final @Nonnull S drop() {
     driver().drop(target());
@@ -370,7 +370,7 @@ public abstract class AbstractComponentFixture<S, C extends Component, D extends
    *
    * @param timeout the time this fixture will wait for the component to be enabled.
    * @return this fixture.
-   * @throws org.assertj.swing.exception.WaitTimedOutError if this fixture's {@code Component} is never enabled.
+   * @throws org.uitest4j.swing.exception.WaitTimedOutError if this fixture's {@code Component} is never enabled.
    */
   public final @Nonnull S requireEnabled(@Nonnull Timeout timeout) {
     driver.requireEnabled(target(), timeout);

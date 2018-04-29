@@ -18,7 +18,7 @@ import org.uitest4j.swing.core.BasicComponentFinder;
 import org.uitest4j.swing.core.ComponentFinder;
 import org.uitest4j.swing.core.ComponentMatcher;
 import org.uitest4j.swing.core.NameMatcher;
-import org.assertj.swing.exception.ComponentLookupException;
+import org.uitest4j.swing.exception.ComponentLookupException;
 import org.assertj.swing.timing.Condition;
 
 /**

@@ -72,7 +72,7 @@ public class JTableFixture extends AbstractJPopupMenuInvokerFixture<JTableFixtur
    * @param robot performs simulation of user events on a {@code JTable}.
    * @param tableName the name of the {@code JTable} to find using the given {@code Robot}.
    * @throws NullPointerException if {@code robot} is {@code null}.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a matching {@code JTable} could not be found. Or if
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching {@code JTable} could not be found. Or if
    *           more than one matching {@code JTable} is found.
    */
   public JTableFixture(@Nonnull Robot robot, @Nullable String tableName) {
@@ -132,7 +132,7 @@ public class JTableFixture extends AbstractJPopupMenuInvokerFixture<JTableFixtur
    *
    * @param value the value of the cell to look for. It can be a regular expression.
    * @return a {@code JTableCellFixture} wrapping the table cell whose value matches the given one.
-   * @throws org.assertj.swing.exception.ActionFailedException if a cell with a matching value cannot be found.
+   * @throws org.uitest4j.swing.exception.ActionFailedException if a cell with a matching value cannot be found.
    */
   @Nonnull public JTableCellFixture cell(String value) {
     TableCell cell = driver().cell(target(), value);
@@ -147,7 +147,7 @@ public class JTableFixture extends AbstractJPopupMenuInvokerFixture<JTableFixtur
    * @return a {@code JTableCellFixture} wrapping the table cell whose value matches the given regular expression
    *         pattern.
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
-   * @throws org.assertj.swing.exception.ActionFailedException if a cell with a matching value cannot be found.
+   * @throws org.uitest4j.swing.exception.ActionFailedException if a cell with a matching value cannot be found.
    */
   @Nonnull public JTableCellFixture cell(@Nonnull Pattern valuePattern) {
     TableCell cell = driver().cell(target(), valuePattern);
@@ -160,7 +160,7 @@ public class JTableFixture extends AbstractJPopupMenuInvokerFixture<JTableFixtur
    * @param cellFinder knows how to find a cell.
    * @return a {@code JTableCellFixture} wrapping the table cell found by the given {@code TableCellFinder}
    * @throws NullPointerException if the {@code TableCellFinder} is {@code null}.
-   * @throws org.assertj.swing.exception.ActionFailedException if a matching cell could not be found.
+   * @throws org.uitest4j.swing.exception.ActionFailedException if a matching cell could not be found.
    * @throws IndexOutOfBoundsException if the row or column indices in the found cell are out of bounds.
    */
   @Nonnull public JTableCellFixture cell(@Nonnull TableCellFinder cellFinder) {
@@ -425,7 +425,7 @@ public class JTableFixture extends AbstractJPopupMenuInvokerFixture<JTableFixtur
    * @throws IllegalStateException if this fixture's {@code JTable} is not showing on the screen.
    * @throws IllegalStateException if this fixture's {@code JTable} is not editable.
    * @throws IndexOutOfBoundsException if any of the indices (row and column) is out of bounds.
-   * @throws org.assertj.swing.exception.ActionFailedException if this fixture's {@code JTableCellValueReader} is unable
+   * @throws org.uitest4j.swing.exception.ActionFailedException if this fixture's {@code JTableCellValueReader} is unable
    *           to enter the given value.
    * @see #replaceCellWriter(JTableCellWriter)
    * @see JTableCellFixture#editor()
@@ -570,7 +570,7 @@ public class JTableFixture extends AbstractJPopupMenuInvokerFixture<JTableFixtur
    *
    * @param columnName the name of the column to look for.
    * @return the index of the column whose name matches the given one.
-   * @throws org.assertj.swing.exception.ActionFailedException if a column with a matching name could not be found.
+   * @throws org.uitest4j.swing.exception.ActionFailedException if a column with a matching name could not be found.
    */
   public int columnIndexFor(@Nonnull Object columnName) {
     return driver().columnIndex(target(), columnName);
@@ -581,7 +581,7 @@ public class JTableFixture extends AbstractJPopupMenuInvokerFixture<JTableFixtur
    *
    * @param columnName the name of the column to look for.
    * @return this fixture.
-   * @throws org.assertj.swing.exception.ActionFailedException if a column with a matching name could not be found.
+   * @throws org.uitest4j.swing.exception.ActionFailedException if a column with a matching name could not be found.
    */
   public JTableFixture requireColumnNamed(String columnName) {
     columnIndexFor(columnName);
@@ -596,7 +596,7 @@ public class JTableFixture extends AbstractJPopupMenuInvokerFixture<JTableFixtur
    * @throws NullPointerException if the cell is {@code null}.
    * @throws IllegalStateException if this fixture's {@code JTable} is disabled.
    * @throws IllegalStateException if this fixture's {@code JTable} is not showing on the screen.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
    */
   @Nonnull public JPopupMenuFixture showPopupMenuAt(@Nonnull TableCell cell) {
     return new JPopupMenuFixture(robot(), driver().showPopupMenuAt(target(), cell));

@@ -46,8 +46,8 @@ public class JScrollPaneFixture extends
    * @param robot performs simulation of user events on a {@code JScrollPane}.
    * @param panelName the name of the {@code JScrollPane} to find using the given {@code Robot}.
    * @throws NullPointerException if {@code robot} is {@code null}.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a matching {@code JScrollPane} could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching {@code JScrollPane} is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching {@code JScrollPane} could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching {@code JScrollPane} is found.
    */
   public JScrollPaneFixture(@Nonnull Robot robot, @Nullable String panelName) {
     super(JScrollPaneFixture.class, robot, panelName, JScrollPane.class);

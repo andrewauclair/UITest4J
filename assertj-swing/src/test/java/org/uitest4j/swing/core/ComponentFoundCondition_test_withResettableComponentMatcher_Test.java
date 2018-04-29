@@ -20,7 +20,7 @@ import static org.mockito.Mockito.when;
 
 import java.awt.Container;
 
-import org.assertj.swing.exception.ComponentLookupException;
+import org.uitest4j.swing.exception.ComponentLookupException;
 import org.assertj.swing.test.core.EDTSafeTestCase;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;

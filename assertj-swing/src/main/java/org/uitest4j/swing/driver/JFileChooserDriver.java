@@ -116,7 +116,7 @@ public class JFileChooserDriver extends JComponentDriver {
    *
    * @param fileChooser the target {@code JFileChooser}.
    * @return the found text field.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a matching text field could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching text field could not be found.
    */
   @RunsInEDT
   public JTextField fileNameTextBox(@Nonnull JFileChooser fileChooser) {
@@ -127,7 +127,7 @@ public class JFileChooserDriver extends JComponentDriver {
    * Finds and clicks the "Cancel" button in the given {@code JFileChooser}.
    *
    * @param fileChooser the target {@code JFileChooser}.
-   * @throws org.assertj.swing.exception.ComponentLookupException if the "Cancel" button cannot be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if the "Cancel" button cannot be found.
    * @throws IllegalStateException if the "Cancel" button is disabled.
    * @throws IllegalStateException if the "Cancel" button is not showing on the screen.
    */
@@ -142,7 +142,7 @@ public class JFileChooserDriver extends JComponentDriver {
    *
    * @param fileChooser the target {@code JFileChooser}.
    * @return the found "Cancel" button.
-   * @throws org.assertj.swing.exception.ComponentLookupException if the "Cancel" button cannot be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if the "Cancel" button cannot be found.
    */
   @RunsInEDT
   @Nonnull public JButton cancelButton(@Nonnull JFileChooser fileChooser) {
@@ -153,7 +153,7 @@ public class JFileChooserDriver extends JComponentDriver {
    * Finds and clicks the "Approve" button in the given {@code JFileChooser}.
    *
    * @param fileChooser the target {@code JFileChooser}.
-   * @throws org.assertj.swing.exception.ComponentLookupException if the "Approve" button cannot be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if the "Approve" button cannot be found.
    * @throws IllegalStateException if the "Approve" button is disabled.
    * @throws IllegalStateException if the "Approve" button is not showing on the screen.
    */
@@ -168,7 +168,7 @@ public class JFileChooserDriver extends JComponentDriver {
    *
    * @param fileChooser the target {@code JFileChooser}.
    * @return the found "Approve" button.
-   * @throws org.assertj.swing.exception.ComponentLookupException if the "Approve" button cannot be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if the "Approve" button cannot be found.
    */
   @RunsInEDT
   @Nonnull public JButton approveButton(@Nonnull JFileChooser fileChooser) {

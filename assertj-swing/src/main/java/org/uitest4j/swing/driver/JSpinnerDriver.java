@@ -34,7 +34,7 @@ import static org.uitest4j.swing.driver.ComponentPreconditions.checkEnabledAndSh
 import static org.uitest4j.swing.driver.JSpinnerSetValueTask.setValue;
 import static org.uitest4j.swing.driver.JSpinnerValueQuery.valueOf;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.exception.ActionFailedException.actionFailure;
+import static org.uitest4j.swing.exception.ActionFailedException.actionFailure;
 import static org.assertj.swing.format.Formatting.format;
 
 /**
@@ -215,7 +215,7 @@ public class JSpinnerDriver extends JComponentDriver {
    * @param text the text to enter.
    * @throws IllegalStateException if the {@code JSpinner} is disabled. Or if the {@code JSpinner} is not showing on the
    *           screen.
-   * @throws org.assertj.swing.exception.ActionFailedException if the editor of the {@code JSpinner} is not a
+   * @throws org.uitest4j.swing.exception.ActionFailedException if the editor of the {@code JSpinner} is not a
    *           {@code JTextComponent} or cannot be found.
    */
   @RunsInEDT
@@ -238,7 +238,7 @@ public class JSpinnerDriver extends JComponentDriver {
    * @param text the text to enter.
    * @throws IllegalStateException if the {@code JSpinner} is disabled. Or if the {@code JSpinner} is not showing on the
    *           screen.
-   * @throws org.assertj.swing.exception.ActionFailedException if the editor of the {@code JSpinner} is not a
+   * @throws org.uitest4j.swing.exception.ActionFailedException if the editor of the {@code JSpinner} is not a
    *           {@code JTextComponent} or cannot be
    *           found.
    * @see #enterTextAndCommit(JSpinner, String)
@@ -305,7 +305,7 @@ public class JSpinnerDriver extends JComponentDriver {
    *
    * @param spinner the target {@code JSpinner}.
    * @return the {@code JTextComponent} used as editor in the given {@code JSpinner}.
-   * @throws org.assertj.swing.exception.ComponentLookupException if the given {@code JSpinner} does not have a
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if the given {@code JSpinner} does not have a
    *           {@code JTextComponent} as editor.
    */
   @RunsInEDT

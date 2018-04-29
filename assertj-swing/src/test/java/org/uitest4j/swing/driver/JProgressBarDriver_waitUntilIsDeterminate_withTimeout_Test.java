@@ -20,7 +20,7 @@ import static org.uitest4j.swing.driver.JProgressBarMakeDeterminateAsyncTask.mak
 import static org.assertj.swing.timing.Timeout.timeout;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import org.assertj.swing.exception.WaitTimedOutError;
+import org.uitest4j.swing.exception.WaitTimedOutError;
 import org.assertj.swing.test.ExpectedException;
 import org.junit.jupiter.api.Test;
 

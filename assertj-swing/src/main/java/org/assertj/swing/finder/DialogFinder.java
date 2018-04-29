@@ -88,7 +88,7 @@ public class DialogFinder extends WindowFinderTemplate<Dialog> {
    * 
    * @param robot contains the underlying finding to delegate the search to.
    * @return a {@code DialogFixture} managing the found {@code Dialog}.
-   * @throws org.assertj.swing.exception.WaitTimedOutError if a {@code Dialog} could not be found.
+   * @throws org.uitest4j.swing.exception.WaitTimedOutError if a {@code Dialog} could not be found.
    */
   @Override
   @Nonnull public DialogFixture using(@Nonnull Robot robot) {

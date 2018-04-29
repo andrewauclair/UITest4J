@@ -47,8 +47,8 @@ public class JTextComponentFixture extends
    * @param robot performs simulation of user events on a {@code JTextComponent}.
    * @param textComponentName the name of the {@code JTextComponent} to find using the given {@code Robot}.
    * @throws NullPointerException if {@code robot} is {@code null}.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a matching {@code JTextComponent} could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching {@code JTextComponent} is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching {@code JTextComponent} could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching {@code JTextComponent} is found.
    */
   public JTextComponentFixture(@Nonnull Robot robot, @Nullable String textComponentName) {
     super(JTextComponentFixture.class, robot, textComponentName, JTextComponent.class);
@@ -76,7 +76,7 @@ public class JTextComponentFixture extends
    * @throws IllegalStateException if this fixture's {@code JTextComponent} is not showing on the screen.
    * @throws IllegalArgumentException if this fixture's {@code JTextComponent} does not contain the given text to
    *           select.
-   * @throws org.assertj.swing.exception.ActionFailedException if the selecting the text in the given range fails.
+   * @throws org.uitest4j.swing.exception.ActionFailedException if the selecting the text in the given range fails.
    */
   @Override
   @Nonnull public JTextComponentFixture select(@Nonnull String text) {
@@ -92,7 +92,7 @@ public class JTextComponentFixture extends
    * @return this fixture.
    * @throws IllegalStateException if this fixture's {@code JTextComponent} is disabled.
    * @throws IllegalStateException if this fixture's {@code JTextComponent} is not showing on the screen.
-   * @throws org.assertj.swing.exception.ActionFailedException if the selecting the text in the given range fails.
+   * @throws org.uitest4j.swing.exception.ActionFailedException if the selecting the text in the given range fails.
    */
   @Override
   @Nonnull public JTextComponentFixture selectText(int start, int end) {

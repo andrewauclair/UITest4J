@@ -117,7 +117,7 @@ public class ListComboBoxFixture extends
    * Finds and returns the {@link JList} in the pop-up raised by this fixture's <code>{@link ListComboBox}</code>.
    *
    * @return the <code>JList</code> in the pop-up raised by this fixture's <code>ListComboBox</code>.
-   * @throws org.assertj.swing.exception.ComponentLookupException if the <code>JList</code> in the pop-up could not be
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if the <code>JList</code> in the pop-up could not be
    *           found.
    */
   public JList list() {
@@ -154,7 +154,7 @@ public class ListComboBoxFixture extends
    *
    * @param text the text of the item to select.
    * @return this fixture.
-   * @throws org.assertj.swing.exception.LocationUnavailableException if an element matching
+   * @throws org.uitest4j.swing.exception.LocationUnavailableException if an element matching
    *           the given text cannot be found.
    * @throws IllegalStateException if this fixture's <code>ListComboBox</code> is disabled.
    * @throws IllegalStateException if this fixture's <code>ListComboBox</code> is not showing

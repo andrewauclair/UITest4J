@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.edt;
 
-import org.assertj.swing.exception.UnexpectedException;
+import org.uitest4j.swing.exception.UnexpectedException;
 import org.assertj.swing.test.core.MethodInvocations;
 import org.assertj.swing.test.core.SequentialEDTSafeTestCase;
 import org.junit.jupiter.api.Test;

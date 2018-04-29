@@ -114,7 +114,7 @@ public abstract class ComponentFinderTemplate<T extends Component> {
    *
    * @param robot contains the underlying finding to delegate the search to.
    * @return a fixture capable of managing the found component.
-   * @throws org.assertj.swing.exception.WaitTimedOutError if a component with the given name or of the given type could
+   * @throws org.uitest4j.swing.exception.WaitTimedOutError if a component with the given name or of the given type could
    *           not be found.
    */
   public abstract @Nonnull AbstractComponentFixture<?, T, ?> using(@Nonnull Robot robot);
@@ -124,7 +124,7 @@ public abstract class ComponentFinderTemplate<T extends Component> {
    *
    * @param robot contains the underlying finding to delegate the search to.
    * @return the found component.
-   * @throws org.assertj.swing.exception.WaitTimedOutError if a component with the given name or of the given type could
+   * @throws org.uitest4j.swing.exception.WaitTimedOutError if a component with the given name or of the given type could
    *           not be found.
    */
   protected final @Nonnull T findComponentWith(@Nonnull Robot robot) {

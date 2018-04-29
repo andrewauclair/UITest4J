@@ -41,8 +41,8 @@ public abstract class AbstractJPopupMenuInvokerFixture<S, T extends JComponent, 
    * @param type the type of the {@code JComponent} to find using the given {@code Robot}.
    * @throws NullPointerException if {@code robot} is {@code null}.
    * @throws NullPointerException if {@code type} is {@code null}.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching component is found.
    */
   public AbstractJPopupMenuInvokerFixture(@Nonnull Class<S> selfType, @Nonnull Robot robot,
                                           @Nonnull Class<? extends T> type) {
@@ -58,8 +58,8 @@ public abstract class AbstractJPopupMenuInvokerFixture<S, T extends JComponent, 
    * @param type the type of the {@code JComponent} to find using the given {@code Robot}.
    * @throws NullPointerException if {@code robot} is {@code null}.
    * @throws NullPointerException if {@code type} is {@code null}.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching component is found.
    */
   public AbstractJPopupMenuInvokerFixture(@Nonnull Class<S> selfType, @Nonnull Robot robot, @Nullable String name,
                                           @Nonnull Class<? extends T> type) {
@@ -86,7 +86,7 @@ public abstract class AbstractJPopupMenuInvokerFixture<S, T extends JComponent, 
    * @throws IllegalStateException if {@link org.uitest4j.swing.core.Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and this
    *           fixture's {@code JComponent} is disabled.
    * @throws IllegalStateException if this fixture's {@code JComponent} is not showing on the screen.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
    */
   @Override
   @Nonnull public JPopupMenuFixture showPopupMenu() {
@@ -101,7 +101,7 @@ public abstract class AbstractJPopupMenuInvokerFixture<S, T extends JComponent, 
    * @throws IllegalStateException if {@link org.uitest4j.swing.core.Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and this
    *           fixture's {@code JComponent} is disabled.
    * @throws IllegalStateException if this fixture's {@code JComponent} is not showing on the screen.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
    */
   @Override
   @Nonnull public JPopupMenuFixture showPopupMenuAt(@Nonnull Point p) {

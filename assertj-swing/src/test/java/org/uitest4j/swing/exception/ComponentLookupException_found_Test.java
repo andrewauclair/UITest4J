@@ -10,22 +10,30 @@
  *
  * Copyright 2012-2015 the original author or authors.
  */
-package org.assertj.swing.exception;
+package org.uitest4j.swing.exception;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.swing.test.builder.JLabels.label;
+import static org.assertj.swing.test.builder.JTextFields.textField;
 
+import java.awt.Component;
+import java.util.List;
+
+import org.assertj.core.util.Lists;
 import org.junit.jupiter.api.Test;
 
 /**
- * Tests for {@link LocationUnavailableException#LocationUnavailableException(String, Throwable)}.
+ * Tests for {@link ComponentLookupException#found()}.
  * 
  * @author Alex Ruiz
  */
-public class LocationUnavailableException_constructor_withCause_Test {
+public class ComponentLookupException_found_Test {
   @Test
-  public void should_Create_Error_With_Cause() {
-    Throwable cause = new Throwable();
-    LocationUnavailableException e = new LocationUnavailableException("A Failure", cause);
-    assertThat(e.getCause()).isSameAs(cause);
+  public void should_Return_Copy_Of_Found_Components() {
+    List<Component> found = Lists.newArrayList();
+    found.add(label().createNew());
+    found.add(textField().createNew());
+    ComponentLookupException e = new ComponentLookupException("Hello", found);
+    assertThat(e.found()).isNotSameAs(found).containsExactlyElementsOf(found);
   }
 }

@@ -56,7 +56,7 @@ public class BasicJTableCellWriter extends AbstractJTableCellWriter {
    * @param row the row index of the cell.
    * @param column the column index of the cell.
    * @param value the value to enter.
-   * @throws org.assertj.swing.exception.ActionFailedException if this writer is unable to handle the underlying cell
+   * @throws org.uitest4j.swing.exception.ActionFailedException if this writer is unable to handle the underlying cell
    *           editor.
    */
   @Override
@@ -75,7 +75,7 @@ public class BasicJTableCellWriter extends AbstractJTableCellWriter {
    *
    * @param row the row index of the cell.
    * @param column the column index of the cell.
-   * @throws org.assertj.swing.exception.ActionFailedException if this writer is unable to handle the underlying cell
+   * @throws org.uitest4j.swing.exception.ActionFailedException if this writer is unable to handle the underlying cell
    *           editor.
    * @see JTableCellWriter#startCellEditing(JTable, int, int)
    */
@@ -95,7 +95,7 @@ public class BasicJTableCellWriter extends AbstractJTableCellWriter {
    *
    * @param row the row index of the cell.
    * @param column the column index of the cell.
-   * @throws org.assertj.swing.exception.ActionFailedException if this writer is unable to handle the underlying cell
+   * @throws org.uitest4j.swing.exception.ActionFailedException if this writer is unable to handle the underlying cell
    *           editor.
    * @see JTableCellWriter#stopCellEditing(JTable, int, int)
    */
@@ -115,7 +115,7 @@ public class BasicJTableCellWriter extends AbstractJTableCellWriter {
    *
    * @param row the row index of the cell.
    * @param column the column index of the cell.
-   * @throws org.assertj.swing.exception.ActionFailedException if this writer is unable to handle the underlying cell
+   * @throws org.uitest4j.swing.exception.ActionFailedException if this writer is unable to handle the underlying cell
    *           editor.
    * @see JTableCellWriter#cancelCellEditing(JTable, int, int)
    */

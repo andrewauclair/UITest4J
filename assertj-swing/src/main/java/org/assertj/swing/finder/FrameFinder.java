@@ -88,7 +88,7 @@ public class FrameFinder extends WindowFinderTemplate<Frame> {
    * 
    * @param robot contains the underlying finding to delegate the search to.
    * @return a {@code FrameFixture} managing the found {@code Frame}.
-   * @throws org.assertj.swing.exception.WaitTimedOutError if a {@code Frame} could not be found.
+   * @throws org.uitest4j.swing.exception.WaitTimedOutError if a {@code Frame} could not be found.
    */
   @Override
   @Nonnull public FrameFixture using(@Nonnull Robot robot) {

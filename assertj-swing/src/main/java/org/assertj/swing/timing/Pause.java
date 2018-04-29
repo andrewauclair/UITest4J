@@ -27,7 +27,7 @@ import java.util.concurrent.TimeoutException;
 import javax.annotation.Nonnull;
 
 import org.assertj.core.presentation.StandardRepresentation;
-import org.assertj.swing.exception.WaitTimedOutError;
+import org.uitest4j.swing.exception.WaitTimedOutError;
 
 /**
  * Waits for period of time or for a particular condition to be satisfied.

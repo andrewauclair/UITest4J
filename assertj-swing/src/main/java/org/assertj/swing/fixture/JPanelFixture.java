@@ -36,8 +36,8 @@ public class JPanelFixture extends AbstractContainerFixture<JPanelFixture, JPane
    * @param robot performs simulation of user events on a {@code JPanel}.
    * @param panelName the name of the {@code JPanel} to find using the given {@code Robot}.
    * @throws NullPointerException if {@code robot} is {@code null}.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a matching {@code JPanel} could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching {@code JPanel} is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching {@code JPanel} could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching {@code JPanel} is found.
    */
   public JPanelFixture(@Nonnull Robot robot, @Nonnull String panelName) {
     super(JPanelFixture.class, robot, panelName, JPanel.class);
@@ -106,7 +106,7 @@ public class JPanelFixture extends AbstractContainerFixture<JPanelFixture, JPane
    * @throws IllegalStateException if {@link org.uitest4j.swing.core.Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and this
    *           fixture's {@code JPanel} is disabled.
    * @throws IllegalStateException if this fixture's {@code JPanel} is not showing on the screen.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
    */
   @Override
   @Nonnull public JPopupMenuFixture showPopupMenu() {
@@ -121,7 +121,7 @@ public class JPanelFixture extends AbstractContainerFixture<JPanelFixture, JPane
    * @throws IllegalStateException if {@link org.uitest4j.swing.core.Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and this
    *           fixture's {@code JPanel} is disabled.
    * @throws IllegalStateException if this fixture's {@code JPanel} is not showing on the screen.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
    */
   @Override
   @Nonnull public JPopupMenuFixture showPopupMenuAt(@Nonnull Point p) {

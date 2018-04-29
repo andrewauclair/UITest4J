@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.core;
 
-import org.assertj.swing.exception.WaitTimedOutError;
+import org.uitest4j.swing.exception.WaitTimedOutError;
 import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.swing.TestWindow;
 import org.assertj.swing.timing.Condition;

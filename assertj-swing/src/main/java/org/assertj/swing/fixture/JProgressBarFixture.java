@@ -48,8 +48,8 @@ public class JProgressBarFixture extends
    * @param robot performs simulation of user events on a {@code JProgressBar}.
    * @param labelName the name of the {@code JProgressBar} to find using the given {@code Robot}.
    * @throws NullPointerException if {@code robot} is {@code null}.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a matching {@code JProgressBar} could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching {@code JProgressBar} is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching {@code JProgressBar} could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching {@code JProgressBar} is found.
    */
   public JProgressBarFixture(@Nonnull Robot robot, @Nonnull String labelName) {
     super(JProgressBarFixture.class, robot, labelName, JProgressBar.class);
@@ -137,7 +137,7 @@ public class JProgressBarFixture extends
    * @return this fixture.
    * @throws IllegalArgumentException if the given value is less than the {@code JProgressBar}'s minimum value.
    * @throws IllegalArgumentException if the given value is greater than the {@code JProgressBar}'s maximum value.
-   * @throws org.assertj.swing.exception.WaitTimedOutError if the value of the {@code JProgressBar} does not reach the expected value within 30
+   * @throws org.uitest4j.swing.exception.WaitTimedOutError if the value of the {@code JProgressBar} does not reach the expected value within 30
    *           seconds.
    */
   @Nonnull public JProgressBarFixture waitUntilValueIs(int value) {
@@ -154,7 +154,7 @@ public class JProgressBarFixture extends
    * @throws IllegalArgumentException if the given value is less than the {@code JProgressBar}'s minimum value.
    * @throws IllegalArgumentException if the given value is greater than the {@code JProgressBar}'s maximum value.
    * @throws NullPointerException if the given timeout is {@code null}.
-   * @throws org.assertj.swing.exception.WaitTimedOutError if the value of the {@code JProgressBar} does not reach the expected value within the
+   * @throws org.uitest4j.swing.exception.WaitTimedOutError if the value of the {@code JProgressBar} does not reach the expected value within the
    *           specified timeout.
    */
   @Nonnull public JProgressBarFixture waitUntilValueIs(int value, @Nonnull Timeout timeout) {
@@ -166,7 +166,7 @@ public class JProgressBarFixture extends
    * Waits until the value of this fixture's {@code JProgressBar} is in determinate mode.
    * 
    * @return this fixture.
-   * @throws org.assertj.swing.exception.WaitTimedOutError if the {@code JProgressBar} does not reach determinate mode within 30 seconds.
+   * @throws org.uitest4j.swing.exception.WaitTimedOutError if the {@code JProgressBar} does not reach determinate mode within 30 seconds.
    */
   @Nonnull public JProgressBarFixture waitUntilIsDeterminate() {
     driver().waitUntilIsDeterminate(target());
@@ -179,7 +179,7 @@ public class JProgressBarFixture extends
    * @param timeout the amount of time to wait.
    * @return this fixture.
    * @throws NullPointerException if the given timeout is {@code null}.
-   * @throws org.assertj.swing.exception.WaitTimedOutError if the {@code JProgressBar} does not reach determinate mode within the specified timeout.
+   * @throws org.uitest4j.swing.exception.WaitTimedOutError if the {@code JProgressBar} does not reach determinate mode within the specified timeout.
    */
   @Nonnull public JProgressBarFixture waitUntilIsDeterminate(@Nonnull Timeout timeout) {
     driver().waitUntilIsDeterminate(target(), timeout);

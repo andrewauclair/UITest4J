@@ -10,35 +10,35 @@
  *
  * Copyright 2012-2015 the original author or authors.
  */
-package org.assertj.swing.exception;
+package org.uitest4j.swing.exception;
 
 import javax.annotation.Nonnull;
 
 /**
- * Error raised when the location of an AWT or Swing {@code Component} cannot be provided.
+ * Error thrown when an unexpected error occurs while parsing a file.
  *
  * @author Alex Ruiz
  */
-public class LocationUnavailableException extends RuntimeException {
+public class ParsingException extends RuntimeException {
   /** Generated serial version UID. */
-  private static final long serialVersionUID = 8659958720164983120L;
+  private static final long serialVersionUID = -8420935990336354323L;
 
   /**
-   * Creates a new {@link LocationUnavailableException}.
+   * Creates a new {@link ParsingException}.
    *
    * @param message the detail message.
    */
-  public LocationUnavailableException(@Nonnull String message) {
+  public ParsingException(@Nonnull String message) {
     super(message);
   }
 
   /**
-   * Creates a new {@link LocationUnavailableException}.
+   * Creates a new {@link ParsingException}.
    *
    * @param message the detail message.
    * @param cause the cause of the error.
    */
-  public LocationUnavailableException(@Nonnull String message, @Nonnull Throwable cause) {
+  public ParsingException(@Nonnull String message, @Nonnull Throwable cause) {
     super(message, cause);
   }
 }

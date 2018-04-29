@@ -44,8 +44,8 @@ public class CommandBarFixture extends AbstractContainerFixture<CommandBarFixtur
    * @param robot performs simulation of user events on a {@link CommandBar}.
    * @param commandBarName the name of the {@link CommandBar} to find using the given <code>Robot</code>.
    * @throws NullPointerException if <code>robot</code> is <code>null</code>.
-   * @throws org.assertj.swing.exception.ComponentLookupException if a matching {@link CommandBar} could not be found.
-   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching {@link CommandBar} is found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching {@link CommandBar} could not be found.
+   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching {@link CommandBar} is found.
    */
   public CommandBarFixture(Robot robot, String commandBarName) {
 	super(CommandBarFixture.class, robot, commandBarName, CommandBar.class);
