@@ -10,28 +10,29 @@
  *
  * Copyright 2012-2015 the original author or authors.
  */
-package org.assertj.swing.data;
-
-import static org.assertj.core.api.Assertions.assertThat;
+package org.uitest4j.swing.data;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
+
 /**
- * Tests for {@link TableCellInSelectedRow#toString()}.
+ * Tests for {@link TableCell#toString()}.
  * 
  * @author Alex Ruiz
  */
-class TableCellInSelectedRow_toString_Test {
-  private TableCellInSelectedRow finder;
+class TableCell_toString_Test {
+  private TableCell cell;
 
   @BeforeEach
   void setUp() {
-    finder = TableCellInSelectedRow.selectedRow().column(6);
+    cell = TableCell.row(6).column(8);
   }
 
   @Test
   void should_Implement_ToString() {
-    assertThat(finder.toString()).isEqualTo("org.assertj.swing.data.TableCellInSelectedRow[column=6]");
+    assertThat(cell.toString()).isEqualTo("[row=6, column=8]");
   }
 }

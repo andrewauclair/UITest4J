@@ -17,10 +17,10 @@ import org.junit.jupiter.api.Test;
 
 import java.util.regex.Pattern;
 
-import static org.assertj.swing.data.Index.atIndex;
+import static org.uitest4j.swing.data.Index.atIndex;
 
 /**
- * Tests for {@link JTabbedPaneDriver#requireTabToolTipText(javax.swing.JTabbedPane, String, org.assertj.swing.data.Index)}.
+ * Tests for {@link JTabbedPaneDriver#requireTabToolTipText(javax.swing.JTabbedPane, String, org.uitest4j.swing.data.Index)}.
  * 
  * @author William Bakker
  */

@@ -10,20 +10,24 @@
  *
  * Copyright 2012-2015 the original author or authors.
  */
-package org.assertj.swing.data;
+package org.uitest4j.swing.data;
 
-import nl.jqno.equalsverifier.EqualsVerifier;
 import org.junit.jupiter.api.Test;
 
-/**
- * Tests for {@link Index#equals(Object)} and {@link Index#hashCode()}.
- *
- * @author Christian Rösch
- */
-class Index_equals_hashCode_Test {
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
+/**
+ * Tests for {@link TableCellInRowByValue#rowWithValue(String...)}.
+ * 
+ * @author Alex Ruiz
+ */
+class TableCellInRowByValue_rowWithValue_Test {
   @Test
-  void should_Be_Correct() {
-    EqualsVerifier.forClass(Index.class).verify();
+  void should_Throw_Error_If_Array_Of_Values_Is_Null() {
+    // jsr305 throws IllegalArgumentExceptions when @Nonnull is used
+    assertThrows(IllegalArgumentException.class, () -> {
+      String[] values = null;
+      TableCellInRowByValue.rowWithValue(values);
+    });
   }
 }

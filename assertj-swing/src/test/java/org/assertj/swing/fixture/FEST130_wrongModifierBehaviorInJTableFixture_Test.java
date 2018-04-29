@@ -25,7 +25,7 @@ import static java.awt.event.InputEvent.CTRL_DOWN_MASK;
 import static java.awt.event.InputEvent.SHIFT_DOWN_MASK;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Lists.newArrayList;
-import static org.assertj.swing.data.TableCell.row;
+import static org.uitest4j.swing.data.TableCell.row;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 /**

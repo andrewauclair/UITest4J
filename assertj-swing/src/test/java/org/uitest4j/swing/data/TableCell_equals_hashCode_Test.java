@@ -10,26 +10,20 @@
  *
  * Copyright 2012-2015 the original author or authors.
  */
-package org.assertj.swing.driver;
+package org.uitest4j.swing.data;
 
-import static org.uitest4j.swing.data.Index.atIndex;
-
-import org.assertj.swing.test.ExpectedException;
+import nl.jqno.equalsverifier.EqualsVerifier;
 import org.junit.jupiter.api.Test;
 
 /**
- * Tests for {@link JTabbedPaneDriver#requireSelectedTab(javax.swing.JTabbedPane, org.uitest4j.swing.data.Index)}.
+ * Tests for {@link TableCell#equals(Object)} and {@link TableCell#hashCode()}.
  *
  * @author Christian Rösch
  */
-class JTabbedPaneDriver_requireSelectedTab_Test extends JTabbedPaneDriver_TestCase {
-  @Test
-  void should_Fail_If_Index_Is_Not_Equal_To_Expected() {
-    ExpectedException.assertAssertionError(() -> driver.requireSelectedTab(tabbedPane, atIndex(12)), "selectedIndex", 12, 0);
-  }
+class TableCell_equals_hashCode_Test {
 
   @Test
-  void should_Pass_If_Index_Is_Equal_To_Expected() {
-    driver.requireSelectedTab(tabbedPane, atIndex(0));
+  void should_Be_Correct() {
+    EqualsVerifier.forClass(TableCell.class).verify();
   }
 }

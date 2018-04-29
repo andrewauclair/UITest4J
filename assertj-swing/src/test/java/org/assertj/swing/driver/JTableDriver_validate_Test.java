@@ -17,7 +17,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
- * Tests for {@link JTableDriver#checkCellIndicesInBounds(javax.swing.JTable, org.assertj.swing.data.TableCell)}.
+ * Tests for {@link JTableDriver#checkCellIndicesInBounds(javax.swing.JTable, org.uitest4j.swing.data.TableCell)}.
  * 
  * @author Alex Ruiz
  * @author Yvonne Wang

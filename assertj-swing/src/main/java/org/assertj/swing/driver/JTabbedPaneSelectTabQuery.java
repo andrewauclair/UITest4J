@@ -12,13 +12,13 @@
  */
 package org.assertj.swing.driver;
 
-import org.assertj.swing.data.Index;
+import org.uitest4j.swing.data.Index;
 import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.annotation.Nonnull;
 import javax.swing.*;
 
-import static org.assertj.swing.data.Index.atIndex;
+import static org.uitest4j.swing.data.Index.atIndex;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 /**

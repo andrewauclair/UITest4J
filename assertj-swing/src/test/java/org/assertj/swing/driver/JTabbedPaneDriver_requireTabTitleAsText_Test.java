@@ -12,7 +12,7 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.swing.data.Index.atIndex;
+import static org.uitest4j.swing.data.Index.atIndex;
 
 import java.util.regex.Pattern;
 
@@ -20,7 +20,7 @@ import org.assertj.swing.test.ExpectedException;
 import org.junit.jupiter.api.Test;
 
 /**
- * Tests for {@link JTabbedPaneDriver#requireTabTitle(javax.swing.JTabbedPane, String, org.assertj.swing.data.Index)}.
+ * Tests for {@link JTabbedPaneDriver#requireTabTitle(javax.swing.JTabbedPane, String, org.uitest4j.swing.data.Index)}.
  * 
  * @author Alex Ruiz
  */

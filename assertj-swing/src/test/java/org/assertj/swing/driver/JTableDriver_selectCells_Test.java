@@ -13,13 +13,13 @@
 package org.assertj.swing.driver;
 
 import static org.assertj.core.util.Arrays.array;
-import static org.assertj.swing.data.TableCell.row;
+import static org.uitest4j.swing.data.TableCell.row;
 
 import org.assertj.swing.test.ExpectedException;
 import org.junit.jupiter.api.Test;
 
 /**
- * Tests for {@link JTableDriver#selectCells(javax.swing.JTable, org.assertj.swing.data.TableCell[])}.
+ * Tests for {@link JTableDriver#selectCells(javax.swing.JTable, org.uitest4j.swing.data.TableCell[])}.
  *
  * @author Alex Ruiz
  * @author Yvonne Wang

@@ -10,7 +10,7 @@
  *
  * Copyright 2012-2015 the original author or authors.
  */
-package org.assertj.swing.data;
+package org.uitest4j.swing.data;
 
 import org.uitest4j.swing.cell.JTableCellReader;
 import org.assertj.swing.exception.ActionFailedException;
@@ -37,7 +37,7 @@ import static org.assertj.swing.query.JTableColumnByIdentifierQuery.columnIndexB
  * </p>
  *
  * <pre>
- * // import static org.assertj.swing.data.TableCellByColumnId.row;
+ * // import static org.uitest4j.swing.data.TableCellByColumnId.row;
  * {@link org.assertj.swing.fixture.JTableCellFixture JTableCellFixture} cell = dialog.table("records").cell({@link TableCellByColumnId#row(int) row}(3).columnId("firstColumn"));
  * </pre>
  *
@@ -54,7 +54,7 @@ public class TableCellByColumnId implements TableCellFinder {
    * </p>
    *
    * <pre>
-   * // import static org.assertj.swing.data.TableCellByColumnId.row;
+   * // import static org.uitest4j.swing.data.TableCellByColumnId.row;
    * TableCellByColumnId cell = row(5).columnId(&quot;hobbyColumn&quot;);
    * </pre>
    *

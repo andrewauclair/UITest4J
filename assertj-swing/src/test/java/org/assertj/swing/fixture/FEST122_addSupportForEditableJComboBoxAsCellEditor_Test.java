@@ -20,7 +20,7 @@ import javax.swing.*;
 import javax.swing.table.TableColumn;
 import java.awt.*;
 
-import static org.assertj.swing.data.TableCell.row;
+import static org.uitest4j.swing.data.TableCell.row;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 /**

@@ -10,7 +10,7 @@
  *
  * Copyright 2012-2015 the original author or authors.
  */
-package org.assertj.swing.data;
+package org.uitest4j.swing.data;
 
 import org.uitest4j.swing.cell.JTableCellReader;
 import org.uitest4j.swing.annotation.RunsInEDT;
@@ -32,7 +32,7 @@ import static org.assertj.swing.exception.ActionFailedException.actionFailure;
  * </p>
  *
  * <pre>
- * // import static org.assertj.swing.data.TableCellInSelectedRow.selectedRow;
+ * // import static org.uitest4j.swing.data.TableCellInSelectedRow.selectedRow;
  * {@link org.assertj.swing.fixture.JTableCellFixture JTableCellFixture} cell = window.table("records").cell({@link TableCellInSelectedRow#selectedRow() selectedRow}().column(2));
  * </pre>
  *
@@ -49,7 +49,7 @@ public class TableCellInSelectedRow implements TableCellFinder {
    * </p>
    *
    * <pre>
-   * // import static org.assertj.swing.data.TableCellInSelectedRow.row;
+   * // import static org.uitest4j.swing.data.TableCellInSelectedRow.row;
    * TableCellInSelectedRow cell = selectedRow().column(2);
    * </pre>
    *

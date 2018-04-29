@@ -26,7 +26,7 @@ import javax.swing.JTable;
 import org.assertj.core.util.VisibleForTesting;
 import org.uitest4j.swing.core.MouseButton;
 import org.uitest4j.swing.core.MouseClickInfo;
-import org.assertj.swing.data.TableCell;
+import org.uitest4j.swing.data.TableCell;
 import org.assertj.swing.driver.JTableDriver;
 
 /**
@@ -39,7 +39,7 @@ import org.assertj.swing.driver.JTableDriver;
  * </p>
  *
  * <pre>
- * // import static org.assertj.swing.data.TableCell.row;
+ * // import static org.uitest4j.swing.data.TableCell.row;
  * {@link JTableCellFixture} cell = dialog.{@link JTableFixture table}("records").cell({@link TableCell#row(int) row}(3).column(0));
  * cell.select().showPopupMenu();
  * </pre>

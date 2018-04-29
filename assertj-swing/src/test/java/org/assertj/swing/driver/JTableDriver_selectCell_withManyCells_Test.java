@@ -18,10 +18,10 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.Collection;
 
 import static org.assertj.core.util.Lists.newArrayList;
-import static org.assertj.swing.data.TableCell.row;
+import static org.uitest4j.swing.data.TableCell.row;
 
 /**
- * Tests for {@link JTableDriver#selectCell(javax.swing.JTable, org.assertj.swing.data.TableCell)}.
+ * Tests for {@link JTableDriver#selectCell(javax.swing.JTable, org.uitest4j.swing.data.TableCell)}.
  * 
  * @author Alex Ruiz
  * @author Yvonne Wang

@@ -12,7 +12,7 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.swing.data.TableCell.row;
+import static org.uitest4j.swing.data.TableCell.row;
 
 import java.util.regex.Pattern;
 
@@ -20,7 +20,7 @@ import org.assertj.swing.test.ExpectedException;
 import org.junit.jupiter.api.Test;
 
 /**
- * Tests for {@link JTableDriver#requireCellValue(javax.swing.JTable, org.assertj.swing.data.TableCell, Pattern)}.
+ * Tests for {@link JTableDriver#requireCellValue(javax.swing.JTable, org.uitest4j.swing.data.TableCell, Pattern)}.
  * 
  * @author Alex Ruiz
  * @author Yvonne Wang

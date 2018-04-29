@@ -12,7 +12,7 @@
  */
 package org.assertj.swing.driver;
 
-import org.assertj.swing.data.TableCell;
+import org.uitest4j.swing.data.TableCell;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestTable;
 import org.assertj.swing.test.swing.TestWindow;
@@ -22,7 +22,7 @@ import org.uitest4j.swing.annotation.RunsInEDT;
 import javax.swing.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.data.TableCell.row;
+import static org.uitest4j.swing.data.TableCell.row;
 import static org.assertj.swing.driver.JTableSelectCellsTask.selectCells;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 

@@ -10,7 +10,7 @@
  *
  * Copyright 2012-2015 the original author or authors.
  */
-package org.assertj.swing.data;
+package org.uitest4j.swing.data;
 
 import org.assertj.swing.driver.BasicJTableCellReader;
 import org.assertj.swing.exception.ActionFailedException;

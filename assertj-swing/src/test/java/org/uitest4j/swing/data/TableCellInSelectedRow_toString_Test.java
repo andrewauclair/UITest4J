@@ -10,7 +10,7 @@
  *
  * Copyright 2012-2015 the original author or authors.
  */
-package org.assertj.swing.data;
+package org.uitest4j.swing.data;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -18,20 +18,20 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
- * Tests for {@link Index#toString()}.
+ * Tests for {@link TableCellInSelectedRow#toString()}.
  * 
  * @author Alex Ruiz
  */
-class Index_toString_Test {
-  private Index index;
+class TableCellInSelectedRow_toString_Test {
+  private TableCellInSelectedRow finder;
 
   @BeforeEach
   void setUp() {
-    index = Index.atIndex(8);
+    finder = TableCellInSelectedRow.selectedRow().column(6);
   }
 
   @Test
   void should_Implement_ToString() {
-    assertThat(index.toString()).isEqualTo("org.assertj.swing.data.Index[value=8]");
+    assertThat(finder.toString()).isEqualTo("org.uitest4j.swing.data.TableCellInSelectedRow[column=6]");
   }
 }

@@ -13,17 +13,17 @@
 package org.assertj.swing.driver;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.data.TableCell.row;
+import static org.uitest4j.swing.data.TableCell.row;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-import org.assertj.swing.data.TableCell;
-import org.assertj.swing.data.TableCellFinder;
+import org.uitest4j.swing.data.TableCell;
+import org.uitest4j.swing.data.TableCellFinder;
 import org.junit.jupiter.api.Test;
 
 /**
- * Tests for {@link JTableDriver#cell(javax.swing.JTable, org.assertj.swing.data.TableCellFinder)}.
+ * Tests for {@link JTableDriver#cell(javax.swing.JTable, org.uitest4j.swing.data.TableCellFinder)}.
  * 
  * @author Alex Ruiz
  * @author Yvonne Wang

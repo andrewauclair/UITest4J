@@ -10,20 +10,28 @@
  *
  * Copyright 2012-2015 the original author or authors.
  */
-package org.assertj.swing.data;
+package org.uitest4j.swing.data;
 
-import nl.jqno.equalsverifier.EqualsVerifier;
+import static org.assertj.core.api.Assertions.assertThat;
+
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
- * Tests for {@link TableCell#equals(Object)} and {@link TableCell#hashCode()}.
- *
- * @author Christian Rösch
+ * Tests for {@link Index#toString()}.
+ * 
+ * @author Alex Ruiz
  */
-class TableCell_equals_hashCode_Test {
+class Index_toString_Test {
+  private Index index;
+
+  @BeforeEach
+  void setUp() {
+    index = Index.atIndex(8);
+  }
 
   @Test
-  void should_Be_Correct() {
-    EqualsVerifier.forClass(TableCell.class).verify();
+  void should_Implement_ToString() {
+    assertThat(index.toString()).isEqualTo("org.uitest4j.swing.data.Index[value=8]");
   }
 }

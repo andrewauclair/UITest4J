@@ -15,7 +15,7 @@ package org.assertj.swing.driver;
 import org.assertj.core.description.Description;
 import org.assertj.core.util.VisibleForTesting;
 import org.uitest4j.swing.core.Robot;
-import org.assertj.swing.data.Index;
+import org.uitest4j.swing.data.Index;
 import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.exception.ActionFailedException;
 import org.assertj.swing.exception.LocationUnavailableException;

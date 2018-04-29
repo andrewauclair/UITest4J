@@ -10,7 +10,7 @@
  *
  * Copyright 2012-2015 the original author or authors.
  */
-package org.assertj.swing.data;
+package org.uitest4j.swing.data;
 
 import org.uitest4j.swing.cell.JTableCellReader;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
@@ -36,7 +36,7 @@ import static org.assertj.swing.util.Arrays.format;
  * </p>
  *
  * <pre>
- * // import static org.assertj.swing.data.TableCellInRowByValue.rowWithValue;
+ * // import static org.uitest4j.swing.data.TableCellInRowByValue.rowWithValue;
  * {@link org.assertj.swing.fixture.JTableCellFixture JTableCellFixture} cell = window.table("records").cell({@link TableCellInRowByValue#rowWithValue(String...) rowWithValue}("Sue", "Black", "Knitting").column(2));
  * </pre>
  *
@@ -53,7 +53,7 @@ public class TableCellInRowByValue implements TableCellFinder {
    * </p>
    *
    * <pre>
-   * // import static org.assertj.swing.data.TableCellInRowByValue.rowWithValue;
+   * // import static org.uitest4j.swing.data.TableCellInRowByValue.rowWithValue;
    * TableCellByColumnId cell = rowWithValue(&quot;column1&quot;, &quot;column2&quot;, &quot;column3&quot;).column(3);
    * </pre>
    *

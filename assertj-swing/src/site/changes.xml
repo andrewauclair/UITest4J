@@ -71,7 +71,7 @@
           ResettableComponentMatcher.
       </action>
       <action dev="alexruiz" type="fix" issue="FEST-293" due-to="Morten Breum Mikkelsen">
-        org.assertj.swing.data.TableCellInRowByValue now correctly performs matching on a JTable row by value.
+          org.uitest4j.swing.data.TableCellInRowByValue now correctly performs matching on a JTable row by value.
       </action>
       <action dev="alexruiz" type="fix" issue="FEST-297" due-to="Nicolae Bucalaete">
         Removed check 'scrollIfNecessary' when clicking a Component. Now BasicRobot always scrolls to make a component
@@ -153,17 +153,18 @@
         Added methods 'valueAt(int)' and 'valueAt(String)' to JTreeFixture.
       </action>
       <action dev="alexruiz" type="add" issue="FEST-43" due-to="Ken Geis">
-        Added interface org.assertj.swing.data.TableCellFinder. Implementations understand lookup of a cell in a JTable
-        based on some search criteria.
+          Added interface org.uitest4j.swing.data.TableCellFinder. Implementations understand lookup of a cell in a
+          JTable
+          based on some search criteria.
       </action>
       <action dev="alexruiz" type="add" issue="FEST-43" due-to="Ken Geis">
-        org.assertj.swing.data.TableCellByColumnId now implements TableCellFinder.
+          org.uitest4j.swing.data.TableCellByColumnId now implements TableCellFinder.
       </action>
       <action dev="alexruiz" type="add" issue="FEST-43" due-to="Ken Geis">
         Method 'cell(TableCellByColumnId)' in JTableFixture changed to 'cell(TableCellFinder)'.
       </action>
       <action dev="alexruiz" type="add" issue="FEST-43" due-to="Ken Geis">
-        Added class org.assertj.swing.data.TableCellInSelectedRow to lookup a cell in a selected row of a JTable.
+          Added class org.uitest4j.swing.data.TableCellInSelectedRow to lookup a cell in a selected row of a JTable.
       </action>
       <action dev="alexruiz" type="remove" issue="FEST-43" due-to="Ken Geis">
         Removed method 'selectedRow' from JTableFixture.
@@ -205,8 +206,9 @@
         Added methods 'progressBar' to class org.assertj.swing.fixture.ContainerFixture.
       </action>
       <action dev="alexruiz" type="add" isse="FEST-225" due-to="Morten Breum Mikkelsen">
-        Added class org.assertj.swing.data.TableCellInRowByValue to lookup a JTable cell in a row whose values match the
-        given one.
+          Added class org.uitest4j.swing.data.TableCellInRowByValue to lookup a JTable cell in a row whose values match
+          the
+          given one.
       </action>
       <action dev="alexruiz" type="fix" issue="FEST-227" due-to="Uli Schrempp">
         Method 'matches(String, String)' does not require a valid regular expression if the given Strings are not equal.
@@ -879,7 +881,7 @@
         screenshot.
       </action>
       <action dev="alexruiz" type="fix" issue="214" due-to="Michael Hüttermann">
-        Fixed code snippet in Javadoc for class org.assertj.swing.data.TableCell. 
+          Fixed code snippet in Javadoc for class org.uitest4j.swing.data.TableCell.
       </action>
       <action dev="alexruiz, wanghy" type="fix" issue="216" due-to="Tarjei Skorgenes">
         Replaced condition to verify a GuiAction is executed in the event dispatch thread with a 
@@ -945,10 +947,10 @@
           dependency.
       </action>
       <action dev="alexruiz" type="fix" issue="241">
-        Renamed class TableCellByColumnName (in package org.assertj.swing.data) to TableCellByColumnId.
+        Renamed class TableCellByColumnName (in package org.uitest4j.swing.data) to TableCellByColumnId.
       </action>
       <action dev="alexruiz" type="fix" issue="241">
-        Renamed class TableCellByColumnName (in package org.assertj.swing.data) to TableCellByColumnId.
+        Renamed class TableCellByColumnName (in package org.uitest4j.swing.data) to TableCellByColumnId.
       </action>
       <action dev="alexruiz" type="add" issue="242">
         Added SwingHelper project as a dependency.
@@ -992,8 +994,8 @@
         JTableCellFixture from a row index and column name.
       </action>
       <action dev="alexruiz" type="add" issue="170" due-to="Juhos Csaba-Zsolt">
-        Replaced org.assertj.swing.driver.JTableCell and org.assertj.swing.fixture.TableCell with 
-        org.assertj.swing.data.TableCell.      
+          Replaced org.assertj.swing.driver.JTableCell and org.assertj.swing.fixture.TableCell with
+          org.uitest4j.swing.data.TableCell.
       </action>
       <action dev="alexruiz" type="fix" issue="186" due-to="Michael Hüttermann">
         BasicJTableCellReader obtains the value of a cell from a JTable, not from a TableModel.

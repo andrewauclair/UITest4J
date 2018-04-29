@@ -16,7 +16,7 @@ import org.assertj.swing.test.swing.TestTable;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.data.TableCell.row;
+import static org.uitest4j.swing.data.TableCell.row;
 import static org.assertj.swing.driver.JTableCellValueQuery.cellValueOf;
 import static org.assertj.swing.driver.JTableDriver_TestCase.MyWindow.COLUMN_COUNT;
 import static org.assertj.swing.driver.JTableDriver_TestCase.MyWindow.ROW_COUNT;
@@ -26,8 +26,8 @@ import static org.assertj.swing.test.swing.TestTable.columnNames;
 import static org.assertj.swing.test.swing.TestTable.createCellValueFrom;
 
 /**
- * Tests for {@link JTableDriver#drag(javax.swing.JTable, org.assertj.swing.data.TableCell)} and
- * {@link JTableDriver#drop(javax.swing.JTable, org.assertj.swing.data.TableCell)}.
+ * Tests for {@link JTableDriver#drag(javax.swing.JTable, org.uitest4j.swing.data.TableCell)} and
+ * {@link JTableDriver#drop(javax.swing.JTable, org.uitest4j.swing.data.TableCell)}.
  *
  * @author Alex Ruiz
  * @author Yvonne Wang

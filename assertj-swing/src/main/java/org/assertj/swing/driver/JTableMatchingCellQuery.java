@@ -13,7 +13,7 @@
 package org.assertj.swing.driver;
 
 import org.uitest4j.swing.cell.JTableCellReader;
-import org.assertj.swing.data.TableCell;
+import org.uitest4j.swing.data.TableCell;
 import org.assertj.swing.util.TextMatcher;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.uitest4j.swing.annotation.RunsInEDT;
@@ -22,7 +22,7 @@ import javax.annotation.Nonnull;
 import javax.swing.*;
 
 import static org.assertj.core.util.Preconditions.checkNotNull;
-import static org.assertj.swing.data.TableCell.row;
+import static org.uitest4j.swing.data.TableCell.row;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.exception.ActionFailedException.actionFailure;
 

@@ -10,9 +10,28 @@
  *
  * Copyright 2012-2015 the original author or authors.
  */
+package org.uitest4j.swing.data;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 /**
- * Data structures.
+ * Tests for {@link TableCellByColumnId#toString()}.
  * 
  * @author Alex Ruiz
  */
-package org.assertj.swing.data;
+class TableCellByColumnId_toString_Test {
+  private TableCellByColumnId finder;
+
+  @BeforeEach
+  void setUp() {
+    finder = TableCellByColumnId.row(6).columnId("id");
+  }
+
+  @Test
+  void should_Implement_ToString() {
+    assertThat(finder.toString()).isEqualTo("org.uitest4j.swing.data.TableCellByColumnId[row=6, columnId='id']");
+  }
+}

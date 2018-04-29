@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
 import javax.swing.JTabbedPane;
 
 import org.uitest4j.swing.core.Robot;
-import org.assertj.swing.data.Index;
+import org.uitest4j.swing.data.Index;
 import org.assertj.swing.driver.JTabbedPaneDriver;
 
 /**

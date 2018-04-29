@@ -15,10 +15,10 @@ package org.assertj.swing.driver;
 import org.assertj.swing.test.ExpectedException;
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.swing.data.Index.atIndex;
+import static org.uitest4j.swing.data.Index.atIndex;
 
 /**
- * Tests for {@link JTabbedPaneDriver#requireTabEnabled(javax.swing.JTabbedPane, org.assertj.swing.data.Index)}.
+ * Tests for {@link JTabbedPaneDriver#requireTabEnabled(javax.swing.JTabbedPane, org.uitest4j.swing.data.Index)}.
  * 
  * @author William Bakker
  */

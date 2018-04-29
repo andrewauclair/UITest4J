@@ -17,7 +17,7 @@ import static org.assertj.swing.edt.GuiActionRunner.execute;
 import javax.annotation.Nonnull;
 import javax.swing.JTable;
 
-import org.assertj.swing.data.TableCell;
+import org.uitest4j.swing.data.TableCell;
 
 /**
  * Selects multiple cells in a {@code JTable}. This task is executed in the event dispatch thread (EDT).

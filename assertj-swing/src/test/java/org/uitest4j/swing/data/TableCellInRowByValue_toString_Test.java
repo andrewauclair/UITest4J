@@ -10,7 +10,7 @@
  *
  * Copyright 2012-2015 the original author or authors.
  */
-package org.assertj.swing.data;
+package org.uitest4j.swing.data;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -33,6 +33,6 @@ class TableCellInRowByValue_toString_Test {
   @Test
   void should_Implement_ToString() {
     assertThat(finder.toString()).isEqualTo(
-        "org.assertj.swing.data.TableCellInRowByValue[values=[\"one\", \"two\"], column=1]");
+        "org.uitest4j.swing.data.TableCellInRowByValue[values=[\"one\", \"two\"], column=1]");
   }
 }

@@ -12,7 +12,7 @@
  */
 package org.assertj.swing.driver;
 
-import org.assertj.swing.data.TableCell;
+import org.uitest4j.swing.data.TableCell;
 import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.recorder.ClickRecorder;
 import org.assertj.swing.test.recorder.ClickRecorderManager;
@@ -22,11 +22,11 @@ import javax.swing.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.uitest4j.swing.core.MouseButton.RIGHT_BUTTON;
-import static org.assertj.swing.data.TableCell.row;
+import static org.uitest4j.swing.data.TableCell.row;
 import static org.assertj.swing.test.task.ComponentSetPopupMenuTask.createAndSetPopupMenu;
 
 /**
- * Tests for {@link JTableDriver#showPopupMenuAt(javax.swing.JTable, org.assertj.swing.data.TableCell)}.
+ * Tests for {@link JTableDriver#showPopupMenuAt(javax.swing.JTable, org.uitest4j.swing.data.TableCell)}.
  *
  * @author Alex Ruiz
  * @author Yvonne Wang

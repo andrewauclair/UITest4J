@@ -10,24 +10,27 @@
  *
  * Copyright 2012-2015 the original author or authors.
  */
-package org.assertj.swing.data;
+package org.uitest4j.swing.data;
 
-import org.junit.jupiter.api.Test;
-
+import static org.uitest4j.swing.data.TableCellByColumnId.row;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import org.assertj.swing.driver.BasicJTableCellReader;
+import org.assertj.swing.exception.ActionFailedException;
+import org.junit.jupiter.api.Test;
+
 /**
- * Tests for {@link TableCellInRowByValue#rowWithValue(String...)}.
+ * Tests for {@link TableCellByColumnId#findCell(javax.swing.JTable, JTableCellReader)}.
  * 
  * @author Alex Ruiz
+ * @author Yvonne Wang
  */
-class TableCellInRowByValue_rowWithValue_Test {
+class TableCellByColumnId_findCell_withInvalidInput_Test extends TableCellFinder_TestCase {
   @Test
-  void should_Throw_Error_If_Array_Of_Values_Is_Null() {
-    // jsr305 throws IllegalArgumentExceptions when @Nonnull is used
-    assertThrows(IllegalArgumentException.class, () -> {
-      String[] values = null;
-      TableCellInRowByValue.rowWithValue(values);
+  void should_Throw_Error_If_A_Matching_Column_Was_Not_Found() {
+    assertThrows(ActionFailedException.class, () -> {
+      TableCellByColumnId finder = row(0).columnId("Hello");
+      finder.findCell(table, new BasicJTableCellReader());
     });
   }
 }

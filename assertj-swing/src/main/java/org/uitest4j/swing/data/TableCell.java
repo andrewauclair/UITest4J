@@ -10,7 +10,7 @@
  *
  * Copyright 2012-2015 the original author or authors.
  */
-package org.assertj.swing.data;
+package org.uitest4j.swing.data;
 
 import static org.assertj.core.util.Objects.HASH_CODE_PRIME;
 
@@ -38,7 +38,7 @@ public class TableCell {
    * </p>
    *
    * <pre>
-   * // import static org.assertj.swing.data.TableCell.row;
+   * // import static org.uitest4j.swing.data.TableCell.row;
    * TableCell cell = row(5).column(3);
    * </pre>
    *

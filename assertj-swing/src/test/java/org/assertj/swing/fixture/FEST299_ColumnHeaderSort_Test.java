@@ -13,7 +13,7 @@
 package org.assertj.swing.fixture;
 
 import static org.assertj.core.util.Arrays.array;
-import static org.assertj.swing.data.TableCell.row;
+import static org.uitest4j.swing.data.TableCell.row;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 import javax.swing.JScrollPane;

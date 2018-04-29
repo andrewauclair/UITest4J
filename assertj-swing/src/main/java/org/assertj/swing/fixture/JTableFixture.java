@@ -32,8 +32,8 @@ import org.uitest4j.swing.cell.JTableCellWriter;
 import org.uitest4j.swing.core.MouseButton;
 import org.uitest4j.swing.core.MouseClickInfo;
 import org.uitest4j.swing.core.Robot;
-import org.assertj.swing.data.TableCell;
-import org.assertj.swing.data.TableCellFinder;
+import org.uitest4j.swing.data.TableCell;
+import org.uitest4j.swing.data.TableCellFinder;
 import org.assertj.swing.driver.JTableDriver;
 
 /**

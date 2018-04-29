@@ -21,7 +21,7 @@ import javax.swing.*;
 import java.util.regex.Pattern;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.data.Index.atIndex;
+import static org.uitest4j.swing.data.Index.atIndex;
 import static org.mockito.Mockito.*;
 
 /**

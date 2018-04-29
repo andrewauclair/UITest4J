@@ -15,7 +15,7 @@ package org.assertj.swing.driver;
 import static org.assertj.swing.test.builder.JTables.table;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import org.assertj.swing.data.TableCell;
+import org.uitest4j.swing.data.TableCell;
 import org.junit.jupiter.api.Test;
 
 /**

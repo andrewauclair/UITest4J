@@ -15,7 +15,7 @@ package org.assertj.swing.jide.grids;
 import static org.junit.Assert.assertEquals;
 
 import org.uitest4j.swing.core.Robot;
-import org.assertj.swing.data.TableCell;
+import org.uitest4j.swing.data.TableCell;
 import org.assertj.swing.driver.JTableDriver;
 import org.assertj.swing.fixture.JScrollPaneFixture;
 

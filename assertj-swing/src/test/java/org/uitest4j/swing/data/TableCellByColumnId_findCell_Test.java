@@ -10,7 +10,7 @@
  *
  * Copyright 2012-2015 the original author or authors.
  */
-package org.assertj.swing.data;
+package org.uitest4j.swing.data;
 
 import org.assertj.swing.driver.BasicJTableCellReader;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -21,7 +21,7 @@ import java.util.Collection;
 import static java.lang.Integer.parseInt;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Lists.newArrayList;
-import static org.assertj.swing.data.TableCellByColumnId.row;
+import static org.uitest4j.swing.data.TableCellByColumnId.row;
 
 /**
  * Tests for {@link TableCellByColumnId#findCell(javax.swing.JTable, JTableCellReader)}.

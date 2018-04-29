@@ -14,12 +14,12 @@ package org.assertj.swing.fixture;
 
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.swing.data.TableCell.row;
+import static org.uitest4j.swing.data.TableCell.row;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 
 /**
- * Tests for {@link JTableCellFixture#JTableCellFixture(JTableFixture, org.assertj.swing.data.TableCell)}.
+ * Tests for {@link JTableCellFixture#JTableCellFixture(JTableFixture, org.uitest4j.swing.data.TableCell)}.
  * 
  * @author Alex Ruiz
  */
