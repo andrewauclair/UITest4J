@@ -12,7 +12,6 @@
  */
 package org.uitest4j.swing.fixture;
 
-import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.uitest4j.swing.core.MouseButton.LEFT_BUTTON;
 import static org.uitest4j.swing.core.MouseButton.RIGHT_BUTTON;
 
@@ -22,6 +21,8 @@ import javax.annotation.Nullable;
 import org.assertj.core.util.VisibleForTesting;
 import org.uitest4j.swing.core.MouseButton;
 import org.uitest4j.swing.core.MouseClickInfo;
+
+import java.util.Objects;
 
 /**
  * Supports functional testing of single items in {@code JList}s.
@@ -42,7 +43,7 @@ public class JListItemFixture implements ItemFixture<JListItemFixture> {
    * @throws NullPointerException if {@code list} is {@code null}.
    */
   public JListItemFixture(@Nonnull JListFixture list, int index) {
-    this.list = checkNotNull(list);
+	  this.list = Objects.requireNonNull(list);
     this.index = index;
   }
 

@@ -12,16 +12,15 @@
  */
 package org.uitest4j.swing.fixture;
 
-import org.uitest4j.swing.core.Robot;
-import org.uitest4j.swing.driver.JTabbedPaneDriver;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.uitest4j.swing.core.Robot;
+import org.uitest4j.swing.driver.JTabbedPaneDriver;
 
 import javax.swing.*;
 import java.util.regex.Pattern;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.uitest4j.swing.data.Index.atIndex;
 import static org.mockito.Mockito.*;
 
 /**
@@ -71,15 +70,15 @@ class JTabbedPaneFixture_withMocks_Test {
 
   @Test
   void should_Call_RequireTitle_With_Text_In_Driver_And_Return_Self() {
-    assertThat(fixture.requireTitle("Hello", atIndex(6))).isSameAs(fixture);
-    verify(fixture.driver()).requireTabTitle(fixture.target(), "Hello", atIndex(6));
+	  assertThat(fixture.requireTitle("Hello", 6)).isSameAs(fixture);
+	  verify(fixture.driver()).requireTabTitle(fixture.target(), "Hello", 6);
   }
 
   @Test
   void should_Call_RequireTitle_With_Pattern_In_Driver_And_Return_Self() {
     Pattern pattern = Pattern.compile("Hello");
-    assertThat(fixture.requireTitle(pattern, atIndex(6))).isSameAs(fixture);
-    verify(fixture.driver()).requireTabTitle(fixture.target(), pattern, atIndex(6));
+	  assertThat(fixture.requireTitle(pattern, 6)).isSameAs(fixture);
+	  verify(fixture.driver()).requireTabTitle(fixture.target(), pattern, 6);
   }
 
   @Test
@@ -91,21 +90,21 @@ class JTabbedPaneFixture_withMocks_Test {
 
   @Test
   void should_Call_RequireSelectedTab_In_Driver_And_Return_Self() {
-    assertThat(fixture.requireSelectedTab(atIndex(6))).isSameAs(fixture);
-    verify(fixture.driver()).requireSelectedTab(fixture.target(), atIndex(6));
+	  assertThat(fixture.requireSelectedTab(6)).isSameAs(fixture);
+	  verify(fixture.driver()).requireSelectedTab(fixture.target(), 6);
   }
 
   @Test
   void should_Call_RequireToolTipText_With_Text_In_Driver_And_Return_Self() {
-    assertThat(fixture.requireToolTipText("Hello", atIndex(6))).isSameAs(fixture);
-    verify(fixture.driver()).requireTabToolTipText(fixture.target(), "Hello", atIndex(6));
+	  assertThat(fixture.requireToolTipText("Hello", 6)).isSameAs(fixture);
+	  verify(fixture.driver()).requireTabToolTipText(fixture.target(), "Hello", 6);
   }
 
   @Test
   void should_Call_RequireToolTipText_With_Pattern_In_Driver_And_Return_Self() {
     Pattern pattern = Pattern.compile("Hello");
-    assertThat(fixture.requireToolTipText(pattern, atIndex(6))).isSameAs(fixture);
-    verify(fixture.driver()).requireTabToolTipText(fixture.target(), pattern, atIndex(6));
+	  assertThat(fixture.requireToolTipText(pattern, 6)).isSameAs(fixture);
+	  verify(fixture.driver()).requireTabToolTipText(fixture.target(), pattern, 6);
   }
 
   @Test

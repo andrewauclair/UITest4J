@@ -1,4 +1,4 @@
-/**
+/*
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
  *
@@ -12,31 +12,24 @@
  */
 package org.uitest4j.swing.driver;
 
-import org.uitest4j.swing.test.ExpectedException;
 import org.junit.jupiter.api.Test;
-
-import java.util.regex.Pattern;
-
-import static org.uitest4j.swing.data.Index.atIndex;
+import org.uitest4j.swing.test.ExpectedException;
 
 /**
- * Tests for {@link JTabbedPaneDriver#requireTabToolTipText(javax.swing.JTabbedPane, String, org.uitest4j.swing.data.Index)}.
- * 
+ * Tests for {@link JTabbedPaneDriver#requireTabToolTipText(javax.swing.JTabbedPane, String, int)}.
+ *
  * @author William Bakker
  */
 class JTabbedPaneDriver_requireTabToolTipTextAsText_Test extends JTabbedPaneDriver_TestCase {
-  @Test
-  void should_Fail_If_ToolTipText_Is_Not_Equal_To_Expected() {
-    ExpectedException.assertAssertionError(() -> driver.requireTabToolTipText(tabbedPane, "Hello", atIndex(0)), "toolTipTextAt", "tip1", Pattern.compile("Hello"));
-  }
+	@Test
+	void should_Fail_If_ToolTipText_Is_Not_Equal_To_Expected() {
+		ExpectedException.assertOpenTest4jError(() -> driver.requireTabToolTipText(tabbedPane, "Hello", 0),
+				"Expected tooltip text of tab at index 0 of 'TestTabbedPane' to be 'Hello' but was 'tip1'",
+				"Hello", "tip1");
+	}
 
-  @Test
-  void should_Pass_If_ToolTipText_Is_Equal_To_Expected() {
-    driver.requireTabToolTipText(tabbedPane, "tip1", atIndex(0));
-  }
-
-  @Test
-  void should_Pass_If_ToolTipText_Matches_Pattern() {
-    driver.requireTabToolTipText(tabbedPane, "t.*", atIndex(0));
-  }
+	@Test
+	void should_Pass_If_ToolTipText_Is_Equal_To_Expected() {
+		driver.requireTabToolTipText(tabbedPane, "tip1", 0);
+	}
 }

@@ -23,7 +23,8 @@ import org.uitest4j.swing.test.ExpectedException;
 class JTabbedPaneDriver_requireTabDisabled_Test extends JTabbedPaneDriver_TestCase {
 	@Test
 	void should_Fail_If_Tab_Is_Enabled() {
-		ExpectedException.assertOpenTest4jError(() -> driver.requireTabDisabled(tabbedPane, 0), "Expected tab at index 0 to be disabled: javax.swing.JTabbedPane[name=null, selectedTabIndex=0, selectedTabTitle='One', tabCount=3, tabTitles=[\"One\", \"Two\", \"Three\"], enabled=true, visible=true, showing=false");
+		ExpectedException.assertOpenTest4jError(() -> driver.requireTabDisabled(tabbedPane, 0),
+				"Expected tab at index 0 of 'TestTabbedPane' to be disabled");
 	}
 
 	@Test

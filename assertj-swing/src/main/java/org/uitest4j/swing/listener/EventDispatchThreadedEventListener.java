@@ -14,12 +14,12 @@ package org.uitest4j.swing.listener;
 
 import static javax.swing.SwingUtilities.invokeLater;
 import static javax.swing.SwingUtilities.isEventDispatchThread;
-import static org.assertj.core.util.Lists.newArrayList;
-import static org.assertj.core.util.Preconditions.checkNotNull;
 
 import java.awt.AWTEvent;
 import java.awt.event.AWTEventListener;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import javax.annotation.Nonnull;
 import javax.annotation.concurrent.GuardedBy;
@@ -42,16 +42,11 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 public abstract class EventDispatchThreadedEventListener implements AWTEventListener {
   @GuardedBy("lock")
-  private final List<AWTEvent> deferredEvents = newArrayList();
+  private final List<AWTEvent> deferredEvents = new ArrayList<>();
 
   private final Object lock = new Object();
 
-  private final Runnable processDeferredEventsTask = new Runnable() {
-    @Override
-    public void run() {
-      processDeferredEvents();
-    }
-  };
+	private final Runnable processDeferredEventsTask = this::processDeferredEvents;
 
   /**
    * If this method is called in the event dispatch thread, it processes the given event and the queued ones. Otherwise
@@ -76,13 +71,13 @@ public abstract class EventDispatchThreadedEventListener implements AWTEventList
     }
     // Ensure any deferred events are processed prior to subsequently posted events.
     processDeferredEvents();
-    processEvent(checkNotNull(event));
+	  processEvent(Objects.requireNonNull(event));
   }
 
   /** Processes any events that were generated off the event queue but not immediately handled. */
   protected void processDeferredEvents() {
     // Make a copy of the deferred events and empty the queue
-    List<AWTEvent> queue = newArrayList();
+	  List<AWTEvent> queue = new ArrayList<>();
     synchronized (lock) {
       // In the rare case where there are multiple simultaneous dispatch threads, it's possible for deferred events to
       // get posted while another event is being processed. At most this will mean a few events get processed out of
@@ -93,7 +88,7 @@ public abstract class EventDispatchThreadedEventListener implements AWTEventList
     while (queue.size() > 0) {
       AWTEvent event = queue.get(0);
       queue.remove(0);
-      processEvent(checkNotNull(event));
+		processEvent(Objects.requireNonNull(event));
     }
   }
 

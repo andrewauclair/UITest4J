@@ -12,12 +12,9 @@
  */
 package org.uitest4j.swing.driver;
 
-import org.assertj.core.description.Description;
-import org.assertj.core.util.VisibleForTesting;
 import org.opentest4j.AssertionFailedError;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.core.Robot;
-import org.uitest4j.swing.data.Index;
 import org.uitest4j.swing.edt.GuiQuery;
 import org.uitest4j.swing.exception.ActionFailedException;
 import org.uitest4j.swing.exception.LocationUnavailableException;
@@ -33,18 +30,16 @@ import javax.annotation.Nullable;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.regex.Pattern;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.uitest4j.swing.driver.ComponentPreconditions.checkEnabledAndShowing;
 import static org.uitest4j.swing.driver.JTabbedPaneSelectTabQuery.selectedTabIndexOf;
 import static org.uitest4j.swing.driver.JTabbedPaneSelectTabTask.setSelectedTab;
 import static org.uitest4j.swing.driver.JTabbedPaneTabTitlesQuery.tabTitlesOf;
-import static org.uitest4j.swing.driver.TextAssert.verifyThat;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-import static org.uitest4j.swing.format.Formatting.format;
 
 /**
  * <p>
@@ -75,11 +70,12 @@ public class JTabbedPaneDriver extends JComponentDriver {
 
 	/**
 	 * Creates a new {@link JTabbedPaneDriver}.
+	 * <p>
+	 * Used by tests.
 	 *
 	 * @param robot    the robot to use to simulate user input.
 	 * @param location knows how to find the location of a tab.
 	 */
-	@VisibleForTesting
 	JTabbedPaneDriver(@Nonnull Robot robot, @Nonnull JTabbedPaneLocation location) {
 		super(robot);
 		this.location = location;
@@ -159,7 +155,7 @@ public class JTabbedPaneDriver extends JComponentDriver {
 				try {
 					point = location.pointAt(tabbedPane, index);
 				}
-				catch (LocationUnavailableException e) {
+				catch (LocationUnavailableException ignored) {
 				}
 				return Pair.of(index, point);
 			}
@@ -200,8 +196,13 @@ public class JTabbedPaneDriver extends JComponentDriver {
 		return Objects.requireNonNull(result);
 	}
 
+	/**
+	 * Used by tests
+	 *
+	 * @param tabbedPane JTabbedPane to set tab on.
+	 * @param index      Tab index to set.
+	 */
 	@RunsInEDT
-	@VisibleForTesting
 	void setTabDirectly(@Nonnull JTabbedPane tabbedPane, int index) {
 		setSelectedTab(tabbedPane, index);
 		robot.waitForIdle();
@@ -241,22 +242,24 @@ public class JTabbedPaneDriver extends JComponentDriver {
 	@RunsInEDT
 	@Nullable
 	private static Component selectedComponent(final JTabbedPane tabbedPane) {
-		return execute(() -> tabbedPane.getSelectedComponent());
+		return execute(tabbedPane::getSelectedComponent);
 	}
 
 	/**
 	 * Asserts that the title of the tab at the given index matches the given value.
 	 *
 	 * @param tabbedPane the target {@code JTabbedPane}.
-	 * @param title      the expected title. It can be a regular expression.
+	 * @param title      the expected title.
 	 * @param index      the index of the tab.
 	 * @throws IndexOutOfBoundsException if the given index is not within the {@code JTabbedPane} bounds.
-	 * @throws AssertionError            if the title of the tab at the given index does not match the given one.
+	 * @throws AssertionFailedError      if the title of the tab at the given index does not match the given one.
 	 */
 	@RunsInEDT
-	public void requireTabTitle(@Nonnull JTabbedPane tabbedPane, @Nullable String title, @Nonnull Index index) {
+	public void requireTabTitle(@Nonnull JTabbedPane tabbedPane, @Nullable String title, int index) {
 		String actualTitle = titleAt(tabbedPane, index);
-		verifyThat(actualTitle).as(titleAtProperty(tabbedPane)).isEqualOrMatches(title);
+		OpenTest4JAssertions.assertEquals(title, actualTitle,
+				() -> "Expected title of tab at index 0 of '" + tabbedPane.getName() +
+						"' to be '" + title + "' but was '" + actualTitle + "'");
 	}
 
 	/**
@@ -267,12 +270,14 @@ public class JTabbedPaneDriver extends JComponentDriver {
 	 * @param index      the index of the tab.
 	 * @throws NullPointerException      if the given regular expression pattern is {@code null}.
 	 * @throws IndexOutOfBoundsException if the given index is not within the {@code JTabbedPane} bounds.
-	 * @throws AssertionError            if the title of the tab at the given index does not match the given one.
+	 * @throws AssertionFailedError      if the title of the tab at the given index does not match the given one.
 	 */
 	@RunsInEDT
-	public void requireTabTitle(@Nonnull JTabbedPane tabbedPane, @Nonnull Pattern pattern, @Nonnull Index index) {
+	public void requireTabTitle(@Nonnull JTabbedPane tabbedPane, @Nonnull Pattern pattern, int index) {
 		String actualTitle = titleAt(tabbedPane, index);
-		verifyThat(actualTitle).as(titleAtProperty(tabbedPane)).matches(pattern);
+		OpenTest4JAssertions.assertMatchesPattern(pattern, actualTitle,
+				() -> "Expected title of tab at index " + index + " of '" + tabbedPane.getName() +
+						"' to match pattern '" + pattern.toString() + "' but was '" + actualTitle + "'");
 	}
 
 	/**
@@ -280,12 +285,12 @@ public class JTabbedPaneDriver extends JComponentDriver {
 	 *
 	 * @param tabbedPane the target {@code JTabbedPane}.
 	 * @param index      the index of the selected tab.
-	 * @throws AssertionError if the index of the selected tab does not match the given one.
+	 * @throws AssertionFailedError if the index of the selected tab does not match the given one.
 	 */
 	@RunsInEDT
-	public void requireSelectedTab(@Nonnull JTabbedPane tabbedPane, @Nonnull Index index) {
-		assertThat(selectedTabIndexOf(tabbedPane).value).as(propertyName(tabbedPane, "selectedIndex"))
-				.isEqualTo(index.value);
+	public void requireSelectedTab(@Nonnull JTabbedPane tabbedPane, int index) {
+		OpenTest4JAssertions.assertEquals(index, selectedTabIndexOf(tabbedPane),
+				() -> "Expected tab at index " + index + " of '" + tabbedPane.getName() + "' to be selected");
 	}
 
 	/**
@@ -295,12 +300,14 @@ public class JTabbedPaneDriver extends JComponentDriver {
 	 * @param toolTipText the expected toolTipText. It can be a regular expression.
 	 * @param index       the index of the tab.
 	 * @throws IndexOutOfBoundsException if the given index is not within the {@code JTabbedPane} bounds.
-	 * @throws AssertionError            if the toolTipText of the tab at the given index does not match the given one.
+	 * @throws AssertionFailedError      if the toolTipText of the tab at the given index does not match the given one.
 	 */
 	@RunsInEDT
-	public void requireTabToolTipText(@Nonnull JTabbedPane tabbedPane, @Nullable String toolTipText, @Nonnull Index index) {
+	public void requireTabToolTipText(@Nonnull JTabbedPane tabbedPane, @Nullable String toolTipText, int index) {
 		String actualToolTipText = toolTipTextAt(tabbedPane, index);
-		verifyThat(actualToolTipText).as(toolTipTextAtProperty(tabbedPane)).isEqualOrMatches(toolTipText);
+		OpenTest4JAssertions.assertEquals(toolTipText, actualToolTipText,
+				() -> "Expected tooltip text of tab at index " + index + " of '" + tabbedPane.getName() + "' to be '" +
+						toolTipText + "' but was '" + actualToolTipText + "'");
 	}
 
 	/**
@@ -311,12 +318,14 @@ public class JTabbedPaneDriver extends JComponentDriver {
 	 * @param index      the index of the tab.
 	 * @throws NullPointerException      if the given regular expression pattern is {@code null}.
 	 * @throws IndexOutOfBoundsException if the given index is not within the {@code JTabbedPane} bounds.
-	 * @throws AssertionError            if the toolTipText of the tab at the given index does not match the given one.
+	 * @throws AssertionFailedError      if the toolTipText of the tab at the given index does not match the given one.
 	 */
 	@RunsInEDT
-	public void requireTabToolTipText(@Nonnull JTabbedPane tabbedPane, @Nonnull Pattern pattern, @Nonnull Index index) {
+	public void requireTabToolTipText(@Nonnull JTabbedPane tabbedPane, @Nonnull Pattern pattern, int index) {
 		String actualToolTipText = toolTipTextAt(tabbedPane, index);
-		verifyThat(actualToolTipText).as(toolTipTextAtProperty(tabbedPane)).matches(pattern);
+		OpenTest4JAssertions.assertMatchesPattern(pattern, actualToolTipText,
+				() -> "Expected tooltip text of tab at index " + index + " of '" + tabbedPane.getName() +
+						"' to match pattern '" + pattern + "' but was '" + actualToolTipText + "'");
 	}
 
 	/**
@@ -325,12 +334,12 @@ public class JTabbedPaneDriver extends JComponentDriver {
 	 * @param tabbedPane the target {@code JTabbedPane}.
 	 * @param index      the index of the tab.
 	 * @throws IndexOutOfBoundsException if the given index is not within the {@code JTabbedPane} bounds.
-	 * @throws AssertionFailedError            if the tab at the given index is not enabled.
+	 * @throws AssertionFailedError      if the tab at the given index is not enabled.
 	 */
 	@RunsInEDT
 	public void requireTabEnabled(@Nonnull JTabbedPane tabbedPane, int index) {
 		boolean actualEnabled = isEnabledAt(tabbedPane, index);
-		OpenTest4JAssertions.assertTrue(actualEnabled, () -> "Expected tab at index " + index + " to be enabled: " + format(tabbedPane));
+		OpenTest4JAssertions.assertTrue(actualEnabled, () -> "Expected tab at index " + index + " of '" + tabbedPane.getName() + "' to be enabled");
 	}
 
 	/**
@@ -339,34 +348,24 @@ public class JTabbedPaneDriver extends JComponentDriver {
 	 * @param tabbedPane the target {@code JTabbedPane}.
 	 * @param index      the index of the tab.
 	 * @throws IndexOutOfBoundsException if the given index is not within the {@code JTabbedPane} bounds.
-	 * @throws AssertionFailedError            if the tab at the given index is not disabled.
+	 * @throws AssertionFailedError      if the tab at the given index is not disabled.
 	 */
 	@RunsInEDT
 	public void requireTabDisabled(@Nonnull JTabbedPane tabbedPane, int index) {
 		boolean actualEnabled = isEnabledAt(tabbedPane, index);
-		OpenTest4JAssertions.assertFalse(actualEnabled, () -> "Expected tab at index " + index + " to be disabled: " + format(tabbedPane));
-	}
-
-	@RunsInEDT
-	private Description titleAtProperty(@Nonnull JTabbedPane tabbedPane) {
-		return propertyName(tabbedPane, "titleAt");
-	}
-
-	@RunsInEDT
-	private Description toolTipTextAtProperty(@Nonnull JTabbedPane tabbedPane) {
-		return propertyName(tabbedPane, "toolTipTextAt");
+		OpenTest4JAssertions.assertFalse(actualEnabled, () -> "Expected tab at index " + index + " of '" + tabbedPane.getName() + "' to be disabled");
 	}
 
 	@RunsInEDT
 	@Nullable
-	private static String titleAt(final @Nonnull JTabbedPane tabbedPane, final @Nonnull Index index) {
-		return execute(() -> tabbedPane.getTitleAt(index.value));
+	private static String titleAt(final @Nonnull JTabbedPane tabbedPane, final int index) {
+		return execute(() -> tabbedPane.getTitleAt(index));
 	}
 
 	@RunsInEDT
 	@Nullable
-	private static String toolTipTextAt(final @Nonnull JTabbedPane tabbedPane, final @Nonnull Index index) {
-		return execute(() -> tabbedPane.getToolTipTextAt(index.value));
+	private static String toolTipTextAt(final @Nonnull JTabbedPane tabbedPane, final int index) {
+		return execute(() -> tabbedPane.getToolTipTextAt(index));
 	}
 
 	@RunsInEDT
@@ -385,7 +384,9 @@ public class JTabbedPaneDriver extends JComponentDriver {
 	@RunsInEDT
 	public void requireTabTitles(@Nonnull JTabbedPane tabbedPane, @Nonnull String[] titles) {
 		String[] actualTitles = allTabTitlesIn(tabbedPane);
-		assertThat(actualTitles).as(propertyName(tabbedPane, "tabTitles")).isEqualTo(titles);
+		OpenTest4JAssertions.assertEquals(titles, actualTitles,
+				() -> "Expected titles of '" + tabbedPane.getName() + "' to be " + Arrays.toString(titles) +
+						" but were " + Arrays.toString(actualTitles));
 	}
 
 	@RunsInEDT

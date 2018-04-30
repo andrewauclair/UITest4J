@@ -12,24 +12,25 @@
  */
 package org.uitest4j.swing.driver;
 
-import static org.uitest4j.swing.data.Index.atIndex;
-
-import org.uitest4j.swing.test.ExpectedException;
 import org.junit.jupiter.api.Test;
+import org.uitest4j.swing.test.ExpectedException;
+
+import static org.uitest4j.swing.format.Formatting.format;
 
 /**
- * Tests for {@link JTabbedPaneDriver#requireSelectedTab(javax.swing.JTabbedPane, org.uitest4j.swing.data.Index)}.
+ * Tests for {@link JTabbedPaneDriver#requireSelectedTab(javax.swing.JTabbedPane, int)}.
  *
  * @author Christian Rösch
  */
 class JTabbedPaneDriver_requireSelectedTab_Test extends JTabbedPaneDriver_TestCase {
   @Test
   void should_Fail_If_Index_Is_Not_Equal_To_Expected() {
-    ExpectedException.assertAssertionError(() -> driver.requireSelectedTab(tabbedPane, atIndex(12)), "selectedIndex", 12, 0);
+    ExpectedException.assertOpenTest4jError(() -> driver.requireSelectedTab(tabbedPane, 12), "Expected tab at index 12 of 'TestTabbedPane' to be selected",
+            12, 0);
   }
 
   @Test
   void should_Pass_If_Index_Is_Equal_To_Expected() {
-    driver.requireSelectedTab(tabbedPane, atIndex(0));
+    driver.requireSelectedTab(tabbedPane, 0);
   }
 }

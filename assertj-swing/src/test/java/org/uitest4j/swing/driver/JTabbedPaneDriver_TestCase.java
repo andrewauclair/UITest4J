@@ -77,6 +77,7 @@ public abstract class JTabbedPaneDriver_TestCase extends RobotBasedTestCase {
 
     private MyWindow(Class<?> testClass) {
       super(testClass);
+		tabbedPane.setName("TestTabbedPane");
       tabbedPane.addTab("One", null, panelWithName("panel1"), "tip1");
       tabbedPane.addTab("Two", null, panelWithName("panel2"), "tip2");
       tabbedPane.addTab("Three", null, panelWithName("panel3"), "tip3");

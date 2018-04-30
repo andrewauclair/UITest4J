@@ -23,8 +23,8 @@ import javax.annotation.Nullable;
 import javax.swing.*;
 import javax.swing.text.JTextComponent;
 import java.awt.*;
+import java.util.Objects;
 
-import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.uitest4j.swing.core.ComponentLookupScope.SHOWING_ONLY;
 import static org.uitest4j.swing.timing.Pause.pause;
 import static org.uitest4j.swing.timing.Timeout.timeout;
@@ -193,7 +193,7 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     ComponentFoundCondition condition = new ComponentFoundCondition(description, robot().finder(), matcher);
     pause(condition, timeout);
     Dialog dialog = (Dialog) condition.found();
-    return new DialogFixture(robot(), checkNotNull(dialog));
+	  return new DialogFixture(robot(), Objects.requireNonNull(dialog));
   }
 
   @RunsInEDT
@@ -240,7 +240,7 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     ComponentFoundCondition condition = new ComponentFoundCondition(description, robot().finder(), matcher);
     pause(condition, timeout);
     JFileChooser fileChooser = (JFileChooser) condition.found();
-    return new JFileChooserFixture(robot(), checkNotNull(fileChooser));
+	  return new JFileChooserFixture(robot(), Objects.requireNonNull(fileChooser));
   }
 
   @RunsInEDT
@@ -330,7 +330,7 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     ComponentFoundCondition condition = new ComponentFoundCondition(description, robot().finder(), matcher);
     pause(condition, timeout);
     JOptionPane optionPane = (JOptionPane) condition.found();
-    return new JOptionPaneFixture(robot(), checkNotNull(optionPane));
+	  return new JOptionPaneFixture(robot(), Objects.requireNonNull(optionPane));
   }
 
   @RunsInEDT
