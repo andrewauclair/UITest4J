@@ -21,7 +21,7 @@ import java.awt.*;
 import static java.awt.BorderLayout.*;
 import static java.lang.Math.max;
 import static javax.swing.SwingConstants.HORIZONTAL;
-import static org.uitest4j.swing.util.Arrays.format;
+import static org.uitest4j.swing.util.ArrayUtils.format;
 
 /**
  * A visible location on a {@code JToolBar}.

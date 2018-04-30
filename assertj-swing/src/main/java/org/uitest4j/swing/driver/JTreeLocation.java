@@ -21,7 +21,7 @@ import javax.swing.*;
 import javax.swing.tree.TreePath;
 import java.awt.*;
 
-import static org.uitest4j.swing.util.Arrays.format;
+import static org.uitest4j.swing.util.ArrayUtils.format;
 
 /**
  * A visible location on a {@code JTree}. A row index or a {@link String}ified {@code TreePath} (i.e. each

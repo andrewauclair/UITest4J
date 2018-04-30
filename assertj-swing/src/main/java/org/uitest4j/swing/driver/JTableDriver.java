@@ -25,7 +25,7 @@ import org.uitest4j.swing.data.TableCellFinder;
 import org.uitest4j.swing.edt.GuiQuery;
 import org.uitest4j.swing.exception.ActionFailedException;
 import org.uitest4j.swing.internal.annotation.InternalApi;
-import org.uitest4j.swing.util.Arrays;
+import org.uitest4j.swing.util.ArrayUtils;
 import org.uitest4j.swing.util.Pair;
 import org.uitest4j.swing.util.PatternTextMatcher;
 import org.uitest4j.swing.util.StringTextMatcher;
@@ -54,8 +54,8 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 import static org.uitest4j.swing.exception.ActionFailedException.actionFailure;
 import static org.uitest4j.swing.query.JTableColumnByIdentifierQuery.columnIndexByIdentifier;
 import static org.uitest4j.swing.util.ArrayPreconditions.checkNotNullOrEmpty;
-import static org.uitest4j.swing.util.Arrays.equal;
-import static org.uitest4j.swing.util.Arrays.format;
+import static org.uitest4j.swing.util.ArrayUtils.equal;
+import static org.uitest4j.swing.util.ArrayUtils.format;
 import static org.uitest4j.swing.util.Platform.controlOrCommandKey;
 
 /**
@@ -569,7 +569,7 @@ public class JTableDriver extends JComponentDriver {
 									 @Nullable Description description) {
 		String descriptionValue = description != null ? description.value() : null;
 		String message = descriptionValue == null ? "" : String.format("[%s] ", descriptionValue);
-		fail(message + String.format("expected:<%s> but was<%s>", Arrays.format(expected), Arrays.format(actual)));
+		fail(message + String.format("expected:<%s> but was<%s>", ArrayUtils.format(expected), ArrayUtils.format(actual)));
 	}
 
 	/**

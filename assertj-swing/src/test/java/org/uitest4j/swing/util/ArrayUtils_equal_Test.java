@@ -17,54 +17,54 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
- * Tests for {@link Arrays#equal(String[][], String[][])}.
+ * Tests for {@link ArrayUtils#equal(String[][], String[][])}.
  * 
  * @author Alex Ruiz
  */
-class Arrays_equal_Test {
+class ArrayUtils_equal_Test {
   @Test
   void should_Return_Equal_Arrays_Jf_Both_Arrays_Are_Null() {
-    assertThat(Arrays.equal(null, null)).isTrue();
+    assertThat(ArrayUtils.equal(null, null)).isTrue();
   }
 
   @Test
   void should_Return_Equal_Arrays_If_Both_Arrays_Are_Empty() {
-    assertThat(Arrays.equal(new String[0][], new String[0][])).isTrue();
+    assertThat(ArrayUtils.equal(new String[0][], new String[0][])).isTrue();
   }
 
   @Test
   void should_Return_Not_Equal_Arrays_If_Only_First_Array_Is_Null() {
-    assertThat(Arrays.equal(null, new String[0][])).isFalse();
+    assertThat(ArrayUtils.equal(null, new String[0][])).isFalse();
   }
 
   @Test
   void should_Return_Not_Equal_Arrays_If_Only_Second_Array_Is_Null() {
-    assertThat(Arrays.equal(new String[0][], null)).isFalse();
+    assertThat(ArrayUtils.equal(new String[0][], null)).isFalse();
   }
 
   @Test
   void should_Return_Not_Equal_Arrays_If_Arrays_Have_Different_Dimensions() {
-    assertThat(Arrays.equal(new String[0][], new String[1][0])).isFalse();
+    assertThat(ArrayUtils.equal(new String[0][], new String[1][0])).isFalse();
   }
 
   @Test
   void should_Return_Not_Equal_Arrays_If_Arrays_Have_Different_Second_Dimensions() {
     String[][] one = { { "Hello" } };
     String[][] two = { { "Hello", "Bye" } };
-    assertThat(Arrays.equal(one, two)).isFalse();
+    assertThat(ArrayUtils.equal(one, two)).isFalse();
   }
 
   @Test
   void should_Return_Not_Equal_Arrays_If_Arrays_Have_Different_Data() {
     String[][] one = { { "Hello" } };
     String[][] two = { { "Bye" } };
-    assertThat(Arrays.equal(one, two)).isFalse();
+    assertThat(ArrayUtils.equal(one, two)).isFalse();
   }
 
   @Test
   void should_Return_Equal_Arrays_If_Arrays_Are_Equal() {
     String[][] one = { { "Hello" } };
     String[][] two = { { "Hello" } };
-    assertThat(Arrays.equal(one, two)).isTrue();
+    assertThat(ArrayUtils.equal(one, two)).isTrue();
   }
 }

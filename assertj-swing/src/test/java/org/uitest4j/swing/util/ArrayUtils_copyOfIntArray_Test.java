@@ -18,27 +18,27 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
- * Tests for {@link Arrays#copyOf(Object[])}.
+ * Tests for {@link ArrayUtils#copyOf(int[])}.
  * 
  * @author Alex Ruiz
  */
-class Arrays_copyOfObjectArray_Test {
+class ArrayUtils_copyOfIntArray_Test {
   @Test
   void should_Throw_Error_If_Array_To_Copy_Is_Null() {
-    Object[] original = null;
+    int[] original = null;
     // jsr305 throws IllegalArgumentExceptions when @Nonnull is used
-    assertThrows(IllegalArgumentException.class, () -> Arrays.copyOf(original));
+    assertThrows(IllegalArgumentException.class, () -> ArrayUtils.copyOf(original));
   }
 
   @Test
   void should_Return_Empty_Array_If_Array_To_Copy_Is_Emtpy() {
-    assertThat(Arrays.copyOf(new Object[0])).isEmpty();
+    assertThat(ArrayUtils.copyOf(new int[0])).isEmpty();
   }
 
   @Test
   void should_Return_Copy_Of_Array() {
-    Object[] original = { "hello", "bye" };
-    Object[] copy = Arrays.copyOf(original);
+    int[] original = { 1, 2, 3 };
+    int[] copy = ArrayUtils.copyOf(original);
     assertThat(copy).isEqualTo(original).isNotSameAs(original);
   }
 }

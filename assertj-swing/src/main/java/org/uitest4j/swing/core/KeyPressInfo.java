@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.core;
 
-import static org.uitest4j.swing.util.Arrays.copyOf;
+import static org.uitest4j.swing.util.ArrayUtils.copyOf;
 
 import javax.annotation.Nonnull;
 

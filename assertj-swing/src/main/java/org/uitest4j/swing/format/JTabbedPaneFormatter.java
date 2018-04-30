@@ -19,7 +19,7 @@ import java.awt.Component;
 import javax.annotation.Nonnull;
 import javax.swing.JTabbedPane;
 
-import org.uitest4j.swing.util.Arrays;
+import org.uitest4j.swing.util.ArrayUtils;
 
 /**
  * Formatter for {@code JTabbedPane}s.
@@ -41,7 +41,7 @@ public class JTabbedPaneFormatter extends ComponentFormatterTemplate {
     String format = "%s[name=%s, selectedTabIndex=%d, selectedTabTitle=%s, tabCount=%d, tabTitles=%s, enabled=%b, visible=%s, showing=%s";
     return String.format(format, getRealClassName(c), quote(tabbedPane.getName()),
                          tabbedPane.getSelectedIndex(), selectedTab(tabbedPane), tabbedPane.getTabCount(),
-                         Arrays.format(tabTitles(tabbedPane)), tabbedPane.isEnabled(), tabbedPane.isVisible(),
+                         ArrayUtils.format(tabTitles(tabbedPane)), tabbedPane.isEnabled(), tabbedPane.isVisible(),
                          tabbedPane.isShowing());
   }
 

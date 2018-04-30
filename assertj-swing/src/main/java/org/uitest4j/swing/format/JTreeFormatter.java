@@ -25,7 +25,7 @@ import javax.swing.JTree;
 import javax.swing.tree.TreePath;
 import javax.swing.tree.TreeSelectionModel;
 
-import org.uitest4j.swing.util.Arrays;
+import org.uitest4j.swing.util.ArrayUtils;
 
 /**
  * Formatter for {@code JTree}s.
@@ -54,7 +54,7 @@ public class JTreeFormatter extends ComponentFormatterTemplate {
     JTree tree = (JTree) c;
     String format = "%s[name=%s, selectionCount=%d, selectionPaths=%s, selectionMode=%s, enabled=%b, visible=%b, showing=%b";
     return String.format(format, getRealClassName(c), quote(tree.getName()), tree.getSelectionCount(),
-                         Arrays.format(selectionPaths(tree)), selectionMode(tree), tree.isEnabled(), tree.isVisible(),
+                         ArrayUtils.format(selectionPaths(tree)), selectionMode(tree), tree.isEnabled(), tree.isVisible(),
                          tree.isShowing());
   }
 

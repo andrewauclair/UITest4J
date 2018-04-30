@@ -57,7 +57,7 @@ public final class Patterns {
 		Pattern p = Objects.requireNonNull(patterns[i]);
       patternsAsText[i] = p.pattern();
     }
-	  return Objects.requireNonNull(Arrays.format(patternsAsText));
+	  return Objects.requireNonNull(ArrayUtils.format(patternsAsText));
   }
 
   private Patterns() {

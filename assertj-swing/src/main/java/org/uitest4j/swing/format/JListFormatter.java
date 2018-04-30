@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.format;
 
-import org.uitest4j.swing.util.Arrays;
+import org.uitest4j.swing.util.ArrayUtils;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 
 import javax.annotation.Nonnull;
@@ -42,7 +42,7 @@ public class JListFormatter extends ComponentFormatterTemplate {
     JList<?> list = (JList<?>) c;
     String format = "%s[name=%s, selectedValues=%s, contents=%s, selectionMode=%s, enabled=%b, visible=%b, showing=%b]";
     return String.format(format, getRealClassName(c), quote(list.getName()),
-                         Arrays.format(list.getSelectedValues()), Arrays.format(contentsOf(list)),
+                         ArrayUtils.format(list.getSelectedValues()), ArrayUtils.format(contentsOf(list)),
                          SELECTION_MODES.get(list.getSelectionMode()), list.isEnabled(), list.isVisible(),
                          list.isShowing());
   }

@@ -24,7 +24,7 @@ import javax.swing.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Strings.concat;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-import static org.uitest4j.swing.util.Arrays.format;
+import static org.uitest4j.swing.util.ArrayUtils.format;
 
 /**
  * Test case for <a href="http://code.google.com/p/fest/issues/detail?id=135">Bug 135</a>.

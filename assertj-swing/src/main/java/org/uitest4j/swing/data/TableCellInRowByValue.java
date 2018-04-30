@@ -23,7 +23,7 @@ import java.util.Objects;
 import static org.assertj.core.util.Objects.areEqual;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 import static org.uitest4j.swing.exception.ActionFailedException.actionFailure;
-import static org.uitest4j.swing.util.Arrays.format;
+import static org.uitest4j.swing.util.ArrayUtils.format;
 
 /**
  * <p>

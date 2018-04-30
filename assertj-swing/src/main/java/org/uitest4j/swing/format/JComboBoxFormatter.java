@@ -13,7 +13,7 @@
 package org.uitest4j.swing.format;
 
 import org.assertj.core.util.Lists;
-import org.uitest4j.swing.util.Arrays;
+import org.uitest4j.swing.util.ArrayUtils;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 
 import javax.annotation.Nonnull;
@@ -41,7 +41,7 @@ public class JComboBoxFormatter extends ComponentFormatterTemplate {
     JComboBox<?> comboBox = (JComboBox<?>) c;
     String format = "%s[name=%s, selectedItem=%s, contents=%s, editable=%b, enabled=%b, visible=%b, showing=%b]";
     return String.format(format, getRealClassName(c), quote(comboBox.getName()),
-                         quote(comboBox.getSelectedItem()), Arrays.format(contentsOf(comboBox)), comboBox.isEditable(),
+                         quote(comboBox.getSelectedItem()), ArrayUtils.format(contentsOf(comboBox)), comboBox.isEditable(),
                          comboBox.isEnabled(), comboBox.isVisible(), comboBox.isShowing());
   }
 

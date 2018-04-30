@@ -14,7 +14,7 @@ package org.uitest4j.swing.format;
 
 import org.assertj.core.presentation.StandardRepresentation;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
-import org.uitest4j.swing.util.Arrays;
+import org.uitest4j.swing.util.ArrayUtils;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -123,7 +123,7 @@ public final class IntrospectionComponentFormatter extends ComponentFormatterTem
 		PropertyDescriptor descriptor = descriptors.get(property);
 		Object value = descriptor.getReadMethod().invoke(c);
 		if (isOneDimensionalArray(value)) {
-			return Arrays.format(value);
+			return ArrayUtils.format(value);
 		}
 		return quote(value);
 	}

@@ -29,7 +29,7 @@ import static org.assertj.core.util.Strings.quote;
  *
  * @author Alex Ruiz
  */
-public final class Arrays {
+public final class ArrayUtils {
 	private static final String NO_COLUMNS = "[[]]";
 	private static final String NO_ROWS = "[]";
 	private static final String NULL = "null";
@@ -173,6 +173,6 @@ public final class Arrays {
 		return copy;
 	}
 
-	private Arrays() {
+	private ArrayUtils() {
 	}
 }
