@@ -21,10 +21,10 @@ import javax.annotation.Nullable;
 import javax.swing.*;
 import javax.swing.text.JTextComponent;
 import java.awt.*;
+import java.util.Objects;
 import java.util.concurrent.ConcurrentMap;
 import java.util.logging.Logger;
 
-import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.core.util.Strings.isNullOrEmpty;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 import static org.uitest4j.swing.util.Maps.newConcurrentHashMap;
@@ -123,7 +123,7 @@ public class Formatting {
    */
   @RunsInEDT
   @Nonnull public static String inEdtFormat(final @Nonnull Component c) {
-    return checkNotNull(execute(() -> format(c)));
+	  return Objects.requireNonNull(execute(() -> format(c)));
   }
 
   /**

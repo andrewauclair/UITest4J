@@ -16,8 +16,9 @@ import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.annotation.Nonnull;
 import java.awt.*;
+import java.util.Objects;
+import java.util.concurrent.Callable;
 
-import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
@@ -39,8 +40,8 @@ public final class ComponentSizeQuery {
    */
   @RunsInEDT
   @Nonnull public static Dimension sizeOf(final @Nonnull Component component) {
-    Dimension result = execute(() -> component.getSize());
-    return checkNotNull(result);
+    Dimension result = execute((Callable<Dimension>) component::getSize);
+    return Objects.requireNonNull(result);
   }
 
   private ComponentSizeQuery() {

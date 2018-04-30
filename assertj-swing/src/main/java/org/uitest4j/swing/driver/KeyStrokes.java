@@ -16,9 +16,9 @@ import org.uitest4j.swing.annotation.RunsInCurrentThread;
 
 import javax.annotation.Nonnull;
 import javax.swing.*;
+import java.util.ArrayList;
 import java.util.List;
 
-import static org.assertj.core.util.Lists.newArrayList;
 import static org.uitest4j.swing.exception.ActionFailedException.actionFailure;
 
 /**
@@ -37,7 +37,7 @@ final class KeyStrokes {
   @RunsInCurrentThread
   static @Nonnull KeyStroke[] findKeyStrokesForAction(@Nonnull String actionName, @Nonnull Object actionKey,
       @Nonnull InputMap inputMap) {
-    List<KeyStroke> keyStrokes = newArrayList();
+	  List<KeyStroke> keyStrokes = new ArrayList<>();
     for (KeyStroke keyStroke : inputMap.allKeys()) {
       if (actionKey.equals(inputMap.get(keyStroke))) {
         keyStrokes.add(keyStroke);

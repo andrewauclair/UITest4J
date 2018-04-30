@@ -12,8 +12,8 @@
  */
 package org.uitest4j.swing.fixture;
 
-import static org.assertj.core.util.Preconditions.checkNotNull;
 
+import java.util.Objects;
 import java.util.regex.Pattern;
 
 import javax.annotation.Nonnull;
@@ -42,7 +42,7 @@ public class JOptionPaneFixture extends AbstractContainerFixture<JOptionPaneFixt
   }
 
   @Nonnull private static JOptionPane findShowingOptionPane(@Nonnull Robot robot) {
-    checkNotNull(robot);
+	  Objects.requireNonNull(robot);
     return robot.finder().findByType(JOptionPane.class, true);
   }
 

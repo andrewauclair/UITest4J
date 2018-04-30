@@ -18,9 +18,9 @@ import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import javax.annotation.Nonnull;
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.List;
 
-import static org.assertj.core.util.Lists.newArrayList;
 import static org.assertj.core.util.Strings.quote;
 import static org.uitest4j.swing.format.SwingIntEnums.SELECTION_MODES;
 
@@ -48,7 +48,7 @@ public class JListFormatter extends ComponentFormatterTemplate {
   }
 
   @Nonnull private Object[] contentsOf(JList<?> list) {
-    List<Object> contents = newArrayList();
+    List<Object> contents = new ArrayList<>();
     ListModel<?> model = list.getModel();
     int size = model.getSize();
     for (int i = 0; i < size; i++) {

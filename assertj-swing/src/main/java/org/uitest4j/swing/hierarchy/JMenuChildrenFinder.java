@@ -17,10 +17,9 @@ import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import javax.annotation.Nonnull;
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.Collection;
-
-import static org.assertj.core.util.Lists.emptyList;
-import static org.assertj.core.util.Lists.newArrayList;
+import java.util.Collections;
 
 /**
  * <p>
@@ -39,8 +38,8 @@ final class JMenuChildrenFinder implements ChildrenFinderStrategy {
   @Override
   @Nonnull public Collection<Component> nonExplicitChildrenOf(@Nonnull Container c) {
     if (!(c instanceof JMenu)) {
-      return emptyList();
+		return new ArrayList<>();
     }
-    return newArrayList((Component) ((JMenu) c).getPopupMenu());
+	  return Collections.singletonList(((JMenu) c).getPopupMenu());
   }
 }

@@ -16,8 +16,8 @@ import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.annotation.Nonnull;
 import java.awt.*;
+import java.util.Objects;
 
-import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
@@ -40,8 +40,8 @@ public final class ComponentLocationOnScreenQuery {
    */
   @RunsInEDT
   @Nonnull public static Point locationOnScreen(final @Nonnull Component component) {
-    Point result = execute(() -> component.getLocationOnScreen());
-    return checkNotNull(result);
+	  Point result = execute(component::getLocationOnScreen);
+	  return Objects.requireNonNull(result);
   }
 
   private ComponentLocationOnScreenQuery() {

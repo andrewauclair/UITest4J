@@ -1,25 +1,23 @@
-/**
+/*
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
- *
+ * <p>
  * http://www.apache.org/licenses/LICENSE-2.0
- *
+ * <p>
  * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
  * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
- *
+ * <p>
  * Copyright 2012-2015 the original author or authors.
  */
 package org.uitest4j.swing.edt;
 
-import static javax.swing.SwingUtilities.isEventDispatchThread;
-import static org.assertj.core.util.Preconditions.checkNotNull;
-
-import java.lang.ref.WeakReference;
-
 import javax.annotation.Nonnull;
-import javax.swing.JComponent;
-import javax.swing.RepaintManager;
+import javax.swing.*;
+import java.lang.ref.WeakReference;
+import java.util.Objects;
+
+import static javax.swing.SwingUtilities.isEventDispatchThread;
 
 /**
  * <p>
@@ -37,66 +35,66 @@ import javax.swing.RepaintManager;
  *         https://swinghelper.dev.java.net/
  */
 abstract class CheckThreadViolationRepaintManager extends RepaintManager {
-  private final boolean completeCheck;
+	private final boolean completeCheck;
 
-  private WeakReference<JComponent> lastComponent;
+	private WeakReference<JComponent> lastComponent;
 
-  CheckThreadViolationRepaintManager() {
-    // it is recommended to pass the complete check
-    this(true);
-  }
+	CheckThreadViolationRepaintManager() {
+		// it is recommended to pass the complete check
+		this(true);
+	}
 
-  CheckThreadViolationRepaintManager(boolean completeCheck) {
-    this.completeCheck = completeCheck;
-  }
+	CheckThreadViolationRepaintManager(boolean completeCheck) {
+		this.completeCheck = completeCheck;
+	}
 
-  @Override
-  public synchronized void addInvalidComponent(JComponent component) {
-    checkThreadViolations(checkNotNull(component));
-    super.addInvalidComponent(component);
-  }
+	@Override
+	public synchronized void addInvalidComponent(JComponent component) {
+		checkThreadViolations(Objects.requireNonNull(component));
+		super.addInvalidComponent(component);
+	}
 
-  @Override
-  public void addDirtyRegion(JComponent component, int x, int y, int w, int h) {
-    checkThreadViolations(checkNotNull(component));
-    super.addDirtyRegion(component, x, y, w, h);
-  }
+	@Override
+	public void addDirtyRegion(JComponent component, int x, int y, int w, int h) {
+		checkThreadViolations(Objects.requireNonNull(component));
+		super.addDirtyRegion(component, x, y, w, h);
+	}
 
-  private void checkThreadViolations(@Nonnull JComponent c) {
-    if (!isEventDispatchThread() && (completeCheck || c.isShowing())) {
-      boolean imageUpdate = false;
-      boolean repaint = false;
-      boolean fromSwing = false;
-      StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
-      for (StackTraceElement st : stackTrace) {
-        if (repaint && st.getClassName().startsWith("javax.swing.")) {
-          fromSwing = true;
-        }
-        if (repaint && "imageUpdate".equals(st.getMethodName())) {
-          imageUpdate = true;
-        }
-        if ("repaint".equals(st.getMethodName())) {
-          repaint = true;
-          fromSwing = false;
-        }
-      }
-      if (imageUpdate) {
-        // assuming it is java.awt.image.ImageObserver.imageUpdate(...)
-        // image was asynchronously updated, that's ok
-        return;
-      }
-      if (repaint && !fromSwing) {
-        // no problems here, since repaint() is thread safe
-        return;
-      }
-      // ignore the last processed component
-      if (lastComponent != null && c == lastComponent.get()) {
-        return;
-      }
-      lastComponent = new WeakReference<JComponent>(c);
-      violationFound(c, stackTrace);
-    }
-  }
+	private void checkThreadViolations(@Nonnull JComponent c) {
+		if (!isEventDispatchThread() && (completeCheck || c.isShowing())) {
+			boolean imageUpdate = false;
+			boolean repaint = false;
+			boolean fromSwing = false;
+			StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+			for (StackTraceElement st : stackTrace) {
+				if (repaint && st.getClassName().startsWith("javax.swing.")) {
+					fromSwing = true;
+				}
+				if (repaint && "imageUpdate".equals(st.getMethodName())) {
+					imageUpdate = true;
+				}
+				if ("repaint".equals(st.getMethodName())) {
+					repaint = true;
+					fromSwing = false;
+				}
+			}
+			if (imageUpdate) {
+				// assuming it is java.awt.image.ImageObserver.imageUpdate(...)
+				// image was asynchronously updated, that's ok
+				return;
+			}
+			if (repaint && !fromSwing) {
+				// no problems here, since repaint() is thread safe
+				return;
+			}
+			// ignore the last processed component
+			if (lastComponent != null && c == lastComponent.get()) {
+				return;
+			}
+			lastComponent = new WeakReference<>(c);
+			violationFound(c, stackTrace);
+		}
+	}
 
-  abstract void violationFound(@Nonnull JComponent c, @Nonnull StackTraceElement[] stackTrace);
+	abstract void violationFound(@Nonnull JComponent c, @Nonnull StackTraceElement[] stackTrace);
 }

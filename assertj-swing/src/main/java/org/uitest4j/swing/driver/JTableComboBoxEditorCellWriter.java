@@ -18,8 +18,9 @@ import org.uitest4j.swing.annotation.RunsInEDT;
 import javax.annotation.Nonnull;
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.Arrays;
 
-import static org.assertj.core.util.Lists.newArrayList;
 import static org.uitest4j.swing.driver.JComboBoxEditableQuery.isEditable;
 import static org.uitest4j.swing.driver.JTableStopCellEditingTask.stopEditing;
 
@@ -48,7 +49,7 @@ public class JTableComboBoxEditorCellWriter extends AbstractJTableCellWriter {
   private void selectOrType(@Nonnull JComboBox<?> editor, @Nonnull String value) {
     boolean selectValue = !isEditable(editor);
     if (!selectValue) {
-      selectValue = newArrayList(driver.contentsOf(editor)).contains(value);
+      selectValue = Arrays.asList(driver.contentsOf(editor)).contains(value);
     }
     if (selectValue) {
       driver.selectItem(editor, value);

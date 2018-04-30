@@ -12,10 +12,10 @@
  */
 package org.uitest4j.swing.timing;
 
-import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.core.util.Preconditions.checkNotNullOrEmpty;
 import static org.uitest4j.swing.timing.Timeout.timeout;
 
+import java.util.Objects;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
@@ -61,7 +61,7 @@ public final class Pause {
    * @throws WaitTimedOutError if the wait times out.
    */
   public static void pause(@Nonnull Condition condition, @Nonnull Timeout timeout) {
-    checkNotNull(timeout);
+	  Objects.requireNonNull(timeout);
     pause(condition, timeout.duration());
   }
 
@@ -74,16 +74,13 @@ public final class Pause {
    * @throws WaitTimedOutError if the wait times out.
    */
   public static void pause(@Nonnull final Condition condition, final long timeout) {
-    checkNotNull(condition);
+	  Objects.requireNonNull(condition);
     try {
-      Callable<Object> task = new Callable<Object>() {
-        @Override
-        public Object call() {
-          while (!Thread.currentThread().isInterrupted() && !condition.test()) {
-            pause();
-          }
-          return condition;
-        }
+		Callable<Object> task = () -> {
+			while (!Thread.currentThread().isInterrupted() && !condition.test()) {
+				pause();
+			}
+			return condition;
       };
       performPause(task, timeout, condition);
     } finally {
@@ -150,17 +147,14 @@ public final class Pause {
   public static void pause(@Nonnull final Condition[] conditions, final long timeout) {
     checkNotNullOrEmpty(conditions);
     for (Condition condition : conditions) {
-      checkNotNull(condition);
+		Objects.requireNonNull(condition);
     }
     try {
-      Callable<Object> task = new Callable<Object>() {
-        @Override
-        public Object call() {
-          while (!Thread.currentThread().isInterrupted() && !areSatisfied(conditions)) {
-            pause();
-          }
-          return conditions;
-        }
+		Callable<Object> task = () -> {
+			while (!Thread.currentThread().isInterrupted() && !areSatisfied(conditions)) {
+				pause();
+			}
+			return conditions;
       };
       performPause(task, timeout, conditions);
     } finally {
@@ -188,7 +182,7 @@ public final class Pause {
    * @throws NullPointerException if {@code unit} is {@code null}.
    */
   public static void pause(long timeout, @Nonnull TimeUnit unit) {
-    checkNotNull(unit);
+	  Objects.requireNonNull(unit);
     pause(unit.toMillis(timeout));
   }
 

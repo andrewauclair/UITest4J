@@ -18,10 +18,10 @@ import org.uitest4j.swing.annotation.RunsInCurrentThread;
 
 import javax.annotation.Nonnull;
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import static org.assertj.core.util.Lists.newArrayList;
 import static org.uitest4j.swing.awt.AWT.isAppletViewer;
 import static org.uitest4j.swing.awt.AWT.isSharedInvisibleFrame;
 
@@ -49,7 +49,7 @@ public class ExistingHierarchy implements ComponentHierarchy {
 
   @Override
   @Nonnull public Collection<Container> roots() {
-    List<Container> roots = newArrayList();
+	  List<Container> roots = new ArrayList<>();
     for (Window w : windowMonitor.rootWindows()) {
       roots.add(w);
     }

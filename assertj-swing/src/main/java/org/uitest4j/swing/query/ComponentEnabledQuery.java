@@ -12,10 +12,10 @@
  */
 package org.uitest4j.swing.query;
 
-import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 import java.awt.Component;
+import java.util.Objects;
 
 import javax.annotation.Nonnull;
 
@@ -38,8 +38,8 @@ public final class ComponentEnabledQuery {
    * @see Component#isEnabled()
    */
   public static boolean isEnabled(final @Nonnull Component component) {
-    Boolean result = execute(() -> component.isEnabled());
-    return checkNotNull(result);
+    Boolean result = execute(component::isEnabled);
+    return Objects.requireNonNull(result);
   }
 
   private ComponentEnabledQuery() {

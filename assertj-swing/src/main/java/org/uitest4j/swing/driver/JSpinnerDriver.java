@@ -23,12 +23,11 @@ import javax.annotation.Nullable;
 import javax.swing.*;
 import javax.swing.text.JTextComponent;
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.List;
 
 import static javax.swing.text.DefaultEditorKit.selectAllAction;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.util.Lists.newArrayList;
-import static org.assertj.core.util.Strings.concat;
 import static org.assertj.core.util.Strings.quote;
 import static org.uitest4j.swing.driver.ComponentPreconditions.checkEnabledAndShowing;
 import static org.uitest4j.swing.driver.JSpinnerSetValueTask.setValue;
@@ -260,7 +259,7 @@ public class JSpinnerDriver extends JComponentDriver {
   @RunsInEDT
   @Nullable private JTextComponent findEditor(@Nonnull JSpinner spinner) {
     ComponentFinder finder = robot.finder();
-    List<Component> found = newArrayList(finder.findAll(spinner, EDITOR_MATCHER));
+    List<Component> found = new ArrayList<>(finder.findAll(spinner, EDITOR_MATCHER));
     if (found.size() != 1) {
       return null;
     }
@@ -275,7 +274,7 @@ public class JSpinnerDriver extends JComponentDriver {
   private static void checkEditorNotNull(final @Nonnull JSpinner spinner, final @Nullable JTextComponent editor) {
     execute(() -> {
       if (editor == null) {
-        throw actionFailure(concat("Unable to find editor for ", format(spinner)));
+        throw actionFailure("Unable to find editor for " + format(spinner));
       }
     });
   }
@@ -295,7 +294,7 @@ public class JSpinnerDriver extends JComponentDriver {
       setValue(spinner, value);
     } catch (IllegalArgumentException e) {
       // message from original exception is useless
-      throw new IllegalArgumentException(concat("Value ", quote(value), " is not valid"));
+      throw new IllegalArgumentException("Value " + quote(value) + " is not valid");
     }
     robot.waitForIdle();
   }

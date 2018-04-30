@@ -22,9 +22,9 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.List;
 
-import static org.assertj.core.util.Lists.newArrayList;
 import static org.uitest4j.swing.timing.Pause.pause;
 import static org.uitest4j.swing.util.TimeoutWatch.startWatchWithTimeoutOf;
 
@@ -66,7 +66,7 @@ final class JComboBoxDropDownListFinder {
   }
 
   @Nullable private JList<?> findListIn(@Nonnull Container parent) {
-    List<Component> found = newArrayList(robot.finder().findAll(parent, LIST_MATCHER));
+	  List<Component> found = new ArrayList<>(robot.finder().findAll(parent, LIST_MATCHER));
     if (found.size() != 1) {
       return null;
     }

@@ -21,9 +21,9 @@ import javax.annotation.Nullable;
 import javax.swing.*;
 import javax.swing.tree.TreeModel;
 import javax.swing.tree.TreePath;
+import java.util.ArrayList;
 import java.util.List;
 
-import static org.assertj.core.util.Lists.newArrayList;
 import static org.assertj.core.util.Strings.quote;
 
 /**
@@ -48,7 +48,7 @@ class JTreePathFinder {
   TreePath findMatchingPath(@Nonnull JTree tree, @Nonnull String path) {
     String[] pathStrings = splitPath(path);
     TreeModel model = tree.getModel();
-    List<Object> newPathValues = newArrayList();
+	  List<Object> newPathValues = new ArrayList<>();
     Object node = model.getRoot();
     int pathElementCount = pathStrings.length;
     for (int stringIndex = 0; stringIndex < pathElementCount; stringIndex++) {
@@ -85,7 +85,7 @@ class JTreePathFinder {
   }
 
   @Nonnull private String[] splitPath(@Nonnull String path) {
-    List<String> result = newArrayList();
+	  List<String> result = new ArrayList<>();
     int separatorSize = separator.length();
     int index = 0;
     int pathSize = path.length();
@@ -97,7 +97,7 @@ class JTreePathFinder {
       result.add(path.substring(index, separatorPosition));
       index = separatorPosition + separatorSize;
     }
-    return result.toArray(new String[result.size()]);
+	  return result.toArray(new String[0]);
   }
 
   @Nonnull private LocationUnavailableException multipleMatchingNodes(@Nonnull String matchingText,

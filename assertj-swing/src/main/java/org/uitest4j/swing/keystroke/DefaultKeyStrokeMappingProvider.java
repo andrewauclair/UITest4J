@@ -12,9 +12,9 @@
  */
 package org.uitest4j.swing.keystroke;
 
-import static org.assertj.core.util.Lists.newArrayList;
 import static org.uitest4j.swing.keystroke.KeyStrokeMappings.defaultMappings;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -45,6 +45,6 @@ public class DefaultKeyStrokeMappingProvider implements KeyStrokeMappingProvider
   }
 
   private static class LazyLoadingSingleton {
-    static List<KeyStrokeMapping> instance = newArrayList(defaultMappings());
+    static List<KeyStrokeMapping> instance = new ArrayList<>(defaultMappings());
   }
 }

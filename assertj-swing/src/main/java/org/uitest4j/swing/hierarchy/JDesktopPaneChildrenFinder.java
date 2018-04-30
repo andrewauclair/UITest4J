@@ -18,10 +18,8 @@ import javax.annotation.Nonnull;
 import javax.swing.*;
 import javax.swing.JInternalFrame.JDesktopIcon;
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.Collection;
-
-import static org.assertj.core.util.Lists.emptyList;
-import static org.assertj.core.util.Lists.newArrayList;
 
 /**
  * Finds children {@code Component}s in a {@code JDesktopPane}.
@@ -33,7 +31,7 @@ final class JDesktopPaneChildrenFinder implements ChildrenFinderStrategy {
   @RunsInCurrentThread
   @Nonnull public Collection<Component> nonExplicitChildrenOf(@Nonnull Container c) {
     if (!(c instanceof JDesktopPane)) {
-      return emptyList();
+		return new ArrayList<>();
     }
     return internalFramesFromIcons(c);
   }
@@ -42,7 +40,7 @@ final class JDesktopPaneChildrenFinder implements ChildrenFinderStrategy {
   // children of the desktop pane.
   @RunsInCurrentThread
   @Nonnull private Collection<Component> internalFramesFromIcons(@Nonnull Container c) {
-    Collection<Component> frames = newArrayList();
+	  Collection<Component> frames = new ArrayList<>();
     for (Component child : c.getComponents()) {
       if (child instanceof JDesktopIcon) {
         JInternalFrame frame = ((JDesktopIcon) child).getInternalFrame();

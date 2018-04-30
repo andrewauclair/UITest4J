@@ -12,9 +12,8 @@
  */
 package org.uitest4j.swing.util;
 
-import static org.assertj.core.util.Preconditions.checkNotNull;
-
 import java.awt.Toolkit;
+import java.util.Objects;
 
 import javax.annotation.Nonnull;
 
@@ -32,7 +31,7 @@ public class ToolkitProvider {
   }
 
   @Nonnull public Toolkit defaultToolkit() {
-    return checkNotNull(Toolkit.getDefaultToolkit());
+	  return Objects.requireNonNull(Toolkit.getDefaultToolkit());
   }
 
   // Thread-safe, lazy-loading singleton.

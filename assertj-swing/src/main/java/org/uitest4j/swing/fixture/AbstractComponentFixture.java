@@ -13,7 +13,6 @@
 package org.uitest4j.swing.fixture;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.uitest4j.swing.driver.ComponentDriver.propertyName;
 import static org.uitest4j.swing.format.Formatting.format;
 
@@ -80,8 +79,8 @@ public abstract class AbstractComponentFixture<S, C extends Component, D extends
   }
 
   @Nonnull private static <C extends Component> C findTarget(@Nonnull Robot robot, @Nonnull Class<? extends C> type) {
-    checkNotNull(robot);
-    checkNotNull(type);
+	  Objects.requireNonNull(robot);
+	  Objects.requireNonNull(type);
     return robot.finder().findByType(type, requireShowing(robot));
   }
 
@@ -104,8 +103,8 @@ public abstract class AbstractComponentFixture<S, C extends Component, D extends
 
   @Nonnull private static <C extends Component> C findTarget(@Nonnull Robot robot, @Nullable String name,
                                                              @Nonnull Class<? extends C> type) {
-    checkNotNull(robot);
-    checkNotNull(type);
+	  Objects.requireNonNull(robot);
+	  Objects.requireNonNull(type);
 
     try {
       return robot.finder().findByName(name, type, requireShowing(robot));
@@ -127,9 +126,9 @@ public abstract class AbstractComponentFixture<S, C extends Component, D extends
    * @throws NullPointerException if {@code target} is {@code null}.
    */
   public AbstractComponentFixture(@Nonnull Class<S> selfType, @Nonnull Robot robot, @Nonnull C target) {
-    myself = checkNotNull(selfType).cast(this);
-    this.robot = checkNotNull(robot);
-    this.target = checkNotNull(target);
+	  myself = Objects.requireNonNull(selfType).cast(this);
+	  this.robot = Objects.requireNonNull(robot);
+	  this.target = Objects.requireNonNull(target);
     replaceDriverWith(createDriver(robot));
   }
 
@@ -160,7 +159,7 @@ public abstract class AbstractComponentFixture<S, C extends Component, D extends
   }
 
   public final void replaceDriverWith(@Nonnull D driver) {
-    this.driver = checkNotNull(driver);
+	  this.driver = Objects.requireNonNull(driver);
   }
 
   /**

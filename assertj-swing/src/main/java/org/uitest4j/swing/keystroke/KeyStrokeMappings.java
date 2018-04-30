@@ -17,11 +17,11 @@ import static java.awt.event.KeyEvent.VK_DELETE;
 import static java.awt.event.KeyEvent.VK_ENTER;
 import static java.awt.event.KeyEvent.VK_ESCAPE;
 import static java.awt.event.KeyEvent.VK_TAB;
-import static org.assertj.core.util.Lists.newArrayList;
 import static org.uitest4j.swing.keystroke.KeyStrokeMapping.mapping;
 import static org.uitest4j.swing.keystroke.KeyStrokeMappingProvider.NO_MASK;
 import static org.uitest4j.swing.util.Platform.isWindows;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -34,7 +34,7 @@ import javax.annotation.Nonnull;
  */
 final class KeyStrokeMappings {
   static @Nonnull Collection<KeyStrokeMapping> defaultMappings() {
-    List<KeyStrokeMapping> mappings = newArrayList();
+    List<KeyStrokeMapping> mappings = new ArrayList<>();
     mappings.add(mapping('\b', VK_BACK_SPACE, NO_MASK));
     mappings.add(mapping('', VK_DELETE, NO_MASK));
     mappings.add(mapping('\n', VK_ENTER, NO_MASK));

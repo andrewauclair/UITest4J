@@ -13,12 +13,12 @@
 package org.uitest4j.swing.keystroke;
 
 import javax.annotation.Nonnull;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 import static java.awt.event.InputEvent.SHIFT_DOWN_MASK;
 import static java.awt.event.KeyEvent.*;
-import static org.assertj.core.util.Lists.newArrayList;
 import static org.uitest4j.swing.keystroke.KeyStrokeMapping.mapping;
 import static org.uitest4j.swing.keystroke.KeyStrokeMappings.defaultMappings;
 
@@ -42,7 +42,7 @@ public class KeyStrokeMappingProvider_en implements KeyStrokeMappingProvider {
   }
 
   @Nonnull private static List<KeyStrokeMapping> createMappings() {
-    List<KeyStrokeMapping> mappings = newArrayList(defaultMappings());
+    List<KeyStrokeMapping> mappings = new ArrayList<>(defaultMappings());
     mappings.add(mapping('0', VK_0, NO_MASK));
     mappings.add(mapping(')', VK_0, SHIFT_DOWN_MASK));
     mappings.add(mapping('1', VK_1, NO_MASK));

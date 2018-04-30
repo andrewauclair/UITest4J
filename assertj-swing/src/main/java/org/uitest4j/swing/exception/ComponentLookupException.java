@@ -13,9 +13,9 @@
 package org.uitest4j.swing.exception;
 
 import static java.util.Collections.unmodifiableCollection;
-import static org.assertj.core.util.Lists.newArrayList;
 
 import java.awt.Component;
+import java.util.ArrayList;
 import java.util.Collection;
 
 import javax.annotation.Nonnull;
@@ -28,7 +28,7 @@ import javax.annotation.Nonnull;
 public class ComponentLookupException extends RuntimeException {
   /** Generated serial version UID. */
   private static final long serialVersionUID = 8565803426992774170L;
-  private final Collection<Component> found = newArrayList();
+  private final Collection<Component> found = new ArrayList<>();
 
   /**
    * Creates a new {@link ComponentLookupException}.

@@ -18,11 +18,10 @@ import org.uitest4j.swing.annotation.RunsInEDT;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.awt.*;
+import java.util.Objects;
 import java.util.concurrent.ConcurrentMap;
 import java.util.logging.Logger;
 
-import static org.assertj.core.util.Preconditions.checkNotNull;
-import static org.assertj.core.util.Strings.concat;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 import static org.uitest4j.swing.util.Maps.newConcurrentHashMap;
 
@@ -54,11 +53,11 @@ public class TextReaders {
    *           {@code null}.
    */
   public void register(@Nonnull TextReader<?> reader) {
-    checkNotNull(reader);
-    Class<?> type = checkNotNull(reader.supportedComponent());
+	  Objects.requireNonNull(reader);
+	  Class<?> type = Objects.requireNonNull(reader.supportedComponent());
     TextReader<?> old = readers.put(type, reader);
     if (old != null) {
-      logger.info(concat("Replaced reader for type ", type.getName()));
+		logger.info("Replaced reader for type " + type.getName());
     }
   }
 
@@ -74,15 +73,15 @@ public class TextReaders {
    */
   @RunsInEDT
   public boolean containsText(final @Nonnull Container container, final @Nonnull String text) {
-    checkNotNull(container);
-    checkNotNull(text);
+	  Objects.requireNonNull(container);
+	  Objects.requireNonNull(text);
     Boolean result = execute(() -> {
       if (componentContainsText(container, text)) {
         return true;
       }
       return anyComponentContainsText(container.getComponents(), text);
     });
-    return checkNotNull(result);
+	  return Objects.requireNonNull(result);
   }
 
   private boolean anyComponentContainsText(@Nonnull Component[] components, @Nonnull String text) {

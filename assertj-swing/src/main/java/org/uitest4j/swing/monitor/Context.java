@@ -19,11 +19,11 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
 import java.awt.*;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
-import static org.assertj.core.util.Lists.newArrayList;
-import static org.assertj.core.util.Sets.newLinkedHashSet;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
@@ -63,12 +63,12 @@ class Context {
    */
   @Nonnull
   Collection<Window> rootWindows() {
-    Set<Window> rootWindows = newLinkedHashSet();
+    Set<Window> rootWindows = new LinkedHashSet<>();
     synchronized (lock) {
       rootWindows.addAll(windowEventQueueMapping.windows());
     }
-    rootWindows.addAll(newArrayList(Frame.getFrames()));
-    rootWindows.addAll(newArrayList(Window.getOwnerlessWindows()));
+    rootWindows.addAll(Arrays.asList(Frame.getFrames()));
+    rootWindows.addAll(Arrays.asList(Window.getOwnerlessWindows()));
     return rootWindows;
   }
 
@@ -129,7 +129,7 @@ class Context {
    */
   @Nonnull
   Collection<EventQueue> allEventQueues() {
-    Set<EventQueue> eventQueues = newLinkedHashSet();
+    Set<EventQueue> eventQueues = new LinkedHashSet<>();
     synchronized (lock) {
       eventQueues.addAll(windowEventQueueMapping.eventQueues());
       eventQueues.addAll(eventQueueMapping.eventQueues());

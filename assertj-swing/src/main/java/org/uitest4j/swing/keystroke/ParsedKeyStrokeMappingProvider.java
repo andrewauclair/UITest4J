@@ -13,9 +13,9 @@
 package org.uitest4j.swing.keystroke;
 
 import static java.util.Collections.unmodifiableList;
-import static org.assertj.core.util.Lists.newArrayList;
 import static org.uitest4j.swing.keystroke.KeyStrokeMappings.defaultMappings;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -28,7 +28,7 @@ import javax.annotation.Nonnull;
  * @see KeyStrokeMappingsParser
  */
 class ParsedKeyStrokeMappingProvider implements KeyStrokeMappingProvider {
-  private final List<KeyStrokeMapping> mappings = newArrayList();
+  private final List<KeyStrokeMapping> mappings = new ArrayList<>();
 
   ParsedKeyStrokeMappingProvider(@Nonnull List<KeyStrokeMapping> mappings) {
     this.mappings.addAll(defaultMappings());

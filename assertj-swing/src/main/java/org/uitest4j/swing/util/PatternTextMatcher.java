@@ -12,12 +12,12 @@
  */
 package org.uitest4j.swing.util;
 
-import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.core.util.Preconditions.checkNotNullOrEmpty;
 import static org.assertj.core.util.Strings.quote;
 import static org.uitest4j.swing.util.Patterns.format;
 import static org.uitest4j.swing.util.Strings.match;
 
+import java.util.Objects;
 import java.util.regex.Pattern;
 
 import javax.annotation.Nonnull;
@@ -74,7 +74,7 @@ public class PatternTextMatcher implements TextMatcher {
   @Override
   @Nonnull public String formattedValues() {
     if (patterns.length == 1) {
-      return checkNotNull(quote(patterns[0].pattern()));
+		return Objects.requireNonNull(quote(patterns[0].pattern()));
     }
     return format(patterns);
   }

@@ -16,11 +16,11 @@ import org.uitest4j.swing.annotation.RunsInCurrentThread;
 
 import javax.annotation.Nonnull;
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 
 import static org.assertj.core.util.Arrays.isNullOrEmpty;
-import static org.assertj.core.util.Lists.emptyList;
-import static org.assertj.core.util.Lists.newArrayList;
 
 /**
  * Find children {@code Component}s in a {@code Window}.
@@ -32,7 +32,7 @@ final class WindowChildrenFinder implements ChildrenFinderStrategy {
   @Override
   @Nonnull public Collection<Component> nonExplicitChildrenOf(@Nonnull Container c) {
     if (!(c instanceof Window)) {
-      return emptyList();
+		return new ArrayList<>();
     }
     return ownedWindows((Window) c);
   }
@@ -44,8 +44,8 @@ final class WindowChildrenFinder implements ChildrenFinderStrategy {
 
   @Nonnull private Collection<Component> windows(@Nonnull Component[] windows) {
     if (isNullOrEmpty(windows)) {
-      return emptyList();
+		return new ArrayList<>();
     }
-    return newArrayList(windows);
+	  return Arrays.asList(windows);
   }
 }

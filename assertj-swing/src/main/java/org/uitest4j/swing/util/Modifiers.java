@@ -13,6 +13,7 @@
 package org.uitest4j.swing.util;
 
 import javax.annotation.Nonnull;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,8 +25,6 @@ import static java.awt.event.InputEvent.META_DOWN_MASK;
 import static java.awt.event.InputEvent.SHIFT_DOWN_MASK;
 import static java.awt.event.KeyEvent.*;
 import static java.lang.String.valueOf;
-import static org.assertj.core.util.Lists.newArrayList;
-import static org.assertj.core.util.Strings.concat;
 
 /**
  * Utility methods related to input modifiers. This class also maps modifier masks to key codes for the following
@@ -65,7 +64,7 @@ public final class Modifiers {
    * @return the key codes for the given modifier mask.
    */
   @Nonnull public static int[] keysFor(int modifierMask) {
-    List<Integer> keyList = newArrayList();
+    List<Integer> keyList = new ArrayList<>();
     for (Integer mask : MODIFIER_TO_KEY.keySet()) {
       if ((modifierMask & mask) != 0) {
         keyList.add(MODIFIER_TO_KEY.get(mask));
@@ -98,7 +97,7 @@ public final class Modifiers {
    */
   public static int maskFor(int keyCode) {
     if (!KEY_TO_MODIFIER.containsKey(keyCode)) {
-      throw new IllegalArgumentException(concat("Keycode '", valueOf(keyCode), "' is not a modifier"));
+      throw new IllegalArgumentException("Keycode '" + valueOf(keyCode) + "' is not a modifier");
     }
     return KEY_TO_MODIFIER.get(keyCode);
   }

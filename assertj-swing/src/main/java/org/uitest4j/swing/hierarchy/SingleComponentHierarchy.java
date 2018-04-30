@@ -13,11 +13,11 @@
 package org.uitest4j.swing.hierarchy;
 
 import static javax.swing.SwingUtilities.isDescendingFrom;
-import static org.assertj.core.util.Lists.newArrayList;
 
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.Window;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -31,7 +31,7 @@ import javax.annotation.Nullable;
  */
 public final class SingleComponentHierarchy implements ComponentHierarchy {
   private final Container root;
-  private final List<Container> list = newArrayList();
+	private final List<Container> list = new ArrayList<>();
   private final ComponentHierarchy hierarchy;
 
   /**
