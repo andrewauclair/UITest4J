@@ -12,8 +12,8 @@
  */
 package org.uitest4j.swing.driver;
 
-import org.assertj.core.util.Strings;
 import org.uitest4j.swing.annotation.RunsInEDT;
+import org.uitest4j.swing.util.Strings;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;

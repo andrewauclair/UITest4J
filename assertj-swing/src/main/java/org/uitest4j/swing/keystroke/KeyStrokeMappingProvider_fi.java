@@ -12,9 +12,8 @@
  */
 package org.uitest4j.swing.keystroke;
 
-import org.assertj.core.util.Lists;
-
 import javax.annotation.Nonnull;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -44,7 +43,7 @@ public class KeyStrokeMappingProvider_fi implements KeyStrokeMappingProvider {
     }
 
     @Nonnull private static List<KeyStrokeMapping> createMappings() {
-        List<KeyStrokeMapping> mappings = Lists.newArrayList();
+        List<KeyStrokeMapping> mappings = new ArrayList<>();
         mappings.add(mapping('1', VK_1, NO_MASK));
         mappings.add(mapping('!', VK_1, SHIFT_DOWN_MASK));
         mappings.add(mapping('2', VK_2, NO_MASK));

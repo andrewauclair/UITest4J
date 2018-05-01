@@ -12,11 +12,11 @@
  */
 package org.uitest4j.swing.driver;
 
-import org.assertj.core.util.Preconditions;
 import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.annotation.Nonnull;
 import javax.swing.*;
+import java.util.Objects;
 
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
@@ -29,8 +29,8 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 final class JComboBoxEditableQuery {
   @RunsInEDT
   static boolean isEditable(final @Nonnull JComboBox<?> comboBox) {
-    Boolean result = execute(() -> comboBox.isEditable());
-    return Preconditions.checkNotNull(result);
+	  Boolean result = execute(comboBox::isEditable);
+	  return Objects.requireNonNull(result);
   }
 
   private JComboBoxEditableQuery() {

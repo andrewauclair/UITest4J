@@ -12,13 +12,13 @@
  */
 package org.uitest4j.swing.format;
 
-import org.assertj.core.util.Lists;
 import org.uitest4j.swing.util.ArrayUtils;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 
 import javax.annotation.Nonnull;
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -45,7 +45,7 @@ public class JComboBoxFormatter extends ComponentFormatterTemplate {
 
   @RunsInCurrentThread
   @Nonnull private Object[] contentsOf(@Nonnull JComboBox<?> comboBox) {
-    List<Object> contents = Lists.newArrayList();
+    List<Object> contents = new ArrayList<>();
     int count = comboBox.getItemCount();
     for (int i = 0; i < count; i++) {
       contents.add(comboBox.getItemAt(i));

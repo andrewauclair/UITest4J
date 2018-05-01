@@ -12,8 +12,6 @@
  */
 package org.uitest4j.swing.util;
 
-import org.assertj.core.util.Preconditions;
-
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.Objects;
@@ -99,7 +97,7 @@ public final class Strings {
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
    */
   public static boolean match(@Nonnull Pattern p, @Nullable CharSequence s) {
-    Preconditions.checkNotNull(p);
+    Objects.requireNonNull(p);
     if (s == null) {
       return false;
     }

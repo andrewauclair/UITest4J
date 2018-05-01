@@ -56,12 +56,12 @@ import static java.awt.event.KeyEvent.VK_Y;
 import static java.awt.event.KeyEvent.VK_Z;
 import static org.uitest4j.swing.keystroke.KeyStrokeMapping.mapping;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 import javax.annotation.Nonnull;
 
-import org.assertj.core.util.Lists;
 
 /**
  * Mapping between characters and {@code KeyStroke}s for locale {@code Locale.FRENCH}.
@@ -84,7 +84,7 @@ public class KeyStrokeMappingProvider_fr implements KeyStrokeMappingProvider {
   }
 
   @Nonnull private static List<KeyStrokeMapping> createMappings() {
-    List<KeyStrokeMapping> mappings = Lists.newArrayList();
+    List<KeyStrokeMapping> mappings = new ArrayList<>();
     mappings.add(mapping('\b', VK_BACK_SPACE, NO_MASK));
     mappings.add(mapping('', VK_DELETE, NO_MASK));
     mappings.add(mapping('', VK_ESCAPE, NO_MASK));

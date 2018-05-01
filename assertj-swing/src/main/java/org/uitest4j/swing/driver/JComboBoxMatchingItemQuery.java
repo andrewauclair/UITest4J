@@ -12,13 +12,14 @@
  */
 package org.uitest4j.swing.driver;
 
-import org.assertj.core.util.Preconditions;
 import org.uitest4j.swing.cell.JComboBoxCellReader;
 import org.uitest4j.swing.util.TextMatcher;
 import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.annotation.Nonnull;
 import javax.swing.*;
+
+import java.util.Objects;
 
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
@@ -41,7 +42,7 @@ final class JComboBoxMatchingItemQuery {
       }
       return -1;
     });
-    return Preconditions.checkNotNull(result);
+    return Objects.requireNonNull(result);
   }
 
   private JComboBoxMatchingItemQuery() {

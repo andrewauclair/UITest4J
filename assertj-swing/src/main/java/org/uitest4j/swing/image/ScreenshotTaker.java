@@ -12,10 +12,10 @@
  */
 package org.uitest4j.swing.image;
 
-import org.assertj.core.util.Preconditions;
 import org.uitest4j.swing.internal.annotation.IORuntimeException;
 import org.uitest4j.swing.util.RobotFactory;
 import org.uitest4j.swing.annotation.RunsInEDT;
+import org.uitest4j.swing.util.Strings;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -138,7 +138,7 @@ public class ScreenshotTaker implements ScreenshotTakerIF {
 
   @Override
   public void saveImage(@Nonnull BufferedImage image, @Nonnull String filePath) {
-    Preconditions.checkNotNullOrEmpty(filePath);
+    Strings.checkNotNullOrEmpty(filePath, "filePath");
     if (!filePath.endsWith(PNG)) {
       String format = String.format("The file in path '%s' should have extension 'png'", filePath);
       throw new IllegalArgumentException(format);
