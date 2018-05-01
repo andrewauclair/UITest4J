@@ -12,7 +12,6 @@
  */
 package org.uitest4j.swing.text;
 
-import org.assertj.core.util.VisibleForTesting;
 import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.annotation.Nonnull;
@@ -33,10 +32,10 @@ import static org.uitest4j.swing.util.Maps.newConcurrentHashMap;
 public class TextReaders {
   private static Logger logger = Logger.getLogger(TextReaders.class.getCanonicalName());
 
-  @VisibleForTesting
+  // Used for tests
   final ConcurrentMap<Class<?>, TextReader<?>> readers = newConcurrentHashMap();
 
-  @VisibleForTesting
+  // Used for tests
   TextReaders() {
     register(new AbstractButtonTextReader());
     register(new JLabelTextReader());

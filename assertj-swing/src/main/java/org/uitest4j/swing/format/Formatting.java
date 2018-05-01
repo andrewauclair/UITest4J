@@ -13,7 +13,6 @@
 package org.uitest4j.swing.format;
 
 import org.assertj.core.util.Strings;
-import org.assertj.core.util.VisibleForTesting;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.uitest4j.swing.annotation.RunsInEDT;
 
@@ -112,7 +111,7 @@ public class Formatting {
 		}
 	}
 
-	@VisibleForTesting
+	// Used for tests
 	static ComponentFormatter formatter(@Nonnull Class<?> type) {
 		return FORMATTERS.get(type);
 	}

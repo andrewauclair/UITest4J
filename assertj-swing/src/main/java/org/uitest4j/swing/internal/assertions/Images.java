@@ -29,7 +29,6 @@ import org.assertj.core.data.Offset;
 import org.assertj.core.error.ErrorMessageFactory;
 import org.assertj.core.internal.Failures;
 import org.assertj.core.internal.Objects;
-import org.assertj.core.util.VisibleForTesting;
 import org.uitest4j.swing.assertions.data.RgbColor;
 
 /**
@@ -51,10 +50,10 @@ public class Images {
     return INSTANCE;
   }
 
-  @VisibleForTesting
+  // Used for tests
   Failures failures = Failures.instance();
 
-  @VisibleForTesting
+  // Used for tests
   Images() {
   }
 
@@ -183,7 +182,7 @@ public class Images {
     return failures.failure(info, shouldHaveDimension(image, actual, expected));
   }
 
-  @VisibleForTesting
+  // Used for tests
   static Dimension sizeOf(BufferedImage image) {
     return new Dimension(image.getWidth(), image.getHeight());
   }

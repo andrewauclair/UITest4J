@@ -19,7 +19,6 @@ import java.lang.ref.WeakReference;
 
 import javax.annotation.Nonnull;
 
-import org.assertj.core.util.VisibleForTesting;
 
 /**
  * Event listener that wraps a given {@code AWTEventListener} and:
@@ -91,7 +90,7 @@ public final class WeakEventListener implements AWTEventListener {
    * Removes the wrapped listener from the {@link WeakReference} (to simulate garbage collection). This method should be
    * used only for <strong>testing only</strong>.
    */
-  @VisibleForTesting
+  // Used for tests
   void simulateUnderlyingListenerIsGarbageCollected() {
     listenerReference.clear();
   }

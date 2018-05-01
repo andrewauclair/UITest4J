@@ -12,7 +12,6 @@
  */
 package org.uitest4j.swing.driver;
 
-import org.assertj.core.util.VisibleForTesting;
 import org.uitest4j.swing.exception.LocationUnavailableException;
 import org.uitest4j.swing.internal.annotation.InternalApi;
 import org.uitest4j.swing.util.StringTextMatcher;
@@ -108,7 +107,7 @@ public class JTabbedPaneLocation {
     return new Point(rect.x + rect.width / 2, rect.y + rect.height / 2);
   }
 
-  @VisibleForTesting
+  // Used for tests
   @RunsInCurrentThread
   void checkIndexInBounds(JTabbedPane tabbedPane, int index) {
     int max = tabbedPane.getTabCount() - 1;

@@ -12,16 +12,13 @@
  */
 package org.uitest4j.swing.keystroke;
 
-import static java.awt.event.InputEvent.SHIFT_DOWN_MASK;
-import static java.awt.event.InputEvent.SHIFT_MASK;
-import static java.awt.event.KeyEvent.CHAR_UNDEFINED;
-import static org.uitest4j.swing.util.Platform.osFamily;
-
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import javax.swing.KeyStroke;
+import javax.swing.*;
 
-import org.assertj.core.util.VisibleForTesting;
+import static java.awt.event.InputEvent.SHIFT_DOWN_MASK;
+import static java.awt.event.KeyEvent.CHAR_UNDEFINED;
+import static org.uitest4j.swing.util.Platform.osFamily;
 
 /**
  * A collection of {@link KeyStrokeMapping}.
@@ -45,7 +42,7 @@ public class KeyStrokeMap {
     addKeyStrokesFrom(picker.providerFor(osFamily(), KeyStrokeLocale.get()));
   }
 
-  @VisibleForTesting
+  // Used for tests
   static void updateKeyStrokeMapCollection(@Nonnull KeyStrokeMapCollection c) {
     maps = c;
   }

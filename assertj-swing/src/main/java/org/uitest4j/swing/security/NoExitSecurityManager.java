@@ -12,7 +12,6 @@
  */
 package org.uitest4j.swing.security;
 
-import org.assertj.core.util.VisibleForTesting;
 
 import java.security.Permission;
 
@@ -46,7 +45,7 @@ public class NoExitSecurityManager extends SecurityManager {
 		this(hook, new StackTraces());
 	}
 
-	@VisibleForTesting
+	// Used for tests
 	NoExitSecurityManager(ExitCallHook hook, StackTraces stackTraces) {
 		if (hook == null) {
 			throw new NullPointerException("The given " + ExitCallHook.class.getSimpleName() + " should not be null");

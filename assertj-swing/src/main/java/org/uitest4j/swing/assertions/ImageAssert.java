@@ -18,7 +18,6 @@ import java.util.Comparator;
 
 import org.assertj.core.api.AbstractAssert;
 import org.assertj.core.data.Offset;
-import org.assertj.core.util.VisibleForTesting;
 import org.uitest4j.swing.internal.assertions.Images;
 
 /**
@@ -35,7 +34,7 @@ import org.uitest4j.swing.internal.assertions.Images;
  */
 public class ImageAssert extends AbstractAssert<ImageAssert, BufferedImage> {
 
-  @VisibleForTesting
+	// Used for tests
   Images images = Images.instance();
 
   protected ImageAssert(BufferedImage actual) {

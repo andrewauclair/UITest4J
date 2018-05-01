@@ -13,7 +13,6 @@
 package org.uitest4j.swing.driver;
 
 import org.assertj.core.description.Description;
-import org.assertj.core.util.VisibleForTesting;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.cell.JTreeCellReader;
@@ -1067,7 +1066,7 @@ public class JTreeDriver extends JComponentDriver {
 		return nodeText(tree, row, location(), pathFinder());
 	}
 
-	@VisibleForTesting
+	// Used for tests
 	JTreeCellReader cellReader() {
 		return pathFinder.cellReader();
 	}

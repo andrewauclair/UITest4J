@@ -12,7 +12,6 @@
  */
 package org.uitest4j.swing.text;
 
-import org.assertj.core.util.VisibleForTesting;
 import org.uitest4j.swing.cell.JListCellReader;
 import org.uitest4j.swing.driver.BasicJListCellReader;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
@@ -32,7 +31,7 @@ public class JListTextReader extends TextReader<JList> {
     this(new BasicJListCellReader());
   }
 
-  @VisibleForTesting
+  // Used for tests
   JListTextReader(@Nonnull JListCellReader cellReader) {
     this.cellReader = cellReader;
   }

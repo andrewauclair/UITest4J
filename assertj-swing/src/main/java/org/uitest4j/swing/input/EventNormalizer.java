@@ -20,7 +20,6 @@ import java.awt.event.AWTEventListener;
 
 import javax.annotation.Nonnull;
 
-import org.assertj.core.util.VisibleForTesting;
 import org.uitest4j.swing.listener.WeakEventListener;
 
 /**
@@ -42,7 +41,7 @@ public class EventNormalizer implements AWTEventListener {
     this(new DisposedWindowMonitor());
   }
 
-  @VisibleForTesting
+  // Used for tests
   EventNormalizer(@Nonnull DisposedWindowMonitor disposedWindowMonitor) {
     this.disposedWindowMonitor = disposedWindowMonitor;
   }

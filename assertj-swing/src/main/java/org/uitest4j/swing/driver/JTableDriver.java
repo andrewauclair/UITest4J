@@ -13,7 +13,6 @@
 package org.uitest4j.swing.driver;
 
 import org.assertj.core.description.Description;
-import org.assertj.core.util.VisibleForTesting;
 import org.opentest4j.AssertionFailedError;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.uitest4j.swing.annotation.RunsInEDT;
@@ -972,7 +971,7 @@ public class JTableDriver extends JComponentDriver {
 		return Objects.requireNonNull(result);
 	}
 
-	@VisibleForTesting
+	// Used for tests
 	@Nonnull
 	JTableCellReader cellReader() {
 		return cellReader;

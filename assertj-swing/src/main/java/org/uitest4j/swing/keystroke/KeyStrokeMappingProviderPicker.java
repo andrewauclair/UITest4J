@@ -12,7 +12,6 @@
  */
 package org.uitest4j.swing.keystroke;
 
-import org.assertj.core.util.VisibleForTesting;
 import org.uitest4j.swing.util.OSFamily;
 
 import javax.annotation.Nonnull;
@@ -35,7 +34,7 @@ class KeyStrokeMappingProviderPicker {
     this(new KeyStrokeMappingProviderFactory());
   }
 
-  @VisibleForTesting
+  // Used for tests
   KeyStrokeMappingProviderPicker(@Nonnull KeyStrokeMappingProviderFactory factory) {
     this.factory = factory;
   }

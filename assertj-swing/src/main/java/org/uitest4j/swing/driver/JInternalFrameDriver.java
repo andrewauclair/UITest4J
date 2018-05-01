@@ -12,7 +12,6 @@
  */
 package org.uitest4j.swing.driver;
 
-import org.assertj.core.util.VisibleForTesting;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.core.Robot;
@@ -292,7 +291,7 @@ public class JInternalFrameDriver extends JComponentDriver {
 		}
 	}
 
-	@VisibleForTesting
+	// Used for tests
 	void failIfVetoed(@Nonnull JInternalFrame internalFrame, @Nonnull JInternalFrameAction action,
 					  @Nonnull UnexpectedException unexpected) {
 		PropertyVetoException vetoError = vetoFrom(unexpected);

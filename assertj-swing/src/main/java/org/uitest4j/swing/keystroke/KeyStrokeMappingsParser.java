@@ -12,7 +12,6 @@
  */
 package org.uitest4j.swing.keystroke;
 
-import org.assertj.core.util.VisibleForTesting;
 import org.uitest4j.swing.exception.ParsingException;
 import org.uitest4j.swing.util.Strings;
 
@@ -173,7 +172,7 @@ public class KeyStrokeMappingsParser {
 		}
 	}
 
-	@VisibleForTesting
+	// Used for tests
 	@Nonnull
 	KeyStrokeMapping mappingFrom(@Nonnull String line) {
 		String[] parts = line.trim().split(",");

@@ -12,7 +12,6 @@
  */
 package org.uitest4j.swing.hierarchy;
 
-import org.assertj.core.util.VisibleForTesting;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 
 import javax.annotation.Nonnull;
@@ -53,13 +52,13 @@ class ChildrenFinder {
 		return children;
 	}
 
-	@VisibleForTesting
+	// Used for tests
 	static @Nonnull
 	List<ChildrenFinderStrategy> strategies() {
 		return new ArrayList<>(strategies);
 	}
 
-	@VisibleForTesting
+	// Used for tests
 	static void replaceStrategiesWith(@Nonnull List<ChildrenFinderStrategy> newStrategies) {
 		strategies = new ArrayList<>(newStrategies);
 	}

@@ -18,7 +18,6 @@ import static org.uitest4j.swing.core.MouseButton.RIGHT_BUTTON;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import org.assertj.core.util.VisibleForTesting;
 import org.uitest4j.swing.core.MouseButton;
 import org.uitest4j.swing.core.MouseClickInfo;
 
@@ -222,7 +221,7 @@ public class JListItemFixture implements ItemFixture<JListItemFixture> {
     return index;
   }
 
-  @VisibleForTesting
+  // Used for tests
   @Nonnull
   JListFixture listFixture() {
     return list;

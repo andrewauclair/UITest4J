@@ -12,7 +12,6 @@
  */
 package org.uitest4j.swing.driver;
 
-import org.assertj.core.util.VisibleForTesting;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.core.Robot;
@@ -124,7 +123,7 @@ public abstract class ContainerDriver extends ComponentDriver {
 		return Objects.requireNonNull(result);
 	}
 
-	@VisibleForTesting
+	// Used for tests
 	@RunsInCurrentThread
 	void checkCanResize(@Nonnull Container c) {
 		if (!isResizable(c)) {

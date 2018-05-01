@@ -12,7 +12,6 @@
  */
 package org.uitest4j.swing.core;
 
-import org.assertj.core.util.VisibleForTesting;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.edt.GuiQuery;
@@ -152,7 +151,7 @@ public class BasicRobot implements Robot {
 		return screenLockOwner;
 	}
 
-	@VisibleForTesting
+	// Used for tests
 	BasicRobot(@Nullable Object screenLockOwner, @Nonnull ComponentHierarchy hierarchy) {
 		// TODO This should be in a better place. Currently it seems we need to reattach every time
 		windowMonitor.contextMonitor.attachTo(toolkit);
@@ -1081,7 +1080,7 @@ public class BasicRobot implements Robot {
 		return active;
 	}
 
-	@VisibleForTesting
+	// Used for tests
 	final @Nullable
 	Object screenLockOwner() {
 		return screenLockOwner;

@@ -12,7 +12,6 @@
  */
 package org.uitest4j.swing.fixture;
 
-import org.assertj.core.util.VisibleForTesting;
 import org.uitest4j.swing.core.MouseButton;
 import org.uitest4j.swing.core.MouseClickInfo;
 import org.uitest4j.swing.data.TableCell;
@@ -66,7 +65,7 @@ public class JTableCellFixture implements ItemFixture<JTableCellFixture> {
 		this(table, cell, table.target(), table.driver());
 	}
 
-	@VisibleForTesting
+	// Used for tests
 	JTableCellFixture(@Nonnull JTableFixture table, @Nonnull TableCell cell, @Nonnull JTable target,
 					  @Nonnull JTableDriver driver) {
 		this.table = Objects.requireNonNull(table);
@@ -471,13 +470,13 @@ public class JTableCellFixture implements ItemFixture<JTableCellFixture> {
 		return cell.column;
 	}
 
-	@VisibleForTesting
+	// Used for tests
 	@Nonnull
 	JTableFixture tableFixture() {
 		return table;
 	}
 
-	@VisibleForTesting
+	// Used for tests
 	@Nonnull
 	TableCell cell() {
 		return cell;

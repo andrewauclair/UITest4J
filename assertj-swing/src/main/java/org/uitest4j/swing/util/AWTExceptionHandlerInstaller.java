@@ -12,8 +12,6 @@
  */
 package org.uitest4j.swing.util;
 
-import org.assertj.core.util.VisibleForTesting;
-
 import javax.annotation.Nonnull;
 
 /**
@@ -46,7 +44,7 @@ public final class AWTExceptionHandlerInstaller {
     installAWTExceptionHandler(exceptionHandlerType, WRITER);
   }
 
-  @VisibleForTesting
+  // Used for tests
   static void installAWTExceptionHandler(@Nonnull Class<?> exceptionHandlerType, SystemPropertyWriter writer) {
     try {
       exceptionHandlerType.getConstructor();

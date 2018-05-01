@@ -12,7 +12,6 @@
  */
 package org.uitest4j.swing.hierarchy;
 
-import org.assertj.core.util.VisibleForTesting;
 import org.uitest4j.swing.util.ToolkitProvider;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 
@@ -72,7 +71,7 @@ public class NewHierarchy extends ExistingHierarchy {
     setUp(toolkit, ignoreExisting);
   }
 
-  @VisibleForTesting
+  // Used for tests
   NewHierarchy(@Nonnull Toolkit toolkit, @Nonnull WindowFilter filter, boolean ignoreExisting) {
     this.filter = filter;
     transientWindowListener = new TransientWindowListener(filter);

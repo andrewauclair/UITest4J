@@ -12,7 +12,6 @@
  */
 package org.uitest4j.swing.core;
 
-import org.assertj.core.util.VisibleForTesting;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.uitest4j.swing.annotation.RunsInEDT;
 
@@ -39,18 +38,18 @@ public final class FocusOwnerFinder {
 		initializeStrategies();
 	}
 
-	@VisibleForTesting
+	// Used for tests
 	static void initializeStrategies() {
 		replaceStrategiesWith(new ReflectionBasedFocusOwnerFinder(), new HierarchyBasedFocusOwnerFinder());
 	}
 
-	@VisibleForTesting
+	// Used for tests
 	static void replaceStrategiesWith(@Nonnull FocusOwnerFinderStrategy... strategies) {
 		STRATEGIES.clear();
 		STRATEGIES.addAll(Arrays.asList(strategies));
 	}
 
-	@VisibleForTesting
+	// Used for tests
 	static @Nonnull
 	List<FocusOwnerFinderStrategy> strategies() {
 		return new ArrayList<>(STRATEGIES);

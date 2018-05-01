@@ -27,7 +27,6 @@ import java.util.function.Function;
 
 import javax.annotation.Nonnull;
 
-import org.assertj.core.util.VisibleForTesting;
 
 /**
  * <p>
@@ -151,7 +150,7 @@ public class Settings {
     }
   }
 
-  @VisibleForTesting
+  // Used for tests
   @Nonnull
   java.awt.Robot robot() {
     return robot;

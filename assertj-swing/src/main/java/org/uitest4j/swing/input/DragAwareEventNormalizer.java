@@ -21,8 +21,6 @@ import java.util.logging.Logger;
 
 import javax.annotation.Nonnull;
 
-import org.assertj.core.util.VisibleForTesting;
-
 /**
  * AWT event listener which normalizes the event stream:
  * <ul>
@@ -50,7 +48,7 @@ class DragAwareEventNormalizer extends EventNormalizer {
     }
   }
 
-  @VisibleForTesting
+  // Used for tests
   DragAwareEventQueue createEventQueue(@Nonnull Toolkit toolkit, long mask) {
     return new DragAwareEventQueue(toolkit, mask, this);
   }

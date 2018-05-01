@@ -12,7 +12,6 @@
  */
 package org.uitest4j.swing.core;
 
-import org.assertj.core.util.VisibleForTesting;
 import org.uitest4j.swing.util.ToolkitProvider;
 
 import javax.annotation.Nonnull;
@@ -87,18 +86,18 @@ public class EmergencyAbortListener implements AWTEventListener {
 		return listener;
 	}
 
-	@VisibleForTesting
+	// Used for tests
 	EmergencyAbortListener(@Nonnull Toolkit toolkit) {
 		this(toolkit, new TestTerminator());
 	}
 
-	@VisibleForTesting
+	// Used for tests
 	EmergencyAbortListener(@Nonnull Toolkit toolkit, @Nonnull TestTerminator testTerminator) {
 		this.testTerminator = testTerminator;
 		this.toolkit = toolkit;
 	}
 
-	@VisibleForTesting
+	// Used for tests
 	void register() {
 		removePrevious();
 		toolkit.addAWTEventListener(this, EVENT_MASK);
@@ -158,12 +157,12 @@ public class EmergencyAbortListener implements AWTEventListener {
 		testTerminator.terminateTests();
 	}
 
-	@VisibleForTesting
+	// Used for tests
 	int keyCode() {
 		return keyCode;
 	}
 
-	@VisibleForTesting
+	// Used for tests
 	int modifiers() {
 		return modifiers;
 	}

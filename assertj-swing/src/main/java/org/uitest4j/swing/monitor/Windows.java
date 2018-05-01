@@ -12,7 +12,6 @@
  */
 package org.uitest4j.swing.monitor;
 
-import org.assertj.core.util.VisibleForTesting;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 
 import javax.annotation.Nonnull;
@@ -32,7 +31,7 @@ import static org.uitest4j.swing.util.Maps.newWeakHashMap;
  */
 @ThreadSafe
 class Windows {
-  @VisibleForTesting
+  // Used for tests
   static int WINDOW_READY_DELAY = 1000;
 
   /** {@link Window#isShowing() isShowing} is true but are not yet ready for input. */

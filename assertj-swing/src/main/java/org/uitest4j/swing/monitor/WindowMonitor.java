@@ -12,7 +12,6 @@
  */
 package org.uitest4j.swing.monitor;
 
-import org.assertj.core.util.VisibleForTesting;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.edt.GuiQuery;
@@ -55,7 +54,7 @@ public class WindowMonitor {
 
 	public ContextMonitor contextMonitor;
 
-	@VisibleForTesting
+	// Used for tests
 	@RunsInCurrentThread
 	WindowMonitor(@Nonnull Toolkit toolkit, @Nonnull Context context, @Nonnull WindowStatus windowStatus) {
 		this.context = context;

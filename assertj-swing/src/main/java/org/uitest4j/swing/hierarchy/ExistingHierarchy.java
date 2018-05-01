@@ -12,7 +12,6 @@
  */
 package org.uitest4j.swing.hierarchy;
 
-import org.assertj.core.util.VisibleForTesting;
 import org.uitest4j.swing.monitor.WindowMonitor;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 
@@ -41,7 +40,7 @@ public class ExistingHierarchy implements ComponentHierarchy {
     this(new ParentFinder(), new ChildrenFinder());
   }
 
-  @VisibleForTesting
+  // Used for tests
   ExistingHierarchy(@Nonnull ParentFinder parentFinder, @Nonnull ChildrenFinder childrenFinder) {
     this.parentFinder = parentFinder;
     this.childrenFinder = childrenFinder;

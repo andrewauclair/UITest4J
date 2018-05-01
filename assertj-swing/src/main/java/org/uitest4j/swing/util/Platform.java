@@ -20,7 +20,6 @@ import java.awt.Toolkit;
 
 import javax.annotation.Nonnull;
 
-import org.assertj.core.util.VisibleForTesting;
 
 /**
  * Platform-specific functionality.
@@ -35,12 +34,12 @@ public final class Platform {
     reload();
   }
 
-  @VisibleForTesting
+  // Used for tests
   static void reload() {
     initialize(new OSIdentifier(), ToolkitProvider.instance().defaultToolkit());
   }
 
-  @VisibleForTesting
+  // Used for tests
   static void initialize(@Nonnull OSIdentifier osIdentifier, @Nonnull Toolkit toolkit) {
     Platform.osIdentifier = osIdentifier;
     Platform.toolkit = toolkit;

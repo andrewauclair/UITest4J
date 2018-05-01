@@ -12,17 +12,11 @@
  */
 package org.uitest4j.swing.util;
 
-import static java.util.Locale.ENGLISH;
-import static org.uitest4j.swing.util.OSFamily.LINUX;
-import static org.uitest4j.swing.util.OSFamily.MAC;
-import static org.uitest4j.swing.util.OSFamily.UNIX;
-import static org.uitest4j.swing.util.OSFamily.WINDOWS;
-
 import javax.annotation.Nonnull;
-
-import org.assertj.core.util.VisibleForTesting;
-
 import java.util.Objects;
+
+import static java.util.Locale.ENGLISH;
+import static org.uitest4j.swing.util.OSFamily.*;
 
 /**
  * Identifies the current Operating System.
@@ -44,7 +38,7 @@ class OSIdentifier {
     this(new SystemPropertyReader());
   }
 
-  @VisibleForTesting
+  // Used for tests
   OSIdentifier(@Nonnull SystemPropertyReader reader) {
 	  String osName = Objects.requireNonNull(reader.systemProperty("os.name")).toLowerCase(ENGLISH);
     isWindows = osName.startsWith("windows");

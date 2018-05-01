@@ -13,7 +13,6 @@
 package org.uitest4j.swing.image;
 
 import org.assertj.core.util.Preconditions;
-import org.assertj.core.util.VisibleForTesting;
 import org.uitest4j.swing.internal.annotation.IORuntimeException;
 import org.uitest4j.swing.util.RobotFactory;
 import org.uitest4j.swing.annotation.RunsInEDT;
@@ -52,7 +51,7 @@ public class ScreenshotTaker implements ScreenshotTakerIF {
     this(new ImageFileWriter(), new RobotFactory());
   }
 
-  @VisibleForTesting
+  // Used for tests
   ScreenshotTaker(@Nonnull ImageFileWriter writer, @Nonnull RobotFactory robotFactory) {
     this.writer = writer;
     try {
