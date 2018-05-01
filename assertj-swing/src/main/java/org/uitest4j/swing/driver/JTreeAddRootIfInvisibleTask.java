@@ -17,6 +17,7 @@ import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import javax.annotation.Nonnull;
 import javax.swing.*;
 import javax.swing.tree.TreePath;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -49,7 +50,7 @@ final class JTreeAddRootIfInvisibleTask {
 			return path;
 		}
 		Object[] pathAsArray = path.getPath();
-		List<Object> newPath = Arrays.asList(pathAsArray);
+		List<Object> newPath = new ArrayList<>(Arrays.asList(pathAsArray));
 		newPath.add(0, root);
 		return new TreePath(newPath.toArray());
 	}

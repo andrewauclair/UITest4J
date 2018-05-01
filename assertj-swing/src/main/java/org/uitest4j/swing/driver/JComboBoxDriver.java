@@ -222,7 +222,7 @@ public class JComboBoxDriver extends JComponentDriver {
 			return;
 		}
 		String format = "[%s] Expecting no selection, but found:<%s>";
-		fail(String.format(format, selectedIndexProperty(comboBox).value(), '"' + selection.second + '"'));
+		fail(String.format(format, selectedIndexProperty(comboBox).value(), "'" + selection.second + "'"));
 	}
 
 	/**

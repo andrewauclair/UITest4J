@@ -39,7 +39,7 @@ class ChildrenFinder {
 			return new ArrayList<>();
 		}
 		Container container = (Container) c;
-		List<Component> children = Arrays.asList(container.getComponents());
+		List<Component> children = new ArrayList<>(Arrays.asList(container.getComponents()));
 		children.addAll(nonExplicitChildrenOf(container));
 		return children;
 	}

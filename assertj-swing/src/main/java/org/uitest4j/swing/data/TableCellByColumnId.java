@@ -126,6 +126,6 @@ public class TableCellByColumnId implements TableCellFinder {
 
 	@Override
 	public String toString() {
-		return getClass().getName() + "[row=" + valueOf(row) + ", columnId=\"" + columnId + "\"]";
+		return getClass().getName() + "[row=" + valueOf(row) + ", columnId='" + columnId + "']";
 	}
 }

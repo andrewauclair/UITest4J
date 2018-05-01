@@ -16,6 +16,7 @@ import org.opentest4j.AssertionFailedError;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.internal.annotation.InternalApi;
+import org.uitest4j.swing.util.ArrayUtils;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -88,12 +89,8 @@ public class JFileChooserDriver extends JComponentDriver {
 	 *           files to select is a directory.
 	 */
 	public void selectFiles(@Nonnull JFileChooser fileChooser, @Nonnull File[] files) {
-		Objects.requireNonNull(files);
-		Objects.requireNonNull(files);
+		ArrayUtils.requireNonNullAndNotEmpty(files);
 
-		if (files.length == 0) {
-			throw new AssertionFailedError("files array should not be empty.");
-		}
 		for (File file : files) {
 			Objects.requireNonNull(file);
 		}

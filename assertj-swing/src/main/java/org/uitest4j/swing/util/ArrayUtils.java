@@ -173,6 +173,14 @@ public final class ArrayUtils {
 		return copy;
 	}
 
+	public static <T> T[] requireNonNullAndNotEmpty(T[] array) {
+		Objects.requireNonNull(array);
+		if (array.length == 0) {
+			throw new IllegalArgumentException("Array length is 0");
+		}
+		return array;
+	}
+
 	private ArrayUtils() {
 	}
 }

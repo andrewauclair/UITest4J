@@ -70,7 +70,7 @@ final class Actions {
 			return null;
 		}
 		if (key instanceof String) {
-			return '"' + key.toString() + '"';
+			return "'" + key.toString() + "'";
 		}
 		return String.format("%s(%s)", key.toString(), key.getClass().getName());
 	}

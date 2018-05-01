@@ -14,6 +14,7 @@ package org.uitest4j.swing.fixture;
 
 import org.assertj.core.description.Description;
 import org.assertj.core.description.TextDescription;
+import org.uitest4j.swing.util.Strings;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -21,7 +22,6 @@ import java.awt.*;
 import java.util.Objects;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.util.Strings.isNullOrEmpty;
 
 /**
  * Verifies the state of {@code Font}s.
@@ -209,7 +209,7 @@ public class FontFixture {
 
 	@Nonnull
 	private String property(@Nonnull String s) {
-		if (!isNullOrEmpty(description())) {
+		if (!Strings.isNullOrEmpty(description())) {
 			return description.value() + PROPERTY_SEPARATOR + s;
 		}
 		return s;
