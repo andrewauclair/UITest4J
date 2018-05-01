@@ -37,8 +37,10 @@ public class ImageAssert extends AbstractAssert<ImageAssert, BufferedImage> {
 	// Used for tests
   Images images = Images.instance();
 
+  BufferedImage actual = null;
   protected ImageAssert(BufferedImage actual) {
     super(actual, ImageAssert.class);
+    this.actual = actual;
   }
 
   /**

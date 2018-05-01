@@ -13,6 +13,9 @@
 package org.uitest4j.swing.internal.assertions.images;
 
 import org.assertj.core.api.AssertionInfo;
+import org.assertj.core.data.Offset;
+import org.opentest4j.AssertionFailedError;
+import org.uitest4j.swing.assertions.error.ShouldBeEqualColors;
 import org.uitest4j.swing.internal.assertions.ImagesBaseTest;
 import org.uitest4j.swing.test.ExpectedException;
 import org.junit.jupiter.api.BeforeEach;
@@ -24,7 +27,6 @@ import java.awt.image.BufferedImage;
 import static java.awt.Color.BLUE;
 import static org.assertj.core.data.Offset.offset;
 import static org.uitest4j.swing.assertions.data.Point.atPoint;
-import static org.uitest4j.swing.assertions.error.ShouldBeEqualColors.shouldBeEqualColors;
 import static org.uitest4j.swing.assertions.error.ShouldBeEqualImages.shouldBeEqualImages;
 import static org.uitest4j.swing.assertions.error.ShouldHaveDimension.shouldHaveDimension;
 import static org.uitest4j.swing.test.ErrorMessages.offsetIsNull;
@@ -96,11 +98,7 @@ public class Images_assertEqual_with_offset_Test extends ImagesBaseTest {
   void should_Fail_If_Images_Have_Different_Size() {
     AssertionInfo info = someInfo();
     BufferedImage expected = newImage(6, 6, BLUE);
-    try {
-      assertThrows(AssertionError.class, () -> images.assertEqual(info, actual, expected, offset));
-    } finally {
-      verify(failures).failure(info, shouldHaveDimension(actual, sizeOf(actual), sizeOf(expected)));
-    }
+    assertThrows(AssertionFailedError.class, () -> images.assertEqual(info, actual, expected, offset));
   }
 
   @Test
@@ -110,7 +108,7 @@ public class Images_assertEqual_with_offset_Test extends ImagesBaseTest {
     try {
       assertThrows(AssertionError.class, () -> images.assertEqual(info, actual, expected, offset));
     } finally {
-      verify(failures).failure(info, shouldBeEqualColors(yellow(), blue(), atPoint(0, 0), offset));
+      verify(failures).failure(info, new ShouldBeEqualColors(yellow(), blue(), atPoint(0, 0), (Offset<?>) offset));
     }
   }
 }

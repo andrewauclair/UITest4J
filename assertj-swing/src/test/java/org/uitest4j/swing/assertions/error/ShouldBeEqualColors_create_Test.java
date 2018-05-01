@@ -21,7 +21,6 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.data.Offset.offset;
 import static org.uitest4j.swing.assertions.data.Point.atPoint;
 import static org.uitest4j.swing.assertions.data.RgbColor.color;
-import static org.uitest4j.swing.assertions.error.ShouldBeEqualColors.shouldBeEqualColors;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
@@ -35,7 +34,7 @@ class ShouldBeEqualColors_create_Test {
 
   @BeforeEach
   void setUp() {
-    factory = shouldBeEqualColors(color(0), color(8), atPoint(6, 10), offset(12));
+    factory = new ShouldBeEqualColors(color(0), color(8), atPoint(6, 10), offset(12));
   }
 
   @Test

@@ -12,22 +12,14 @@
  */
 package org.uitest4j.swing.timing;
 
-import static org.uitest4j.swing.timing.Timeout.timeout;
-
-import java.util.Objects;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
-
-import javax.annotation.Nonnull;
-
-import org.assertj.core.presentation.StandardRepresentation;
 import org.uitest4j.swing.exception.WaitTimedOutError;
 import org.uitest4j.swing.util.ArrayUtils;
+
+import javax.annotation.Nonnull;
+import java.util.Objects;
+import java.util.concurrent.*;
+
+import static org.uitest4j.swing.timing.Timeout.timeout;
 
 /**
  * Waits for period of time or for a particular condition to be satisfied.
@@ -94,8 +86,7 @@ public final class Pause {
       futureResult.get(timeout, TimeUnit.MILLISECONDS);
     } catch (TimeoutException ex) {
       futureResult.cancel(true);
-      throw new WaitTimedOutError(String.format("Timed out waiting for %s",
-                                                new StandardRepresentation().toStringOf(value)));
+      throw new WaitTimedOutError(String.format("Timed out waiting for %s", value.toString()));
     } catch (InterruptedException e) {
       e.printStackTrace();
     } catch (ExecutionException e) {

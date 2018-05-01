@@ -16,6 +16,7 @@ import java.awt.Dimension;
 
 import org.assertj.core.error.BasicErrorMessageFactory;
 import org.assertj.core.error.ErrorMessageFactory;
+import org.opentest4j.AssertionFailedError;
 
 /**
  * Creates an error message indicating that an assertion that verifies that a value have certain dimension failed.
@@ -39,5 +40,10 @@ public class ShouldHaveDimension extends BasicErrorMessageFactory {
   private ShouldHaveDimension(Object actual, Dimension actualSize, Dimension expectedSize) {
     super("expected size:<%sx%s> but was:<%sx%s> in:<%s>", expectedSize.width, expectedSize.height, actualSize.width,
           actualSize.height, actual);
+  }
+
+  public static String message(Object actual, Dimension actualSize, Dimension expectedSize) {
+    return String.format("expected size:<%sx%s> but was:<%sx%s> in:<%s>", expectedSize.width, expectedSize.height, actualSize.width,
+            actualSize.height, actual);
   }
 }

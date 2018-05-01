@@ -12,7 +12,6 @@
  */
 package org.uitest4j.swing.format;
 
-import org.assertj.core.presentation.StandardRepresentation;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.uitest4j.swing.util.ArrayUtils;
 
@@ -22,6 +21,7 @@ import java.awt.*;
 import java.beans.BeanInfo;
 import java.beans.Introspector;
 import java.beans.PropertyDescriptor;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -143,7 +143,7 @@ public final class IntrospectionComponentFormatter extends ComponentFormatterTem
 
 	@Override
 	public String toString() {
-		return String.format("%s[propertyNames=%s", getClass().getName(),
-				new StandardRepresentation().toStringOf(propertyNames));
+		return String.format("%s propertyNames=%s", getClass().getName(),
+				Arrays.toString(propertyNames.toArray()));
 	}
 }

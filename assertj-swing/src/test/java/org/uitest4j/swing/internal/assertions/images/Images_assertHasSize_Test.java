@@ -13,6 +13,7 @@
 package org.uitest4j.swing.internal.assertions.images;
 
 import org.assertj.core.api.AssertionInfo;
+import org.opentest4j.AssertionFailedError;
 import org.uitest4j.swing.internal.assertions.ImagesBaseTest;
 import org.uitest4j.swing.test.ExpectedException;
 import org.junit.jupiter.api.BeforeEach;
@@ -59,24 +60,14 @@ public class Images_assertHasSize_Test extends ImagesBaseTest {
 
   @Test
   void should_Fail_If_Actual_Has_Different_Width() {
-    AssertionInfo info = someInfo();
     Dimension size = new Dimension(10, 8);
-    try {
-      assertThrows(AssertionError.class, () -> images.assertHasSize(someInfo(), actual, size));
-    } finally {
-      verifyFailureThrownWhenSizesAreNotEqual(info, size);
-    }
+    assertThrows(AssertionFailedError.class, () -> images.assertHasSize(someInfo(), actual, size));
   }
 
   @Test
   void should_Fail_If_Actual_Has_Different_Height() {
-    AssertionInfo info = someInfo();
     Dimension size = new Dimension(6, 10);
-    try {
-      assertThrows(AssertionError.class, () -> images.assertHasSize(someInfo(), actual, size));
-    } finally {
-      verifyFailureThrownWhenSizesAreNotEqual(info, size);
-    }
+    assertThrows(AssertionFailedError.class, () -> images.assertHasSize(someInfo(), actual, size));
   }
 
   private void verifyFailureThrownWhenSizesAreNotEqual(AssertionInfo info, Dimension size) {

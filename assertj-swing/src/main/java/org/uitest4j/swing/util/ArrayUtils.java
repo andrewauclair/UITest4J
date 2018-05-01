@@ -12,7 +12,6 @@
  */
 package org.uitest4j.swing.util;
 
-import org.assertj.core.presentation.StandardRepresentation;
 import org.uitest4j.swing.internal.annotation.InternalApi;
 
 import javax.annotation.Nonnull;
@@ -68,7 +67,7 @@ public final class ArrayUtils {
 
 	@InternalApi
 	public static String format(Object object) {
-		return new StandardRepresentation().toStringOf(object);
+		return object.toString();
 	}
 
 	/**

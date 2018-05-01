@@ -12,7 +12,6 @@
  */
 package org.uitest4j.swing.driver;
 
-import org.assertj.core.presentation.StandardRepresentation;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.uitest4j.swing.annotation.RunsInEDT;
 
@@ -68,7 +67,7 @@ final class JFileChooserSelectFileTask {
   }
 
   private static IllegalArgumentException cannotSelectFile(File file, String reason) {
-    String msg = String.format("Unabled to select file %s: %s", new StandardRepresentation().toStringOf(file), reason);
+    String msg = String.format("Unabled to select file %s: %s", file.getAbsolutePath(), reason);
     return new IllegalArgumentException(msg);
   }
 

@@ -14,7 +14,6 @@ package org.uitest4j.swing.assertions.error;
 
 import org.assertj.core.data.Offset;
 import org.assertj.core.error.BasicErrorMessageFactory;
-import org.assertj.core.error.ErrorMessageFactory;
 import org.uitest4j.swing.assertions.data.Point;
 import org.uitest4j.swing.assertions.data.RgbColor;
 
@@ -26,23 +25,7 @@ import org.uitest4j.swing.assertions.data.RgbColor;
  */
 public class ShouldBeEqualColors extends BasicErrorMessageFactory {
 
-  /**
-   * Creates a new <code>{@link ShouldBeEqualColors}</code>.
-   * 
-   * @param expected the expected color.
-   * @param actual the actual color.
-   * @param point the point where {@code expected} and {@code actual} were compared at.
-   * @param offset helps decide if two colors are similar: two colors that are identical to the human eye may still have
-   *          slightly different color values. For example, by using an offset of 1 we can indicate that a blue value of
-   *          60 is similar to a blue value of 61.
-   * @return the created {@code ErrorMessageFactory}.
-   */
-  public static ErrorMessageFactory shouldBeEqualColors(RgbColor expected, RgbColor actual, Point point,
-      Offset<?> offset) {
-    return new ShouldBeEqualColors(expected, actual, point, offset);
-  }
-
-  private ShouldBeEqualColors(RgbColor expected, RgbColor actual, Point point, Offset<?> offset) {
+	public ShouldBeEqualColors(RgbColor expected, RgbColor actual, Point point, Offset<?> offset) {
     super("expected:<%s> but was:<%s> at:<%s> within offset:<%s>", expected, actual, point, offset.value);
   }
 }

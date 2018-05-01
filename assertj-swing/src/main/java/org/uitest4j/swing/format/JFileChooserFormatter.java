@@ -12,7 +12,6 @@
  */
 package org.uitest4j.swing.format;
 
-import org.assertj.core.presentation.StandardRepresentation;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 
 import javax.annotation.Nonnull;
@@ -45,7 +44,7 @@ public class JFileChooserFormatter extends ComponentFormatterTemplate {
 	  String format = "%s[name='%s', dialogTitle='%s', dialogType=%s, currentDirectory=%s, enabled=%b, visible=%b, showing=%b";
 	  return String.format(format, getRealClassName(c), fileChooser.getName(),
 			  fileChooser.getDialogTitle(), DIALOG_TYPES.get(fileChooser.getDialogType()),
-                         new StandardRepresentation().toStringOf(fileChooser.getCurrentDirectory()),
+              fileChooser.getCurrentDirectory().getAbsolutePath(),
                          fileChooser.isEnabled(),
                          fileChooser.isVisible(), fileChooser.isShowing());
   }
