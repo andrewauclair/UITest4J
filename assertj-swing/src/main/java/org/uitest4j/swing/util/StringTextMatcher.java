@@ -12,14 +12,13 @@
  */
 package org.uitest4j.swing.util;
 
-import static org.assertj.core.util.Preconditions.checkNotNullOrEmpty;
-import static org.assertj.core.util.Strings.quote;
-import static org.uitest4j.swing.util.ArrayUtils.format;
-import static org.uitest4j.swing.util.Strings.areEqualOrMatch;
-
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.Objects;
+
+import static org.uitest4j.swing.util.ArrayUtils.format;
+import static org.uitest4j.swing.util.Strings.areEqualOrMatch;
+import static org.uitest4j.swing.util.Strings.singleQuote;
 
 /**
  * Matches text to a group of {@code String} values. Matching is perform by equality or by regular expression matching.
@@ -37,7 +36,7 @@ public class StringTextMatcher implements TextMatcher {
    * @throws IllegalArgumentException if the array of values is empty.
    */
   public StringTextMatcher(@Nonnull String... values) {
-    this.values = checkNotNullOrEmpty(values);
+	  this.values = ArrayUtils.requireNonNullAndNotEmpty(values);
   }
 
   /**
@@ -70,7 +69,7 @@ public class StringTextMatcher implements TextMatcher {
    */
   @Override
   @Nonnull public String formattedValues() {
-    String s = onlyOneValue() ? quote(values[0]) : format(values);
+	  String s = onlyOneValue() ? singleQuote(values[0]) : format(values);
 	  return Objects.requireNonNull(s);
   }
 

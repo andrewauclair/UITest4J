@@ -12,8 +12,8 @@
  */
 package org.uitest4j.swing.format;
 
-import org.uitest4j.swing.util.ArrayUtils;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
+import org.uitest4j.swing.util.ArrayUtils;
 
 import javax.annotation.Nonnull;
 import javax.swing.*;
@@ -21,7 +21,6 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.assertj.core.util.Strings.quote;
 import static org.uitest4j.swing.format.SwingIntEnums.SELECTION_MODES;
 
 /**
@@ -40,8 +39,8 @@ public class JListFormatter extends ComponentFormatterTemplate {
   @Override
   @Nonnull protected String doFormat(@Nonnull Component c) {
     JList<?> list = (JList<?>) c;
-    String format = "%s[name=%s, selectedValues=%s, contents=%s, selectionMode=%s, enabled=%b, visible=%b, showing=%b]";
-    return String.format(format, getRealClassName(c), quote(list.getName()),
+	  String format = "%s[name='%s', selectedValues=%s, contents=%s, selectionMode=%s, enabled=%b, visible=%b, showing=%b]";
+	  return String.format(format, getRealClassName(c), list.getName(),
                          ArrayUtils.format(list.getSelectedValues()), ArrayUtils.format(contentsOf(list)),
                          SELECTION_MODES.get(list.getSelectionMode()), list.isEnabled(), list.isVisible(),
                          list.isShowing());

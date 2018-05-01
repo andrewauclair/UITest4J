@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.assertions.data;
 
-import static org.assertj.core.util.Objects.HASH_CODE_PRIME;
+import java.util.Objects;
 
 /**
  * Represents a location in (x, y) coordinate space, specified in integer precision.
@@ -44,29 +44,25 @@ public class Point {
   }
 
   @Override
-  public boolean equals(Object obj) {
-    if (this == obj)
+  public String toString() {
+	  return String.format("[%d, %d]", x, y);
+  }
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) {
       return true;
-    if (obj == null)
+		}
+		if (o == null || getClass() != o.getClass()) {
       return false;
-    if (getClass() != obj.getClass())
-      return false;
-    Point other = (Point) obj;
-    if (x != other.x)
-      return false;
-    return y == other.y;
+		}
+		Point point = (Point) o;
+		return x == point.x &&
+				y == point.y;
   }
 
   @Override
   public int hashCode() {
-    int result = 1;
-    result = HASH_CODE_PRIME * result + x;
-    result = HASH_CODE_PRIME * result + y;
-    return result;
-  }
-
-  @Override
-  public String toString() {
-    return String.format("[%d, %d]", x, y);
+	  return Objects.hash(x, y);
   }
 }

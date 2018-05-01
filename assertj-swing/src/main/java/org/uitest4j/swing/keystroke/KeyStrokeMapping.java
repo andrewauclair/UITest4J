@@ -16,8 +16,6 @@ import javax.annotation.Nonnull;
 import javax.swing.*;
 import java.util.Objects;
 
-import static org.assertj.core.util.Objects.HASH_CODE_PRIME;
-
 /**
  * A mapping between a character and a {@code javax.swing.KeyStroke}.
  *
@@ -77,40 +75,27 @@ public class KeyStrokeMapping {
 		return keyStroke;
 	}
 
-	/**
-	 * @see Object#equals(Object)
-	 */
+	@Override
+	public String toString() {
+		String format = "%s[character='%s', keyStroke=%s]";
+		return String.format(format, getClass().getSimpleName(), String.valueOf(character), keyStroke.toString());
+	}
+
 	@Override
 	public boolean equals(Object o) {
 		if (this == o) {
 			return true;
 		}
-		if (o == null) {
+		if (o == null || getClass() != o.getClass()) {
 			return false;
 		}
-		if (!(o instanceof KeyStrokeMapping)) {
-			return false;
-		}
-		KeyStrokeMapping other = (KeyStrokeMapping) o;
-		return character == other.character && keyStroke.getKeyCode() == other.keyStroke.getKeyCode()
-				&& keyStroke.getModifiers() == other.keyStroke.getModifiers();
+		KeyStrokeMapping that = (KeyStrokeMapping) o;
+		return character == that.character &&
+				Objects.equals(keyStroke, that.keyStroke);
 	}
 
 	@Override
 	public int hashCode() {
-		int prime = HASH_CODE_PRIME;
-		int result = 1;
-		result = prime * result + character;
-		if (keyStroke != null) {
-			result = prime * result + keyStroke.getKeyCode();
-			result = prime * result + keyStroke.getModifiers();
-		}
-		return result;
-	}
-
-	@Override
-	public String toString() {
-		String format = "%s[character='%s', keyStroke=%s]";
-		return String.format(format, getClass().getSimpleName(), String.valueOf(character), keyStroke.toString());
+		return Objects.hash(character, keyStroke);
 	}
 }

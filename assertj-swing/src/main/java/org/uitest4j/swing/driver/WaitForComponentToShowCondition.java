@@ -12,7 +12,6 @@
  */
 package org.uitest4j.swing.driver;
 
-import static org.assertj.core.util.Strings.concat;
 import static org.uitest4j.swing.format.Formatting.format;
 import static org.uitest4j.swing.query.ComponentShowingQuery.isShowing;
 
@@ -43,7 +42,7 @@ public class WaitForComponentToShowCondition extends Condition {
   }
 
   private WaitForComponentToShowCondition(@Nonnull Component c) {
-    super(concat("Component ", format(c), " to show on the screen"));
+	  super("Component " + format(c) + " to show on the screen");
     this.c = Objects.requireNonNull(c);
   }
 

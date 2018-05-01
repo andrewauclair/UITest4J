@@ -16,8 +16,6 @@ import javax.annotation.Nonnull;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
-import static org.assertj.core.util.Objects.HASH_CODE_PRIME;
-
 /**
  * Timeout.
  *
@@ -76,22 +74,20 @@ public final class Timeout {
 	}
 
 	@Override
-	public int hashCode() {
-		return HASH_CODE_PRIME * 1 + (int) (duration ^ (duration >>> 32));
+	public boolean equals(Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
+		Timeout timeout = (Timeout) o;
+		return duration == timeout.duration;
 	}
 
 	@Override
-	public boolean equals(Object obj) {
-		if (this == obj) {
-			return true;
-		}
-		if (obj == null) {
-			return false;
-		}
-		if (getClass() != obj.getClass()) {
-			return false;
-		}
-		Timeout other = (Timeout) obj;
-		return duration == other.duration;
+	public int hashCode() {
+
+		return Objects.hash(duration);
 	}
 }

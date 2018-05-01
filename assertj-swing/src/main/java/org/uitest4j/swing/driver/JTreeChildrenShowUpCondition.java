@@ -19,7 +19,6 @@ import javax.annotation.Nonnull;
 import javax.swing.*;
 import javax.swing.tree.TreePath;
 
-import static org.assertj.core.util.Strings.concat;
 import static org.uitest4j.swing.driver.JTreeChildOfPathCountQuery.childCount;
 
 /**
@@ -36,7 +35,7 @@ class JTreeChildrenShowUpCondition extends Condition {
   }
 
   private JTreeChildrenShowUpCondition(@Nonnull JTree tree, @Nonnull TreePath path) {
-    super(concat(path.toString(), " to show"));
+	  super(path.toString() + " to show");
     this.tree = tree;
     this.path = path;
   }

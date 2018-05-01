@@ -18,7 +18,6 @@ import javax.accessibility.AccessibleAction;
 import javax.annotation.Nonnull;
 import java.awt.*;
 
-import static org.assertj.core.util.Strings.concat;
 import static org.uitest4j.swing.exception.ActionFailedException.actionFailure;
 import static org.uitest4j.swing.format.Formatting.format;
 
@@ -40,7 +39,7 @@ class ComponentPerformDefaultAccessibleActionTask {
   static void performDefaultAccessibleAction(final @Nonnull Component c) {
     AccessibleAction action = c.getAccessibleContext().getAccessibleAction();
     if (action == null || action.getAccessibleActionCount() == 0) {
-      throw actionFailure(concat("Unable to perform accessible action for ", format(c)));
+		throw actionFailure("Unable to perform accessible action for " + format(c));
     }
     action.doAccessibleAction(DEFAULT_ACTION_INDEX);
   }

@@ -25,6 +25,7 @@ import org.uitest4j.swing.exception.LocationUnavailableException;
 import org.uitest4j.swing.exception.WaitTimedOutError;
 import org.uitest4j.swing.internal.annotation.InternalApi;
 import org.uitest4j.swing.util.ArrayPreconditions;
+import org.uitest4j.swing.util.ArrayUtils;
 import org.uitest4j.swing.util.Pair;
 import org.uitest4j.swing.util.Triple;
 
@@ -38,8 +39,6 @@ import java.awt.*;
 import java.util.Objects;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.util.Preconditions.checkNotNullOrEmpty;
-import static org.assertj.core.util.Strings.concat;
 import static org.uitest4j.swing.core.MouseButton.LEFT_BUTTON;
 import static org.uitest4j.swing.core.MouseButton.RIGHT_BUTTON;
 import static org.uitest4j.swing.driver.ComponentPreconditions.checkEnabledAndShowing;
@@ -468,7 +467,7 @@ public class JTreeDriver extends JComponentDriver {
 		execute(() -> {
 			TreeUI treeUI = tree.getUI();
 			if (!(treeUI instanceof BasicTreeUI)) {
-				throw actionFailure(concat("Can't toggle row for ", treeUI));
+				throw actionFailure("Can't toggle row for " + treeUI);
 			}
 			toggleExpandState(tree, p);
 		});
@@ -583,7 +582,7 @@ public class JTreeDriver extends JComponentDriver {
 	 */
 	@RunsInEDT
 	public void selectPaths(final @Nonnull JTree tree, final @Nonnull String[] paths) {
-		checkNotNullOrEmpty(paths);
+		ArrayUtils.requireNonNullAndNotEmpty(paths);
 		clearSelection(tree);
 		new MultipleSelectionTemplate(robot) {
 			@Override
@@ -611,7 +610,7 @@ public class JTreeDriver extends JComponentDriver {
 	 */
 	@RunsInEDT
 	public void unselectPaths(final @Nonnull JTree tree, final @Nonnull String[] paths) {
-		checkNotNullOrEmpty(paths);
+		ArrayUtils.requireNonNullAndNotEmpty(paths);
 		new MultipleSelectionTemplate(robot) {
 			@Override
 			int elementCount() {

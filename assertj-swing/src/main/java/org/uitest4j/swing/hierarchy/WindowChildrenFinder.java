@@ -13,14 +13,13 @@
 package org.uitest4j.swing.hierarchy;
 
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
+import org.uitest4j.swing.util.ArrayUtils;
 
 import javax.annotation.Nonnull;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-
-import static org.assertj.core.util.Arrays.isNullOrEmpty;
 
 /**
  * Find children {@code Component}s in a {@code Window}.
@@ -43,7 +42,7 @@ final class WindowChildrenFinder implements ChildrenFinderStrategy {
   }
 
   @Nonnull private Collection<Component> windows(@Nonnull Component[] windows) {
-    if (isNullOrEmpty(windows)) {
+	  if (ArrayUtils.isNullOrEmpty(windows)) {
 		return new ArrayList<>();
     }
 	  return Arrays.asList(windows);

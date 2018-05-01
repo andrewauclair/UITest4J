@@ -20,7 +20,6 @@ import javax.swing.*;
 import java.awt.*;
 
 import static javax.swing.JFileChooser.*;
-import static org.assertj.core.util.Strings.quote;
 
 /**
  * Formatter for {@code JFileChooser}s.
@@ -43,9 +42,9 @@ public class JFileChooserFormatter extends ComponentFormatterTemplate {
   @Override
   @Nonnull protected String doFormat(@Nonnull Component c) {
     JFileChooser fileChooser = (JFileChooser) c;
-    String format = "%s[name=%s, dialogTitle=%s, dialogType=%s, currentDirectory=%s, enabled=%b, visible=%b, showing=%b";
-    return String.format(format, getRealClassName(c), quote(fileChooser.getName()),
-                         quote(fileChooser.getDialogTitle()), DIALOG_TYPES.get(fileChooser.getDialogType()),
+	  String format = "%s[name='%s', dialogTitle='%s', dialogType=%s, currentDirectory=%s, enabled=%b, visible=%b, showing=%b";
+	  return String.format(format, getRealClassName(c), fileChooser.getName(),
+			  fileChooser.getDialogTitle(), DIALOG_TYPES.get(fileChooser.getDialogType()),
                          new StandardRepresentation().toStringOf(fileChooser.getCurrentDirectory()),
                          fileChooser.isEnabled(),
                          fileChooser.isVisible(), fileChooser.isShowing());

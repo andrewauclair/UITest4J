@@ -12,6 +12,7 @@
  */
 package org.uitest4j.swing.core;
 
+import org.opentest4j.AssertionFailedError;
 import org.uitest4j.swing.test.ExpectedException;
 import org.uitest4j.swing.test.core.EDTSafeTestCase;
 import org.junit.jupiter.api.BeforeEach;
@@ -53,6 +54,6 @@ class UnexpectedJOptionPaneFinder_requireNoJOptionPaneIsShowing_Test extends EDT
     List<Component> found = newArrayList();
     found.add(optionPane().createNew());
     when(delegate.findAll(OPTION_PANE_MATCHER)).thenReturn(found);
-    ExpectedException.assertContainsMessage(AssertionError.class, () -> finder.requireNoJOptionPaneIsShowing(), "Expecting no JOptionPane to be showing");
+    ExpectedException.assertContainsMessage(AssertionFailedError.class, () -> finder.requireNoJOptionPaneIsShowing(), "Expecting no JOptionPane to be showing");
   }
 }

@@ -12,8 +12,6 @@
  */
 package org.uitest4j.swing.timing;
 
-import static org.assertj.core.util.Strings.concat;
-
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
@@ -65,7 +63,7 @@ public abstract class Condition {
   public final @Nonnull String toString() {
     String descriptionText = description != null ? description.value() : defaultDescription();
     String addendum = descriptionAddendum();
-    return concat(descriptionText, addendum);
+	  return descriptionText + addendum;
   }
 
   private String defaultDescription() {

@@ -17,7 +17,6 @@ import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import javax.annotation.Nonnull;
 import java.awt.*;
 
-import static org.assertj.core.util.Strings.concat;
 import static org.uitest4j.swing.format.Formatting.format;
 
 /**
@@ -62,7 +61,7 @@ public final class ComponentPreconditions {
   @RunsInCurrentThread
   public static void checkEnabled(@Nonnull Component c) {
     if (!c.isEnabled()) {
-      throw new IllegalStateException(concat("Expecting component ", format(c), " to be enabled"));
+		throw new IllegalStateException("Expecting component " + format(c) + " to be enabled");
     }
   }
 

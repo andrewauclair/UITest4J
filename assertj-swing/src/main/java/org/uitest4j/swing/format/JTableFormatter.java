@@ -12,8 +12,6 @@
  */
 package org.uitest4j.swing.format;
 
-import static org.assertj.core.util.Strings.quote;
-
 import java.awt.Component;
 
 import javax.annotation.Nonnull;
@@ -35,8 +33,8 @@ public class JTableFormatter extends ComponentFormatterTemplate {
   @Override
   @Nonnull protected String doFormat(@Nonnull Component c) {
     JTable table = (JTable) c;
-    String format = "%s[name=%s, rowCount=%d, columnCount=%d, enabled=%b, visible=%b, showing=%b]";
-    return String.format(format, getRealClassName(c), quote(table.getName()), table.getRowCount(),
+	  String format = "%s[name='%s', rowCount=%d, columnCount=%d, enabled=%b, visible=%b, showing=%b]";
+	  return String.format(format, getRealClassName(c), table.getName(), table.getRowCount(),
                          table.getColumnCount(), table.isEnabled(), table.isVisible(), table.isShowing());
   }
 

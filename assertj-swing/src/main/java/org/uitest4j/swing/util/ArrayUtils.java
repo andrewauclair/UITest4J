@@ -21,8 +21,7 @@ import java.lang.reflect.Array;
 import java.util.Objects;
 
 import static java.lang.System.lineSeparator;
-import static org.assertj.core.util.Objects.areEqual;
-import static org.assertj.core.util.Strings.quote;
+import static org.uitest4j.swing.util.Strings.singleQuote;
 
 /**
  * Utility methods for arrays.
@@ -59,7 +58,7 @@ public final class ArrayUtils {
 		}
 		for (int i = 0; i < one.length; i++) {
 			for (int j = 0; j < one[i].length; j++) {
-				if (!areEqual(one[i][j], two[i][j])) {
+				if (!Objects.equals(one[i][j], two[i][j])) {
 					return false;
 				}
 			}
@@ -128,7 +127,7 @@ public final class ArrayUtils {
 		int lineSize = line.length;
 		b.append("[");
 		for (int i = 0; i < lineSize; i++) {
-			b.append(quote(line[i]));
+			b.append(singleQuote(line[i]));
 			if (i != lineSize - 1) {
 				b.append(", ");
 			}
@@ -179,6 +178,10 @@ public final class ArrayUtils {
 			throw new IllegalArgumentException("Array length is 0");
 		}
 		return array;
+	}
+
+	public static <T> boolean isNullOrEmpty(T[] array) {
+		return array == null || array.length == 0;
 	}
 
 	private ArrayUtils() {

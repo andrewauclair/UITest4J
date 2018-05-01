@@ -18,7 +18,6 @@ import javax.annotation.Nonnull;
 import javax.swing.*;
 
 import static java.lang.String.valueOf;
-import static org.assertj.core.util.Strings.concat;
 
 /**
  * <p>
@@ -51,7 +50,7 @@ final class JComboBoxItemIndexPreconditions {
   }
 
   private static String itemIndex(int index) {
-    return concat("Item index (", valueOf(index), ")");
+	  return "Item index (" + valueOf(index) + ")";
   }
 
   private JComboBoxItemIndexPreconditions() {

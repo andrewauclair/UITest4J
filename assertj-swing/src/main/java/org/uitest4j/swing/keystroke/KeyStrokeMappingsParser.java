@@ -14,6 +14,7 @@ package org.uitest4j.swing.keystroke;
 
 import org.assertj.core.util.VisibleForTesting;
 import org.uitest4j.swing.exception.ParsingException;
+import org.uitest4j.swing.util.Strings;
 
 import javax.annotation.Nonnull;
 import java.awt.event.InputEvent;
@@ -26,12 +27,10 @@ import java.util.Map;
 
 import static java.lang.Thread.currentThread;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.util.Closeables.closeQuietly;
-import static org.assertj.core.util.Preconditions.checkNotNullOrEmpty;
-import static org.assertj.core.util.Strings.quote;
 import static org.uitest4j.swing.keystroke.KeyStrokeMapping.mapping;
 import static org.uitest4j.swing.keystroke.KeyStrokeMappingProvider.NO_MASK;
 import static org.uitest4j.swing.util.Maps.newHashMap;
+import static org.uitest4j.swing.util.Strings.singleQuote;
 
 /**
  * <p>
@@ -111,7 +110,7 @@ public class KeyStrokeMappingsParser {
 	 */
 	@Nonnull
 	public KeyStrokeMappingProvider parse(@Nonnull String fileName) {
-		checkNotNullOrEmpty(fileName);
+		Strings.checkNotNullOrEmpty(fileName, "fileName");
 		try {
 			return parse(fileAsStream(fileName));
 		}
@@ -164,17 +163,13 @@ public class KeyStrokeMappingsParser {
 	@Nonnull
 	private KeyStrokeMappingProvider parse(@Nonnull InputStream input) throws IOException {
 		List<KeyStrokeMapping> mappings = new ArrayList<>();
-		BufferedReader reader = new BufferedReader(new InputStreamReader(input));
-		try {
+		try (BufferedReader reader = new BufferedReader(new InputStreamReader(input))) {
 			String line = reader.readLine();
 			while (line != null) {
 				mappings.add(mappingFrom(line));
 				line = reader.readLine();
 			}
 			return new ParsedKeyStrokeMappingProvider(mappings);
-		}
-		finally {
-			closeQuietly(reader);
 		}
 	}
 
@@ -208,7 +203,7 @@ public class KeyStrokeMappingsParser {
 			return (int) field.get(null);
 		}
 		catch (IllegalAccessException | NoSuchFieldException e) {
-			throw new ParsingException("Unable to retrieve key code from text " + quote(s), e);
+			throw new ParsingException("Unable to retrieve key code from text " + singleQuote(s), e);
 		}
 	}
 
@@ -221,7 +216,7 @@ public class KeyStrokeMappingsParser {
 			return (int) field.get(null);
 		}
 		catch (IllegalAccessException | NoSuchFieldException e) {
-			throw new ParsingException("Unable to retrieve modifiers from text " + quote(s), e);
+			throw new ParsingException("Unable to retrieve modifiers from text " + singleQuote(s), e);
 		}
 	}
 }

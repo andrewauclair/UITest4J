@@ -12,14 +12,13 @@
  */
 package org.uitest4j.swing.driver;
 
-import static org.assertj.core.error.ShouldMatchPattern.shouldMatch;
-import static org.uitest4j.swing.util.Strings.areEqualOrMatch;
+import org.assertj.core.api.AbstractCharSequenceAssert;
+import org.opentest4j.AssertionFailedError;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import org.assertj.core.api.AbstractCharSequenceAssert;
-import org.assertj.core.internal.Failures;
+import static org.uitest4j.swing.util.Strings.areEqualOrMatch;
 
 /**
  * Assertion methods related to text.
@@ -43,6 +42,6 @@ class TextAssert extends AbstractCharSequenceAssert<TextAssert, String> {
     if (areEqualOrMatch(s, actual)) {
       return;
     }
-    throw Failures.instance().failure(info, shouldMatch(actual, s));
+    throw new AssertionFailedError(String.format("Expecting: %s to match pattern: %s", actual, s));
   }
 }

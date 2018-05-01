@@ -15,7 +15,6 @@ package org.uitest4j.swing.format;
 import static javax.swing.tree.TreeSelectionModel.CONTIGUOUS_TREE_SELECTION;
 import static javax.swing.tree.TreeSelectionModel.DISCONTIGUOUS_TREE_SELECTION;
 import static javax.swing.tree.TreeSelectionModel.SINGLE_TREE_SELECTION;
-import static org.assertj.core.util.Strings.quote;
 
 import java.awt.Component;
 
@@ -52,8 +51,8 @@ public class JTreeFormatter extends ComponentFormatterTemplate {
   @Override
   @Nonnull protected String doFormat(@Nonnull Component c) {
     JTree tree = (JTree) c;
-    String format = "%s[name=%s, selectionCount=%d, selectionPaths=%s, selectionMode=%s, enabled=%b, visible=%b, showing=%b";
-    return String.format(format, getRealClassName(c), quote(tree.getName()), tree.getSelectionCount(),
+	  String format = "%s[name='%s', selectionCount=%d, selectionPaths=%s, selectionMode=%s, enabled=%b, visible=%b, showing=%b";
+	  return String.format(format, getRealClassName(c), tree.getName(), tree.getSelectionCount(),
                          ArrayUtils.format(selectionPaths(tree)), selectionMode(tree), tree.isEnabled(), tree.isVisible(),
                          tree.isShowing());
   }

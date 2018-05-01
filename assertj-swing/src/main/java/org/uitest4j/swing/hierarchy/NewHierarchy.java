@@ -18,11 +18,11 @@ import org.uitest4j.swing.annotation.RunsInCurrentThread;
 
 import javax.annotation.Nonnull;
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.Collection;
 
 import static java.awt.AWTEvent.COMPONENT_EVENT_MASK;
 import static java.awt.AWTEvent.WINDOW_EVENT_MASK;
-import static org.assertj.core.util.Lists.emptyList;
 import static org.uitest4j.swing.listener.WeakEventListener.attachAsWeakEventListener;
 
 /**
@@ -141,7 +141,7 @@ public class NewHierarchy extends ExistingHierarchy {
   @Override
   @Nonnull public Collection<Component> childrenOf(@Nonnull Component c) {
     if (filter.isIgnored(c)) {
-      return emptyList();
+		return new ArrayList<>();
     }
     Collection<Component> children = super.childrenOf(c);
     // this only removes those components which are directly filtered, not necessarily those which have a filtered

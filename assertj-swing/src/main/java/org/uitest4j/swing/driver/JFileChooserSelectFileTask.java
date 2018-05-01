@@ -22,7 +22,6 @@ import java.io.File;
 
 import static javax.swing.JFileChooser.DIRECTORIES_ONLY;
 import static javax.swing.JFileChooser.FILES_ONLY;
-import static org.assertj.core.util.Strings.concat;
 import static org.uitest4j.swing.driver.ComponentPreconditions.checkEnabledAndShowing;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 import static org.uitest4j.swing.format.Formatting.format;
@@ -47,8 +46,8 @@ final class JFileChooserSelectFileTask {
     execute(() -> {
       checkEnabledAndShowing(fileChooser);
       if (files.length > 1 && !fileChooser.isMultiSelectionEnabled()) {
-        throw new IllegalStateException(concat("Expecting file chooser ", format(fileChooser),
-                                               " to handle multiple selection"));
+		  throw new IllegalStateException("Expecting file chooser " + format(fileChooser) +
+				  " to handle multiple selection");
       }
       for (File file : files) {
         checkSelectionMode(fileChooser, file);

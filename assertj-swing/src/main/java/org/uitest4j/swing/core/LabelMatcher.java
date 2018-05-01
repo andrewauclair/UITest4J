@@ -22,9 +22,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.Objects;
 
-import static org.assertj.core.util.Objects.areEqual;
-import static org.assertj.core.util.Strings.quote;
-
 /**
  * Matches an AWT or Swing {@code Component} by the text of the associated {@code JLabel} and (optionally) by type.
  *
@@ -114,7 +111,7 @@ public class LabelMatcher extends AbstractComponentMatcher {
 			return false;
 		}
 		JLabel labelForComponent = (JLabel) c;
-		if (!areEqual(labelForComponent.getText(), label)) {
+		if (!Objects.equals(labelForComponent.getText(), label)) {
 			return false;
 		}
 		Component labeled = labelForComponent.getLabelFor();
@@ -123,7 +120,7 @@ public class LabelMatcher extends AbstractComponentMatcher {
 
 	@Override
 	public String toString() {
-		String format = "%s[label=%s, type=%s, requireShowing=%b]";
-		return String.format(format, getClass().getName(), quote(label), type.getName(), requireShowing());
+		String format = "%s[label='%s', type=%s, requireShowing=%b]";
+		return String.format(format, getClass().getName(), label, type.getName(), requireShowing());
 	}
 }

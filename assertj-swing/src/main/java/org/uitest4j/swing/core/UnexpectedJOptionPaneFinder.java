@@ -12,6 +12,7 @@
  */
 package org.uitest4j.swing.core;
 
+import org.opentest4j.AssertionFailedError;
 import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.annotation.Nonnull;
@@ -20,7 +21,6 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.assertj.core.api.Fail.fail;
 import static org.uitest4j.swing.format.Formatting.format;
 
 /**
@@ -60,6 +60,7 @@ class UnexpectedJOptionPaneFinder {
 			}
 		}
 		message.append("]>");
-		fail(message.toString());
+
+		throw new AssertionFailedError(message.toString());
 	}
 }

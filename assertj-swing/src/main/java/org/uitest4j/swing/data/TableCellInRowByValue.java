@@ -20,7 +20,6 @@ import javax.annotation.Nonnull;
 import javax.swing.*;
 import java.util.Objects;
 
-import static org.assertj.core.util.Objects.areEqual;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 import static org.uitest4j.swing.exception.ActionFailedException.actionFailure;
 import static org.uitest4j.swing.util.ArrayUtils.format;
@@ -164,7 +163,7 @@ public class TableCellInRowByValue implements TableCellFinder {
 									   @Nonnull String[] values, int row) {
 		int columnCount = table.getColumnCount();
 		for (int col = 0; col < columnCount; col++) {
-			if (!areEqual(cellReader.valueAt(table, row, col), values[col])) {
+			if (!Objects.equals(cellReader.valueAt(table, row, col), values[col])) {
 				return false;
 			}
 		}

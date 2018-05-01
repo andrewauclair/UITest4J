@@ -12,12 +12,11 @@
  */
 package org.uitest4j.swing.core.matcher;
 
-import static org.assertj.core.util.Objects.areEqual;
-import static org.assertj.core.util.Strings.quote;
 import static org.uitest4j.swing.util.Strings.areEqualOrMatch;
 import static org.uitest4j.swing.util.Strings.match;
 
 import java.awt.Component;
+import java.util.Objects;
 import java.util.regex.Pattern;
 
 import javax.annotation.Nonnull;
@@ -89,15 +88,16 @@ public abstract class NamedComponentMatcherTemplate<T extends Component> extends
    * @return the given property value to match surrounded by double quotes, or {@link #anyValue()} if the property value
    *         has not been set.
    */
-  protected final @Nullable Object quoted(@Nullable Object propertyValue) {
+  protected final @Nonnull
+  Object quoted(@Nullable Object propertyValue) {
     if (ANY.equals(propertyValue)) {
       return ANY;
     }
     if (propertyValue instanceof Pattern) {
       String pattern = ((Pattern) propertyValue).pattern();
-      return quote(pattern);
+		return "'" + pattern + "'";
     }
-    return quote(propertyValue);
+	  return "'" + propertyValue + "'";
   }
 
   /**
@@ -112,7 +112,7 @@ public abstract class NamedComponentMatcherTemplate<T extends Component> extends
     if (ANY.equals(name)) {
       return true;
     }
-    return areEqual(name, actual);
+	  return Objects.equals(name, actual);
   }
 
   /**
@@ -140,7 +140,7 @@ public abstract class NamedComponentMatcherTemplate<T extends Component> extends
     if (expected instanceof Pattern && actual instanceof CharSequence) {
       return match((Pattern) expected, (CharSequence) actual);
     }
-    return areEqual(expected, actual);
+	  return Objects.equals(expected, actual);
   }
 
   protected final @Nullable Object name() {

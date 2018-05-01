@@ -12,14 +12,15 @@
  */
 package org.uitest4j.swing.image;
 
-import static org.assertj.core.util.Files.newFile;
-import static org.uitest4j.swing.image.ImageFileExtensions.PNG;
-
-import java.awt.image.BufferedImage;
-import java.io.IOException;
+import org.opentest4j.AssertionFailedError;
 
 import javax.annotation.Nonnull;
 import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
+import static org.uitest4j.swing.image.ImageFileExtensions.PNG;
 
 /**
  * Writes an image as a file in the file system.
@@ -37,6 +38,12 @@ public class ImageFileWriter {
    * @exception IOException if an error occurs during writing.
    */
   public boolean writeAsPng(@Nonnull BufferedImage image, @Nonnull String filePath) throws IOException {
-    return ImageIO.write(image, PNG, newFile(filePath));
+    File file = new File(filePath);
+    if (!file.exists()) {
+      if (!file.createNewFile()) {
+        throw new AssertionFailedError("Failed to create file: " + filePath);
+      }
+    }
+    return ImageIO.write(image, PNG, file);
   }
 }

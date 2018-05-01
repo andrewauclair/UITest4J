@@ -13,6 +13,7 @@
 package org.uitest4j.swing.driver;
 
 import org.assertj.core.description.Description;
+import org.opentest4j.AssertionFailedError;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.cell.JListCellReader;
 import org.uitest4j.swing.core.MouseButton;
@@ -37,7 +38,6 @@ import java.util.regex.Pattern;
 import static java.awt.event.KeyEvent.VK_SHIFT;
 import static java.util.Arrays.sort;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Fail.fail;
 import static org.uitest4j.swing.core.MouseButton.LEFT_BUTTON;
 import static org.uitest4j.swing.driver.JListContentQuery.contents;
 import static org.uitest4j.swing.driver.JListItemCountQuery.itemCountIn;
@@ -557,7 +557,7 @@ public class JListDriver extends JComponentDriver {
 
 	@RunsInEDT
 	private void failNoSelection(@Nonnull JList<?> list) {
-		fail(String.format("[%s] No selection", selectedIndexProperty(list).value()));
+		throw new AssertionFailedError(String.format("[%s] No selection", selectedIndexProperty(list).value()));
 	}
 
 	@RunsInEDT

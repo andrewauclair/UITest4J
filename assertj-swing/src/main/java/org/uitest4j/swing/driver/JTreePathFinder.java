@@ -24,8 +24,6 @@ import javax.swing.tree.TreePath;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.assertj.core.util.Strings.quote;
-
 /**
  * Lookup of {@code TreePath}s which text matches the given one.
  * 
@@ -81,7 +79,7 @@ class JTreePathFinder {
   }
 
   @Nonnull private LocationUnavailableException pathNotFound(@Nonnull String path) {
-    throw new LocationUnavailableException(String.format("Unable to find path %s", quote(path)));
+	  throw new LocationUnavailableException(String.format("Unable to find path '%s'", path));
   }
 
   @Nonnull private String[] splitPath(@Nonnull String path) {
@@ -102,7 +100,7 @@ class JTreePathFinder {
 
   @Nonnull private LocationUnavailableException multipleMatchingNodes(@Nonnull String matchingText,
       @Nullable Object parentText) {
-    String msg = String.format("There is more than one node with value '%s' under", matchingText, quote(parentText));
+	  String msg = String.format("There is more than one node with value '%s' under '%s'", matchingText, parentText);
     throw new LocationUnavailableException(msg);
   }
 

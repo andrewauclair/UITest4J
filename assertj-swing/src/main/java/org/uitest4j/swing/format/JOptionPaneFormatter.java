@@ -19,7 +19,6 @@ import javax.swing.*;
 import java.awt.*;
 
 import static javax.swing.JOptionPane.*;
-import static org.assertj.core.util.Strings.quote;
 
 /**
  * Formatter for {@code JOptionPane}s.
@@ -51,8 +50,8 @@ public class JOptionPaneFormatter extends ComponentFormatterTemplate {
   @Override
   @Nonnull protected String doFormat(@Nonnull Component c) {
     JOptionPane optionPane = (JOptionPane) c;
-    String format = "%s[message=%s, messageType=%s, optionType=%s, enabled=%b, visible=%b, showing=%b]";
-    return String.format(format, getRealClassName(c), quote(optionPane.getMessage()),
+	  String format = "%s[message='%s', messageType=%s, optionType=%s, enabled=%b, visible=%b, showing=%b]";
+	  return String.format(format, getRealClassName(c), optionPane.getMessage(),
                          MESSAGE_TYPES.get(optionPane.getMessageType()), OPTION_TYPES.get(optionPane.getOptionType()),
                          optionPane.isEnabled(), optionPane.isVisible(), optionPane.isShowing());
   }

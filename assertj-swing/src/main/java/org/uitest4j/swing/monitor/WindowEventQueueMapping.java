@@ -17,11 +17,11 @@ import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import javax.annotation.Nonnull;
 import java.awt.*;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
 import static java.lang.Boolean.TRUE;
-import static org.assertj.core.util.Sets.newHashSet;
 import static org.uitest4j.swing.query.ComponentParentQuery.parentOf;
 import static org.uitest4j.swing.util.Maps.newWeakHashMap;
 
@@ -75,7 +75,7 @@ class WindowEventQueueMapping {
 
   @Nonnull
   Collection<Window> windows() {
-    Set<Window> rootWindows = newHashSet();
+	  Set<Window> rootWindows = new HashSet<>();
     for (EventQueue queue : queueMap.keySet()) {
       rootWindows.addAll(queueMap.get(queue).keySet());
     }

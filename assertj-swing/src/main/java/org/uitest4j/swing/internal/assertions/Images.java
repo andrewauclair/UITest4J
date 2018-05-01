@@ -13,7 +13,6 @@
 package org.uitest4j.swing.internal.assertions;
 
 import static org.assertj.core.data.Offset.offset;
-import static org.assertj.core.util.Objects.areEqual;
 import static org.uitest4j.swing.assertions.data.RgbColor.color;
 import static org.uitest4j.swing.assertions.error.ShouldBeEqualColors.shouldBeEqualColors;
 import static org.uitest4j.swing.assertions.error.ShouldBeEqualImages.shouldBeEqualImages;
@@ -94,7 +93,7 @@ public class Images {
   public void assertEqual(AssertionInfo info, BufferedImage actual, BufferedImage expected, Offset<Integer> offset) {
     if (offset == null)
       throw new NullPointerException("The given offset should not be null");
-    if (areEqual(actual, expected))
+    if (java.util.Objects.equals(actual, expected))
       return;
     if (actual == null || expected == null)
       throw imagesShouldBeEqual(info, offset);
@@ -125,7 +124,7 @@ public class Images {
    * @throws AssertionError if {@code actual} is equal to {@code other}.
    */
   public void assertNotEqual(AssertionInfo info, BufferedImage actual, BufferedImage other) {
-    if (areEqual(actual, other))
+    if (java.util.Objects.equals(actual, other))
       throw imagesShouldNotBeEqual(info);
     if (actual == null || other == null)
       return;
@@ -174,7 +173,7 @@ public class Images {
       throw new NullPointerException("The given size should not be null");
     Objects.instance().assertNotNull(info, actual);
     Dimension sizeOfActual = sizeOf(actual);
-    if (areEqual(sizeOfActual, size))
+    if (java.util.Objects.equals(sizeOfActual, size))
       return;
     throw imageShouldHaveSize(info, actual, sizeOfActual, size);
   }

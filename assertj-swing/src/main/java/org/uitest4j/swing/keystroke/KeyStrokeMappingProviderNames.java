@@ -12,15 +12,12 @@
  */
 package org.uitest4j.swing.keystroke;
 
-import static org.assertj.core.util.Strings.join;
+import org.uitest4j.swing.util.OSFamily;
 
+import javax.annotation.Nonnull;
 import java.util.Iterator;
 import java.util.Locale;
 import java.util.NoSuchElementException;
-
-import javax.annotation.Nonnull;
-
-import org.uitest4j.swing.util.OSFamily;
 
 /**
  * A generated name for a {@link KeyStrokeMappingProvider} to use, based on operating system family and locale.
@@ -74,13 +71,13 @@ class KeyStrokeMappingProviderNames implements Iterable<String> {
       switch (state) {
       case FULL_NAME:
         state = State.WITHOUT_COUNTRY;
-        return join(PREFIX, osFamily, language, country).with(DELIMETER);
+		  return String.join(DELIMETER, PREFIX, osFamily, language, country);
       case WITHOUT_COUNTRY:
         state = State.LANGUAGE_ONLY;
-        return join(PREFIX, osFamily, language).with(DELIMETER);
+		  return String.join(DELIMETER, PREFIX, osFamily, language);
       case LANGUAGE_ONLY:
         state = State.END;
-        return join(PREFIX, language).with(DELIMETER);
+		  return String.join(DELIMETER, PREFIX, language);
       default:
         throw new NoSuchElementException("There are no more names to generate");
       }

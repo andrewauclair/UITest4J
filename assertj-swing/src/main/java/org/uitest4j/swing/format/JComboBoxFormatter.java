@@ -21,8 +21,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.List;
 
-import static org.assertj.core.util.Strings.quote;
-
 /**
  * Formatter for {@code JComboBox}es.
  *
@@ -39,9 +37,9 @@ public class JComboBoxFormatter extends ComponentFormatterTemplate {
   @Override
   @Nonnull protected String doFormat(@Nonnull Component c) {
     JComboBox<?> comboBox = (JComboBox<?>) c;
-    String format = "%s[name=%s, selectedItem=%s, contents=%s, editable=%b, enabled=%b, visible=%b, showing=%b]";
-    return String.format(format, getRealClassName(c), quote(comboBox.getName()),
-                         quote(comboBox.getSelectedItem()), ArrayUtils.format(contentsOf(comboBox)), comboBox.isEditable(),
+	  String format = "%s[name='%s', selectedItem='%s', contents=%s, editable=%b, enabled=%b, visible=%b, showing=%b]";
+	  return String.format(format, getRealClassName(c), comboBox.getName(),
+			  comboBox.getSelectedItem(), ArrayUtils.format(contentsOf(comboBox)), comboBox.isEditable(),
                          comboBox.isEnabled(), comboBox.isVisible(), comboBox.isShowing());
   }
 

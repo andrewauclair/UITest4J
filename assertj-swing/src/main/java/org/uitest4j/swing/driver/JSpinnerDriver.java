@@ -28,7 +28,6 @@ import java.util.List;
 
 import static javax.swing.text.DefaultEditorKit.selectAllAction;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.util.Strings.quote;
 import static org.uitest4j.swing.driver.ComponentPreconditions.checkEnabledAndShowing;
 import static org.uitest4j.swing.driver.JSpinnerSetValueTask.setValue;
 import static org.uitest4j.swing.driver.JSpinnerValueQuery.valueOf;
@@ -294,7 +293,7 @@ public class JSpinnerDriver extends JComponentDriver {
       setValue(spinner, value);
     } catch (IllegalArgumentException e) {
       // message from original exception is useless
-      throw new IllegalArgumentException("Value " + quote(value) + " is not valid");
+		throw new IllegalArgumentException("Value '" + value + "' is not valid");
     }
     robot.waitForIdle();
   }

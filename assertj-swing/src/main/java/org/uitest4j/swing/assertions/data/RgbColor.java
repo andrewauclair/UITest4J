@@ -12,10 +12,11 @@
  */
 package org.uitest4j.swing.assertions.data;
 
-import static java.lang.Math.abs;
-import static org.assertj.core.util.Objects.HASH_CODE_PRIME;
-
 import org.assertj.core.data.Offset;
+
+import java.util.Objects;
+
+import static java.lang.Math.abs;
 
 /**
  * A color.
@@ -78,32 +79,26 @@ public final class RgbColor {
   }
 
   @Override
-  public int hashCode() {
-    int result = 1;
-    result = HASH_CODE_PRIME * result + r;
-    result = HASH_CODE_PRIME * result + g;
-    result = HASH_CODE_PRIME * result + b;
-    return result;
-  }
-
-  @Override
-  public boolean equals(Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    RgbColor other = (RgbColor) obj;
-    if (r != other.r)
-      return false;
-    if (g != other.g)
-      return false;
-    return b == other.b;
-  }
-
-  @Override
   public String toString() {
-    return String.format("color[r=%d, g=%d, b=%d]", r, g, b);
+	  return String.format("color[r=%d, g=%d, b=%d]", r, g, b);
+  }
+
+  @Override
+  public boolean equals(Object o) {
+	  if (this == o) {
+      return true;
+	  }
+	  if (o == null || getClass() != o.getClass()) {
+      return false;
+	  }
+	  RgbColor rgbColor = (RgbColor) o;
+	  return r == rgbColor.r &&
+			  g == rgbColor.g &&
+			  b == rgbColor.b;
+  }
+
+  @Override
+  public int hashCode() {
+	  return Objects.hash(r, g, b);
   }
 }

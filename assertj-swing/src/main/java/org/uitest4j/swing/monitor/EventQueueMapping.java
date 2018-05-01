@@ -19,10 +19,10 @@ import javax.annotation.Nullable;
 import java.awt.*;
 import java.lang.ref.WeakReference;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import static org.assertj.core.util.Sets.newHashSet;
 import static org.uitest4j.swing.util.Maps.newWeakHashMap;
 
 /**
@@ -37,7 +37,7 @@ class EventQueueMapping {
   @RunsInCurrentThread
   void addQueueFor(@Nonnull Component c) {
     EventQueue queue = c.getToolkit().getSystemEventQueue();
-    queueMap.put(c, new WeakReference<EventQueue>(queue));
+	  queueMap.put(c, new WeakReference<>(queue));
   }
 
   @RunsInCurrentThread
@@ -57,7 +57,7 @@ class EventQueueMapping {
 
   @Nonnull
   Collection<EventQueue> eventQueues() {
-    Set<EventQueue> eventQueues = newHashSet();
+	  Set<EventQueue> eventQueues = new HashSet<>();
     for (WeakReference<EventQueue> reference : queueMap.values()) {
       EventQueue queue = queueFrom(reference);
       if (queue != null) {

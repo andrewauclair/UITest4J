@@ -12,17 +12,13 @@
  */
 package org.uitest4j.swing.util;
 
-import static org.assertj.core.util.Objects.areEqual;
-
-import java.util.Objects;
-import java.util.regex.Pattern;
-import java.util.regex.PatternSyntaxException;
+import org.assertj.core.util.Preconditions;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-
-import org.assertj.core.util.Preconditions;
-import org.opentest4j.AssertionFailedError;
+import java.util.Objects;
+import java.util.regex.Pattern;
+import java.util.regex.PatternSyntaxException;
 
 /**
  * Utility methods related to {@code String}s.
@@ -67,7 +63,7 @@ public final class Strings {
    * @return {@code true} if the given {@code String}s match, {@code false} otherwise.
    */
   public static boolean areEqualOrMatch(@Nullable String pattern, @Nullable String s) {
-    if (areEqual(pattern, s)) {
+	  if (Objects.equals(pattern, s)) {
       return true;
     }
     if (pattern != null && s != null) {
@@ -135,6 +131,10 @@ public final class Strings {
     }
     return str;
   }
+
+	public static String singleQuote(String str) {
+		return "'" + str + "'";
+	}
 
   private Strings() {
   }

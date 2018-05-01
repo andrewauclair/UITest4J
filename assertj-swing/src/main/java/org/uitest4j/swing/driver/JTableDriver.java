@@ -14,6 +14,7 @@ package org.uitest4j.swing.driver;
 
 import org.assertj.core.description.Description;
 import org.assertj.core.util.VisibleForTesting;
+import org.opentest4j.AssertionFailedError;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.cell.JTableCellReader;
@@ -40,7 +41,6 @@ import java.util.Objects;
 import java.util.regex.Pattern;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Fail.fail;
 import static org.uitest4j.swing.core.MouseButton.LEFT_BUTTON;
 import static org.uitest4j.swing.driver.JTableCellEditableQuery.isCellEditable;
 import static org.uitest4j.swing.driver.JTableColumnCountQuery.columnCountOf;
@@ -394,7 +394,7 @@ public class JTableDriver extends JComponentDriver {
 			String format = "[%s] expected no selection but was:<rows=%s, columns=%s>";
 			String msg = String.format(format, propertyName(table, SELECTION_PROPERTY).value(),
 					format(selectedRowsOf(table)), format(table.getSelectedColumns()));
-			fail(msg);
+			throw new AssertionFailedError(msg);
 		});
 	}
 
@@ -569,7 +569,8 @@ public class JTableDriver extends JComponentDriver {
 									 @Nullable Description description) {
 		String descriptionValue = description != null ? description.value() : null;
 		String message = descriptionValue == null ? "" : String.format("[%s] ", descriptionValue);
-		fail(message + String.format("expected:<%s> but was<%s>", ArrayUtils.format(expected), ArrayUtils.format(actual)));
+		throw new AssertionFailedError(message + String.format("expected:<%s> but was<%s>", ArrayUtils.format(expected), ArrayUtils.format(actual)),
+				ArrayUtils.format(expected), ArrayUtils.format(actual));
 	}
 
 	/**

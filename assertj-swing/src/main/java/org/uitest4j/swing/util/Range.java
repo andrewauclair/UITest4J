@@ -12,9 +12,8 @@
  */
 package org.uitest4j.swing.util;
 
-import static org.assertj.core.util.Objects.HASH_CODE_PRIME;
-
 import javax.annotation.Nonnull;
+import java.util.Objects;
 
 /**
  * <p>
@@ -67,23 +66,20 @@ public final class Range {
     }
 
     @Override
-    public int hashCode() {
-      return HASH_CODE_PRIME * 1 + value;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-      if (this == obj) {
+	public boolean equals(Object o) {
+		if (this == o) {
         return true;
       }
-      if (obj == null) {
+		if (o == null || getClass() != o.getClass()) {
         return false;
       }
-      if (getClass() != obj.getClass()) {
-        return false;
-      }
-      From other = (From) obj;
-      return value == other.value;
+		From from = (From) o;
+		return value == from.value;
+	}
+
+	  @Override
+	  public int hashCode() {
+		  return Objects.hash(value);
     }
   }
 
@@ -102,23 +98,21 @@ public final class Range {
     }
 
     @Override
-    public int hashCode() {
-      return HASH_CODE_PRIME * 1 + value;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-      if (this == obj) {
+	public boolean equals(Object o) {
+		if (this == o) {
         return true;
       }
-      if (obj == null) {
+		if (o == null || getClass() != o.getClass()) {
         return false;
       }
-      if (getClass() != obj.getClass()) {
-        return false;
-      }
-      To other = (To) obj;
-      return value == other.value;
+		To to = (To) o;
+		return value == to.value;
+	}
+
+	  @Override
+	  public int hashCode() {
+
+		  return Objects.hash(value);
     }
   }
 

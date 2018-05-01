@@ -20,8 +20,6 @@ import javax.annotation.Nullable;
 import java.awt.*;
 import java.util.Objects;
 
-import static org.assertj.core.util.Objects.areEqual;
-
 /**
  * Matches an AWT or Swing {@code Component} by name and (optionally) by type.
  *
@@ -103,7 +101,7 @@ public final class NameMatcher extends AbstractComponentMatcher {
 		if (c == null) {
 			return false;
 		}
-		return areEqual(name, c.getName()) && type.isInstance(c) && requireShowingMatches(c);
+		return Objects.equals(name, c.getName()) && type.isInstance(c) && requireShowingMatches(c);
 	}
 
 	@Override

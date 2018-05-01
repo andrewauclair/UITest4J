@@ -12,7 +12,6 @@
  */
 package org.uitest4j.swing.timing;
 
-import static org.assertj.core.util.Preconditions.checkNotNullOrEmpty;
 import static org.uitest4j.swing.timing.Timeout.timeout;
 
 import java.util.Objects;
@@ -28,6 +27,7 @@ import javax.annotation.Nonnull;
 
 import org.assertj.core.presentation.StandardRepresentation;
 import org.uitest4j.swing.exception.WaitTimedOutError;
+import org.uitest4j.swing.util.ArrayUtils;
 
 /**
  * Waits for period of time or for a particular condition to be satisfied.
@@ -145,7 +145,7 @@ public final class Pause {
    * @throws WaitTimedOutError if the wait times out.
    */
   public static void pause(@Nonnull final Condition[] conditions, final long timeout) {
-    checkNotNullOrEmpty(conditions);
+	  ArrayUtils.requireNonNullAndNotEmpty(conditions);
     for (Condition condition : conditions) {
 		Objects.requireNonNull(condition);
     }

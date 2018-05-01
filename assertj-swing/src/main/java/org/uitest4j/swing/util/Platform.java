@@ -14,7 +14,6 @@ package org.uitest4j.swing.util;
 
 import static java.lang.String.valueOf;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.util.Strings.concat;
 import static org.uitest4j.swing.util.Modifiers.keysFor;
 
 import java.awt.Toolkit;
@@ -58,7 +57,7 @@ public final class Platform {
   public static int controlOrCommandKey() {
     int menuShortcutKeyMask = controlOrCommandMask();
     int[] keys = keysFor(menuShortcutKeyMask);
-    assertThat(keys).as(concat("Key code for mask ", valueOf(menuShortcutKeyMask))).isNotNull().hasSize(1);
+	  assertThat(keys).as("Key code for mask " + valueOf(menuShortcutKeyMask)).isNotNull().hasSize(1);
     return keys[0];
   }
 

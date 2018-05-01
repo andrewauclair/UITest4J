@@ -12,14 +12,14 @@
  */
 package org.uitest4j.swing.format;
 
-import static org.assertj.core.util.Strings.quote;
-
 import java.awt.Component;
 
 import javax.annotation.Nonnull;
 import javax.swing.JTabbedPane;
 
 import org.uitest4j.swing.util.ArrayUtils;
+
+import static org.uitest4j.swing.util.Strings.singleQuote;
 
 /**
  * Formatter for {@code JTabbedPane}s.
@@ -38,8 +38,8 @@ public class JTabbedPaneFormatter extends ComponentFormatterTemplate {
   @Override
   @Nonnull protected String doFormat(@Nonnull Component c) {
     JTabbedPane tabbedPane = (JTabbedPane) c;
-    String format = "%s[name=%s, selectedTabIndex=%d, selectedTabTitle=%s, tabCount=%d, tabTitles=%s, enabled=%b, visible=%s, showing=%s";
-    return String.format(format, getRealClassName(c), quote(tabbedPane.getName()),
+	  String format = "%s[name='%s', selectedTabIndex=%d, selectedTabTitle=%s, tabCount=%d, tabTitles=%s, enabled=%b, visible=%s, showing=%s";
+	  return String.format(format, getRealClassName(c), tabbedPane.getName(),
                          tabbedPane.getSelectedIndex(), selectedTab(tabbedPane), tabbedPane.getTabCount(),
                          ArrayUtils.format(tabTitles(tabbedPane)), tabbedPane.isEnabled(), tabbedPane.isVisible(),
                          tabbedPane.isShowing());
@@ -53,7 +53,7 @@ public class JTabbedPaneFormatter extends ComponentFormatterTemplate {
     if (index == -1) {
       return NO_SELECTION;
     }
-    return quote(tabbedPane.getTitleAt(index));
+	  return singleQuote(tabbedPane.getTitleAt(index));
   }
 
   private String[] tabTitles(JTabbedPane tabbedPane) {

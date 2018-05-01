@@ -14,6 +14,7 @@ package org.uitest4j.swing.driver;
 
 import org.assertj.core.description.Description;
 import org.assertj.core.util.VisibleForTesting;
+import org.opentest4j.AssertionFailedError;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.cell.JComboBoxCellReader;
@@ -36,7 +37,6 @@ import java.util.regex.Pattern;
 import static javax.swing.text.DefaultEditorKit.deletePrevCharAction;
 import static javax.swing.text.DefaultEditorKit.selectAllAction;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Fail.fail;
 import static org.uitest4j.swing.driver.ComponentPreconditions.checkEnabledAndShowing;
 import static org.uitest4j.swing.driver.JComboBoxContentQuery.contents;
 import static org.uitest4j.swing.driver.JComboBoxEditableQuery.isEditable;
@@ -205,7 +205,7 @@ public class JComboBoxDriver extends JComponentDriver {
 	}
 
 	private void failNoSelection(@Nonnull JComboBox<?> comboBox) {
-		fail(String.format("[%s] No selection", selectedIndexProperty(comboBox).value()));
+		throw new AssertionFailedError(String.format("[%s] No selection", selectedIndexProperty(comboBox).value()));
 	}
 
 	/**
@@ -222,7 +222,7 @@ public class JComboBoxDriver extends JComponentDriver {
 			return;
 		}
 		String format = "[%s] Expecting no selection, but found:<%s>";
-		fail(String.format(format, selectedIndexProperty(comboBox).value(), "'" + selection.second + "'"));
+		throw new AssertionFailedError(String.format(format, selectedIndexProperty(comboBox).value(), "'" + selection.second + "'"));
 	}
 
 	/**

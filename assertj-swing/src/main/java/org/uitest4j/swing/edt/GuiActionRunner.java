@@ -12,18 +12,19 @@
  */
 package org.uitest4j.swing.edt;
 
-import static javax.swing.SwingUtilities.invokeLater;
-import static javax.swing.SwingUtilities.isEventDispatchThread;
-import static org.assertj.core.util.Throwables.appendStackTraceInCurrentThreadToThrowable;
-import static org.uitest4j.swing.exception.UnexpectedException.unexpected;
-
-import java.util.concurrent.Callable;
-import java.util.concurrent.CountDownLatch;
-
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.concurrent.Callable;
+import java.util.concurrent.CountDownLatch;
+
+import static javax.swing.SwingUtilities.invokeLater;
+import static javax.swing.SwingUtilities.isEventDispatchThread;
+import static org.uitest4j.swing.exception.UnexpectedException.unexpected;
 
 /**
  * Executes instances of {@link GuiQuery} and {@link GuiTask}.
@@ -198,5 +199,34 @@ public class GuiActionRunner {
       throw (Error) caughtException;
     }
     throw unexpected(caughtException);
+  }
+
+  /**
+   * Borrowed from Throwables in AssertJ Core to break dependency
+   */
+  public static void appendStackTraceInCurrentThreadToThrowable(Throwable t, String methodToStartFrom) {
+    List<StackTraceElement> stackTrace = new ArrayList<>(Arrays.asList(t.getStackTrace()));
+    stackTrace.addAll(stackTraceInCurrentThread(methodToStartFrom));
+    t.setStackTrace(stackTrace.toArray(new StackTraceElement[0]));
+  }
+
+  private static List<StackTraceElement> stackTraceInCurrentThread(String methodToStartFrom) {
+    List<StackTraceElement> filtered = stackTraceInCurrentThread();
+    List<StackTraceElement> toRemove = new ArrayList<>();
+
+    for (Object e : filtered) {
+      if (methodToStartFrom.equals(((StackTraceElement) e).getMethodName())) {
+        break;
+      }
+
+      toRemove.add((StackTraceElement) e);
+    }
+
+    filtered.removeAll(toRemove);
+    return filtered;
+  }
+
+  private static List<StackTraceElement> stackTraceInCurrentThread() {
+    return Arrays.asList(Thread.currentThread().getStackTrace());
   }
 }

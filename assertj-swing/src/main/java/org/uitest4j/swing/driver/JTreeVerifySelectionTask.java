@@ -13,6 +13,7 @@
 package org.uitest4j.swing.driver;
 
 import org.assertj.core.description.Description;
+import org.opentest4j.AssertionFailedError;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.uitest4j.swing.annotation.RunsInEDT;
 
@@ -23,8 +24,6 @@ import java.util.Arrays;
 import java.util.Objects;
 
 import static java.util.Arrays.sort;
-import static org.assertj.core.api.Fail.fail;
-import static org.assertj.core.util.Objects.areEqual;
 import static org.uitest4j.swing.driver.JTreeMatchingPathQuery.matchingPathWithRootIfInvisible;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 import static org.uitest4j.swing.util.ArrayUtils.format;
@@ -58,7 +57,7 @@ final class JTreeVerifySelectionTask {
   private static void failNotEqualSelection(@Nonnull Description errMsg, @Nonnull int[] expected, @Nonnull int[] actual) {
     String format = "[%s] expecting selection:<%s> but was:<%s>";
     String msg = String.format(format, errMsg.value(), format(expected), format(actual));
-    fail(msg);
+    throw new AssertionFailedError(msg);
   }
 
   @RunsInEDT
@@ -82,7 +81,7 @@ final class JTreeVerifySelectionTask {
     for (int i = 0; i < selectionCount; i++) {
       TreePath expected = matchingPathWithRootIfInvisible(tree, Objects.requireNonNull(selection[i]), pathFinder);
       TreePath actual = selectionPaths[i];
-      if (!areEqual(expected, actual)) {
+      if (!Objects.equals(expected, actual)) {
         failNotEqualSelection(errMsg, selection, selectionPaths);
       }
     }
@@ -92,11 +91,11 @@ final class JTreeVerifySelectionTask {
                                             @Nonnull TreePath[] actual) {
     String format = "[%s] expecting selection:<%s> but was:<%s>";
     String msg = String.format(format, errMsg.value(), format(expected), format(actual));
-    fail(msg);
+    throw new AssertionFailedError(msg);
   }
 
   private static void failNoSelection(final @Nonnull Description errMessage) {
-    fail(String.format("[%s] No selection", errMessage.value()));
+    throw new AssertionFailedError(String.format("[%s] No selection", errMessage.value()));
   }
 
   @RunsInEDT
@@ -107,7 +106,7 @@ final class JTreeVerifySelectionTask {
       }
       String format = "[%s] expected no selection but was:<%s>";
       String message = String.format(format, errMsg.value(), format(tree.getSelectionPaths()));
-      fail(message);
+      throw new AssertionFailedError(message);
     });
   }
 

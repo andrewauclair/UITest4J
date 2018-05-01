@@ -26,9 +26,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-import static org.assertj.core.util.Strings.quote;
 import static org.uitest4j.swing.exception.ActionFailedException.actionFailure;
 import static org.uitest4j.swing.util.Maps.newHashMap;
+import static org.uitest4j.swing.util.Strings.singleQuote;
 
 /**
  * Formatter that uses <a href="http://docs.oracle.com/javase/tutorial/javabeans/index.html"
@@ -111,7 +111,7 @@ public final class IntrospectionComponentFormatter extends ComponentFormatterTem
 			b.append(propertyValue(c, name));
 		}
 		catch (Exception e) {
-			b.append(String.format("<Unable to read property [%s: %s]>", e.getClass().getName(), quote(e.getMessage())));
+			b.append(String.format("<Unable to read property [%s: '%s']>", e.getClass().getName(), e.getMessage()));
 		}
 	}
 
@@ -125,7 +125,7 @@ public final class IntrospectionComponentFormatter extends ComponentFormatterTem
 		if (isOneDimensionalArray(value)) {
 			return ArrayUtils.format(value);
 		}
-		return quote(value);
+		return singleQuote(value.toString());
 	}
 
 	private boolean isOneDimensionalArray(Object o) {

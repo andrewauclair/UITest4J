@@ -12,9 +12,8 @@
  */
 package org.uitest4j.swing.data;
 
-import static org.assertj.core.util.Objects.HASH_CODE_PRIME;
-
 import javax.annotation.Nonnull;
+import java.util.Objects;
 
 /**
  * A cell in a {@code JTable}.
@@ -49,6 +48,25 @@ public class TableCell {
     return new TableCellBuilder(row);
   }
 
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
+		TableCell tableCell = (TableCell) o;
+		return row == tableCell.row &&
+				column == tableCell.column;
+	}
+
+	@Override
+	public int hashCode() {
+
+		return Objects.hash(row, column);
+	}
+
   /**
    * Factory of {@link TableCell}s.
    *
@@ -82,32 +100,6 @@ public class TableCell {
   protected TableCell(int row, int column) {
     this.row = row;
     this.column = column;
-  }
-
-  @Override
-  public final boolean equals(Object obj) {
-    if (this == obj) {
-      return true;
-    }
-    if (obj == null) {
-      return false;
-    }
-    if (!(obj instanceof TableCell)) {
-      return false;
-    }
-    TableCell other = (TableCell) obj;
-    if (row != other.row) {
-      return false;
-    }
-    return column == other.column;
-  }
-
-  @Override
-  public final int hashCode() {
-    int result = 1;
-    result = HASH_CODE_PRIME * result + column;
-    result = HASH_CODE_PRIME * result + row;
-    return result;
   }
 
   @Override
