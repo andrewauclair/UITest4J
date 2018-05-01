@@ -22,6 +22,7 @@ import javax.swing.*;
 import javax.swing.tree.TreePath;
 import java.util.Arrays;
 import java.util.Objects;
+import java.util.function.Supplier;
 
 import static java.util.Arrays.sort;
 import static org.uitest4j.swing.driver.JTreeMatchingPathQuery.matchingPathWithRootIfInvisible;
@@ -36,12 +37,12 @@ import static org.uitest4j.swing.util.ArrayUtils.format;
 final class JTreeVerifySelectionTask {
   @RunsInEDT
   static void checkHasSelection(final @Nonnull JTree tree, final @Nonnull int[] selection,
-                                final @Nonnull Description errMsg) {
+                                final @Nonnull Supplier<String> errMsg) {
     execute(() -> checkSelection(tree, selection, errMsg));
   }
 
   @RunsInCurrentThread
-  private static void checkSelection(@Nonnull JTree tree, @Nonnull int[] selection, @Nonnull Description errMsg) {
+  private static void checkSelection(@Nonnull JTree tree, @Nonnull int[] selection, @Nonnull Supplier<String> errMsg) {
     int[] selectionRows = tree.getSelectionRows();
     if (selectionRows == null || selectionRows.length == 0) {
       failNoSelection(errMsg);
@@ -54,21 +55,21 @@ final class JTreeVerifySelectionTask {
     failNotEqualSelection(errMsg, selection, selectionRows);
   }
 
-  private static void failNotEqualSelection(@Nonnull Description errMsg, @Nonnull int[] expected, @Nonnull int[] actual) {
+  private static void failNotEqualSelection(@Nonnull Supplier<String> errMsg, @Nonnull int[] expected, @Nonnull int[] actual) {
     String format = "[%s] expecting selection:<%s> but was:<%s>";
-    String msg = String.format(format, errMsg.value(), format(expected), format(actual));
+    String msg = String.format(format, errMsg.get(), format(expected), format(actual));
     throw new AssertionFailedError(msg);
   }
 
   @RunsInEDT
   static void checkHasSelection(final @Nonnull JTree tree, final @Nonnull String[] selection,
-                                final @Nonnull JTreePathFinder pathFinder, final @Nonnull Description errMsg) {
+                                final @Nonnull JTreePathFinder pathFinder, final @Nonnull Supplier<String> errMsg) {
     execute(() -> checkSelection(tree, selection, pathFinder, errMsg));
   }
 
   @RunsInCurrentThread
   private static void checkSelection(@Nonnull JTree tree, @Nonnull String[] selection,
-                                     @Nonnull JTreePathFinder pathFinder, @Nonnull Description errMsg) {
+                                     @Nonnull JTreePathFinder pathFinder, @Nonnull Supplier<String> errMsg) {
     TreePath[] selectionPaths = tree.getSelectionPaths();
     if (selectionPaths == null || selectionPaths.length == 0) {
       failNoSelection(errMsg);
@@ -87,25 +88,25 @@ final class JTreeVerifySelectionTask {
     }
   }
 
-  private static void failNotEqualSelection(@Nonnull Description errMsg, @Nonnull String[] expected,
+  private static void failNotEqualSelection(@Nonnull Supplier<String> errMsg, @Nonnull String[] expected,
                                             @Nonnull TreePath[] actual) {
     String format = "[%s] expecting selection:<%s> but was:<%s>";
-    String msg = String.format(format, errMsg.value(), format(expected), format(actual));
+    String msg = String.format(format, errMsg.get(), format(expected), format(actual));
     throw new AssertionFailedError(msg);
   }
 
-  private static void failNoSelection(final @Nonnull Description errMessage) {
-    throw new AssertionFailedError(String.format("[%s] No selection", errMessage.value()));
+  private static void failNoSelection(final @Nonnull Supplier<String> errMessage) {
+    throw new AssertionFailedError(String.format("[%s] No selection", errMessage.get()));
   }
 
   @RunsInEDT
-  static void checkNoSelection(final @Nonnull JTree tree, final @Nonnull Description errMsg) {
+  static void checkNoSelection(final @Nonnull JTree tree, final @Nonnull Supplier<String> errMsg) {
     execute(() -> {
       if (tree.getSelectionCount() == 0) {
         return;
       }
       String format = "[%s] expected no selection but was:<%s>";
-      String message = String.format(format, errMsg.value(), format(tree.getSelectionPaths()));
+      String message = String.format(format, errMsg.get(), format(tree.getSelectionPaths()));
       throw new AssertionFailedError(message);
     });
   }

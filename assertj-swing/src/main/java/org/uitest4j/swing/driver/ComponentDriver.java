@@ -26,6 +26,7 @@ import javax.annotation.Nonnull;
 import javax.swing.*;
 import java.awt.*;
 import java.util.Objects;
+import java.util.function.Supplier;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.uitest4j.swing.awt.AWT.visibleCenterOf;
@@ -624,6 +625,7 @@ public class ComponentDriver {
 	@RunsInEDT
 	@Nonnull
 	public static Description propertyName(final @Nonnull Component c, final @Nonnull String propertyName) {
+//		return () -> String.format("%s - property:'%s'", format(c), propertyName);
 		return new GuiLazyLoadingDescription() {
 			@Override
 			@Nonnull
@@ -633,6 +635,11 @@ public class ComponentDriver {
 		};
 	}
 
+	@RunsInEDT
+	@Nonnull
+	public static Supplier<String> propertyName(final @Nonnull Component c, final @Nonnull String propertyName, boolean useSupplier) {
+		return () -> String.format("%s - property:'%s'", format(c), propertyName);
+	}
 	/**
 	 * Simulates a user moving the mouse pointer to the given coordinates relative to the given AWT or Swing
 	 * {@code Component}. This method will <b>not</b> throw any exceptions if the it was not possible to move the mouse

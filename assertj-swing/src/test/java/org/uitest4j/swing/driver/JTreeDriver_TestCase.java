@@ -40,6 +40,7 @@ public abstract class JTreeDriver_TestCase extends RobotBasedTestCase {
   protected final void onSetUp() {
     window = MyWindow.createNew(getClass());
     tree = window.tree;
+    tree.setName("TestTree");
     driver = new JTreeDriver(robot);
     extraSetUp();
   }

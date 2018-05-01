@@ -13,6 +13,7 @@
 package org.uitest4j.swing.driver;
 
 import org.assertj.core.description.Description;
+import org.opentest4j.AssertionFailedError;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.cell.JTreeCellReader;
@@ -23,6 +24,7 @@ import org.uitest4j.swing.edt.GuiQuery;
 import org.uitest4j.swing.exception.LocationUnavailableException;
 import org.uitest4j.swing.exception.WaitTimedOutError;
 import org.uitest4j.swing.internal.annotation.InternalApi;
+import org.uitest4j.swing.internal.assertions.OpenTest4JAssertions;
 import org.uitest4j.swing.util.ArrayPreconditions;
 import org.uitest4j.swing.util.ArrayUtils;
 import org.uitest4j.swing.util.Pair;
@@ -36,8 +38,8 @@ import javax.swing.plaf.basic.BasicTreeUI;
 import javax.swing.tree.TreePath;
 import java.awt.*;
 import java.util.Objects;
+import java.util.function.Supplier;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.uitest4j.swing.core.MouseButton.LEFT_BUTTON;
 import static org.uitest4j.swing.core.MouseButton.RIGHT_BUTTON;
 import static org.uitest4j.swing.driver.ComponentPreconditions.checkEnabledAndShowing;
@@ -70,7 +72,6 @@ import static org.uitest4j.swing.util.Platform.controlOrCommandKey;
  */
 @InternalApi
 public class JTreeDriver extends JComponentDriver {
-	private static final String EDITABLE_PROPERTY = "editable";
 	private static final String SELECTION_PROPERTY = "selection";
 
 	private final JTreeLocation location;
@@ -946,41 +947,32 @@ public class JTreeDriver extends JComponentDriver {
 
 	@RunsInEDT
 	@Nonnull
-	private Description selectionProperty(@Nonnull JTree tree) {
-		return propertyName(tree, SELECTION_PROPERTY);
+	private Supplier<String> selectionProperty(@Nonnull JTree tree) {
+		return propertyName(tree, SELECTION_PROPERTY, true);
 	}
 
 	/**
 	 * Asserts that the given {@code JTree} is editable.
 	 *
 	 * @param tree the given {@code JTree}.
-	 * @throws AssertionError if the {@code JTree} is not editable.
+	 * @throws AssertionFailedError if the {@code JTree} is not editable.
 	 */
 	@RunsInEDT
 	public void requireEditable(@Nonnull JTree tree) {
-		assertEditable(tree, true);
+		OpenTest4JAssertions.assertTrue(isEditable(tree),
+				() -> "Expected '" + tree.getName() + "' to be editable");
 	}
 
 	/**
 	 * Asserts that the given {@code JTree} is not editable.
 	 *
 	 * @param tree the given {@code JTree}.
-	 * @throws AssertionError if the {@code JTree} is editable.
+	 * @throws AssertionFailedError if the {@code JTree} is editable.
 	 */
 	@RunsInEDT
 	public void requireNotEditable(@Nonnull JTree tree) {
-		assertEditable(tree, false);
-	}
-
-	@RunsInEDT
-	private void assertEditable(@Nonnull JTree tree, boolean editable) {
-		assertThat(isEditable(tree)).as(editableProperty(tree)).isEqualTo(editable);
-	}
-
-	@RunsInEDT
-	@Nonnull
-	private static Description editableProperty(@Nonnull JTree tree) {
-		return propertyName(tree, EDITABLE_PROPERTY);
+		OpenTest4JAssertions.assertFalse(isEditable(tree),
+				() -> "Expected '" + tree.getName() + "' to not be editable");
 	}
 
 	/**
