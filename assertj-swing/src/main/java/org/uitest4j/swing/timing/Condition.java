@@ -14,9 +14,7 @@ package org.uitest4j.swing.timing;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-
-import org.assertj.core.description.Description;
-import org.assertj.core.description.TextDescription;
+import java.util.function.Supplier;
 
 /**
  * A condition to verify, usually used in the method {@link Pause#pause(Condition)}.
@@ -27,7 +25,7 @@ import org.assertj.core.description.TextDescription;
 public abstract class Condition {
   protected static final String EMPTY_TEXT = "";
 
-  private final Description description;
+  private final Supplier<String> description;
 
   /**
    * Creates a new {@link Condition}.
@@ -35,7 +33,7 @@ public abstract class Condition {
    * @param description describes this condition.
    */
   public Condition(@Nonnull String description) {
-    this(new TextDescription(description));
+    this(() -> description);
   }
 
   /**
@@ -43,7 +41,7 @@ public abstract class Condition {
    * 
    * @param description describes this condition.
    */
-  public Condition(@Nullable Description description) {
+  public Condition(@Nullable Supplier<String> description) {
     this.description = description;
   }
 
@@ -61,7 +59,7 @@ public abstract class Condition {
    */
   @Override
   public final @Nonnull String toString() {
-    String descriptionText = description != null ? description.value() : defaultDescription();
+    String descriptionText = description != null ? description.get() : defaultDescription();
     String addendum = descriptionAddendum();
 	  return descriptionText + addendum;
   }

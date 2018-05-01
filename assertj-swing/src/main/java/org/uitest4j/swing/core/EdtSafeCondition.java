@@ -12,13 +12,13 @@
  */
 package org.uitest4j.swing.core;
 
-import org.assertj.core.description.Description;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.timing.Condition;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.Objects;
+import java.util.function.Supplier;
 
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
@@ -42,7 +42,7 @@ public abstract class EdtSafeCondition extends Condition {
 	 *
 	 * @param description describes this condition.
 	 */
-	public EdtSafeCondition(@Nullable Description description) {
+	public EdtSafeCondition(@Nullable Supplier<String> description) {
 		super(description);
 	}
 

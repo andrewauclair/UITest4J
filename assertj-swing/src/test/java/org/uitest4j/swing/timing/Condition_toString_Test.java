@@ -12,11 +12,12 @@
  */
 package org.uitest4j.swing.timing;
 
+import org.junit.jupiter.api.Test;
+
+import java.util.function.Supplier;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Strings.concat;
-
-import org.assertj.core.description.Description;
-import org.junit.jupiter.api.Test;
 
 /**
  * Tests for {@link Condition#toString()}.
@@ -27,12 +28,7 @@ import org.junit.jupiter.api.Test;
 class Condition_toString_Test {
   @Test
   void should_Return_Description_Text() {
-    Description description = new Description() {
-      @Override
-      public String value() {
-        return "Hello World!";
-      }
-    };
+    Supplier<String> description = () -> "Hello World!";
     MyCondition condition = new MyCondition(description);
     assertThat(condition.toString()).isEqualTo("Hello World!");
   }
@@ -45,7 +41,7 @@ class Condition_toString_Test {
 
   @Test
   void should_Return_Condition_Type_If_Description_Is_Null() {
-    Description noDescription = null;
+    Supplier<String> noDescription = null;
     MyCondition condition = new MyCondition(noDescription);
     assertThat(condition.toString()).isEqualTo(concat("condition of type [", MyCondition.class.getName(), "]"));
   }
@@ -66,7 +62,7 @@ class Condition_toString_Test {
       super(description);
     }
 
-    MyCondition(Description lazyLoadingDescription) {
+    MyCondition(Supplier<String> lazyLoadingDescription) {
       super(lazyLoadingDescription);
     }
 
