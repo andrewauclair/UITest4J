@@ -31,11 +31,15 @@ public class ShouldBeEqualImages extends BasicErrorMessageFactory {
    *          a blue value of 60 is similar to a blue value of 61.
    * @return the created {@code ErrorMessageFactory}.
    */
-  public static ErrorMessageFactory shouldBeEqualImages(Offset<Integer> offset) {
+  public static ErrorMessageFactory shouldBeEqualImages(int offset) {
     return new ShouldBeEqualImages(offset);
   }
 
-  private ShouldBeEqualImages(Offset<Integer> offset) {
-    super("expecting images to be equal within offset:<%s>", offset.value);
+  private ShouldBeEqualImages(int offset) {
+    super("expecting images to be equal within offset:<%s>", offset);
+  }
+
+  public static String message(int offset) {
+    return String.format("expecting images to be equal within offset:<%s>", offset);
   }
 }

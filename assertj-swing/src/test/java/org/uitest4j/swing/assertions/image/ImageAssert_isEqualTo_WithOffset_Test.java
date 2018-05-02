@@ -30,11 +30,11 @@ import static org.mockito.Mockito.verify;
  */
 public class ImageAssert_isEqualTo_WithOffset_Test extends ImageAssertBaseTest {
 
-  private static Offset<Integer> offset;
+  private static int offset;
 
   @BeforeAll
   public static void beforeOnce() {
-    offset = offset(6);
+    offset = 6;
   }
 
   private final BufferedImage expected = fivePixelYellowImage();
@@ -46,6 +46,6 @@ public class ImageAssert_isEqualTo_WithOffset_Test extends ImageAssertBaseTest {
 
   @Override
   protected void verify_internal_effects() {
-    verify(images).assertEqual(getInfo(assertions), getActual(assertions), expected, offset);
+    verify(images).assertEqual(getActual(assertions), expected, offset);
   }
 }

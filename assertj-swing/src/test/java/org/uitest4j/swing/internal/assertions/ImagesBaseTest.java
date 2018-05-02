@@ -35,7 +35,7 @@ import static org.mockito.Mockito.spy;
  */
 public class ImagesBaseTest {
   protected BufferedImage actual;
-  protected Offset<Integer> offset;
+  protected int offset;
   protected Failures failures;
   protected Images images;
 
@@ -45,7 +45,7 @@ public class ImagesBaseTest {
     images = new Images();
     images.failures = failures;
     actual = fivePixelBlueImage();
-    offset = offset(0);
+    offset = 0;
   }
 
   protected Dimension sizeOf(BufferedImage actual) {

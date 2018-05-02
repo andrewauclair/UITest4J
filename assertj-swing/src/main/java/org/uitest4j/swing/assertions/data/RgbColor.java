@@ -63,19 +63,16 @@ public final class RgbColor {
    * @return {@code true} if the given {@code RgbColor} is equal to this one; {@code false} otherwise.
    * @throws NullPointerException if the given offset is {@code null}.
    */
-  public boolean isEqualTo(RgbColor color, Offset<Integer> offset) {
-    if (offset == null)
-      throw new NullPointerException("The given offset should not be null");
+  public boolean isEqualTo(RgbColor color, int offset) {
     if (equals(color))
       return true;
     if (color == null)
       return false;
-    int offsetValue = offset.value.intValue();
-    if (abs(r - color.r) > offsetValue)
+	  if (abs(r - color.r) > offset)
       return false;
-    if (abs(g - color.g) > offsetValue)
+	  if (abs(g - color.g) > offset)
       return false;
-    return abs(b - color.b) <= offsetValue;
+	  return abs(b - color.b) <= offset;
   }
 
   @Override

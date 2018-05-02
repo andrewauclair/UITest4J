@@ -34,27 +34,27 @@ class Images_assertEqual_Test extends ImagesBaseTest {
 
   @Test
   void should_Pass_If_Images_Are_Equal() {
-    images.assertEqual(someInfo(), actual, newImage(5, 5, BLUE));
+    images.assertEqual(actual, newImage(5, 5, BLUE));
   }
 
   @Test
   void should_Pass_If_Images_Are_Same() {
-    images.assertEqual(someInfo(), actual, actual);
+    images.assertEqual(actual, actual);
   }
 
   @Test
   void should_Pass_If_Both_Images_Are_Null() {
-    images.assertEqual(someInfo(), null, null);
+    images.assertEqual(null, null);
   }
 
   @Test
   void should_Fail_If_Actual_Is_Null_And_Expected_Is_Not() {
-    ExpectedException.assertContainsMessage(AssertionError.class, () -> images.assertEqual(someInfo(), null, fivePixelBlueImage()), String.format("expecting images to be equal within offset:<%s>", offset.value));
+    ExpectedException.assertContainsMessage(AssertionError.class, () -> images.assertEqual(null, fivePixelBlueImage()), String.format("expecting images to be equal within offset:<%s>", offset));
   }
 
   @Test
   void should_Fail_If_Expected_Is_Null_And_Actual_Is_Not() {
-      ExpectedException.assertContainsMessage(AssertionError.class, () -> images.assertEqual(someInfo(), actual, null), String.format("expecting images to be equal within offset:<%s>", offset.value));
+    ExpectedException.assertContainsMessage(AssertionError.class, () -> images.assertEqual(actual, null), String.format("expecting images to be equal within offset:<%s>", offset));
   }
 
   @Test
@@ -65,7 +65,7 @@ class Images_assertEqual_Test extends ImagesBaseTest {
     Dimension actualSize = sizeOf(actual);
     Dimension expectedSize = sizeOf(expected);
 
-    ExpectedException.assertContainsMessage(AssertionError.class, () -> images.assertEqual(info, actual, expected), String.format("expected size:<%sx%s> but was:<%sx%s> in:<%s>", expectedSize.width, expectedSize.height, actualSize.width,
+    ExpectedException.assertContainsMessage(AssertionError.class, () -> images.assertEqual(actual, expected), String.format("expected size:<%sx%s> but was:<%sx%s> in:<%s>", expectedSize.width, expectedSize.height, actualSize.width,
             actualSize.height, actual));
   }
 
@@ -74,6 +74,6 @@ class Images_assertEqual_Test extends ImagesBaseTest {
     AssertionInfo info = someInfo();
     BufferedImage expected = fivePixelYellowImage();
 
-    ExpectedException.assertContainsMessage(AssertionError.class, () -> images.assertEqual(info, actual, expected), String.format("expected:<%s> but was:<%s> at:<%s> within offset:<%s>", yellow(), blue(), atPoint(0, 0), offset.value));
+    ExpectedException.assertContainsMessage(AssertionError.class, () -> images.assertEqual(actual, expected), String.format("expected:<%s> but was:<%s> at:<%s> within offset:<%s>", yellow(), blue(), atPoint(0, 0), offset));
   }
 }

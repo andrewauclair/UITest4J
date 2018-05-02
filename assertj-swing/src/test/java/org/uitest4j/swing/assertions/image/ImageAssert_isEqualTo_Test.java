@@ -36,6 +36,6 @@ public class ImageAssert_isEqualTo_Test extends ImageAssertBaseTest {
 
   @Override
   protected void verify_internal_effects() {
-    verify(images).assertEqual(getInfo(assertions), getActual(assertions), expected);
+    verify(images).assertEqual(getActual(assertions), expected);
   }
 }

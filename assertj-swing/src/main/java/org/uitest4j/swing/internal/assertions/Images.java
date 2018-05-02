@@ -13,21 +13,18 @@
 package org.uitest4j.swing.internal.assertions;
 
 import org.assertj.core.api.AssertionInfo;
-import org.assertj.core.data.Offset;
-import org.assertj.core.error.ErrorMessageFactory;
 import org.assertj.core.internal.Failures;
 import org.assertj.core.internal.Objects;
 import org.opentest4j.AssertionFailedError;
 import org.uitest4j.swing.assertions.data.RgbColor;
 import org.uitest4j.swing.assertions.error.ShouldBeEqualColors;
+import org.uitest4j.swing.assertions.error.ShouldBeEqualImages;
 import org.uitest4j.swing.assertions.error.ShouldHaveDimension;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-import static org.assertj.core.data.Offset.offset;
 import static org.uitest4j.swing.assertions.data.RgbColor.color;
-import static org.uitest4j.swing.assertions.error.ShouldBeEqualImages.shouldBeEqualImages;
 import static org.uitest4j.swing.assertions.error.ShouldNotBeEqualImages.shouldNotBeEqualImages;
 import static org.uitest4j.swing.internal.assertions.ColorComparisonResult.ARE_EQUAL;
 import static org.uitest4j.swing.internal.assertions.ColorComparisonResult.notEqual;
@@ -38,9 +35,7 @@ import static org.uitest4j.swing.internal.assertions.ColorComparisonResult.notEq
  * @author Yvonne Wang
  */
 public class Images {
-
 	private static final Images INSTANCE = new Images();
-	private static final Offset<Integer> ZERO = offset(0);
 
 	/**
 	 * Returns the singleton instance of this class.
@@ -65,13 +60,12 @@ public class Images {
 	 * <li>the the RGB values of the color at each pixel are equal</li>
 	 * </ol>
 	 *
-	 * @param info     contains information about the assertion.
 	 * @param actual   the actual image.
 	 * @param expected the expected image.
 	 * @throws AssertionError if the actual image is not equal to the expected one.
 	 */
-	public void assertEqual(AssertionInfo info, BufferedImage actual, BufferedImage expected) {
-		assertEqual(info, actual, expected, ZERO);
+	public void assertEqual(BufferedImage actual, BufferedImage expected) {
+		assertEqual(actual, expected, 0);
 	}
 
 	/**
@@ -81,7 +75,6 @@ public class Images {
 	 * <li>the difference between the RGB values of the color at each pixel is less than or equal to the given offset</li>
 	 * </ol>
 	 *
-	 * @param info     contains information about the assertion.
 	 * @param actual   the actual image.
 	 * @param expected the expected image.
 	 * @param offset   helps decide if the color of two pixels are similar: two pixels that are identical to the human eye
@@ -90,15 +83,12 @@ public class Images {
 	 * @throws NullPointerException if the given offset is {@code null}.
 	 * @throws AssertionError       if the actual image is not equal to the expected one.
 	 */
-	public void assertEqual(AssertionInfo info, BufferedImage actual, BufferedImage expected, Offset<Integer> offset) {
-		if (offset == null) {
-			throw new NullPointerException("The given offset should not be null");
-		}
+	public void assertEqual(BufferedImage actual, BufferedImage expected, int offset) {
 		if (java.util.Objects.equals(actual, expected)) {
 			return;
 		}
 		if (actual == null || expected == null) {
-			throw imagesShouldBeEqual(info, offset);
+			throw new AssertionFailedError(ShouldBeEqualImages.message(offset));
 		}
 		// BufferedImage does not have an implementation of 'equals,' which means that "equality" is verified by identity.
 		// We need to verify that two images are equal ourselves.
@@ -109,15 +99,7 @@ public class Images {
 		if (haveEqualColor == ARE_EQUAL) {
 			return;
 		}
-		throw failures.failure(info, imagesShouldHaveEqualColor(haveEqualColor, offset));
-	}
-
-	private AssertionError imagesShouldBeEqual(AssertionInfo info, Offset<Integer> offset) {
-		return failures.failure(info, shouldBeEqualImages(offset));
-	}
-
-	private ErrorMessageFactory imagesShouldHaveEqualColor(ColorComparisonResult r, Offset<Integer> offset) {
-		return new ShouldBeEqualColors(r.color2, r.color1, r.point, offset);
+		throw new AssertionFailedError(ShouldBeEqualColors.message(haveEqualColor.color2, haveEqualColor.color1, haveEqualColor.point, offset));
 	}
 
 	/**
@@ -138,7 +120,7 @@ public class Images {
 		if (!(haveEqualSize(actual, other))) {
 			return;
 		}
-		ColorComparisonResult haveEqualColor = haveEqualColor(actual, other, ZERO);
+		ColorComparisonResult haveEqualColor = haveEqualColor(actual, other, 0);
 		if (haveEqualColor != ARE_EQUAL) {
 			return;
 		}
@@ -153,7 +135,7 @@ public class Images {
 		return i1.getWidth() == i2.getWidth() && i1.getHeight() == i2.getHeight();
 	}
 
-	private ColorComparisonResult haveEqualColor(BufferedImage i1, BufferedImage i2, Offset<Integer> offset) {
+	private ColorComparisonResult haveEqualColor(BufferedImage i1, BufferedImage i2, int offset) {
 		int w = i1.getWidth();
 		int h = i1.getHeight();
 		for (int x = 0; x < w; x++) {

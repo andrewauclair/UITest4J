@@ -55,7 +55,7 @@ public class ImageAssert extends AbstractAssert<ImageAssert, BufferedImage> {
    * @throws AssertionError if the actual image is not equal to the given one.
    */
   public ImageAssert isEqualTo(BufferedImage expected) {
-    images.assertEqual(info, actual, expected);
+    images.assertEqual(actual, expected);
     return this;
   }
 
@@ -74,8 +74,8 @@ public class ImageAssert extends AbstractAssert<ImageAssert, BufferedImage> {
    * @throws NullPointerException if the given offset is {@code null}.
    * @throws AssertionError if the actual image is not equal to the given one.
    */
-  public ImageAssert isEqualTo(BufferedImage expected, Offset<Integer> offset) {
-    images.assertEqual(info, actual, expected, offset);
+  public ImageAssert isEqualTo(BufferedImage expected, int offset) {
+    images.assertEqual(actual, expected, offset);
     return this;
   }
 

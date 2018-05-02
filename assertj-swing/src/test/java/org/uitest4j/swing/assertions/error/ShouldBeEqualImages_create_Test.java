@@ -33,7 +33,7 @@ class ShouldBeEqualImages_create_Test {
 
   @BeforeEach
   void setUp() {
-    factory = shouldBeEqualImages(offset(6));
+    factory = shouldBeEqualImages(6);
   }
 
   @Test
