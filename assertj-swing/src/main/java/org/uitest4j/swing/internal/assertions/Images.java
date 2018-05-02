@@ -14,9 +14,6 @@ package org.uitest4j.swing.internal.assertions;
 
 import org.opentest4j.AssertionFailedError;
 import org.uitest4j.swing.assertions.data.RgbColor;
-import org.uitest4j.swing.assertions.error.ShouldBeEqualColors;
-import org.uitest4j.swing.assertions.error.ShouldBeEqualImages;
-import org.uitest4j.swing.assertions.error.ShouldHaveDimension;
 
 import javax.annotation.Nonnull;
 import java.awt.*;
@@ -82,18 +79,21 @@ public class Images {
 			return;
 		}
 		if (actual == null || expected == null) {
-			throw new AssertionFailedError(ShouldBeEqualImages.message(offset));
+			throw new AssertionFailedError(String.format("expecting images to be equal within offset:<%s>", offset));
 		}
 		// BufferedImage does not have an implementation of 'equals,' which means that "equality" is verified by identity.
 		// We need to verify that two images are equal ourselves.
 		if (!haveEqualSize(actual, expected)) {
-			throw new AssertionFailedError(ShouldHaveDimension.message(actual, sizeOf(actual), sizeOf(expected)), sizeOf(actual), sizeOf(expected));
+			Dimension actualSize = sizeOf(actual);
+			Dimension expectedSize = sizeOf(expected);
+			throw new AssertionFailedError(String.format("expected size:<%sx%s> but was:<%sx%s> in:<%s>", expectedSize.width, expectedSize.height, actualSize.width,
+					actualSize.height, actual), sizeOf(actual), sizeOf(expected));
 		}
 		ColorComparisonResult haveEqualColor = haveEqualColor(actual, expected, offset);
 		if (haveEqualColor == ARE_EQUAL) {
 			return;
 		}
-		throw new AssertionFailedError(ShouldBeEqualColors.message(haveEqualColor.color2, haveEqualColor.color1, haveEqualColor.point, offset));
+		throw new AssertionFailedError(String.format("expected:<%s> but was:<%s> at:<%s> within offset:<%s>", haveEqualColor.color2, haveEqualColor.color1, haveEqualColor.point, offset));
 	}
 
 	/**
@@ -155,7 +155,8 @@ public class Images {
 		if (java.util.Objects.equals(sizeOfActual, size)) {
 			return;
 		}
-		throw new AssertionFailedError(ShouldHaveDimension.message(actual, sizeOfActual, size), sizeOfActual, size);
+		throw new AssertionFailedError(String.format("expected size:<%sx%s> but was:<%sx%s> in:<%s>", size.width, size.height, sizeOfActual.width,
+				sizeOfActual.height, actual), sizeOfActual, size);
 	}
 
 	// Used for tests
