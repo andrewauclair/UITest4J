@@ -12,14 +12,13 @@
  */
 package org.uitest4j.swing.fixture;
 
-import org.assertj.core.description.Description;
-import org.assertj.core.description.TextDescription;
 import org.uitest4j.swing.util.Strings;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.awt.*;
 import java.util.Objects;
+import java.util.function.Supplier;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -40,7 +39,7 @@ public class FontFixture {
 	private static final String SIZE_PROPERTY = "size";
 
 	private final Font target;
-	private final Description description;
+	private final Supplier<String> description;
 
 	/**
 	 * Creates a new {@link FontFixture}.
@@ -49,7 +48,7 @@ public class FontFixture {
 	 * @throws NullPointerException if {@code target} is {@code null}.
 	 */
 	public FontFixture(@Nonnull Font target) {
-		this(target, (Description) null);
+		this(target, () -> "");
 	}
 
 	/**
@@ -60,7 +59,7 @@ public class FontFixture {
 	 * @throws NullPointerException if {@code target} is {@code null}.
 	 */
 	public FontFixture(@Nonnull Font target, @Nonnull String description) {
-		this(target, new TextDescription(description));
+		this(target, () -> description);
 	}
 
 	/**
@@ -70,7 +69,7 @@ public class FontFixture {
 	 * @param description this fixture's description.
 	 * @throws NullPointerException if {@code target} is {@code null}.
 	 */
-	public FontFixture(@Nonnull Font target, @Nullable Description description) {
+	public FontFixture(@Nonnull Font target, @Nullable Supplier<String> description) {
 		this.target = Objects.requireNonNull(target);
 		this.description = description;
 	}
@@ -210,7 +209,7 @@ public class FontFixture {
 	@Nonnull
 	private String property(@Nonnull String s) {
 		if (!Strings.isNullOrEmpty(description())) {
-			return description.value() + PROPERTY_SEPARATOR + s;
+			return description.get() + PROPERTY_SEPARATOR + s;
 		}
 		return s;
 	}
@@ -228,6 +227,6 @@ public class FontFixture {
 	 */
 	public final @Nullable
 	String description() {
-		return description != null ? description.value() : null;
+		return description.get();
 	}
 }

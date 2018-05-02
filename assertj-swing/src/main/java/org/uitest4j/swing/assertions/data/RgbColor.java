@@ -12,8 +12,6 @@
  */
 package org.uitest4j.swing.assertions.data;
 
-import org.assertj.core.data.Offset;
-
 import java.util.Objects;
 
 import static java.lang.Math.abs;

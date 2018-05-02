@@ -32,6 +32,8 @@ public final class ExpectedException {
 	public static void assertOpenTest4jError(Executable executable, String message) {
 		AssertionFailedError error = assertThrows(AssertionFailedError.class, executable);
 		assertEquals(message, error.getMessage());
+		assertFalse(error.isExpectedDefined());
+		assertFalse(error.isActualDefined());
 	}
 
 	public static void assertOpenTest4jError(Executable executable, String message, Object expected, Object actual) {

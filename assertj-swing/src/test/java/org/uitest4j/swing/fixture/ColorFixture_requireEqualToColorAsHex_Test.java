@@ -12,13 +12,13 @@
  */
 package org.uitest4j.swing.fixture;
 
-import org.uitest4j.swing.test.ExpectedException;
 import org.junit.jupiter.api.Test;
+import org.uitest4j.swing.test.ExpectedException;
 
+import static java.awt.Color.BLACK;
 import static java.awt.Color.BLUE;
 import static org.uitest4j.swing.fixture.ColorHexCodes.BLACK_HEX_CODE;
 import static org.uitest4j.swing.fixture.ColorHexCodes.BLUE_HEX_CODE;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * Tests for {@link ColorFixture#requireEqualTo(String)}.
@@ -36,12 +36,12 @@ class ColorFixture_requireEqualToColorAsHex_Test {
   @Test
   void should_Fail_If_Color_Is_Not_Equal_To_Hex_Value() {
     ColorFixture fixture = new ColorFixture(BLUE);
-    assertThrows(AssertionError.class, () -> fixture.requireEqualTo(BLACK_HEX_CODE));
+	  ExpectedException.assertOpenTest4jError(() -> fixture.requireEqualTo(BLACK_HEX_CODE), "Expected " + BLACK.toString() + " but was " + BLUE.toString(), BLACK, BLUE);
   }
 
   @Test
   void should_Fail_Showing_Description_If_Color_Is_Not_Equal_To_Hex_Value() {
     ColorFixture fixture = new ColorFixture(BLUE, "test");
-    ExpectedException.assertAssertionError(() -> fixture.requireEqualTo(BLACK_HEX_CODE), "test");
+	  ExpectedException.assertOpenTest4jError(() -> fixture.requireEqualTo(BLACK_HEX_CODE), "[test] Expected " + BLACK.toString() + " but was " + BLUE.toString(), BLACK, BLUE);
   }
 }

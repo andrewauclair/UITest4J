@@ -91,7 +91,7 @@ public class JTableFixture extends AbstractJPopupMenuInvokerFixture<JTableFixtur
 	 */
 	public FontFixture fontAt(@Nonnull TableCell cell) {
 		Font font = driver().font(target(), cell);
-		return new FontFixture(Objects.requireNonNull(font), cellProperty(cell, FONT_PROPERTY));
+		return new FontFixture(Objects.requireNonNull(font), () -> cellProperty(cell, FONT_PROPERTY).value());
 	}
 
 	/**
@@ -105,7 +105,7 @@ public class JTableFixture extends AbstractJPopupMenuInvokerFixture<JTableFixtur
 	@Nonnull
 	public ColorFixture backgroundAt(@Nonnull TableCell cell) {
 		Color background = driver().background(target(), cell);
-		return new ColorFixture(Objects.requireNonNull(background), cellProperty(cell, BACKGROUND_PROPERTY));
+		return new ColorFixture(Objects.requireNonNull(background), cellProperty(cell, BACKGROUND_PROPERTY).value());
 	}
 
 	/**
@@ -119,7 +119,7 @@ public class JTableFixture extends AbstractJPopupMenuInvokerFixture<JTableFixtur
 	@Nonnull
 	public ColorFixture foregroundAt(@Nonnull TableCell cell) {
 		Color foreground = driver().foreground(target(), cell);
-		return new ColorFixture(Objects.requireNonNull(foreground), cellProperty(cell, FOREGROUND_PROPERTY));
+		return new ColorFixture(Objects.requireNonNull(foreground), cellProperty(cell, FOREGROUND_PROPERTY).value());
 	}
 
 	@Nonnull

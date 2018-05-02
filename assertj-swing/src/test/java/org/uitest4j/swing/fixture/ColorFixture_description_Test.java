@@ -38,7 +38,7 @@ class ColorFixture_description_Test {
 
   @Test
   void shouldReturnNullIfDescriptionIsNull() {
-    assertThat(fixture.description()).isNull();
+    assertThat(fixture.description()).isEmpty();
   }
 
   @Test

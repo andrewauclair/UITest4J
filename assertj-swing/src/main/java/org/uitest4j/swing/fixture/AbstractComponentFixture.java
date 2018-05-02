@@ -429,7 +429,7 @@ public abstract class AbstractComponentFixture<S, C extends Component, D extends
    */
   public final @Nonnull FontFixture font() {
     Font font = driver.fontOf(target);
-    return new FontFixture(font, propertyName(target(), FONT_PROPERTY));
+    return new FontFixture(font, () -> propertyName(target(), FONT_PROPERTY).value());
   }
 
   /**
@@ -437,7 +437,7 @@ public abstract class AbstractComponentFixture<S, C extends Component, D extends
    */
   public final @Nonnull ColorFixture background() {
     Color background = driver.backgroundOf(target);
-    return new ColorFixture(background, propertyName(target(), BACKGROUND_PROPERTY));
+    return new ColorFixture(background, propertyName(target(), BACKGROUND_PROPERTY).value());
   }
 
   /**
@@ -445,7 +445,7 @@ public abstract class AbstractComponentFixture<S, C extends Component, D extends
    */
   public final @Nonnull ColorFixture foreground() {
     Color foreground = driver.foregroundOf(target);
-    return new ColorFixture(foreground, propertyName(target(), FOREGROUND_PROPERTY));
+    return new ColorFixture(foreground, propertyName(target(), FOREGROUND_PROPERTY).value());
   }
 
   /**
