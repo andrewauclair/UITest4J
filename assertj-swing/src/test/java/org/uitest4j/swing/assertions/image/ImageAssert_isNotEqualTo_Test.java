@@ -12,30 +12,24 @@
  */
 package org.uitest4j.swing.assertions.image;
 
-import static org.uitest4j.swing.test.awt.AwtTestData.fivePixelBlueImage;
-import static org.mockito.Mockito.verify;
+import org.junit.jupiter.api.Test;
+import org.opentest4j.AssertionFailedError;
+import org.uitest4j.swing.assertions.ImageAssert;
 
 import java.awt.image.BufferedImage;
 
-import org.uitest4j.swing.assertions.ImageAssert;
-import org.uitest4j.swing.assertions.ImageAssertBaseTest;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.uitest4j.swing.assertions.Assertions.assertThat;
+import static org.uitest4j.swing.test.awt.AwtTestData.fivePixelYellowImage;
 
 /**
  * Tests for <code>{@link ImageAssert#isNotEqualTo(BufferedImage)}</code>.
  * 
  * @author Yvonne Wang
  */
-public class ImageAssert_isNotEqualTo_Test extends ImageAssertBaseTest {
-
-  private final BufferedImage expected = fivePixelBlueImage();
-
-  @Override
-  protected ImageAssert invoke_api_method() {
-    return assertions.isNotEqualTo(expected);
-  }
-
-  @Override
-  protected void verify_internal_effects() {
-    verify(images).assertNotEqual(getInfo(assertions), getActual(assertions), expected);
+public class ImageAssert_isNotEqualTo_Test {
+  @Test
+  void calls_isNotEqualTo_exception() {
+    assertThrows(AssertionFailedError.class, () -> assertThat(fivePixelYellowImage()).isNotEqualTo(fivePixelYellowImage()));
   }
 }

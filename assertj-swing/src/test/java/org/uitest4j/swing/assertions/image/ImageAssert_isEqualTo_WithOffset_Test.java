@@ -13,39 +13,25 @@
 package org.uitest4j.swing.assertions.image;
 
 import org.assertj.core.data.Offset;
+import org.junit.jupiter.api.Test;
+import org.opentest4j.AssertionFailedError;
 import org.uitest4j.swing.assertions.ImageAssert;
-import org.uitest4j.swing.assertions.ImageAssertBaseTest;
-import org.junit.jupiter.api.BeforeAll;
 
 import java.awt.image.BufferedImage;
 
-import static org.assertj.core.data.Offset.offset;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.uitest4j.swing.assertions.Assertions.assertThat;
+import static org.uitest4j.swing.test.awt.AwtTestData.fivePixelBlueImage;
 import static org.uitest4j.swing.test.awt.AwtTestData.fivePixelYellowImage;
-import static org.mockito.Mockito.verify;
 
 /**
  * Tests for <code>{@link ImageAssert#isEqualTo(BufferedImage, Offset)}</code>.
  * 
  * @author Yvonne Wang
  */
-public class ImageAssert_isEqualTo_WithOffset_Test extends ImageAssertBaseTest {
-
-  private static int offset;
-
-  @BeforeAll
-  public static void beforeOnce() {
-    offset = 6;
-  }
-
-  private final BufferedImage expected = fivePixelYellowImage();
-
-  @Override
-  protected ImageAssert invoke_api_method() {
-    return assertions.isEqualTo(expected, offset);
-  }
-
-  @Override
-  protected void verify_internal_effects() {
-    verify(images).assertEqual(getActual(assertions), expected, offset);
+public class ImageAssert_isEqualTo_WithOffset_Test {
+  @Test
+  void calls_isEqualTo_with_offset_exception() {
+    assertThrows(AssertionFailedError.class, () -> assertThat(fivePixelBlueImage()).isEqualTo(fivePixelYellowImage(), 20));
   }
 }

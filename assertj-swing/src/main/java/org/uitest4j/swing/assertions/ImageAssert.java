@@ -12,13 +12,10 @@
  */
 package org.uitest4j.swing.assertions;
 
-import java.awt.Dimension;
-import java.awt.image.BufferedImage;
-import java.util.Comparator;
-
-import org.assertj.core.api.AbstractAssert;
-import org.assertj.core.data.Offset;
 import org.uitest4j.swing.internal.assertions.Images;
+
+import java.awt.*;
+import java.awt.image.BufferedImage;
 
 /**
  * Assertion methods for images.
@@ -32,14 +29,11 @@ import org.uitest4j.swing.internal.assertions.Images;
  * @author Joel Costigliola
  * @author Mikhail Mazursky
  */
-public class ImageAssert extends AbstractAssert<ImageAssert, BufferedImage> {
+public class ImageAssert {
+	private Images images = Images.instance();
 
-	// Used for tests
-  Images images = Images.instance();
-
-  BufferedImage actual = null;
+	BufferedImage actual;
   protected ImageAssert(BufferedImage actual) {
-    super(actual, ImageAssert.class);
     this.actual = actual;
   }
 
@@ -80,7 +74,7 @@ public class ImageAssert extends AbstractAssert<ImageAssert, BufferedImage> {
   }
 
   public ImageAssert isNotEqualTo(BufferedImage other) {
-    images.assertNotEqual(info, actual, other);
+	  images.assertNotEqual(actual, other);
     return this;
   }
 
@@ -93,19 +87,7 @@ public class ImageAssert extends AbstractAssert<ImageAssert, BufferedImage> {
    * @throws AssertionError if the size of the actual image is not equal to the given size.
    */
   public ImageAssert hasSize(Dimension expected) {
-    images.assertHasSize(info, actual, expected);
+	  images.assertHasSize(actual, expected);
     return this;
-  }
-
-  @Override
-  public ImageAssert usingComparator(Comparator<? super BufferedImage> customComparator) {
-    throw new UnsupportedOperationException("custom Comparator is not supported for image comparison");
-  }
-
-  @Override
-  public ImageAssert usingDefaultComparator() {
-    super.usingDefaultComparator();
-    images = Images.instance();
-    return myself;
   }
 }

@@ -39,6 +39,6 @@ class Assertions_assertThat_with_BufferedImage_Test {
   void should_Pass_Actual() {
     BufferedImage actual = fivePixelBlueImage();
     ImageAssert assertions = assertThat(actual);
-    assertSame(actual, getActual(assertions));
+    assertSame(actual, assertions.actual);
   }
 }

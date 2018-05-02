@@ -36,14 +36,11 @@ import static org.mockito.Mockito.spy;
 public class ImagesBaseTest {
   protected BufferedImage actual;
   protected int offset;
-  protected Failures failures;
   protected Images images;
 
   @BeforeEach
   public void setUp() {
-    failures = spy(Failures.instance());
     images = new Images();
-    images.failures = failures;
     actual = fivePixelBlueImage();
     offset = 0;
   }
