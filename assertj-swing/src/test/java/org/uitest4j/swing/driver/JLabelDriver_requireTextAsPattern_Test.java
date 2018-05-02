@@ -17,6 +17,8 @@ import java.util.regex.Pattern;
 import org.uitest4j.swing.test.ExpectedException;
 import org.junit.jupiter.api.Test;
 
+import javax.swing.*;
+
 /**
  * Tests for {@link JLabelDriver#requireText(JLabel, java.util.regex.Pattern)}.
  * 
@@ -30,6 +32,7 @@ class JLabelDriver_requireTextAsPattern_Test extends JLabelDriver_TestCase {
 
   @Test
   void should_Fail_If_Text_Does_Not_Match_Pattern() {
-    ExpectedException.assertAssertionError(() -> driver.requireText(label, Pattern.compile("Bye")), "text", "Hi", Pattern.compile("Bye"));
+    Pattern pattern = Pattern.compile("B.*");
+    ExpectedException.assertOpenTest4jError(() -> driver.requireText(label, pattern), "Expected text of 'TestLabel' to match pattern 'B.*' but was 'Hi'", pattern, "Hi");
   }
 }

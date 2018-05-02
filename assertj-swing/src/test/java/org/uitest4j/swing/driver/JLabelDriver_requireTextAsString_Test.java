@@ -12,10 +12,10 @@
  */
 package org.uitest4j.swing.driver;
 
-import java.util.regex.Pattern;
-
-import org.uitest4j.swing.test.ExpectedException;
 import org.junit.jupiter.api.Test;
+import org.uitest4j.swing.test.ExpectedException;
+
+import javax.swing.*;
 
 /**
  * Tests for {@link JLabelDriver#requireText(JLabel, String)}.
@@ -29,12 +29,7 @@ class JLabelDriver_requireTextAsString_Test extends JLabelDriver_TestCase {
   }
 
   @Test
-  void should_Pass_If_Text_Matches_Expected_Pattern() {
-    driver.requireText(label, "H.*");
-  }
-
-  @Test
   void should_Fail_If_Text_Is_Not_Equal_To_Expected() {
-    ExpectedException.assertAssertionError(() -> driver.requireText(label, "Bye"), "text", "Hi", Pattern.compile("Bye"));
+    ExpectedException.assertOpenTest4jError(() -> driver.requireText(label, "Bye"), "Expected text of 'TestLabel' to be 'Bye' but was 'Hi'", "Bye", "Hi");
   }
 }

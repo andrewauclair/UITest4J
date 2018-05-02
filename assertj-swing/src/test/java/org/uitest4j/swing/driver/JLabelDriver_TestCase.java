@@ -35,6 +35,7 @@ public abstract class JLabelDriver_TestCase extends RobotBasedTestCase {
     driver = new JLabelDriver(robot);
     MyWindow window = MyWindow.createNew(getClass());
     label = window.label;
+    label.setName("TestLabel");
   }
 
   static class MyWindow extends TestWindow {

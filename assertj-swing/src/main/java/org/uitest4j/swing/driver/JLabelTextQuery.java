@@ -31,7 +31,7 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 final class JLabelTextQuery {
   @RunsInEDT
   static @Nullable String textOf(final @Nonnull JLabel label) {
-    return execute(() -> label.getText());
+    return execute(label::getText);
   }
 
   private JLabelTextQuery() {
