@@ -39,7 +39,9 @@ public final class ArrayUtils {
 	 * @param two the second array.
 	 * @return {@code true} if the arrays are equal, {@code false} otherwise.
 	 */
+	// TODO Try to replace with Arrays.deepEquals
 	public static boolean equal(@Nullable String[][] one, @Nullable String[][] two) {
+
 		if (one == null && two == null) {
 			return true;
 		}
@@ -146,9 +148,7 @@ public final class ArrayUtils {
 		Objects.requireNonNull(array);
 		int arraySize = array.length;
 		int[] copy = new int[arraySize];
-		for (int i = 0; i < arraySize; i++) {
-			copy[i] = array[i];
-		}
+		System.arraycopy(array, 0, copy, 0, arraySize);
 		return copy;
 	}
 
@@ -165,9 +165,7 @@ public final class ArrayUtils {
 		Objects.requireNonNull(array);
 		int arraySize = array.length;
 		T[] copy = (T[]) Array.newInstance(array.getClass().getComponentType(), arraySize);
-		for (int i = 0; i < arraySize; i++) {
-			copy[i] = array[i];
-		}
+		System.arraycopy(array, 0, copy, 0, arraySize);
 		return copy;
 	}
 

@@ -48,6 +48,7 @@ public abstract class JListDriver_TestCase extends RobotBasedTestCase {
     driver.replaceCellReader(cellReader);
     window = MyWindow.createNew(getClass());
     list = window.list;
+    list.setName("TestList");
     extraSetUp();
   }
 

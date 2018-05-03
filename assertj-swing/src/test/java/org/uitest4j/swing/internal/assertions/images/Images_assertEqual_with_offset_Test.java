@@ -1,4 +1,4 @@
-/**
+/*
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
  * <p>
@@ -16,6 +16,7 @@ import org.assertj.core.api.AssertionInfo;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.opentest4j.AssertionFailedError;
+import org.uitest4j.swing.internal.assertions.Images;
 import org.uitest4j.swing.internal.assertions.ImagesBaseTest;
 
 import java.awt.*;

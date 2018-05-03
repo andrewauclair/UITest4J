@@ -20,6 +20,7 @@ import org.uitest4j.swing.core.MouseButton;
 import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.exception.LocationUnavailableException;
 import org.uitest4j.swing.internal.annotation.InternalApi;
+import org.uitest4j.swing.internal.assertions.OpenTest4JAssertions;
 import org.uitest4j.swing.util.Pair;
 import org.uitest4j.swing.util.PatternTextMatcher;
 import org.uitest4j.swing.util.Range.From;
@@ -318,7 +319,7 @@ public class JListDriver extends JComponentDriver {
 
 	@RunsInEDT
 	private static void clearSelectionOf(final @Nonnull JList<?> list) {
-		execute(() -> list.clearSelection());
+		execute(list::clearSelection);
 	}
 
 	/**
@@ -431,8 +432,13 @@ public class JListDriver extends JComponentDriver {
 	 */
 	@RunsInEDT
 	public void requireSelection(final @Nonnull JList<?> list, @Nullable String value) {
-		String selection = requiredSelection(list);
-		verifyThat(selection).as(selectedIndexProperty(list)).isEqualOrMatches(value);
+		Object selection = singleSelectionValue(list, cellReader());
+		if (selection == NO_SELECTION_VALUE) {
+			throw new AssertionFailedError(String.format("Expected '%s' to have selection '%s' but there is no selection", list.getName(), value));
+		}
+
+		OpenTest4JAssertions.assertEquals(value, selection, () -> "Expected '" + list.getName() +
+				"' to have selection '" + value + "' but was '" + selection + "'");
 	}
 
 	/**
@@ -487,7 +493,7 @@ public class JListDriver extends JComponentDriver {
 	@Nonnull
 	public String[] selectionOf(@Nonnull JList<?> list) {
 		List<String> selection = selectionValues(list, cellReader());
-		return selection.toArray(new String[selection.size()]);
+		return selection.toArray(new String[0]);
 	}
 
 	/**
@@ -552,7 +558,8 @@ public class JListDriver extends JComponentDriver {
 	 */
 	@RunsInEDT
 	public void requireNoSelection(@Nonnull JList<?> list) {
-		assertThat(selectedIndexOf(list)).as(selectedIndexProperty(list)).isEqualTo(-1);
+		OpenTest4JAssertions.assertTrue(selectedIndexOf(list) == -1, () -> "Expected '" + list.getName() +
+				"' to have no selection");
 	}
 
 	@RunsInEDT

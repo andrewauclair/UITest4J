@@ -31,6 +31,6 @@ class JListDriver_requireNoSelection_Test extends JListDriver_TestCase {
   @Test
   void should_Fail_If_JList_Has_Selection() {
     selectFirstItem();
-    ExpectedException.assertContainsMessage(AssertionError.class, () -> driver.requireNoSelection(list), "property:'selectedIndex'", "expected:<[-1]> but was:<[0]>");
+    ExpectedException.assertOpenTest4jError(() -> driver.requireNoSelection(list), "Expected 'TestList' to have no selection");
   }
 }
