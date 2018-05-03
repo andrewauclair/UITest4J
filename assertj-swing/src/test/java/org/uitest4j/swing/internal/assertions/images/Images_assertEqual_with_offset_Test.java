@@ -23,8 +23,6 @@ import java.awt.image.BufferedImage;
 
 import static java.awt.Color.BLUE;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.Mockito.verify;
-import static org.uitest4j.swing.assertions.error.ShouldBeEqualImages.shouldBeEqualImages;
 import static org.uitest4j.swing.test.awt.AwtTestData.*;
 
 /**
