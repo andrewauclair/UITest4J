@@ -130,7 +130,7 @@ public final class Strings {
     return str;
   }
 
-	public static String singleQuote(String str) {
+  public static String singleQuote(Object str) {
 		return "'" + str + "'";
 	}
 

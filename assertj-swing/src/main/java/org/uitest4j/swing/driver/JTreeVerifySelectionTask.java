@@ -56,7 +56,7 @@ final class JTreeVerifySelectionTask {
 
   private static void failNotEqualSelection(@Nonnull Supplier<String> errMsg, @Nonnull int[] expected, @Nonnull int[] actual) {
     String format = "[%s] expecting selection:<%s> but was:<%s>";
-    String msg = String.format(format, errMsg.get(), format(expected), format(actual));
+    String msg = String.format(format, errMsg.get(), Arrays.toString(expected), Arrays.toString(actual));
     throw new AssertionFailedError(msg);
   }
 

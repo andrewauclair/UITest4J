@@ -65,6 +65,6 @@ class JTreeDriver_requireSelectedPaths_Test extends JTreeDriver_selectCell_TestC
   @Test
   void should_Fail_If_Selection_Is_Not_Equal_To_Expected() {
     selectFirstChildOfRoot();
-    ExpectedException.assertContainsMessage(AssertionError.class, () -> driver.requireSelection(tree, array("root/branch2")), "property:'selection'", "expecting selection:<[\"root/branch2\"]> but was:<[[root, branch1]]>");
+    ExpectedException.assertContainsMessage(AssertionError.class, () -> driver.requireSelection(tree, array("root/branch2")), "property:'selection'", "expecting selection:<[root/branch2]> but was:<[[root, branch1]]>");
   }
 }

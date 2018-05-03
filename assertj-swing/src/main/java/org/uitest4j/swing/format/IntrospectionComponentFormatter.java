@@ -111,6 +111,7 @@ public final class IntrospectionComponentFormatter extends ComponentFormatterTem
 			b.append(propertyValue(c, name));
 		}
 		catch (Exception e) {
+			e.printStackTrace();
 			b.append(String.format("<Unable to read property [%s: '%s']>", e.getClass().getName(), e.getMessage()));
 		}
 	}
@@ -125,7 +126,7 @@ public final class IntrospectionComponentFormatter extends ComponentFormatterTem
 		if (isOneDimensionalArray(value)) {
 			return ArrayUtils.format(value);
 		}
-		return singleQuote(value.toString());
+		return singleQuote(value);
 	}
 
 	private boolean isOneDimensionalArray(Object o) {

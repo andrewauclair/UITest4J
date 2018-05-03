@@ -33,6 +33,6 @@ class TableCellInRowByValue_toString_Test {
   @Test
   void should_Implement_ToString() {
     assertThat(finder.toString()).isEqualTo(
-        "org.uitest4j.swing.data.TableCellInRowByValue[values=[\"one\", \"two\"], column=1]");
+            "org.uitest4j.swing.data.TableCellInRowByValue[values=[one, two], column=1]");
   }
 }

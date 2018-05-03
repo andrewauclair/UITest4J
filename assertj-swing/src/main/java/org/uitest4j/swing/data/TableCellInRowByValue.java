@@ -18,6 +18,7 @@ import org.uitest4j.swing.cell.JTableCellReader;
 
 import javax.annotation.Nonnull;
 import javax.swing.*;
+import java.util.Arrays;
 import java.util.Objects;
 
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
@@ -172,6 +173,6 @@ public class TableCellInRowByValue implements TableCellFinder {
 
 	@Override
 	public String toString() {
-		return String.format("%s[values=%s, column=%d]", getClass().getName(), format(values), column);
+		return String.format("%s[values=%s, column=%d]", getClass().getName(), Arrays.toString(values), column);
 	}
 }

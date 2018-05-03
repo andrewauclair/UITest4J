@@ -63,7 +63,6 @@ public class TableCell {
 
 	@Override
 	public int hashCode() {
-
 		return Objects.hash(row, column);
 	}
 

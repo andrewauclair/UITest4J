@@ -24,6 +24,6 @@ class TableCell_equals_hashCode_Test {
 
   @Test
   void should_Be_Correct() {
-    EqualsVerifier.forClass(TableCell.class).verify();
+    EqualsVerifier.forClass(TableCell.class).usingGetClass().verify();
   }
 }
