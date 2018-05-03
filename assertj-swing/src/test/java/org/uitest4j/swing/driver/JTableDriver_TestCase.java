@@ -50,6 +50,7 @@ public abstract class JTableDriver_TestCase extends RobotBasedTestCase {
     driver.replaceCellReader(cellReader);
     window = MyWindow.createNew(getClass());
     table = window.table;
+    table.setName("TestTable");
     extraSetUp();
   }
 

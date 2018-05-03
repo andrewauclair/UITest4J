@@ -25,6 +25,7 @@ import org.uitest4j.swing.data.TableCellFinder;
 import org.uitest4j.swing.edt.GuiQuery;
 import org.uitest4j.swing.exception.ActionFailedException;
 import org.uitest4j.swing.internal.annotation.InternalApi;
+import org.uitest4j.swing.internal.assertions.OpenTest4JAssertions;
 import org.uitest4j.swing.util.ArrayUtils;
 import org.uitest4j.swing.util.Pair;
 import org.uitest4j.swing.util.PatternTextMatcher;
@@ -48,7 +49,6 @@ import static org.uitest4j.swing.driver.JTableHasSelectionQuery.hasSelection;
 import static org.uitest4j.swing.driver.JTableHeaderQuery.tableHeader;
 import static org.uitest4j.swing.driver.JTableMatchingCellQuery.cellWithValue;
 import static org.uitest4j.swing.driver.JTableRowCellSelectedQuery.isCellSelected;
-import static org.uitest4j.swing.driver.TextAssert.verifyThat;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 import static org.uitest4j.swing.exception.ActionFailedException.actionFailure;
 import static org.uitest4j.swing.query.JTableColumnByIdentifierQuery.columnIndexByIdentifier;
@@ -598,7 +598,10 @@ public class JTableDriver extends JComponentDriver {
 	 */
 	@RunsInEDT
 	public void requireCellValue(@Nonnull JTable table, @Nonnull TableCell cell, @Nullable String value) {
-		verifyThat(value(table, cell)).as(cellValueProperty(table, cell)).isEqualOrMatches(value);
+//		verifyThat(value(table, cell)).as(cellValueProperty(table, cell)).isEqualOrMatches(value);
+
+		OpenTest4JAssertions.assertEquals(value, value(table, cell), () -> "Expected cell at " + cell.toString() +
+				" of '" + table.getName() + "' to be '" + value + "' but was '" + value(table, cell) + "'");
 	}
 
 	/**
@@ -614,13 +617,8 @@ public class JTableDriver extends JComponentDriver {
 	 */
 	@RunsInEDT
 	public void requireCellValue(@Nonnull JTable table, @Nonnull TableCell cell, @Nonnull Pattern pattern) {
-		verifyThat(value(table, cell)).as(cellValueProperty(table, cell)).matches(pattern);
-	}
-
-	@RunsInEDT
-	@Nonnull
-	private Description cellValueProperty(@Nonnull JTable table, @Nonnull TableCell cell) {
-		return cellProperty(table, VALUE_PROPERTY + " " + cell);
+		OpenTest4JAssertions.assertMatchesPattern(pattern, value(table, cell), () -> "Expected cell at " + cell.toString() +
+				" of '" + table.getName() + "' to match pattern '" + pattern + "' but was '" + value(table, cell) + "'");
 	}
 
 	/**

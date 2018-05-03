@@ -32,12 +32,7 @@ class JTableDriver_requireCellValueAsText_Test extends JTableDriver_TestCase {
   }
 
   @Test
-  void should_Pass_If_Cell_Value_Matches_Pattern() {
-    driver.requireCellValue(table, row(0).column(0), "0.*");
-  }
-
-  @Test
   void should_Fail_If_Cell_Value_Is_Not_Equal_To_Expected() {
-    ExpectedException.assertAssertionError(() -> driver.requireCellValue(table, row(0).column(0), "0-1"), "value [row=0, column=0]", "0-0", Pattern.compile("0-1"));
+    ExpectedException.assertOpenTest4jError(() -> driver.requireCellValue(table, row(0).column(0), "0-1"), "Expected cell at [0, 0] of 'TestTable' to be '0-1' but was '0-0'", "0-1", "0-0");
   }
 }
