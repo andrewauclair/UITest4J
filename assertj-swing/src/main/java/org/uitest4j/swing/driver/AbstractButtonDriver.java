@@ -16,6 +16,7 @@ import org.assertj.core.description.Description;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.internal.annotation.InternalApi;
+import org.uitest4j.swing.internal.assertions.OpenTest4JAssertions;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -27,7 +28,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.uitest4j.swing.driver.AbstractButtonArmedQuery.isArmed;
 import static org.uitest4j.swing.driver.AbstractButtonSelectedQuery.isSelected;
 import static org.uitest4j.swing.driver.ComponentPreconditions.checkEnabledAndShowing;
-import static org.uitest4j.swing.driver.TextAssert.verifyThat;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
@@ -47,7 +47,6 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 public class AbstractButtonDriver extends JComponentDriver implements TextDisplayDriver<AbstractButton> {
 	private static final String SELECTED_PROPERTY = "selected";
 	private static final String ARMED_PROPERTY = "armed";
-	private static final String TEXT_PROPERTY = "text";
 
 	/**
 	 * Creates a new {@link AbstractButtonDriver}.
@@ -69,7 +68,8 @@ public class AbstractButtonDriver extends JComponentDriver implements TextDispla
 	@RunsInEDT
 	@Override
 	public void requireText(@Nonnull AbstractButton button, @Nullable String expected) {
-		verifyThat(textOf(button)).as(propertyName(button, TEXT_PROPERTY)).isEqualOrMatches(expected);
+		OpenTest4JAssertions.assertEquals(expected, textOf(button), () -> "Expected text of '" + button.getName() +
+				"' to be '" + expected + "' but was '" + textOf(button) + "'");
 	}
 
 	/**
@@ -83,7 +83,8 @@ public class AbstractButtonDriver extends JComponentDriver implements TextDispla
 	 */
 	@Override
 	public void requireText(@Nonnull AbstractButton button, @Nonnull Pattern pattern) {
-		verifyThat(textOf(button)).as(propertyName(button, TEXT_PROPERTY)).matches(pattern);
+		OpenTest4JAssertions.assertMatchesPattern(pattern, textOf(button), () -> "Expected text of '" + button.getName() +
+				"' to match pattern '" + pattern + "' but was '" + textOf(button) + "'");
 	}
 
 	/**

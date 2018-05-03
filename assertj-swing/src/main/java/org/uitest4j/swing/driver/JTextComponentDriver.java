@@ -18,6 +18,7 @@ import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.exception.ActionFailedException;
 import org.uitest4j.swing.internal.annotation.InternalApi;
+import org.uitest4j.swing.internal.assertions.OpenTest4JAssertions;
 import org.uitest4j.swing.util.Pair;
 import org.uitest4j.swing.util.Platform;
 import org.uitest4j.swing.util.Strings;
@@ -31,6 +32,7 @@ import java.awt.*;
 import java.util.Objects;
 import java.util.regex.Pattern;
 
+import static java.lang.Math.exp;
 import static java.lang.Math.max;
 import static java.lang.Math.min;
 import static java.lang.String.valueOf;
@@ -347,7 +349,8 @@ public class JTextComponentDriver extends JComponentDriver implements TextDispla
 	@RunsInEDT
 	@Override
 	public void requireText(@Nonnull JTextComponent textBox, @Nullable String expected) {
-		verifyThat(textOf(textBox)).as(textProperty(textBox)).isEqualOrMatches(expected);
+		OpenTest4JAssertions.assertEquals(expected, textOf(textBox), () -> "Expected text of '" + textBox.getName() +
+				"' to be '" + expected + "' but was '" + textOf(textBox) + "'");
 	}
 
 	/**

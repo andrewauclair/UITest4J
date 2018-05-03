@@ -37,6 +37,7 @@ public abstract class JProgressBarDriver_TestCase extends RobotBasedTestCase {
     driver = new JProgressBarDriver(robot);
     MyWindow window = MyWindow.createNew(getClass());
     progressBar = window.progressBar;
+	  progressBar.setName("TestProgressBar");
   }
 
   @RunsInEDT

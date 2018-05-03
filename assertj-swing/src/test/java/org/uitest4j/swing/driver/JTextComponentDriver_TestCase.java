@@ -43,6 +43,7 @@ public abstract class JTextComponentDriver_TestCase extends RobotBasedTestCase {
     window = MyWindow.createNew(getClass());
     window.setMinimumSize(new Dimension(100, 50));
     textField = window.textField;
+	  textField.setName("TestTextField");
     extraSetUp();
   }
 

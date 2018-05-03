@@ -18,6 +18,9 @@ import org.opentest4j.AssertionFailedError;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import java.util.function.Supplier;
+import java.util.regex.Pattern;
+
 import static org.uitest4j.swing.util.Strings.areEqualOrMatch;
 
 /**
@@ -26,6 +29,8 @@ import static org.uitest4j.swing.util.Strings.areEqualOrMatch;
  * @author Alex Ruiz
  */
 class TextAssert extends AbstractCharSequenceAssert<TextAssert, String> {
+  private String description = "";
+
   static @Nonnull TextAssert assertThat(@Nullable String s) {
     return new TextAssert(s);
   }
@@ -38,10 +43,37 @@ class TextAssert extends AbstractCharSequenceAssert<TextAssert, String> {
     super(actual, TextAssert.class);
   }
 
+  TextAssert as(String description) {
+    this.description = description;
+    return this;
+  }
+
+  @Override
+  public TextAssert matches(Pattern pattern) {
+    if (!pattern.matcher(actual).matches()) {
+      String desc = "";
+      if (description != null) {
+        desc = "[" + description + "] ";
+        if (desc.equals("[] ")) {
+          desc = "";
+        }
+      }
+      throw new AssertionFailedError(String.format("%sExpecting: %s to match pattern: %s", desc, actual, pattern));
+    }
+    return this;
+  }
+
   void isEqualOrMatches(@Nullable String s) {
     if (areEqualOrMatch(s, actual)) {
       return;
     }
-    throw new AssertionFailedError(String.format("Expecting: %s to match pattern: %s", actual, s));
+    String desc = "";
+    if (description != null) {
+      desc = "[" + description + "] ";
+      if (desc.equals("[] ")) {
+        desc = "";
+      }
+    }
+    throw new AssertionFailedError(String.format("%sExpecting: %s to match pattern: %s", desc, actual, s));
   }
 }

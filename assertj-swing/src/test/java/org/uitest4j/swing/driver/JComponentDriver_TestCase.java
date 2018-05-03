@@ -34,6 +34,7 @@ public class JComponentDriver_TestCase extends RobotBasedTestCase {
     driver = new JComponentDriver(robot);
     window = MyWindow.createNew(getClass());
     button = window.button;
+    button.setName("TestButton");
   }
 
   static class MyWindow extends TestWindow {

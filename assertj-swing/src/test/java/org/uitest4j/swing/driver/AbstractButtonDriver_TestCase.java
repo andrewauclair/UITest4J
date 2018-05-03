@@ -42,6 +42,7 @@ public abstract class AbstractButtonDriver_TestCase extends RobotBasedTestCase {
     driver = new AbstractButtonDriver(robot);
     window = MyWindow.createNew(getClass());
     checkBox = window.checkBox;
+	  checkBox.setName("TestCheckBox");
   }
 
   @RunsInEDT

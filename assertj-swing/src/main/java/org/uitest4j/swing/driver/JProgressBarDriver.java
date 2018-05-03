@@ -15,6 +15,7 @@ package org.uitest4j.swing.driver;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.internal.annotation.InternalApi;
+import org.uitest4j.swing.internal.assertions.OpenTest4JAssertions;
 import org.uitest4j.swing.timing.Timeout;
 import org.uitest4j.swing.util.Pair;
 
@@ -71,7 +72,9 @@ public class JProgressBarDriver extends JComponentDriver implements TextDisplayD
 	@RunsInEDT
 	@Override
 	public void requireText(@Nonnull JProgressBar progressBar, @Nullable String expected) {
-		verifyThat(stringOf(progressBar)).as(propertyName(progressBar, TEXT_PROPERTY)).isEqualOrMatches(expected);
+//		verifyThat(stringOf(progressBar)).as(propertyName(progressBar, TEXT_PROPERTY)).isEqualOrMatches(expected);
+		OpenTest4JAssertions.assertEquals(expected, stringOf(progressBar), () -> "Expected text of '" + progressBar.getName() +
+				"' to be '" + expected + "' but was '" + stringOf(progressBar) + "'");
 	}
 
 	/**

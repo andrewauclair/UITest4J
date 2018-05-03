@@ -12,10 +12,8 @@
  */
 package org.uitest4j.swing.driver;
 
-import java.util.regex.Pattern;
-
-import org.uitest4j.swing.test.ExpectedException;
 import org.junit.jupiter.api.Test;
+import org.uitest4j.swing.test.ExpectedException;
 
 /**
  * Tests for {@link JComponentDriver#requireToolTip(JComponent, String)}.
@@ -29,12 +27,7 @@ class JComponentDriver_requireToolTipAsText_Test extends JComponentDriver_TestCa
   }
 
   @Test
-  void should_Pass_If_ToolTip_Matches_Pattern_In_Given_Text() {
-    driver.requireToolTip(button, "A Tool.*");
-  }
-
-  @Test
   void should_Fail_If_ToolTip_Is_Not_Equal_To_Given_Text() {
-    ExpectedException.assertAssertionError(() -> driver.requireToolTip(button, "Hello"), "toolTipText", "A ToolTip", Pattern.compile("Hello"));
+    ExpectedException.assertOpenTest4jError(() -> driver.requireToolTip(button, "Hello"), "Expected tooltip text of 'TestButton' to be 'Hello' but was 'A ToolTip'", "Hello", "A ToolTip");
   }
 }

@@ -21,6 +21,7 @@ import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.exception.ComponentLookupException;
 import org.uitest4j.swing.exception.LocationUnavailableException;
 import org.uitest4j.swing.internal.annotation.InternalApi;
+import org.uitest4j.swing.internal.assertions.OpenTest4JAssertions;
 import org.uitest4j.swing.util.Pair;
 import org.uitest4j.swing.util.PatternTextMatcher;
 import org.uitest4j.swing.util.StringTextMatcher;
@@ -157,7 +158,8 @@ public class JComboBoxDriver extends JComponentDriver {
 	@RunsInEDT
 	public void requireSelection(@Nonnull JComboBox<?> comboBox, @Nullable String value) {
 		String selection = requiredSelectionOf(comboBox);
-		verifyThat(selection).as(selectedIndexProperty(comboBox)).isEqualOrMatches(value);
+		OpenTest4JAssertions.assertEquals(value, selection, () -> "Expected '" + comboBox.getName() +
+				"' to have selection '" + value + "' but was '" + selection + "'");
 	}
 
 	/**

@@ -52,6 +52,7 @@ public abstract class JComboBoxDriver_TestCase extends RobotBasedTestCase {
     driver.replaceCellReader(cellReader);
     window = MyWindow.createNew(getClass());
     comboBox = window.comboBox;
+	  comboBox.setName("TestComboBox");
   }
 
   final void showWindow() {

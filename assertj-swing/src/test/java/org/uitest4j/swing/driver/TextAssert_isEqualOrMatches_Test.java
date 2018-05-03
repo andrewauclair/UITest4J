@@ -25,12 +25,12 @@ class TextAssert_isEqualOrMatches_Test {
 
   @Test
   void should_Fail_If_Actual_Is_Not_Equal_To_Expected() {
-    ExpectedException.assertContainsMessage(AssertionError.class, () -> new TextAssert("hello").isEqualOrMatches("bye"), "Expecting:" + NL + " \"hello\"" + NL + "to match pattern:" + NL + " \"bye\"");
+    ExpectedException.assertContainsMessage(AssertionError.class, () -> new TextAssert("hello").isEqualOrMatches("bye"), "Expecting: hello to match pattern: bye");
   }
 
   @Test
   void should_Fail_Showing_Description_If_Actual_Is_Not_Equal_To_Expected() {
-    ExpectedException.assertContainsMessage(AssertionError.class, () -> new TextAssert("hello").as("A Test").isEqualOrMatches("bye"), "[A Test] " + NL + "Expecting:" + NL + " \"hello\"" + NL + "to match pattern:" + NL + " \"bye\"");
+    ExpectedException.assertContainsMessage(AssertionError.class, () -> new TextAssert("hello").as("A Test").isEqualOrMatches("bye"), "[A Test] Expecting: hello to match pattern: bye");
   }
 
   @Test

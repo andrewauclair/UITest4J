@@ -17,6 +17,7 @@ import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.core.matcher.JButtonMatcher;
 import org.uitest4j.swing.internal.annotation.InternalApi;
+import org.uitest4j.swing.internal.assertions.OpenTest4JAssertions;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -70,7 +71,9 @@ public class JOptionPaneDriver extends JComponentDriver {
 	 */
 	@RunsInEDT
 	public void requireTitle(@Nonnull JOptionPane optionPane, @Nullable String title) {
-		verifyThat(title(optionPane)).as(propertyName(optionPane, TITLE_PROPERTY)).isEqualOrMatches(title);
+//		verifyThat(title(optionPane)).as(propertyName(optionPane, TITLE_PROPERTY)).isEqualOrMatches(title);
+		OpenTest4JAssertions.assertEquals(title, title(optionPane), () -> "Expected title of '" + optionPane.getName() +
+				"' to be '" + title + "' but was '" + title(optionPane) + "'");
 	}
 
 	/**
@@ -121,7 +124,9 @@ public class JOptionPaneDriver extends JComponentDriver {
 
 	@RunsInEDT
 	private void requireMessage(@Nonnull JOptionPane optionPane, @Nullable String expected, @Nullable String actual) {
-		verifyThat(actual).as(messageProperty(optionPane)).isEqualOrMatches(expected);
+//		verifyThat(actual).as(messageProperty(optionPane)).isEqualOrMatches(expected);
+		OpenTest4JAssertions.assertEquals(expected, actual, () -> "Expected message of '" + optionPane.getName() +
+				"' to be '" + expected + "' but was '" + actual + "'");
 	}
 
 	/**

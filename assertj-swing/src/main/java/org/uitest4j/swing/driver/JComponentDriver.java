@@ -16,6 +16,7 @@ import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.internal.annotation.InternalApi;
+import org.uitest4j.swing.internal.assertions.OpenTest4JAssertions;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -168,7 +169,8 @@ public class JComponentDriver extends ContainerDriver {
 	 */
 	@RunsInEDT
 	public void requireToolTip(@Nonnull JComponent c, @Nullable String expected) {
-		verifyThat(toolTipOf(c)).as(propertyName(c, TOOL_TIP_TEXT_PROPERTY)).isEqualOrMatches(expected);
+		OpenTest4JAssertions.assertEquals(expected, toolTipOf(c), () -> "Expected tooltip text of '" +
+				c.getName() + "' to be '" + expected + "' but was '" + toolTipOf(c) + "'");
 	}
 
 	/**
