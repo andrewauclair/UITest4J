@@ -38,10 +38,11 @@ import javax.swing.*;
 import javax.swing.table.JTableHeader;
 import java.awt.*;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.uitest4j.swing.core.MouseButton.LEFT_BUTTON;
 import static org.uitest4j.swing.driver.JTableCellEditableQuery.isCellEditable;
 import static org.uitest4j.swing.driver.JTableColumnCountQuery.columnCountOf;
@@ -55,7 +56,6 @@ import static org.uitest4j.swing.exception.ActionFailedException.actionFailure;
 import static org.uitest4j.swing.query.JTableColumnByIdentifierQuery.columnIndexByIdentifier;
 import static org.uitest4j.swing.util.ArrayPreconditions.checkNotNullOrEmpty;
 import static org.uitest4j.swing.util.ArrayUtils.equal;
-import static org.uitest4j.swing.util.ArrayUtils.format;
 import static org.uitest4j.swing.util.Platform.controlOrCommandKey;
 
 /**
@@ -74,10 +74,8 @@ import static org.uitest4j.swing.util.Platform.controlOrCommandKey;
 @InternalApi
 public class JTableDriver extends JComponentDriver {
 	private static final String CONTENTS_PROPERTY = "contents";
-	private static final String EDITABLE_PROPERTY = "editable";
 	private static final String SELECTED_ROWS_PROPERTY = "selectedRows";
 	private static final String SELECTION_PROPERTY = "selection";
-	private static final String VALUE_PROPERTY = "value";
 
 	private final JTableLocation location = new JTableLocation();
 	private JTableCellReader cellReader;
@@ -653,7 +651,10 @@ public class JTableDriver extends JComponentDriver {
 	 */
 	@RunsInEDT
 	public void requireEditable(@Nonnull JTable table, @Nonnull TableCell cell) {
-		requireEditableEqualTo(table, cell, true);
+		Objects.requireNonNull(cell);
+		boolean cellEditable = Objects.requireNonNull(execute(() -> isCellEditable(table, cell)));
+		OpenTest4JAssertions.assertTrue(cellEditable, () -> "Expected cell " + cell + " of '" + table.getName() +
+				"' to be editable");
 	}
 
 	/**
@@ -667,21 +668,10 @@ public class JTableDriver extends JComponentDriver {
 	 */
 	@RunsInEDT
 	public void requireNotEditable(@Nonnull JTable table, @Nonnull TableCell cell) {
-		requireEditableEqualTo(table, cell, false);
-	}
-
-	@RunsInEDT
-	private static void requireEditableEqualTo(final @Nonnull JTable table, final @Nonnull TableCell cell,
-											   boolean editable) {
 		Objects.requireNonNull(cell);
 		boolean cellEditable = Objects.requireNonNull(execute(() -> isCellEditable(table, cell)));
-		assertThat(cellEditable).as(cellProperty(table, EDITABLE_PROPERTY + " " + cell)).isEqualTo(editable);
-	}
-
-	@RunsInEDT
-	@Nonnull
-	private static Description cellProperty(@Nonnull JTable table, @Nonnull String propertyName) {
-		return propertyName(table, propertyName);
+		OpenTest4JAssertions.assertFalse(cellEditable, () -> "Expected cell " + cell + " of '" + table.getName() +
+				"' to not be editable");
 	}
 
 	/**
@@ -845,7 +835,8 @@ public class JTableDriver extends JComponentDriver {
 	 */
 	@RunsInEDT
 	public void requireRowCount(@Nonnull JTable table, int rowCount) {
-		assertThat(rowCountOf(table)).as(propertyName(table, "rowCount")).isEqualTo(rowCount);
+		OpenTest4JAssertions.assertEquals(rowCount, rowCountOf(table), () -> "Expected row count of '" + table.getName() +
+				"' to be '" + rowCount + "' but was '" + rowCountOf(table) + "'");
 	}
 
 	/**
@@ -857,7 +848,8 @@ public class JTableDriver extends JComponentDriver {
 	 */
 	@RunsInEDT
 	public void requireColumnCount(@Nonnull JTable table, int columnCount) {
-		assertThat(columnCountOf(table)).as(propertyName(table, "columnCount")).isEqualTo(columnCount);
+		OpenTest4JAssertions.assertEquals(columnCount, columnCountOf(table), () -> "Expected column count of '" + table.getName() +
+				"' to be '" + columnCount + "' but was '" + columnCountOf(table) + "'");
 	}
 
 	/**
@@ -960,7 +952,16 @@ public class JTableDriver extends JComponentDriver {
 	@RunsInEDT
 	public void requireSelectedRows(@Nonnull JTable table, @Nonnull int... rows) {
 		int[] selectedRows = selectedRowsOf(table);
-		assertThat(selectedRows).as(propertyName(table, SELECTED_ROWS_PROPERTY)).contains(rows);
+		List<Integer> selected = Arrays.stream(selectedRows)
+				.boxed()
+				.collect(Collectors.toList());
+		List<Integer> expected = Arrays.stream(rows)
+				.boxed()
+				.collect(Collectors.toList());
+		if (!selected.containsAll(expected)) {
+			throw new AssertionFailedError("Expected selected rows of '" + table.getName() + "' to contain " + Arrays.toString(rows) +
+					". Selected rows were " + Arrays.toString(selectedRows), rows, selectedRows);
+		}
 	}
 
 	@RunsInEDT

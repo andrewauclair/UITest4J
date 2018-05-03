@@ -33,6 +33,6 @@ class JTableDriver_requireEditable_Test extends JTableDriver_TestCase {
   @Test
   void should_Fail_If_Cell_Is_Not_Editable() {
     makeFirstCellNotEditable();
-	  ExpectedException.assertContainsMessage(AssertionError.class, () -> driver.requireEditable(table, row(0).column(0)), "property:'editable [0, 0]'", "expected:<[tru]e> but was:<[fals]e>");
+    ExpectedException.assertOpenTest4jError(() -> driver.requireEditable(table, row(0).column(0)), "Expected cell [0, 0] of 'TestTable' to be editable");
   }
 }

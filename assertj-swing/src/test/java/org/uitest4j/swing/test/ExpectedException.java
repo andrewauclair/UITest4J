@@ -43,6 +43,13 @@ public final class ExpectedException {
 		assertEquals(actual, error.getActual().getValue());
 	}
 
+	public static void assertOpenTest4jError(Executable executable, String message, int[] expected, int[] actual) {
+		AssertionFailedError error = assertThrows(AssertionFailedError.class, executable);
+		assertEquals(message, error.getMessage());
+		assertArrayEquals(expected, (int[]) error.getExpected().getValue());
+		assertArrayEquals(actual, (int[]) error.getActual().getValue());
+	}
+
 	public static void assertAssertionError(Executable executable, String message) {
 		assertContainsMessage(AssertionError.class, executable, message);
 	}

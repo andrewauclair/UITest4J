@@ -31,7 +31,12 @@ class JTableDriver_requireSelectedRows_Test extends JTableDriver_TestCase {
   void should_Fail_If_JTable_Does_Not_Have_The_Expected_Selected_Rows() {
     selectRows(6, 8);
     String NL = System.getProperty("line.separator");
-    ExpectedException.assertContainsMessage(AssertionError.class, () -> driver.requireSelectedRows(table, 0, 1), "property:'selectedRows'", "Expecting:" + NL + " <[6, 7, 8]>" + NL + "to contain:" + NL + " <[0, 1]>" + NL + "but could not find:" + NL + " <[0, 1]>");
+//    ExpectedException.assertContainsMessage(AssertionError.class, () -> driver.requireSelectedRows(table, 0, 1), "property:'selectedRows'", "Expecting:" + NL + " <[6, 7, 8]>" + NL + "to contain:" + NL + " <[0, 1]>" + NL + "but could not find:" + NL + " <[0, 1]>");
+    ExpectedException.assertOpenTest4jError(() -> driver.requireSelectedRows(table, 0, 1), "Expected selected rows of 'TestTable' to contain [0, 1]. Selected rows were [6, 7, 8]", toArray(0, 1), toArray(6, 7, 8));
+  }
+
+  private int[] toArray(int... ints) {
+    return ints;
   }
 
   @Test
