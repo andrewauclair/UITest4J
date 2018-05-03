@@ -12,7 +12,6 @@
  */
 package org.uitest4j.swing.fixture;
 
-import org.assertj.core.description.Description;
 import org.uitest4j.swing.cell.JTableCellReader;
 import org.uitest4j.swing.cell.JTableCellWriter;
 import org.uitest4j.swing.core.MouseButton;
@@ -28,6 +27,7 @@ import javax.swing.*;
 import javax.swing.table.JTableHeader;
 import java.awt.*;
 import java.util.Objects;
+import java.util.function.Supplier;
 import java.util.regex.Pattern;
 
 import static org.uitest4j.swing.driver.ComponentDriver.propertyName;
@@ -91,7 +91,7 @@ public class JTableFixture extends AbstractJPopupMenuInvokerFixture<JTableFixtur
 	 */
 	public FontFixture fontAt(@Nonnull TableCell cell) {
 		Font font = driver().font(target(), cell);
-		return new FontFixture(Objects.requireNonNull(font), () -> cellProperty(cell, FONT_PROPERTY).value());
+		return new FontFixture(Objects.requireNonNull(font), cellProperty(cell, FONT_PROPERTY));
 	}
 
 	/**
@@ -105,7 +105,7 @@ public class JTableFixture extends AbstractJPopupMenuInvokerFixture<JTableFixtur
 	@Nonnull
 	public ColorFixture backgroundAt(@Nonnull TableCell cell) {
 		Color background = driver().background(target(), cell);
-		return new ColorFixture(Objects.requireNonNull(background), cellProperty(cell, BACKGROUND_PROPERTY).value());
+		return new ColorFixture(Objects.requireNonNull(background), cellProperty(cell, BACKGROUND_PROPERTY));
 	}
 
 	/**
@@ -119,12 +119,12 @@ public class JTableFixture extends AbstractJPopupMenuInvokerFixture<JTableFixtur
 	@Nonnull
 	public ColorFixture foregroundAt(@Nonnull TableCell cell) {
 		Color foreground = driver().foreground(target(), cell);
-		return new ColorFixture(Objects.requireNonNull(foreground), cellProperty(cell, FOREGROUND_PROPERTY).value());
+		return new ColorFixture(Objects.requireNonNull(foreground), cellProperty(cell, FOREGROUND_PROPERTY));
 	}
 
 	@Nonnull
-	private Description cellProperty(TableCell cell, String propertyName) {
-		return propertyName(target(), propertyName + " " + cell);
+	private Supplier<String> cellProperty(TableCell cell, String propertyName) {
+		return propertyName(target(), propertyName + " " + cell, true);
 	}
 
 	/**

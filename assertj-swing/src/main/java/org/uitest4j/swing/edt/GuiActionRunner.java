@@ -211,7 +211,7 @@ public class GuiActionRunner {
   }
 
   private static List<StackTraceElement> stackTraceInCurrentThread(String methodToStartFrom) {
-    List<StackTraceElement> filtered = stackTraceInCurrentThread();
+	  ArrayList<StackTraceElement> filtered = stackTraceInCurrentThread();
     List<StackTraceElement> toRemove = new ArrayList<>();
 
     for (Object e : filtered) {
@@ -226,7 +226,7 @@ public class GuiActionRunner {
     return filtered;
   }
 
-  private static List<StackTraceElement> stackTraceInCurrentThread() {
-    return Arrays.asList(Thread.currentThread().getStackTrace());
+	private static ArrayList<StackTraceElement> stackTraceInCurrentThread() {
+		return new ArrayList<>(Arrays.asList(Thread.currentThread().getStackTrace()));
   }
 }
