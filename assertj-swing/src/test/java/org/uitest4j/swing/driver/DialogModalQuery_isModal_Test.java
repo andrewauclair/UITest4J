@@ -78,7 +78,7 @@ class DialogModalQuery_isModal_Test extends RobotBasedTestCase {
     dialog.startRecording();
     DialogDriver driver = new DialogDriver(robot);
     ExpectedException.assertOpenTest4jError(() -> driver.requireModal(dialog),
-            "Dialog should be modal: org.uitest4j.swing.driver.DialogModalQuery_isModal_Test$MyDialog[name='dialog0', title='DialogModalQuery_isModal_Test', enabled=true, modal=false, visible=false, showing=false]");
+			"Dialog should be modal: org.uitest4j.swing.driver.DialogModalQuery_isModal_Test$MyDialog[name='dialog0', title='DialogModalQuery_isModal_Test', enabled='true', modal='false', visible='false', showing=false]");
     dialog.requireInvoked("isModal");
   }
 

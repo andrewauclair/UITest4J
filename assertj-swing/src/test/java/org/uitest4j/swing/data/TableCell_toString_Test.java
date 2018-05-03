@@ -33,6 +33,6 @@ class TableCell_toString_Test {
 
   @Test
   void should_Implement_ToString() {
-    assertThat(cell.toString()).isEqualTo("[row=6, column=8]");
+	  assertThat(cell.toString()).isEqualTo("[6, 8]");
   }
 }

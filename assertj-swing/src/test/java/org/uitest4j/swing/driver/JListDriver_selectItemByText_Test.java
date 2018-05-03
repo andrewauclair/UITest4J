@@ -29,7 +29,7 @@ class JListDriver_selectItemByText_Test extends JListDriver_TestCase {
   void should_Throw_Error_If_A_Matching_Item_Was_Not_Found() {
     showWindow();
     ExpectedException.assertContainsMessage(LocationUnavailableException.class, () -> driver.selectItem(list, "ten"),
-        "Unable to find item matching the value 'ten' among the JList contents [\"one\", \"two\", \"three\"]");
+			"Unable to find item matching the value 'ten' among the JList contents [one, two, three]");
   }
 
   @Test

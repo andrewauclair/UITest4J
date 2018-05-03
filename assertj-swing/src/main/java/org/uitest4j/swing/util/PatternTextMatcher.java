@@ -16,6 +16,7 @@ import static org.uitest4j.swing.util.Patterns.format;
 import static org.uitest4j.swing.util.Strings.match;
 import static org.uitest4j.swing.util.Strings.singleQuote;
 
+import java.util.Arrays;
 import java.util.Objects;
 import java.util.regex.Pattern;
 
@@ -75,6 +76,6 @@ public class PatternTextMatcher implements TextMatcher {
     if (patterns.length == 1) {
 		return Objects.requireNonNull(singleQuote(patterns[0].pattern()));
     }
-    return format(patterns);
+	  return Arrays.toString(patterns);
   }
 }

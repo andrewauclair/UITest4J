@@ -17,6 +17,7 @@ import static javax.swing.tree.TreeSelectionModel.DISCONTIGUOUS_TREE_SELECTION;
 import static javax.swing.tree.TreeSelectionModel.SINGLE_TREE_SELECTION;
 
 import java.awt.Component;
+import java.util.Arrays;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -53,7 +54,7 @@ public class JTreeFormatter extends ComponentFormatterTemplate {
     JTree tree = (JTree) c;
 	  String format = "%s[name='%s', selectionCount=%d, selectionPaths=%s, selectionMode=%s, enabled=%b, visible=%b, showing=%b";
 	  return String.format(format, getRealClassName(c), tree.getName(), tree.getSelectionCount(),
-                         ArrayUtils.format(selectionPaths(tree)), selectionMode(tree), tree.isEnabled(), tree.isVisible(),
+			  Arrays.toString(selectionPaths(tree)), selectionMode(tree), tree.isEnabled(), tree.isVisible(),
                          tree.isShowing());
   }
 

@@ -90,7 +90,7 @@ final class JTreeVerifySelectionTask {
   private static void failNotEqualSelection(@Nonnull Supplier<String> errMsg, @Nonnull String[] expected,
                                             @Nonnull TreePath[] actual) {
     String format = "[%s] expecting selection:<%s> but was:<%s>";
-    String msg = String.format(format, errMsg.get(), format(expected), format(actual));
+	  String msg = String.format(format, errMsg.get(), Arrays.toString(expected), Arrays.toString(actual));
     throw new AssertionFailedError(msg);
   }
 
@@ -105,7 +105,7 @@ final class JTreeVerifySelectionTask {
         return;
       }
       String format = "[%s] expected no selection but was:<%s>";
-      String message = String.format(format, errMsg.get(), format(tree.getSelectionPaths()));
+		String message = String.format(format, errMsg.get(), Arrays.toString(tree.getSelectionPaths()));
       throw new AssertionFailedError(message);
     });
   }

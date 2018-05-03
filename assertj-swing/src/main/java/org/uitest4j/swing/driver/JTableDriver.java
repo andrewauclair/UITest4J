@@ -37,6 +37,7 @@ import javax.annotation.Nullable;
 import javax.swing.*;
 import javax.swing.table.JTableHeader;
 import java.awt.*;
+import java.util.Arrays;
 import java.util.Objects;
 import java.util.regex.Pattern;
 
@@ -392,7 +393,7 @@ public class JTableDriver extends JComponentDriver {
 			}
 			String format = "[%s] expected no selection but was:<rows=%s, columns=%s>";
 			String msg = String.format(format, propertyName(table, SELECTION_PROPERTY).value(),
-					format(selectedRowsOf(table)), format(table.getSelectedColumns()));
+					Arrays.toString(selectedRowsOf(table)), Arrays.toString(table.getSelectedColumns()));
 			throw new AssertionFailedError(msg);
 		});
 	}

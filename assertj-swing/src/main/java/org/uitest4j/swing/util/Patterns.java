@@ -12,6 +12,7 @@
  */
 package org.uitest4j.swing.util;
 
+import java.util.Arrays;
 import java.util.Objects;
 import java.util.regex.Pattern;
 
@@ -57,7 +58,8 @@ public final class Patterns {
 		Pattern p = Objects.requireNonNull(patterns[i]);
       patternsAsText[i] = p.pattern();
     }
-	  return Objects.requireNonNull(ArrayUtils.format(patternsAsText));
+	  return Arrays.toString(patternsAsText);
+//	  return Objects.requireNonNull(ArrayUtils.format(patternsAsText));
   }
 
   private Patterns() {

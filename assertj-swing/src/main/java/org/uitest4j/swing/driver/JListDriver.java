@@ -32,6 +32,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.swing.*;
 import java.awt.*;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.regex.Pattern;
@@ -818,7 +819,7 @@ public class JListDriver extends JComponentDriver {
 															  @Nonnull TextMatcher matcher) {
 		String format = "Unable to find item matching the %s %s among the JList contents %s";
 		String msg = String.format(format, matcher.description(), matcher.formattedValues(),
-				format(contents(list, cellReader())));
+				Arrays.toString(contents(list, cellReader())));
 		return new LocationUnavailableException(msg);
 	}
 
