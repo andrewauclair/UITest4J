@@ -24,18 +24,17 @@ import org.junit.jupiter.api.Test;
 class FontFixture_requireNotPlain_Test extends FontFixture_TestCase {
   @Test
   void should_Pass_If_Font_Is_Not_Plain() {
-    fixture().requireNotPlain();
+    FontFixture fixture = new FontFixture(boldFont());
+    fixture.requireNotPlain();
   }
 
   @Test
   void should_Fail_If_Font_Is_Plain() {
-    FontFixture fixture = new FontFixture(boldFont());
-    ExpectedException.assertContainsMessage(AssertionError.class, () -> fixture.requireNotPlain(), "[plain] expected:<[fals]e> but was:<[tru]e>");
+    ExpectedException.assertOpenTest4jError(() -> fixture().requireNotPlain(), "Expected font to not be plain");
   }
 
   @Test
   void should_Fail_Showing_Description_If_Font_Is_Plain() {
-    FontFixture fixture = new FontFixture(boldFont(), "test");
-    ExpectedException.assertContainsMessage(AssertionError.class, () -> fixture.requireNotPlain(), "[test - plain] expected:<[fals]e> but was:<[tru]e>");
+    ExpectedException.assertOpenTest4jError(() -> fixture().requireNotPlain(), "Expected font to not be plain");
   }
 }

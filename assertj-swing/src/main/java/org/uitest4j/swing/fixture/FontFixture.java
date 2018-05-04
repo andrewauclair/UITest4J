@@ -12,15 +12,13 @@
  */
 package org.uitest4j.swing.fixture;
 
-import org.uitest4j.swing.util.Strings;
+import org.uitest4j.swing.internal.assertions.OpenTest4JAssertions;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.awt.*;
 import java.util.Objects;
 import java.util.function.Supplier;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Verifies the state of {@code Font}s.
@@ -29,15 +27,6 @@ import static org.assertj.core.api.Assertions.assertThat;
  * @author Alex Ruiz
  */
 public class FontFixture {
-	private static final String PROPERTY_SEPARATOR = " - ";
-
-	private static final String BOLD_PROPERTY = "bold";
-	private static final String FAMILY_PROPERTY = "family";
-	private static final String ITALIC_PROPERTY = "italic";
-	private static final String NAME_PROPERTY = "name";
-	private static final String PLAIN_PROPERTY = "plain";
-	private static final String SIZE_PROPERTY = "size";
-
 	private final Font target;
 	private final Supplier<String> description;
 
@@ -84,7 +73,8 @@ public class FontFixture {
 	 */
 	@Nonnull
 	public FontFixture requireFamily(@Nonnull String family) {
-		assertThat(target.getFamily()).as(property(FAMILY_PROPERTY)).isEqualTo(family);
+		OpenTest4JAssertions.assertEquals(family, target.getFamily(), () -> desc() + "Expected font family to be '" + family +
+				"' but was '" + target.getFamily() + "'");
 		return this;
 	}
 
@@ -98,7 +88,8 @@ public class FontFixture {
 	 */
 	@Nonnull
 	public FontFixture requireName(@Nonnull String name) {
-		assertThat(target.getName()).as(property(NAME_PROPERTY)).isEqualTo(name);
+		OpenTest4JAssertions.assertEquals(name, target.getName(), () -> desc() + "Expected font name to be '" + name +
+				"' but was '" + target.getName() + "'");
 		return this;
 	}
 
@@ -112,7 +103,8 @@ public class FontFixture {
 	 */
 	@Nonnull
 	public FontFixture requireSize(int size) {
-		assertThat(target.getSize()).as(property(SIZE_PROPERTY)).isEqualTo(size);
+		OpenTest4JAssertions.assertEquals(size, target.getSize(), () -> desc() + "Expected font size to be '" + size +
+				"' but was '" + target.getSize() + "'");
 		return this;
 	}
 
@@ -125,7 +117,8 @@ public class FontFixture {
 	 */
 	@Nonnull
 	public FontFixture requireBold() {
-		return requireBold(true);
+		OpenTest4JAssertions.assertTrue(target.isBold(), () -> desc() + "Expected font to be bold");
+		return this;
 	}
 
 	/**
@@ -137,12 +130,7 @@ public class FontFixture {
 	 */
 	@Nonnull
 	public FontFixture requireNotBold() {
-		return requireBold(false);
-	}
-
-	@Nonnull
-	private FontFixture requireBold(boolean bold) {
-		assertThat(target.isBold()).as(property(BOLD_PROPERTY)).isEqualTo(bold);
+		OpenTest4JAssertions.assertFalse(target.isBold(), () -> desc() + "Expected font to not be bold");
 		return this;
 	}
 
@@ -155,7 +143,8 @@ public class FontFixture {
 	 */
 	@Nonnull
 	public FontFixture requireItalic() {
-		return requireItalic(true);
+		OpenTest4JAssertions.assertTrue(target.isItalic(), () -> desc() + "Expected font to be italic");
+		return this;
 	}
 
 	/**
@@ -167,12 +156,7 @@ public class FontFixture {
 	 */
 	@Nonnull
 	public FontFixture requireNotItalic() {
-		return requireItalic(false);
-	}
-
-	@Nonnull
-	private FontFixture requireItalic(boolean italic) {
-		assertThat(target.isItalic()).as(property(ITALIC_PROPERTY)).isEqualTo(italic);
+		OpenTest4JAssertions.assertFalse(target.isItalic(), () -> desc() + "Expected font to not be italic");
 		return this;
 	}
 
@@ -185,7 +169,8 @@ public class FontFixture {
 	 */
 	@Nonnull
 	public FontFixture requirePlain() {
-		return requirePlain(true);
+		OpenTest4JAssertions.assertTrue(target.isPlain(), () -> desc() + "Expected font to be plain");
+		return this;
 	}
 
 	/**
@@ -197,21 +182,8 @@ public class FontFixture {
 	 */
 	@Nonnull
 	public FontFixture requireNotPlain() {
-		return requirePlain(false);
-	}
-
-	@Nonnull
-	private FontFixture requirePlain(boolean plain) {
-		assertThat(target.isBold()).as(property(PLAIN_PROPERTY)).isEqualTo(plain);
+		OpenTest4JAssertions.assertFalse(target.isPlain(), () -> desc() + "Expected font to not be plain");
 		return this;
-	}
-
-	@Nonnull
-	private String property(@Nonnull String s) {
-		if (!Strings.isNullOrEmpty(description())) {
-			return description.get() + PROPERTY_SEPARATOR + s;
-		}
-		return s;
 	}
 
 	/**
@@ -228,5 +200,14 @@ public class FontFixture {
 	public final @Nullable
 	String description() {
 		return description.get();
+	}
+
+	private String desc() {
+		if (description.get().isEmpty()) {
+			return "";
+		}
+		else {
+			return "[" + description.get() + "] ";
+		}
 	}
 }
