@@ -25,7 +25,6 @@ import java.util.List;
 import java.util.Map;
 
 import static java.lang.Thread.currentThread;
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.uitest4j.swing.keystroke.KeyStrokeMapping.mapping;
 import static org.uitest4j.swing.keystroke.KeyStrokeMappingProvider.NO_MASK;
 import static org.uitest4j.swing.util.Maps.newHashMap;
@@ -139,7 +138,10 @@ public class KeyStrokeMappingsParser {
 	 */
 	@Nonnull
 	public KeyStrokeMappingProvider parse(@Nonnull File file) {
-		assertThat(file).isFile();
+		if (!file.isFile()) {
+			throw new IllegalArgumentException("Expected file to be a file.");
+		}
+
 		try {
 			return parse(fileAsStream(file));
 		}

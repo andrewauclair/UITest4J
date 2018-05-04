@@ -12,6 +12,7 @@
  */
 package org.uitest4j.swing.core;
 
+import org.opentest4j.AssertionFailedError;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.exception.ComponentLookupException;
 import org.uitest4j.swing.hierarchy.ComponentHierarchy;
@@ -28,7 +29,6 @@ import java.util.Collection;
 import java.util.Objects;
 
 import static java.lang.System.lineSeparator;
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 import static org.uitest4j.swing.format.Formatting.format;
 import static org.uitest4j.swing.hierarchy.NewHierarchy.ignoreExistingComponents;
@@ -268,9 +268,13 @@ public final class BasicComponentFinder implements ComponentFinder {
 
 	@Nonnull
 	private <T> T labelFor(@Nonnull Component label, @Nonnull Class<T> type) {
-		assertThat(label).isInstanceOf(JLabel.class);
+		if (!(label instanceof JLabel)) {
+			throw new IllegalArgumentException("label should be an instanceof of JLabel");
+		}
 		Component target = ((JLabel) label).getLabelFor();
-		assertThat(target).isInstanceOf(type);
+		if (!target.getClass().isInstance(type)) {
+			throw new AssertionFailedError("Expected getLabelFor of '" + label.getName() + "' to return a JLabel but was " + target.getClass().getSimpleName());
+		}
 		return type.cast(target);
 	}
 
