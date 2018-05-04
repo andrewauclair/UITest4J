@@ -25,14 +25,12 @@ import javax.swing.*;
 import java.util.Objects;
 import java.util.regex.Pattern;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.uitest4j.swing.driver.JProgressBarIndeterminateQuery.isIndeterminate;
 import static org.uitest4j.swing.driver.JProgressBarMinimumAndMaximumQuery.minimumAndMaximumOf;
 import static org.uitest4j.swing.driver.JProgressBarStringQuery.stringOf;
 import static org.uitest4j.swing.driver.JProgressBarValueQuery.valueOf;
 import static org.uitest4j.swing.driver.JProgressBarWaitUntilIsDeterminate.waitUntilValueIsDeterminate;
 import static org.uitest4j.swing.driver.JProgressBarWaitUntilValueIsEqualToExpectedTask.waitUntilValueIsEqualToExpected;
-import static org.uitest4j.swing.driver.TextAssert.verifyThat;
 import static org.uitest4j.swing.timing.Timeout.timeout;
 
 /**
@@ -50,7 +48,6 @@ import static org.uitest4j.swing.timing.Timeout.timeout;
 @InternalApi
 public class JProgressBarDriver extends JComponentDriver implements TextDisplayDriver<JProgressBar> {
 	private static final Timeout DEFAULT_TIMEOUT = timeout();
-	private static final String TEXT_PROPERTY = "string";
 
 	/**
 	 * Creates a new {@link JProgressBarDriver}.
@@ -72,7 +69,6 @@ public class JProgressBarDriver extends JComponentDriver implements TextDisplayD
 	@RunsInEDT
 	@Override
 	public void requireText(@Nonnull JProgressBar progressBar, @Nullable String expected) {
-//		verifyThat(stringOf(progressBar)).as(propertyName(progressBar, TEXT_PROPERTY)).isEqualOrMatches(expected);
 		OpenTest4JAssertions.assertEquals(expected, stringOf(progressBar), () -> "Expected text of '" + progressBar.getName() +
 				"' to be '" + expected + "' but was '" + stringOf(progressBar) + "'");
 	}
@@ -89,7 +85,8 @@ public class JProgressBarDriver extends JComponentDriver implements TextDisplayD
 	@RunsInEDT
 	@Override
 	public void requireText(@Nonnull JProgressBar progressBar, @Nonnull Pattern pattern) {
-		verifyThat(stringOf(progressBar)).as(propertyName(progressBar, TEXT_PROPERTY)).matches(pattern);
+		OpenTest4JAssertions.assertMatchesPattern(pattern, stringOf(progressBar), () -> "Expected text of '" + progressBar.getName() +
+				"' to match pattern '" + pattern + "' but was '" + stringOf(progressBar) + "'");
 	}
 
 	/**
@@ -101,7 +98,8 @@ public class JProgressBarDriver extends JComponentDriver implements TextDisplayD
 	 */
 	@RunsInEDT
 	public void requireValue(@Nonnull JProgressBar progressBar, int value) {
-		assertThat(valueOf(progressBar)).as(propertyName(progressBar, "value")).isEqualTo(value);
+		OpenTest4JAssertions.assertEquals(value, valueOf(progressBar), () -> "Expected value of '" + progressBar.getName() +
+				"' to be '" + value + "' but was '" + valueOf(progressBar) + "'");
 	}
 
 	/**
@@ -112,7 +110,8 @@ public class JProgressBarDriver extends JComponentDriver implements TextDisplayD
 	 */
 	@RunsInEDT
 	public void requireIndeterminate(@Nonnull JProgressBar progressBar) {
-		requireIndeterminate(progressBar, true);
+		OpenTest4JAssertions.assertTrue(isIndeterminate(progressBar), () -> "Expected '" + progressBar.getName() +
+				"' to be indeterminate");
 	}
 
 	/**
@@ -123,12 +122,8 @@ public class JProgressBarDriver extends JComponentDriver implements TextDisplayD
 	 */
 	@RunsInEDT
 	public void requireDeterminate(@Nonnull JProgressBar progressBar) {
-		requireIndeterminate(progressBar, false);
-	}
-
-	@RunsInEDT
-	private void requireIndeterminate(@Nonnull JProgressBar progressBar, boolean indeterminate) {
-		assertThat(isIndeterminate(progressBar)).as(propertyName(progressBar, "indeterminate")).isEqualTo(indeterminate);
+		OpenTest4JAssertions.assertFalse(isIndeterminate(progressBar), () -> "Expected '" + progressBar.getName() +
+				"' to be determinate");
 	}
 
 	/**
