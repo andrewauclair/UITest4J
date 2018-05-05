@@ -16,8 +16,9 @@ import org.junit.jupiter.api.function.Executable;
 import org.opentest4j.AssertionFailedError;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import java.util.regex.Pattern;
+import java.util.Objects;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
@@ -39,8 +40,29 @@ public final class ExpectedException {
 	public static void assertOpenTest4jError(Executable executable, String message, Object expected, Object actual) {
 		AssertionFailedError error = assertThrows(AssertionFailedError.class, executable);
 		assertEquals(message, error.getMessage());
-		assertEquals(expected, error.getExpected().getValue());
-		assertEquals(actual, error.getActual().getValue());
+
+		Objects.requireNonNull(error.getExpected(), "Expected value should not be null");
+		Objects.requireNonNull(error.getActual(), "Actual value should not be null");
+
+		assertEquals(String.valueOf(expected), error.getExpected().getStringRepresentation(), "Should have expected value '" + String.valueOf(expected) + "'");
+		assertEquals(String.valueOf(actual), error.getActual().getStringRepresentation(), "Should have actual value '" + String.valueOf(actual) + "'");
+	}
+
+	public static void assertOpenTest4jError(Executable executable, String message, Object[] expected, Object[] actual) {
+		AssertionFailedError error = assertThrows(AssertionFailedError.class, executable);
+		assertEquals(message, error.getMessage());
+
+		Objects.requireNonNull(error.getExpected(), "Expected value should not be null");
+		Objects.requireNonNull(error.getActual(), "Actual value should not be null");
+
+//		if (error.getExpected().getValue() != null && error.getActual().getValue() != null) {
+//			assertEquals(expected, error.getExpected().getValue(), "Should have expected value '" + Arrays.toString(expected) + "'");
+//			assertEquals(actual, error.getExpected().getValue(), "Should have actual value '" + Arrays.toString(actual) + "'");
+//		}
+//		else {
+		assertEquals(Arrays.toString(expected), error.getExpected().getStringRepresentation(), "Should have expected value '" + Arrays.toString(expected) + "'");
+		assertEquals(Arrays.toString(actual), error.getActual().getStringRepresentation(), "Should have actual value '" + Arrays.toString(actual) + "'");
+//		}
 	}
 
 	public static void assertOpenTest4jError(Executable executable, String message, int[] expected, int[] actual) {
@@ -52,48 +74,6 @@ public final class ExpectedException {
 
 	public static void assertAssertionError(Executable executable, String message) {
 		assertContainsMessage(AssertionError.class, executable, message);
-	}
-
-	public static void assertAssertionError(Executable executable, String property, String expected, String actual) {
-		assertAssertionErrorForProperty(executable, property, doubleQuote(expected), doubleQuote(actual));
-	}
-
-	public static void assertAssertionError(Executable executable, String property, int expected, int actual) {
-		assertAssertionErrorForProperty(executable, property, quote(expected), quote(actual));
-	}
-
-	private static String quote(int actual) {
-		return "[" + actual + "]";
-	}
-
-	private static String doubleQuote(String string) {
-		return "\"" + string + "\"";
-	}
-
-	public static void assertAssertionError(Executable executable, String property, String[] expected, String[] actual) {
-		assertAssertionErrorForProperty(executable, property, buildStringForMessage(expected), buildStringForMessage(actual));
-	}
-
-	private static void assertAssertionErrorForProperty(Executable executable, String property, String expected, String actual) {
-		assertContainsMessage(AssertionError.class, executable, "property:'" + property + "'", "expected:<" + expected + ">", "but was:<" + actual + ">");
-	}
-
-	public static void assertAssertionError(Executable executable, String property, String content, Pattern pattern) {
-		String NL = System.getProperty("line.separator");
-		assertContainsMessage(AssertionError.class, executable, "property:'" + property + "'", NL + "Expecting:" + NL + " \"" + content + "\"" + NL + "to match pattern:" + NL + " \"" + pattern.pattern() + "\"");
-	}
-
-	private static String buildStringForMessage(String[] array) {
-		StringBuilder sb = new StringBuilder();
-		sb.append("[");
-		for (int i = 0; i < array.length; ++i) {
-			sb.append("\"").append(array[i]).append("\"");
-			if (i + 1 < array.length) {
-				sb.append(", ");
-			}
-		}
-		sb.append("]");
-		return sb.toString();
 	}
 
 	public static void assertIllegalStateIsNotShowingComponent(Executable executable) {

@@ -12,12 +12,10 @@
  */
 package org.uitest4j.swing.driver;
 
-import org.assertj.core.description.Description;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.core.*;
 import org.uitest4j.swing.core.Robot;
-import org.uitest4j.swing.edt.GuiLazyLoadingDescription;
 import org.uitest4j.swing.internal.annotation.InternalApi;
 import org.uitest4j.swing.internal.assertions.OpenTest4JAssertions;
 import org.uitest4j.swing.timing.Timeout;
@@ -27,7 +25,6 @@ import javax.annotation.Nonnull;
 import javax.swing.*;
 import java.awt.*;
 import java.util.Objects;
-import java.util.function.Supplier;
 
 import static org.uitest4j.swing.awt.AWT.visibleCenterOf;
 import static org.uitest4j.swing.core.MouseButton.LEFT_BUTTON;
@@ -599,21 +596,8 @@ public class ComponentDriver {
 	 */
 	@RunsInEDT
 	@Nonnull
-	public static Description propertyName(final @Nonnull Component c, final @Nonnull String propertyName) {
-//		return () -> String.format("%s - property:'%s'", format(c), propertyName);
-		return new GuiLazyLoadingDescription() {
-			@Override
-			@Nonnull
-			protected String loadDescription() {
-				return String.format("%s - property:'%s'", format(c), propertyName);
-			}
-		};
-	}
-
-	@RunsInEDT
-	@Nonnull
-	public static Supplier<String> propertyName(final @Nonnull Component c, final @Nonnull String propertyName, boolean useSupplier) {
-		return () -> String.format("%s - property:'%s'", format(c), propertyName);
+	public static String propertyName(final @Nonnull Component c, final @Nonnull String propertyName) {
+		return String.format("%s - property:'%s'", format(c), propertyName);
 	}
 
 	/**

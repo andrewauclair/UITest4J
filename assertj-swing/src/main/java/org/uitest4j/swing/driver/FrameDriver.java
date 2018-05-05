@@ -16,6 +16,7 @@ import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.annotation.ThreadSafeAction;
 import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.internal.annotation.InternalApi;
+import org.uitest4j.swing.internal.assertions.OpenTest4JAssertions;
 import org.uitest4j.swing.util.ToolkitProvider;
 
 import javax.annotation.Nonnull;
@@ -23,7 +24,6 @@ import java.awt.*;
 import java.util.Objects;
 
 import static java.awt.Frame.*;
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.uitest4j.swing.driver.ComponentPreconditions.checkEnabledAndShowing;
 import static org.uitest4j.swing.driver.FrameTitleQuery.titleOf;
 import static org.uitest4j.swing.driver.WindowLikeContainers.iconifyButtonLocation;
@@ -152,6 +152,7 @@ public class FrameDriver extends WindowDriver {
 	@RunsInEDT
 	public void requireTitle(@Nonnull Frame frame, String expected) {
 		String actual = titleOf(frame);
-		assertThat(actual).as(propertyName(frame, "title")).isEqualTo(expected);
+		OpenTest4JAssertions.assertEquals(expected, actual,
+				() -> String.format("Expected title of '%s' to be '%s' but was '%s'", frame.getName(), expected, actual));
 	}
 }

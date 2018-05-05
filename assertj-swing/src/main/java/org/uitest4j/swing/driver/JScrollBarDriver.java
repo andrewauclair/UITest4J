@@ -17,6 +17,7 @@ import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.edt.GuiQuery;
 import org.uitest4j.swing.internal.annotation.InternalApi;
+import org.uitest4j.swing.internal.assertions.OpenTest4JAssertions;
 import org.uitest4j.swing.util.GenericRange;
 import org.uitest4j.swing.util.Pair;
 
@@ -25,7 +26,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.Objects;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.uitest4j.swing.driver.ComponentPreconditions.checkEnabledAndShowing;
 import static org.uitest4j.swing.driver.JScrollBarSetValueTask.setValue;
 import static org.uitest4j.swing.driver.JScrollBarValueQuery.valueOf;
@@ -360,7 +360,8 @@ public class JScrollBarDriver extends JComponentDriver {
 	 */
 	@RunsInEDT
 	public void requireValue(@Nonnull JScrollBar scrollBar, int value) {
-		assertThat(valueOf(scrollBar)).as(propertyName(scrollBar, VALUE_PROPERTY)).isEqualTo(value);
+		OpenTest4JAssertions.assertEquals(value, valueOf(scrollBar),
+				() -> String.format("Expected value of '%s' to be '%s' but was '%s'", scrollBar.getName(), value, valueOf(scrollBar)));
 	}
 
 	@Nonnull

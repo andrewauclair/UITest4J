@@ -12,7 +12,6 @@
  */
 package org.uitest4j.swing.driver;
 
-import org.assertj.core.description.Description;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.internal.annotation.InternalApi;
@@ -24,7 +23,6 @@ import javax.swing.*;
 import java.util.Objects;
 import java.util.regex.Pattern;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.uitest4j.swing.driver.AbstractButtonArmedQuery.isArmed;
 import static org.uitest4j.swing.driver.AbstractButtonSelectedQuery.isSelected;
 import static org.uitest4j.swing.driver.ComponentPreconditions.checkEnabledAndShowing;
@@ -45,9 +43,6 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
  */
 @InternalApi
 public class AbstractButtonDriver extends JComponentDriver implements TextDisplayDriver<AbstractButton> {
-	private static final String SELECTED_PROPERTY = "selected";
-	private static final String ARMED_PROPERTY = "armed";
-
 	/**
 	 * Creates a new {@link AbstractButtonDriver}.
 	 *
@@ -147,7 +142,8 @@ public class AbstractButtonDriver extends JComponentDriver implements TextDispla
 	 */
 	@RunsInEDT
 	public void requireSelected(@Nonnull AbstractButton button) {
-		assertThatButtonIsSelected(button, true);
+		OpenTest4JAssertions.assertTrue(isSelected(button),
+				() -> String.format("Expected '%s' to be selected", button.getName()));
 	}
 
 	/**
@@ -158,18 +154,8 @@ public class AbstractButtonDriver extends JComponentDriver implements TextDispla
 	 */
 	@RunsInEDT
 	public void requireNotSelected(@Nonnull AbstractButton button) {
-		assertThatButtonIsSelected(button, false);
-	}
-
-	@RunsInEDT
-	private void assertThatButtonIsSelected(@Nonnull AbstractButton button, boolean selected) {
-		assertThat(isSelected(button)).as(selectedProperty(button)).isEqualTo(selected);
-	}
-
-	@RunsInEDT
-	@Nonnull
-	private static Description selectedProperty(@Nonnull AbstractButton button) {
-		return propertyName(button, SELECTED_PROPERTY);
+		OpenTest4JAssertions.assertFalse(isSelected(button),
+				() -> String.format("Expected '%s' to not be selected", button.getName()));
 	}
 
 	/**
@@ -180,7 +166,8 @@ public class AbstractButtonDriver extends JComponentDriver implements TextDispla
 	 */
 	@RunsInEDT
 	public void requireArmed(@Nonnull AbstractButton button) {
-		assertThatButtonIsArmed(button, true);
+		OpenTest4JAssertions.assertTrue(isArmed(button),
+				() -> String.format("Expected '%s' to be armed", button.getName()));
 	}
 
 	/**
@@ -191,17 +178,7 @@ public class AbstractButtonDriver extends JComponentDriver implements TextDispla
 	 */
 	@RunsInEDT
 	public void requireNotArmed(@Nonnull AbstractButton button) {
-		assertThatButtonIsArmed(button, false);
-	}
-
-	@RunsInEDT
-	private void assertThatButtonIsArmed(@Nonnull AbstractButton button, boolean armed) {
-		assertThat(isArmed(button)).as(armedProperty(button)).isEqualTo(armed);
-	}
-
-	@RunsInEDT
-	@Nonnull
-	private static Description armedProperty(@Nonnull AbstractButton button) {
-		return propertyName(button, ARMED_PROPERTY);
+		OpenTest4JAssertions.assertFalse(isArmed(button),
+				() -> String.format("Expected '%s' to not be armed", button.getName()));
 	}
 }

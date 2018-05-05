@@ -40,10 +40,20 @@ class JOptionPaneDriver_requireMessage_Test extends JOptionPaneDriver_TestCase {
 	}
 
 	@Test
-	void should_Fail_Is_Message_Does_Match_Expected() {
+	void fails_if_message_does_not_equal_expected() {
 		JOptionPane optionPane = messageWithValue("Palpatine");
 		optionPane.setName("TestOptionPane");
 		pack(optionPane, title());
 		ExpectedException.assertOpenTest4jError(() -> driver.requireMessage(optionPane, "Anakin"), "Expected message of 'TestOptionPane' to be 'Anakin' but was 'Palpatine'", "Anakin", "Palpatine");
+	}
+
+	@Test
+	void fails_if_message_does_not_equal_expected_person() {
+		Person actual = new Person("Palpatine");
+		JOptionPane optionPane = messageWithValue(actual);
+		optionPane.setName("TestOptionPane");
+		pack(optionPane, title());
+		Person expected = new Person("Anakin");
+		ExpectedException.assertOpenTest4jError(() -> driver.requireMessage(optionPane, expected), "Expected message of 'TestOptionPane' to be 'Anakin' but was 'Palpatine'", expected, actual);
 	}
 }

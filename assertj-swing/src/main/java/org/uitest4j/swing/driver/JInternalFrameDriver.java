@@ -18,6 +18,7 @@ import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.edt.GuiQuery;
 import org.uitest4j.swing.exception.UnexpectedException;
 import org.uitest4j.swing.internal.annotation.InternalApi;
+import org.uitest4j.swing.internal.assertions.OpenTest4JAssertions;
 import org.uitest4j.swing.util.Pair;
 import org.uitest4j.swing.util.Triple;
 
@@ -29,7 +30,6 @@ import java.awt.*;
 import java.beans.PropertyVetoException;
 import java.util.Objects;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.uitest4j.swing.driver.ComponentPreconditions.checkShowing;
 import static org.uitest4j.swing.driver.JInternalFrameAction.*;
 import static org.uitest4j.swing.driver.JInternalFrameIconQuery.isIconified;
@@ -406,6 +406,7 @@ public class JInternalFrameDriver extends JComponentDriver {
 	@RunsInEDT
 	public void requireTitle(@Nonnull JInternalFrame frame, String expected) {
 		String actual = titleOf(frame);
-		assertThat(actual).as(propertyName(frame, "title")).isEqualTo(expected);
+		OpenTest4JAssertions.assertEquals(expected, actual,
+				() -> String.format("Expected title of '%s' to be '%s' but was '%s'", frame.getName(), expected, actual));
 	}
 }

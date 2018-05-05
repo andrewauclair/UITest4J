@@ -947,7 +947,7 @@ public class JTreeDriver extends JComponentDriver {
 	@RunsInEDT
 	@Nonnull
 	private Supplier<String> selectionProperty(@Nonnull JTree tree) {
-		return propertyName(tree, SELECTION_PROPERTY, true);
+		return () -> propertyName(tree, SELECTION_PROPERTY);
 	}
 
 	/**

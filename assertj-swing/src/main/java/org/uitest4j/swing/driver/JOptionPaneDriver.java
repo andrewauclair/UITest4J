@@ -12,7 +12,6 @@
  */
 package org.uitest4j.swing.driver;
 
-import org.assertj.core.description.Description;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.core.matcher.JButtonMatcher;
@@ -22,11 +21,11 @@ import org.uitest4j.swing.internal.assertions.OpenTest4JAssertions;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.swing.*;
+import java.util.Arrays;
 import java.util.Objects;
 import java.util.regex.Pattern;
 
 import static javax.swing.JOptionPane.*;
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.uitest4j.swing.driver.JOptionPaneMessageQuery.messageOf;
 import static org.uitest4j.swing.driver.JOptionPaneMessageTypeQuery.messageTypeOf;
 import static org.uitest4j.swing.driver.JOptionPaneMessageTypes.messageTypeAsText;
@@ -119,12 +118,12 @@ public class JOptionPaneDriver extends JComponentDriver {
 			requireMessage(optionPane, (String) message, actual.toString());
 			return;
 		}
-		assertThat(actual).as(messageProperty(optionPane)).isEqualTo(message);
+		OpenTest4JAssertions.assertEquals(message, actual,
+				() -> String.format("Expected message of '%s' to be '%s' but was '%s'", optionPane.getName(), message, actual));
 	}
 
 	@RunsInEDT
 	private void requireMessage(@Nonnull JOptionPane optionPane, @Nullable String expected, @Nullable String actual) {
-//		verifyThat(actual).as(messageProperty(optionPane)).isEqualOrMatches(expected);
 		OpenTest4JAssertions.assertEquals(expected, actual, () -> "Expected message of '" + optionPane.getName() +
 				"' to be '" + expected + "' but was '" + actual + "'");
 	}
@@ -148,10 +147,6 @@ public class JOptionPaneDriver extends JComponentDriver {
 				"' to match pattern '" + pattern + "' but was '" + s + "'");
 	}
 
-	private Description messageProperty(@Nonnull JOptionPane optionPane) {
-		return propertyName(optionPane, MESSAGE_PROPERTY);
-	}
-
 	/**
 	 * Asserts that the {@code JOptionPane} has the given options.
 	 *
@@ -161,7 +156,9 @@ public class JOptionPaneDriver extends JComponentDriver {
 	 */
 	@RunsInEDT
 	public void requireOptions(@Nonnull JOptionPane optionPane, @Nonnull Object[] options) {
-		assertThat(optionsOf(optionPane)).as(propertyName(optionPane, OPTIONS_PROPERTY)).isEqualTo(options);
+//		assertThat(optionsOf(optionPane)).as(propertyName(optionPane, OPTIONS_PROPERTY)).isEqualTo(options);
+		OpenTest4JAssertions.assertEquals(options, optionsOf(optionPane),
+				() -> String.format("Expected options of '%s' to be %s but were %s", optionPane.getName(), Arrays.toString(options), Arrays.toString(optionsOf(optionPane))));
 	}
 
 	/**
@@ -304,7 +301,8 @@ public class JOptionPaneDriver extends JComponentDriver {
 	@RunsInEDT
 	private void assertEqualMessageType(@Nonnull JOptionPane optionPane, int expected) {
 		String actualType = actualMessageTypeAsText(optionPane);
-		assertThat(actualType).as(propertyName(optionPane, MESSAGE_TYPE_PROPERTY)).isEqualTo(messageTypeAsText(expected));
+		OpenTest4JAssertions.assertEquals(messageTypeAsText(expected), actualType,
+				() -> String.format("Expected message type of '%s' to be '%s' but was '%s'", optionPane.getName(), messageTypeAsText(expected), actualType));
 	}
 
 	@RunsInEDT

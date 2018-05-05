@@ -36,6 +36,6 @@ class JOptionPaneDriver_requireErrorMessage_Test extends JOptionPaneDriver_TestC
   void should_Fail_If_Error_Type_Is_Not_Equal_To_Expected() {
     JOptionPane optionPane = informationMessage();
     pack(optionPane, title());
-    ExpectedException.assertAssertionError(() -> driver.requireErrorMessage(optionPane), "messageType", "[Error] Message", "[Information] Message");
+	  ExpectedException.assertOpenTest4jError(() -> driver.requireErrorMessage(optionPane), "Expected message type of 'TestOptionPane' to be 'Error Message' but was 'Information Message'", "Error Message", "Information Message");
   }
 }

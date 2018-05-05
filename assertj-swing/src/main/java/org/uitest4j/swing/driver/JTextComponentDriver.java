@@ -12,7 +12,6 @@
  */
 package org.uitest4j.swing.driver;
 
-import org.assertj.core.description.Description;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.core.Robot;
@@ -36,14 +35,12 @@ import static java.lang.Math.max;
 import static java.lang.Math.min;
 import static java.lang.String.valueOf;
 import static javax.swing.text.DefaultEditorKit.deletePrevCharAction;
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.uitest4j.swing.driver.ComponentPreconditions.checkEnabledAndShowing;
 import static org.uitest4j.swing.driver.JTextComponentEditableQuery.isEditable;
 import static org.uitest4j.swing.driver.JTextComponentSelectAllTask.selectAllText;
 import static org.uitest4j.swing.driver.JTextComponentSelectTextTask.selectTextInRange;
 import static org.uitest4j.swing.driver.JTextComponentSetTextTask.setTextIn;
 import static org.uitest4j.swing.driver.PointAndParentForScrollingJTextFieldQuery.pointAndParentForScrolling;
-import static org.uitest4j.swing.driver.TextAssert.verifyThat;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 import static org.uitest4j.swing.exception.ActionFailedException.actionFailure;
 import static org.uitest4j.swing.format.Formatting.format;
@@ -62,9 +59,6 @@ import static org.uitest4j.swing.format.Formatting.format;
  */
 @InternalApi
 public class JTextComponentDriver extends JComponentDriver implements TextDisplayDriver<JTextComponent> {
-	private static final String EDITABLE_PROPERTY = "editable";
-	private static final String TEXT_PROPERTY = "text";
-
 	/**
 	 * Creates a new {@link JTextComponentDriver}.
 	 *
@@ -375,13 +369,8 @@ public class JTextComponentDriver extends JComponentDriver implements TextDispla
 	 */
 	@RunsInEDT
 	public void requireEmpty(@Nonnull JTextComponent textBox) {
-		assertThat(textOf(textBox)).as(textProperty(textBox)).isEmpty();
-	}
-
-	@RunsInEDT
-	@Nonnull
-	private static Description textProperty(@Nonnull JTextComponent textBox) {
-		return propertyName(textBox, TEXT_PROPERTY);
+		OpenTest4JAssertions.assertEmpty(textOf(textBox),
+				() -> String.format("Expected '%s' to be empty but was '%s'", textBox.getName(), textOf(textBox)));
 	}
 
 	/**
@@ -392,7 +381,8 @@ public class JTextComponentDriver extends JComponentDriver implements TextDispla
 	 */
 	@RunsInEDT
 	public void requireEditable(@Nonnull JTextComponent textBox) {
-		assertEditable(textBox, true);
+		OpenTest4JAssertions.assertTrue(isEditable(textBox),
+				() -> String.format("Expected '%s' to be editable", textBox.getName()));
 	}
 
 	/**
@@ -403,18 +393,8 @@ public class JTextComponentDriver extends JComponentDriver implements TextDispla
 	 */
 	@RunsInEDT
 	public void requireNotEditable(@Nonnull JTextComponent textBox) {
-		assertEditable(textBox, false);
-	}
-
-	@RunsInEDT
-	private void assertEditable(@Nonnull JTextComponent textBox, boolean editable) {
-		assertThat(isEditable(textBox)).as(editableProperty(textBox)).isEqualTo(editable);
-	}
-
-	@RunsInEDT
-	@Nonnull
-	private static Description editableProperty(@Nonnull JTextComponent textBox) {
-		return propertyName(textBox, EDITABLE_PROPERTY);
+		OpenTest4JAssertions.assertFalse(isEditable(textBox),
+				() -> String.format("Expected '%s' to not be editable", textBox.getName()));
 	}
 
 	/**

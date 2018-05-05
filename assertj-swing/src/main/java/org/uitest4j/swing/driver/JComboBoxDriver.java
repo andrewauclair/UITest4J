@@ -12,7 +12,6 @@
  */
 package org.uitest4j.swing.driver;
 
-import org.assertj.core.description.Description;
 import org.opentest4j.AssertionFailedError;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.uitest4j.swing.annotation.RunsInEDT;
@@ -36,7 +35,6 @@ import java.util.regex.Pattern;
 
 import static javax.swing.text.DefaultEditorKit.deletePrevCharAction;
 import static javax.swing.text.DefaultEditorKit.selectAllAction;
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.uitest4j.swing.driver.ComponentPreconditions.checkEnabledAndShowing;
 import static org.uitest4j.swing.driver.JComboBoxContentQuery.contents;
 import static org.uitest4j.swing.driver.JComboBoxEditableQuery.isEditable;
@@ -66,7 +64,6 @@ import static org.uitest4j.swing.util.ArrayUtils.format;
  */
 @InternalApi
 public class JComboBoxDriver extends JComponentDriver {
-	private static final String EDITABLE_PROPERTY = "editable";
 	private static final String SELECTED_INDEX_PROPERTY = "selectedIndex";
 
 	private final JListDriver listDriver;
@@ -202,13 +199,14 @@ public class JComboBoxDriver extends JComponentDriver {
 	public void requireSelection(@Nonnull JComboBox<?> comboBox, int index) {
 		int selectedIndex = selectedIndexOf(comboBox);
 		if (selectedIndex == -1) {
-			failNoSelection(comboBox);
+			throw new AssertionFailedError(String.format("Expected selection of '%s' to be '%s' but had no selection", comboBox.getName(), index));
 		}
-		assertThat(selectedIndex).as(selectedIndexProperty(comboBox)).isEqualTo(index);
+		OpenTest4JAssertions.assertEquals(index, selectedIndex,
+				() -> String.format("Expected selection of '%s' to be '%s' but was '%s'", comboBox.getName(), index, selectedIndex));
 	}
 
 	private void failNoSelection(@Nonnull JComboBox<?> comboBox) {
-		throw new AssertionFailedError(String.format("[%s] No selection", selectedIndexProperty(comboBox).value()));
+		throw new AssertionFailedError(String.format("[%s] No selection", selectedIndexProperty(comboBox)));
 	}
 
 	/**
@@ -225,7 +223,7 @@ public class JComboBoxDriver extends JComponentDriver {
 			return;
 		}
 		String format = "[%s] Expecting no selection, but found:<%s>";
-		throw new AssertionFailedError(String.format(format, selectedIndexProperty(comboBox).value(), "'" + selection.second + "'"));
+		throw new AssertionFailedError(String.format(format, selectedIndexProperty(comboBox), "'" + selection.second + "'"));
 	}
 
 	/**
@@ -255,7 +253,7 @@ public class JComboBoxDriver extends JComponentDriver {
 	}
 
 	@Nonnull
-	private Description selectedIndexProperty(@Nonnull JComboBox<?> comboBox) {
+	private String selectedIndexProperty(@Nonnull JComboBox<?> comboBox) {
 		return propertyName(comboBox, SELECTED_INDEX_PROPERTY);
 	}
 
@@ -497,7 +495,8 @@ public class JComboBoxDriver extends JComponentDriver {
 	 */
 	@RunsInEDT
 	public void requireEditable(final @Nonnull JComboBox<?> comboBox) {
-		checkEditable(comboBox, true);
+		OpenTest4JAssertions.assertTrue(isEditable(comboBox),
+				() -> String.format("Expected '%s' to be editable", comboBox.getName()));
 	}
 
 	/**
@@ -508,17 +507,8 @@ public class JComboBoxDriver extends JComponentDriver {
 	 */
 	@RunsInEDT
 	public void requireNotEditable(@Nonnull JComboBox<?> comboBox) {
-		checkEditable(comboBox, false);
-	}
-
-	@RunsInEDT
-	private void checkEditable(@Nonnull JComboBox<?> comboBox, boolean expected) {
-		assertThat(isEditable(comboBox)).as(editableProperty(comboBox)).isEqualTo(expected);
-	}
-
-	@RunsInEDT
-	private static Description editableProperty(@Nonnull JComboBox<?> comboBox) {
-		return propertyName(comboBox, EDITABLE_PROPERTY);
+		OpenTest4JAssertions.assertFalse(isEditable(comboBox),
+				() -> String.format("Expected '%s' to not be editable", comboBox.getName()));
 	}
 
 	/**
@@ -542,7 +532,8 @@ public class JComboBoxDriver extends JComponentDriver {
 	@RunsInEDT
 	public void requireItemCount(@Nonnull JComboBox<?> comboBox, int expected) {
 		int actual = itemCountIn(comboBox);
-		assertThat(actual).as(propertyName(comboBox, "itemCount")).isEqualTo(expected);
+		OpenTest4JAssertions.assertEquals(expected, actual,
+				() -> String.format("Expected item count of '%s' to be '%s' but was '%s'", comboBox.getName(), expected, actual));
 	}
 
 	/**

@@ -27,7 +27,6 @@ import javax.swing.*;
 import javax.swing.table.JTableHeader;
 import java.awt.*;
 import java.util.Objects;
-import java.util.function.Supplier;
 import java.util.regex.Pattern;
 
 import static org.uitest4j.swing.driver.ComponentDriver.propertyName;
@@ -123,8 +122,8 @@ public class JTableFixture extends AbstractJPopupMenuInvokerFixture<JTableFixtur
 	}
 
 	@Nonnull
-	private Supplier<String> cellProperty(TableCell cell, String propertyName) {
-		return propertyName(target(), propertyName + " " + cell, true);
+	private String cellProperty(TableCell cell, String propertyName) {
+		return propertyName(target(), propertyName + " " + cell);
 	}
 
 	/**

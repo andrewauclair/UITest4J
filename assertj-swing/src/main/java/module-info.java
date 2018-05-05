@@ -12,7 +12,6 @@
  */
 module org.uitest4j.core {
     requires org.opentest4j;
-    requires assertj.core;
     requires java.desktop;
     requires java.logging;
     requires jsr305;

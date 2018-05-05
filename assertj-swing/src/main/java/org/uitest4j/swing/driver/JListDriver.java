@@ -12,7 +12,6 @@
  */
 package org.uitest4j.swing.driver;
 
-import org.assertj.core.description.Description;
 import org.opentest4j.AssertionFailedError;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.cell.JListCellReader;
@@ -36,10 +35,11 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import static java.awt.event.KeyEvent.VK_SHIFT;
 import static java.util.Arrays.sort;
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.uitest4j.swing.core.MouseButton.LEFT_BUTTON;
 import static org.uitest4j.swing.driver.JListContentQuery.contents;
 import static org.uitest4j.swing.driver.JListItemCountQuery.itemCountIn;
@@ -480,9 +480,10 @@ public class JListDriver extends JComponentDriver {
 	public void requireSelection(final @Nonnull JList<?> list, int index) {
 		int selectedIndex = selectedIndexOf(list);
 		if (selectedIndex == -1) {
-			failNoSelection(list);
+			throw new AssertionFailedError(String.format("Expected selected index of '%s' to be '%s' but had no selection", list.getName(), index));
 		}
-		assertThat(selectedIndex).as(selectedIndexProperty(list)).isEqualTo(index);
+		OpenTest4JAssertions.assertEquals(index, selectedIndex,
+				() -> String.format("Expected selected index of '%s' to be '%s' but was '%s'", list.getName(), index, selectedIndex));
 	}
 
 	/**
@@ -511,7 +512,18 @@ public class JListDriver extends JComponentDriver {
 	 */
 	@RunsInEDT
 	public void requireSelectedItems(@Nonnull JList<?> list, @Nonnull String... items) {
-		requireSelectedItems(list, new StringTextMatcher(items));
+		List<String> matchingValues = matchingItemValues(list, new StringTextMatcher(items), cellReader());
+		List<String> actual = selectionValues(list, cellReader());
+
+		if (!actual.containsAll(matchingValues)) {
+			if (actual.isEmpty()) {
+				throw new AssertionFailedError(String.format("Expected selected items of '%s' to contain %s but had no selection",
+						list.getName(), Arrays.toString(matchingValues.toArray())));
+			}
+			throw new AssertionFailedError(String.format("Expected selected items of '%s' to contain %s. Selected items were %s",
+					list.getName(), Arrays.toString(matchingValues.toArray()), Arrays.toString(actual.toArray())),
+					Arrays.toString(matchingValues.toArray(new String[0])), Arrays.toString(actual.toArray(new String[0])));
+		}
 	}
 
 	/**
@@ -527,15 +539,20 @@ public class JListDriver extends JComponentDriver {
 	 */
 	@RunsInEDT
 	public void requireSelectedItems(@Nonnull JList<?> list, @Nonnull Pattern... patterns) {
-		requireSelectedItems(list, new PatternTextMatcher(patterns));
-	}
+//		requireSelectedItems(list, new PatternTextMatcher(patterns));
 
-	@RunsInEDT
-	private void requireSelectedItems(@Nonnull JList<?> list, @Nonnull TextMatcher matcher) {
-		List<String> matchingValues = matchingItemValues(list, matcher, cellReader());
-		assertThat(selectionValues(list, cellReader())).as(propertyName(list, SELECTED_INDICES_PROPERTY))
-				.isEqualTo(
-						matchingValues);
+		List<String> matchingValues = matchingItemValues(list, new PatternTextMatcher(patterns), cellReader());
+		List<String> actual = selectionValues(list, cellReader());
+
+		if (!actual.containsAll(matchingValues)) {
+			if (actual.isEmpty()) {
+				throw new AssertionFailedError(String.format("Expected selected items of '%s' to match patterns %s but had no selection",
+						list.getName(), Arrays.toString(patterns)));
+			}
+			throw new AssertionFailedError(String.format("Expected selected items of '%s' to match patterns %s. Selected items were %s",
+					list.getName(), Arrays.toString(patterns), Arrays.toString(actual.toArray())),
+					Arrays.toString(patterns), Arrays.toString(actual.toArray(new String[0])));
+		}
 	}
 
 	/**
@@ -551,7 +568,23 @@ public class JListDriver extends JComponentDriver {
 	public void requireSelectedItems(@Nonnull JList<?> list, @Nonnull int... indices) {
 		checkNotNullOrEmpty(indices);
 		sort(indices);
-		assertThat(selectedIndices(list)).as(propertyName(list, SELECTED_INDICES_PROPERTY)).isEqualTo(indices);
+//		assertThat(selectedIndices(list)).as(propertyName(list, SELECTED_INDICES_PROPERTY)).isEqualTo(indices);
+		List<Integer> expected = IntStream.of(indices)
+				.boxed()
+				.collect(Collectors.toList());
+		List<Integer> actual = IntStream.of(selectedIndices(list))
+				.boxed()
+				.collect(Collectors.toList());
+
+		if (!actual.containsAll(expected)) {
+			if (actual.isEmpty()) {
+				throw new AssertionFailedError(String.format("Expected selected indices of '%s' to contain %s but had no selection",
+						list.getName(), Arrays.toString(indices)));
+			}
+			throw new AssertionFailedError(String.format("Expected selected indices of '%s' to contain %s. Selected indices were %s",
+					list.getName(), Arrays.toString(indices), Arrays.toString(actual.toArray())),
+					Arrays.toString(indices), Arrays.toString(actual.toArray(new Integer[0])));
+		}
 	}
 
 	/**
@@ -568,11 +601,11 @@ public class JListDriver extends JComponentDriver {
 
 	@RunsInEDT
 	private void failNoSelection(@Nonnull JList<?> list) {
-		throw new AssertionFailedError(String.format("[%s] No selection", selectedIndexProperty(list).value()));
+		throw new AssertionFailedError(String.format("[%s] No selection", selectedIndexProperty(list)));
 	}
 
 	@RunsInEDT
-	private Description selectedIndexProperty(@Nonnull JList<?> list) {
+	private String selectedIndexProperty(@Nonnull JList<?> list) {
 		return propertyName(list, SELECTED_INDEX_PROPERTY);
 	}
 
@@ -864,7 +897,8 @@ public class JListDriver extends JComponentDriver {
 	@RunsInEDT
 	public void requireItemCount(@Nonnull JList<?> list, int expected) {
 		int actual = itemCountIn(list);
-		assertThat(actual).as(propertyName(list, "itemCount")).isEqualTo(expected);
+		OpenTest4JAssertions.assertEquals(expected, actual,
+				() -> String.format("Expected item count of '%s' to be '%s' but was '%s'", list.getName(), expected, actual));
 	}
 
 	@Nonnull

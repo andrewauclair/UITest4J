@@ -36,6 +36,7 @@ public abstract class FrameDriver_TestCase extends RobotBasedTestCase {
   @Override
   protected final void onSetUp() {
     window = TestWindow.createNewWindow(getClass());
+	  window.setName("TestWindow");
     driver = new FrameDriver(robot);
   }
 

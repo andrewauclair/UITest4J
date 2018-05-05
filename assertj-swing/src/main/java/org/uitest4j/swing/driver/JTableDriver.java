@@ -12,7 +12,6 @@
  */
 package org.uitest4j.swing.driver;
 
-import org.assertj.core.description.Description;
 import org.opentest4j.AssertionFailedError;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.uitest4j.swing.annotation.RunsInEDT;
@@ -390,7 +389,7 @@ public class JTableDriver extends JComponentDriver {
 				return;
 			}
 			String format = "[%s] expected no selection but was:<rows=%s, columns=%s>";
-			String msg = String.format(format, propertyName(table, SELECTION_PROPERTY).value(),
+			String msg = String.format(format, propertyName(table, SELECTION_PROPERTY),
 					Arrays.toString(selectedRowsOf(table)), Arrays.toString(table.getSelectedColumns()));
 			throw new AssertionFailedError(msg);
 		});
@@ -564,9 +563,8 @@ public class JTableDriver extends JComponentDriver {
 	}
 
 	private static void failNotEqual(@Nonnull String[][] actual, @Nonnull String[][] expected,
-									 @Nullable Description description) {
-		String descriptionValue = description != null ? description.value() : null;
-		String message = descriptionValue == null ? "" : String.format("[%s] ", descriptionValue);
+									 @Nullable String description) {
+		String message = description == null ? "" : String.format("[%s] ", description);
 		throw new AssertionFailedError(message + String.format("expected:<%s> but was<%s>", ArrayUtils.format(expected), ArrayUtils.format(actual)),
 				ArrayUtils.format(expected), ArrayUtils.format(actual));
 	}
