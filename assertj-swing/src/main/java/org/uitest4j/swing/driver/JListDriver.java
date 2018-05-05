@@ -52,10 +52,8 @@ import static org.uitest4j.swing.driver.JListSelectionIndicesQuery.selectedIndic
 import static org.uitest4j.swing.driver.JListSelectionValueQuery.NO_SELECTION_VALUE;
 import static org.uitest4j.swing.driver.JListSelectionValueQuery.singleSelectionValue;
 import static org.uitest4j.swing.driver.JListSelectionValuesQuery.selectionValues;
-import static org.uitest4j.swing.driver.TextAssert.verifyThat;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 import static org.uitest4j.swing.util.ArrayPreconditions.checkNotNullOrEmpty;
-import static org.uitest4j.swing.util.ArrayUtils.format;
 
 /**
  * <p>
@@ -435,7 +433,7 @@ public class JListDriver extends JComponentDriver {
 	public void requireSelection(final @Nonnull JList<?> list, @Nullable String value) {
 		Object selection = singleSelectionValue(list, cellReader());
 		if (selection == NO_SELECTION_VALUE) {
-			throw new AssertionFailedError(String.format("Expected '%s' to have selection '%s' but there is no selection", list.getName(), value));
+			throw new AssertionFailedError(String.format("Expected selection of '%s' to be '%s' but had no selection", list.getName(), value));
 		}
 
 		OpenTest4JAssertions.assertEquals(value, selection, () -> "Expected '" + list.getName() +
@@ -453,8 +451,13 @@ public class JListDriver extends JComponentDriver {
 	 */
 	@RunsInEDT
 	public void requireSelection(@Nonnull JList<?> list, @Nonnull Pattern pattern) {
-		String selection = requiredSelection(list);
-		verifyThat(selection).as(selectedIndexProperty(list)).matches(pattern);
+		Object selection = singleSelectionValue(list, cellReader());
+		Objects.requireNonNull(selection);
+		if (NO_SELECTION_VALUE == selection) {
+			throw new AssertionFailedError(String.format("Expected selection of '%s' to match pattern '%s' but had no selection", list.getName(), pattern));
+		}
+		OpenTest4JAssertions.assertMatchesPattern(pattern, selection.toString(), () -> "Expected selection of '" + list.getName() +
+				"' to match pattern '" + pattern + "' but was '" + selection + "'");
 	}
 
 	@Nullable

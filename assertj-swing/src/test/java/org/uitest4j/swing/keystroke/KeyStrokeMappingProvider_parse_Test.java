@@ -12,6 +12,7 @@
  */
 package org.uitest4j.swing.keystroke;
 
+import org.opentest4j.AssertionFailedError;
 import org.uitest4j.swing.exception.ParsingException;
 import org.uitest4j.swing.test.ExpectedException;
 import org.junit.jupiter.api.BeforeEach;
@@ -77,7 +78,7 @@ class KeyStrokeMappingProvider_parse_Test {
 
   @Test
   void should_Throw_Error_If_File_Does_Not_Exist() {
-    assertThrows(AssertionError.class, () -> parser.parse(new File("abc.xyz")));
+	  assertThrows(AssertionFailedError.class, () -> parser.parse(new File("abc.xyz")));
   }
 
   @Test

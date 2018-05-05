@@ -272,7 +272,7 @@ public final class BasicComponentFinder implements ComponentFinder {
 			throw new IllegalArgumentException("label should be an instanceof of JLabel");
 		}
 		Component target = ((JLabel) label).getLabelFor();
-		if (!target.getClass().isInstance(type)) {
+		if (!type.isAssignableFrom(target.getClass())) {
 			throw new AssertionFailedError("Expected getLabelFor of '" + label.getName() + "' to return a JLabel but was " + target.getClass().getSimpleName());
 		}
 		return type.cast(target);

@@ -46,7 +46,6 @@ import static org.uitest4j.swing.driver.JComboBoxMatchingItemQuery.matchingItemI
 import static org.uitest4j.swing.driver.JComboBoxSelectedIndexQuery.selectedIndexOf;
 import static org.uitest4j.swing.driver.JComboBoxSelectionValueQuery.selection;
 import static org.uitest4j.swing.driver.JComboBoxSetSelectedIndexTask.setSelectedIndex;
-import static org.uitest4j.swing.driver.TextAssert.verifyThat;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 import static org.uitest4j.swing.exception.ActionFailedException.actionFailure;
 import static org.uitest4j.swing.format.Formatting.format;
@@ -174,16 +173,19 @@ public class JComboBoxDriver extends JComponentDriver {
 	 */
 	@RunsInEDT
 	public void requireSelection(@Nonnull JComboBox<?> comboBox, @Nonnull Pattern pattern) {
-		String selection = requiredSelectionOf(comboBox);
-		verifyThat(selection).as(selectedIndexProperty(comboBox)).matches(pattern);
+		Pair<Boolean, String> selection = selection(comboBox, cellReader());
+		if (!selection.first) {
+			throw new AssertionFailedError(String.format("Expected selection of '%s' to match pattern '%s' but had no selection", comboBox.getName(), pattern));
+		}
+		OpenTest4JAssertions.assertMatchesPattern(pattern, selection.second, () -> "Expected selection of '" + comboBox.getName() +
+				"' to match pattern '" + pattern + "' but was '" + selection.second + "'");
 	}
 
 	@RunsInEDT
 	@Nullable
 	private String requiredSelectionOf(@Nonnull JComboBox<?> comboBox) throws AssertionError {
 		Pair<Boolean, String> selection = selection(comboBox, cellReader());
-		boolean hasSelection = selection.first;
-		if (!hasSelection) {
+		if (!selection.first) {
 			failNoSelection(comboBox);
 		}
 		return selection.second;

@@ -54,6 +54,6 @@ public class DialogDriver extends WindowDriver {
 	 */
 	@RunsInEDT
 	public void requireModal(@Nonnull Dialog dialog) {
-		OpenTest4JAssertions.assertTrue(dialog.isModal(), () -> "Dialog should be modal: " + format(dialog));
+		OpenTest4JAssertions.assertTrue(dialog.isModal(), () -> "Expected '" + dialog.getName() + "' to be modal");
 	}
 }

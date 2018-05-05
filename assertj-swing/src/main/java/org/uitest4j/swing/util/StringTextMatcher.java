@@ -14,6 +14,7 @@ package org.uitest4j.swing.util;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.util.Arrays;
 import java.util.Objects;
 
 import static org.uitest4j.swing.util.ArrayUtils.format;
@@ -69,7 +70,7 @@ public class StringTextMatcher implements TextMatcher {
    */
   @Override
   @Nonnull public String formattedValues() {
-	  String s = onlyOneValue() ? singleQuote(values[0]) : format(values);
+    String s = onlyOneValue() ? singleQuote(values[0]) : Arrays.toString(values);
 	  return Objects.requireNonNull(s);
   }
 

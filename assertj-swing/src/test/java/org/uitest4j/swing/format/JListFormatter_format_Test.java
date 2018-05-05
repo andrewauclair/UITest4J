@@ -43,8 +43,8 @@ class JListFormatter_format_Test extends EDTSafeTestCase {
   @Test
   void should_Format_JList() {
     String formatted = formatter.format(list);
-    assertThat(formatted).contains("javax.swing.JList").contains("name='list'").contains("selectedValues=[\"One\", 2]")
-                         .contains("contents=[\"One\", 2, \"Three\", 4]")
+    assertThat(formatted).contains("javax.swing.JList").contains("name='list'").contains("selectedValues=[One, 2]")
+            .contains("contents=[One, 2, Three, 4]")
                          .contains("selectionMode=MULTIPLE_INTERVAL_SELECTION")
                          .contains("enabled=true").contains("visible=true").contains("showing=false");
   }

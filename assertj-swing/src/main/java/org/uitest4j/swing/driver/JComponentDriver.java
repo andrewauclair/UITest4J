@@ -29,7 +29,6 @@ import static java.awt.event.KeyEvent.VK_UNDEFINED;
 import static org.uitest4j.swing.driver.Actions.findActionKey;
 import static org.uitest4j.swing.driver.JComponentToolTipQuery.toolTipOf;
 import static org.uitest4j.swing.driver.KeyStrokes.findKeyStrokesForAction;
-import static org.uitest4j.swing.driver.TextAssert.verifyThat;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 import static org.uitest4j.swing.exception.ActionFailedException.actionFailure;
 
@@ -183,7 +182,8 @@ public class JComponentDriver extends ContainerDriver {
 	 */
 	@RunsInEDT
 	public void requireToolTip(@Nonnull JComponent c, @Nonnull Pattern pattern) {
-		verifyThat(toolTipOf(c)).as(propertyName(c, TOOL_TIP_TEXT_PROPERTY)).matches(pattern);
+		OpenTest4JAssertions.assertMatchesPattern(pattern, toolTipOf(c), () -> "Expected tooltip of '" + c.getName() +
+				"' to match pattern '" + pattern + "' but was '" + toolTipOf(c) + "'");
 	}
 
 	/**

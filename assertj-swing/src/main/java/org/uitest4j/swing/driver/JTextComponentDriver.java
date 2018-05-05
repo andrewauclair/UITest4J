@@ -32,7 +32,6 @@ import java.awt.*;
 import java.util.Objects;
 import java.util.regex.Pattern;
 
-import static java.lang.Math.exp;
 import static java.lang.Math.max;
 import static java.lang.Math.min;
 import static java.lang.String.valueOf;
@@ -364,7 +363,8 @@ public class JTextComponentDriver extends JComponentDriver implements TextDispla
 	@Override
 	@RunsInEDT
 	public void requireText(@Nonnull JTextComponent textBox, @Nonnull Pattern pattern) {
-		verifyThat(textOf(textBox)).as(textProperty(textBox)).matches(pattern);
+		OpenTest4JAssertions.assertMatchesPattern(pattern, textOf(textBox),
+				() -> String.format("Expected text of '%s' to match pattern '%s' but was '%s'", textBox.getName(), pattern, textOf(textBox)));
 	}
 
 	/**

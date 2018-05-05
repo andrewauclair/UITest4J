@@ -19,6 +19,7 @@ import org.uitest4j.swing.core.*;
 import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.edt.GuiLazyLoadingDescription;
 import org.uitest4j.swing.internal.annotation.InternalApi;
+import org.uitest4j.swing.internal.assertions.OpenTest4JAssertions;
 import org.uitest4j.swing.timing.Timeout;
 import org.uitest4j.swing.util.TimeoutWatch;
 
@@ -28,7 +29,6 @@ import java.awt.*;
 import java.util.Objects;
 import java.util.function.Supplier;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.uitest4j.swing.awt.AWT.visibleCenterOf;
 import static org.uitest4j.swing.core.MouseButton.LEFT_BUTTON;
 import static org.uitest4j.swing.core.MouseButton.RIGHT_BUTTON;
@@ -59,10 +59,6 @@ import static org.uitest4j.swing.util.TimeoutWatch.startWatchWithTimeoutOf;
  */
 @InternalApi
 public class ComponentDriver {
-	private static final String ENABLED_PROPERTY = "enabled";
-	private static final String SIZE_PROPERTY = "size";
-	private static final String VISIBLE_PROPERTY = "visible";
-
 	protected final Robot robot;
 
 	private final ComponentDragAndDrop dragAndDrop;
@@ -82,7 +78,7 @@ public class ComponentDriver {
 	 *
 	 * @param c the {@code Component} to click on.
 	 * @throws IllegalStateException if {@link Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and the
-	 *           {@code Component} is disabled.
+	 *                               {@code Component} is disabled.
 	 * @throws IllegalStateException if the {@code Component} is not showing on the screen.
 	 */
 	@RunsInEDT
@@ -94,11 +90,11 @@ public class ComponentDriver {
 	/**
 	 * Simulates a user clicking once the given AWT or Swing {@code Component} using the given mouse button.
 	 *
-	 * @param c the {@code Component} to click on.
+	 * @param c      the {@code Component} to click on.
 	 * @param button the mouse button to use.
-	 * @throws NullPointerException if the given {@code MouseButton} is {@code null}.
+	 * @throws NullPointerException  if the given {@code MouseButton} is {@code null}.
 	 * @throws IllegalStateException if {@link Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and the
-	 *           {@code Component} is disabled.
+	 *                               {@code Component} is disabled.
 	 * @throws IllegalStateException if the {@code Component} is not showing on the screen.
 	 */
 	@RunsInEDT
@@ -109,11 +105,11 @@ public class ComponentDriver {
 	/**
 	 * Simulates a user clicking the given mouse button, the given times on the given AWT or Swing {@code Component}.
 	 *
-	 * @param c the {@code Component} to click on.
+	 * @param c              the {@code Component} to click on.
 	 * @param mouseClickInfo specifies the button to click and the times the button should be clicked.
-	 * @throws NullPointerException if the given {@code MouseClickInfo} is {@code null}.
+	 * @throws NullPointerException  if the given {@code MouseClickInfo} is {@code null}.
 	 * @throws IllegalStateException if {@link Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and the
-	 *           {@code Component} is disabled.
+	 *                               {@code Component} is disabled.
 	 * @throws IllegalStateException if the {@code Component} is not showing on the screen.
 	 */
 	@RunsInEDT
@@ -127,7 +123,7 @@ public class ComponentDriver {
 	 *
 	 * @param c the {@code Component} to click on.
 	 * @throws IllegalStateException if {@link Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and the
-	 *           {@code Component} is disabled.
+	 *                               {@code Component} is disabled.
 	 * @throws IllegalStateException if the {@code Component} is not showing on the screen.
 	 */
 	@RunsInEDT
@@ -140,7 +136,7 @@ public class ComponentDriver {
 	 *
 	 * @param c the {@code Component} to click on.
 	 * @throws IllegalStateException if {@link Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and the
-	 *           {@code Component} is disabled.
+	 *                               {@code Component} is disabled.
 	 * @throws IllegalStateException if the {@code Component} is not showing on the screen.
 	 */
 	@RunsInEDT
@@ -151,12 +147,12 @@ public class ComponentDriver {
 	/**
 	 * Simulates a user clicking the given mouse button, the given times on the given AWT or Swing {@code Component}.
 	 *
-	 * @param c the {@code Component} to click on.
+	 * @param c      the {@code Component} to click on.
 	 * @param button the mouse button to click.
-	 * @param times the number of times to click the given mouse button.
-	 * @throws NullPointerException if the given {@code MouseButton} is {@code null}.
+	 * @param times  the number of times to click the given mouse button.
+	 * @throws NullPointerException  if the given {@code MouseButton} is {@code null}.
 	 * @throws IllegalStateException if {@link Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and the
-	 *           {@code Component} is disabled.
+	 *                               {@code Component} is disabled.
 	 * @throws IllegalStateException if the {@code Component} is not showing on the screen.
 	 */
 	@RunsInEDT
@@ -169,10 +165,10 @@ public class ComponentDriver {
 	/**
 	 * Simulates a user clicking at the given position on the given AWT or Swing {@code Component}.
 	 *
-	 * @param c the {@code Component} to click on.
+	 * @param c     the {@code Component} to click on.
 	 * @param where the position where to click.
 	 * @throws IllegalStateException if {@link Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and the
-	 *           {@code Component} is disabled.
+	 *                               {@code Component} is disabled.
 	 * @throws IllegalStateException if the {@code Component} is not showing on the screen.
 	 */
 	@RunsInEDT
@@ -189,13 +185,15 @@ public class ComponentDriver {
 	/**
 	 * Asserts that the size of the AWT or Swing {@code Component} is equal to given one.
 	 *
-	 * @param c the target {@code Component}.
+	 * @param c    the target {@code Component}.
 	 * @param size the given size to match.
 	 * @throws AssertionError if the size of the {@code Component} is not equal to the given size.
 	 */
 	@RunsInEDT
 	public void requireSize(@Nonnull Component c, @Nonnull Dimension size) {
-		assertThat(sizeOf(c)).as(propertyName(c, SIZE_PROPERTY)).isEqualTo(size);
+		OpenTest4JAssertions.assertEquals(size, sizeOf(c), () -> "Expected size of '" + c.getName() +
+				"' to be [" + (int) size.getWidth() + ", " + (int) size.getHeight() + "] but was [" + (int) sizeOf(c).getWidth() +
+				", " + (int) sizeOf(c).getHeight() + "]");
 	}
 
 	/**
@@ -206,7 +204,7 @@ public class ComponentDriver {
 	 */
 	@RunsInEDT
 	public void requireVisible(@Nonnull Component c) {
-		assertThat(isVisible(c)).as(visibleProperty(c)).isTrue();
+		OpenTest4JAssertions.assertTrue(isVisible(c), () -> "Expected '" + c.getName() + "' to be visible");
 	}
 
 	/**
@@ -217,13 +215,7 @@ public class ComponentDriver {
 	 */
 	@RunsInEDT
 	public void requireNotVisible(@Nonnull Component c) {
-		assertThat(isVisible(c)).as(visibleProperty(c)).isFalse();
-	}
-
-	@RunsInEDT
-	@Nonnull
-	private static Description visibleProperty(@Nonnull Component c) {
-		return propertyName(c, VISIBLE_PROPERTY);
+		OpenTest4JAssertions.assertFalse(isVisible(c), () -> "Expected '" + c.getName() + "' to not be visible");
 	}
 
 	/**
@@ -234,18 +226,7 @@ public class ComponentDriver {
 	 */
 	@RunsInEDT
 	public void requireFocused(@Nonnull Component c) {
-		assertThat(hasFocus(c)).as(requiredFocusedErrorMessage(c)).isTrue();
-	}
-
-	@Nonnull
-	private static Description requiredFocusedErrorMessage(final Component c) {
-		return new GuiLazyLoadingDescription() {
-			@Override
-			@Nonnull
-			protected String loadDescription() {
-				return String.format("Expected component %s to have input focus", format(c));
-			}
-		};
+		OpenTest4JAssertions.assertTrue(hasFocus(c), () -> "Expected '" + c.getName() + "' to be focused");
 	}
 
 	/**
@@ -256,13 +237,13 @@ public class ComponentDriver {
 	 */
 	@RunsInEDT
 	public void requireEnabled(@Nonnull Component c) {
-		assertThat(isEnabled(c)).as(enabledProperty(c)).isTrue();
+		OpenTest4JAssertions.assertTrue(isEnabled(c), () -> "Expected '" + c.getName() + "' to be enabled");
 	}
 
 	/**
 	 * Asserts that the AWT or Swing {@code Component} is enabled.
 	 *
-	 * @param c the target {@code Component}.
+	 * @param c       the target {@code Component}.
 	 * @param timeout the time this fixture will wait for the {@code Component} to be enabled.
 	 * @throws org.uitest4j.swing.exception.WaitTimedOutError if the {@code Component} is never enabled.
 	 */
@@ -279,23 +260,17 @@ public class ComponentDriver {
 	 */
 	@RunsInEDT
 	public void requireDisabled(@Nonnull Component c) {
-		assertThat(isEnabled(c)).as(enabledProperty(c)).isFalse();
-	}
-
-	@RunsInEDT
-	@Nonnull
-	private static Description enabledProperty(@Nonnull Component c) {
-		return propertyName(c, ENABLED_PROPERTY);
+		OpenTest4JAssertions.assertFalse(isEnabled(c), () -> "Expected '" + c.getName() + "' to be disabled");
 	}
 
 	/**
 	 * Simulates a user pressing and releasing the given keys on the AWT or Swing {@code Component}.
 	 *
-	 * @param c the target {@code Component}.
+	 * @param c        the target {@code Component}.
 	 * @param keyCodes one or more codes of the keys to press.
-	 * @throws NullPointerException if the given array of codes is {@code null}.
-	 * @throws IllegalStateException if the {@code Component} is disabled.
-	 * @throws IllegalStateException if the {@code Component} is not showing on the screen.
+	 * @throws NullPointerException     if the given array of codes is {@code null}.
+	 * @throws IllegalStateException    if the {@code Component} is disabled.
+	 * @throws IllegalStateException    if the {@code Component} is not showing on the screen.
 	 * @throws IllegalArgumentException if the given code is not a valid key code.
 	 * @see java.awt.event.KeyEvent
 	 */
@@ -311,12 +286,12 @@ public class ComponentDriver {
 	 * Simulates a user pressing and releasing the given key on the AWT or Swing {@code Component}. Modifiers is a mask
 	 * from the available AWT {@code InputEvent} masks.
 	 *
-	 * @param c the target {@code Component}.
+	 * @param c            the target {@code Component}.
 	 * @param keyPressInfo specifies the key and modifiers to press.
-	 * @throws NullPointerException if the given {@code KeyPressInfo} is {@code null}.
+	 * @throws NullPointerException     if the given {@code KeyPressInfo} is {@code null}.
 	 * @throws IllegalArgumentException if the given code is not a valid key code.
-	 * @throws IllegalStateException if the {@code Component} is disabled.
-	 * @throws IllegalStateException if the {@code Component} is not showing on the screen.
+	 * @throws IllegalStateException    if the {@code Component} is disabled.
+	 * @throws IllegalStateException    if the {@code Component} is not showing on the screen.
 	 * @see java.awt.event.KeyEvent
 	 * @see java.awt.event.InputEvent
 	 */
@@ -330,12 +305,12 @@ public class ComponentDriver {
 	 * Simulates a user pressing and releasing the given key on the AWT or Swing {@code Component}. Modifiers is a mask
 	 * from the available AWT {@code InputEvent} masks.
 	 *
-	 * @param c the target {@code Component}.
-	 * @param keyCode the code of the key to press.
+	 * @param c         the target {@code Component}.
+	 * @param keyCode   the code of the key to press.
 	 * @param modifiers the given modifiers.
 	 * @throws IllegalArgumentException if the given code is not a valid key code. *
-	 * @throws IllegalStateException if the {@code Component} is disabled.
-	 * @throws IllegalStateException if the {@code Component} is not showing on the screen.
+	 * @throws IllegalStateException    if the {@code Component} is disabled.
+	 * @throws IllegalStateException    if the {@code Component} is not showing on the screen.
 	 * @see java.awt.event.KeyEvent
 	 * @see java.awt.event.InputEvent
 	 */
@@ -348,11 +323,11 @@ public class ComponentDriver {
 	/**
 	 * Simulates a user pressing given key on the AWT or Swing {@code Component}.
 	 *
-	 * @param c the target {@code Component}.
+	 * @param c       the target {@code Component}.
 	 * @param keyCode the code of the key to press.
 	 * @throws IllegalArgumentException if the given code is not a valid key code.
-	 * @throws IllegalStateException if the {@code Component} is disabled.
-	 * @throws IllegalStateException if the {@code Component} is not showing on the screen.
+	 * @throws IllegalStateException    if the {@code Component} is disabled.
+	 * @throws IllegalStateException    if the {@code Component} is not showing on the screen.
 	 * @see #pressKeyWhileRunning(Component, int, Runnable)
 	 * @see java.awt.event.KeyEvent
 	 */
@@ -366,11 +341,11 @@ public class ComponentDriver {
 	 * Simulates a user pressing given key on the AWT or Swing {@code Component}, running the given runnable and releasing
 	 * the key again.
 	 *
-	 * @param c the target {@code Component}.
+	 * @param c       the target {@code Component}.
 	 * @param keyCode the code of the key to press.
 	 * @throws IllegalArgumentException if the given code is not a valid key code.
-	 * @throws IllegalStateException if the {@code Component} is disabled.
-	 * @throws IllegalStateException if the {@code Component} is not showing on the screen.
+	 * @throws IllegalStateException    if the {@code Component} is disabled.
+	 * @throws IllegalStateException    if the {@code Component} is not showing on the screen.
 	 * @see #pressKey(Component, int)
 	 * @see java.awt.event.KeyEvent
 	 */
@@ -383,11 +358,11 @@ public class ComponentDriver {
 	/**
 	 * Simulates a user releasing the given key on the AWT or Swing {@code Component}.
 	 *
-	 * @param c the target {@code Component}.
+	 * @param c       the target {@code Component}.
 	 * @param keyCode the code of the key to release.
 	 * @throws IllegalArgumentException if the given code is not a valid key code.
-	 * @throws IllegalStateException if the {@code Component} is disabled.
-	 * @throws IllegalStateException if the {@code Component} is not showing on the screen.
+	 * @throws IllegalStateException    if the {@code Component} is disabled.
+	 * @throws IllegalStateException    if the {@code Component} is not showing on the screen.
 	 * @see java.awt.event.KeyEvent
 	 */
 	@RunsInEDT
@@ -426,7 +401,7 @@ public class ComponentDriver {
 	/**
 	 * Performs a drag action at the given point.
 	 *
-	 * @param c the target {@code Component}.
+	 * @param c     the target {@code Component}.
 	 * @param where the point where to start the drag action.
 	 */
 	@RunsInEDT
@@ -438,8 +413,8 @@ public class ComponentDriver {
 	 * Ends a drag operation at the centre of the {@code Component}.
 	 *
 	 * @param c the target {@code Component}.
-	 * @throws IllegalStateException if the {@code Component} is disabled.
-	 * @throws IllegalStateException if the {@code Component} is not showing on the screen.
+	 * @throws IllegalStateException                              if the {@code Component} is disabled.
+	 * @throws IllegalStateException                              if the {@code Component} is not showing on the screen.
 	 * @throws org.uitest4j.swing.exception.ActionFailedException if there is no drag action in effect.
 	 */
 	@RunsInEDT
@@ -456,7 +431,7 @@ public class ComponentDriver {
 	 * This method is tuned for native drag/drop operations, so if you get odd behavior, you might try using a simple
 	 * {@link Robot#moveMouse(Component, int, int)} and {@link Robot#releaseMouseButtons()}.
 	 *
-	 * @param c the target {@code Component}.
+	 * @param c     the target {@code Component}.
 	 * @param where the point where the drag operation ends.
 	 * @throws org.uitest4j.swing.exception.ActionFailedException if there is no drag action in effect.
 	 */
@@ -469,7 +444,7 @@ public class ComponentDriver {
 	 * Move the mouse appropriately to get from the source to the destination. Enter/exit events will be generated where
 	 * appropriate.
 	 *
-	 * @param c the target {@code Component}.
+	 * @param c     the target {@code Component}.
 	 * @param where the point to drag over.
 	 */
 	protected final void dragOver(@Nonnull Component c, @Nonnull Point where) {
@@ -506,7 +481,7 @@ public class ComponentDriver {
 	 * dispatch thread (EDT). Client code must call this method from the EDT.
 	 * </p>
 	 *
-	 * @param c the given {@code Component}.
+	 * @param c       the given {@code Component}.
 	 * @param timeout the time in milliseconds to wait for the {@code Component} to be showing and ready.
 	 * @return {@code true} if the {@code Component} is showing and ready, {@code false} otherwise.
 	 */
@@ -538,9 +513,9 @@ public class ComponentDriver {
 	 *
 	 * @param c the invoker of the {@code JPopupMenu}.
 	 * @return the displayed pop-up menu.
-	 * @throws IllegalStateException if {@link Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and the
-	 *           {@code Component} is disabled.
-	 * @throws IllegalStateException if the {@code Component} is not showing on the screen.
+	 * @throws IllegalStateException                                 if {@link Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and the
+	 *                                                               {@code Component} is disabled.
+	 * @throws IllegalStateException                                 if the {@code Component} is not showing on the screen.
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
 	 */
 	@RunsInEDT
@@ -557,10 +532,10 @@ public class ComponentDriver {
 	 * @param c the invoker of the {@code JPopupMenu}.
 	 * @param p the given point where to show the pop-up menu.
 	 * @return the displayed pop-up menu.
-	 * @throws NullPointerException if the given point is {@code null}.
-	 * @throws IllegalStateException if {@link Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and the
-	 *           {@code Component} is disabled.
-	 * @throws IllegalStateException if the {@code Component} is not showing on the screen.
+	 * @throws NullPointerException                                  if the given point is {@code null}.
+	 * @throws IllegalStateException                                 if {@link Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and the
+	 *                                                               {@code Component} is disabled.
+	 * @throws IllegalStateException                                 if the {@code Component} is not showing on the screen.
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
 	 */
 	@RunsInEDT
@@ -599,7 +574,7 @@ public class ComponentDriver {
 	 *
 	 * @param c the {@code Component} to check.
 	 * @throws IllegalStateException if {@link Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and the
-	 *           {@code Component} is disabled.
+	 *                               {@code Component} is disabled.
 	 * @throws IllegalStateException if the {@code Component} is not showing on the screen.
 	 */
 	@RunsInEDT
@@ -616,7 +591,7 @@ public class ComponentDriver {
 	 * Formats the name of a property of the given AWT or Swing {@code Component} by concatenating the value obtained from
 	 * {@link org.uitest4j.swing.format.Formatting#format(Component)} with the given property name.
 	 *
-	 * @param c the given {@code Component}.
+	 * @param c            the given {@code Component}.
 	 * @param propertyName the name of the property.
 	 * @return the description of a property belonging to a {@code Component}.
 	 * @see org.uitest4j.swing.format.ComponentFormatter
@@ -640,6 +615,7 @@ public class ComponentDriver {
 	public static Supplier<String> propertyName(final @Nonnull Component c, final @Nonnull String propertyName, boolean useSupplier) {
 		return () -> String.format("%s - property:'%s'", format(c), propertyName);
 	}
+
 	/**
 	 * Simulates a user moving the mouse pointer to the given coordinates relative to the given AWT or Swing
 	 * {@code Component}. This method will <b>not</b> throw any exceptions if the it was not possible to move the mouse

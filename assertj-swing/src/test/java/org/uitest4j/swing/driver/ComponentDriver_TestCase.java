@@ -40,6 +40,7 @@ public abstract class ComponentDriver_TestCase extends RobotBasedTestCase {
   @Override
   protected final void onSetUp() {
     window = MyWindow.createNew(getClass());
+    window.setName("TestWindow");
     driver = new ComponentDriver(robot);
     extraSetUp();
   }
@@ -108,6 +109,7 @@ public abstract class ComponentDriver_TestCase extends RobotBasedTestCase {
 
     private MyWindow(Class<?> testClass) {
       super(testClass);
+      button.setName("TestButton");
       addComponents(textField, button);
     }
   }

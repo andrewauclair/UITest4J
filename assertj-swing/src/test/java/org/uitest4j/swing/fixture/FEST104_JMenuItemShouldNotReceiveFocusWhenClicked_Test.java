@@ -69,7 +69,7 @@ public class FEST104_JMenuItemShouldNotReceiveFocusWhenClicked_Test extends Robo
 
   private static class MyWindow extends TestWindow {
     static MyWindow createNew() {
-      return execute(() -> new MyWindow());
+		return execute(MyWindow::new);
     }
 
     final JMenuItem newMenu = new JMenuItem("New");

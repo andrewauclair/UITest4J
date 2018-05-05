@@ -32,7 +32,6 @@ import static org.uitest4j.swing.driver.JOptionPaneMessageTypeQuery.messageTypeO
 import static org.uitest4j.swing.driver.JOptionPaneMessageTypes.messageTypeAsText;
 import static org.uitest4j.swing.driver.JOptionPaneOptionsQuery.optionsOf;
 import static org.uitest4j.swing.driver.JOptionPaneTitleQuery.titleOf;
-import static org.uitest4j.swing.driver.TextAssert.verifyThat;
 
 /**
  * <p>
@@ -86,7 +85,8 @@ public class JOptionPaneDriver extends JComponentDriver {
 	 */
 	@RunsInEDT
 	public void requireTitle(@Nonnull JOptionPane optionPane, @Nonnull Pattern pattern) {
-		verifyThat(title(optionPane)).as(propertyName(optionPane, TITLE_PROPERTY)).matches(pattern);
+		OpenTest4JAssertions.assertMatchesPattern(pattern, title(optionPane),
+				() -> String.format("Expected title of '%s' to match pattern '%s' but was '%s'", optionPane.getName(), pattern, title(optionPane)));
 	}
 
 	/**
@@ -144,7 +144,8 @@ public class JOptionPaneDriver extends JComponentDriver {
 	public void requireMessage(@Nonnull JOptionPane optionPane, @Nonnull Pattern pattern) {
 		Object actual = messageOf(optionPane);
 		String s = actual == null ? null : actual.toString();
-		verifyThat(s).as(messageProperty(optionPane)).matches(pattern);
+		OpenTest4JAssertions.assertMatchesPattern(pattern, s, () -> "Expected message of '" + optionPane.getName() +
+				"' to match pattern '" + pattern + "' but was '" + s + "'");
 	}
 
 	private Description messageProperty(@Nonnull JOptionPane optionPane) {

@@ -124,7 +124,7 @@ public final class IntrospectionComponentFormatter extends ComponentFormatterTem
 		PropertyDescriptor descriptor = descriptors.get(property);
 		Object value = descriptor.getReadMethod().invoke(c);
 		if (isOneDimensionalArray(value)) {
-			return ArrayUtils.format(value);
+			return Arrays.toString((Object[]) value);
 		}
 		return singleQuote(value);
 	}

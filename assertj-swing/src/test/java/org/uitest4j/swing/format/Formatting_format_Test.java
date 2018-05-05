@@ -205,7 +205,7 @@ class Formatting_format_Test extends EDTSafeTestCase {
   @Test
   void should_Format_JSpinner() {
     JSpinner spinner = spinner().withName("spinner").withValues(6, 2, 8, 1).createNew();
-    assertThat(formatted(spinner)).contains("javax.swing.JSpinner").contains("name='spinner'").contains("value=6")
+	  assertThat(formatted(spinner)).contains("javax.swing.JSpinner").contains("name='spinner'").contains("value='6'")
 			.contains("enabled='true'").contains("visible='true'").contains("showing=false");
   }
 

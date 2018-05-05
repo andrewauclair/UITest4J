@@ -12,6 +12,7 @@
  */
 package org.uitest4j.swing.keystroke;
 
+import org.opentest4j.AssertionFailedError;
 import org.uitest4j.swing.exception.ParsingException;
 import org.uitest4j.swing.util.Strings;
 
@@ -139,7 +140,7 @@ public class KeyStrokeMappingsParser {
 	@Nonnull
 	public KeyStrokeMappingProvider parse(@Nonnull File file) {
 		if (!file.isFile()) {
-			throw new IllegalArgumentException("Expected file to be a file.");
+			throw new AssertionFailedError("Expected file to be a file.");
 		}
 
 		try {
