@@ -436,8 +436,8 @@ public class JListDriver extends JComponentDriver {
 			throw new AssertionFailedError(String.format("Expected selection of '%s' to be '%s' but had no selection", list.getName(), value));
 		}
 
-		OpenTest4JAssertions.assertEquals(value, selection, () -> "Expected '" + list.getName() +
-				"' to have selection '" + value + "' but was '" + selection + "'");
+		OpenTest4JAssertions.assertEquals(value, selection,
+				() -> String.format("Expected selection of '%s' to be '%s' but was '%s'", list.getName(), value, selection));
 	}
 
 	/**

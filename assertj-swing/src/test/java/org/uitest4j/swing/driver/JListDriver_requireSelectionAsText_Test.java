@@ -32,12 +32,12 @@ class JListDriver_requireSelectionAsText_Test extends JListDriver_TestCase {
 	@Test
 	void should_Fail_If_There_Is_No_Selection() {
 		clearSelection();
-		ExpectedException.assertOpenTest4jError(() -> driver.requireSelection(list, "one"), "Expected 'TestList' to have selection 'one' but there is no selection");
+		ExpectedException.assertOpenTest4jError(() -> driver.requireSelection(list, "one"), "Expected selection of 'TestList' to be 'one' but had no selection");
 	}
 
 	@Test
 	void should_Fail_If_Selection_Is_Not_Equal_To_Expected() {
 		select(1);
-		ExpectedException.assertOpenTest4jError(() -> driver.requireSelection(list, "one"), "Expected 'TestList' to have selection 'one' but was 'two'", "one", "two");
+		ExpectedException.assertOpenTest4jError(() -> driver.requireSelection(list, "one"), "Expected selection of 'TestList' to be 'one' but was 'two'", "one", "two");
 	}
 }

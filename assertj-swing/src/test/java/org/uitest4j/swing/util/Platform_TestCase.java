@@ -13,6 +13,7 @@
 package org.uitest4j.swing.util;
 
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 import java.awt.Toolkit;
 
@@ -30,6 +31,7 @@ public abstract class Platform_TestCase extends SequentialEDTSafeTestCase {
   @Override
   protected void onSetUp() {
     osIdentifier = mock(OSIdentifier.class);
+    when(osIdentifier.osFamily()).thenReturn(OSFamily.WINDOWS);
     toolkit = mock(Toolkit.class);
     Platform.initialize(osIdentifier, toolkit);
   }

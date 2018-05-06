@@ -30,7 +30,6 @@ class JComboBoxDriver_requireEditable_Test extends JComboBoxDriver_TestCase {
 
 	@Test
 	void should_Fail_If_JComboBox_Is_Not_Editable() {
-		ExpectedException.assertContainsMessage(AssertionError.class, () -> driver.requireEditable(comboBox), "property:'editable'", "expected:<[tru]e> but was:<[fals]e>");
 		ExpectedException.assertOpenTest4jError(() -> driver.requireEditable(comboBox), "Expected 'TestComboBox' to be editable");
 	}
 }
