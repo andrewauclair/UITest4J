@@ -1,178 +1,181 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd ">
-  <modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd ">
+    <modelVersion>4.0.0</modelVersion>
 
-  <!--<parent>-->
+    <!--<parent>-->
     <!--<groupId>com.github.andrewauclair</groupId>-->
     <!--<artifactId>assertj-parent-pom</artifactId>-->
-  <!--<version>0.1.0-SNAPSHOT</version>-->
-  <!--</parent>-->
+    <!--<version>0.1.1-SNAPSHOT</version>-->
+    <!--</parent>-->
 
-  <groupId>com.github.andrewauclair</groupId>
-  <artifactId>uitest4j-parent-pom</artifactId>
-  <version>0.1.0-SNAPSHOT</version>
-  <packaging>pom</packaging>
-  <name>AssertJ Swing: Fluent assertions for java unit testing</name>
-  <description>Parent POM for all AssertJ-Swing modules</description>
-  <inceptionYear>2018</inceptionYear>
+    <groupId>com.github.andrewauclair</groupId>
+    <artifactId>uitest4j-parent-pom</artifactId>
+    <version>0.1.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>AssertJ Swing: Fluent assertions for java unit testing</name>
+    <description>Parent POM for all UITest4J modules</description>
+    <inceptionYear>2018</inceptionYear>
 
-  <modules>
-    <module>assertj-swing</module>
-    <!--<module>assertj-swing-junit</module>-->
-    <!--<module>assertj-swing-testng</module>-->
-  </modules>
+    <properties>
+        <maven.deploy.skip>true</maven.deploy.skip>
+    </properties>
 
-  <distributionManagement>
-    <snapshotRepository>
-      <id>ossrh</id>
-      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-    </snapshotRepository>
-  </distributionManagement>
+    <modules>
+        <module>assertj-swing</module>
+        <!--<module>assertj-swing-junit</module>-->
+        <!--<module>assertj-swing-testng</module>-->
+    </modules>
 
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.7.0</version>
-        <configuration>
-          <source>1.10</source>
-          <target>1.10</target>
-          <jdkToolchain>
-            <version>10</version>
-          </jdkToolchain>
-        </configuration>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.7.0</version>
+                <configuration>
+                    <source>1.10</source>
+                    <target>1.10</target>
+                    <jdkToolchain>
+                        <version>10</version>
+                    </jdkToolchain>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.ow2.asm</groupId>
+                        <artifactId>asm</artifactId>
+                        <version>6.1.1</version> <!-- Use newer version of ASM -->
+                    </dependency>
+                </dependencies>
+            </plugin>
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>1.6.7</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <serverId>ossrh</serverId>
+                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <scm>
+        <developerConnection>scm:git:git@github.com:andrewauclair/uitest4j.git</developerConnection>
+        <connection>git://github.com/andrewauclair/uitest4j.git</connection>
+        <url>https://github.com/andrewauclair/uitest4j</url>
+        <tag>HEAD</tag>
+    </scm>
+    <issueManagement>
+        <system>github</system>
+        <url>https://github.com/andrewauclair/uitest4j/issues</url>
+    </issueManagement>
+    <developers>
+        <developer>
+            <id>andrewauclair</id>
+            <name>Andrew Auclair</name>
+            <roles>
+                <role>Owner</role>
+                <role>Developer</role>
+            </roles>
+        </developer>
+        <developer>
+            <id>joel</id>
+            <name>Joel Costigliola</name>
+            <roles>
+                <role>Owner</role>
+                <role>Developer</role>
+            </roles>
+        </developer>
+        <developer>
+            <id>croesch</id>
+            <name>Christian Rösch</name>
+            <email>christianroesch at gmx.net</email>
+            <roles>
+                <role>Owner</role>
+                <role>Developer</role>
+            </roles>
+        </developer>
+        <developer>
+            <id>alexruiz</id>
+            <name>Alex Ruiz</name>
+            <email>alex.ruiz.05 at gmail.com</email>
+            <url>http://alexruiz.developerblogs.com</url>
+            <roles>
+                <role>Developer</role>
+            </roles>
+        </developer>
+        <developer>
+            <id>wanghy</id>
+            <name>Yvonne Wang</name>
+            <email>wanghy1101 at gmail.com</email>
+            <roles>
+                <role>Owner</role>
+                <role>Developer</role>
+            </roles>
+        </developer>
+        <developer>
+            <id>konermann</id>
+            <name>Ansgar Konermann</name>
+            <url>http://passion.forco.de/</url>
+            <roles>
+                <role>Developer</role>
+            </roles>
+        </developer>
+    </developers>
+    <dependencyManagement>
         <dependencies>
-        <dependency>
-          <groupId>org.ow2.asm</groupId>
-          <artifactId>asm</artifactId>
-          <version>6.1.1</version> <!-- Use newer version of ASM -->
-        </dependency>
+            <dependency>
+                <groupId>org.codehaus.plexus</groupId>
+                <artifactId>plexus-archiver</artifactId>
+                <version>2.1.2</version>
+            </dependency>
+            <dependency>
+                <groupId>org.easytesting</groupId>
+                <artifactId>fest-reflect</artifactId>
+                <version>1.4.1</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.easytesting</groupId>
+                        <artifactId>fest-util</artifactId>
+                    </exclusion>
+                </exclusions>
+                <optional>true</optional>
+            </dependency>
+            <dependency>
+                <groupId>org.easytesting</groupId>
+                <artifactId>fest-util</artifactId>
+                <version>1.2.5</version>
+                <scope>runtime</scope>
+                <optional>true</optional>
+            </dependency>
+            <dependency>
+                <groupId>org.easytesting</groupId>
+                <artifactId>fest-test</artifactId>
+                <version>2.1.0</version>
+                <scope>test</scope>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.easytesting</groupId>
+                        <artifactId>fest-util</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>nl.jqno.equalsverifier</groupId>
+                <artifactId>equalsverifier</artifactId>
+                <version>2.4.5</version>
+                <scope>test</scope>
+            </dependency>
         </dependencies>
-      </plugin>
-      <plugin>
-        <groupId>org.sonatype.plugins</groupId>
-        <artifactId>nexus-staging-maven-plugin</artifactId>
-        <version>1.6.7</version>
-        <extensions>true</extensions>
-        <configuration>
-          <serverId>ossrh</serverId>
-          <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-          <autoReleaseAfterClose>true</autoReleaseAfterClose>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
-
-  <scm>
-    <developerConnection>scm:git:git@github.com:andrewauclair/uitest4j.git</developerConnection>
-    <connection>git://github.com/andrewauclair/uitest4j.git</connection>
-    <url>https://github.com/andrewauclair/uitest4j</url>
-    <tag>HEAD</tag>
-  </scm>
-  <issueManagement>
-    <system>github</system>
-    <url>https://github.com/andrewauclair/uitest4j/issues</url>
-  </issueManagement>
-  <developers>
-    <developer>
-      <id>andrewauclair</id>
-      <name>Andrew Auclair</name>
-      <roles>
-        <role>Owner</role>
-        <role>Developer</role>
-      </roles>
-    </developer>
-    <developer>
-      <id>joel</id>
-      <name>Joel Costigliola</name>
-      <roles>
-        <role>Owner</role>
-        <role>Developer</role>
-      </roles>
-    </developer>
-    <developer>
-      <id>croesch</id>
-      <name>Christian Rösch</name>
-      <email>christianroesch at gmx.net</email>
-      <roles>
-        <role>Owner</role>
-        <role>Developer</role>
-      </roles>
-    </developer>
-    <developer>
-      <id>alexruiz</id>
-      <name>Alex Ruiz</name>
-      <email>alex.ruiz.05 at gmail.com</email>
-      <url>http://alexruiz.developerblogs.com</url>
-      <roles>
-        <role>Developer</role>
-      </roles>
-    </developer>
-    <developer>
-      <id>wanghy</id>
-      <name>Yvonne Wang</name>
-      <email>wanghy1101 at gmail.com</email>
-      <roles>
-        <role>Owner</role>
-        <role>Developer</role>
-      </roles>
-    </developer>
-    <developer>
-      <id>konermann</id>
-      <name>Ansgar Konermann</name>
-      <url>http://passion.forco.de/</url>
-      <roles>
-        <role>Developer</role>
-      </roles>
-    </developer>
-  </developers>
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>org.codehaus.plexus</groupId>
-        <artifactId>plexus-archiver</artifactId>
-        <version>2.1.2</version>
-      </dependency>
-      <dependency>
-        <groupId>org.easytesting</groupId>
-        <artifactId>fest-reflect</artifactId>
-        <version>1.4.1</version>
-        <exclusions>
-          <exclusion>
-            <groupId>org.easytesting</groupId>
-            <artifactId>fest-util</artifactId>
-          </exclusion>
-        </exclusions>
-        <optional>true</optional>
-      </dependency>
-      <dependency>
-        <groupId>org.easytesting</groupId>
-        <artifactId>fest-util</artifactId>
-        <version>1.2.5</version>
-        <scope>runtime</scope>
-        <optional>true</optional>
-      </dependency>
-      <dependency>
-        <groupId>org.easytesting</groupId>
-        <artifactId>fest-test</artifactId>
-        <version>2.1.0</version>
-        <scope>test</scope>
-        <exclusions>
-          <exclusion>
-            <groupId>org.easytesting</groupId>
-            <artifactId>fest-util</artifactId>
-          </exclusion>
-      </exclusions>
-      </dependency>
-      <dependency>
-        <groupId>nl.jqno.equalsverifier</groupId>
-        <artifactId>equalsverifier</artifactId>
-        <version>2.4.5</version>
-        <scope>test</scope>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
-  <properties>
-  </properties>
+    </dependencyManagement>
 </project>
