@@ -12,8 +12,8 @@
  */
 package org.assertj.swing.junit.ant;
 
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.junit.BeforeClass;
+import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -22,31 +22,31 @@ import static org.assertj.core.api.Assertions.assertThat;
  * 
  * @author Alex Ruiz
  */
-class GUITestRecognizer_isGUITest_Test {
+public class GUITestRecognizer_isGUITest_Test {
 
   private static final String TEST_CLASS_NAME = SomeTestFake.class.getName();
 
   private static GUITestRecognizer recognizer;
 
-  @BeforeAll
-  static void setUpOnce() {
+  @BeforeClass
+  public static void setUpOnce() {
     recognizer = new GUITestRecognizer();
   }
 
   @Test
-  void should_Return_True_If_Method_Has_Annotation() {
+  public void should_Return_True_If_Method_Has_Annotation() {
     boolean isGuiTest = recognizer.isGUITest(TEST_CLASS_NAME, "guiTest");
     assertThat(isGuiTest).isTrue();
   }
 
   @Test
-  void should_Return_False_If_Method_Does_Not_Have_Annotation() {
+  public void should_Return_False_If_Method_Does_Not_Have_Annotation() {
     boolean isGuiTest = recognizer.isGUITest(TEST_CLASS_NAME, "nonGuiTest");
     assertThat(isGuiTest).isFalse();
   }
 
   @Test
-  void should_Return_False_In_Case_Of_Error() {
+  public void should_Return_False_In_Case_Of_Error() {
     boolean isGuiTest = recognizer.isGUITest(TEST_CLASS_NAME, "someMethod");
     assertThat(isGuiTest).isFalse();
   }

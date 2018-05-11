@@ -16,17 +16,17 @@ import static org.assertj.core.api.Assertions.assertThat;
 import junit.framework.AssertionFailedError;
 
 import org.assertj.swing.junit.xml.XmlNode;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 /**
  * Tests for <code>{@link XmlJUnitResultFormatter#addError(junit.framework.Test, Throwable)}</code>.
  * 
  * @author Alex Ruiz
  */
-class XmlJUnitResultFormatter_addError_Test extends XmlJUnitResultFormatter_TestCase {
+public class XmlJUnitResultFormatter_addError_Test extends XmlJUnitResultFormatter_TestCase {
 
   @Test
-  void should_Write_Test_Execution_When_Error_Is_Thrown() {
+  public void should_Write_Test_Execution_When_Error_Is_Thrown() {
     startSuite();
     junit.framework.Test test = mockTest();
     AssertionFailedError error = errorOrFailure();

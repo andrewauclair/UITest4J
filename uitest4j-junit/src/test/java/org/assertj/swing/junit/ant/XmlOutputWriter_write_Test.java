@@ -23,17 +23,17 @@ import java.io.IOException;
 import org.assertj.swing.junit.xml.XmlDocument;
 import org.assertj.swing.junit.xml.XmlNode;
 import org.fest.mocks.EasyMockTemplate;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 /**
  * Tests for <code>{@link XmlOutputWriter#write(org.assertj.swing.junit.xml.XmlNode, java.io.OutputStream)}</code>.
  *
  * @author Alex Ruiz
  */
-class XmlOutputWriter_write_Test extends XmlOutputWriter_TestCase {
+public class XmlOutputWriter_write_Test extends XmlOutputWriter_TestCase {
 
   @Test
-  void should_Write_XML_To_OutputStream() throws Exception {
+  public void should_Write_XML_To_OutputStream() throws Exception {
     MyOutputStream out = new MyOutputStream();
     writer.write(xml(), out);
     String actual = new String(out.toByteArray());
@@ -42,7 +42,7 @@ class XmlOutputWriter_write_Test extends XmlOutputWriter_TestCase {
   }
 
   @Test
-  void should_Not_Close_OutputStream_When_Using_SystemOut_Or_SystemErr() {
+  public void should_Not_Close_OutputStream_When_Using_SystemOut_Or_SystemErr() {
     final StandardOutputStreams streams = createMock(StandardOutputStreams.class);
     writer = new XmlOutputWriter(streams);
     final MyOutputStream out = new MyOutputStream();

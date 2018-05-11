@@ -12,7 +12,7 @@
  */
 package org.assertj.swing.junit.ant;
 
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.Before;
 
 /**
  * Base test case for <code>{@link XmlOutputWriter}</code>.
@@ -23,7 +23,7 @@ public abstract class XmlOutputWriter_TestCase {
 
   XmlOutputWriter writer;
 
-  @BeforeEach
+  @Before
   public final void setUp() {
     writer = new XmlOutputWriter();
   }

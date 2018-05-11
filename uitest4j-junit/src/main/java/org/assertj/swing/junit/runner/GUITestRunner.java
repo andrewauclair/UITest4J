@@ -12,9 +12,6 @@
  */
 package org.assertj.swing.junit.runner;
 
-import org.junit.jupiter.api.extension.AfterTestExecutionCallback;
-import org.junit.jupiter.api.extension.ExtensionContext;
-import org.junit.jupiter.api.extension.TestInstancePostProcessor;
 import org.junit.runners.BlockJUnit4ClassRunner;
 import org.junit.runners.model.FrameworkMethod;
 import org.junit.runners.model.InitializationError;
@@ -22,50 +19,31 @@ import org.junit.runners.model.Statement;
 
 /**
  * Understands a JUnit 4.5 test runner that takes a screenshot of a failed GUI test.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
-public class GUITestRunner implements AfterTestExecutionCallback {
+public class GUITestRunner extends BlockJUnit4ClassRunner {
 
+	private final FailureScreenshotTaker screenshotTaker;
 
+	/**
+	 * Creates a new <code>{@link GUITestRunner}</code>.
+	 *
+	 * @param testClass the class containing the tests to run.
+	 * @throws InitializationError if something goes wrong when creating this runner.
+	 */
+	public GUITestRunner(Class<?> testClass) throws InitializationError {
+		super(testClass);
+		screenshotTaker = new FailureScreenshotTaker(new ImageFolderCreator().createImageFolder());
+	}
 
-  public static class GUITestRunner_JUnit5 implements AfterTestExecutionCallback {
-
-    @Override
-    public void afterTestExecution(ExtensionContext extensionContext) throws Exception {
-      System.out.println("failed: " + extensionContext.getExecutionException().isPresent());
-    }
-  }
-  private final FailureScreenshotTaker screenshotTaker;
-
-  /**
-   * Creates a new <code>{@link GUITestRunner}</code>.
-   * 
-   * @param testClass the class containing the tests to run.
-   * @throws InitializationError if something goes wrong when creating this runner.
-   */
-  public GUITestRunner() {
-    screenshotTaker = new FailureScreenshotTaker(new ImageFolderCreator().createImageFolder());
-  }
-//  public GUITestRunner(Class<?> testClass) throws InitializationError {
-//    super(testClass);
-//    screenshotTaker = new FailureScreenshotTaker(new ImageFolderCreator().createImageFolder());
-//  }
-
-  /**
-   * Returns a <code>{@link Statement}</code> that invokes {@code method} on {@code test}. The created statement will
-   * take and save the screenshot of the desktop in case of a failure.
-   */
-//  @Override
-//  protected Statement methodInvoker(FrameworkMethod method, Object test) {
-//    return new MethodInvoker(method, test, screenshotTaker);
-//  }
-
-  @Override
-  public void afterTestExecution(ExtensionContext extensionContext) throws Exception {
-    if (extensionContext.getExecutionException().isPresent()) {
-      screenshotTaker.saveScreenshot(extensionContext.getDisplayName());
-    }
-  }
+	/**
+	 * Returns a <code>{@link Statement}</code> that invokes {@code method} on {@code test}. The created statement will
+	 * take and save the screenshot of the desktop in case of a failure.
+	 */
+	@Override
+	protected Statement methodInvoker(FrameworkMethod method, Object test) {
+		return new MethodInvoker(method, test, screenshotTaker);
+	}
 }

@@ -12,29 +12,22 @@
  */
 package org.assertj.swing.junit.ant;
 
-import static org.apache.tools.ant.taskdefs.optional.junit.XMLConstants.ATTR_ERRORS;
-import static org.apache.tools.ant.taskdefs.optional.junit.XMLConstants.ATTR_FAILURES;
-import static org.apache.tools.ant.taskdefs.optional.junit.XMLConstants.ATTR_NAME;
-import static org.apache.tools.ant.taskdefs.optional.junit.XMLConstants.ATTR_TESTS;
-import static org.apache.tools.ant.taskdefs.optional.junit.XMLConstants.ATTR_TIME;
-import static org.apache.tools.ant.taskdefs.optional.junit.XMLConstants.ATTR_VALUE;
-import static org.apache.tools.ant.taskdefs.optional.junit.XMLConstants.PROPERTIES;
-import static org.apache.tools.ant.taskdefs.optional.junit.XMLConstants.PROPERTY;
+import org.apache.tools.ant.taskdefs.optional.junit.JUnitTest;
+import org.assertj.swing.junit.xml.XmlAttribute;
+import org.assertj.swing.junit.xml.XmlAttributes;
+import org.assertj.swing.junit.xml.XmlNode;
+import org.fest.mocks.EasyMockTemplate;
+import org.junit.Before;
+
+import java.util.Properties;
+
+import static org.apache.tools.ant.taskdefs.optional.junit.XMLConstants.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.junit.xml.XmlAttribute.name;
 import static org.assertj.swing.junit.xml.XmlAttributes.attributes;
 import static org.easymock.EasyMock.expect;
 import static org.easymock.EasyMock.expectLastCall;
 import static org.easymock.classextension.EasyMock.createMock;
-
-import java.util.Properties;
-
-import org.apache.tools.ant.taskdefs.optional.junit.JUnitTest;
-import org.assertj.swing.junit.xml.XmlAttribute;
-import org.assertj.swing.junit.xml.XmlAttributes;
-import org.assertj.swing.junit.xml.XmlNode;
-import org.fest.mocks.EasyMockTemplate;
-import org.junit.jupiter.api.BeforeEach;
 
 /**
  * Base test case for <code>{@link SuiteXmlNodeWriter}</code>.
@@ -46,14 +39,14 @@ public abstract class SuiteXmlNodeWriter_TestCase {
   XmlNode targetNode;
   SuiteXmlNodeWriter writer;
 
-  @BeforeEach
+  @Before
   public final void setUp() {
     targetNode = mockXmlNode();
     writer = new SuiteXmlNodeWriter();
     onSetUp();
   }
 
-  void onSetUp() {
+  public void onSetUp() {
   }
 
   public void shouldWriterPropertiesAsAttributes() {

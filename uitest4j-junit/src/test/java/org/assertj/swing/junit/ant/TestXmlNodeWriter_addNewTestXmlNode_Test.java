@@ -12,18 +12,16 @@
  */
 package org.assertj.swing.junit.ant;
 
-import static org.apache.tools.ant.taskdefs.optional.junit.XMLConstants.ATTR_CLASSNAME;
-import static org.apache.tools.ant.taskdefs.optional.junit.XMLConstants.ATTR_NAME;
-import static org.apache.tools.ant.taskdefs.optional.junit.XMLConstants.TESTCASE;
+import org.assertj.swing.junit.xml.XmlAttributes;
+import org.assertj.swing.junit.xml.XmlNode;
+import org.fest.mocks.EasyMockTemplate;
+import org.junit.Test;
+
+import static org.apache.tools.ant.taskdefs.optional.junit.XMLConstants.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.junit.xml.XmlAttribute.name;
 import static org.assertj.swing.junit.xml.XmlAttributes.attributes;
 import static org.easymock.EasyMock.expect;
-
-import org.assertj.swing.junit.xml.XmlAttributes;
-import org.assertj.swing.junit.xml.XmlNode;
-import org.fest.mocks.EasyMockTemplate;
-import org.junit.jupiter.api.Test;
 
 /**
  * Tests for
@@ -31,10 +29,10 @@ import org.junit.jupiter.api.Test;
  * 
  * @author Alex Ruiz
  */
-class TestXmlNodeWriter_addNewTestXmlNode_Test extends TestXmlNodeWriter_TestCase {
+public class TestXmlNodeWriter_addNewTestXmlNode_Test extends TestXmlNodeWriter_TestCase {
 
   @Test
-  void should_Add_Test_Node_As_Child() {
+  public void should_Add_Test_Node_As_Child() {
     final TestStub test = new TestStub("hello");
     final XmlNode newNode = mockXmlNode();
     new EasyMockTemplate(targetNode) {
@@ -53,7 +51,7 @@ class TestXmlNodeWriter_addNewTestXmlNode_Test extends TestXmlNodeWriter_TestCas
   }
 
   @Test
-  void should_Add_Test_Node_As_Child_And_Set_Test_Name_To_Unknown_If_Test_Name_Is_Null() {
+  public void should_Add_Test_Node_As_Child_And_Set_Test_Name_To_Unknown_If_Test_Name_Is_Null() {
     final TestStub test = new TestStub(null);
     final XmlNode newNode = mockXmlNode();
     new EasyMockTemplate(targetNode) {

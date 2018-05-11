@@ -12,8 +12,8 @@
  */
 package org.assertj.swing.junit.ant;
 
+import org.junit.BeforeClass;
 import org.uitest4j.swing.image.ScreenshotTaker;
-import org.junit.jupiter.api.BeforeAll;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -29,7 +29,7 @@ public abstract class ImageHandler_TestCase {
 
   static ScreenshotTaker screenshotTaker;
 
-  @BeforeAll
+  @BeforeClass
   public static void setUpOnce() {
     screenshotTaker = new ScreenshotTaker();
   }

@@ -13,7 +13,7 @@
 package org.assertj.swing.junit.xml;
 
 import nl.jqno.equalsverifier.EqualsVerifier;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 
 /**
@@ -21,10 +21,10 @@ import org.junit.jupiter.api.Test;
  *
  * @author Christian Rösch
  */
-class XmlAttribute_equals_hashCode_Test {
+public class XmlAttribute_equals_hashCode_Test {
 
   @Test
-  void should_Be_Correct() {
+  public void should_Be_Correct() {
     EqualsVerifier.forClass(XmlAttribute.class).usingGetClass().verify();
   }
 }

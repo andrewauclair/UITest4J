@@ -21,17 +21,17 @@ import static org.easymock.EasyMock.expectLastCall;
 import java.net.UnknownHostException;
 
 import org.fest.mocks.EasyMockTemplate;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 /**
  * Tests for <code>{@link EnvironmentXmlNodeWriter#writeHostName(XmlNode)}</code>.
  *
  * @author Alex Ruiz
  */
-class EnvironmentXmlNodeWriter_writeHostName_Test extends EnvironmentXmlNodeWriter_TestCase {
+public class EnvironmentXmlNodeWriter_writeHostName_Test extends EnvironmentXmlNodeWriter_TestCase {
 
   @Test
-  void should_Write_Host_Name_As_Attribute() {
+  public void should_Write_Host_Name_As_Attribute() {
     final String hostName = "myHost";
     new EasyMockTemplate(timeStampFormatter, hostNameReader, targetNode) {
       @Override
@@ -49,7 +49,7 @@ class EnvironmentXmlNodeWriter_writeHostName_Test extends EnvironmentXmlNodeWrit
   }
 
   @Test
-  void should_Write_Local_Host_As_Attribute_If_Host_Name_Could_Not_Be_Obtained() {
+  public void should_Write_Local_Host_As_Attribute_If_Host_Name_Could_Not_Be_Obtained() {
     final UnknownHostException e = new UnknownHostException();
     new EasyMockTemplate(timeStampFormatter, hostNameReader, targetNode) {
       @Override

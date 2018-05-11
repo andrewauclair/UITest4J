@@ -14,7 +14,7 @@ package org.assertj.swing.junit.xml;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.w3c.dom.Node;
 import org.w3c.dom.Text;
 
@@ -23,10 +23,10 @@ import org.w3c.dom.Text;
  * 
  * @author Alex Ruiz
  */
-class XmlNode_addText_Test extends XmlNode_TestCase {
+public class XmlNode_addText_Test extends XmlNode_TestCase {
 
   @Test
-  void should_Add_Text_Node() {
+  public void should_Add_Text_Node() {
     node.addText("Hello World");
     assertThat(childNodeCountOf(target)).isEqualTo(1);
     Node child = target.getFirstChild();

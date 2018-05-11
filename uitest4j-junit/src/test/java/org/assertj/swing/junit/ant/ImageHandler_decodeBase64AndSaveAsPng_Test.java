@@ -12,33 +12,42 @@
  */
 package org.assertj.swing.junit.ant;
 
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.MethodSource;
-
-import java.util.Collection;
-
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Lists.newArrayList;
 
+import java.util.Collection;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameters;
+
 /**
  * Tests for <code>{@link ImageHandler#decodeBase64AndSaveAsPng(String, String)}</code>.
- * 
+ *
  * @author Alex Ruiz
  */
-class ImageHandler_decodeBase64AndSaveAsPng_Test extends ImageHandler_TestCase {
-  private static Collection<Object[]> emptyOrNull() {
+@RunWith(Parameterized.class)
+public class ImageHandler_decodeBase64AndSaveAsPng_Test extends ImageHandler_TestCase {
+
+  private final String val;
+
+  @Parameters
+  public static Collection<Object[]> emptyOrNull() {
     return newArrayList(new Object[][] { { "" }, { null } });
   }
 
-  @ParameterizedTest
-  @MethodSource("emptyOrNull")
-  void shouldReturnEmptyStringIfEncodedImageIsEmptyOrNullWhenDecodingAndSavingImage(String val) {
+  public ImageHandler_decodeBase64AndSaveAsPng_Test(String val) {
+    this.val = val;
+  }
+
+  @Test
+  public void shouldReturnEmptyStringIfEncodedImageIsEmptyOrNullWhenDecodingAndSavingImage() {
     assertThat(ImageHandler.decodeBase64AndSaveAsPng(val, "somePath"));
   }
 
-  @ParameterizedTest
-  @MethodSource("emptyOrNull")
-  void shouldReturnEmptyStringIfFilePathIsEmptyOrNullWhenDecodingAndSavingImage(String val) {
+  @Test
+  public void shouldReturnEmptyStringIfFilePathIsEmptyOrNullWhenDecodingAndSavingImage() {
     assertThat(ImageHandler.decodeBase64AndSaveAsPng("someImage", val));
   }
 }

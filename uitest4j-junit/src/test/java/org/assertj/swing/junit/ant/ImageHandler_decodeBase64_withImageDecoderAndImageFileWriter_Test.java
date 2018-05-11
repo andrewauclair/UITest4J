@@ -21,8 +21,8 @@ import java.awt.image.BufferedImage;
 
 import org.uitest4j.swing.image.ImageFileWriter;
 import org.fest.mocks.EasyMockTemplate;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  * Tests for
@@ -31,7 +31,7 @@ import org.junit.jupiter.api.Test;
  * 
  * @author Alex Ruiz
  */
-class ImageHandler_decodeBase64_withImageDecoderAndImageFileWriter_Test extends ImageHandler_TestCase {
+public class ImageHandler_decodeBase64_withImageDecoderAndImageFileWriter_Test extends ImageHandler_TestCase {
 
   private ImageDecoder decoder;
   private String encoded;
@@ -39,8 +39,8 @@ class ImageHandler_decodeBase64_withImageDecoderAndImageFileWriter_Test extends 
   private BufferedImage image;
   private String path;
 
-  @BeforeEach
-  void setUp() {
+  @Before
+  public void setUp() {
     encoded = "Hello";
     decoder = mockImageDecoder();
     image = mockImage();
@@ -49,7 +49,7 @@ class ImageHandler_decodeBase64_withImageDecoderAndImageFileWriter_Test extends 
   }
 
   @Test
-  void should_Not_Rethrow_Error() {
+  public void should_Not_Rethrow_Error() {
     new EasyMockTemplate(decoder, writer) {
       @Override
       protected void expectations() throws Throwable {

@@ -14,7 +14,7 @@ package org.assertj.swing.junit.xml;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.w3c.dom.Element;
 
 /**
@@ -22,10 +22,10 @@ import org.w3c.dom.Element;
  * 
  * @author Alex Ruiz
  */
-class XmlNode_addNewNode_Test extends XmlNode_TestCase {
+public class XmlNode_addNewNode_Test extends XmlNode_TestCase {
 
   @Test
-  void should_Add_New_Child_Node() {
+  public void should_Add_New_Child_Node() {
     XmlNode newNode = node.addNewNode("new");
     Element child = newNode.target();
     assertThat(nameOf(child)).isEqualTo("new");

@@ -12,7 +12,7 @@
  */
 package org.assertj.swing.junit.xml;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -21,10 +21,10 @@ import static org.assertj.core.api.Assertions.assertThat;
  *
  * @author Alex Ruiz
  */
-class XmlAttributeBuilder_value_withLong_Test {
+public class XmlAttributeBuilder_value_withLong_Test {
 
   @Test
-  void should_Create_Attribute() {
+  public void should_Create_Attribute() {
     XmlAttribute other = XmlAttribute.name("distance").value(3l);
     assertThat(other.name()).isEqualTo("distance");
     assertThat(other.value()).isEqualTo("3");

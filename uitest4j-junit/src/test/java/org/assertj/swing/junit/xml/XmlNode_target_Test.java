@@ -12,7 +12,7 @@
  */
 package org.assertj.swing.junit.xml;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -21,10 +21,10 @@ import static org.assertj.core.api.Assertions.assertThat;
  * 
  * @author Alex Ruiz
  */
-class XmlNode_target_Test extends XmlNode_TestCase {
+public class XmlNode_target_Test extends XmlNode_TestCase {
 
   @Test
-  void should_Return_Target() {
+  public void should_Return_Target() {
     assertThat(node.target()).isSameAs(target);
   }
 }

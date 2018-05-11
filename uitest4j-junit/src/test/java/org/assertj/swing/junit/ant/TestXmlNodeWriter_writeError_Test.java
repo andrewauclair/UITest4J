@@ -19,17 +19,17 @@ import static org.assertj.swing.junit.xml.XmlAttribute.name;
 import static org.easymock.EasyMock.expectLastCall;
 
 import org.fest.mocks.EasyMockTemplate;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 /**
  * Tests for <code>{@link TestXmlNodeWriter#writeError(XmlNode, Throwable)}</code>.
  *
  * @author Alex Ruiz
  */
-class TestXmlNodeWriter_writeError_Test extends TestXmlNodeWriter_TestCase {
+public class TestXmlNodeWriter_writeError_Test extends TestXmlNodeWriter_TestCase {
 
   @Test
-  void should_Write_Error_Type_And_Message_As_Attributes() {
+  public void should_Write_Error_Type_And_Message_As_Attributes() {
     final String errorMsg = "Thrown on purpose";
     final Exception e = new Exception(errorMsg);
     new EasyMockTemplate(targetNode) {
@@ -49,7 +49,7 @@ class TestXmlNodeWriter_writeError_Test extends TestXmlNodeWriter_TestCase {
   }
 
   @Test
-  void should_Write_Only_Error_Type_As_Attribute_When_Error_Message_Is_Empty() {
+  public void should_Write_Only_Error_Type_As_Attribute_When_Error_Message_Is_Empty() {
     final Exception e = new Exception("");
     new EasyMockTemplate(targetNode) {
       @Override

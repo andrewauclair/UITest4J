@@ -12,36 +12,46 @@
  */
 package org.assertj.swing.junit.xml;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.MethodSource;
-
-import java.util.Collection;
-
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Lists.newArrayList;
 
+import java.util.Collection;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameters;
+
 /**
  * Tests for <code>{@link XmlAttribute#equals(Object)}</code>.
- * 
+ *
  * @author Alex Ruiz
  */
-class XmlAttribute_equals_Test {
+@RunWith(Parameterized.class)
+public class XmlAttribute_equals_Test {
 
   private XmlAttribute attribute;
-  private static Collection<Object[]> notEqualAttributes() {
-    return newArrayList(new Object[][] { { XmlAttribute.name("firstName").value("Leia") },
-        { XmlAttribute.name("first").value("Anakin") }, { XmlAttribute.name("lastName").value("Skywalker") } });
+
+  private final XmlAttribute notEqualAttribute;
+
+  public XmlAttribute_equals_Test(XmlAttribute notEqualAttribute) {
+    this.notEqualAttribute = notEqualAttribute;
   }
 
-  @BeforeEach
-  void setUp() {
+  @Parameters
+  public static Collection<Object[]> notEqualAttributes() {
+    return newArrayList(new Object[][] { { XmlAttribute.name("firstName").value("Leia") },
+            { XmlAttribute.name("first").value("Anakin") }, { XmlAttribute.name("lastName").value("Skywalker") } });
+  }
+
+  @Before
+  public void setUp() {
     attribute = XmlAttribute.name("firstName").value("Anakin");
   }
 
-  @ParameterizedTest
-  @MethodSource("notEqualAttributes")
-  void shouldNotBeEqualToDifferentObject(XmlAttribute notEqualAttribute) {
+  @Test
+  public void shouldNotBeEqualToDifferentObject() {
     assertThat(attribute.equals(notEqualAttribute)).isFalse();
   }
 }

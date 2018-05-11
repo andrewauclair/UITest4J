@@ -12,15 +12,13 @@
  */
 package org.assertj.swing.junit.xml;
 
-import static org.assertj.core.util.Objects.HASH_CODE_PRIME;
-import static org.assertj.core.util.Objects.hashCodeFor;
-import static org.assertj.core.util.Strings.concat;
-
 import org.w3c.dom.CDATASection;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.Text;
+
+import java.util.Objects;
 
 /**
  * Understands a DOM-based XML element. This class is intended for internal use only. It is just a thin wrapper around a
@@ -202,26 +200,25 @@ public class XmlNode {
   }
 
   @Override
-  public boolean equals(Object obj) {
-    if (this == obj)
+  public String toString() {
+    return getClass().getSimpleName() + "[" + "target=" + target + "]";
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
       return true;
-    if (obj == null)
+    }
+    if (o == null || getClass() != o.getClass()) {
       return false;
-    if (getClass() != obj.getClass())
-      return false;
-    XmlNode other = (XmlNode) obj;
-    return target.isEqualNode(other.target);
+    }
+    XmlNode xmlNode = (XmlNode) o;
+    return Objects.equals(target, xmlNode.target);
   }
 
   @Override
   public int hashCode() {
-    int result = 1;
-    result = HASH_CODE_PRIME * result + hashCodeFor(name());
-    return result;
-  }
 
-  @Override
-  public String toString() {
-    return concat(getClass().getSimpleName(), "[", "target=", target, "]");
+    return Objects.hash(target);
   }
 }

@@ -12,15 +12,7 @@
  */
 package org.assertj.swing.junit.xml;
 
-import static org.assertj.core.util.Lists.newArrayList;
-import static org.assertj.core.util.Objects.HASH_CODE_PRIME;
-import static org.assertj.core.util.Objects.areEqual;
-import static org.assertj.core.util.Objects.hashCodeFor;
-import static org.assertj.core.util.Strings.concat;
-
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 /**
  * Understands a collection of attributes of a <code>{@link XmlNode}</code>. This class is intended for internal use
@@ -43,7 +35,7 @@ public class XmlAttributes implements Iterable<XmlAttribute> {
   }
 
   private XmlAttributes(XmlAttribute... attributes) {
-    this.attributes.addAll(newArrayList(attributes));
+    this.attributes.addAll(Arrays.asList(attributes));
   }
 
   /**
@@ -57,26 +49,25 @@ public class XmlAttributes implements Iterable<XmlAttribute> {
   }
 
   @Override
-  public boolean equals(Object obj) {
-    if (this == obj)
+  public String toString() {
+    return getClass().getSimpleName() + "[" + "attributes=" + attributes + "]";
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
       return true;
-    if (obj == null)
+    }
+    if (o == null || getClass() != o.getClass()) {
       return false;
-    if (getClass() != obj.getClass())
-      return false;
-    XmlAttributes other = (XmlAttributes) obj;
-    return areEqual(attributes, other.attributes);
+    }
+    XmlAttributes that = (XmlAttributes) o;
+    return Objects.equals(attributes, that.attributes);
   }
 
   @Override
   public int hashCode() {
-    int result = 1;
-    result = HASH_CODE_PRIME * result + hashCodeFor(attributes);
-    return result;
-  }
 
-  @Override
-  public String toString() {
-    return concat(getClass().getSimpleName(), "[", "attributes=", attributes, "]");
+    return Objects.hash(attributes);
   }
 }

@@ -12,21 +12,21 @@
  */
 package org.assertj.swing.junit.ant;
 
+import org.apache.tools.ant.taskdefs.optional.junit.JUnitTest;
+import org.assertj.swing.junit.xml.XmlNode;
+import org.fest.mocks.EasyMockTemplate;
+import org.junit.Before;
+import org.junit.Ignore;
+import org.junit.Test;
+
+import java.security.PrivilegedAction;
+
 import static java.lang.String.valueOf;
 import static java.security.AccessController.doPrivileged;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.easymock.EasyMock.expectLastCall;
 import static org.easymock.classextension.EasyMock.createMock;
 import static org.fest.reflect.core.Reflection.field;
-
-import java.security.PrivilegedAction;
-
-import org.apache.tools.ant.taskdefs.optional.junit.JUnitTest;
-import org.assertj.swing.junit.xml.XmlNode;
-import org.fest.mocks.EasyMockTemplate;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
 
 /**
  * Tests for
@@ -40,12 +40,12 @@ public class ScreenshotOnFailureResultFormatter_onFailureOrError_Test {
 
   private ScreenshotOnFailureResultFormatter formatter;
 
-  @BeforeEach
-  void setUp() {
+  @Before
+  public void setUp() {
     formatter = new ScreenshotOnFailureResultFormatter();
   }
 
-  @Disabled("this test passes only when run individually")
+  @Ignore("this test passes only when run individually")
   public void should_Write_Error_In_XML_Document_If_ScreenshotWriter_Could_Not_Be_Created() {
     headlessAWT(true); // force an ImageException to be thrown
     try {
@@ -70,7 +70,7 @@ public class ScreenshotOnFailureResultFormatter_onFailureOrError_Test {
   }
 
   @Test
-  void should_Take_Screenshot_When_Test_Fails() {
+  public void should_Take_Screenshot_When_Test_Fails() {
     final ScreenshotXmlWriter writer = createMock(ScreenshotXmlWriter.class);
     updateWriterInFormatter(writer);
     final junit.framework.Test test = failingTest();
@@ -90,7 +90,7 @@ public class ScreenshotOnFailureResultFormatter_onFailureOrError_Test {
   }
 
   @Test
-  void should_Not_Take_Screenshot_When_Test_Fails_If_ScreenshotWriter_Is_Null() {
+  public void should_Not_Take_Screenshot_When_Test_Fails_If_ScreenshotWriter_Is_Null() {
     updateWriterInFormatter(null);
     formatter.onFailureOrError(failingTest(), new Throwable(), createMock(XmlNode.class));
     // no assertions to be made...are we sure this test is meaningful?

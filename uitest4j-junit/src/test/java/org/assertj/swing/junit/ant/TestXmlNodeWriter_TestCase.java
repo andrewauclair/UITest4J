@@ -12,15 +12,15 @@
  */
 package org.assertj.swing.junit.ant;
 
+import junit.framework.TestResult;
+import org.assertj.swing.junit.xml.XmlNode;
+import org.fest.mocks.EasyMockTemplate;
+import org.junit.Before;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.easymock.EasyMock.expect;
 import static org.easymock.EasyMock.expectLastCall;
 import static org.easymock.classextension.EasyMock.createMock;
-import junit.framework.TestResult;
-
-import org.assertj.swing.junit.xml.XmlNode;
-import org.fest.mocks.EasyMockTemplate;
-import org.junit.jupiter.api.BeforeEach;
 
 /**
  * Base test case for <code>{@link TestXmlNodeWriter}</code>.
@@ -32,7 +32,7 @@ public abstract class TestXmlNodeWriter_TestCase {
   XmlNode targetNode;
   TestXmlNodeWriter writer;
 
-  @BeforeEach
+  @Before
   public final void setUp() {
     targetNode = mockXmlNode();
     writer = new TestXmlNodeWriter();

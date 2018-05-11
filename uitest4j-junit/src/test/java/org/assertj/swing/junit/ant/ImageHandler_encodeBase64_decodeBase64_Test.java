@@ -12,12 +12,12 @@
  */
 package org.assertj.swing.junit.ant;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
+
+import java.awt.image.BufferedImage;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.uitest4j.swing.assertions.Assertions.assertThat;
-
-import java.awt.image.BufferedImage;
 
 
 /**
@@ -26,10 +26,10 @@ import java.awt.image.BufferedImage;
  * 
  * @author Alex Ruiz
  */
-class ImageHandler_encodeBase64_decodeBase64_Test extends ImageHandler_TestCase {
+public class ImageHandler_encodeBase64_decodeBase64_Test extends ImageHandler_TestCase {
 
   @Test
-  void should_Encode_And_Decode_Image() {
+  public void should_Encode_And_Decode_Image() {
     BufferedImage imageToEncode = screenshotTaker.takeDesktopScreenshot();
     String encoded = ImageHandler.encodeBase64(imageToEncode);
     assertThat(encoded).isNotEmpty();

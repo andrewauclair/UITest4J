@@ -12,21 +12,21 @@
  */
 package org.assertj.swing.junit.ant;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import org.apache.tools.ant.taskdefs.optional.junit.JUnitTest;
 import org.assertj.swing.junit.xml.XmlNode;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Tests for <code>{@link XmlJUnitResultFormatter#setSystemError(String)}</code>.
  * 
  * @author Alex Ruiz
  */
-class XmlJUnitResultFormatter_setSystemError_Test extends XmlJUnitResultFormatter_TestCase {
+public class XmlJUnitResultFormatter_setSystemError_Test extends XmlJUnitResultFormatter_TestCase {
 
   @Test
-  void should_Add_System_Error() {
+  public void should_Add_System_Error() {
     formatter.startTestSuite(new JUnitTest("test"));
     formatter.setSystemError(CONSOLE_OUTPUT);
     XmlNode systemErrNode = root().child(1);

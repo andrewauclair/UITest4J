@@ -12,7 +12,7 @@
  */
 package org.assertj.swing.junit.xml;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -22,10 +22,10 @@ import static org.assertj.core.api.Assertions.assertThat;
  *
  * @author Alex Ruiz
  */
-class XmlAttributeBuilder_value_withDouble_Test {
+public class XmlAttributeBuilder_value_withDouble_Test {
 
   @Test
-  void should_Create_Attribute() {
+  public void should_Create_Attribute() {
     XmlAttribute other = XmlAttribute.name("capacity").value(0.2d);
     assertThat(other.name()).isEqualTo("capacity");
     assertThat(other.value()).isEqualTo("0.2");

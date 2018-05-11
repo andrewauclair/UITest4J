@@ -16,6 +16,7 @@ import org.uitest4j.swing.internal.assertions.Images;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.util.Objects;
 
 /**
  * Assertion methods for images.
@@ -75,6 +76,11 @@ public class ImageAssert {
 
   public ImageAssert isNotEqualTo(BufferedImage other) {
 	  images.assertNotEqual(actual, other);
+    return this;
+  }
+
+  public ImageAssert isNotNull() {
+    Objects.requireNonNull(actual);
     return this;
   }
 

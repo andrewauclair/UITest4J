@@ -12,35 +12,35 @@
  */
 package org.assertj.swing.junit.runner;
 
+import org.fest.mocks.EasyMockTemplate;
+import org.junit.Before;
+import org.junit.Test;
+
+import java.io.File;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Files.currentFolder;
 import static org.easymock.EasyMock.expect;
 import static org.easymock.classextension.EasyMock.createMock;
-
-import java.io.File;
-
-import org.fest.mocks.EasyMockTemplate;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 
 /**
  * Tests for <code>{@link ImageFolderCreator#createImageFolder()}</code>.
  *
  * @author Alex Ruiz
  */
-class ImageFolderCreator_createImageFolder_Test {
+public class ImageFolderCreator_createImageFolder_Test {
 
   private FolderCreator folderCreator;
   private ImageFolderCreator imageFolderCreator;
 
-  @BeforeEach
-  void setUp() {
+  @Before
+  public void setUp() {
     folderCreator = createMock(FolderCreator.class);
     imageFolderCreator = new ImageFolderCreator(folderCreator);
   }
 
   @Test
-  void should_Create_Image_Folder() {
+  public void should_Create_Image_Folder() {
     final File createdFolder = new File("fake");
     new EasyMockTemplate(folderCreator) {
       @Override

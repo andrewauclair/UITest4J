@@ -12,36 +12,36 @@
  */
 package org.assertj.swing.junit.runner;
 
+import org.easymock.EasyMock;
+import org.fest.mocks.EasyMockTemplate;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.UncheckedIOException;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Fail.fail;
 import static org.assertj.core.util.Files.newTemporaryFolder;
 import static org.easymock.classextension.EasyMock.createMock;
-
-import java.io.File;
-import java.io.IOException;
-
-import org.assertj.core.api.exception.RuntimeIOException;
-import org.easymock.EasyMock;
-import org.fest.mocks.EasyMockTemplate;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
 
 /**
  * Tests for <code>{@link FolderCreator#createFolder(File, String)}</code>.
  *
  * @author Alex Ruiz
  */
-class FolderCreator_createFolder_Test {
+public class FolderCreator_createFolder_Test {
 
   private static FolderCreator creator;
 
-  @BeforeAll
-  static void setUpOnce() {
+  @BeforeClass
+  public static void setUpOnce() {
     creator = new FolderCreator();
   }
 
   @Test
-  void should_Create_Folder_In_Given_Parent() throws IOException {
+  public void should_Create_Folder_In_Given_Parent() throws IOException {
     File parent = null;
     File child = null;
     try {
@@ -67,7 +67,7 @@ class FolderCreator_createFolder_Test {
   }
 
   @Test
-  void should_Throw_Exception_In_Case_Of_Error() {
+  public void should_Throw_Exception_In_Case_Of_Error() {
     final File f = createMock(File.class);
     final RuntimeException error = new RuntimeException();
     new EasyMockTemplate(f) {
@@ -81,7 +81,7 @@ class FolderCreator_createFolder_Test {
         try {
           creator.createFolder(f, "hello", true);
           fail("expecting exception");
-        } catch (RuntimeIOException e) {
+        } catch (RuntimeException e) {
           assertThat(e).hasMessage("Unable to create directory 'hello'");
           assertThat(e.getCause()).isSameAs(error);
         }

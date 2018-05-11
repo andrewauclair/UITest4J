@@ -12,27 +12,27 @@
  */
 package org.assertj.swing.junit.xml;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.Before;
+import org.junit.Test;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Tests for <code>{@link XmlAttribute#toString()}</code>.
  * 
  * @author Alex Ruiz
  */
-class XmlAttribute_toString_Test {
+public class XmlAttribute_toString_Test {
 
   private XmlAttribute attribute;
 
-  @BeforeEach
-  void setUp() {
+  @Before
+  public void setUp() {
     attribute = XmlAttribute.name("firstName").value("Anakin");
   }
 
   @Test
-  void should_Implement_ToString() {
+  public void should_Implement_ToString() {
     assertThat(attribute.toString()).isEqualTo("XmlAttribute[name='firstName',value='Anakin']");
   }
 }

@@ -12,7 +12,7 @@
  */
 package org.assertj.swing.junit.xml;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -21,16 +21,16 @@ import static org.assertj.core.api.Assertions.assertThat;
  * 
  * @author Alex Ruiz
  */
-class XmlNode_child_Test extends XmlNode_TestCase {
+public class XmlNode_child_Test extends XmlNode_TestCase {
 
   @Test
-  void should_Return_Child_At_Given_Position() {
+  public void should_Return_Child_At_Given_Position() {
     XmlNode newNode = node.addNewNode("one");
     assertThat(node.child(0)).isEqualTo(newNode);
   }
 
   @Test
-  void should_Return_Null_If_Child_Is_Not_A_XML_Element() {
+  public void should_Return_Null_If_Child_Is_Not_A_XML_Element() {
     node.addText("Hello");
     assertThat(node.child(0)).isNull();
   }

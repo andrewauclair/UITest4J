@@ -14,7 +14,7 @@ package org.assertj.swing.junit.xml;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.w3c.dom.CDATASection;
 import org.w3c.dom.Node;
 
@@ -23,10 +23,10 @@ import org.w3c.dom.Node;
  * 
  * @author Alex Ruiz
  */
-class XmlNode_addCdata_Test extends XmlNode_TestCase {
+public class XmlNode_addCdata_Test extends XmlNode_TestCase {
 
   @Test
-  void should_Add_CDATA_Node() {
+  public void should_Add_CDATA_Node() {
     node.addCdata("My CDATA");
     assertThat(childNodeCountOf(target)).isEqualTo(1);
     Node child = target.getFirstChild();

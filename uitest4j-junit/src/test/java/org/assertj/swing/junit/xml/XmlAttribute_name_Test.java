@@ -12,27 +12,27 @@
  */
 package org.assertj.swing.junit.xml;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.Before;
+import org.junit.Test;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Tests for <code>{@link XmlAttribute#name()}</code>.
  * 
  * @author Alex Ruiz
  */
-class XmlAttribute_name_Test {
+public class XmlAttribute_name_Test {
 
   private XmlAttribute attribute;
 
-  @BeforeEach
-  void setUp() {
+  @Before
+  public void setUp() {
     attribute = XmlAttribute.name("firstName").value("Anakin");
   }
 
   @Test
-  void should_Return_Name() {
-    assertThat(attribute.name()).isEqualTo("firstName");
+  public void should_Return_Name() {
+    assertEquals("firstName", attribute.name());
   }
 }

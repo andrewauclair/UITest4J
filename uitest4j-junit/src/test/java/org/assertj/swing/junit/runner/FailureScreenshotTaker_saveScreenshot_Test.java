@@ -12,42 +12,42 @@
  */
 package org.assertj.swing.junit.runner;
 
+import org.fest.mocks.EasyMockTemplate;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.uitest4j.swing.image.ScreenshotTaker;
+
+import java.io.File;
+import java.io.IOException;
+
 import static java.io.File.separator;
 import static org.assertj.core.util.Strings.concat;
 import static org.easymock.EasyMock.expect;
 import static org.easymock.EasyMock.expectLastCall;
 import static org.easymock.classextension.EasyMock.createMock;
 
-import java.io.File;
-import java.io.IOException;
-
-import org.uitest4j.swing.image.ScreenshotTaker;
-import org.fest.mocks.EasyMockTemplate;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-
 /**
  * Tests for <code>{@link FailureScreenshotTaker}</code>.
  * 
  * @author Alex Ruiz
  */
-@ExtendWith(GUITestRunner.GUITestRunner_JUnit5.class)
-class FailureScreenshotTaker_saveScreenshot_Test {
+@RunWith(GUITestRunner.class)
+public class FailureScreenshotTaker_saveScreenshot_Test {
 
   private ScreenshotTaker screenshotTaker;
   private File imageFolder;
   private FailureScreenshotTaker failureScreenshotTaker;
 
-  @BeforeEach
-  void setUp() {
+  @Before
+  public void setUp() {
     screenshotTaker = createMock(ScreenshotTaker.class);
     imageFolder = createMock(File.class);
     failureScreenshotTaker = new FailureScreenshotTaker(imageFolder, screenshotTaker);
   }
 
   @Test
-  void should_Save_Screenshot_With_Given_Test_Name_At_Given_Folder() {
+  public void should_Save_Screenshot_With_Given_Test_Name_At_Given_Folder() {
     new EasyMockTemplate(screenshotTaker, imageFolder) {
       @Override
       protected void expectations() throws Exception {
@@ -64,7 +64,7 @@ class FailureScreenshotTaker_saveScreenshot_Test {
   }
 
   @Test
-  void should_Not_Rethrow_Exceptions() {
+  public void should_Not_Rethrow_Exceptions() {
     new EasyMockTemplate(screenshotTaker, imageFolder) {
       @Override
       protected void expectations() throws Exception {

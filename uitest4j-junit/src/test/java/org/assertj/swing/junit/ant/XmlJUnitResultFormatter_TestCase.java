@@ -12,9 +12,11 @@
  */
 package org.assertj.swing.junit.ant;
 
-import static org.apache.tools.ant.util.DateUtils.parseIso8601DateTimeOrDate;
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.easymock.EasyMock.createMock;
+import junit.framework.AssertionFailedError;
+import org.apache.tools.ant.taskdefs.optional.junit.JUnitTest;
+import org.assertj.core.api.AssertDelegateTarget;
+import org.assertj.swing.junit.xml.XmlNode;
+import org.junit.Before;
 
 import java.io.ByteArrayOutputStream;
 import java.net.UnknownHostException;
@@ -22,12 +24,9 @@ import java.text.ParseException;
 import java.util.Date;
 import java.util.Map;
 
-import junit.framework.AssertionFailedError;
-
-import org.apache.tools.ant.taskdefs.optional.junit.JUnitTest;
-import org.assertj.core.api.AssertDelegateTarget;
-import org.assertj.swing.junit.xml.XmlNode;
-import org.junit.jupiter.api.BeforeEach;
+import static org.apache.tools.ant.util.DateUtils.parseIso8601DateTimeOrDate;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.easymock.EasyMock.createMock;
 
 /**
  * Base test case for <code>{@link XmlJUnitResultFormatter}</code>.
@@ -43,7 +42,7 @@ public abstract class XmlJUnitResultFormatter_TestCase {
   BasicXmlJUnitResultFormatter formatter;
   TestCollection tests;
 
-  @BeforeEach
+  @Before
   public final void setUp() {
     formatter = new BasicXmlJUnitResultFormatter();
     tests = formatter.tests();

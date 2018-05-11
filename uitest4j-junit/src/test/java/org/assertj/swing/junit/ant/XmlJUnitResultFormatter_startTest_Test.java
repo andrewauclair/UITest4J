@@ -12,17 +12,17 @@
  */
 package org.assertj.swing.junit.ant;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 /**
  * Tests for <code>{@link XmlJUnitResultFormatter#startTest(junit.framework.Test)}</code>.
  * 
  * @author Alex Ruiz
  */
-class XmlJUnitResultFormatter_startTest_Test extends XmlJUnitResultFormatter_TestCase {
+public class XmlJUnitResultFormatter_startTest_Test extends XmlJUnitResultFormatter_TestCase {
 
   @Test
-  void should_Add_Test_When_Test_Started() {
+  public void should_Add_Test_When_Test_Started() {
     junit.framework.Test test = mockTest();
     formatter.startTest(test);
     assertThatTestWasStarted(test);

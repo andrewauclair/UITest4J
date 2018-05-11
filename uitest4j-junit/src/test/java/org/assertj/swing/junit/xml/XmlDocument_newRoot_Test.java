@@ -14,25 +14,25 @@ package org.assertj.swing.junit.xml;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  * Tests for <code>{@link XmlDocument#newRoot}</code>.
  * 
  * @author Alex Ruiz
  */
-class XmlDocument_newRoot_Test {
+public class XmlDocument_newRoot_Test {
 
   private XmlDocument document;
 
-  @BeforeEach
-  void setUp() {
+  @Before
+  public void setUp() {
     document = new XmlDocument();
   }
 
   @Test
-  void shouldCreateRootNode() {
+  public void shouldCreateRootNode() {
     XmlNode root = document.newRoot("root");
     assertThat(root.name()).isEqualTo("root");
   }

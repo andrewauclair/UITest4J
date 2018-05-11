@@ -12,21 +12,21 @@
  */
 package org.assertj.swing.junit.ant;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import org.apache.tools.ant.taskdefs.optional.junit.JUnitTest;
 import org.assertj.swing.junit.xml.XmlNode;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Tests for <code>{@link XmlJUnitResultFormatter#setSystemOutput(String)}</code>.
  * 
  * @author Alex Ruiz
  */
-class XmlJUnitResultFormatter_setSystemOutput_Test extends XmlJUnitResultFormatter_TestCase {
+public class XmlJUnitResultFormatter_setSystemOutput_Test extends XmlJUnitResultFormatter_TestCase {
 
   @Test
-  void should_Add_System_Output() {
+  public void should_Add_System_Output() {
     formatter.startTestSuite(new JUnitTest("test"));
     formatter.setSystemOutput(CONSOLE_OUTPUT);
     XmlNode systemOutNode = root().child(1);

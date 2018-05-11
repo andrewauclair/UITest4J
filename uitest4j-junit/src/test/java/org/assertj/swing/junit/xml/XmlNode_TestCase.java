@@ -12,13 +12,13 @@
  */
 package org.assertj.swing.junit.xml;
 
-import javax.xml.parsers.DocumentBuilderFactory;
-
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.Before;
 import org.w3c.dom.CharacterData;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
+
+import javax.xml.parsers.DocumentBuilderFactory;
 
 /**
  * Base test case for <code>{@link XmlNode}</code>.
@@ -30,7 +30,7 @@ public abstract class XmlNode_TestCase {
   Element target;
   XmlNode node;
 
-  @BeforeEach
+  @Before
   public final void setUp() throws Exception {
     Document document = DocumentBuilderFactory.newInstance().newDocumentBuilder().newDocument();
     target = document.createElement("person");

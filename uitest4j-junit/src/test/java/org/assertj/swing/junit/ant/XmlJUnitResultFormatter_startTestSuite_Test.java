@@ -16,24 +16,24 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import org.apache.tools.ant.taskdefs.optional.junit.JUnitTest;
 import org.assertj.swing.junit.xml.XmlNode;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 /**
  * Tests for <code>{@link XmlJUnitResultFormatter#startTestSuite(JUnitTest)}</code>.
  * 
  * @author Alex Ruiz
  */
-class XmlJUnitResultFormatter_startTestSuite_Test extends XmlJUnitResultFormatter_TestCase {
+public class XmlJUnitResultFormatter_startTestSuite_Test extends XmlJUnitResultFormatter_TestCase {
 
   private JUnitTest suite;
 
   @Override
-  void onSetUp() {
+  public void onSetUp() {
     suite = new JUnitTest("test");
   }
 
   @Test
-  void should_Write_Suite_And_Environment_Info() {
+  public void should_Write_Suite_And_Environment_Info() {
     formatter.startTestSuite(suite);
     XmlNode root = root();
     assertThat(root.attributeCount()).isEqualTo(3);
@@ -42,7 +42,7 @@ class XmlJUnitResultFormatter_startTestSuite_Test extends XmlJUnitResultFormatte
   }
 
   @Test
-  void should_Call_Subclass_Hook_When_Starting_Test_Suite() {
+  public void should_Call_Subclass_Hook_When_Starting_Test_Suite() {
     formatter.startTestSuite(suite);
     assertThat(formatter.onStartTestSuiteMethod).wasCalledPassing(suite);
   }

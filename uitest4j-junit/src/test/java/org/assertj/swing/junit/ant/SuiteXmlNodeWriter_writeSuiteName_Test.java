@@ -19,17 +19,17 @@ import static org.easymock.EasyMock.expectLastCall;
 
 import org.apache.tools.ant.taskdefs.optional.junit.JUnitTest;
 import org.fest.mocks.EasyMockTemplate;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 /**
  * Tests for <code>{@link SuiteXmlNodeWriter#writeSuiteName(org.assertj.swing.junit.xml.XmlNode, JUnitTest)}</code>.
  * 
  * @author Alex Ruiz
  */
-class SuiteXmlNodeWriter_writeSuiteName_Test extends SuiteXmlNodeWriter_TestCase {
+public class SuiteXmlNodeWriter_writeSuiteName_Test extends SuiteXmlNodeWriter_TestCase {
 
   @Test
-  void should_Write_Suite_Name_As_Attribute() {
+  public void should_Write_Suite_Name_As_Attribute() {
     final JUnitTest suite = new JUnitTest("Hello");
     new EasyMockTemplate(targetNode) {
       @Override
@@ -46,7 +46,7 @@ class SuiteXmlNodeWriter_writeSuiteName_Test extends SuiteXmlNodeWriter_TestCase
   }
 
   @Test
-  void should_Write_Word_Unknown_As_Attribute_If_Suite_Does_Not_Have_Name() {
+  public void should_Write_Word_Unknown_As_Attribute_If_Suite_Does_Not_Have_Name() {
     final JUnitTest suite = new JUnitTest(null);
     new EasyMockTemplate(targetNode) {
       @Override

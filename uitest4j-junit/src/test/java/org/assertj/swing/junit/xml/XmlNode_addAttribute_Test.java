@@ -12,7 +12,7 @@
  */
 package org.assertj.swing.junit.xml;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.junit.xml.XmlAttribute.name;
@@ -22,10 +22,10 @@ import static org.assertj.swing.junit.xml.XmlAttribute.name;
  * 
  * @author Alex Ruiz
  */
-class XmlNode_addAttribute_Test extends XmlNode_TestCase {
+public class XmlNode_addAttribute_Test extends XmlNode_TestCase {
 
   @Test
-  void should_Add_Attribute() {
+  public void should_Add_Attribute() {
     node.addAttribute(name("first").value("Leia"));
     assertThat(attributeCountOf(target)).isEqualTo(1);
     assertThat(target.getAttribute("first")).isEqualTo("Leia");

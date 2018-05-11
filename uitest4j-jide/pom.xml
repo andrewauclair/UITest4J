@@ -8,7 +8,7 @@
         <version>0.1.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>assertj-swing-jide</artifactId>
+    <artifactId>uitest4j-jide</artifactId>
     <version>0.1.1-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>AssertJ-Swing - JIDE Extension</name>

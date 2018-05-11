@@ -12,7 +12,7 @@
  */
 package org.assertj.swing.junit.ant;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import static java.io.File.separator;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -30,10 +30,10 @@ import java.io.IOException;
  * 
  * @author Alex Ruiz
  */
-class ImageHandler_encodeBase64_decodeBase64AndSaveAsPng_Test extends ImageHandler_TestCase {
+public class ImageHandler_encodeBase64_decodeBase64AndSaveAsPng_Test extends ImageHandler_TestCase {
 
   @Test
-  void should_Encode_Image_And_Save_It_Decoded_As_File() throws IOException {
+  public void should_Encode_Image_And_Save_It_Decoded_As_File() throws IOException {
     String path = concat(newTemporaryFolder(), separator, "image.png");
     BufferedImage imageToEncode = screenshotTaker.takeDesktopScreenshot();
     String encoded = ImageHandler.encodeBase64(imageToEncode);

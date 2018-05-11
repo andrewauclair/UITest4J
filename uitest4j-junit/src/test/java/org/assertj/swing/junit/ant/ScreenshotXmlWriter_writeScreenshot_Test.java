@@ -12,6 +12,16 @@
  */
 package org.assertj.swing.junit.ant;
 
+import junit.framework.TestResult;
+import org.assertj.swing.junit.xml.XmlDocument;
+import org.assertj.swing.junit.xml.XmlNode;
+import org.fest.mocks.EasyMockTemplate;
+import org.junit.Before;
+import org.junit.Test;
+import org.uitest4j.swing.image.ScreenshotTaker;
+
+import java.awt.image.BufferedImage;
+
 import static java.awt.image.BufferedImage.TYPE_BYTE_BINARY;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.junit.ant.ImageHandler.encodeBase64;
@@ -20,23 +30,12 @@ import static org.assertj.swing.junit.ant.Tests.testMethodNameFrom;
 import static org.easymock.EasyMock.expect;
 import static org.easymock.classextension.EasyMock.createMock;
 
-import java.awt.image.BufferedImage;
-
-import junit.framework.TestResult;
-
-import org.uitest4j.swing.image.ScreenshotTaker;
-import org.assertj.swing.junit.xml.XmlDocument;
-import org.assertj.swing.junit.xml.XmlNode;
-import org.fest.mocks.EasyMockTemplate;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
 /**
  * Tests for <code>{@link ScreenshotXmlWriter}</code>.
  * 
  * @author Alex Ruiz
  */
-class ScreenshotXmlWriter_writeScreenshot_Test {
+public class ScreenshotXmlWriter_writeScreenshot_Test {
 
   private XmlNode root;
   private XmlNode errorNode;
@@ -45,8 +44,8 @@ class ScreenshotXmlWriter_writeScreenshot_Test {
   private MyTest test;
   private ScreenshotXmlWriter writer;
 
-  @BeforeEach
-  void setUp() {
+  @Before
+  public void setUp() {
     XmlDocument document = new XmlDocument();
     root = document.newRoot("root");
     errorNode = root.addNewNode("error");
@@ -57,7 +56,7 @@ class ScreenshotXmlWriter_writeScreenshot_Test {
   }
 
   @Test
-  void should_Add_Screenshot_Element_Test_Is_GUI_Test() {
+  public void should_Add_Screenshot_Element_Test_Is_GUI_Test() {
     final BufferedImage image = new BufferedImage(10, 10, TYPE_BYTE_BINARY);
     new EasyMockTemplate(screenshotTaker, guiTestRecognizer) {
       @Override
@@ -79,7 +78,7 @@ class ScreenshotXmlWriter_writeScreenshot_Test {
   }
 
   @Test
-  void should_Not_Add_Screenshot_Element_Test_Is_Not_GUI_Test() {
+  public void should_Not_Add_Screenshot_Element_Test_Is_Not_GUI_Test() {
     new EasyMockTemplate(screenshotTaker, guiTestRecognizer) {
       @Override
       protected void expectations() {

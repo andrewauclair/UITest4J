@@ -16,41 +16,41 @@ import static org.assertj.core.api.Assertions.assertThat;
 import junit.framework.JUnit4TestCaseFacade;
 import junit.framework.TestCase;
 import junit.framework.TestResult;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 /**
  * Tests for <code>{@link Tests}</code>.
  * 
  * @author Alex Ruiz
  */
-class Tests_testMethodNameFrom_Test extends Tests_TestCase {
+public class Tests_testMethodNameFrom_Test extends Tests_TestCase {
 
   @Test
-  void should_Return_Word_Unknown_If_Test_Is_Null() {
+  public void should_Return_Word_Unknown_If_Test_Is_Null() {
     assertThat(Tests.testMethodNameFrom(null)).isEqualTo("unknown");
   }
 
   @Test
-  void should_Return_ToString_If_Test_Is_JUnit4TestCaseFacade() {
+  public void should_Return_ToString_If_Test_Is_JUnit4TestCaseFacade() {
     JUnit4TestCaseFacade test = createJUnit4TestCaseFacade("hello");
     assertThat(Tests.testMethodNameFrom(test)).isEqualTo("hello");
   }
 
   @Test
-  void should_Return_ToString_Without_Class_Name_If_Test_Is_JUnit4TestCaseFacade() {
+  public void should_Return_ToString_Without_Class_Name_If_Test_Is_JUnit4TestCaseFacade() {
     JUnit4TestCaseFacade test = createJUnit4TestCaseFacade("hello(world)");
     assertThat(Tests.testMethodNameFrom(test)).isEqualTo("hello");
   }
 
   @Test
-  void should_Return_Name_If_Test_Is_TestCase() {
+  public void should_Return_Name_If_Test_Is_TestCase() {
     TestCase test = new TestCase("Leia") {
     };
     assertThat(Tests.testMethodNameFrom(test)).isEqualTo("Leia");
   }
 
   @Test
-  void should_Return_Name_By_Calling_Name_Method() {
+  public void should_Return_Name_By_Calling_Name_Method() {
     MyTestWithName test = new MyTestWithName();
     assertThat(Tests.testMethodNameFrom(test)).isEqualTo("name");
   }
@@ -72,7 +72,7 @@ class Tests_testMethodNameFrom_Test extends Tests_TestCase {
   }
 
   @Test
-  void should_Return_Name_By_Calling_GetName_Method() {
+  public void should_Return_Name_By_Calling_GetName_Method() {
     MyTestWithGetName test = new MyTestWithGetName();
     assertThat(Tests.testMethodNameFrom(test)).isEqualTo("name");
   }
@@ -94,7 +94,7 @@ class Tests_testMethodNameFrom_Test extends Tests_TestCase {
   }
 
   @Test
-  void should_Return_Word_Unknown_If_Test_Does_Not_Have_Name_Or_GetName_Methods() {
+  public void should_Return_Word_Unknown_If_Test_Does_Not_Have_Name_Or_GetName_Methods() {
     junit.framework.Test test = new junit.framework.Test() {
       @Override
       public int countTestCases() {

@@ -12,17 +12,17 @@
  */
 package org.assertj.swing.junit.ant;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 /**
  * Tests for <code>{@link XmlJUnitResultFormatter#endTest(junit.framework.Test)}</code>.
  * 
  * @author Alex Ruiz
  */
-class XmlJUnitResultFormatter_endTest_Test extends XmlJUnitResultFormatter_TestCase {
+public class XmlJUnitResultFormatter_endTest_Test extends XmlJUnitResultFormatter_TestCase {
 
   @Test
-  void should_Write_Execution_Time_For_Successful_And_NotS_Started_Test() {
+  public void should_Write_Execution_Time_For_Successful_And_NotS_Started_Test() {
     startSuite();
     junit.framework.Test test = mockTest();
     formatter.endTest(test);

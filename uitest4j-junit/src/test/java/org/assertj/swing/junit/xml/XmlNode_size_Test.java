@@ -12,7 +12,7 @@
  */
 package org.assertj.swing.junit.xml;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -21,10 +21,10 @@ import static org.assertj.core.api.Assertions.assertThat;
  * 
  * @author Alex Ruiz
  */
-class XmlNode_size_Test extends XmlNode_TestCase {
+public class XmlNode_size_Test extends XmlNode_TestCase {
 
   @Test
-  void should_Return_Child_Count() {
+  public void should_Return_Child_Count() {
     node.addNewNode("one");
     node.addNewNode("two");
     assertThat(node.size()).isEqualTo(2);

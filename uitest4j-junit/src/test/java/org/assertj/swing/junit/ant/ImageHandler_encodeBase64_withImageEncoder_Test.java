@@ -12,34 +12,34 @@
  */
 package org.assertj.swing.junit.ant;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.easymock.EasyMock.expect;
-import static org.easymock.classextension.EasyMock.createMock;
+import org.fest.mocks.EasyMockTemplate;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.awt.image.BufferedImage;
 
-import org.fest.mocks.EasyMockTemplate;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.easymock.EasyMock.expect;
+import static org.easymock.classextension.EasyMock.createMock;
 
 /**
  * Tests for <code>{@link ImageHandler#encodeBase64(BufferedImage, ImageEncoder)}</code>.
  * 
  * @author Alex Ruiz
  */
-class ImageHandler_encodeBase64_withImageEncoder_Test extends ImageHandler_TestCase {
+public class ImageHandler_encodeBase64_withImageEncoder_Test extends ImageHandler_TestCase {
 
   private ImageEncoder encoder;
   private BufferedImage image;
 
-  @BeforeEach
-  void setUp() {
+  @Before
+  public void setUp() {
     encoder = createMock(ImageEncoder.class);
     image = mockImage();
   }
 
   @Test
-  void should_Not_Rethrow_Error() {
+  public void should_Not_Rethrow_Error() {
     new EasyMockTemplate(encoder) {
       @Override
       protected void expectations() throws Throwable {

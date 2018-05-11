@@ -12,12 +12,9 @@
  */
 package org.assertj.swing.junit.xml;
 
+import java.util.Objects;
+
 import static java.lang.String.valueOf;
-import static org.assertj.core.util.Objects.HASH_CODE_PRIME;
-import static org.assertj.core.util.Objects.areEqual;
-import static org.assertj.core.util.Objects.hashCodeFor;
-import static org.assertj.core.util.Strings.concat;
-import static org.assertj.core.util.Strings.quote;
 
 /**
  * Understands an attribute of a <code>{@link XmlNode}</code>. This class is intended for internal use only. It only
@@ -84,6 +81,24 @@ public class XmlAttribute {
     public XmlAttribute value(double value) {
       return new XmlAttribute(name, valueOf(value));
     }
+
+    @Override
+    public boolean equals(Object o) {
+      if (this == o) {
+        return true;
+      }
+      if (o == null || getClass() != o.getClass()) {
+        return false;
+      }
+      XmlAttributeBuilder that = (XmlAttributeBuilder) o;
+      return Objects.equals(name, that.name);
+    }
+
+    @Override
+    public int hashCode() {
+
+      return Objects.hash(name);
+    }
   }
 
   XmlAttribute(String name, String value) {
@@ -110,47 +125,12 @@ public class XmlAttribute {
   }
 
   /**
-   * Indicates whether the given <code>Object</code> is equal to this attribute. To be equal, the given object should be
-   * a <code>{@link XmlAttribute}</code> with its name and value equal to the ones in this attribute.
-   *
-   * @param obj the <code>Object</code> to compare to.
-   * @return <code>true</code> if the given <code>Object</code> is equal to this attribute, <code>false</code>
-   *         otherwise.
-   */
-  @Override
-  public boolean equals(Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    XmlAttribute other = (XmlAttribute) obj;
-    if (!areEqual(name, other.name))
-      return false;
-    return areEqual(value, other.value);
-  }
-
-  /**
-   * Returns the hash code of this attribute, based on its name and value.
-   *
-   * @return the hash code of this attribute.
-   */
-  @Override
-  public int hashCode() {
-    int result = 1;
-    result = HASH_CODE_PRIME * result + hashCodeFor(name);
-    result = HASH_CODE_PRIME * result + hashCodeFor(value);
-    return result;
-  }
-
-  /**
    * Returns a <code>String</code> representation of this attribute.
    *
    * @return a <code>String</code> representation of this attribute.
    */
   @Override
   public String toString() {
-    return concat(getClass().getSimpleName(), "[", "name=", quote(name), ",", "value=", quote(value), "]");
+    return getClass().getSimpleName() + "[name='" + name + "',value='" + value + "']";
   }
 }
