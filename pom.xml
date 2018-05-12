@@ -24,8 +24,8 @@
     <modules>
         <module>uitest4j-core</module>
         <module>uitest4j-junit</module>
-        <module>uitest4j-testng</module>
-        <module>uitest4j-jide</module>
+        <!--<module>uitest4j-testng</module>-->
+        <!--<module>uitest4j-jide</module>-->
     </modules>
 
     <distributionManagement>
