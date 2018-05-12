@@ -36,7 +36,22 @@ public class XmlAttribute {
   public static XmlAttributeBuilder name(String name) {
     return new XmlAttributeBuilder(name);
   }
-
+  
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    XmlAttribute that = (XmlAttribute) o;
+    return Objects.equals(name, that.name) &&
+            Objects.equals(value, that.value);
+  }
+  
+  @Override
+  public int hashCode() {
+    
+    return Objects.hash(name, value);
+  }
+  
   /**
    * Understands creation of <code>{@link XmlAttribute}</code>s.
    *

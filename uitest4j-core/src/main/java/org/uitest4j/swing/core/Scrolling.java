@@ -55,9 +55,8 @@ public final class Scrolling {
 		Container root = c;
 		// we go up to the top of the hierarchy
 		while (root != null) {
-			Container parent = root.getParent();
 			// the new candidate root becomes the parent of the previous one
-			root = parent;
+			root = root.getParent();
 			// if the candidate isn't a JComponent, we're not interested in it (we need JComponent#scrollRectToVisible)
 			if (!(root instanceof JComponent)) {
 				continue;

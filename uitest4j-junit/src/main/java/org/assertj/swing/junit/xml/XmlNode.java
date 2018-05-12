@@ -213,12 +213,11 @@ public class XmlNode {
       return false;
     }
     XmlNode xmlNode = (XmlNode) o;
-    return Objects.equals(target, xmlNode.target);
+    return target.isEqualNode(xmlNode.target);
   }
 
   @Override
   public int hashCode() {
-
-    return Objects.hash(target);
+    return Objects.hashCode(name());
   }
 }

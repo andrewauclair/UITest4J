@@ -85,8 +85,7 @@ public final class JScrollBarLocation {
 	@Nonnull
 	public Point blockLocationToScrollUp(@Nonnull JScrollBar scrollBar) {
 		Point p = unitLocationToScrollUp(scrollBar);
-		int offset = BLOCK_OFFSET;
-		return blockLocation(scrollBar, p, offset);
+		return blockLocation(scrollBar, p, BLOCK_OFFSET);
 	}
 
 	/**
