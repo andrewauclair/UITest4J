@@ -47,8 +47,6 @@ import static org.uitest4j.swing.exception.ActionFailedException.actionFailure;
  */
 @InternalApi
 public class JComponentDriver extends ContainerDriver {
-	private static final String TOOL_TIP_TEXT_PROPERTY = "toolTipText";
-
 	/**
 	 * Creates a new {@link JComponentDriver}.
 	 *
