@@ -1,22 +1,22 @@
-/**
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
- * the License. You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
- * specific language governing permissions and limitations under the License.
- *
- * Copyright 2012-2015 the original author or authors.
+/*
+  Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+  the License. You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+  an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+  specific language governing permissions and limitations under the License.
+
+  Copyright 2012-2015 the original author or authors.
  */
 package org.uitest4j.swing.driver;
 
+import org.junit.jupiter.api.Test;
+import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.test.core.RobotBasedTestCase;
 import org.uitest4j.swing.test.swing.TestTree;
 import org.uitest4j.swing.test.swing.TestWindow;
-import org.junit.jupiter.api.Test;
-import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.swing.*;
 import javax.swing.tree.DefaultTreeModel;
@@ -31,52 +31,52 @@ import static org.uitest4j.swing.test.swing.TreeNodeFactory.node;
 
 /**
  * Tests for {@link JTreeAddRootIfInvisibleTask#addRootIfInvisible(javax.swing.JTree, javax.swing.tree.TreePath)}.
- * 
+ *
  * @author Alex Ruiz
  */
 public class JTreeAddRootIfInvisibleTask_addRootIfInvisible_Test extends RobotBasedTestCase {
-  private MyWindow window;
+	private MyWindow window;
 
-  @Override
-  protected void onSetUp() {
-    window = MyWindow.createNew(getClass());
-  }
+	@Override
+	protected void onSetUp() {
+		window = MyWindow.createNew(getClass());
+	}
 
-  @Test
-  public void should_Not_Add_Root_To_Path_If_Root_Is_Invisible_But_Path_Already_Contains_Root() {
-    TreePath treePath = new TreePath(window.root);
-    TreePath newTreePath = JTreeAddRootIfInvisibleTask.addRootIfInvisible(window.tree, treePath);
-    assertThat(newTreePath).isEqualTo(treePath);
-  }
+	@Test
+	public void should_Not_Add_Root_To_Path_If_Root_Is_Invisible_But_Path_Already_Contains_Root() {
+		TreePath treePath = new TreePath(window.root);
+		TreePath newTreePath = JTreeAddRootIfInvisibleTask.addRootIfInvisible(window.tree, treePath);
+		assertThat(newTreePath).isEqualTo(treePath);
+	}
 
-  static class MyWindow extends TestWindow {
-    @RunsInEDT
-    static MyWindow createNew(final Class<?> testClass) {
-      return execute(() -> new MyWindow(testClass));
-    }
+	static class MyWindow extends TestWindow {
+		@RunsInEDT
+		static MyWindow createNew(final Class<?> testClass) {
+			return execute(() -> new MyWindow(testClass));
+		}
 
-    final MutableTreeNode root = createRoot();
-    final TestTree tree = new TestTree(nodes(root));
+		final MutableTreeNode root = createRoot();
+		final TestTree tree = new TestTree(nodes(root));
 
-    private static MutableTreeNode createRoot() {
-      MutableTreeNode root = node("root", node("branch1", node("branch1.1"), node("branch1.2")), node("branch2"));
-      return root;
-    }
+		private static MutableTreeNode createRoot() {
+			MutableTreeNode root = node("root", node("branch1", node("branch1.1"), node("branch1.2")), node("branch2"));
+			return root;
+		}
 
-    private static TreeModel nodes(MutableTreeNode root) {
-      return new DefaultTreeModel(root);
-    }
+		private static TreeModel nodes(MutableTreeNode root) {
+			return new DefaultTreeModel(root);
+		}
 
-    private MyWindow(Class<?> testClass) {
-      super(testClass);
-      tree.setRootVisible(false);
-      add(decorate(tree));
-    }
+		private MyWindow(Class<?> testClass) {
+			super(testClass);
+			tree.setRootVisible(false);
+			add(decorate(tree));
+		}
 
-    private static Component decorate(JTree tree) {
-      JScrollPane scrollPane = new JScrollPane(tree);
-      scrollPane.setPreferredSize(new Dimension(200, 100));
-      return scrollPane;
-    }
-  }
+		private static Component decorate(JTree tree) {
+			JScrollPane scrollPane = new JScrollPane(tree);
+			scrollPane.setPreferredSize(new Dimension(200, 100));
+			return scrollPane;
+		}
+	}
 }

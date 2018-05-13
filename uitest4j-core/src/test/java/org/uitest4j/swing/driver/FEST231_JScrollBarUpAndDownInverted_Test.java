@@ -1,21 +1,21 @@
-/**
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
- * the License. You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
- * specific language governing permissions and limitations under the License.
- *
- * Copyright 2012-2015 the original author or authors.
+/*
+  Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+  the License. You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+  an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+  specific language governing permissions and limitations under the License.
+
+  Copyright 2012-2015 the original author or authors.
  */
 package org.uitest4j.swing.driver;
 
-import org.uitest4j.swing.test.core.RobotBasedTestCase;
-import org.uitest4j.swing.test.swing.TestWindow;
 import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.annotation.RunsInEDT;
+import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.swing.TestWindow;
 
 import javax.swing.*;
 import java.awt.*;
@@ -31,74 +31,74 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
  * @author Alex Ruiz
  */
 public class FEST231_JScrollBarUpAndDownInverted_Test extends RobotBasedTestCase {
-  private JScrollBarDriver driver;
-  private JScrollBar verticalScrollBar;
-  private JScrollBar horizontalScrollBar;
+	private JScrollBarDriver driver;
+	private JScrollBar verticalScrollBar;
+	private JScrollBar horizontalScrollBar;
 
-  @Override
-  protected void onSetUp() {
-    driver = new JScrollBarDriver(robot);
-    MyWindow window = MyWindow.createNew();
-    verticalScrollBar = window.verticalScrollBar;
-    horizontalScrollBar = window.horizontalScrollBar;
-    robot.showWindow(window);
-  }
+	@Override
+	protected void onSetUp() {
+		driver = new JScrollBarDriver(robot);
+		MyWindow window = MyWindow.createNew();
+		verticalScrollBar = window.verticalScrollBar;
+		horizontalScrollBar = window.horizontalScrollBar;
+		robot.showWindow(window);
+	}
 
-  @Test
-  public void should_Scroll_One_Unit_Down_And_Up() {
-    driver.requireValue(verticalScrollBar, 0);
-    driver.scrollUnitDown(verticalScrollBar);
-    driver.requireValue(verticalScrollBar, 1);
-    driver.scrollUnitUp(verticalScrollBar);
-    driver.requireValue(verticalScrollBar, 0);
-  }
+	@Test
+	public void should_Scroll_One_Unit_Down_And_Up() {
+		driver.requireValue(verticalScrollBar, 0);
+		driver.scrollUnitDown(verticalScrollBar);
+		driver.requireValue(verticalScrollBar, 1);
+		driver.scrollUnitUp(verticalScrollBar);
+		driver.requireValue(verticalScrollBar, 0);
+	}
 
-  @Test
-  public void should_Scroll_One_Unit_Right_And_Left() {
-    driver.requireValue(horizontalScrollBar, 0);
-    driver.scrollUnitDown(horizontalScrollBar);
-    driver.requireValue(horizontalScrollBar, 1);
-    driver.scrollUnitUp(horizontalScrollBar);
-    driver.requireValue(horizontalScrollBar, 0);
-  }
+	@Test
+	public void should_Scroll_One_Unit_Right_And_Left() {
+		driver.requireValue(horizontalScrollBar, 0);
+		driver.scrollUnitDown(horizontalScrollBar);
+		driver.requireValue(horizontalScrollBar, 1);
+		driver.scrollUnitUp(horizontalScrollBar);
+		driver.requireValue(horizontalScrollBar, 0);
+	}
 
-  @Test
-  public void should_Scroll_One_Block_Down_And_Up() {
-    // TODO(Alex): Test in Windows
-    driver.requireValue(verticalScrollBar, 0);
-    driver.scrollBlockDown(verticalScrollBar);
-    driver.requireValue(verticalScrollBar, 10);
-    driver.scrollBlockUp(verticalScrollBar);
-    driver.requireValue(verticalScrollBar, 0);
-  }
+	@Test
+	public void should_Scroll_One_Block_Down_And_Up() {
+		// TODO(Alex): Test in Windows
+		driver.requireValue(verticalScrollBar, 0);
+		driver.scrollBlockDown(verticalScrollBar);
+		driver.requireValue(verticalScrollBar, 10);
+		driver.scrollBlockUp(verticalScrollBar);
+		driver.requireValue(verticalScrollBar, 0);
+	}
 
-  @Test
-  public void should_Scroll_One_Block_Right_And_Left() {
-    driver.requireValue(horizontalScrollBar, 0);
-    driver.scrollBlockDown(horizontalScrollBar);
-    driver.requireValue(horizontalScrollBar, 10);
-    driver.scrollBlockUp(horizontalScrollBar);
-    driver.requireValue(horizontalScrollBar, 0);
-  }
+	@Test
+	public void should_Scroll_One_Block_Right_And_Left() {
+		driver.requireValue(horizontalScrollBar, 0);
+		driver.scrollBlockDown(horizontalScrollBar);
+		driver.requireValue(horizontalScrollBar, 10);
+		driver.scrollBlockUp(horizontalScrollBar);
+		driver.requireValue(horizontalScrollBar, 0);
+	}
 
-  private static class MyWindow extends TestWindow {
-    @RunsInEDT
-    static MyWindow createNew() {
-      return execute(() -> new MyWindow());
-    }
+	private static class MyWindow extends TestWindow {
+		@RunsInEDT
+		static MyWindow createNew() {
+			return execute(MyWindow::new);
+		}
 
-    final JScrollPane scrollPane = new JScrollPane(newList(), VERTICAL_SCROLLBAR_ALWAYS, HORIZONTAL_SCROLLBAR_ALWAYS);
-    final JScrollBar verticalScrollBar = scrollPane.getVerticalScrollBar();
-    final JScrollBar horizontalScrollBar = scrollPane.getHorizontalScrollBar();
+		final JScrollPane scrollPane = new JScrollPane(newList(), VERTICAL_SCROLLBAR_ALWAYS, HORIZONTAL_SCROLLBAR_ALWAYS);
+		final JScrollBar verticalScrollBar = scrollPane.getVerticalScrollBar();
+		final JScrollBar horizontalScrollBar = scrollPane.getHorizontalScrollBar();
 
-    private MyWindow() {
-      super(FEST231_JScrollBarUpAndDownInverted_Test.class);
-      scrollPane.setPreferredSize(new Dimension(50, 50));
-      addComponents(scrollPane);
-    }
+		private MyWindow() {
+			super(FEST231_JScrollBarUpAndDownInverted_Test.class);
+			scrollPane.setPreferredSize(new Dimension(50, 50));
+			addComponents(scrollPane);
+		}
 
-    private static JList newList() {
-      return new JList(array("1. One", "2. Two", "3. Three", "4. Four", "5. Five", "6. Six"));
-    }
-  }
+		private static JList newList() {
+			return new JList(array("1. One", "2. Two", "3. Three", "4. Four", "5. Five", "6. Six"));
+		}
+	}
 }

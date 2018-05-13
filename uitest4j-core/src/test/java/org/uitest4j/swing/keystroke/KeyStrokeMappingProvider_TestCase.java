@@ -1,23 +1,23 @@
-/**
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
- * the License. You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
- * specific language governing permissions and limitations under the License.
- *
- * Copyright 2012-2015 the original author or authors.
+/*
+  Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+  the License. You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+  an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+  specific language governing permissions and limitations under the License.
+
+  Copyright 2012-2015 the original author or authors.
  */
 package org.uitest4j.swing.keystroke;
 
+import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.driver.JTextComponentDriver;
 import org.uitest4j.swing.test.core.RobotBasedTestCase;
 import org.uitest4j.swing.test.recorder.KeyRecorder;
 import org.uitest4j.swing.test.swing.TestWindow;
 import org.uitest4j.swing.timing.Condition;
-import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.swing.*;
 import javax.swing.text.JTextComponent;
@@ -42,83 +42,83 @@ import static org.uitest4j.swing.util.Maps.newHashMap;
  * @author Alex Ruiz
  */
 public abstract class KeyStrokeMappingProvider_TestCase extends RobotBasedTestCase {
-  private static final Map<Character, Integer> BASIC_CHARS_AND_KEYS_MAP = newHashMap();
+	private static final Map<Character, Integer> BASIC_CHARS_AND_KEYS_MAP = newHashMap();
 
-  static {
-    BASIC_CHARS_AND_KEYS_MAP.put((char) 8, VK_BACK_SPACE);
-    BASIC_CHARS_AND_KEYS_MAP.put((char) 10, VK_ENTER);
-    BASIC_CHARS_AND_KEYS_MAP.put((char) 127, VK_DELETE);
-    BASIC_CHARS_AND_KEYS_MAP.put((char) 27, VK_ESCAPE);
-    BASIC_CHARS_AND_KEYS_MAP.put((char) 13, VK_ENTER);
-  }
+	static {
+		BASIC_CHARS_AND_KEYS_MAP.put((char) 8, VK_BACK_SPACE);
+		BASIC_CHARS_AND_KEYS_MAP.put((char) 10, VK_ENTER);
+		BASIC_CHARS_AND_KEYS_MAP.put((char) 127, VK_DELETE);
+		BASIC_CHARS_AND_KEYS_MAP.put((char) 27, VK_ESCAPE);
+		BASIC_CHARS_AND_KEYS_MAP.put((char) 13, VK_ENTER);
+	}
 
-  private JTextComponent textArea;
-  private JTextComponentDriver driver;
+	private JTextComponent textArea;
+	private JTextComponentDriver driver;
 
-  @Override
-  protected final void onSetUp() {
-    MyWindow window = MyWindow.createNew(getClass());
-    textArea = window.textArea;
-    robot.showWindow(window);
-    driver = new JTextComponentDriver(robot);
-  }
+	@Override
+	protected final void onSetUp() {
+		MyWindow window = MyWindow.createNew(getClass());
+		textArea = window.textArea;
+		robot.showWindow(window);
+		driver = new JTextComponentDriver(robot);
+	}
 
-  void pressKeyStrokeAndVerify(char expectedChar, KeyStroke keyStroke) {
-    pressInTextArea(keyStroke);
-    final String expectedText = valueOf(expectedChar);
-    pause(new Condition(concat("text in JTextArea to be ", quote(expectedText))) {
-      @Override
-      public boolean test() {
-        return expectedText.equals(textArea.getText());
-      }
-    }, 500);
-  }
+	void pressKeyStrokeAndVerify(char expectedChar, KeyStroke keyStroke) {
+		pressInTextArea(keyStroke);
+		final String expectedText = valueOf(expectedChar);
+		pause(new Condition(concat("text in JTextArea to be ", quote(expectedText))) {
+			@Override
+			public boolean test() {
+				return expectedText.equals(textArea.getText());
+			}
+		}, 500);
+	}
 
-  boolean basicCharacterVerified(char character, KeyStroke keyStroke) {
-    if (!BASIC_CHARS_AND_KEYS_MAP.containsKey(character)) {
-      return false;
-    }
-    int key = BASIC_CHARS_AND_KEYS_MAP.get(character);
-    pressKeyStrokeAndVerify(key, keyStroke);
-    return true;
-  }
+	boolean basicCharacterVerified(char character, KeyStroke keyStroke) {
+		if (!BASIC_CHARS_AND_KEYS_MAP.containsKey(character)) {
+			return false;
+		}
+		int key = BASIC_CHARS_AND_KEYS_MAP.get(character);
+		pressKeyStrokeAndVerify(key, keyStroke);
+		return true;
+	}
 
-  private void pressKeyStrokeAndVerify(final int expectedKey, KeyStroke keyStroke) {
-    assertThat(keyStroke.getModifiers()).as("no modifiers should be specified").isEqualTo(0);
-    final KeyRecorder recorder = KeyRecorder.attachTo(textArea);
-    pressInTextArea(keyStroke);
-    pause(new Condition(concat("key with code ", expectedKey, " is pressed")) {
-      @Override
-      public boolean test() {
-        return recorder.keysWerePressed(expectedKey);
-      }
-    }, 2000);
-  }
+	private void pressKeyStrokeAndVerify(final int expectedKey, KeyStroke keyStroke) {
+		assertThat(keyStroke.getModifiers()).as("no modifiers should be specified").isEqualTo(0);
+		final KeyRecorder recorder = KeyRecorder.attachTo(textArea);
+		pressInTextArea(keyStroke);
+		pause(new Condition(concat("key with code ", expectedKey, " is pressed")) {
+			@Override
+			public boolean test() {
+				return recorder.keysWerePressed(expectedKey);
+			}
+		}, 2000);
+	}
 
-  private void pressInTextArea(KeyStroke keyStroke) {
-    driver.pressAndReleaseKey(textArea, keyStroke.getKeyCode(), new int[] { keyStroke.getModifiers() });
-  }
+	private void pressInTextArea(KeyStroke keyStroke) {
+		driver.pressAndReleaseKey(textArea, keyStroke.getKeyCode(), new int[]{keyStroke.getModifiers()});
+	}
 
-  static Collection<Object[]> keyStrokesFrom(Collection<KeyStrokeMapping> mappings) {
-    List<Object[]> keyStrokes = newArrayList();
-    for (KeyStrokeMapping mapping : mappings) {
-      keyStrokes.add(new Object[] { mapping.character(), mapping.keyStroke() });
-    }
-    return keyStrokes;
-  }
+	static Collection<Object[]> keyStrokesFrom(Collection<KeyStrokeMapping> mappings) {
+		List<Object[]> keyStrokes = newArrayList();
+		for (KeyStrokeMapping mapping : mappings) {
+			keyStrokes.add(new Object[]{mapping.character(), mapping.keyStroke()});
+		}
+		return keyStrokes;
+	}
 
-  static class MyWindow extends TestWindow {
-    @RunsInEDT
-    static MyWindow createNew(final Class<?> testClass) {
-      return execute(() -> new MyWindow(testClass));
-    }
+	static class MyWindow extends TestWindow {
+		@RunsInEDT
+		static MyWindow createNew(final Class<?> testClass) {
+			return execute(() -> new MyWindow(testClass));
+		}
 
-    final JTextArea textArea = new JTextArea(3, 8);
+		final JTextArea textArea = new JTextArea(3, 8);
 
-    private MyWindow(Class<?> testClass) {
-      super(testClass);
-      add(textArea);
-      setPreferredSize(new Dimension(200, 200));
-    }
-  }
+		private MyWindow(Class<?> testClass) {
+			super(testClass);
+			add(textArea);
+			setPreferredSize(new Dimension(200, 200));
+		}
+	}
 }

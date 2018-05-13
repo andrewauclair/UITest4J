@@ -1,21 +1,21 @@
-/**
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
- * the License. You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
- * specific language governing permissions and limitations under the License.
- *
- * Copyright 2012-2015 the original author or authors.
+/*
+  Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+  the License. You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+  an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+  specific language governing permissions and limitations under the License.
+
+  Copyright 2012-2015 the original author or authors.
  */
 package org.uitest4j.swing.driver;
 
-import org.uitest4j.swing.test.core.RobotBasedTestCase;
-import org.uitest4j.swing.test.swing.TestWindow;
 import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.annotation.RunsInEDT;
+import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.swing.TestWindow;
 
 import java.awt.*;
 
@@ -27,42 +27,42 @@ import static org.uitest4j.swing.query.ComponentHasFocusQuery.hasFocus;
 
 /**
  * Tests for {@link WindowMoveToFrontTask#toFront(java.awt.Window)}.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
 public class WindowMoveToFrontTask_toFront_Test extends RobotBasedTestCase {
-  private MyWindow windowOne;
-  private MyWindow windowTwo;
+	private MyWindow windowOne;
+	private MyWindow windowTwo;
 
-  @Override
-  protected void onSetUp() {
-    windowOne = MyWindow.createNew();
-    windowTwo = MyWindow.createNew();
-    robot.showWindow(windowOne);
-    robot.showWindow(windowTwo);
-  }
+	@Override
+	protected void onSetUp() {
+		windowOne = MyWindow.createNew();
+		windowTwo = MyWindow.createNew();
+		robot.showWindow(windowOne);
+		robot.showWindow(windowTwo);
+	}
 
-  @Test
-  public void should_Move_Window_To_Front() {
-    assertThat(hasFocus(windowTwo)).isTrue();
-    WindowMoveToFrontTask.toFront(windowOne);
-    robot.waitForIdle();
-    assertThat(hasFocus(windowOne)).isTrue();
-  }
+	@Test
+	public void should_Move_Window_To_Front() {
+		assertThat(hasFocus(windowTwo)).isTrue();
+		WindowMoveToFrontTask.toFront(windowOne);
+		robot.waitForIdle();
+		assertThat(hasFocus(windowOne)).isTrue();
+	}
 
-  private static class MyWindow extends TestWindow {
-    @RunsInEDT
-    static MyWindow createNew() {
-      return execute(() -> new MyWindow());
-    }
+	private static class MyWindow extends TestWindow {
+		@RunsInEDT
+		static MyWindow createNew() {
+			return execute(MyWindow::new);
+		}
 
-    private static int counter;
+		private static int counter;
 
-    private MyWindow() {
-      super(WindowMoveToFrontTask_toFront_Test.class);
-      setTitle(concat(getTitle(), " - ", valueOf(++counter)));
-      setPreferredSize(new Dimension(500, 300));
-    }
-  }
+		private MyWindow() {
+			super(WindowMoveToFrontTask_toFront_Test.class);
+			setTitle(concat(getTitle(), " - ", valueOf(++counter)));
+			setPreferredSize(new Dimension(500, 300));
+		}
+	}
 }

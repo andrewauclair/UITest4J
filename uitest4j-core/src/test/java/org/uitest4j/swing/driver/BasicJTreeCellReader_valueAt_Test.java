@@ -1,22 +1,22 @@
-/**
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
- * the License. You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
- * specific language governing permissions and limitations under the License.
- *
- * Copyright 2012-2015 the original author or authors.
+/*
+  Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+  the License. You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+  an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+  specific language governing permissions and limitations under the License.
+
+  Copyright 2012-2015 the original author or authors.
  */
 package org.uitest4j.swing.driver;
 
+import org.junit.jupiter.api.Test;
+import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.test.core.RobotBasedTestCase;
 import org.uitest4j.swing.test.swing.CustomCellRenderer;
 import org.uitest4j.swing.test.swing.TestWindow;
-import org.junit.jupiter.api.Test;
-import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.swing.*;
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -35,82 +35,82 @@ import static org.uitest4j.swing.test.builder.JToolBars.toolBar;
  * @author Yvonne Wang
  */
 public class BasicJTreeCellReader_valueAt_Test extends RobotBasedTestCase {
-  private JTree tree;
-  private BasicJTreeCellReader reader;
-  private DefaultMutableTreeNode root;
+	private JTree tree;
+	private BasicJTreeCellReader reader;
+	private DefaultMutableTreeNode root;
 
-  @Override
-  protected void onSetUp() {
-    MyWindow window = MyWindow.createNew();
-    root = window.root;
-    tree = window.tree;
-    reader = new BasicJTreeCellReader();
-  }
+	@Override
+	protected void onSetUp() {
+		MyWindow window = MyWindow.createNew();
+		root = window.root;
+		tree = window.tree;
+		reader = new BasicJTreeCellReader();
+	}
 
-  @Test
-  void should_Return_Text_From_CellRenderer_If_Renderer_Is_JLabel() {
-    JLabel label = label().withText("First").createNew();
-    setCellRendererComponent(tree, label);
-    robot.waitForIdle();
-    Object value = reader.valueAt(tree, root);
-    assertThat(value).isEqualTo("First");
-  }
+	@Test
+	void should_Return_Text_From_CellRenderer_If_Renderer_Is_JLabel() {
+		JLabel label = label().withText("First").createNew();
+		setCellRendererComponent(tree, label);
+		robot.waitForIdle();
+		Object value = reader.valueAt(tree, root);
+		assertThat(value).isEqualTo("First");
+	}
 
-  @Test
-  void should_Return_Text_From_JTree_If_CellRenderer_Is_Not_JLabel() {
-    setCellRendererComponent(tree, unrecognizedRenderer());
-    robot.waitForIdle();
-    Object value = reader.valueAt(tree, root);
-    assertThat(value).isEqualTo(root.getUserObject());
-  }
+	@Test
+	void should_Return_Text_From_JTree_If_CellRenderer_Is_Not_JLabel() {
+		setCellRendererComponent(tree, unrecognizedRenderer());
+		robot.waitForIdle();
+		Object value = reader.valueAt(tree, root);
+		assertThat(value).isEqualTo(root.getUserObject());
+	}
 
-  @Test
-  void should_Return_Null_If_Model_Does_Not_Implement_ToString() {
-    class Person {
-    }
-    root = new DefaultMutableTreeNode(new Person());
-    setRootInTree(tree, root);
-    setCellRendererComponent(tree, unrecognizedRenderer());
-    robot.waitForIdle();
-    Object value = reader.valueAt(tree, root);
-    assertThat(value).isNull();
-  }
+	@Test
+	void should_Return_Null_If_Model_Does_Not_Implement_ToString() {
+		class Person {
+		}
+		root = new DefaultMutableTreeNode(new Person());
+		setRootInTree(tree, root);
+		setCellRendererComponent(tree, unrecognizedRenderer());
+		robot.waitForIdle();
+		Object value = reader.valueAt(tree, root);
+		assertThat(value).isNull();
+	}
 
-  @RunsInEDT
-  private static void setRootInTree(final JTree tree, final DefaultMutableTreeNode root) {
-    execute(() -> ((DefaultTreeModel) tree.getModel()).setRoot(root));
-  }
+	@RunsInEDT
+	private static void setRootInTree(final JTree tree, final DefaultMutableTreeNode root) {
+		execute(() -> ((DefaultTreeModel) tree.getModel()).setRoot(root));
+	}
 
-  @RunsInEDT
-  private static void setCellRendererComponent(final JTree tree, final Component renderer) {
-    execute(() -> tree.setCellRenderer(new CustomCellRenderer(renderer)));
-  }
+	@RunsInEDT
+	private static void setCellRendererComponent(final JTree tree, final Component renderer) {
+		execute(() -> tree.setCellRenderer(new CustomCellRenderer(renderer)));
+	}
 
-  @RunsInEDT
-  private static Component unrecognizedRenderer() {
-    return toolBar().createNew();
-  }
+	@RunsInEDT
+	private static Component unrecognizedRenderer() {
+		return toolBar().createNew();
+	}
 
-  private static class MyWindow extends TestWindow {
-    @RunsInEDT
-    static MyWindow createNew() {
-      return execute(() -> new MyWindow());
-    }
+	private static class MyWindow extends TestWindow {
+		@RunsInEDT
+		static MyWindow createNew() {
+			return execute(MyWindow::new);
+		}
 
-    final JTree tree;
-    final DefaultMutableTreeNode root;
+		final JTree tree;
+		final DefaultMutableTreeNode root;
 
-    private MyWindow() {
-      super(BasicJTreeCellReader_valueAt_Test.class);
-      root = newRoot();
-      tree = new JTree(root);
-      addComponents(tree);
-    }
+		private MyWindow() {
+			super(BasicJTreeCellReader_valueAt_Test.class);
+			root = newRoot();
+			tree = new JTree(root);
+			addComponents(tree);
+		}
 
-    private static DefaultMutableTreeNode newRoot() {
-      DefaultMutableTreeNode rootNode = new DefaultMutableTreeNode("root");
-      rootNode.add(new DefaultMutableTreeNode("Node1"));
-      return rootNode;
-    }
-  }
+		private static DefaultMutableTreeNode newRoot() {
+			DefaultMutableTreeNode rootNode = new DefaultMutableTreeNode("root");
+			rootNode.add(new DefaultMutableTreeNode("Node1"));
+			return rootNode;
+		}
+	}
 }

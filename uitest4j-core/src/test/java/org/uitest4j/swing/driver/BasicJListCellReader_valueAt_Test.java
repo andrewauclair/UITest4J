@@ -1,23 +1,23 @@
-/**
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
- * the License. You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
- * specific language governing permissions and limitations under the License.
- *
- * Copyright 2012-2015 the original author or authors.
+/*
+  Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+  the License. You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+  an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+  specific language governing permissions and limitations under the License.
+
+  Copyright 2012-2015 the original author or authors.
  */
 package org.uitest4j.swing.driver;
 
+import org.junit.jupiter.api.Test;
+import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.test.core.RobotBasedTestCase;
 import org.uitest4j.swing.test.swing.CustomCellRenderer;
 import org.uitest4j.swing.test.swing.TestListModel;
 import org.uitest4j.swing.test.swing.TestWindow;
-import org.junit.jupiter.api.Test;
-import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.swing.*;
 
@@ -31,79 +31,79 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
  * @author Yvonne Wang
  */
 public class BasicJListCellReader_valueAt_Test extends RobotBasedTestCase {
-  private MyList list;
-  private BasicJListCellReader reader;
+	private MyList list;
+	private BasicJListCellReader reader;
 
-  @Override
-  protected void onSetUp() {
-    MyWindow window = MyWindow.createNew();
-    list = window.list;
-    reader = new BasicJListCellReader();
-  }
+	@Override
+	protected void onSetUp() {
+		MyWindow window = MyWindow.createNew();
+		list = window.list;
+		reader = new BasicJListCellReader();
+	}
 
-  @Test
-  public void should_Return_Text_From_JLabel_As_CellRenderer() {
-    Object value = firstItemValue(reader, list);
-    assertThat(value).isEqualTo("One");
-  }
+	@Test
+	public void should_Return_Text_From_JLabel_As_CellRenderer() {
+		Object value = firstItemValue(reader, list);
+		assertThat(value).isEqualTo("One");
+	}
 
-  @Test
-  public void should_Return_Model_Value_ToString_If_CellRender_Not_Recognized() {
-    list.setElements(new Jedi("Yoda"));
-    setNotRecognizedRendererComponent(list);
-    robot.waitForIdle();
-    String value = firstItemValue(reader, list);
-    assertThat(value).isEqualTo("Yoda");
-  }
+	@Test
+	public void should_Return_Model_Value_ToString_If_CellRender_Not_Recognized() {
+		list.setElements(new Jedi("Yoda"));
+		setNotRecognizedRendererComponent(list);
+		robot.waitForIdle();
+		String value = firstItemValue(reader, list);
+		assertThat(value).isEqualTo("Yoda");
+	}
 
-  @Test
-  public void should_Return_Null_If_CellRenderer_Not_Recognized_And_Model_Value_Is_Null() {
-    list.setElements(new Object[] { null });
-    setNotRecognizedRendererComponent(list);
-    robot.waitForIdle();
-    String value = firstItemValue(reader, list);
-    assertThat(value).isNull();
-  }
+	@Test
+	public void should_Return_Null_If_CellRenderer_Not_Recognized_And_Model_Value_Is_Null() {
+		list.setElements(new Object[]{null});
+		setNotRecognizedRendererComponent(list);
+		robot.waitForIdle();
+		String value = firstItemValue(reader, list);
+		assertThat(value).isNull();
+	}
 
-  @RunsInEDT
-  private static void setNotRecognizedRendererComponent(final JList list) {
-    execute(() -> list.setCellRenderer(new CustomCellRenderer(new JToolBar())));
-  }
+	@RunsInEDT
+	private static void setNotRecognizedRendererComponent(final JList list) {
+		execute(() -> list.setCellRenderer(new CustomCellRenderer(new JToolBar())));
+	}
 
-  @RunsInEDT
-  private static String firstItemValue(final BasicJListCellReader reader, final JList list) {
-    return execute(() -> reader.valueAt(list, 0));
-  }
+	@RunsInEDT
+	private static String firstItemValue(final BasicJListCellReader reader, final JList list) {
+		return execute(() -> reader.valueAt(list, 0));
+	}
 
-  private static class MyWindow extends TestWindow {
-    final MyList list = new MyList("One", "Two");
+	private static class MyWindow extends TestWindow {
+		final MyList list = new MyList("One", "Two");
 
-    @RunsInEDT
-    static MyWindow createNew() {
-      return execute(() -> new MyWindow());
-    }
+		@RunsInEDT
+		static MyWindow createNew() {
+			return execute(MyWindow::new);
+		}
 
-    private MyWindow() {
-      super(BasicJListCellReader_valueAt_Test.class);
-      addComponents(list);
-    }
-  }
+		private MyWindow() {
+			super(BasicJListCellReader_valueAt_Test.class);
+			addComponents(list);
+		}
+	}
 
-  private static class MyList extends JList {
-    final TestListModel model;
+	private static class MyList extends JList {
+		final TestListModel model;
 
-    MyList(Object... elements) {
-      model = new TestListModel(elements);
-      setModel(model);
-    }
+		MyList(Object... elements) {
+			model = new TestListModel(elements);
+			setModel(model);
+		}
 
-    void setElements(final Object... elements) {
-      execute(() -> model.setElements(elements));
-    }
+		void setElements(final Object... elements) {
+			execute(() -> model.setElements(elements));
+		}
 
-    @Override
-    public TestListModel getModel() {
-      return model;
-    }
-  }
+		@Override
+		public TestListModel getModel() {
+			return model;
+		}
+	}
 }

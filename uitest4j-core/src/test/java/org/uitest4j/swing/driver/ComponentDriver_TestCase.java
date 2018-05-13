@@ -1,21 +1,21 @@
-/**
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
- * the License. You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
- * specific language governing permissions and limitations under the License.
- *
- * Copyright 2012-2015 the original author or authors.
+/*
+  Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+  the License. You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+  an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+  specific language governing permissions and limitations under the License.
+
+  Copyright 2012-2015 the original author or authors.
  */
 package org.uitest4j.swing.driver;
 
+import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.test.core.RobotBasedTestCase;
 import org.uitest4j.swing.test.swing.TestWindow;
 import org.uitest4j.swing.test.util.StopWatch;
-import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.swing.*;
 import java.awt.*;
@@ -29,108 +29,108 @@ import static org.uitest4j.swing.timing.Pause.pause;
 
 /**
  * Base test case for {@link ComponentDriver}.
- * 
+ *
  * @author Alex Ruiz
  */
 public abstract class ComponentDriver_TestCase extends RobotBasedTestCase {
-  static final int TIME_TO_WAIT_FOR_FOCUS_GAIN = 2000;
-  ComponentDriver driver;
-  MyWindow window;
+	static final int TIME_TO_WAIT_FOR_FOCUS_GAIN = 2000;
+	ComponentDriver driver;
+	MyWindow window;
 
-  @Override
-  protected final void onSetUp() {
-    window = MyWindow.createNew(getClass());
-    window.setName("TestWindow");
-    driver = new ComponentDriver(robot);
-    extraSetUp();
-  }
+	@Override
+	protected final void onSetUp() {
+		window = MyWindow.createNew(getClass());
+		window.setName("TestWindow");
+		driver = new ComponentDriver(robot);
+		extraSetUp();
+	}
 
-  void extraSetUp() {
-  }
+	void extraSetUp() {
+	}
 
-  final void showWindow() {
-    robot.showWindow(window);
-  }
+	final void showWindow() {
+		robot.showWindow(window);
+	}
 
-  @RunsInEDT
-  final void disableButton() {
-    disableInEDT(window.button);
-  }
+	@RunsInEDT
+	final void disableButton() {
+		disableInEDT(window.button);
+	}
 
-  @RunsInEDT
-  final void disableTextField() {
-    disableInEDT(window.textField);
-  }
+	@RunsInEDT
+	final void disableTextField() {
+		disableInEDT(window.textField);
+	}
 
-  @RunsInEDT
-  private void disableInEDT(Component c) {
-    disable(c);
-    robot.waitForIdle();
-  }
+	@RunsInEDT
+	private void disableInEDT(Component c) {
+		disable(c);
+		robot.waitForIdle();
+	}
 
-  @RunsInEDT
-  final void assertThatTextFieldIsEmpty() {
-    assertThat(textOf(window.textField)).isEmpty();
-  }
+	@RunsInEDT
+	final void assertThatTextFieldIsEmpty() {
+		assertThat(textOf(window.textField)).isEmpty();
+	}
 
-  @RunsInEDT
-  final void assertThatButtonHasFocus() {
-    assertThatButtonHasFocus(true);
-  }
+	@RunsInEDT
+	final void assertThatButtonHasFocus() {
+		assertThatButtonHasFocus(true);
+	}
 
-  @RunsInEDT
-  final void assertThatButtonDoesNotHaveFocus() {
-    assertThatButtonHasFocus(false);
-  }
+	@RunsInEDT
+	final void assertThatButtonDoesNotHaveFocus() {
+		assertThatButtonHasFocus(false);
+	}
 
-  @RunsInEDT
-  final void assertThatButtonHasFocus(boolean expected) {
-    assertThat(hasFocus(window.button)).isEqualTo(expected);
-  }
+	@RunsInEDT
+	final void assertThatButtonHasFocus(boolean expected) {
+		assertThat(hasFocus(window.button)).isEqualTo(expected);
+	}
 
-  @RunsInEDT
-  final void assertThatTextInTextFieldIs(String expected) {
-    assertThat(textOf(window.textField)).isEqualTo(expected);
-  }
+	@RunsInEDT
+	final void assertThatTextInTextFieldIs(String expected) {
+		assertThat(textOf(window.textField)).isEqualTo(expected);
+	}
 
-  final void assertThatWaited(StopWatch stopWatch, long minimumWaitedTime) {
-    long ellapsedTimeInMs = stopWatch.ellapsedTime();
-    assertThat(ellapsedTimeInMs).isGreaterThanOrEqualTo(minimumWaitedTime);
-  }
+	final void assertThatWaited(StopWatch stopWatch, long minimumWaitedTime) {
+		long ellapsedTimeInMs = stopWatch.ellapsedTime();
+		assertThat(ellapsedTimeInMs).isGreaterThanOrEqualTo(minimumWaitedTime);
+	}
 
-  static class MyWindow extends TestWindow {
-    @RunsInEDT
-    static MyWindow createNew(final Class<?> testClass) {
-      return execute(() -> new MyWindow(testClass));
-    }
+	static class MyWindow extends TestWindow {
+		@RunsInEDT
+		static MyWindow createNew(final Class<?> testClass) {
+			return execute(() -> new MyWindow(testClass));
+		}
 
-    final JTextField textField = new JTextField(20);
-    final MyButton button = new MyButton("Click Me");
+		final JTextField textField = new JTextField(20);
+		final MyButton button = new MyButton("Click Me");
 
-    private MyWindow(Class<?> testClass) {
-      super(testClass);
-      button.setName("TestButton");
-      addComponents(textField, button);
-    }
-  }
+		private MyWindow(Class<?> testClass) {
+			super(testClass);
+			button.setName("TestButton");
+			addComponents(textField, button);
+		}
+	}
 
-  static class MyButton extends JButton {
-    private boolean waitToRequestFocus;
+	static class MyButton extends JButton {
+		private boolean waitToRequestFocus;
 
-    MyButton(String text) {
-      super(text);
-    }
+		MyButton(String text) {
+			super(text);
+		}
 
-    void waitToRequestFocus() {
-      waitToRequestFocus = true;
-    }
+		void waitToRequestFocus() {
+			waitToRequestFocus = true;
+		}
 
-    @Override
-    public boolean requestFocusInWindow() {
-      if (waitToRequestFocus) {
-        pause(TIME_TO_WAIT_FOR_FOCUS_GAIN);
-      }
-      return super.requestFocusInWindow();
-    }
-  }
+		@Override
+		public boolean requestFocusInWindow() {
+			if (waitToRequestFocus) {
+				pause(TIME_TO_WAIT_FOR_FOCUS_GAIN);
+			}
+			return super.requestFocusInWindow();
+		}
+	}
 }

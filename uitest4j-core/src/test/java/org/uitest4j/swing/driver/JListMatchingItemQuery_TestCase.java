@@ -1,69 +1,69 @@
-/**
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
- * the License. You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
- * specific language governing permissions and limitations under the License.
- *
- * Copyright 2012-2015 the original author or authors.
+/*
+  Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+  the License. You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+  an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+  specific language governing permissions and limitations under the License.
+
+  Copyright 2012-2015 the original author or authors.
  */
 package org.uitest4j.swing.driver;
 
+import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.cell.JListCellReader;
 import org.uitest4j.swing.test.core.RobotBasedTestCase;
 import org.uitest4j.swing.test.swing.TestWindow;
 import org.uitest4j.swing.util.TextMatcher;
-import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.swing.*;
 import java.awt.*;
 
 import static org.assertj.core.util.Arrays.array;
-import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 import static org.mockito.Mockito.mock;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
  * Base test case for {@link JListMatchingItemQuery}.
- * 
+ *
  * @author Alex Ruiz
  */
 public class JListMatchingItemQuery_TestCase extends RobotBasedTestCase {
-  JList list;
-  JListCellReader cellReader;
+	JList list;
+	JListCellReader cellReader;
 
-  @Override
-  protected void onSetUp() {
-    MyWindow window = MyWindow.createNew();
-    list = window.list;
-    cellReader = new BasicJListCellReader();
-  }
+	@Override
+	protected void onSetUp() {
+		MyWindow window = MyWindow.createNew();
+		list = window.list;
+		cellReader = new BasicJListCellReader();
+	}
 
-  static TextMatcher mockTextMatcher() {
-    return mock(TextMatcher.class);
-  }
+	static TextMatcher mockTextMatcher() {
+		return mock(TextMatcher.class);
+	}
 
-  private static class MyWindow extends TestWindow {
-    private static final Dimension LIST_SIZE = new Dimension(80, 40);
+	private static class MyWindow extends TestWindow {
+		private static final Dimension LIST_SIZE = new Dimension(80, 40);
 
-    final JList list = new JList(array(new Jedi("Yoda"), new Jedi("Luke")));
+		final JList list = new JList(array(new Jedi("Yoda"), new Jedi("Luke")));
 
-    @RunsInEDT
-    static MyWindow createNew() {
-      return execute(() -> new MyWindow());
-    }
+		@RunsInEDT
+		static MyWindow createNew() {
+			return execute(MyWindow::new);
+		}
 
-    private MyWindow() {
-      super(JListMatchingItemQuery_TestCase.class);
-      addComponents(decorate(list));
-    }
+		private MyWindow() {
+			super(JListMatchingItemQuery_TestCase.class);
+			addComponents(decorate(list));
+		}
 
-    private static JScrollPane decorate(JList list) {
-      JScrollPane scrollPane = new JScrollPane(list);
-      scrollPane.setPreferredSize(LIST_SIZE);
-      return scrollPane;
-    }
-  }
+		private static JScrollPane decorate(JList list) {
+			JScrollPane scrollPane = new JScrollPane(list);
+			scrollPane.setPreferredSize(LIST_SIZE);
+			return scrollPane;
+		}
+	}
 }

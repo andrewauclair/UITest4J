@@ -1,21 +1,21 @@
-/**
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
- * the License. You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
- * specific language governing permissions and limitations under the License.
- *
- * Copyright 2012-2015 the original author or authors.
+/*
+  Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+  the License. You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+  an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+  specific language governing permissions and limitations under the License.
+
+  Copyright 2012-2015 the original author or authors.
  */
 package org.uitest4j.swing.fixture;
 
-import org.uitest4j.swing.test.core.RobotBasedTestCase;
-import org.uitest4j.swing.test.swing.TestWindow;
 import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.annotation.RunsInEDT;
+import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.swing.TestWindow;
 
 import javax.swing.*;
 import javax.swing.tree.DefaultTreeModel;
@@ -32,55 +32,55 @@ import static org.uitest4j.swing.test.swing.TreeNodeFactory.node;
  * @author Alex Ruiz
  */
 public class Bug293_errorWhenSelectingPathIfJTreeRootIsInvisible_Test extends RobotBasedTestCase {
-  @Test
-  public void should_Select_Path_If_Root_Is_Invisible() {
-    MyWindow window = MyWindow.createNewWithTreeRootInvisible();
-    robot.showWindow(window);
-    JTreeFixture treeFixture = new JTreeFixture(robot, window.tree);
-    treeFixture.selectPath("node1/node11/node111");
-    Object selection = treeFixture.target().getSelectionPath().getLastPathComponent();
-    assertThat(selection).isSameAs(window.nodeToSelect);
-  }
+	@Test
+	public void should_Select_Path_If_Root_Is_Invisible() {
+		MyWindow window = MyWindow.createNewWithTreeRootInvisible();
+		robot.showWindow(window);
+		JTreeFixture treeFixture = new JTreeFixture(robot, window.tree);
+		treeFixture.selectPath("node1/node11/node111");
+		Object selection = treeFixture.target().getSelectionPath().getLastPathComponent();
+		assertThat(selection).isSameAs(window.nodeToSelect);
+	}
 
-  @Test
-  public void should_Select_Path_If_Root_Is_Visible() {
-    MyWindow window = MyWindow.createNewWithTreeRootVisible();
-    robot.showWindow(window);
-    JTreeFixture treeFixture = new JTreeFixture(robot, window.tree);
-    treeFixture.selectPath("root/node1/node11/node111");
-    Object selection = treeFixture.target().getSelectionPath().getLastPathComponent();
-    assertThat(selection).isSameAs(window.nodeToSelect);
-  }
+	@Test
+	public void should_Select_Path_If_Root_Is_Visible() {
+		MyWindow window = MyWindow.createNewWithTreeRootVisible();
+		robot.showWindow(window);
+		JTreeFixture treeFixture = new JTreeFixture(robot, window.tree);
+		treeFixture.selectPath("root/node1/node11/node111");
+		Object selection = treeFixture.target().getSelectionPath().getLastPathComponent();
+		assertThat(selection).isSameAs(window.nodeToSelect);
+	}
 
-  private static class MyWindow extends TestWindow {
-    @RunsInEDT
-    static MyWindow createNewWithTreeRootVisible() {
-      return createNew(true);
-    }
+	private static class MyWindow extends TestWindow {
+		@RunsInEDT
+		static MyWindow createNewWithTreeRootVisible() {
+			return createNew(true);
+		}
 
-    @RunsInEDT
-    static MyWindow createNewWithTreeRootInvisible() {
-      return createNew(false);
-    }
+		@RunsInEDT
+		static MyWindow createNewWithTreeRootInvisible() {
+			return createNew(false);
+		}
 
-    @RunsInEDT
-    private static MyWindow createNew(final boolean treeRootVisible) {
-      return execute(() -> new MyWindow(treeRootVisible));
-    }
+		@RunsInEDT
+		private static MyWindow createNew(final boolean treeRootVisible) {
+			return execute(() -> new MyWindow(treeRootVisible));
+		}
 
-    final JTree tree = new JTree();
-    final MutableTreeNode nodeToSelect = node("node111");
+		final JTree tree = new JTree();
+		final MutableTreeNode nodeToSelect = node("node111");
 
-    private MyWindow(boolean treeRootVisible) {
-      super(Bug293_errorWhenSelectingPathIfJTreeRootIsInvisible_Test.class);
-      tree.setModel(new DefaultTreeModel(root()));
-      tree.setPreferredSize(new Dimension(200, 200));
-      tree.setRootVisible(treeRootVisible);
-      add(tree);
-    }
+		private MyWindow(boolean treeRootVisible) {
+			super(Bug293_errorWhenSelectingPathIfJTreeRootIsInvisible_Test.class);
+			tree.setModel(new DefaultTreeModel(root()));
+			tree.setPreferredSize(new Dimension(200, 200));
+			tree.setRootVisible(treeRootVisible);
+			add(tree);
+		}
 
-    private MutableTreeNode root() {
-      return node("root", node("node1", node("node11", nodeToSelect, node("node112"))));
-    }
-  }
+		private MutableTreeNode root() {
+			return node("root", node("node1", node("node11", nodeToSelect, node("node112"))));
+		}
+	}
 }

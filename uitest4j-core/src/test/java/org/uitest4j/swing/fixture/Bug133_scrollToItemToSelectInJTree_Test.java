@@ -1,24 +1,24 @@
-/**
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
- * the License. You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
- * specific language governing permissions and limitations under the License.
- *
- * Copyright 2012-2015 the original author or authors.
+/*
+  Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+  the License. You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+  an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+  specific language governing permissions and limitations under the License.
+
+  Copyright 2012-2015 the original author or authors.
  */
 package org.uitest4j.swing.fixture;
 
+import org.junit.jupiter.api.Test;
+import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.exception.LocationUnavailableException;
 import org.uitest4j.swing.test.ExpectedException;
 import org.uitest4j.swing.test.core.RobotBasedTestCase;
 import org.uitest4j.swing.test.swing.TestTree;
 import org.uitest4j.swing.test.swing.TestWindow;
-import org.junit.jupiter.api.Test;
-import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.swing.*;
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -36,101 +36,101 @@ import static org.uitest4j.swing.timing.Pause.pause;
  * @author Alex Ruiz
  */
 public class Bug133_scrollToItemToSelectInJTree_Test extends RobotBasedTestCase {
-  private FrameFixture frame;
-  private MyWindow window;
+	private FrameFixture frame;
+	private MyWindow window;
 
-  @Override
-  public void onSetUp() {
-    window = MyWindow.createNew();
-    frame = new FrameFixture(robot, window);
-    frame.show();
-  }
+	@Override
+	public void onSetUp() {
+		window = MyWindow.createNew();
+		frame = new FrameFixture(robot, window);
+		frame.show();
+	}
 
-  @Test
-  void should_Scroll_To_Cell_When_Selecting_By_Path() {
-    frame.tree("drag").selectPath("root/100/100.1");
-    assertThat(selectionOf(window.dragTree)).isEqualTo("100.1");
-  }
+	@Test
+	void should_Scroll_To_Cell_When_Selecting_By_Path() {
+		frame.tree("drag").selectPath("root/100/100.1");
+		assertThat(selectionOf(window.dragTree)).isEqualTo("100.1");
+	}
 
-  @Test
-  void should_Scroll_To_Cell_When_Selecting_By_Row_Index() {
-    frame.tree("drag").selectRow(99);
-    assertThat(selectionOf(window.dragTree)).isEqualTo("99");
-  }
+	@Test
+	void should_Scroll_To_Cell_When_Selecting_By_Row_Index() {
+		frame.tree("drag").selectRow(99);
+		assertThat(selectionOf(window.dragTree)).isEqualTo("99");
+	}
 
-  @Test
-  void should_Scroll_To_Cells_When_Dragging_And_Dropping_By_Path() {
-    frame.tree("drag").drag("root/99");
-    frame.tree("drop").drop("root/90");
-    assertPathNotFoundInDragTree("root/99");
-    pause(500);
-    frame.tree("drop").selectPath("root/90/99");
-  }
+	@Test
+	void should_Scroll_To_Cells_When_Dragging_And_Dropping_By_Path() {
+		frame.tree("drag").drag("root/99");
+		frame.tree("drop").drop("root/90");
+		assertPathNotFoundInDragTree("root/99");
+		pause(500);
+		frame.tree("drop").selectPath("root/90/99");
+	}
 
-  @Test
-  void should_Scroll_To_Cells_When_Dragging_And_Dropping_By_Row_Index() {
-    frame.tree("drag").drag(99);
-    frame.tree("drop").drop(90);
-    assertPathNotFoundInDragTree("root/99");
-    pause(500);
-    frame.tree("drop").selectPath("root/90/99");
-  }
+	@Test
+	void should_Scroll_To_Cells_When_Dragging_And_Dropping_By_Row_Index() {
+		frame.tree("drag").drag(99);
+		frame.tree("drop").drop(90);
+		assertPathNotFoundInDragTree("root/99");
+		pause(500);
+		frame.tree("drop").selectPath("root/90/99");
+	}
 
-  private void assertPathNotFoundInDragTree(String path) {
-    ExpectedException.assertContainsMessage(LocationUnavailableException.class, () -> frame.tree("drag").selectPath(path), path);
-  }
+	private void assertPathNotFoundInDragTree(String path) {
+		ExpectedException.assertContainsMessage(LocationUnavailableException.class, () -> frame.tree("drag").selectPath(path), path);
+	}
 
-  @RunsInEDT
-  private static Object selectionOf(final JTree tree) {
-    return execute(() -> {
-      Object lastPathComponent = tree.getSelectionPath().getLastPathComponent();
-      DefaultMutableTreeNode node = (DefaultMutableTreeNode) lastPathComponent;
-      return node.getUserObject();
-    });
-  }
+	@RunsInEDT
+	private static Object selectionOf(final JTree tree) {
+		return execute(() -> {
+			Object lastPathComponent = tree.getSelectionPath().getLastPathComponent();
+			DefaultMutableTreeNode node = (DefaultMutableTreeNode) lastPathComponent;
+			return node.getUserObject();
+		});
+	}
 
-  private static class MyWindow extends TestWindow {
-    final JTree dragTree = new TestTree("drag");
-    final JTree dropTree = new TestTree("drop");
+	private static class MyWindow extends TestWindow {
+		final JTree dragTree = new TestTree("drag");
+		final JTree dropTree = new TestTree("drop");
 
-    @RunsInEDT
-    static MyWindow createNew() {
-      return execute(() -> new MyWindow());
-    }
+		@RunsInEDT
+		static MyWindow createNew() {
+			return execute(MyWindow::new);
+		}
 
-    private MyWindow() {
-      super(Bug133_scrollToItemToSelectInJTree_Test.class);
-      dragTree.setModel(model());
-      add(scrollPaneFor(dragTree));
-      dropTree.setModel(model());
-      add(scrollPaneFor(dropTree));
-      setPreferredSize(new Dimension(300, 150));
-    }
+		private MyWindow() {
+			super(Bug133_scrollToItemToSelectInJTree_Test.class);
+			dragTree.setModel(model());
+			add(scrollPaneFor(dragTree));
+			dropTree.setModel(model());
+			add(scrollPaneFor(dropTree));
+			setPreferredSize(new Dimension(300, 150));
+		}
 
-    private static JScrollPane scrollPaneFor(JTree tree) {
-      JScrollPane scrollPane = new JScrollPane(tree);
-      scrollPane.setPreferredSize(new Dimension(100, 100));
-      return scrollPane;
-    }
+		private static JScrollPane scrollPaneFor(JTree tree) {
+			JScrollPane scrollPane = new JScrollPane(tree);
+			scrollPane.setPreferredSize(new Dimension(100, 100));
+			return scrollPane;
+		}
 
-    private static DefaultTreeModel model() {
-      return new DefaultTreeModel(rootWith100Nodes());
-    }
+		private static DefaultTreeModel model() {
+			return new DefaultTreeModel(rootWith100Nodes());
+		}
 
-    private static DefaultMutableTreeNode rootWith100Nodes() {
-      DefaultMutableTreeNode root = new DefaultMutableTreeNode("root");
-      for (int i = 0; i < 100; i++) {
-        DefaultMutableTreeNode node = nodeWithIndex(i);
-        if (i == 99) {
-          node.add(new DefaultMutableTreeNode("100.1"));
-        }
-        root.add(node);
-      }
-      return root;
-    }
+		private static DefaultMutableTreeNode rootWith100Nodes() {
+			DefaultMutableTreeNode root = new DefaultMutableTreeNode("root");
+			for (int i = 0; i < 100; i++) {
+				DefaultMutableTreeNode node = nodeWithIndex(i);
+				if (i == 99) {
+					node.add(new DefaultMutableTreeNode("100.1"));
+				}
+				root.add(node);
+			}
+			return root;
+		}
 
-    private static DefaultMutableTreeNode nodeWithIndex(int i) {
-      return new DefaultMutableTreeNode(valueOf(i + 1));
-    }
-  }
+		private static DefaultMutableTreeNode nodeWithIndex(int i) {
+			return new DefaultMutableTreeNode(valueOf(i + 1));
+		}
+	}
 }

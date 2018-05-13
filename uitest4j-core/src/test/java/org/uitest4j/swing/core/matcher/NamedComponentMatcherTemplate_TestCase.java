@@ -1,40 +1,40 @@
-/**
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
- * the License. You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
- * specific language governing permissions and limitations under the License.
- *
- * Copyright 2012-2015 the original author or authors.
+/*
+  Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+  the License. You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+  an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+  specific language governing permissions and limitations under the License.
+
+  Copyright 2012-2015 the original author or authors.
  */
 package org.uitest4j.swing.core.matcher;
 
 import javax.annotation.Nonnull;
-import javax.swing.JLabel;
+import javax.swing.*;
 
 /**
  * Base test case for {@link NamedComponentMatcherTemplate}.
- * 
+ *
  * @author Alex Ruiz
  */
 public abstract class NamedComponentMatcherTemplate_TestCase {
-  Matcher matcher;
+	Matcher matcher;
 
-  static class Matcher extends NamedComponentMatcherTemplate<JLabel> {
-    protected Matcher(Class<JLabel> supportedType) {
-      super(supportedType);
-    }
+	static class Matcher extends NamedComponentMatcherTemplate<JLabel> {
+		protected Matcher(Class<JLabel> supportedType) {
+			super(supportedType);
+		}
 
-    public Matcher(Class<JLabel> supportedType, Object name) {
-      super(supportedType, name);
-    }
+		public Matcher(Class<JLabel> supportedType, Object name) {
+			super(supportedType, name);
+		}
 
-    @Override
-    protected boolean isMatching(@Nonnull JLabel component) {
-      return false;
-    }
-  }
+		@Override
+		protected boolean isMatching(@Nonnull JLabel component) {
+			return false;
+		}
+	}
 }

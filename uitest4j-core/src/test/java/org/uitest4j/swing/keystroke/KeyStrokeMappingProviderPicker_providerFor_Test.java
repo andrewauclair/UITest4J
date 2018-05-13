@@ -1,14 +1,14 @@
-/**
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
- * the License. You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
- * specific language governing permissions and limitations under the License.
- *
- * Copyright 2012-2015 the original author or authors.
+/*
+  Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+  the License. You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+  an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+  specific language governing permissions and limitations under the License.
+
+  Copyright 2012-2015 the original author or authors.
  */
 package org.uitest4j.swing.keystroke;
 
@@ -17,40 +17,40 @@ import org.junit.jupiter.api.Test;
 
 import static java.util.Locale.US;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.uitest4j.swing.keystroke.KeyStrokeMappingProviderNames.generateNamesFrom;
-import static org.uitest4j.swing.util.OSFamily.WINDOWS;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import static org.uitest4j.swing.keystroke.KeyStrokeMappingProviderNames.generateNamesFrom;
+import static org.uitest4j.swing.util.OSFamily.WINDOWS;
 
 /**
  * Tests for {@link KeyStrokeMappingProviderPicker#providerFor(OSFamily, Locale)}.
- * 
+ *
  * @author Alex Ruiz
  */
 class KeyStrokeMappingProviderPicker_providerFor_Test {
-  private KeyStrokeMappingProviderFactory factory;
-  private KeyStrokeMappingProviderPicker picker;
+	private KeyStrokeMappingProviderFactory factory;
+	private KeyStrokeMappingProviderPicker picker;
 
-  @BeforeEach
-  void setUp() {
-    factory = mock(KeyStrokeMappingProviderFactory.class);
-    picker = new KeyStrokeMappingProviderPicker(factory);
-  }
+	@BeforeEach
+	void setUp() {
+		factory = mock(KeyStrokeMappingProviderFactory.class);
+		picker = new KeyStrokeMappingProviderPicker(factory);
+	}
 
-  @Test
-  void should_Try_To_Instantiate_Provider_From_System_Settings() {
-    KeyStrokeMappingProviderNames names = generateNamesFrom(WINDOWS, US);
-    String firstName = names.iterator().next();
-    KeyStrokeMappingProvider provider = mock(KeyStrokeMappingProvider.class);
-    when(factory.createProvider(firstName)).thenReturn(provider);
-    assertThat(picker.providerFor(WINDOWS, US)).isSameAs(provider);
-  }
+	@Test
+	void should_Try_To_Instantiate_Provider_From_System_Settings() {
+		KeyStrokeMappingProviderNames names = generateNamesFrom(WINDOWS, US);
+		String firstName = names.iterator().next();
+		KeyStrokeMappingProvider provider = mock(KeyStrokeMappingProvider.class);
+		when(factory.createProvider(firstName)).thenReturn(provider);
+		assertThat(picker.providerFor(WINDOWS, US)).isSameAs(provider);
+	}
 
-  @Test
-  void should_Return_Default_Provider_If_Provider_From_System_Settings_Was_Not_Found() {
-    for (String name : generateNamesFrom(WINDOWS, US)) {
-      when(factory.createProvider(name)).thenReturn(null);
-    }
-    assertThat(picker.providerFor(WINDOWS, US)).isInstanceOf(KeyStrokeMappingProvider_en.class);
-  }
+	@Test
+	void should_Return_Default_Provider_If_Provider_From_System_Settings_Was_Not_Found() {
+		for (String name : generateNamesFrom(WINDOWS, US)) {
+			when(factory.createProvider(name)).thenReturn(null);
+		}
+		assertThat(picker.providerFor(WINDOWS, US)).isInstanceOf(KeyStrokeMappingProvider_en.class);
+	}
 }

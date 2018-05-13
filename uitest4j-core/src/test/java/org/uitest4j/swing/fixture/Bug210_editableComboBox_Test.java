@@ -1,20 +1,20 @@
-/**
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
- * the License. You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
- * specific language governing permissions and limitations under the License.
- *
- * Copyright 2012-2015 the original author or authors.
+/*
+  Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+  the License. You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+  an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+  specific language governing permissions and limitations under the License.
+
+  Copyright 2012-2015 the original author or authors.
  */
 package org.uitest4j.swing.fixture;
 
-import org.uitest4j.swing.test.core.RobotBasedTestCase;
 import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.annotation.RunsInEDT;
+import org.uitest4j.swing.test.core.RobotBasedTestCase;
 
 import javax.swing.*;
 
@@ -36,39 +36,39 @@ import static org.uitest4j.swing.test.task.JComboBoxSetSelectedItemTask.setSelec
  * @author Alex Ruiz
  */
 public class Bug210_editableComboBox_Test extends RobotBasedTestCase {
-  private final static String ADDED_STRING = "rocket";
-    private DialogFixture dialog;
+	private final static String ADDED_STRING = "rocket";
+	private DialogFixture dialog;
 
-  @Override
-  protected void onSetUp() {
-      String[] values = array("hat", "son");
-    dialog = new DialogFixture(robot, MyDialog.createNew(values));
-    dialog.show();
-  }
+	@Override
+	protected void onSetUp() {
+		String[] values = array("hat", "son");
+		dialog = new DialogFixture(robot, MyDialog.createNew(values));
+		dialog.show();
+	}
 
-  @Test
-  public void should_Add_String() {
-    JComboBoxFixture comboBox = dialog.comboBox("cb");
-    comboBox.requireSelection("hat");
-    comboBox.enterText(ADDED_STRING);
-    setSelectedItem(comboBox.target(), ADDED_STRING);
-    assertThat(selectedItemOf(comboBox.target())).isEqualTo(ADDED_STRING);
-    comboBox.requireSelection(ADDED_STRING);
-  }
+	@Test
+	public void should_Add_String() {
+		JComboBoxFixture comboBox = dialog.comboBox("cb");
+		comboBox.requireSelection("hat");
+		comboBox.enterText(ADDED_STRING);
+		setSelectedItem(comboBox.target(), ADDED_STRING);
+		assertThat(selectedItemOf(comboBox.target())).isEqualTo(ADDED_STRING);
+		comboBox.requireSelection(ADDED_STRING);
+	}
 
-  private static class MyDialog extends JDialog {
-    @RunsInEDT
-    static MyDialog createNew(final String[] items) {
-      return execute(() -> new MyDialog(items));
-    }
+	private static class MyDialog extends JDialog {
+		@RunsInEDT
+		static MyDialog createNew(final String[] items) {
+			return execute(() -> new MyDialog(items));
+		}
 
-    private MyDialog(String[] items) {
-      JComboBox comboBox = new JComboBox(items);
-      comboBox.setEditable(true);
-      comboBox.setSelectedIndex(0);
-      comboBox.setName("cb");
-      add(comboBox);
-      setTitle(Bug210_editableComboBox_Test.class.getSimpleName());
-    }
-  }
+		private MyDialog(String[] items) {
+			JComboBox comboBox = new JComboBox(items);
+			comboBox.setEditable(true);
+			comboBox.setSelectedIndex(0);
+			comboBox.setName("cb");
+			add(comboBox);
+			setTitle(Bug210_editableComboBox_Test.class.getSimpleName());
+		}
+	}
 }

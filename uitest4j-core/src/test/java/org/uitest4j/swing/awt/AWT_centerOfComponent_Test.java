@@ -12,9 +12,9 @@
  */
 package org.uitest4j.swing.awt;
 
-import org.uitest4j.swing.test.core.EDTSafeTestCase;
 import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.annotation.RunsInEDT;
+import org.uitest4j.swing.test.core.EDTSafeTestCase;
 
 import java.awt.*;
 
@@ -24,21 +24,21 @@ import static org.uitest4j.swing.test.builder.JTextFields.textField;
 
 /**
  * Tests for {@link AWT#centerOf(java.awt.Component)}.
- * 
+ *
  * @author Alex Ruiz
  */
 class AWT_centerOfComponent_Test extends EDTSafeTestCase {
-  @Test
-  void should_Return_Center_Position() {
-    Component c = textField().withColumns(20).createNew();
-    setComponentSize(c, 80, 60);
-    Point center = AWT.centerOf(c);
-    assertThat(center.x).isEqualTo(40);
-    assertThat(center.y).isEqualTo(30);
-  }
+	@Test
+	void should_Return_Center_Position() {
+		Component c = textField().withColumns(20).createNew();
+		setComponentSize(c, 80, 60);
+		Point center = AWT.centerOf(c);
+		assertThat(center.x).isEqualTo(40);
+		assertThat(center.y).isEqualTo(30);
+	}
 
-  @RunsInEDT
-  private static void setComponentSize(final Component c, final int width, final int height) {
-    execute(() -> c.setSize(width, height));
-  }
+	@RunsInEDT
+	private static void setComponentSize(final Component c, final int width, final int height) {
+		execute(() -> c.setSize(width, height));
+	}
 }

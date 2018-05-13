@@ -1,22 +1,22 @@
-/**
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
- * the License. You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
- * specific language governing permissions and limitations under the License.
- *
- * Copyright 2012-2015 the original author or authors.
+/*
+  Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+  the License. You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+  an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+  specific language governing permissions and limitations under the License.
+
+  Copyright 2012-2015 the original author or authors.
  */
 package org.uitest4j.swing.driver;
 
+import org.junit.jupiter.api.Test;
+import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.test.core.MethodInvocations;
 import org.uitest4j.swing.test.core.RobotBasedTestCase;
 import org.uitest4j.swing.test.swing.TestWindow;
-import org.junit.jupiter.api.Test;
-import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.swing.*;
 
@@ -25,64 +25,64 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
  * Tests for {@link JTextComponentTextQuery#textOf(javax.swing.text.JTextComponent)}.
- * 
+ *
  * @author Alex Ruiz
  */
 public class JTextComponentTextQuery_textOf_Test extends RobotBasedTestCase {
-  private static final String TEXT = "Hello World";
+	private static final String TEXT = "Hello World";
 
-  private MyTextField textField;
+	private MyTextField textField;
 
-  @Override
-  protected void onSetUp() {
-    MyWindow window = MyWindow.createNew();
-    textField = window.textField;
-  }
+	@Override
+	protected void onSetUp() {
+		MyWindow window = MyWindow.createNew();
+		textField = window.textField;
+	}
 
-  @Test
-  void should_Return_Text_Of_JTextComponent() {
-    textField.startRecording();
-    assertThat(JTextComponentTextQuery.textOf(textField)).isEqualTo(TEXT);
-    textField.requireInvoked("getText");
-  }
+	@Test
+	void should_Return_Text_Of_JTextComponent() {
+		textField.startRecording();
+		assertThat(JTextComponentTextQuery.textOf(textField)).isEqualTo(TEXT);
+		textField.requireInvoked("getText");
+	}
 
-  private static class MyWindow extends TestWindow {
-    @RunsInEDT
-    static MyWindow createNew() {
-      return execute(() -> new MyWindow());
-    }
+	private static class MyWindow extends TestWindow {
+		@RunsInEDT
+		static MyWindow createNew() {
+			return execute(MyWindow::new);
+		}
 
-    final MyTextField textField = new MyTextField();
+		final MyTextField textField = new MyTextField();
 
-    private MyWindow() {
-      super(JTextComponentTextQuery_textOf_Test.class);
-      addComponents(textField);
-    }
-  }
+		private MyWindow() {
+			super(JTextComponentTextQuery_textOf_Test.class);
+			addComponents(textField);
+		}
+	}
 
-  private static class MyTextField extends JTextField {
-    private boolean recording;
-    private final MethodInvocations methodInvocations = new MethodInvocations();
+	private static class MyTextField extends JTextField {
+		private boolean recording;
+		private final MethodInvocations methodInvocations = new MethodInvocations();
 
-    MyTextField() {
-      super(20);
-      setText(TEXT);
-    }
+		MyTextField() {
+			super(20);
+			setText(TEXT);
+		}
 
-    @Override
-    public String getText() {
-      if (recording) {
-        methodInvocations.invoked("getText");
-      }
-      return super.getText();
-    }
+		@Override
+		public String getText() {
+			if (recording) {
+				methodInvocations.invoked("getText");
+			}
+			return super.getText();
+		}
 
-    void startRecording() {
-      recording = true;
-    }
+		void startRecording() {
+			recording = true;
+		}
 
-    MethodInvocations requireInvoked(String methodName) {
-      return methodInvocations.requireInvoked(methodName);
-    }
-  }
+		MethodInvocations requireInvoked(String methodName) {
+			return methodInvocations.requireInvoked(methodName);
+		}
+	}
 }

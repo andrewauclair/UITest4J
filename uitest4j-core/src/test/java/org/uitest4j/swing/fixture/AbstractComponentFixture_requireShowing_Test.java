@@ -1,24 +1,24 @@
-/**
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
- * the License. You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
- * specific language governing permissions and limitations under the License.
- *
- * Copyright 2012-2015 the original author or authors.
+/*
+  Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+  the License. You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+  an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+  specific language governing permissions and limitations under the License.
+
+  Copyright 2012-2015 the original author or authors.
  */
 package org.uitest4j.swing.fixture;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 import org.uitest4j.swing.core.ComponentLookupScope;
 import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.core.Settings;
 import org.uitest4j.swing.driver.ComponentDriver;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.MethodSource;
 
 import javax.annotation.Nonnull;
 import java.awt.*;
@@ -26,46 +26,47 @@ import java.util.Collection;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Lists.newArrayList;
-import static org.uitest4j.swing.core.ComponentLookupScope.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import static org.uitest4j.swing.core.ComponentLookupScope.*;
 
 /**
  * Tests for {@link AbstractComponentFixture#requireShowing()}.
- * 
+ *
  * @author Alex Ruiz
  */
 class AbstractComponentFixture_requireShowing_Test {
-  private static Collection<Object[]> parameters() {
-    return newArrayList(new Object[][] { { ALL }, { DEFAULT }, { SHOWING_ONLY } });
-  }
+	private static Collection<Object[]> parameters() {
+		return newArrayList(new Object[][]{{ALL}, {DEFAULT}, {SHOWING_ONLY}});
+	}
 
-  private Settings settings;
-  private ConcreteComponentFixture fixture;
+	private Settings settings;
+	private ConcreteComponentFixture fixture;
 
-  @BeforeEach
-  void setUp() {
-    settings = mock(Settings.class);
-    fixture = new ConcreteComponentFixture();
-  }
+	@BeforeEach
+	void setUp() {
+		settings = mock(Settings.class);
+		fixture = new ConcreteComponentFixture();
+	}
 
-  @ParameterizedTest
-  @MethodSource("parameters")
-  void should_Check_Settings(ComponentLookupScope scope) {
-    when(fixture.robot().settings()).thenReturn(settings);
-    when(settings.componentLookupScope()).thenReturn(scope);
-    assertThat(fixture.requireShowing()).isEqualTo(scope.requireShowing());
-  }
+	@ParameterizedTest
+	@MethodSource("parameters")
+	void should_Check_Settings(ComponentLookupScope scope) {
+		when(fixture.robot().settings()).thenReturn(settings);
+		when(settings.componentLookupScope()).thenReturn(scope);
+		assertThat(fixture.requireShowing()).isEqualTo(scope.requireShowing());
+	}
 
-  private static class ConcreteComponentFixture extends
-      AbstractComponentFixture<ConcreteComponentFixture, Component, ComponentDriver> {
-    ConcreteComponentFixture() {
-      super(ConcreteComponentFixture.class, mock(Robot.class), mock(Component.class));
-    }
+	private static class ConcreteComponentFixture extends
+			AbstractComponentFixture<ConcreteComponentFixture, Component, ComponentDriver> {
+		ConcreteComponentFixture() {
+			super(ConcreteComponentFixture.class, mock(Robot.class), mock(Component.class));
+		}
 
-    @Override
-    @Nonnull protected ComponentDriver createDriver(@Nonnull Robot robot) {
-      return mock(ComponentDriver.class);
-    }
-  }
+		@Override
+		@Nonnull
+		protected ComponentDriver createDriver(@Nonnull Robot robot) {
+			return mock(ComponentDriver.class);
+		}
+	}
 }

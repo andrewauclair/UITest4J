@@ -1,20 +1,20 @@
-/**
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
- * the License. You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
- * specific language governing permissions and limitations under the License.
- *
- * Copyright 2012-2015 the original author or authors.
+/*
+  Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+  the License. You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+  an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+  specific language governing permissions and limitations under the License.
+
+  Copyright 2012-2015 the original author or authors.
  */
 package org.uitest4j.swing.data;
 
-import org.uitest4j.swing.driver.BasicJTableCellReader;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
+import org.uitest4j.swing.driver.BasicJTableCellReader;
 
 import java.util.Collection;
 
@@ -25,23 +25,23 @@ import static org.uitest4j.swing.data.TableCellByColumnId.row;
 
 /**
  * Tests for {@link TableCellByColumnId#findCell(javax.swing.JTable, JTableCellReader)}.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
 class TableCellByColumnId_findCell_Test extends TableCellFinder_TestCase {
 
-  private static Collection<Object[]> ids() {
-    Object[][] ids = new Object[][] { { "0" }, { "1" }, { "2" }, { "3" } };
-    return newArrayList(ids);
-  }
+	private static Collection<Object[]> ids() {
+		Object[][] ids = new Object[][]{{"0"}, {"1"}, {"2"}, {"3"}};
+		return newArrayList(ids);
+	}
 
-  @ParameterizedTest
-  @MethodSource("ids")
-  void should_Find_Cell_By_Column_Id(String columnId) {
-    TableCellByColumnId finder = row(0).columnId(columnId);
-    TableCell cell = finder.findCell(table, new BasicJTableCellReader());
-    assertThat(cell.row).isEqualTo(0);
-    assertThat(cell.column).isEqualTo(parseInt(columnId));
-  }
+	@ParameterizedTest
+	@MethodSource("ids")
+	void should_Find_Cell_By_Column_Id(String columnId) {
+		TableCellByColumnId finder = row(0).columnId(columnId);
+		TableCell cell = finder.findCell(table, new BasicJTableCellReader());
+		assertThat(cell.row).isEqualTo(0);
+		assertThat(cell.column).isEqualTo(parseInt(columnId));
+	}
 }

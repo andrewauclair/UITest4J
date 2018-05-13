@@ -1,22 +1,22 @@
-/**
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
- * the License. You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
- * specific language governing permissions and limitations under the License.
- *
- * Copyright 2012-2015 the original author or authors.
+/*
+  Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+  the License. You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+  an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+  specific language governing permissions and limitations under the License.
+
+  Copyright 2012-2015 the original author or authors.
  */
 package org.uitest4j.swing.driver;
 
+import org.junit.jupiter.api.Test;
+import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.test.core.RobotBasedTestCase;
 import org.uitest4j.swing.test.swing.CustomCellRenderer;
 import org.uitest4j.swing.test.swing.TestWindow;
-import org.junit.jupiter.api.Test;
-import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.swing.*;
 
@@ -31,66 +31,66 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
  * @author Yvonne Wang
  */
 public class BasicJComboBoxCellReader_valueAt_Test extends RobotBasedTestCase {
-  private JComboBox comboBox;
-  private BasicJComboBoxCellReader reader;
+	private JComboBox comboBox;
+	private BasicJComboBoxCellReader reader;
 
-  @Override
-  protected void onSetUp() {
-    reader = new BasicJComboBoxCellReader();
-    MyWindow window = MyWindow.createNew();
-    comboBox = window.comboBox;
-  }
+	@Override
+	protected void onSetUp() {
+		reader = new BasicJComboBoxCellReader();
+		MyWindow window = MyWindow.createNew();
+		comboBox = window.comboBox;
+	}
 
-  @Test
-  void should_Return_Text_From_JLabel_As_CellRenderer() {
-    String value = firstItemValue(reader, comboBox);
-    assertThat(value).isEqualTo("First");
-  }
+	@Test
+	void should_Return_Text_From_JLabel_As_CellRenderer() {
+		String value = firstItemValue(reader, comboBox);
+		assertThat(value).isEqualTo("First");
+	}
 
-  @Test
-  void should_Return_Model_Value_ToString_If_CellRender_Not_Recognized() {
-    setModelValues(comboBox, array(new Jedi("Yoda")));
-    setNotRecognizedRendererComponent(comboBox);
-    robot.waitForIdle();
-    String value = firstItemValue(reader, comboBox);
-    assertThat(value).isEqualTo("Yoda");
-  }
+	@Test
+	void should_Return_Model_Value_ToString_If_CellRender_Not_Recognized() {
+		setModelValues(comboBox, array(new Jedi("Yoda")));
+		setNotRecognizedRendererComponent(comboBox);
+		robot.waitForIdle();
+		String value = firstItemValue(reader, comboBox);
+		assertThat(value).isEqualTo("Yoda");
+	}
 
-  @Test
-  void should_Return_Null_If_CellRenderer_Not_Recognized_And_Model_Value_Is_Null() {
-    setModelValues(comboBox, new Object[] { null });
-    setNotRecognizedRendererComponent(comboBox);
-    robot.waitForIdle();
-    String value = firstItemValue(reader, comboBox);
-    assertThat(value).isNull();
-  }
+	@Test
+	void should_Return_Null_If_CellRenderer_Not_Recognized_And_Model_Value_Is_Null() {
+		setModelValues(comboBox, new Object[]{null});
+		setNotRecognizedRendererComponent(comboBox);
+		robot.waitForIdle();
+		String value = firstItemValue(reader, comboBox);
+		assertThat(value).isNull();
+	}
 
-  @RunsInEDT
-  private static void setModelValues(final JComboBox comboBox, final Object[] values) {
-    execute(() -> comboBox.setModel(new DefaultComboBoxModel(values)));
-  }
+	@RunsInEDT
+	private static void setModelValues(final JComboBox comboBox, final Object[] values) {
+		execute(() -> comboBox.setModel(new DefaultComboBoxModel(values)));
+	}
 
-  @RunsInEDT
-  private static void setNotRecognizedRendererComponent(final JComboBox comboBox) {
-    execute(() -> comboBox.setRenderer(new CustomCellRenderer(new JToolBar())));
-  }
+	@RunsInEDT
+	private static void setNotRecognizedRendererComponent(final JComboBox comboBox) {
+		execute(() -> comboBox.setRenderer(new CustomCellRenderer(new JToolBar())));
+	}
 
-  @RunsInEDT
-  private static String firstItemValue(final BasicJComboBoxCellReader reader, final JComboBox comboBox) {
-    return execute(() -> reader.valueAt(comboBox, 0));
-  }
+	@RunsInEDT
+	private static String firstItemValue(final BasicJComboBoxCellReader reader, final JComboBox comboBox) {
+		return execute(() -> reader.valueAt(comboBox, 0));
+	}
 
-  private static class MyWindow extends TestWindow {
-    final JComboBox comboBox = new JComboBox(array("First"));
+	private static class MyWindow extends TestWindow {
+		final JComboBox comboBox = new JComboBox(array("First"));
 
-    @RunsInEDT
-    static MyWindow createNew() {
-      return execute(() -> new MyWindow());
-    }
+		@RunsInEDT
+		static MyWindow createNew() {
+			return execute(MyWindow::new);
+		}
 
-    private MyWindow() {
-      super(BasicJComboBoxCellReader_valueAt_Test.class);
-      addComponents(comboBox);
-    }
-  }
+		private MyWindow() {
+			super(BasicJComboBoxCellReader_valueAt_Test.class);
+			addComponents(comboBox);
+		}
+	}
 }

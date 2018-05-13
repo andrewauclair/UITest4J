@@ -1,22 +1,22 @@
-/**
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
- * the License. You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
- * specific language governing permissions and limitations under the License.
- *
- * Copyright 2012-2015 the original author or authors.
+/*
+  Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+  the License. You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+  an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+  specific language governing permissions and limitations under the License.
+
+  Copyright 2012-2015 the original author or authors.
  */
 package org.uitest4j.swing.driver;
 
+import org.junit.jupiter.api.Test;
+import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.test.core.MethodInvocations;
 import org.uitest4j.swing.test.core.RobotBasedTestCase;
 import org.uitest4j.swing.test.swing.TestWindow;
-import org.junit.jupiter.api.Test;
-import org.uitest4j.swing.annotation.RunsInEDT;
 
 import java.awt.*;
 
@@ -31,52 +31,52 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
  * @author Yvonne Wang
  */
 public class ComponentDriver_fontOf_Test extends RobotBasedTestCase {
-  private static final Font FONT = new Font("SansSerif", PLAIN, 8);
+	private static final Font FONT = new Font("SansSerif", PLAIN, 8);
 
-  private MyWindow window;
-  private ComponentDriver driver;
+	private MyWindow window;
+	private ComponentDriver driver;
 
-  @Override
-  protected void onSetUp() {
-    window = MyWindow.createNew();
-    driver = new ComponentDriver(robot);
-  }
+	@Override
+	protected void onSetUp() {
+		window = MyWindow.createNew();
+		driver = new ComponentDriver(robot);
+	}
 
-  @Test
-  public void should_Return_Component_Font() {
-    window.startRecording();
-    assertThat(driver.fontOf(window)).isEqualTo(FONT);
-    window.requireInvoked("getFont");
-  }
+	@Test
+	public void should_Return_Component_Font() {
+		window.startRecording();
+		assertThat(driver.fontOf(window)).isEqualTo(FONT);
+		window.requireInvoked("getFont");
+	}
 
-  private static class MyWindow extends TestWindow {
-    @RunsInEDT
-    static MyWindow createNew() {
-      return execute(() -> new MyWindow());
-    }
+	private static class MyWindow extends TestWindow {
+		@RunsInEDT
+		static MyWindow createNew() {
+			return execute(MyWindow::new);
+		}
 
-    private boolean recording;
-    private final MethodInvocations methodInvocations = new MethodInvocations();
+		private boolean recording;
+		private final MethodInvocations methodInvocations = new MethodInvocations();
 
-    private MyWindow() {
-      super(ComponentDriver_fontOf_Test.class);
-      setFont(FONT);
-    }
+		private MyWindow() {
+			super(ComponentDriver_fontOf_Test.class);
+			setFont(FONT);
+		}
 
-    @Override
-    public Font getFont() {
-      if (recording) {
-        methodInvocations.invoked("getFont");
-      }
-      return super.getFont();
-    }
+		@Override
+		public Font getFont() {
+			if (recording) {
+				methodInvocations.invoked("getFont");
+			}
+			return super.getFont();
+		}
 
-    void startRecording() {
-      recording = true;
-    }
+		void startRecording() {
+			recording = true;
+		}
 
-    MethodInvocations requireInvoked(String methodName) {
-      return methodInvocations.requireInvoked(methodName);
-    }
-  }
+		MethodInvocations requireInvoked(String methodName) {
+			return methodInvocations.requireInvoked(methodName);
+		}
+	}
 }

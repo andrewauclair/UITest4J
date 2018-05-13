@@ -1,22 +1,22 @@
-/**
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
- * the License. You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
- * specific language governing permissions and limitations under the License.
- *
- * Copyright 2012-2015 the original author or authors.
+/*
+  Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+  the License. You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+  an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+  specific language governing permissions and limitations under the License.
+
+  Copyright 2012-2015 the original author or authors.
  */
 package org.uitest4j.swing.core;
 
+import org.junit.jupiter.api.Test;
+import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.test.core.SequentialEDTSafeTestCase;
 import org.uitest4j.swing.test.swing.TestDialog;
 import org.uitest4j.swing.test.swing.TestWindow;
-import org.junit.jupiter.api.Test;
-import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.swing.*;
 import java.awt.*;
@@ -31,70 +31,71 @@ import static org.uitest4j.swing.test.task.ComponentRequestFocusAndWaitForFocusG
  * @author Alex Ruiz
  */
 abstract class FocusOwnerFinderStrategy_focusOwner_TestCase extends SequentialEDTSafeTestCase {
-  private MyWindow window;
-  private JTextField textField;
-  private FocusOwnerFinderStrategy finder;
+	private MyWindow window;
+	private JTextField textField;
+	private FocusOwnerFinderStrategy finder;
 
-  @Override
-  protected final void onSetUp() {
-    window = MyWindow.createAndShow(getClass());
-    textField = window.textBox;
-    finder = createStrategyToTest();
-  }
+	@Override
+	protected final void onSetUp() {
+		window = MyWindow.createAndShow(getClass());
+		textField = window.textBox;
+		finder = createStrategyToTest();
+	}
 
-  protected abstract FocusOwnerFinderStrategy createStrategyToTest();
+	protected abstract FocusOwnerFinderStrategy createStrategyToTest();
 
-  @Override
-  public final void onTearDown() {
-    window.destroy();
-  }
+	@Override
+	public final void onTearDown() {
+		window.destroy();
+	}
 
-  @Test
-  final void should_Find_Focus_Owner() {
-    giveFocusAndWaitTillIsFocused(textField);
-    Component focusOwner = execute(() -> finder.focusOwner());
-    assertThat(focusOwner).isSameAs(textField);
-  }
+	@Test
+	final void should_Find_Focus_Owner() {
+		giveFocusAndWaitTillIsFocused(textField);
+		Component focusOwner = execute(() -> finder.focusOwner());
+		assertThat(focusOwner).isSameAs(textField);
+	}
 
-  @Test
-  final void should_Find_Focus_In_Owned_Window() {
-    MyDialog dialog = MyDialog.createAndShow(window);
-    giveFocusAndWaitTillIsFocused(dialog.button);
-    try {
-      Component focusOwner = finder.focusOwner();
-      assertThat(focusOwner).isSameAs(dialog.button);
-    } finally {
-      dialog.destroy();
-    }
-  }
+	@Test
+	final void should_Find_Focus_In_Owned_Window() {
+		MyDialog dialog = MyDialog.createAndShow(window);
+		giveFocusAndWaitTillIsFocused(dialog.button);
+		try {
+			Component focusOwner = finder.focusOwner();
+			assertThat(focusOwner).isSameAs(dialog.button);
+		}
+		finally {
+			dialog.destroy();
+		}
+	}
 
-  private static class MyDialog extends TestDialog {
-    final JButton button = new JButton("Click me");
+	private static class MyDialog extends TestDialog {
+		final JButton button = new JButton("Click me");
 
-    @RunsInEDT
-    static MyDialog createAndShow(final Frame owner) {
-      MyDialog dialog = execute(() -> new MyDialog(owner));
-      dialog.display();
-      return dialog;
-    }
+		@RunsInEDT
+		static MyDialog createAndShow(final Frame owner) {
+			MyDialog dialog = execute(() -> new MyDialog(owner));
+			dialog.display();
+			return dialog;
+		}
 
-    private MyDialog(Frame owner) {
-      super(owner);
-      add(button);
-    }
-  }
+		private MyDialog(Frame owner) {
+			super(owner);
+			add(button);
+		}
+	}
 
-  private static class MyWindow extends TestWindow {
-    final JTextField textBox = new JTextField(20);
+	private static class MyWindow extends TestWindow {
+		final JTextField textBox = new JTextField(20);
 
-    @RunsInEDT
-    static MyWindow createAndShow(final Class<?> testClass) {
-      return execute(() -> display(new MyWindow(testClass)));
-    }
+		@RunsInEDT
+		static MyWindow createAndShow(final Class<?> testClass) {
+			return execute(() -> display(new MyWindow(testClass)));
+		}
 
-    private MyWindow(Class<?> testClass) {
-      super(testClass);
-      addComponents(textBox);
-    }
-  }
+		private MyWindow(Class<?> testClass) {
+			super(testClass);
+			addComponents(textBox);
+		}
+	}
 }

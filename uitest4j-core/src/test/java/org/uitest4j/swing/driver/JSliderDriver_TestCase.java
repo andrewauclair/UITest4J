@@ -1,20 +1,20 @@
-/**
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
- * the License. You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
- * specific language governing permissions and limitations under the License.
- *
- * Copyright 2012-2015 the original author or authors.
+/*
+  Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+  the License. You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+  an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+  specific language governing permissions and limitations under the License.
+
+  Copyright 2012-2015 the original author or authors.
  */
 package org.uitest4j.swing.driver;
 
+import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.test.core.RobotBasedTestCase;
 import org.uitest4j.swing.test.swing.TestWindow;
-import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.swing.*;
 import java.awt.*;
@@ -33,9 +33,9 @@ import static org.uitest4j.swing.test.task.ComponentSetEnabledTask.disable;
  * @author Alex Ruiz
  */
 public abstract class JSliderDriver_TestCase extends RobotBasedTestCase {
-  MyWindow window;
-  JSlider slider;
-  JSliderDriver driver;
+	MyWindow window;
+	JSlider slider;
+	JSliderDriver driver;
 
 //  final int orientation;
 
@@ -43,55 +43,55 @@ public abstract class JSliderDriver_TestCase extends RobotBasedTestCase {
 //    this.orientation = orientation;
 //  }
 
-  static Object[][] orientations() {
-    return new Object[][] { { HORIZONTAL }, { VERTICAL } };
-  }
+	static Object[][] orientations() {
+		return new Object[][]{{HORIZONTAL}, {VERTICAL}};
+	}
 
-  @Override
-  protected final void onSetUp() {
-  }
+	@Override
+	protected final void onSetUp() {
+	}
 //    driver = new JSliderDriver(robot);
 //    window = MyWindow.createNew(getClass(), orientation);
 //    slider = window.slider;
 //  }
 
-  void setup(int orientation) {
-    driver = new JSliderDriver(robot);
-    window = MyWindow.createNew(getClass(), orientation);
-    slider = window.slider;
-  }
+	void setup(int orientation) {
+		driver = new JSliderDriver(robot);
+		window = MyWindow.createNew(getClass(), orientation);
+		slider = window.slider;
+	}
 
-  final void showWindow() {
-    robot.showWindow(window);
-  }
+	final void showWindow() {
+		robot.showWindow(window);
+	}
 
-  @RunsInEDT
-  final void assertThatSliderValueIs(int expected) {
-    assertThat(valueOf(slider)).isEqualTo(expected);
-  }
+	@RunsInEDT
+	final void assertThatSliderValueIs(int expected) {
+		assertThat(valueOf(slider)).isEqualTo(expected);
+	}
 
-  @RunsInEDT
-  final void disableSlider() {
-    disable(slider);
-    robot.waitForIdle();
-  }
+	@RunsInEDT
+	final void disableSlider() {
+		disable(slider);
+		robot.waitForIdle();
+	}
 
-  static class MyWindow extends TestWindow {
-    final JSlider slider = new JSlider();
+	static class MyWindow extends TestWindow {
+		final JSlider slider = new JSlider();
 
-    @RunsInEDT
-    static MyWindow createNew(final Class<? extends JSliderDriver_TestCase> testClass, final int orientation) {
-      return execute(() -> new MyWindow(testClass, orientation));
-    }
+		@RunsInEDT
+		static MyWindow createNew(final Class<? extends JSliderDriver_TestCase> testClass, final int orientation) {
+			return execute(() -> new MyWindow(testClass, orientation));
+		}
 
-    private MyWindow(Class<? extends JSliderDriver_TestCase> testClass, int orientation) {
-      super(testClass);
-      add(slider);
-      slider.setOrientation(orientation);
-      slider.setMinimum(0);
-      slider.setMaximum(30);
-      slider.setValue(15);
-      setPreferredSize(new Dimension(300, 300));
-    }
-  }
+		private MyWindow(Class<? extends JSliderDriver_TestCase> testClass, int orientation) {
+			super(testClass);
+			add(slider);
+			slider.setOrientation(orientation);
+			slider.setMinimum(0);
+			slider.setMaximum(30);
+			slider.setValue(15);
+			setPreferredSize(new Dimension(300, 300));
+		}
+	}
 }

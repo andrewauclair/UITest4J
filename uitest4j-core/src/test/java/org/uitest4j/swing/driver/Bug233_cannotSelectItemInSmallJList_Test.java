@@ -1,21 +1,21 @@
-/**
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
- * the License. You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
- * specific language governing permissions and limitations under the License.
- *
- * Copyright 2012-2015 the original author or authors.
+/*
+  Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+  the License. You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+  an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+  specific language governing permissions and limitations under the License.
+
+  Copyright 2012-2015 the original author or authors.
  */
 package org.uitest4j.swing.driver;
 
-import org.uitest4j.swing.test.core.RobotBasedTestCase;
-import org.uitest4j.swing.test.swing.TestWindow;
 import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.annotation.RunsInEDT;
+import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.swing.TestWindow;
 
 import javax.swing.*;
 import java.awt.*;
@@ -30,44 +30,44 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
  * @author Alex Ruiz
  */
 public class Bug233_cannotSelectItemInSmallJList_Test extends RobotBasedTestCase {
-  private JListDriver driver;
-  private JList list;
+	private JListDriver driver;
+	private JList list;
 
-  @Override
-  protected void onSetUp() {
-    driver = new JListDriver(robot);
-    MyWindow window = MyWindow.createNew();
-    list = window.list;
-    robot.showWindow(window);
-  }
+	@Override
+	protected void onSetUp() {
+		driver = new JListDriver(robot);
+		MyWindow window = MyWindow.createNew();
+		list = window.list;
+		robot.showWindow(window);
+	}
 
-  @Test
-  public void should_Select_Item_With_Super_Long_Text() {
-    driver.selectItem(list, superLongText());
-    assertThat(list.getSelectedIndex()).isEqualTo(1);
-  }
+	@Test
+	public void should_Select_Item_With_Super_Long_Text() {
+		driver.selectItem(list, superLongText());
+		assertThat(list.getSelectedIndex()).isEqualTo(1);
+	}
 
-  private static class MyWindow extends TestWindow {
-    @RunsInEDT
-    static MyWindow createNew() {
-      return execute(() -> new MyWindow());
-    }
+	private static class MyWindow extends TestWindow {
+		@RunsInEDT
+		static MyWindow createNew() {
+			return execute(MyWindow::new);
+		}
 
-    final JList list = new JList(array("One", superLongText()));
+		final JList list = new JList(array("One", superLongText()));
 
-    private MyWindow() {
-      super(Bug233_cannotSelectItemInSmallJList_Test.class);
-      addComponents(list);
-      setMinimumSize(new Dimension(5, 100));
-      list.setPreferredSize(new Dimension(5, 100));
-    }
-  }
+		private MyWindow() {
+			super(Bug233_cannotSelectItemInSmallJList_Test.class);
+			addComponents(list);
+			setMinimumSize(new Dimension(5, 100));
+			list.setPreferredSize(new Dimension(5, 100));
+		}
+	}
 
-  static String superLongText() {
-    StringBuilder b = new StringBuilder();
-    for (int i = 0; i < 1000; i++) {
-      b.append("a ");
-    }
-    return b.toString();
-  }
+	static String superLongText() {
+		StringBuilder b = new StringBuilder();
+		for (int i = 0; i < 1000; i++) {
+			b.append("a ");
+		}
+		return b.toString();
+	}
 }

@@ -1,24 +1,24 @@
-/**
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
- * the License. You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
- * specific language governing permissions and limitations under the License.
- *
- * Copyright 2012-2015 the original author or authors.
+/*
+  Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+  the License. You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+  an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+  specific language governing permissions and limitations under the License.
+
+  Copyright 2012-2015 the original author or authors.
  */
 package org.uitest4j.swing.fixture;
 
+import org.junit.jupiter.api.Test;
+import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.core.GenericTypeMatcher;
 import org.uitest4j.swing.exception.ComponentLookupException;
 import org.uitest4j.swing.test.ExpectedException;
 import org.uitest4j.swing.test.core.RobotBasedTestCase;
 import org.uitest4j.swing.test.swing.TestWindow;
-import org.junit.jupiter.api.Test;
-import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.annotation.Nonnull;
 import javax.swing.*;
@@ -35,73 +35,74 @@ import static org.uitest4j.swing.test.core.NeverMatchingComponentMatcher.neverMa
  * @author Alex Ruiz
  */
 public class AbstractContainerFixture_menuItem_Test extends RobotBasedTestCase {
-  private ContainerFixture fixture;
-  private MyWindow window;
+	private ContainerFixture fixture;
+	private MyWindow window;
 
-  @Override
-  protected final void onSetUp() {
-    window = MyWindow.createNew(getClass());
-    fixture = new ContainerFixture(robot, window);
-  }
+	@Override
+	protected final void onSetUp() {
+		window = MyWindow.createNew(getClass());
+		fixture = new ContainerFixture(robot, window);
+	}
 
-  @Test
-  void should_Find_Visible_JMenuItem_By_Path() {
-    robot.showWindow(window);
-    JMenuItemFixture menuItem = fixture.menuItemWithPath("File", "New");
-    assertThat(menuItem.target()).isSameAs(window.menuNew);
-  }
+	@Test
+	void should_Find_Visible_JMenuItem_By_Path() {
+		robot.showWindow(window);
+		JMenuItemFixture menuItem = fixture.menuItemWithPath("File", "New");
+		assertThat(menuItem.target()).isSameAs(window.menuNew);
+	}
 
-  @Test
-  void should_Fail_If_Visible_JMenuItem_Not_Found_By_Path() {
-    ExpectedException.assertContainsMessage(ComponentLookupException.class, () -> fixture.menuItemWithPath("Edit"), "Unable to find component using matcher", "label='Edit'");
-  }
+	@Test
+	void should_Fail_If_Visible_JMenuItem_Not_Found_By_Path() {
+		ExpectedException.assertContainsMessage(ComponentLookupException.class, () -> fixture.menuItemWithPath("Edit"), "Unable to find component using matcher", "label='Edit'");
+	}
 
-  @Test
-  void should_Find_Visible_JMenuItem_By_Name() {
-    robot.showWindow(window);
-    JMenuItemFixture menuItem = fixture.menuItem("menuNew");
-    assertThat(menuItem.target()).isSameAs(window.menuNew);
-  }
+	@Test
+	void should_Find_Visible_JMenuItem_By_Name() {
+		robot.showWindow(window);
+		JMenuItemFixture menuItem = fixture.menuItem("menuNew");
+		assertThat(menuItem.target()).isSameAs(window.menuNew);
+	}
 
-  @Test
-  void should_Fail_If_Visible_JMenuItem_Not_Found_By_Name() {
-    ExpectedException.assertContainsMessage(ComponentLookupException.class, () -> fixture.menuItem("myMenuNew"), "Unable to find component using matcher",
-                                  "name='myMenuNew', type=javax.swing.JMenuItem, requireShowing=false");
-  }
+	@Test
+	void should_Fail_If_Visible_JMenuItem_Not_Found_By_Name() {
+		ExpectedException.assertContainsMessage(ComponentLookupException.class, () -> fixture.menuItem("myMenuNew"), "Unable to find component using matcher",
+				"name='myMenuNew', type=javax.swing.JMenuItem, requireShowing=false");
+	}
 
-  @Test
-  void should_Find_Visible_JMenuItem_By_Matcher() {
-    robot.showWindow(window);
-    JMenuItemFixture menuItem = fixture.menuItem(new GenericTypeMatcher<JMenuItem>(JMenuItem.class) {
-      @Override
-      protected boolean isMatching(@Nonnull JMenuItem m) {
-        return "New".equals(m.getText());
-      }
-    });
-    assertThat(menuItem.target()).isSameAs(window.menuNew);
-  }
+	@Test
+	void should_Find_Visible_JMenuItem_By_Matcher() {
+		robot.showWindow(window);
+		JMenuItemFixture menuItem = fixture.menuItem(new GenericTypeMatcher<>(JMenuItem.class) {
+			@Override
+			protected boolean isMatching(@Nonnull JMenuItem m) {
+				return "New".equals(m.getText());
+			}
+		});
+		assertThat(menuItem.target()).isSameAs(window.menuNew);
+	}
 
-  @Test
-  void should_Fail_If_Visible_JMenuItem_Not_Found_By_Matcher() {
-    ExpectedException.assertContainsMessage(ComponentLookupException.class, () -> fixture.menuItem(neverMatches(JMenuItem.class)), "Unable to find component using matcher");
-  }
+	@Test
+	void should_Fail_If_Visible_JMenuItem_Not_Found_By_Matcher() {
+		ExpectedException.assertContainsMessage(ComponentLookupException.class, () -> fixture.menuItem(neverMatches(JMenuItem.class)), "Unable to find component using matcher");
+	}
 
-  private static class MyWindow extends TestWindow {
-    final JMenu menuFile = new JMenu("File");
-    final JMenuItem menuNew = new JMenuItem("New");
+	private static class MyWindow extends TestWindow {
+		final JMenu menuFile = new JMenu("File");
+		final JMenuItem menuNew = new JMenuItem("New");
 
-    @RunsInEDT
-    static @Nonnull MyWindow createNew(final @Nonnull Class<?> testClass) {
-      return checkNotNull(execute(() -> new MyWindow(testClass)));
-    }
+		@RunsInEDT
+		static @Nonnull
+		MyWindow createNew(final @Nonnull Class<?> testClass) {
+			return checkNotNull(execute(() -> new MyWindow(testClass)));
+		}
 
-    private MyWindow(@Nonnull Class<?> testClass) {
-      super(testClass);
-      setJMenuBar(new JMenuBar());
-      menuFile.add(menuNew);
-      menuNew.setName("menuNew");
-      getJMenuBar().add(menuFile);
-      setPreferredSize(new Dimension(80, 60));
-    }
-  }
+		private MyWindow(@Nonnull Class<?> testClass) {
+			super(testClass);
+			setJMenuBar(new JMenuBar());
+			menuFile.add(menuNew);
+			menuNew.setName("menuNew");
+			getJMenuBar().add(menuFile);
+			setPreferredSize(new Dimension(80, 60));
+		}
+	}
 }
