@@ -36,7 +36,7 @@ public final class JButtonMatcher extends NamedComponentMatcherTemplate<JButton>
    * </p>
    *
    * <pre>
-   * JButtonMatcher m = {@link #withName(String) withName}("ok").{@link #andText(String) andText}("OK");
+   * JButtonMatcher m = withName("ok").{@link #andText(String) andText}("OK");
    * </pre>
    *
    * <p>
@@ -45,7 +45,7 @@ public final class JButtonMatcher extends NamedComponentMatcherTemplate<JButton>
    * </p>
    *
    * <pre>
-   * JButtonMatcher m = {@link #withName(String) withName}("ok").{@link #andText(String) andText}("OK").{@link #andShowing() andShowing}();
+   * JButtonMatcher m = withName("ok").{@link #andText(String) andText}("OK").{@link #andShowing() andShowing}();
    * </pre>
    *
    * @param name the name to match.
@@ -65,7 +65,7 @@ public final class JButtonMatcher extends NamedComponentMatcherTemplate<JButton>
    * </p>
    *
    * <pre>
-   * JButtonMatcher m = {@link #withText(String) withText}("OK");
+   * JButtonMatcher m = withText("OK");
    * </pre>
    *
    * <p>
@@ -73,7 +73,8 @@ public final class JButtonMatcher extends NamedComponentMatcherTemplate<JButton>
    * </p>
    *
    * <pre>
-   * JButtonMatcher m = {@link #withText(String) withText}("OK").{@link #andShowing() andShowing}();
+   * JButtonMatcher m = withText("OK").{@link #andShowing() andShowing}();
+   * JButtonMatcher m = withText("OK").{@link #andShowing() andShowing}();
    * </pre>
    *
    * @param text the text to match. It can be a regular expression.
@@ -93,7 +94,7 @@ public final class JButtonMatcher extends NamedComponentMatcherTemplate<JButton>
    * </p>
    *
    * <pre>
-   * JButtonMatcher m = {@link #withText(Pattern) withText}(Pattern.compile("O.*"));
+   * JButtonMatcher m = withText(Pattern.compile("O.*"));
    * </pre>
    *
    * <p>
@@ -102,7 +103,7 @@ public final class JButtonMatcher extends NamedComponentMatcherTemplate<JButton>
    * </p>
    *
    * <pre>
-   * JButtonMatcher m = {@link #withText(Pattern) withText}(Pattern.compile("O.*")).{@link #andShowing() andShowing}();
+   * JButtonMatcher m = withText(Pattern.compile("O.*")).{@link #andShowing() andShowing}();
    * </pre>
    *
    * @param pattern the regular expression pattern to match.

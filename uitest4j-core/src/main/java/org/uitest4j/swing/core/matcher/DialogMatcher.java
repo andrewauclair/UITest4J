@@ -37,7 +37,7 @@ public final class DialogMatcher extends NamedComponentMatcherTemplate<Dialog> {
    * </p>
    *
    * <pre>
-   * DialogMatcher m = {@link #withName(String) withName}("saveFile").{@link #andTitle(String) andTitle}("Save File");
+   * DialogMatcher m = withName("saveFile").{@link #andTitle(String) andTitle}("Save File");
    * </pre>
    *
    * <p>
@@ -46,7 +46,7 @@ public final class DialogMatcher extends NamedComponentMatcherTemplate<Dialog> {
    * </p>
    *
    * <pre>
-   * DialogMatcher m = {@link #withName(String) withName}("saveFile").{@link #andTitle(String) andTitle}("Save File").{@link #andShowing() andShowing}();
+   * DialogMatcher m = withName("saveFile").{@link #andTitle(String) andTitle}("Save File").{@link #andShowing() andShowing}();
    * </pre>
    *
    * @param name the id to match.
@@ -66,7 +66,7 @@ public final class DialogMatcher extends NamedComponentMatcherTemplate<Dialog> {
    * </p>
    *
    * <pre>
-   * DialogMatcher m = {@link #withTitle(String) withTitle}("Save File");
+   * DialogMatcher m = withTitle("Save File");
    * </pre>
    *
    * <p>
@@ -74,7 +74,7 @@ public final class DialogMatcher extends NamedComponentMatcherTemplate<Dialog> {
    * </p>
    *
    * <pre>
-   * DialogMatcher m = {@link #withTitle(String) withTitle}("Save File").{@link #andShowing() andShowing}();
+   * DialogMatcher m = withTitle("Save File").{@link #andShowing() andShowing}();
    * </pre>
    *
    * @param title the title to match. It can be a regular expression.
@@ -94,7 +94,7 @@ public final class DialogMatcher extends NamedComponentMatcherTemplate<Dialog> {
    * </p>
    *
    * <pre>
-   * DialogMatcher m = {@link #withTitle(Pattern) withTitle}(Pattern.compile("Sav.*"));
+   * DialogMatcher m = withTitle(Pattern.compile("Sav.*"));
    * </pre>
    *
    * <p>
@@ -103,7 +103,7 @@ public final class DialogMatcher extends NamedComponentMatcherTemplate<Dialog> {
    * </p>
    *
    * <pre>
-   * DialogMatcher m = {@link #withTitle(Pattern) withTitle}(Pattern.compile("Sav.*")).{@link #andShowing() andShowing}();
+   * DialogMatcher m = withTitle(Pattern.compile("Sav.*")).{@link #andShowing() andShowing}();
    * </pre>
    *
    * @param pattern the regular expression pattern to match.

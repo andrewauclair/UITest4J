@@ -37,7 +37,7 @@ public final class FrameMatcher extends NamedComponentMatcherTemplate<Frame> {
    * </p>
    *
    * <pre>
-   * FrameMatcher m = {@link #withName(String) withName}("myApp").{@link #andTitle(String) andTitle}("My App");
+   * FrameMatcher m = withName("myApp").{@link #andTitle(String) andTitle}("My App");
    * </pre>
    *
    * <p>
@@ -46,7 +46,7 @@ public final class FrameMatcher extends NamedComponentMatcherTemplate<Frame> {
    * </p>
    *
    * <pre>
-   * FrameMatcher m = {@link #withName(String) withName}("myApp").{@link #andTitle(String) andTitle}("My App").{@link #andShowing() andShowing}();
+   * FrameMatcher m = withName("myApp").{@link #andTitle(String) andTitle}("My App").{@link #andShowing() andShowing}();
    * </pre>
    *
    * @param name the id to match.
@@ -66,7 +66,7 @@ public final class FrameMatcher extends NamedComponentMatcherTemplate<Frame> {
    * </p>
    *
    * <pre>
-   * FrameMatcher m = {@link #withTitle(String) withTitle}("My App");
+   * FrameMatcher m = withTitle("My App");
    * </pre>
    *
    * <p>
@@ -74,7 +74,7 @@ public final class FrameMatcher extends NamedComponentMatcherTemplate<Frame> {
    * </p>
    *
    * <pre>
-   * FrameMatcher m = {@link #withTitle(String) withTitle}("My App").{@link #andShowing() andShowing}();
+   * FrameMatcher m = withTitle("My App").{@link #andShowing() andShowing}();
    * </pre>
    *
    * @param title the title to match. It can be a regular expression.
@@ -94,7 +94,7 @@ public final class FrameMatcher extends NamedComponentMatcherTemplate<Frame> {
    * </p>
    *
    * <pre>
-   * FrameMatcher m = {@link #withTitle(Pattern) withTitle}(Pattern.compile("My.*"));
+   * FrameMatcher m = withTitle(Pattern.compile("My.*"));
    * </pre>
    *
    * <p>
@@ -102,7 +102,7 @@ public final class FrameMatcher extends NamedComponentMatcherTemplate<Frame> {
    * </p>
    *
    * <pre>
-   * FrameMatcher m = {@link #withTitle(Pattern) withTitle}(Pattern.compile("My.*")).{@link #andShowing() andShowing}();
+   * FrameMatcher m = withTitle(Pattern.compile("My.*")).{@link #andShowing() andShowing}();
    * </pre>
    *
    * @param pattern the title to match.

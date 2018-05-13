@@ -17,16 +17,6 @@ import java.awt.image.BufferedImage;
 /**
  * Entry point for assertion methods for different data types (including swing types). Each method in this class is a
  * static factory for the type-specific assertion objects. The purpose of this class is to make test code more readable.
- * <p>
- * For example:
- *
- * <pre>
- * int removed = employees.removeFired();
- * {@link Assertions#assertThat(int) assertThat}(removed).{@link org.assertj.core.api.IntegerAssert#isZero isZero}();
- *
- * List&lt;Employee&gt; newEmployees = employees.hired(TODAY);
- * {@link Assertions#assertThat(Iterable) assertThat}(newEmployees).{@link org.assertj.core.api.IterableAssert#hasSize(int) hasSize}(6);
- * </pre>
  */
 public class Assertions {
 	/**

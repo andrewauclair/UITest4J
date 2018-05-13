@@ -12,41 +12,42 @@
  */
 package org.uitest4j.swing.fixture;
 
+import org.uitest4j.swing.core.Robot;
+import org.uitest4j.swing.exception.ComponentLookupException;
+
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import javax.swing.JRadioButton;
-
-import org.uitest4j.swing.core.Robot;
+import javax.swing.*;
 
 /**
  * Supports functional testing of {@code JRadioButton}s.
- * 
+ *
  * @author Yvonne Wang
  * @author Alex Ruiz
  */
 public class JRadioButtonFixture extends AbstractTwoStateButtonFixture<JRadioButtonFixture, JRadioButton> {
-  /**
-   * Creates a new {@link JRadioButtonFixture}.
-   * 
-   * @param robot performs simulation of user events on the given {@code JRadioButton}.
-   * @param target the {@code JRadioButton} to be managed by this fixture.
-   * @throws NullPointerException if {@code robot} is {@code null}.
-   * @throws NullPointerException if {@code target} is {@code null}.
-   */
-  public JRadioButtonFixture(@Nonnull Robot robot, @Nonnull JRadioButton target) {
-    super(JRadioButtonFixture.class, robot, target);
-  }
+	/**
+	 * Creates a new {@link JRadioButtonFixture}.
+	 *
+	 * @param robot  performs simulation of user events on the given {@code JRadioButton}.
+	 * @param target the {@code JRadioButton} to be managed by this fixture.
+	 * @throws NullPointerException if {@code robot} is {@code null}.
+	 * @throws NullPointerException if {@code target} is {@code null}.
+	 */
+	public JRadioButtonFixture(@Nonnull Robot robot, @Nonnull JRadioButton target) {
+		super(JRadioButtonFixture.class, robot, target);
+	}
 
-  /**
-   * Creates a new {@link JRadioButtonFixture}.
-   * 
-   * @param robot performs simulation of user events on a {@code JRadioButton}.
-   * @param buttonName the name of the {@code JRadioButton} to find using the given {@code Robot}.
-   * @throws NullPointerException if {@code robot} is {@code null}.
-   * @throws ComponentLookupException if a matching {@code JRadioButton} could not be found.
-   * @throws ComponentLookupException if more than one matching {@code JRadioButton} is found.
-   */
-  public JRadioButtonFixture(@Nonnull Robot robot, @Nullable String buttonName) {
-    super(JRadioButtonFixture.class, robot, buttonName, JRadioButton.class);
-  }
+	/**
+	 * Creates a new {@link JRadioButtonFixture}.
+	 *
+	 * @param robot      performs simulation of user events on a {@code JRadioButton}.
+	 * @param buttonName the name of the {@code JRadioButton} to find using the given {@code Robot}.
+	 * @throws NullPointerException     if {@code robot} is {@code null}.
+	 * @throws ComponentLookupException if a matching {@code JRadioButton} could not be found.
+	 * @throws ComponentLookupException if more than one matching {@code JRadioButton} is found.
+	 */
+	public JRadioButtonFixture(@Nonnull Robot robot, @Nullable String buttonName) {
+		super(JRadioButtonFixture.class, robot, buttonName, JRadioButton.class);
+	}
 }

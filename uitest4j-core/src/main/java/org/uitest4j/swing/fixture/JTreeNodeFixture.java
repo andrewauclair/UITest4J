@@ -12,36 +12,39 @@
  */
 package org.uitest4j.swing.fixture;
 
+import org.uitest4j.swing.exception.ActionFailedException;
+
 import javax.annotation.Nonnull;
 
 /**
  * Supports functional testing of single nodes in {@code JTree}s
- * 
+ *
  * @param <S> used to simulate "self types." For more information please read &quot;<a href="http://goo.gl/fjgOM"
- *          target="_blank">Emulating 'self types' using Java Generics to simplify fluent API implementation</a>.&quot;
- * 
+ *            target="_blank">Emulating 'self types' using Java Generics to simplify fluent API implementation</a>.&quot;
  * @author Alex Ruiz
  */
 public interface JTreeNodeFixture<S> extends ItemFixture<S> {
-  /**
-   * Simulates a user expanding this fixture's tree node.
-   * 
-   * @return this fixture.
-   * @throws IllegalStateException if the {@code JTree} is disabled.
-   * @throws IllegalStateException if the {@code JTree} is not showing on the screen.
-   * @throws ActionFailedException if this method fails to expand the row.
-   */
-  @Nonnull
-  S expand();
+	/**
+	 * Simulates a user expanding this fixture's tree node.
+	 *
+	 * @return this fixture.
+	 * @throws IllegalStateException if the {@code JTree} is disabled.
+	 * @throws IllegalStateException if the {@code JTree} is not showing on the screen.
+	 * @throws ActionFailedException if this method fails to expand the row.
+	 */
+	@Nonnull
+	default S expand() {
+		return null;
+	}
 
-  /**
-   * Simulates a user collapsing this fixture's tree node.
-   * 
-   * @return this fixture.
-   * @throws IllegalStateException if the {@code JTree} is disabled.
-   * @throws IllegalStateException if the {@code JTree} is not showing on the screen.
-   * @throws ActionFailedException if this method fails to collapse the row.
-   */
-  @Nonnull
-  S collapse();
+	/**
+	 * Simulates a user collapsing this fixture's tree node.
+	 *
+	 * @return this fixture.
+	 * @throws IllegalStateException if the {@code JTree} is disabled.
+	 * @throws IllegalStateException if the {@code JTree} is not showing on the screen.
+	 * @throws ActionFailedException if this method fails to collapse the row.
+	 */
+	@Nonnull
+	S collapse();
 }

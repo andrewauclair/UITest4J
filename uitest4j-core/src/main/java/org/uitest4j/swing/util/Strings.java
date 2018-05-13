@@ -118,7 +118,7 @@ public final class Strings {
    *
    * @param str the {@code String} to check.
    * @param name the name of the string to use in the AssertionFailedError, if one is thrown.
-   * @return {@Code String} the input string is checks have passed.
+   * @return {@link String} the input string is checks have passed.
    * @throws NullPointerException if the given string was null.
    * @throws IllegalArgumentException if the given string was empty.
    */

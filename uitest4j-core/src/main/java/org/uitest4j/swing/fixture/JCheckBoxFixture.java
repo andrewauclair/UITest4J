@@ -12,39 +12,40 @@
  */
 package org.uitest4j.swing.fixture;
 
-import javax.annotation.Nonnull;
-import javax.swing.JCheckBox;
-
 import org.uitest4j.swing.core.Robot;
+import org.uitest4j.swing.exception.ComponentLookupException;
+
+import javax.annotation.Nonnull;
+import javax.swing.*;
 
 /**
  * Supports functional testing of {@code JCheckBox}es.
- * 
+ *
  * @author Alex Ruiz
  */
 public class JCheckBoxFixture extends AbstractTwoStateButtonFixture<JCheckBoxFixture, JCheckBox> {
-  /**
-   * Creates a new {@link JCheckBoxFixture}.
-   * 
-   * @param robot performs simulation of user events on the given {@code JCheckBox}.
-   * @param target the {@code JCheckBox} to be managed by this fixture.
-   * @throws NullPointerException if {@code robot} is {@code null}.
-   * @throws NullPointerException if {@code target} is {@code null}.
-   */
-  public JCheckBoxFixture(@Nonnull Robot robot, @Nonnull JCheckBox target) {
-    super(JCheckBoxFixture.class, robot, target);
-  }
+	/**
+	 * Creates a new {@link JCheckBoxFixture}.
+	 *
+	 * @param robot  performs simulation of user events on the given {@code JCheckBox}.
+	 * @param target the {@code JCheckBox} to be managed by this fixture.
+	 * @throws NullPointerException if {@code robot} is {@code null}.
+	 * @throws NullPointerException if {@code target} is {@code null}.
+	 */
+	public JCheckBoxFixture(@Nonnull Robot robot, @Nonnull JCheckBox target) {
+		super(JCheckBoxFixture.class, robot, target);
+	}
 
-  /**
-   * Creates a new {@link JCheckBoxFixture}.
-   * 
-   * @param robot performs simulation of user events on a {@code JCheckBox}.
-   * @param checkBoxName the name of the {@code JCheckBox} to find using the given {@code Robot}.
-   * @throws NullPointerException if {@code robot} is {@code null}.
-   * @throws ComponentLookupException if a matching {@code JCheckBox} could not be found.
-   * @throws ComponentLookupException if more than one matching {@code JCheckBox} is found.
-   */
-  public JCheckBoxFixture(@Nonnull Robot robot, @Nonnull String checkBoxName) {
-    super(JCheckBoxFixture.class, robot, checkBoxName, JCheckBox.class);
-  }
+	/**
+	 * Creates a new {@link JCheckBoxFixture}.
+	 *
+	 * @param robot        performs simulation of user events on a {@code JCheckBox}.
+	 * @param checkBoxName the name of the {@code JCheckBox} to find using the given {@code Robot}.
+	 * @throws NullPointerException     if {@code robot} is {@code null}.
+	 * @throws ComponentLookupException if a matching {@code JCheckBox} could not be found.
+	 * @throws ComponentLookupException if more than one matching {@code JCheckBox} is found.
+	 */
+	public JCheckBoxFixture(@Nonnull Robot robot, @Nonnull String checkBoxName) {
+		super(JCheckBoxFixture.class, robot, checkBoxName, JCheckBox.class);
+	}
 }

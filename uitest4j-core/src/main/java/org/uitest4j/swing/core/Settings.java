@@ -405,7 +405,7 @@ public class Settings {
    * <code>org.assertj.swing.allow_click_on_disabled_component</code>.
    * </p>
    *
-   * @param allow new value for {@link #clickOnDisabledComponentsAllowed(boolean)}.
+   * @param allow new value for clickOnDisabledComponentsAllowed(boolean).
    */
   public void clickOnDisabledComponentsAllowed(boolean allow) {
     allowClickOnDisabled = allow;

@@ -12,65 +12,67 @@
  */
 package org.uitest4j.swing.fixture;
 
+import org.uitest4j.swing.exception.ActionFailedException;
+import org.uitest4j.swing.exception.ComponentLookupException;
+
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 /**
  * Supports functional testing of single items inside {@code JComponents} (e.g. a cell in a {@code JTable} or a row in a
  * {@code JList}).
- * 
+ *
  * @param <S> used to simulate "self types." For more information please read &quot;<a href="http://goo.gl/fjgOM"
- *          target="_blank">Emulating 'self types' using Java Generics to simplify fluent API implementation</a>.&quot;
- * 
+ *            target="_blank">Emulating 'self types' using Java Generics to simplify fluent API implementation</a>.&quot;
  * @author Yvonne Wang
  * @author Alex Ruiz
  */
 public interface ItemFixture<S> extends MouseInputSimulationFixture<S> {
-  /**
-   * Simulates a user selecting this fixture's item.
-   * 
-   * @return this fixture.
-   * @throws IllegalStateException if the component containing this fixture's item is disabled.
-   * @throws IllegalStateException if the component containing this fixture's item is not showing on the screen.
-   */
-  @Nonnull
-  S select();
+	/**
+	 * Simulates a user selecting this fixture's item.
+	 *
+	 * @return this fixture.
+	 * @throws IllegalStateException if the component containing this fixture's item is disabled.
+	 * @throws IllegalStateException if the component containing this fixture's item is not showing on the screen.
+	 */
+	@Nonnull
+	S select();
 
-  /**
-   * @return the {@code String} representation of this fixture's item, or {@code null} if one can not be obtained.
-   */
-  @Nullable
-  String value();
+	/**
+	 * @return the {@code String} representation of this fixture's item, or {@code null} if one can not be obtained.
+	 */
+	@Nullable
+	String value();
 
-  /**
-   * Simulates a user dragging this fixture's item.
-   * 
-   * @return this fixture.
-   * @throws IllegalStateException if the component containing this fixture's item is disabled.
-   * @throws IllegalStateException if the component containing this fixture's item is not showing on the screen.
-   */
-  @Nonnull
-  S drag();
+	/**
+	 * Simulates a user dragging this fixture's item.
+	 *
+	 * @return this fixture.
+	 * @throws IllegalStateException if the component containing this fixture's item is disabled.
+	 * @throws IllegalStateException if the component containing this fixture's item is not showing on the screen.
+	 */
+	@Nonnull
+	S drag();
 
-  /**
-   * Simulates a user dropping into this fixture's item.
-   * 
-   * @return this fixture.
-   * @throws IllegalStateException if the component containing this fixture's item is disabled.
-   * @throws IllegalStateException if the component containing this fixture's item is not showing on the screen.
-   * @throws ActionFailedException if there is no drag action in effect.
-   */
-  @Nonnull
-  S drop();
+	/**
+	 * Simulates a user dropping into this fixture's item.
+	 *
+	 * @return this fixture.
+	 * @throws IllegalStateException if the component containing this fixture's item is disabled.
+	 * @throws IllegalStateException if the component containing this fixture's item is not showing on the screen.
+	 * @throws ActionFailedException if there is no drag action in effect.
+	 */
+	@Nonnull
+	S drop();
 
-  /**
-   * Shows a pop-up menu using this fixture's item as the invoker of the pop-up menu.
-   * 
-   * @return a fixture that handles functional testing of the displayed pop-up menu.
-   * @throws IllegalStateException if the component containing this fixture's item is disabled.
-   * @throws IllegalStateException if the component containing this fixture's item is not showing on the screen.
-   * @throws ComponentLookupException if a pop-up menu cannot be found.
-   */
-  @Nonnull
-  JPopupMenuFixture showPopupMenu();
+	/**
+	 * Shows a pop-up menu using this fixture's item as the invoker of the pop-up menu.
+	 *
+	 * @return a fixture that handles functional testing of the displayed pop-up menu.
+	 * @throws IllegalStateException    if the component containing this fixture's item is disabled.
+	 * @throws IllegalStateException    if the component containing this fixture's item is not showing on the screen.
+	 * @throws ComponentLookupException if a pop-up menu cannot be found.
+	 */
+	@Nonnull
+	JPopupMenuFixture showPopupMenu();
 }

@@ -37,7 +37,7 @@ public final class JLabelMatcher extends NamedComponentMatcherTemplate<JLabel> {
    * </p>
    *
    * <pre>
-   * JLabelMatcher m = {@link #withName(String) withName}("firstName").{@link #andText(String) andText}("First Name:");
+   * JLabelMatcher m = withName("firstName").{@link #andText(String) andText}("First Name:");
    * </pre>
    *
    * <p>
@@ -46,7 +46,7 @@ public final class JLabelMatcher extends NamedComponentMatcherTemplate<JLabel> {
    * </p>
    *
    * <pre>
-   * JLabelMatcher m = {@link #withName(String) withName}("firstName").{@link #andText(String) andText}("First Name:").{@link #andShowing() andShowing}();
+   * JLabelMatcher m = withName("firstName").{@link #andText(String) andText}("First Name:").{@link #andShowing() andShowing}();
    * </pre>
    *
    * @param name the id to match.
@@ -66,7 +66,7 @@ public final class JLabelMatcher extends NamedComponentMatcherTemplate<JLabel> {
    * </p>
    *
    * <pre>
-   * JLabelMatcher m = {@link #withText(String) withText}("First Name:");
+   * JLabelMatcher m = withText("First Name:");
    * </pre>
    *
    * <p>
@@ -74,7 +74,7 @@ public final class JLabelMatcher extends NamedComponentMatcherTemplate<JLabel> {
    * </p>
    *
    * <pre>
-   * JLabelMatcher m = {@link #withText(String) withText}("First Name:").{@link #andShowing() andShowing}();
+   * JLabelMatcher m = withText("First Name:").{@link #andShowing() andShowing}();
    * </pre>
    *
    * @param text the text to match. It can be a regular expression.
@@ -94,7 +94,7 @@ public final class JLabelMatcher extends NamedComponentMatcherTemplate<JLabel> {
    * </p>
    *
    * <pre>
-   * JLabelMatcher m = {@link #withText(Pattern) withText}(Pattern.compile("F.*");
+   * JLabelMatcher m = withText(Pattern.compile("F.*");
    * </pre>
    *
    * <p>
@@ -102,7 +102,7 @@ public final class JLabelMatcher extends NamedComponentMatcherTemplate<JLabel> {
    * </p>
    *
    * <pre>
-   * JLabelMatcher m = {@link #withText(Pattern) withText}(Pattern.compile("F.*").{@link #andShowing() andShowing}();
+   * JLabelMatcher m = withText(Pattern.compile("F.*").{@link #andShowing() andShowing}();
    * </pre>
    *
    * @param textPattern the regular expression pattern to match.

@@ -125,7 +125,7 @@ public final class ScreenLock {
 
   /**
    * @return the object currently owning the lock. Or <code>null</code> if no object is owning the lock. If
-   *         {@link #acquired()} is <code>true</code> calling {@link #acquiredBy(Object)} with {@link #getOwner()}
+   *         {@link #acquired()} is <code>true</code> calling {@link #acquiredBy(Object)} with getOwner()
    *         returns <code>true</code>.
    */
   @Nullable public Object getOwner() {

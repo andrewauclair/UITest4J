@@ -37,7 +37,7 @@ public final class JTextComponentMatcher extends NamedComponentMatcherTemplate<J
    * </p>
    *
    * <pre>
-   * JTextComponentMatcher m = {@link #withName(String) withName}("lastName").{@link #andText(String) andText}("Wang");
+   * JTextComponentMatcher m = withName("lastName").{@link #andText(String) andText}("Wang");
    * </pre>
    *
    * <p>
@@ -46,7 +46,7 @@ public final class JTextComponentMatcher extends NamedComponentMatcherTemplate<J
    * </p>
    *
    * <pre>
-   * JTextComponentMatcher m = {@link #withName(String) withName}("lastName").{@link #andText(String) andText}("Wang").{@link #andShowing() andShowing}();
+   * JTextComponentMatcher m = withName("lastName").{@link #andText(String) andText}("Wang").{@link #andShowing() andShowing}();
    * </pre>
    *
    * @param name the id to match.
@@ -66,7 +66,7 @@ public final class JTextComponentMatcher extends NamedComponentMatcherTemplate<J
    * </p>
    *
    * <pre>
-   * JTextComponentMatcher m = {@link #withText(String) withText}("Wang");
+   * JTextComponentMatcher m = withText("Wang");
    * </pre>
    *
    * <p>
@@ -75,7 +75,7 @@ public final class JTextComponentMatcher extends NamedComponentMatcherTemplate<J
    * </p>
    *
    * <pre>
-   * JTextComponentMatcher m = {@link #withText(String) withText}("Wang").{@link #andShowing() andShowing}();
+   * JTextComponentMatcher m = withText("Wang").{@link #andShowing() andShowing}();
    * </pre>
    *
    * @param text the text to match. It can be a regular expression.
@@ -95,7 +95,7 @@ public final class JTextComponentMatcher extends NamedComponentMatcherTemplate<J
    * </p>
    *
    * <pre>
-   * JTextComponentMatcher m = {@link #withText(Pattern) withText}(Pattern.compile("W.*"));
+   * JTextComponentMatcher m = withText(Pattern.compile("W.*"));
    * </pre>
    *
    * <p>
@@ -104,7 +104,7 @@ public final class JTextComponentMatcher extends NamedComponentMatcherTemplate<J
    * </p>
    *
    * <pre>
-   * JTextComponentMatcher m = {@link #withText(Pattern) withText}(Pattern.compile("W.*")).{@link #andShowing() andShowing}();
+   * JTextComponentMatcher m = withText(Pattern.compile("W.*")).{@link #andShowing() andShowing}();
    * </pre>
    *
    * @param textPattern the text to match. It can be a regular expression.

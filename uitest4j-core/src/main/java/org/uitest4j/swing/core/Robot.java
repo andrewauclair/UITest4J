@@ -120,7 +120,7 @@ public interface Robot {
    *
    * <p>
    * <strong>Note:</strong> The preferred method to use to clean up resources is {@link #cleanUp()}. Using
-   * {@link #cleanUpWithoutDisposingWindows()} may leave many windows open after each test. Use it on very special
+   * cleanUpWithoutDisposingWindows() may leave many windows open after each test. Use it on very special
    * cases. Please read <a href="http://code.google.com/p/fest/issues/detail?id=138" target="_blank">bug 138</a> for
    * more details.
    * </p>
