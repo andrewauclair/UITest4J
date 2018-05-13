@@ -94,7 +94,7 @@ public class BasicJComboBoxCellReader implements JComboBoxCellReader {
 
 	@RunsInCurrentThread
 	@Nullable
-	private Component cellRendererComponent(@Nonnull JComboBox comboBox, int index) {
+	private Component cellRendererComponent(@Nonnull JComboBox<?> comboBox, int index) {
 		Object item = comboBox.getItemAt(index);
 		ListCellRenderer renderer = comboBox.getRenderer();
 		return renderer.getListCellRendererComponent(REFERENCE_JLIST, item, index, true, true);
