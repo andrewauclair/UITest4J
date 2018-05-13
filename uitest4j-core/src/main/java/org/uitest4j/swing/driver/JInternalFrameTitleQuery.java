@@ -30,7 +30,7 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 final class JInternalFrameTitleQuery {
   @RunsInEDT
   static @Nullable String titleOf(final @Nonnull JInternalFrame f) {
-    return execute(() -> f.getTitle());
+    return execute(f::getTitle);
   }
 
   private JInternalFrameTitleQuery() {

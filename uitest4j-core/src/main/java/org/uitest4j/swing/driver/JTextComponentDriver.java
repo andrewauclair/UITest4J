@@ -28,6 +28,7 @@ import javax.swing.*;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.JTextComponent;
 import java.awt.*;
+import java.awt.geom.Rectangle2D;
 import java.util.Objects;
 import java.util.regex.Pattern;
 
@@ -245,18 +246,18 @@ public class JTextComponentDriver extends JComponentDriver implements TextDispla
 	@RunsInCurrentThread
 	@Nonnull
 	private static Rectangle locationOf(@Nonnull JTextComponent textBox, int index) {
-		Rectangle r = null;
+		Rectangle2D r;
 		try {
-			r = textBox.modelToView(index);
+			r = textBox.modelToView2D(index);
 		}
 		catch (BadLocationException e) {
 			throw cannotGetLocation(textBox, index);
 		}
 		if (r != null) {
-			if (Platform.isMacintosh() && r.y == -1) {
-				r.y = 0;
+			if (Platform.isMacintosh() && r.getY() == -1.0) {
+				r.setRect(r.getX(), 0, r.getWidth(), r.getHeight());
 			}
-			return r;
+			return r.getBounds();
 		}
 		throw cannotGetLocation(textBox, index);
 	}

@@ -225,7 +225,7 @@ public class JSpinnerDriver extends JComponentDriver {
 
 	@RunsInEDT
 	private static void commit(final @Nonnull JSpinner spinner) {
-		execute(() -> spinner.commitEdit());
+		execute(spinner::commitEdit);
 	}
 
 	/**

@@ -90,11 +90,7 @@ public class BasicRobot implements Robot {
 	@GuardedBy("this")
 	private volatile boolean active;
 
-	private static final Runnable EMPTY_RUNNABLE = new Runnable() {
-		@Override
-		public void run() {
-		}
-	};
+	private static final Runnable EMPTY_RUNNABLE = () -> {};
 
 	private static final int BUTTON_MASK = BUTTON1_DOWN_MASK | BUTTON2_DOWN_MASK | BUTTON3_DOWN_MASK;
 
@@ -292,7 +288,7 @@ public class BasicRobot implements Robot {
 
 	@RunsInEDT
 	private static Pair<Window, Window> windowAncestorsOf(final @Nullable Component one, final @Nullable Component two) {
-		return execute(new GuiQuery<Pair<Window, Window>>() {
+		return execute(new GuiQuery<>() {
 			@Override
 			protected Pair<Window, Window> executeInEDT() throws Throwable {
 				return Pair.of(windowAncestor(one), windowAncestor(two));
@@ -471,7 +467,7 @@ public class BasicRobot implements Robot {
 	}
 
 	@Override
-	public void pressModifiersWhileRunning(int modifierMask, Runnable runnable) {
+	public void pressModifiersWhileRunning(int modifierMask, @Nonnull Runnable runnable) {
 		pressModifiers(modifierMask);
 		try {
 			runnable.run();
@@ -654,7 +650,7 @@ public class BasicRobot implements Robot {
 	@RunsInEDT
 	@Nonnull
 	private static Pair<Component, Point> invokerAndCenterOfInvoker(final @Nonnull JPopupMenu popupMenu) {
-		Pair<Component, Point> result = execute(new GuiQuery<Pair<Component, Point>>() {
+		Pair<Component, Point> result = execute(new GuiQuery<>() {
 			@Override
 			protected Pair<Component, Point> executeInEDT() {
 				Component invoker = Objects.requireNonNull(popupMenu.getInvoker());
@@ -736,7 +732,7 @@ public class BasicRobot implements Robot {
 	}
 
 	@Override
-	public void pressKeyWhileRunning(int keyCode, Runnable runnable) {
+	public void pressKeyWhileRunning(int keyCode, @Nonnull Runnable runnable) {
 		pressKey(keyCode);
 		try {
 			runnable.run();
@@ -974,8 +970,7 @@ public class BasicRobot implements Robot {
 	@Nonnull
 	private static ComponentLookupException multiplePopupMenusFound(@Nonnull Collection<Component> found) {
 		StringBuilder message = new StringBuilder();
-		String format = "Found more than one popup menu.%n%nFound:";
-		message.append(String.format(format));
+		message.append("Found more than one popup menu.%n%nFound:");
 		appendComponents(message, found);
 		if (!found.isEmpty()) {
 			message.append(lineSeparator());

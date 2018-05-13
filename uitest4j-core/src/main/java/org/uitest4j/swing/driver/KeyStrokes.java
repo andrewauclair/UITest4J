@@ -44,7 +44,7 @@ final class KeyStrokes {
       }
     }
     if (!keyStrokes.isEmpty()) {
-      return keyStrokes.toArray(new KeyStroke[keyStrokes.size()]);
+      return keyStrokes.toArray(new KeyStroke[0]);
     }
     throw actionFailure(String.format("Unable to find valid input event for action with key '%s'", actionName));
   }

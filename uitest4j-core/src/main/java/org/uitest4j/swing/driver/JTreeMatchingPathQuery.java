@@ -38,13 +38,14 @@ final class JTreeMatchingPathQuery {
   @RunsInEDT
   static @Nonnull TreePath verifyJTreeIsReadyAndFindMatchingPath(final @Nonnull JTree tree, final @Nonnull String path,
                                                                  final @Nonnull JTreePathFinder pathFinder) {
-    TreePath result = execute(new GuiQuery<TreePath>() {
-      @Override
-      @Nonnull protected TreePath executeInEDT() {
-        checkEnabledAndShowing(tree);
-        return matchingPathWithRootIfInvisible(tree, path, pathFinder);
-      }
-    });
+    TreePath result = execute(new GuiQuery<>() {
+		@Override
+		@Nonnull
+		protected TreePath executeInEDT() {
+			checkEnabledAndShowing(tree);
+			return matchingPathWithRootIfInvisible(tree, path, pathFinder);
+		}
+	});
     return Objects.requireNonNull(result);
   }
 

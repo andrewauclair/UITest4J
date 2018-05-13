@@ -18,6 +18,8 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.swing.text.JTextComponent;
 
+import java.util.concurrent.Callable;
+
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
@@ -29,7 +31,7 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 final class JTextComponentTextQuery {
   @RunsInEDT
   static @Nullable String textOf(final @Nonnull JTextComponent textComponent) {
-    return execute(() -> textComponent.getText());
+    return execute((Callable<String>) textComponent::getText);
   }
 
   private JTextComponentTextQuery() {

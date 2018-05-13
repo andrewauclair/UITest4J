@@ -28,7 +28,7 @@ class KeyStrokeMappingProviderFactory {
       if (!KeyStrokeMappingProvider.class.isAssignableFrom(type)) {
         return null;
       }
-      return (KeyStrokeMappingProvider) type.newInstance();
+      return (KeyStrokeMappingProvider) type.getDeclaredConstructor().newInstance();
     } catch (Throwable t) {
       return null;
     }

@@ -63,9 +63,9 @@ class Context {
    */
   @Nonnull
   Collection<Window> rootWindows() {
-    Set<Window> rootWindows = new LinkedHashSet<>();
+    Set<Window> rootWindows;
     synchronized (lock) {
-      rootWindows.addAll(windowEventQueueMapping.windows());
+      rootWindows = new LinkedHashSet<>(windowEventQueueMapping.windows());
     }
     rootWindows.addAll(Arrays.asList(Frame.getFrames()));
     rootWindows.addAll(Arrays.asList(Window.getOwnerlessWindows()));

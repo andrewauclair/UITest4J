@@ -29,7 +29,7 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 class JOptionPaneMessageTypeQuery {
 	@RunsInEDT
 	static int messageTypeOf(final @Nonnull JOptionPane optionPane) {
-		Integer result = execute(() -> optionPane.getMessageType());
+		Integer result = execute(optionPane::getMessageType);
 		return Objects.requireNonNull(result);
 	}
 

@@ -119,14 +119,14 @@ public final class Containers {
   @RunsInEDT
   @Nonnull public static
   JFrame frameFor(final @Nonnull Container contentPane) {
-	JFrame result = execute(new GuiQuery<JFrame>() {
-	  @Override
-	  protected JFrame executeInEDT() throws Throwable {
-		JFrame frame = new JFrame("Created by FEST");
-		frame.setName(CREATED_FRAME_NAME);
-		frame.setContentPane(contentPane);
-		return frame;
-	  }
+	JFrame result = execute(new GuiQuery<>() {
+		@Override
+		protected JFrame executeInEDT() throws Throwable {
+			JFrame frame = new JFrame("Created by FEST");
+			frame.setName(CREATED_FRAME_NAME);
+			frame.setContentPane(contentPane);
+			return frame;
+		}
 	});
 	  return Objects.requireNonNull(result);
   }

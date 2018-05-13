@@ -28,7 +28,7 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 final class AbstractButtonTextQuery {
   @RunsInEDT
   static @Nonnull String textOf(final @Nonnull AbstractButton button) {
-    String result = execute(() -> button.getText());
+    String result = execute(button::getText);
     return result == null ? "" : result;
   }
 

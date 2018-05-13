@@ -70,12 +70,12 @@ public class GuiActionRunner {
    * @see #execute(GuiQuery)
    */
   @Nullable public static <T> T execute(@Nonnull Callable<T> query) {
-    return execute(new GuiQuery<T>() {
-      @Override
-      protected T executeInEDT() throws Throwable {
-        return query.call();
-      }
-    });
+    return execute(new GuiQuery<>() {
+		@Override
+		protected T executeInEDT() throws Throwable {
+			return query.call();
+		}
+	});
   }
 
   /**

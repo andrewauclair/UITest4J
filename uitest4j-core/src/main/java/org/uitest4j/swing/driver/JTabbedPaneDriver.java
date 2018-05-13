@@ -145,7 +145,7 @@ public class JTabbedPaneDriver extends JComponentDriver {
 	private static Pair<Integer, Point> tabToSelectInfo(final @Nonnull JTabbedPaneLocation location,
 														final @Nonnull JTabbedPane tabbedPane,
 														final @Nonnull TextMatcher matcher) {
-		Pair<Integer, Point> result = execute(new GuiQuery<Pair<Integer, Point>>() {
+		Pair<Integer, Point> result = execute(new GuiQuery<>() {
 			@Override
 			protected Pair<Integer, Point> executeInEDT() {
 				checkEnabledAndShowing(tabbedPane);

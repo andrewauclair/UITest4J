@@ -36,10 +36,10 @@ public class BasicJComboBoxCellReader implements JComboBoxCellReader {
 
 	@Nonnull
 	private static <T> JList<T> newJList() {
-		JList<T> result = execute(new GuiQuery<JList<T>>() {
+		JList<T> result = execute(new GuiQuery<>() {
 			@Override
 			protected JList<T> executeInEDT() {
-				return new JList<T>();
+				return new JList<>();
 			}
 		});
 		return Objects.requireNonNull(result);

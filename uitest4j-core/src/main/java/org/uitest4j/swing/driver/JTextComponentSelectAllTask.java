@@ -27,7 +27,7 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 final class JTextComponentSelectAllTask {
   @RunsInEDT
   static void selectAllText(final @Nonnull JTextComponent textBox) {
-    execute(() -> textBox.selectAll());
+    execute(textBox::selectAll);
   }
 
   private JTextComponentSelectAllTask() {

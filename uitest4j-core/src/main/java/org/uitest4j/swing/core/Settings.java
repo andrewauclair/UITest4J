@@ -79,10 +79,10 @@ public class Settings {
     DEFAULT_DELAY_DRAG = get(p, "delay.drag", 0);
     DEFAULT_DELAY_DROP = get(p, "delay.drop", 0);
     DEFAULT_DELAY_POSTING_EVENTS = get(p, "delay.posting_events", 100);
-    DEFAULT_LOOKUP_SCOPE = getGeneric(p, "lookup_scope", t -> ComponentLookupScope.valueOf(t), DEFAULT);
+    DEFAULT_LOOKUP_SCOPE = getGeneric(p, "lookup_scope", ComponentLookupScope::valueOf, DEFAULT);
     DEFAULT_TIMEOUT_IDLE = get(p, "timeout.idle", 10000);
     DEFAULT_CLICK_ON_DISABLED = get(p, "allow_click_on_disabled_component", true);
-    DEFAULT_DRAG_BUTTON = getGeneric(p, "drag.button", t -> MouseButton.valueOf(t), LEFT_BUTTON);
+    DEFAULT_DRAG_BUTTON = getGeneric(p, "drag.button", MouseButton::valueOf, LEFT_BUTTON);
 
     PRESERVE_SCREENSHOTS = get(p, "preserve_screenshots", false);
   }
@@ -101,11 +101,11 @@ public class Settings {
   }
 
   private static int get(Properties p, String suffix, int defaultValue) {
-    return getGeneric(p, suffix, t -> Integer.parseInt(t), defaultValue);
+    return getGeneric(p, suffix, Integer::parseInt, defaultValue);
   }
 
   private static boolean get(Properties p, String suffix, boolean defaultValue) {
-    return getGeneric(p, suffix, t -> Boolean.parseBoolean(t), defaultValue);
+    return getGeneric(p, suffix, Boolean::parseBoolean, defaultValue);
   }
 
   private ComponentLookupScope componentLookupScope;

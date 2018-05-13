@@ -77,12 +77,12 @@ public abstract class EventDispatchThreadedEventListener implements AWTEventList
   /** Processes any events that were generated off the event queue but not immediately handled. */
   protected void processDeferredEvents() {
     // Make a copy of the deferred events and empty the queue
-	  List<AWTEvent> queue = new ArrayList<>();
+	  List<AWTEvent> queue;
     synchronized (lock) {
       // In the rare case where there are multiple simultaneous dispatch threads, it's possible for deferred events to
       // get posted while another event is being processed. At most this will mean a few events get processed out of
       // order, but they will likely be from different event dispatch contexts, so it shouldn't matter.
-      queue.addAll(deferredEvents);
+      queue = new ArrayList<>(deferredEvents);
       deferredEvents.clear();
     }
     while (queue.size() > 0) {

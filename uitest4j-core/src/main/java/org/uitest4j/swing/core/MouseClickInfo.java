@@ -89,12 +89,12 @@ public final class MouseClickInfo {
 	 */
 	@Nonnull
 	public static MouseClickInfo button(@Nonnull MouseButton button) {
-		return new MouseClickInfo(button, 1);
+		return new MouseClickInfo(button);
 	}
 
-	private MouseClickInfo(@Nonnull MouseButton button, int times) {
+	private MouseClickInfo(@Nonnull MouseButton button) {
 		this.button = Objects.requireNonNull(button);
-		this.times = times;
+		this.times = 1;
 	}
 
 	/**

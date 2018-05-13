@@ -64,12 +64,12 @@ public final class KeyPressInfo {
    * @return the created {@code KeyPressInfo}.
    */
   @Nonnull public static KeyPressInfo keyCode(int keyCode) {
-    return new KeyPressInfo(keyCode, NO_MODIFIERS);
+    return new KeyPressInfo(keyCode);
   }
 
-  private KeyPressInfo(int keyCode, @Nonnull int[] modifiers) {
+  private KeyPressInfo(int keyCode) {
     this.keyCode = keyCode;
-    this.modifiers = modifiers;
+    this.modifiers = KeyPressInfo.NO_MODIFIERS;
   }
 
   /**

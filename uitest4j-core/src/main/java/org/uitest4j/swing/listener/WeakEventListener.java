@@ -54,7 +54,7 @@ public final class WeakEventListener implements AWTEventListener {
   }
 
   private WeakEventListener(@Nonnull Toolkit toolkit, @Nonnull AWTEventListener listener) {
-    listenerReference = new WeakReference<AWTEventListener>(listener);
+    listenerReference = new WeakReference<>(listener);
     this.toolkit = toolkit;
   }
 

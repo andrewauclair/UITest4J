@@ -106,7 +106,7 @@ public class JToolBarDriver extends JComponentDriver {
 	@Nonnull
 	private static Pair<Point, Pair<Window, Point>> floatInfo(final @Nonnull JToolBar toolBar,
 															  final @Nonnull JToolBarLocation location) {
-		Pair<Point, Pair<Window, Point>> result = execute(new GuiQuery<Pair<Point, Pair<Window, Point>>>() {
+		Pair<Point, Pair<Window, Point>> result = execute(new GuiQuery<>() {
 			@Override
 			protected Pair<Point, Pair<Window, Point>> executeInEDT() {
 				checkEnabledAndShowing(toolBar);
@@ -177,14 +177,14 @@ public class JToolBarDriver extends JComponentDriver {
 	private static Pair<GenericRange<Point>, Container> unfloatInfo(final @Nonnull JToolBar toolBar,
 																	final @Nonnull String constraint,
 																	final @Nonnull JToolBarLocation location) {
-		Pair<GenericRange<Point>, Container> result = execute(new GuiQuery<Pair<GenericRange<Point>, Container>>() {
+		Pair<GenericRange<Point>, Container> result = execute(new GuiQuery<>() {
 			@Override
 			protected Pair<GenericRange<Point>, Container> executeInEDT() {
 				checkEnabledAndShowing(toolBar);
 				Container dock = dockFor(toolBar);
 				Point from = location.pointToGrab(toolBar);
 				Point to = location.dockLocation(toolBar, dock, constraint);
-				return Pair.of(new GenericRange<Point>(from, to), dock);
+				return Pair.of(new GenericRange<>(from, to), dock);
 			}
 		});
 		return Objects.requireNonNull(result);
@@ -194,7 +194,7 @@ public class JToolBarDriver extends JComponentDriver {
 	private static void validateIsNotFloating(final @Nonnull JToolBar toolBar, final @Nonnull String constraint) {
 		execute(() -> {
 			if (isJToolBarFloating(toolBar)) {
-				String msg = String.format("Failed to dock <%s> using constraint ''", format(toolBar), constraint);
+				String msg = String.format("Failed to dock <%s> using constraint '%s'", format(toolBar), constraint);
 				throw actionFailure(msg);
 			}
 		});
@@ -212,10 +212,7 @@ public class JToolBarDriver extends JComponentDriver {
 			return Objects.requireNonNull(obj);
 //      return checkNotNull(field("dockingSource").ofType(Container.class).in(toolBar.getUI()).get());
 		}
-		catch (RuntimeException e) {
-			throw actionFailure("Unable to determine dock for JToolBar");
-		}
-		catch (IllegalAccessException | NoSuchFieldException e) {
+		catch (RuntimeException | IllegalAccessException | NoSuchFieldException e) {
 			throw actionFailure("Unable to determine dock for JToolBar");
 		}
 	}

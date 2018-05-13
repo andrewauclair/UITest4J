@@ -39,14 +39,14 @@ class UnexpectedJOptionPaneFinder {
 
 	@RunsInEDT
 	void requireNoJOptionPaneIsShowing() {
-		List<Component> found = findAll(OPTION_PANE_MATCHER);
+		List<Component> found = findAll();
 		if (!found.isEmpty()) {
 			unexpectedJOptionPanesFound(found);
 		}
 	}
 
-	private List<Component> findAll(@Nonnull ComponentMatcher m) {
-		return new ArrayList<>(finder.findAll(m));
+	private List<Component> findAll() {
+		return new ArrayList<>(finder.findAll(UnexpectedJOptionPaneFinder.OPTION_PANE_MATCHER));
 	}
 
 	private void unexpectedJOptionPanesFound(@Nonnull List<Component> found) {

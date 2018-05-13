@@ -41,7 +41,7 @@ public class Pair<F, S> {
    * @return the created {@code Pair}.
    */
   @Nonnull public static <F, S> Pair<F, S> of(@Nullable F first, @Nullable S second) {
-    return new Pair<F, S>(first, second);
+    return new Pair<>(first, second);
   }
 
   Pair(@Nullable F first, @Nullable S second) {

@@ -255,7 +255,7 @@ public final class BasicComponentFinder implements ComponentFinder {
 	}
 
 	private boolean requireShowing() {
-		return requireShowingFromSettingsOr(false);
+		return requireShowingFromSettingsOr();
 	}
 
 	@RunsInEDT
@@ -397,13 +397,12 @@ public final class BasicComponentFinder implements ComponentFinder {
 	 * Returns the value of the flag "requireShowing" in the {@link ComponentLookupScope} this finder's {@link Settings}.
 	 * If the settings object is {@code null}, this method will return the provided default value.
 	 *
-	 * @param defaultValue the value to return if this matcher does not have any configuration settings.
 	 * @return the value of the flag "requireShowing" in this finder's settings, or the provided default value if this
 	 * finder does not have configuration settings.
 	 */
-	protected final boolean requireShowingFromSettingsOr(boolean defaultValue) {
+	private boolean requireShowingFromSettingsOr() {
 		if (settings == null) {
-			return defaultValue;
+			return false;
 		}
 		return settings.componentLookupScope().requireShowing();
 	}

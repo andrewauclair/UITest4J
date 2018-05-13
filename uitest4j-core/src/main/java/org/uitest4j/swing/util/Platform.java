@@ -63,8 +63,8 @@ public final class Platform {
 	}
 
 	/**
-	 * Return the modifier mask for the appropriate accelerator key for menu shortcuts: {@link java.awt.Event#CTRL_MASK} (default)
-	 * or {@link java.awt.Event#META_MASK} (MacOS).
+	 * Return the modifier mask for the appropriate accelerator key for menu shortcuts: {@link java.awt.event.InputEvent#CTRL_DOWN_MASK} (default)
+	 * or {@link java.awt.event.InputEvent#META_DOWN_MASK} (MacOS).
 	 *
 	 * @return the modifier mask for the appropriate accelerator key for menu shortcuts.
 	 * @throws java.awt.HeadlessException if {@code GraphicsEnvironment.isHeadless()}.

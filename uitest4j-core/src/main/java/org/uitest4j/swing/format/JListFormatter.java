@@ -1,4 +1,4 @@
-/**
+/*
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
  * <p>
@@ -42,7 +42,7 @@ public class JListFormatter extends ComponentFormatterTemplate {
 		JList<?> list = (JList<?>) c;
 		String format = "%s[name='%s', selectedValues=%s, contents=%s, selectionMode=%s, enabled=%b, visible=%b, showing=%b]";
 		return String.format(format, getRealClassName(c), list.getName(),
-				Arrays.toString(list.getSelectedValues()), Arrays.toString(contentsOf(list)),
+				Arrays.toString(list.getSelectedValuesList().toArray()), Arrays.toString(contentsOf(list)),
 				SELECTION_MODES.get(list.getSelectionMode()), list.isEnabled(), list.isVisible(),
 				list.isShowing());
 	}

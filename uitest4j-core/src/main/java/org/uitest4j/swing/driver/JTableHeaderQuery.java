@@ -31,7 +31,7 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 final class JTableHeaderQuery {
   @RunsInEDT
   static @Nullable JTableHeader tableHeader(final @Nonnull JTable table) {
-    return execute(() -> table.getTableHeader());
+    return execute(table::getTableHeader);
   }
 
   private JTableHeaderQuery() {

@@ -57,7 +57,7 @@ public class JTableTextComponentEditorCellWriter extends AbstractJTableCellWrite
   @RunsInEDT
   @Nonnull private JTextComponent doStartCellEditing(@Nonnull JTable table, int row, int column) {
     Point cellLocation = cellLocation(table, row, column, location());
-    JTextComponent textComponent = null;
+    JTextComponent textComponent;
     try {
       textComponent = activateEditorWithF2Key(table, row, column, cellLocation);
     } catch (ActionFailedException e) {

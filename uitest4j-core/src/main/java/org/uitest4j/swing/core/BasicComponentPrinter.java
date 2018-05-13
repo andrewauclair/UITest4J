@@ -43,12 +43,7 @@ public final class BasicComponentPrinter implements ComponentPrinter {
 
 	@Nonnull
 	private static ComponentMatcher alwaysMatches() {
-		return new ComponentMatcher() {
-			@Override
-			public boolean matches(@Nullable Component c) {
-				return true;
-			}
-		};
+		return c -> true;
 	}
 
 	private final ComponentHierarchy hierarchy;

@@ -112,7 +112,7 @@ public abstract class ContainerDriver extends ComponentDriver {
 	@RunsInEDT
 	@Nonnull
 	private Pair<Dimension, Insets> resizeInfo(final @Nonnull Container c) {
-		Pair<Dimension, Insets> result = execute(new GuiQuery<Pair<Dimension, Insets>>() {
+		Pair<Dimension, Insets> result = execute(new GuiQuery<>() {
 			@Override
 			@Nullable
 			protected Pair<Dimension, Insets> executeInEDT() {
@@ -201,7 +201,7 @@ public abstract class ContainerDriver extends ComponentDriver {
 	@RunsInEDT
 	@Nonnull
 	private Triple<Dimension, Insets, Point> moveInfo(final @Nonnull Container c) {
-		Triple<Dimension, Insets, Point> result = execute(new GuiQuery<Triple<Dimension, Insets, Point>>() {
+		Triple<Dimension, Insets, Point> result = execute(new GuiQuery<>() {
 			@Override
 			@Nullable
 			protected Triple<Dimension, Insets, Point> executeInEDT() {

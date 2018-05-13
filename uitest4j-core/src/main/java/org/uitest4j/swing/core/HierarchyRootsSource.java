@@ -28,6 +28,6 @@ class HierarchyRootsSource {
   @Nonnull
   Container[] existingHierarchyRoots() {
     Collection<? extends Container> roots = new ExistingHierarchy().roots();
-    return roots.toArray(new Container[roots.size()]);
+    return roots.toArray(new Container[0]);
   }
 }
