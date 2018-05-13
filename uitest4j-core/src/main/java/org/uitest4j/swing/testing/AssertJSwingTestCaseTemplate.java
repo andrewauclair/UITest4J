@@ -12,41 +12,42 @@
  */
 package org.uitest4j.swing.testing;
 
-import javax.annotation.Nonnull;
-
 import org.uitest4j.swing.core.BasicRobot;
 import org.uitest4j.swing.core.Robot;
 
+import javax.annotation.Nonnull;
+
 /**
  * Template for test cases that use AssertJ-Swing.
- * 
+ *
  * @author Alex Ruiz
  */
 public abstract class AssertJSwingTestCaseTemplate {
-  private Robot robot;
+	private Robot robot;
 
-  public AssertJSwingTestCaseTemplate() {
-    robot = null; // Just to satisfy FindBugs
-  }
+	public AssertJSwingTestCaseTemplate() {
+		robot = null; // Just to satisfy FindBugs
+	}
 
-  /**
-   * Creates this test's {@link Robot} using a new AWT hierarchy.
-   */
-  protected final void setUpRobot() {
-    robot = BasicRobot.robotWithNewAwtHierarchy();
-  }
+	/**
+	 * Creates this test's {@link Robot} using a new AWT hierarchy.
+	 */
+	protected final void setUpRobot() {
+		robot = BasicRobot.robotWithNewAwtHierarchy();
+	}
 
-  /**
-   * Cleans up resources used by this test's {@link Robot}.
-   */
-  protected final void cleanUp() {
-    robot.cleanUp();
-  }
+	/**
+	 * Cleans up resources used by this test's {@link Robot}.
+	 */
+	protected final void cleanUp() {
+		robot.cleanUp();
+	}
 
-  /**
-   * @return this test's {@link Robot}
-   */
-  protected final @Nonnull Robot robot() {
-    return robot;
-  }
+	/**
+	 * @return this test's {@link Robot}
+	 */
+	protected final @Nonnull
+	Robot robot() {
+		return robot;
+	}
 }

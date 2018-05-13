@@ -12,41 +12,42 @@
  */
 package org.uitest4j.swing.util;
 
-import static java.lang.System.currentTimeMillis;
-
 import javax.annotation.Nonnull;
+
+import static java.lang.System.currentTimeMillis;
 
 /**
  * Time counter with a timeout.
- * 
+ *
  * @author Alex Ruiz
  */
 public final class TimeoutWatch {
-  private final long timeout;
-  private long startTime;
+	private final long timeout;
+	private long startTime;
 
-  /**
-   * Creates and starts a new {@link TimeoutWatch} with the given timeout.
-   * 
-   * @param timeout the given timeout.
-   * @return the new timeout watch.
-   */
-  @Nonnull public static TimeoutWatch startWatchWithTimeoutOf(long timeout) {
-    TimeoutWatch watch = new TimeoutWatch(timeout);
-    watch.start();
-    return watch;
-  }
+	/**
+	 * Creates and starts a new {@link TimeoutWatch} with the given timeout.
+	 *
+	 * @param timeout the given timeout.
+	 * @return the new timeout watch.
+	 */
+	@Nonnull
+	public static TimeoutWatch startWatchWithTimeoutOf(long timeout) {
+		TimeoutWatch watch = new TimeoutWatch(timeout);
+		watch.start();
+		return watch;
+	}
 
-  private TimeoutWatch(long timeout) {
-    this.timeout = timeout;
-  }
+	private TimeoutWatch(long timeout) {
+		this.timeout = timeout;
+	}
 
-  void start() {
-    startTime = currentTimeMillis();
-  }
+	void start() {
+		startTime = currentTimeMillis();
+	}
 
-  public boolean isTimeOut() {
-    long timePassed = currentTimeMillis() - startTime;
-    return timePassed >= timeout;
-  }
+	public boolean isTimeOut() {
+		long timePassed = currentTimeMillis() - startTime;
+		return timePassed >= timeout;
+	}
 }

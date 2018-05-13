@@ -12,9 +12,9 @@
  */
 package org.uitest4j.swing.driver;
 
+import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.exception.WaitTimedOutError;
 import org.uitest4j.swing.util.TimeoutWatch;
-import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -28,78 +28,78 @@ import static org.uitest4j.swing.util.TimeoutWatch.startWatchWithTimeoutOf;
 
 /**
  * Waits until a particular AWT or Swing {@code Component} shows up on the screen.
- * 
+ *
  * @author Alex Ruiz
  */
 public final class ComponentShownWaiter extends ComponentAdapter {
-  private static final int DEFAULT_TIMEOUT = 5000;
-  private static final int DEFAULT_SLEEP_TIME = 10;
+	private static final int DEFAULT_TIMEOUT = 5000;
+	private static final int DEFAULT_SLEEP_TIME = 10;
 
-  private Component toWaitFor;
-  private volatile boolean shown;
+	private Component toWaitFor;
+	private volatile boolean shown;
 
-  /**
-   * Waits until the given AWT or Swing {@code Component} is shown on the screen, using a timeout of 5 seconds.
-   * 
-   * @param toWaitFor the {@code Component} to wait for.
-   * @throws WaitTimedOutError if the {@code Component} is not shown before the default timeout of 5 seconds.
-   */
-  public static void waitTillShown(@Nonnull Component toWaitFor) {
-    new ComponentShownWaiter(toWaitFor).startWaiting(DEFAULT_TIMEOUT);
-  }
+	/**
+	 * Waits until the given AWT or Swing {@code Component} is shown on the screen, using a timeout of 5 seconds.
+	 *
+	 * @param toWaitFor the {@code Component} to wait for.
+	 * @throws WaitTimedOutError if the {@code Component} is not shown before the default timeout of 5 seconds.
+	 */
+	public static void waitTillShown(@Nonnull Component toWaitFor) {
+		new ComponentShownWaiter(toWaitFor).startWaiting(DEFAULT_TIMEOUT);
+	}
 
-  /**
-   * Waits until the given AWT or Swing {@code Component} is shown on the screen.
-   * 
-   * @param toWaitFor the {@code Component} to wait for.
-   * @param timeout the amount to time (in milliseconds) to wait for the {@code Component} to be shown.
-   * @throws WaitTimedOutError if the {@code Component} is not shown before the given timeout expires.
-   */
-  public static void waitTillShown(@Nonnull Component toWaitFor, long timeout) {
-    new ComponentShownWaiter(toWaitFor).startWaiting(timeout);
-  }
+	/**
+	 * Waits until the given AWT or Swing {@code Component} is shown on the screen.
+	 *
+	 * @param toWaitFor the {@code Component} to wait for.
+	 * @param timeout   the amount to time (in milliseconds) to wait for the {@code Component} to be shown.
+	 * @throws WaitTimedOutError if the {@code Component} is not shown before the given timeout expires.
+	 */
+	public static void waitTillShown(@Nonnull Component toWaitFor, long timeout) {
+		new ComponentShownWaiter(toWaitFor).startWaiting(timeout);
+	}
 
-  private ComponentShownWaiter(@Nonnull Component toWaitFor) {
-    this.toWaitFor = toWaitFor;
-    toWaitFor.addComponentListener(this);
-  }
+	private ComponentShownWaiter(@Nonnull Component toWaitFor) {
+		this.toWaitFor = toWaitFor;
+		toWaitFor.addComponentListener(this);
+	}
 
-  private void startWaiting(long timeout) {
-    if (alreadyVisible()) {
-      return;
-    }
-    TimeoutWatch watch = startWatchWithTimeoutOf(timeout);
-    while (!shown) {
-      pause(DEFAULT_SLEEP_TIME);
-      if (watch.isTimeOut()) {
-        done();
-        throw new WaitTimedOutError("Timed out waiting for component to be visible");
-      }
-    }
-  }
+	private void startWaiting(long timeout) {
+		if (alreadyVisible()) {
+			return;
+		}
+		TimeoutWatch watch = startWatchWithTimeoutOf(timeout);
+		while (!shown) {
+			pause(DEFAULT_SLEEP_TIME);
+			if (watch.isTimeOut()) {
+				done();
+				throw new WaitTimedOutError("Timed out waiting for component to be visible");
+			}
+		}
+	}
 
-  private boolean alreadyVisible() {
-    if (!isVisible(toWaitFor)) {
-      return false;
-    }
-    done();
-    return true;
-  }
+	private boolean alreadyVisible() {
+		if (!isVisible(toWaitFor)) {
+			return false;
+		}
+		done();
+		return true;
+	}
 
-  /**
-   * Notification that the AWT or Swing {@code Component} to wait for is finally shown on the screen.
-   * 
-   * @param e the event raised when the {@code Component} has been made visible.
-   */
-  @RunsInEDT
-  @Override
-  public void componentShown(@Nullable ComponentEvent e) {
-    shown = true;
-    done();
-  }
+	/**
+	 * Notification that the AWT or Swing {@code Component} to wait for is finally shown on the screen.
+	 *
+	 * @param e the event raised when the {@code Component} has been made visible.
+	 */
+	@RunsInEDT
+	@Override
+	public void componentShown(@Nullable ComponentEvent e) {
+		shown = true;
+		done();
+	}
 
-  private void done() {
-    toWaitFor.removeComponentListener(this);
-    toWaitFor = null;
-  }
+	private void done() {
+		toWaitFor.removeComponentListener(this);
+		toWaitFor = null;
+	}
 }

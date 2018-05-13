@@ -21,17 +21,18 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
  * Returns the text of a Swing {@code AbstractButton}. This query is executed in the event dispatch thread (EDT).
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
 final class AbstractButtonTextQuery {
-  @RunsInEDT
-  static @Nonnull String textOf(final @Nonnull AbstractButton button) {
-    String result = execute(button::getText);
-    return result == null ? "" : result;
-  }
+	@RunsInEDT
+	static @Nonnull
+	String textOf(final @Nonnull AbstractButton button) {
+		String result = execute(button::getText);
+		return result == null ? "" : result;
+	}
 
-  private AbstractButtonTextQuery() {
-  }
+	private AbstractButtonTextQuery() {
+	}
 }

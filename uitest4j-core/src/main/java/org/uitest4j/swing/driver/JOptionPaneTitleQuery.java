@@ -23,16 +23,17 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
  * Returns the title of a {@code JOptionPane}. This query is executed in the event dispatch thread (EDT).
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
 final class JOptionPaneTitleQuery {
-  @RunsInEDT
-  static @Nullable String titleOf(final @Nonnull JOptionPane optionPane) {
-    return execute(() -> ((Dialog) optionPane.getRootPane().getParent()).getTitle());
-  }
+	@RunsInEDT
+	static @Nullable
+	String titleOf(final @Nonnull JOptionPane optionPane) {
+		return execute(() -> ((Dialog) optionPane.getRootPane().getParent()).getTitle());
+	}
 
-  private JOptionPaneTitleQuery() {
-  }
+	private JOptionPaneTitleQuery() {
+	}
 }

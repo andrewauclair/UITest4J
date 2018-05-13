@@ -16,30 +16,29 @@ import javax.annotation.Nonnull;
 
 /**
  * Verifies the state of editable {@code Component}s.
- * 
+ *
  * @param <S> used to simulate "self types." For more information please read &quot;<a href="http://goo.gl/fjgOM"
- *          target="_blank">Emulating 'self types' using Java Generics to simplify fluent API implementation</a>.&quot;
- * 
+ *            target="_blank">Emulating 'self types' using Java Generics to simplify fluent API implementation</a>.&quot;
  * @author Yvonne Wang
  * @author Alex Ruiz
  */
 public interface EditableComponentFixture<S> {
-  /**
-   * Asserts that the {@code Component} is editable.
-   * 
-   * @throws AssertionError if the {@code Component} is not editable.
-   * @return this fixture.
-   */
-  @Nonnull
-  S requireEditable();
+	/**
+	 * Asserts that the {@code Component} is editable.
+	 *
+	 * @return this fixture.
+	 * @throws AssertionError if the {@code Component} is not editable.
+	 */
+	@Nonnull
+	S requireEditable();
 
-  /**
-   * Asserts that the {@code Component} is not editable.
-   * 
-   * @throws AssertionError if the {@code Component} is editable.
-   * @return this fixture.
-   */
-  @Nonnull
-  S requireNotEditable();
+	/**
+	 * Asserts that the {@code Component} is not editable.
+	 *
+	 * @return this fixture.
+	 * @throws AssertionError if the {@code Component} is editable.
+	 */
+	@Nonnull
+	S requireNotEditable();
 
 }

@@ -21,48 +21,52 @@ import java.util.Objects;
  */
 public class Point {
 
-  /**
-   * Creates a new <code>{@link Point}</code>.
-   *
-   * @param x the x coordinate.
-   * @param y the y coordinate.
-   * @return the created {@code Point}.
-   */
-  public static Point atPoint(int x, int y) {
-    return new Point(x, y);
-  }
+	/**
+	 * Creates a new <code>{@link Point}</code>.
+	 *
+	 * @param x the x coordinate.
+	 * @param y the y coordinate.
+	 * @return the created {@code Point}.
+	 */
+	public static Point atPoint(int x, int y) {
+		return new Point(x, y);
+	}
 
-  /** The x coordinate. */
-  public final int x;
+	/**
+	 * The x coordinate.
+	 */
+	public final int x;
 
-  /** The y coordinate. */
-  public final int y;
+	/**
+	 * The y coordinate.
+	 */
+	public final int y;
 
-  private Point(int x, int y) {
-    this.x = x;
-    this.y = y;
-  }
+	private Point(int x, int y) {
+		this.x = x;
+		this.y = y;
+	}
 
-  @Override
-  public String toString() {
-	  return String.format("[%d, %d]", x, y);
-  }
+	@Override
+	public String toString() {
+		return String.format("[%d, %d]", x, y);
+	}
 
 	@Override
 	public boolean equals(Object o) {
 		if (this == o) {
-      return true;
+			return true;
 		}
 		if (o == null || getClass() != o.getClass()) {
-      return false;
+			return false;
 		}
 		Point point = (Point) o;
 		return x == point.x &&
 				y == point.y;
-  }
+	}
 
-  @Override
-  public int hashCode() {
-	  return Objects.hash(x, y);
-  }
+	@Override
+	public int hashCode() {
+		return Objects.hash(x, y);
+	}
 }

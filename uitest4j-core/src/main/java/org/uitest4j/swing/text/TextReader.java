@@ -19,50 +19,50 @@ import java.awt.*;
 
 /**
  * Reads the text of an AWT or Swing {@code Component}.
- * 
+ *
  * @param <T> the type of {@code Component} this reader supports.
- * 
  * @author Alex Ruiz
  */
 public abstract class TextReader<T extends Component> {
-  /**
-   * @return the type of AWT or Swing {@code Component} this reader supports.
-   */
-  public abstract @Nonnull Class<T> supportedComponent();
+	/**
+	 * @return the type of AWT or Swing {@code Component} this reader supports.
+	 */
+	public abstract @Nonnull
+	Class<T> supportedComponent();
 
-  /**
-   * Indicates whether the given AWT or Swing {@code Component} contains or displays the given text.
-   * 
-   * @param c the given {@code Component}.
-   * @param text the given text.
-   * @return {@code true} if the given {@code Component} contains or displays the given text; {@code false} otherwise.
-   * @throws IllegalArgumentException if this reader does not support the type of the given {@code Component} (e.g. this
-   *           reader supports {@code JButton}s and a {@code JLabel} is passed).
-   * @see #supportedComponent()
-   */
-  @RunsInCurrentThread
-  public final boolean containsText(@Nonnull Component c, @Nonnull String text) {
-    checkCorrectType(c);
-    T casted = supportedComponent().cast(c);
-    return checkContainsText(casted, text);
-  }
+	/**
+	 * Indicates whether the given AWT or Swing {@code Component} contains or displays the given text.
+	 *
+	 * @param c    the given {@code Component}.
+	 * @param text the given text.
+	 * @return {@code true} if the given {@code Component} contains or displays the given text; {@code false} otherwise.
+	 * @throws IllegalArgumentException if this reader does not support the type of the given {@code Component} (e.g. this
+	 *                                  reader supports {@code JButton}s and a {@code JLabel} is passed).
+	 * @see #supportedComponent()
+	 */
+	@RunsInCurrentThread
+	public final boolean containsText(@Nonnull Component c, @Nonnull String text) {
+		checkCorrectType(c);
+		T casted = supportedComponent().cast(c);
+		return checkContainsText(casted, text);
+	}
 
-  private void checkCorrectType(Component c) {
-    Class<T> type = supportedComponent();
-    if (!type.isAssignableFrom(c.getClass())) {
-      String msg = String.format("Expecting component of type %s but got %s", type.getName(), c.getClass().getName());
-      throw new IllegalArgumentException(msg);
-    }
-  }
+	private void checkCorrectType(Component c) {
+		Class<T> type = supportedComponent();
+		if (!type.isAssignableFrom(c.getClass())) {
+			String msg = String.format("Expecting component of type %s but got %s", type.getName(), c.getClass().getName());
+			throw new IllegalArgumentException(msg);
+		}
+	}
 
-  /**
-   * Indicates whether the given AWT or Swing {@code Component} contains or displays the given text. Implementations
-   * must ensure that they are executed in the current thread.
-   * 
-   * @param component the given {@code Component}.
-   * @param text the given text.
-   * @return {@code true} if the given {@code Component} contains or displays the given text; {@code false} otherwise.
-   */
-  @RunsInCurrentThread
-  protected abstract boolean checkContainsText(@Nonnull T component, @Nonnull String text);
+	/**
+	 * Indicates whether the given AWT or Swing {@code Component} contains or displays the given text. Implementations
+	 * must ensure that they are executed in the current thread.
+	 *
+	 * @param component the given {@code Component}.
+	 * @param text      the given text.
+	 * @return {@code true} if the given {@code Component} contains or displays the given text; {@code false} otherwise.
+	 */
+	@RunsInCurrentThread
+	protected abstract boolean checkContainsText(@Nonnull T component, @Nonnull String text);
 }

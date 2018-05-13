@@ -16,22 +16,23 @@ import javax.annotation.Nonnull;
 
 /**
  * Operating System families.
- * 
+ *
  * @author Alex Ruiz
  */
 public enum OSFamily {
-  WINDOWS("win"), MAC("mac"), LINUX("linux"), UNIX("unix");
+	WINDOWS("win"), MAC("mac"), LINUX("linux"), UNIX("unix");
 
-  private final String key;
+	private final String key;
 
-  OSFamily(@Nonnull String key) {
-    this.key = key;
-  }
+	OSFamily(@Nonnull String key) {
+		this.key = key;
+	}
 
-  /**
-   * @return the key (or abbreviation) of this OS family.
-   */
-  @Nonnull public String key() {
-    return key;
-  }
+	/**
+	 * @return the key (or abbreviation) of this OS family.
+	 */
+	@Nonnull
+	public String key() {
+		return key;
+	}
 }

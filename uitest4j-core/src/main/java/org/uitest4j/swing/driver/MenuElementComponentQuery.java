@@ -29,12 +29,13 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
  * @author Yvonne Wang
  */
 final class MenuElementComponentQuery {
-  @RunsInEDT
-  static @Nonnull Component componentIn(final @Nonnull MenuElement menuElement) {
-    Component result = execute(menuElement::getComponent);
-    return Objects.requireNonNull(result);
-  }
+	@RunsInEDT
+	static @Nonnull
+	Component componentIn(final @Nonnull MenuElement menuElement) {
+		Component result = execute(menuElement::getComponent);
+		return Objects.requireNonNull(result);
+	}
 
-  private MenuElementComponentQuery() {
-  }
+	private MenuElementComponentQuery() {
+	}
 }

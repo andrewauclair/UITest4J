@@ -13,7 +13,6 @@
 package org.uitest4j.swing.format;
 
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
-import org.uitest4j.swing.util.ArrayUtils;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;

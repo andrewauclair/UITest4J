@@ -87,7 +87,7 @@ public class TableCellInSelectedRow implements TableCellFinder {
 	/**
 	 * Finds a cell in the given {@code JTable} that belongs to the first selected row and has a matching column index.
 	 *
-	 * @param table the target {@code JTable}.
+	 * @param table      the target {@code JTable}.
 	 * @param cellReader knows how to read the contents of a cell in a {@code JTable}.
 	 * @return the cell found, if any.
 	 * @throws org.uitest4j.swing.exception.ActionFailedException if a matching cell could not be found.

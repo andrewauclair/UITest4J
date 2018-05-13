@@ -20,32 +20,33 @@ import java.awt.*;
 
 /**
  * Finds the focus owner using the roots of a {@code Component} hierarchy.
- * 
+ *
  * @author Alex Ruiz
  */
 class HierarchyBasedFocusOwnerFinder implements FocusOwnerFinderStrategy {
-  private final ContainerFocusOwnerFinder delegate;
-  private final HierarchyRootsSource rootsSource;
+	private final ContainerFocusOwnerFinder delegate;
+	private final HierarchyRootsSource rootsSource;
 
-  HierarchyBasedFocusOwnerFinder() {
-    this(new ContainerFocusOwnerFinder(), new HierarchyRootsSource());
-  }
+	HierarchyBasedFocusOwnerFinder() {
+		this(new ContainerFocusOwnerFinder(), new HierarchyRootsSource());
+	}
 
-  HierarchyBasedFocusOwnerFinder(@Nonnull ContainerFocusOwnerFinder newDelegate,
-      @Nonnull HierarchyRootsSource newRootsSource) {
-    delegate = newDelegate;
-    rootsSource = newRootsSource;
-  }
+	HierarchyBasedFocusOwnerFinder(@Nonnull ContainerFocusOwnerFinder newDelegate,
+								   @Nonnull HierarchyRootsSource newRootsSource) {
+		delegate = newDelegate;
+		rootsSource = newRootsSource;
+	}
 
-  @Override
-  @RunsInCurrentThread
-  @Nullable public Component focusOwner() {
-    for (Container c : rootsSource.existingHierarchyRoots()) {
-      Component focus = delegate.focusOwnerOf(c);
-      if (focus != null) {
-        return focus;
-      }
-    }
-    return null;
-  }
+	@Override
+	@RunsInCurrentThread
+	@Nullable
+	public Component focusOwner() {
+		for (Container c : rootsSource.existingHierarchyRoots()) {
+			Component focus = delegate.focusOwnerOf(c);
+			if (focus != null) {
+				return focus;
+			}
+		}
+		return null;
+	}
 }

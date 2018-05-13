@@ -23,16 +23,16 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 /**
  * Returns the title of a given {@code JInternalFrame}. This task is executed in the event dispatch thread (EDT).
  *
- * @see JInternalFrame#getTitle()
- *
  * @author Christian Rösch
+ * @see JInternalFrame#getTitle()
  */
 final class JInternalFrameTitleQuery {
-  @RunsInEDT
-  static @Nullable String titleOf(final @Nonnull JInternalFrame f) {
-    return execute(f::getTitle);
-  }
+	@RunsInEDT
+	static @Nullable
+	String titleOf(final @Nonnull JInternalFrame f) {
+		return execute(f::getTitle);
+	}
 
-  private JInternalFrameTitleQuery() {
-  }
+	private JInternalFrameTitleQuery() {
+	}
 }

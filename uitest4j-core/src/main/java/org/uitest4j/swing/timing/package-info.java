@@ -12,7 +12,7 @@
  */
 /**
  * Utilities related to timing.
- * 
+ *
  * @author Alex Ruiz
  */
 package org.uitest4j.swing.timing;

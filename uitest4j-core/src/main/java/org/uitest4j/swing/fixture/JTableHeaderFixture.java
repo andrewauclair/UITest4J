@@ -12,185 +12,194 @@
  */
 package org.uitest4j.swing.fixture;
 
-import java.util.Objects;
-import java.util.regex.Pattern;
-
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.swing.JPopupMenu;
-import javax.swing.table.JTableHeader;
-
 import org.uitest4j.swing.core.MouseClickInfo;
 import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.driver.JTableHeaderDriver;
 
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import javax.swing.*;
+import javax.swing.table.JTableHeader;
+import java.util.Objects;
+import java.util.regex.Pattern;
+
 /**
  * Supports functional testing of {@code JTableHeader}s.
- * 
+ *
  * @author Yvonne Wang
  * @author Alex Ruiz
  */
 public class JTableHeaderFixture extends
-    AbstractJComponentFixture<JTableHeaderFixture, JTableHeader, JTableHeaderDriver> {
-  /**
-   * Creates a new {@link JTableHeaderFixture}.
-   * 
-   * @param robot performs simulation of user events on the given {@code JTableHeader}.
-   * @param target the {@code JTableHeader} to be managed by this fixture.
-   * @throws NullPointerException if {@code robot} is {@code null}.
-   * @throws NullPointerException if {@code target} is {@code null}.
-   */
-  public JTableHeaderFixture(@Nonnull Robot robot, @Nonnull JTableHeader target) {
-    super(JTableHeaderFixture.class, robot, target);
-  }
+		AbstractJComponentFixture<JTableHeaderFixture, JTableHeader, JTableHeaderDriver> {
+	/**
+	 * Creates a new {@link JTableHeaderFixture}.
+	 *
+	 * @param robot  performs simulation of user events on the given {@code JTableHeader}.
+	 * @param target the {@code JTableHeader} to be managed by this fixture.
+	 * @throws NullPointerException if {@code robot} is {@code null}.
+	 * @throws NullPointerException if {@code target} is {@code null}.
+	 */
+	public JTableHeaderFixture(@Nonnull Robot robot, @Nonnull JTableHeader target) {
+		super(JTableHeaderFixture.class, robot, target);
+	}
 
-  @Override
-  @Nonnull protected JTableHeaderDriver createDriver(@Nonnull Robot robot) {
-    return new JTableHeaderDriver(robot);
-  }
+	@Override
+	@Nonnull
+	protected JTableHeaderDriver createDriver(@Nonnull Robot robot) {
+		return new JTableHeaderDriver(robot);
+	}
 
-  /**
-   * Simulates a user clicking the column under the given index, in this fixture's {@code JTableHeader}.
-   * 
-   * @param index the index of the column to click.
-   * @return this fixture.
-   * @throws IllegalStateException if this fixture's {@code JTableHeader} is disabled.
-   * @throws IllegalStateException if this fixture's {@code JTableHeader} is not showing on the screen.
-   * @throws IndexOutOfBoundsException if the index is out of bounds.
-   */
-  @Nonnull public JTableHeaderFixture clickColumn(int index) {
-    driver().clickColumn(target(), index);
-    return this;
-  }
+	/**
+	 * Simulates a user clicking the column under the given index, in this fixture's {@code JTableHeader}.
+	 *
+	 * @param index the index of the column to click.
+	 * @return this fixture.
+	 * @throws IllegalStateException     if this fixture's {@code JTableHeader} is disabled.
+	 * @throws IllegalStateException     if this fixture's {@code JTableHeader} is not showing on the screen.
+	 * @throws IndexOutOfBoundsException if the index is out of bounds.
+	 */
+	@Nonnull
+	public JTableHeaderFixture clickColumn(int index) {
+		driver().clickColumn(target(), index);
+		return this;
+	}
 
-  /**
-   * Simulates a user clicking the column which name matches the given value, in this fixture's {@code JTableHeader}.
-   * 
-   * @param columnName the column name to match. It can be a regular expression.
-   * @return this fixture.
-   * @throws IllegalStateException if this fixture's {@code JTableHeader} is disabled.
-   * @throws IllegalStateException if this fixture's {@code JTableHeader} is not showing on the screen.
-   * @throws org.uitest4j.swing.exception.LocationUnavailableException if a column with a matching name cannot be found.
-   */
-  @Nonnull public JTableHeaderFixture clickColumn(@Nullable String columnName) {
-    driver().clickColumn(target(), columnName);
-    return this;
-  }
+	/**
+	 * Simulates a user clicking the column which name matches the given value, in this fixture's {@code JTableHeader}.
+	 *
+	 * @param columnName the column name to match. It can be a regular expression.
+	 * @return this fixture.
+	 * @throws IllegalStateException                                     if this fixture's {@code JTableHeader} is disabled.
+	 * @throws IllegalStateException                                     if this fixture's {@code JTableHeader} is not showing on the screen.
+	 * @throws org.uitest4j.swing.exception.LocationUnavailableException if a column with a matching name cannot be found.
+	 */
+	@Nonnull
+	public JTableHeaderFixture clickColumn(@Nullable String columnName) {
+		driver().clickColumn(target(), columnName);
+		return this;
+	}
 
-  /**
-   * Simulates a user clicking the column which name matches the given regular expression pattern, in this fixture's
-   * {@code JTableHeader}.
-   * 
-   * @param columnNamePattern the regular expression pattern to match.
-   * @return this fixture.
-   * @throws IllegalStateException if this fixture's {@code JTableHeader} is disabled.
-   * @throws IllegalStateException if this fixture's {@code JTableHeader} is not showing on the screen.
-   * @throws NullPointerException if the given regular expression is {@code null}.
-   * @throws org.uitest4j.swing.exception.LocationUnavailableException if a column with a matching name cannot be found.
-   */
-  @Nonnull public JTableHeaderFixture clickColumn(@Nonnull Pattern columnNamePattern) {
-    driver().clickColumn(target(), columnNamePattern);
-    return this;
-  }
+	/**
+	 * Simulates a user clicking the column which name matches the given regular expression pattern, in this fixture's
+	 * {@code JTableHeader}.
+	 *
+	 * @param columnNamePattern the regular expression pattern to match.
+	 * @return this fixture.
+	 * @throws IllegalStateException                                     if this fixture's {@code JTableHeader} is disabled.
+	 * @throws IllegalStateException                                     if this fixture's {@code JTableHeader} is not showing on the screen.
+	 * @throws NullPointerException                                      if the given regular expression is {@code null}.
+	 * @throws org.uitest4j.swing.exception.LocationUnavailableException if a column with a matching name cannot be found.
+	 */
+	@Nonnull
+	public JTableHeaderFixture clickColumn(@Nonnull Pattern columnNamePattern) {
+		driver().clickColumn(target(), columnNamePattern);
+		return this;
+	}
 
-  /**
-   * Simulates a user clicking the column under the given index, in this fixture's {@code JTableHeader}, using the given
-   * mouse button, the given number of times.
-   * 
-   * @param index the index of the column to click.
-   * @param mouseClickInfo specifies the mouse button to use and the number of times to click.
-   * @return this fixture.
-   * @throws NullPointerException if the given {@code MouseClickInfo} is {@code null}.
-   * @throws IllegalStateException if this fixture's {@code JTableHeader} is disabled.
-   * @throws IllegalStateException if this fixture's {@code JTableHeader} is not showing on the screen.
-   * @throws IndexOutOfBoundsException if the index is out of bounds.
-   */
-  @Nonnull public JTableHeaderFixture clickColumn(int index, @Nonnull MouseClickInfo mouseClickInfo) {
-	  Objects.requireNonNull(mouseClickInfo);
-    driver().clickColumn(target(), index, mouseClickInfo.button(), mouseClickInfo.times());
-    return this;
-  }
+	/**
+	 * Simulates a user clicking the column under the given index, in this fixture's {@code JTableHeader}, using the given
+	 * mouse button, the given number of times.
+	 *
+	 * @param index          the index of the column to click.
+	 * @param mouseClickInfo specifies the mouse button to use and the number of times to click.
+	 * @return this fixture.
+	 * @throws NullPointerException      if the given {@code MouseClickInfo} is {@code null}.
+	 * @throws IllegalStateException     if this fixture's {@code JTableHeader} is disabled.
+	 * @throws IllegalStateException     if this fixture's {@code JTableHeader} is not showing on the screen.
+	 * @throws IndexOutOfBoundsException if the index is out of bounds.
+	 */
+	@Nonnull
+	public JTableHeaderFixture clickColumn(int index, @Nonnull MouseClickInfo mouseClickInfo) {
+		Objects.requireNonNull(mouseClickInfo);
+		driver().clickColumn(target(), index, mouseClickInfo.button(), mouseClickInfo.times());
+		return this;
+	}
 
-  /**
-   * Simulates a user clicking the column which name matches the given one, in this fixture's {@code JTableHeader},
-   * using the given mouse button, the given number of times.
-   * 
-   * @param columnName the column name to match. It can be a regular expression.
-   * @param mouseClickInfo specifies the mouse button to use and the number of times to click.
-   * @return this fixture.
-   * @throws NullPointerException if the given {@code MouseClickInfo} is {@code null}.
-   * @throws IllegalStateException if this fixture's {@code JTableHeader} is disabled.
-   * @throws IllegalStateException if this fixture's {@code JTableHeader} is not showing on the screen.
-   * @throws org.uitest4j.swing.exception.LocationUnavailableException if a column with a matching name cannot be found.
-   */
-  @Nonnull public JTableHeaderFixture clickColumn(@Nullable String columnName, @Nonnull MouseClickInfo mouseClickInfo) {
-	  Objects.requireNonNull(mouseClickInfo);
-    driver().clickColumn(target(), columnName, mouseClickInfo.button(), mouseClickInfo.times());
-    return this;
-  }
+	/**
+	 * Simulates a user clicking the column which name matches the given one, in this fixture's {@code JTableHeader},
+	 * using the given mouse button, the given number of times.
+	 *
+	 * @param columnName     the column name to match. It can be a regular expression.
+	 * @param mouseClickInfo specifies the mouse button to use and the number of times to click.
+	 * @return this fixture.
+	 * @throws NullPointerException                                      if the given {@code MouseClickInfo} is {@code null}.
+	 * @throws IllegalStateException                                     if this fixture's {@code JTableHeader} is disabled.
+	 * @throws IllegalStateException                                     if this fixture's {@code JTableHeader} is not showing on the screen.
+	 * @throws org.uitest4j.swing.exception.LocationUnavailableException if a column with a matching name cannot be found.
+	 */
+	@Nonnull
+	public JTableHeaderFixture clickColumn(@Nullable String columnName, @Nonnull MouseClickInfo mouseClickInfo) {
+		Objects.requireNonNull(mouseClickInfo);
+		driver().clickColumn(target(), columnName, mouseClickInfo.button(), mouseClickInfo.times());
+		return this;
+	}
 
-  /**
-   * Simulates a user clicking the column which name matches the given regular expression pattern, in this fixture's
-   * {@code JTableHeader}, using the given mouse button, the given number of times.
-   * 
-   * @param columnNamePattern the regular expression pattern to match.
-   * @param mouseClickInfo specifies the mouse button to use and the number of times to click.
-   * @return this fixture.
-   * @throws NullPointerException if the given {@code MouseClickInfo} is {@code null}.
-   * @throws IllegalStateException if this fixture's {@code JTableHeader} is disabled.
-   * @throws IllegalStateException if this fixture's {@code JTableHeader} is not showing on the screen.
-   * @throws NullPointerException if the given regular expression pattern is {@code null}.
-   * @throws org.uitest4j.swing.exception.LocationUnavailableException if a column with a matching name cannot be found.
-   */
-  @Nonnull public JTableHeaderFixture clickColumn(@Nonnull Pattern columnNamePattern,
-      @Nonnull MouseClickInfo mouseClickInfo) {
-	  Objects.requireNonNull(mouseClickInfo);
-    driver().clickColumn(target(), columnNamePattern, mouseClickInfo.button(), mouseClickInfo.times());
-    return this;
-  }
+	/**
+	 * Simulates a user clicking the column which name matches the given regular expression pattern, in this fixture's
+	 * {@code JTableHeader}, using the given mouse button, the given number of times.
+	 *
+	 * @param columnNamePattern the regular expression pattern to match.
+	 * @param mouseClickInfo    specifies the mouse button to use and the number of times to click.
+	 * @return this fixture.
+	 * @throws NullPointerException                                      if the given {@code MouseClickInfo} is {@code null}.
+	 * @throws IllegalStateException                                     if this fixture's {@code JTableHeader} is disabled.
+	 * @throws IllegalStateException                                     if this fixture's {@code JTableHeader} is not showing on the screen.
+	 * @throws NullPointerException                                      if the given regular expression pattern is {@code null}.
+	 * @throws org.uitest4j.swing.exception.LocationUnavailableException if a column with a matching name cannot be found.
+	 */
+	@Nonnull
+	public JTableHeaderFixture clickColumn(@Nonnull Pattern columnNamePattern,
+										   @Nonnull MouseClickInfo mouseClickInfo) {
+		Objects.requireNonNull(mouseClickInfo);
+		driver().clickColumn(target(), columnNamePattern, mouseClickInfo.button(), mouseClickInfo.times());
+		return this;
+	}
 
-  /**
-   * Shows a pop-up menu using this fixture's {@code JTableHeader} as the invoker of the pop-up menu.
-   * 
-   * @param columnIndex the index of the column where the pop-up menu will be displayed.
-   * @return a fixture that manages the displayed pop-up menu.
-   * @throws IllegalStateException if this fixture's {@code JTableHeader} is disabled.
-   * @throws IllegalStateException if this fixture's {@code JTableHeader} is not showing on the screen.
-   * @throws IndexOutOfBoundsException if the index is out of bounds.
-   * @throws org.uitest4j.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
-   */
-  @Nonnull public JPopupMenuFixture showPopupMenuAt(int columnIndex) {
-    JPopupMenu popupMenu = driver().showPopupMenu(target(), columnIndex);
-    return new JPopupMenuFixture(robot(), popupMenu);
-  }
+	/**
+	 * Shows a pop-up menu using this fixture's {@code JTableHeader} as the invoker of the pop-up menu.
+	 *
+	 * @param columnIndex the index of the column where the pop-up menu will be displayed.
+	 * @return a fixture that manages the displayed pop-up menu.
+	 * @throws IllegalStateException                                 if this fixture's {@code JTableHeader} is disabled.
+	 * @throws IllegalStateException                                 if this fixture's {@code JTableHeader} is not showing on the screen.
+	 * @throws IndexOutOfBoundsException                             if the index is out of bounds.
+	 * @throws org.uitest4j.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
+	 */
+	@Nonnull
+	public JPopupMenuFixture showPopupMenuAt(int columnIndex) {
+		JPopupMenu popupMenu = driver().showPopupMenu(target(), columnIndex);
+		return new JPopupMenuFixture(robot(), popupMenu);
+	}
 
-  /**
-   * Shows a pop-up menu using this fixture's {@code JTableHeader} as the invoker of the pop-up menu.
-   * 
-   * @param columnName the name of the column where the pop-up menu will be displayed. It can be a regular expression.
-   * @return a fixture that manages the displayed pop-up menu.
-   * @throws IllegalStateException if this fixture's {@code JTableHeader} is disabled.
-   * @throws IllegalStateException if this fixture's {@code JTableHeader} is not showing on the screen.
-   * @throws org.uitest4j.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
-   */
-  @Nonnull public JPopupMenuFixture showPopupMenuAt(@Nullable String columnName) {
-    JPopupMenu popupMenu = driver().showPopupMenu(target(), columnName);
-    return new JPopupMenuFixture(robot(), popupMenu);
-  }
+	/**
+	 * Shows a pop-up menu using this fixture's {@code JTableHeader} as the invoker of the pop-up menu.
+	 *
+	 * @param columnName the name of the column where the pop-up menu will be displayed. It can be a regular expression.
+	 * @return a fixture that manages the displayed pop-up menu.
+	 * @throws IllegalStateException                                 if this fixture's {@code JTableHeader} is disabled.
+	 * @throws IllegalStateException                                 if this fixture's {@code JTableHeader} is not showing on the screen.
+	 * @throws org.uitest4j.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
+	 */
+	@Nonnull
+	public JPopupMenuFixture showPopupMenuAt(@Nullable String columnName) {
+		JPopupMenu popupMenu = driver().showPopupMenu(target(), columnName);
+		return new JPopupMenuFixture(robot(), popupMenu);
+	}
 
-  /**
-   * Shows a pop-up menu using this fixture's {@code JTableHeader} as the invoker of the pop-up menu. The name of the
-   * column to use must match the given regular expression pattern.
-   * 
-   * @param columnNamePattern the regular expression pattern to match.
-   * @return a fixture that manages the displayed pop-up menu.
-   * @throws IllegalStateException if this fixture's {@code JTableHeader} is disabled.
-   * @throws IllegalStateException if this fixture's {@code JTableHeader} is not showing on the screen.
-   * @throws NullPointerException if the given regular expression pattern is {@code null}.
-   * @throws org.uitest4j.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
-   */
-  @Nonnull public JPopupMenuFixture showPopupMenuAt(@Nonnull Pattern columnNamePattern) {
-    JPopupMenu popupMenu = driver().showPopupMenu(target(), columnNamePattern);
-    return new JPopupMenuFixture(robot(), popupMenu);
-  }
+	/**
+	 * Shows a pop-up menu using this fixture's {@code JTableHeader} as the invoker of the pop-up menu. The name of the
+	 * column to use must match the given regular expression pattern.
+	 *
+	 * @param columnNamePattern the regular expression pattern to match.
+	 * @return a fixture that manages the displayed pop-up menu.
+	 * @throws IllegalStateException                                 if this fixture's {@code JTableHeader} is disabled.
+	 * @throws IllegalStateException                                 if this fixture's {@code JTableHeader} is not showing on the screen.
+	 * @throws NullPointerException                                  if the given regular expression pattern is {@code null}.
+	 * @throws org.uitest4j.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
+	 */
+	@Nonnull
+	public JPopupMenuFixture showPopupMenuAt(@Nonnull Pattern columnNamePattern) {
+		JPopupMenu popupMenu = driver().showPopupMenu(target(), columnNamePattern);
+		return new JPopupMenuFixture(robot(), popupMenu);
+	}
 }

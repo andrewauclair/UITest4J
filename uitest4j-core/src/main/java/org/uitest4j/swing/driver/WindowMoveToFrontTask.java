@@ -22,16 +22,16 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 /**
  * Moves a {@code Window} to the front and gives it input focus. This task is executed in the event dispatch thread
  * (EDT).
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
 final class WindowMoveToFrontTask {
-  @RunsInEDT
-  static void toFront(final @Nonnull Window w) {
-    execute(w::toFront);
-  }
+	@RunsInEDT
+	static void toFront(final @Nonnull Window w) {
+		execute(w::toFront);
+	}
 
-  private WindowMoveToFrontTask() {
-  }
+	private WindowMoveToFrontTask() {
+	}
 }

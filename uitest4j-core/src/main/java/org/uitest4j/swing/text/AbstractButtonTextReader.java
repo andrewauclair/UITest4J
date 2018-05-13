@@ -19,32 +19,33 @@ import javax.swing.*;
 
 /**
  * Reads the text displayed in a Swing {@code AbstractButton}.
- * 
+ *
  * @author Alex Ruiz
  */
 public class AbstractButtonTextReader extends TextReader<AbstractButton> {
-  /**
-   * @return {@code AbstractButton.class}.
-   */
-  @Override
-  @Nonnull public Class<AbstractButton> supportedComponent() {
-    return AbstractButton.class;
-  }
+	/**
+	 * @return {@code AbstractButton.class}.
+	 */
+	@Override
+	@Nonnull
+	public Class<AbstractButton> supportedComponent() {
+		return AbstractButton.class;
+	}
 
-  /**
-   * Indicates whether the given Swing {@code AbstractButton} displays the given text.
-   * 
-   * @param button the given {@code AbstractButton}.
-   * @param text the given text.
-   * @return {@code true} if the given {@code AbstractButton} displays the given text; {@code false} otherwise.
-   */
-  @RunsInCurrentThread
-  @Override
-  protected boolean checkContainsText(@Nonnull AbstractButton button, @Nonnull String text) {
-    String buttonText = button.getText();
-    if (buttonText == null) {
-      return false;
-    }
-    return buttonText.contains(text);
-  }
+	/**
+	 * Indicates whether the given Swing {@code AbstractButton} displays the given text.
+	 *
+	 * @param button the given {@code AbstractButton}.
+	 * @param text   the given text.
+	 * @return {@code true} if the given {@code AbstractButton} displays the given text; {@code false} otherwise.
+	 */
+	@RunsInCurrentThread
+	@Override
+	protected boolean checkContainsText(@Nonnull AbstractButton button, @Nonnull String text) {
+		String buttonText = button.getText();
+		if (buttonText == null) {
+			return false;
+		}
+		return buttonText.contains(text);
+	}
 }

@@ -17,20 +17,21 @@ import javax.annotation.Nullable;
 
 /**
  * Creates {@link KeyStrokeMappingProvider}s from class names.
- * 
+ *
  * @author Alex Ruiz
  */
 class KeyStrokeMappingProviderFactory {
-  @Nullable
-  KeyStrokeMappingProvider createProvider(@Nonnull String className) {
-    try {
-      Class<?> type = Class.forName(className);
-      if (!KeyStrokeMappingProvider.class.isAssignableFrom(type)) {
-        return null;
-      }
-      return (KeyStrokeMappingProvider) type.getDeclaredConstructor().newInstance();
-    } catch (Throwable t) {
-      return null;
-    }
-  }
+	@Nullable
+	KeyStrokeMappingProvider createProvider(@Nonnull String className) {
+		try {
+			Class<?> type = Class.forName(className);
+			if (!KeyStrokeMappingProvider.class.isAssignableFrom(type)) {
+				return null;
+			}
+			return (KeyStrokeMappingProvider) type.getDeclaredConstructor().newInstance();
+		}
+		catch (Throwable t) {
+			return null;
+		}
+	}
 }

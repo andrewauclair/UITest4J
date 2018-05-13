@@ -14,39 +14,41 @@ package org.uitest4j.swing.core;
 
 /**
  * Scopes of AWT or Swing {@code Component} lookups.
- * 
+ *
  * @author Alex Ruiz
  */
 public enum ComponentLookupScope {
-  /**
-   * For most of the cases, only AWT or Swing {@code Component}s that are being shown on the screen participate in a
-   * lookup. Currently, the only exception is {@code JMenuItem}, which participates in a lookup regardless if it is
-   * showing or not.
-   */
-  DEFAULT(true),
+	/**
+	 * For most of the cases, only AWT or Swing {@code Component}s that are being shown on the screen participate in a
+	 * lookup. Currently, the only exception is {@code JMenuItem}, which participates in a lookup regardless if it is
+	 * showing or not.
+	 */
+	DEFAULT(true),
 
-  /**
-   * All AWT or Swing {@code Component}s participate in a lookup, regardless if they are being shown on the screen or
-   * not.
-   */
-  ALL(false),
+	/**
+	 * All AWT or Swing {@code Component}s participate in a lookup, regardless if they are being shown on the screen or
+	 * not.
+	 */
+	ALL(false),
 
-  /** Only AWT or Swing {@code Component}s that are being shown on the screen can participate in a lookup. */
-  SHOWING_ONLY(true);
+	/**
+	 * Only AWT or Swing {@code Component}s that are being shown on the screen can participate in a lookup.
+	 */
+	SHOWING_ONLY(true);
 
-  private final boolean requireShowing;
+	private final boolean requireShowing;
 
-  ComponentLookupScope(boolean requireShowing) {
-    this.requireShowing = requireShowing;
-  }
+	ComponentLookupScope(boolean requireShowing) {
+		this.requireShowing = requireShowing;
+	}
 
-  /**
-   * Returns whether showing AWT or Swing {@code Component}s are the only ones participating in lookups.
-   * 
-   * @return {@code true} if only showing {@code Component}s participate in lookups; {@code false} if any
-   *         {@code Component} (showing or not showing) can participate in lookup.
-   */
-  public boolean requireShowing() {
-    return requireShowing;
-  }
+	/**
+	 * Returns whether showing AWT or Swing {@code Component}s are the only ones participating in lookups.
+	 *
+	 * @return {@code true} if only showing {@code Component}s participate in lookups; {@code false} if any
+	 * {@code Component} (showing or not showing) can participate in lookup.
+	 */
+	public boolean requireShowing() {
+		return requireShowing;
+	}
 }

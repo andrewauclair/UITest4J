@@ -14,26 +14,26 @@ package org.uitest4j.swing.image;
 
 /**
  * Exception thrown by {@link ScreenshotTaker} when, for some reason, a screenshot of the desktop cannot be taken.
- * 
+ *
  * @author Alex Ruiz
  */
 public final class ImageException extends RuntimeException {
-  /**
-   * Creates a new {@link ImageException}.
-   * 
-   * @param message the detail message.
-   */
-  public ImageException(String message) {
-    super(message);
-  }
+	/**
+	 * Creates a new {@link ImageException}.
+	 *
+	 * @param message the detail message.
+	 */
+	public ImageException(String message) {
+		super(message);
+	}
 
-  /**
-   * Creates a new {@link ImageException}.
-   * 
-   * @param message the detail message.
-   * @param cause the cause of the error.
-   */
-  public ImageException(String message, Throwable cause) {
-    super(message, cause);
-  }
+	/**
+	 * Creates a new {@link ImageException}.
+	 *
+	 * @param message the detail message.
+	 * @param cause   the cause of the error.
+	 */
+	public ImageException(String message, Throwable cause) {
+		super(message, cause);
+	}
 }

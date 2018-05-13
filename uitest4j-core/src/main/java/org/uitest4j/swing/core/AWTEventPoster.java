@@ -12,52 +12,49 @@
  */
 package org.uitest4j.swing.core;
 
-import static org.uitest4j.swing.timing.Pause.pause;
-
-import java.awt.AWTEvent;
-import java.awt.Component;
-import java.awt.EventQueue;
-import java.awt.Toolkit;
-
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import org.uitest4j.swing.input.InputState;
 import org.uitest4j.swing.monitor.WindowMonitor;
 
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import java.awt.*;
+
+import static org.uitest4j.swing.timing.Pause.pause;
+
 /**
  * Posts {@code AWTEvent}s in an AWT {@code EventQueue}.
- * 
+ *
  * @author Yvonne Wang
  */
 class AWTEventPoster {
-  private final Toolkit toolkit;
-  private final InputState inputState;
-  private final WindowMonitor windowMonitor;
-  private final Settings settings;
+	private final Toolkit toolkit;
+	private final InputState inputState;
+	private final WindowMonitor windowMonitor;
+	private final Settings settings;
 
-  AWTEventPoster(@Nonnull Toolkit toolkit, @Nonnull InputState inputState, @Nonnull WindowMonitor windowMonitor,
-      @Nonnull Settings settings) {
-    this.toolkit = toolkit;
-    this.inputState = inputState;
-    this.windowMonitor = windowMonitor;
-    this.settings = settings;
-  }
+	AWTEventPoster(@Nonnull Toolkit toolkit, @Nonnull InputState inputState, @Nonnull WindowMonitor windowMonitor,
+				   @Nonnull Settings settings) {
+		this.toolkit = toolkit;
+		this.inputState = inputState;
+		this.windowMonitor = windowMonitor;
+		this.settings = settings;
+	}
 
-  // Post the given event to the corresponding event queue for the given component.
-  void postEvent(@Nullable Component c, @Nonnull AWTEvent event) {
-    // Force an update of the input state, so that we're in synch internally. Otherwise we might post more events before
-    // this one gets processed and end up using stale values for those events.
-    inputState.update(event);
-    EventQueue eventQueue = eventQueueFor(c);
-    if (eventQueue != null) {
-      eventQueue.postEvent(event);
-    }
-    pause(settings.delayBetweenEvents());
-  }
+	// Post the given event to the corresponding event queue for the given component.
+	void postEvent(@Nullable Component c, @Nonnull AWTEvent event) {
+		// Force an update of the input state, so that we're in synch internally. Otherwise we might post more events before
+		// this one gets processed and end up using stale values for those events.
+		inputState.update(event);
+		EventQueue eventQueue = eventQueueFor(c);
+		if (eventQueue != null) {
+			eventQueue.postEvent(event);
+		}
+		pause(settings.delayBetweenEvents());
+	}
 
-  /* Usually only needed when dealing with Applets. */
-  @Nullable private EventQueue eventQueueFor(@Nullable Component c) {
-    return c != null ? windowMonitor.eventQueueFor(c) : toolkit.getSystemEventQueue();
-  }
+	/* Usually only needed when dealing with Applets. */
+	@Nullable
+	private EventQueue eventQueueFor(@Nullable Component c) {
+		return c != null ? windowMonitor.eventQueueFor(c) : toolkit.getSystemEventQueue();
+	}
 }

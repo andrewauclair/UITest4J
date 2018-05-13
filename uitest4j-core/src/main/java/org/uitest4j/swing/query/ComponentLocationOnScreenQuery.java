@@ -24,26 +24,26 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
  * Returns the location of an AWT or Swing {@code Component} on screen. This query is executed in the event dispatch
  * thread (EDT).
  *
- * @see Component#getLocationOnScreen()
- *
  * @author Yvonne Wang
  * @author Alex Ruiz
+ * @see Component#getLocationOnScreen()
  */
 public final class ComponentLocationOnScreenQuery {
-  /**
-   * Returns the location of the given AWT or Swing {@code Component} on screen. This query is executed in the event
-   * dispatch thread (EDT).
-   *
-   * @param component the given {@code Component}.
-   * @return the location of the given {@code Component} on screen.
-   * @see Component#getLocationOnScreen()
-   */
-  @RunsInEDT
-  @Nonnull public static Point locationOnScreen(final @Nonnull Component component) {
-	  Point result = execute(component::getLocationOnScreen);
-	  return Objects.requireNonNull(result);
-  }
+	/**
+	 * Returns the location of the given AWT or Swing {@code Component} on screen. This query is executed in the event
+	 * dispatch thread (EDT).
+	 *
+	 * @param component the given {@code Component}.
+	 * @return the location of the given {@code Component} on screen.
+	 * @see Component#getLocationOnScreen()
+	 */
+	@RunsInEDT
+	@Nonnull
+	public static Point locationOnScreen(final @Nonnull Component component) {
+		Point result = execute(component::getLocationOnScreen);
+		return Objects.requireNonNull(result);
+	}
 
-  private ComponentLocationOnScreenQuery() {
-  }
+	private ComponentLocationOnScreenQuery() {
+	}
 }

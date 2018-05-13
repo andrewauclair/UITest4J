@@ -17,24 +17,23 @@ import org.uitest4j.swing.annotation.RunsInEDT;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.swing.*;
-
 import java.util.concurrent.Callable;
 
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
  * Returns the toolTip text of a given {@code JComponent}. This task is executed in the event dispatch thread (EDT).
- * 
- * @see JComponent#getToolTipText()
- * 
+ *
  * @author Alex Ruiz
+ * @see JComponent#getToolTipText()
  */
 final class JComponentToolTipQuery {
-  @RunsInEDT
-  static @Nullable String toolTipOf(final @Nonnull JComponent c) {
-    return execute((Callable<String>) c::getToolTipText);
-  }
+	@RunsInEDT
+	static @Nullable
+	String toolTipOf(final @Nonnull JComponent c) {
+		return execute((Callable<String>) c::getToolTipText);
+	}
 
-  private JComponentToolTipQuery() {
-  }
+	private JComponentToolTipQuery() {
+	}
 }

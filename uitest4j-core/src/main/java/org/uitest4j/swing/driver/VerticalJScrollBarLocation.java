@@ -22,44 +22,44 @@ import java.awt.*;
  * <p>
  * A location in a horizontal {@code JScrollBar}.
  * </p>
- * 
+ *
  * <p>
  * <b>Note:</b> Methods in this class are accessed in the current executing thread. Such thread may or may not be the
  * event dispatch thread (EDT). Client code must call methods in this class from the EDT.
  * </p>
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
 class VerticalJScrollBarLocation extends JScrollBarLocationStrategy {
-  @RunsInCurrentThread
-  @Override
-  @Nonnull
-  Point thumbLocation(@Nonnull JScrollBar scrollBar, double fraction) {
-    int arrow = arrow(scrollBar);
-    return new Point(arrow / 2, arrow + (int) (fraction * (scrollBar.getHeight() - 2 * arrow)));
-  }
+	@RunsInCurrentThread
+	@Override
+	@Nonnull
+	Point thumbLocation(@Nonnull JScrollBar scrollBar, double fraction) {
+		int arrow = arrow(scrollBar);
+		return new Point(arrow / 2, arrow + (int) (fraction * (scrollBar.getHeight() - 2 * arrow)));
+	}
 
-  @RunsInCurrentThread
-  @Override
-  @Nonnull
-  Point blockLocation(@Nonnull JScrollBar scrollBar, @Nonnull Point unitLocation, int offset) {
-    Point p = new Point(unitLocation);
-    p.y += offset;
-    return p;
-  }
+	@RunsInCurrentThread
+	@Override
+	@Nonnull
+	Point blockLocation(@Nonnull JScrollBar scrollBar, @Nonnull Point unitLocation, int offset) {
+		Point p = new Point(unitLocation);
+		p.y += offset;
+		return p;
+	}
 
-  @RunsInCurrentThread
-  @Override
-  @Nonnull
-  Point unitLocationToScrollDown(@Nonnull JScrollBar scrollBar) {
-    int arrow = arrow(scrollBar);
-    return new Point(arrow / 2, scrollBar.getHeight() - arrow / 2);
-  }
+	@RunsInCurrentThread
+	@Override
+	@Nonnull
+	Point unitLocationToScrollDown(@Nonnull JScrollBar scrollBar) {
+		int arrow = arrow(scrollBar);
+		return new Point(arrow / 2, scrollBar.getHeight() - arrow / 2);
+	}
 
-  @RunsInCurrentThread
-  @Override
-  int arrow(@Nonnull JScrollBar scrollBar) {
-    return scrollBar.getWidth();
-  }
+	@RunsInCurrentThread
+	@Override
+	int arrow(@Nonnull JScrollBar scrollBar) {
+		return scrollBar.getWidth();
+	}
 }

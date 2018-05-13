@@ -12,7 +12,7 @@
  */
 /**
  * Data structures.
- * 
+ *
  * @author Alex Ruiz
  */
 package org.uitest4j.swing.data;

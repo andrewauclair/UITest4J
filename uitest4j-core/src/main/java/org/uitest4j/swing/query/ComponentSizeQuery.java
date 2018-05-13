@@ -23,27 +23,27 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
  * Returns the size of an AWT or Swing {@code Component}. This query is executed in the event dispatch thread (EDT).
- * 
- * @see Component#getSize()
- * 
+ *
  * @author Yvonne Wang
  * @author Alex Ruiz
+ * @see Component#getSize()
  */
 public final class ComponentSizeQuery {
-  /**
-   * Returns the size of the given AWT or Swing {@code Component}. This query is executed in the event dispatch thread
-   * (EDT).
-   * 
-   * @param component the given {@code Component}.
-   * @return the size of the given {@code Component}.
-   * @see Component#getSize()
-   */
-  @RunsInEDT
-  @Nonnull public static Dimension sizeOf(final @Nonnull Component component) {
-    Dimension result = execute((Callable<Dimension>) component::getSize);
-    return Objects.requireNonNull(result);
-  }
+	/**
+	 * Returns the size of the given AWT or Swing {@code Component}. This query is executed in the event dispatch thread
+	 * (EDT).
+	 *
+	 * @param component the given {@code Component}.
+	 * @return the size of the given {@code Component}.
+	 * @see Component#getSize()
+	 */
+	@RunsInEDT
+	@Nonnull
+	public static Dimension sizeOf(final @Nonnull Component component) {
+		Dimension result = execute((Callable<Dimension>) component::getSize);
+		return Objects.requireNonNull(result);
+	}
 
-  private ComponentSizeQuery() {
-  }
+	private ComponentSizeQuery() {
+	}
 }

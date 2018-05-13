@@ -12,68 +12,68 @@
  */
 package org.uitest4j.swing.image;
 
-import java.awt.Component;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 
 /**
  * @author Carsten Behring
  */
 public interface ScreenshotTakerIF {
-  /**
-   * Takes a screenshot of the desktop and saves it as a PNG file.
-   *
-   * @param imageFilePath the path of the file to save the screenshot to.
-   * @throws NullPointerException if the given file path is {@code null}.
-   * @throws IllegalArgumentException if the given file path is empty.
-   * @throws IllegalArgumentException if the given file path does not end with ".png".
-   * @throws IllegalArgumentException if the given file path belongs to a non-empty directory.
-   * @throws org.uitest4j.swing.internal.annotation.IORuntimeException if an I/O error prevents the image from being
-   *           saved as a file.
-   */
-  void saveDesktopAsPng(String imageFilePath);
+	/**
+	 * Takes a screenshot of the desktop and saves it as a PNG file.
+	 *
+	 * @param imageFilePath the path of the file to save the screenshot to.
+	 * @throws NullPointerException                                      if the given file path is {@code null}.
+	 * @throws IllegalArgumentException                                  if the given file path is empty.
+	 * @throws IllegalArgumentException                                  if the given file path does not end with ".png".
+	 * @throws IllegalArgumentException                                  if the given file path belongs to a non-empty directory.
+	 * @throws org.uitest4j.swing.internal.annotation.IORuntimeException if an I/O error prevents the image from being
+	 *                                                                   saved as a file.
+	 */
+	void saveDesktopAsPng(String imageFilePath);
 
-  /**
-   * Takes a screenshot of the desktop.
-   *
-   * @return the screenshot of the desktop.
-   * @throws SecurityException if {@code readDisplayPixels} permission is not granted.
-   */
-  BufferedImage takeDesktopScreenshot();
+	/**
+	 * Takes a screenshot of the desktop.
+	 *
+	 * @return the screenshot of the desktop.
+	 * @throws SecurityException if {@code readDisplayPixels} permission is not granted.
+	 */
+	BufferedImage takeDesktopScreenshot();
 
-  /**
-   * Takes a screenshot of the given AWT or Swing {@code Component} and saves it as a PNG file.
-   *
-   * @param c the given {@code Component}.
-   * @param imageFilePath the path of the file to save the screenshot to.
-   * @throws NullPointerException if the given file path is {@code null}.
-   * @throws IllegalArgumentException if the given file path is empty.
-   * @throws IllegalArgumentException if the given file path does not end with ".png".
-   * @throws IllegalArgumentException if the given file path belongs to a non-empty directory.
-   * @throws org.uitest4j.swing.internal.annotation.IORuntimeException if an I/O error prevents the image from being
-   *           saved as a file.
-   */
-  void saveComponentAsPng(Component c, String imageFilePath);
+	/**
+	 * Takes a screenshot of the given AWT or Swing {@code Component} and saves it as a PNG file.
+	 *
+	 * @param c             the given {@code Component}.
+	 * @param imageFilePath the path of the file to save the screenshot to.
+	 * @throws NullPointerException                                      if the given file path is {@code null}.
+	 * @throws IllegalArgumentException                                  if the given file path is empty.
+	 * @throws IllegalArgumentException                                  if the given file path does not end with ".png".
+	 * @throws IllegalArgumentException                                  if the given file path belongs to a non-empty directory.
+	 * @throws org.uitest4j.swing.internal.annotation.IORuntimeException if an I/O error prevents the image from being
+	 *                                                                   saved as a file.
+	 */
+	void saveComponentAsPng(Component c, String imageFilePath);
 
-  /**
-   * Takes a screenshot of the given AWT or Swing {@code Component}.
-   *
-   * @param c the given {@code Component}.
-   * @return a screenshot of the given {@code Component}.
-   * @throws SecurityException if {@code readDisplayPixels} permission is not granted.
-   */
-  BufferedImage takeScreenshotOf(Component c);
+	/**
+	 * Takes a screenshot of the given AWT or Swing {@code Component}.
+	 *
+	 * @param c the given {@code Component}.
+	 * @return a screenshot of the given {@code Component}.
+	 * @throws SecurityException if {@code readDisplayPixels} permission is not granted.
+	 */
+	BufferedImage takeScreenshotOf(Component c);
 
-  /**
-   * Saves the given image as a PNG file.
-   *
-   * @param image the image to save.
-   * @param filePath the path of the file to save the image to.
-   * @throws NullPointerException if the given file path is {@code null}.
-   * @throws IllegalArgumentException if the given file path is empty.
-   * @throws IllegalArgumentException if the given file path does not end with ".png".
-   * @throws IllegalArgumentException if the given file path belongs to a non-empty directory.
-   * @throws org.uitest4j.swing.internal.annotation.IORuntimeException if an I/O error prevents the image from being
-   *           saved as a file.
-   */
-  void saveImage(BufferedImage image, String filePath);
+	/**
+	 * Saves the given image as a PNG file.
+	 *
+	 * @param image    the image to save.
+	 * @param filePath the path of the file to save the image to.
+	 * @throws NullPointerException                                      if the given file path is {@code null}.
+	 * @throws IllegalArgumentException                                  if the given file path is empty.
+	 * @throws IllegalArgumentException                                  if the given file path does not end with ".png".
+	 * @throws IllegalArgumentException                                  if the given file path belongs to a non-empty directory.
+	 * @throws org.uitest4j.swing.internal.annotation.IORuntimeException if an I/O error prevents the image from being
+	 *                                                                   saved as a file.
+	 */
+	void saveImage(BufferedImage image, String filePath);
 }

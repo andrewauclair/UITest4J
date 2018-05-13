@@ -12,8 +12,8 @@
  */
 package org.uitest4j.swing.data;
 
-import org.uitest4j.swing.cell.JTableCellReader;
 import org.uitest4j.swing.annotation.RunsInEDT;
+import org.uitest4j.swing.cell.JTableCellReader;
 
 import javax.annotation.Nonnull;
 import javax.swing.*;
@@ -24,16 +24,16 @@ import javax.swing.*;
  * @author Alex Ruiz
  */
 public interface TableCellFinder {
-  /**
-   * Finds a cell in the given {@code JTable} based on some search criteria specified by this finder. Implementations of
-   * this method <strong>should</strong> access the given {@code JTable} in the event dispatch thread (EDT).
-   *
-   * @param table the target {@code JTable}.
-   * @param cellReader knows how to read the contents of a cell in a {@code JTable}.
-   * @return the cell found, if any.
-   * @throws org.uitest4j.swing.exception.ActionFailedException if a matching cell could not be found.
-   */
-  @RunsInEDT
-  @Nonnull
-  TableCell findCell(@Nonnull JTable table, @Nonnull JTableCellReader cellReader);
+	/**
+	 * Finds a cell in the given {@code JTable} based on some search criteria specified by this finder. Implementations of
+	 * this method <strong>should</strong> access the given {@code JTable} in the event dispatch thread (EDT).
+	 *
+	 * @param table      the target {@code JTable}.
+	 * @param cellReader knows how to read the contents of a cell in a {@code JTable}.
+	 * @return the cell found, if any.
+	 * @throws org.uitest4j.swing.exception.ActionFailedException if a matching cell could not be found.
+	 */
+	@RunsInEDT
+	@Nonnull
+	TableCell findCell(@Nonnull JTable table, @Nonnull JTableCellReader cellReader);
 }

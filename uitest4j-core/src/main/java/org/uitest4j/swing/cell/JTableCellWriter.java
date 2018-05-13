@@ -27,100 +27,100 @@ import java.awt.*;
  */
 @RunsInEDT
 public interface JTableCellWriter {
-  /**
-   * Enters the given value at the given cell of the {@code JTable}. To edit a cell using this method, it is not
-   * necessary to call {@link #startCellEditing(JTable, int, int)} or {@link #stopCellEditing(JTable, int, int)}.
-   *
-   * @param table the target {@code JTable}.
-   * @param row the row index of the cell.
-   * @param column the column index of the cell.
-   * @param value the value to enter.
-   * @throws IllegalStateException if the {@code JTable} is disabled.
-   * @throws IllegalStateException if the {@code JTable} is not showing on the screen.
-   * @throws IllegalStateException if the {@code JTable} cell is not editable.
-   * @throws IndexOutOfBoundsException if any of the indices (row and column) is out of bounds.
-   * @throws org.uitest4j.swing.exception.ActionFailedException if an editor for the given cell cannot be found or cannot
-   *           be activated.
-   */
-  void enterValue(@Nonnull JTable table, int row, int column, @Nonnull String value);
+	/**
+	 * Enters the given value at the given cell of the {@code JTable}. To edit a cell using this method, it is not
+	 * necessary to call {@link #startCellEditing(JTable, int, int)} or {@link #stopCellEditing(JTable, int, int)}.
+	 *
+	 * @param table  the target {@code JTable}.
+	 * @param row    the row index of the cell.
+	 * @param column the column index of the cell.
+	 * @param value  the value to enter.
+	 * @throws IllegalStateException                              if the {@code JTable} is disabled.
+	 * @throws IllegalStateException                              if the {@code JTable} is not showing on the screen.
+	 * @throws IllegalStateException                              if the {@code JTable} cell is not editable.
+	 * @throws IndexOutOfBoundsException                          if any of the indices (row and column) is out of bounds.
+	 * @throws org.uitest4j.swing.exception.ActionFailedException if an editor for the given cell cannot be found or cannot
+	 *                                                            be activated.
+	 */
+	void enterValue(@Nonnull JTable table, int row, int column, @Nonnull String value);
 
-  /**
-   * Starts editing the given cell of the {@code JTable}. This method should be called before manipulating the AWT or
-   * Swing {@code Component} returned by {@link #editorForCell(JTable, int, int)}.
-   *
-   * @param table the target {@code JTable}.
-   * @param row the row index of the cell.
-   * @param column the column index of the cell.
-   * @throws IllegalStateException if the {@code JTable} is disabled.
-   * @throws IllegalStateException if the {@code JTable} is not showing on the screen.
-   * @throws IllegalStateException if the {@code JTable} cell is not editable.
-   * @throws IndexOutOfBoundsException if any of the indices (row and column) is out of bounds.
-   * @throws org.uitest4j.swing.exception.ActionFailedException if an editor for the given cell cannot be found or cannot
-   *           be activated.
-   * @see #editorForCell(JTable, int, int)
-   */
-  void startCellEditing(@Nonnull JTable table, int row, int column);
+	/**
+	 * Starts editing the given cell of the {@code JTable}. This method should be called before manipulating the AWT or
+	 * Swing {@code Component} returned by {@link #editorForCell(JTable, int, int)}.
+	 *
+	 * @param table  the target {@code JTable}.
+	 * @param row    the row index of the cell.
+	 * @param column the column index of the cell.
+	 * @throws IllegalStateException                              if the {@code JTable} is disabled.
+	 * @throws IllegalStateException                              if the {@code JTable} is not showing on the screen.
+	 * @throws IllegalStateException                              if the {@code JTable} cell is not editable.
+	 * @throws IndexOutOfBoundsException                          if any of the indices (row and column) is out of bounds.
+	 * @throws org.uitest4j.swing.exception.ActionFailedException if an editor for the given cell cannot be found or cannot
+	 *                                                            be activated.
+	 * @see #editorForCell(JTable, int, int)
+	 */
+	void startCellEditing(@Nonnull JTable table, int row, int column);
 
-  /**
-   * Stops editing the given cell of the {@code JTable}. This method should be called after manipulating the AWT or
-   * Swing {@code Component} returned by {@link #editorForCell(JTable, int, int)}.
-   *
-   * @param table the target {@code JTable}.
-   * @param row the row index of the cell.
-   * @param column the column index of the cell.
-   * @throws IllegalStateException if the {@code JTable} is disabled.
-   * @throws IllegalStateException if the {@code JTable} is not showing on the screen.
-   * @throws IllegalStateException if the {@code JTable} cell is not editable.
-   * @throws IndexOutOfBoundsException if any of the indices (row and column) is out of bounds.
-   * @throws org.uitest4j.swing.exception.ActionFailedException if an editor for the given cell cannot be found or cannot
-   *           be activated.
-   * @see #editorForCell(JTable, int, int)
-   */
-  void stopCellEditing(@Nonnull JTable table, int row, int column);
+	/**
+	 * Stops editing the given cell of the {@code JTable}. This method should be called after manipulating the AWT or
+	 * Swing {@code Component} returned by {@link #editorForCell(JTable, int, int)}.
+	 *
+	 * @param table  the target {@code JTable}.
+	 * @param row    the row index of the cell.
+	 * @param column the column index of the cell.
+	 * @throws IllegalStateException                              if the {@code JTable} is disabled.
+	 * @throws IllegalStateException                              if the {@code JTable} is not showing on the screen.
+	 * @throws IllegalStateException                              if the {@code JTable} cell is not editable.
+	 * @throws IndexOutOfBoundsException                          if any of the indices (row and column) is out of bounds.
+	 * @throws org.uitest4j.swing.exception.ActionFailedException if an editor for the given cell cannot be found or cannot
+	 *                                                            be activated.
+	 * @see #editorForCell(JTable, int, int)
+	 */
+	void stopCellEditing(@Nonnull JTable table, int row, int column);
 
-  /**
-   * Cancels editing the given cell of the {@code JTable}. This method should be called after manipulating the AWT or
-   * Swing {@code Component} returned by @link #editorForCell(JTable, int, int)}.
-   *
-   * @param table the target {@code JTable}.
-   * @param row the row index of the cell.
-   * @param column the column index of the cell.
-   * @throws IllegalStateException if the {@code JTable} is disabled.
-   * @throws IllegalStateException if the {@code JTable} is not showing on the screen.
-   * @throws IllegalStateException if the {@code JTable} cell is not editable.
-   * @throws IndexOutOfBoundsException if any of the indices (row and column) is out of bounds.
-   * @throws org.uitest4j.swing.exception.ActionFailedException if an editor for the given cell cannot be found or cannot
-   *           be activated.
-   * @see #editorForCell(JTable, int, int)
-   */
-  void cancelCellEditing(@Nonnull JTable table, int row, int column);
+	/**
+	 * Cancels editing the given cell of the {@code JTable}. This method should be called after manipulating the AWT or
+	 * Swing {@code Component} returned by @link #editorForCell(JTable, int, int)}.
+	 *
+	 * @param table  the target {@code JTable}.
+	 * @param row    the row index of the cell.
+	 * @param column the column index of the cell.
+	 * @throws IllegalStateException                              if the {@code JTable} is disabled.
+	 * @throws IllegalStateException                              if the {@code JTable} is not showing on the screen.
+	 * @throws IllegalStateException                              if the {@code JTable} cell is not editable.
+	 * @throws IndexOutOfBoundsException                          if any of the indices (row and column) is out of bounds.
+	 * @throws org.uitest4j.swing.exception.ActionFailedException if an editor for the given cell cannot be found or cannot
+	 *                                                            be activated.
+	 * @see #editorForCell(JTable, int, int)
+	 */
+	void cancelCellEditing(@Nonnull JTable table, int row, int column);
 
-  /**
-   * <p>
-   * Returns the AWT or Swing {@code Component} used as editor of the given cell. To manipulate the returned
-   * {@code Component}, {@link #startCellEditing(JTable, int, int)} should be called first.
-   * </p>
-   *
-   * <p>
-   * Example:
-   * </p>
-   *
-   * <pre>
-   * Component editor = writer.editorForCell(table, 6, 8);
-   * // assume editor is a JTextField
-   * JTextComponentFixture editorFixture = new JTextComponentFixture(robot, (JTextField) editor);
-   * writer.{@link #startCellEditing(JTable, int, int) startCellEditing}(table, 6, 8);
-   * editorFixture.enterText(&quot;Hello&quot;);
-   * writer.{@link #stopCellEditing(JTable, int, int) stopCellEditing}(table, 6, 8);
-   * </pre>
-   *
-   * @param table the target {@code JTable}.
-   * @param row the row index of the cell.
-   * @param column the column index of the cell.
-   * @return the {@code Component} used as editor of the given cell.
-   * @throws IllegalStateException if the {@code JTable} cell is not editable.
-   * @throws IndexOutOfBoundsException if any of the indices (row and column) is out of bounds.
-   */
-  @Nullable
-  Component editorForCell(@Nonnull JTable table, int row, int column);
+	/**
+	 * <p>
+	 * Returns the AWT or Swing {@code Component} used as editor of the given cell. To manipulate the returned
+	 * {@code Component}, {@link #startCellEditing(JTable, int, int)} should be called first.
+	 * </p>
+	 *
+	 * <p>
+	 * Example:
+	 * </p>
+	 *
+	 * <pre>
+	 * Component editor = writer.editorForCell(table, 6, 8);
+	 * // assume editor is a JTextField
+	 * JTextComponentFixture editorFixture = new JTextComponentFixture(robot, (JTextField) editor);
+	 * writer.{@link #startCellEditing(JTable, int, int) startCellEditing}(table, 6, 8);
+	 * editorFixture.enterText(&quot;Hello&quot;);
+	 * writer.{@link #stopCellEditing(JTable, int, int) stopCellEditing}(table, 6, 8);
+	 * </pre>
+	 *
+	 * @param table  the target {@code JTable}.
+	 * @param row    the row index of the cell.
+	 * @param column the column index of the cell.
+	 * @return the {@code Component} used as editor of the given cell.
+	 * @throws IllegalStateException     if the {@code JTable} cell is not editable.
+	 * @throws IndexOutOfBoundsException if any of the indices (row and column) is out of bounds.
+	 */
+	@Nullable
+	Component editorForCell(@Nonnull JTable table, int row, int column);
 }

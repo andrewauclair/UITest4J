@@ -26,80 +26,81 @@ import static org.uitest4j.swing.hierarchy.JInternalFrameDesktopPaneQuery.deskto
  * Finds the parent of an AWT or Swing {@code Component}. This method returns the most likely parent based on the type
  * of a given {@code Component}.
  * </p>
- * 
+ *
  * <p>
  * <b>Note:</b> Methods in this class are accessed in the current executing thread. Such thread may or may not be the
  * event dispatch thread (EDT). Client code must call methods in this class from the EDT.
  * </p>
- * 
+ *
  * @author Alex Ruiz
  */
 class ParentFinder {
-  /**
-   * Return the parent for the given AWT or Swing {@code Component}.
-   * 
-   * @param c the given {@code Component}.
-   * @return the parent for the given {@code Component}.
-   */
-  @RunsInCurrentThread
-  @Nullable
-  Container parentOf(@Nonnull Component c) {
-    Container p = c.getParent();
-    if (p == null && c instanceof JInternalFrame) {
-      p = parentOf((JInternalFrame) c);
-    }
-    return p;
-  }
+	/**
+	 * Return the parent for the given AWT or Swing {@code Component}.
+	 *
+	 * @param c the given {@code Component}.
+	 * @return the parent for the given {@code Component}.
+	 */
+	@RunsInCurrentThread
+	@Nullable
+	Container parentOf(@Nonnull Component c) {
+		Container p = c.getParent();
+		if (p == null && c instanceof JInternalFrame) {
+			p = parentOf((JInternalFrame) c);
+		}
+		return p;
+	}
 
-  @RunsInCurrentThread
-  @Nullable private Container parentOf(@Nonnull JInternalFrame internalFrame) {
-    // From Abbot: workaround for bug in JInternalFrame: COMPONENT_HIDDEN is sent before the desktop icon is set, so
-    // JInternalFrame.getDesktopPane will throw a NPE if called while dispatching that event. Reported against 1.4.x.
-    return desktopPaneOf(internalFrame);
-  }
+	@RunsInCurrentThread
+	@Nullable
+	private Container parentOf(@Nonnull JInternalFrame internalFrame) {
+		// From Abbot: workaround for bug in JInternalFrame: COMPONENT_HIDDEN is sent before the desktop icon is set, so
+		// JInternalFrame.getDesktopPane will throw a NPE if called while dispatching that event. Reported against 1.4.x.
+		return desktopPaneOf(internalFrame);
+	}
 
-  /**
-   * Similar to {@code SwingUtilities.windowForComponent(Component)}, but returns the {@code Component} itself if it is
-   * a {@code Window}, or the invoker's window if on a pop-up.
-   * 
-   * @param c the AWT or Swing {@code Component} whose {@code Window} ancestor we are looking for.
-   * @return the window ancestor of the given {@code Component}, or given {@code Component} itself it is a
-   *         {@code Window}.
-   */
-  @Nullable
-  Window windowFor(@Nullable Component c) {
-    if (c == null) {
-      return null;
-    }
-    if (c instanceof Window) {
-      return (Window) c;
-    }
-    if (c instanceof MenuElement) {
-      Component invoker = invokerFor(c);
-      if (invoker != null) {
-        return windowFor(invoker);
-      }
-    }
-    return windowFor(parentOf(c));
-  }
+	/**
+	 * Similar to {@code SwingUtilities.windowForComponent(Component)}, but returns the {@code Component} itself if it is
+	 * a {@code Window}, or the invoker's window if on a pop-up.
+	 *
+	 * @param c the AWT or Swing {@code Component} whose {@code Window} ancestor we are looking for.
+	 * @return the window ancestor of the given {@code Component}, or given {@code Component} itself it is a
+	 * {@code Window}.
+	 */
+	@Nullable
+	Window windowFor(@Nullable Component c) {
+		if (c == null) {
+			return null;
+		}
+		if (c instanceof Window) {
+			return (Window) c;
+		}
+		if (c instanceof MenuElement) {
+			Component invoker = invokerFor(c);
+			if (invoker != null) {
+				return windowFor(invoker);
+			}
+		}
+		return windowFor(parentOf(c));
+	}
 
-  /**
-   * Returns the invoker, if any, of the given AWT or Swing {@code Component}. Returns {@code null} if the
-   * {@code Component} is not on a pop-up of any sort.
-   * 
-   * @param c the given {@code Component}.
-   * @return the invoker of the given {@code Component} if found. Otherwise, {@code null}.
-   */
-  @RunsInCurrentThread
-  @Nullable
-  Component invokerFor(@Nonnull Component c) {
-    if (c instanceof JPopupMenu) {
-      return ((JPopupMenu) c).getInvoker();
-    }
-    Component parent = c.getParent();
-    if (parent == null) {
-      return null;
-    }
-    return invokerFor(parent);
-  }
+	/**
+	 * Returns the invoker, if any, of the given AWT or Swing {@code Component}. Returns {@code null} if the
+	 * {@code Component} is not on a pop-up of any sort.
+	 *
+	 * @param c the given {@code Component}.
+	 * @return the invoker of the given {@code Component} if found. Otherwise, {@code null}.
+	 */
+	@RunsInCurrentThread
+	@Nullable
+	Component invokerFor(@Nonnull Component c) {
+		if (c instanceof JPopupMenu) {
+			return ((JPopupMenu) c).getInvoker();
+		}
+		Component parent = c.getParent();
+		if (parent == null) {
+			return null;
+		}
+		return invokerFor(parent);
+	}
 }

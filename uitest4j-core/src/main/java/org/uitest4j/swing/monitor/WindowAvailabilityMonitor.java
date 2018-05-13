@@ -25,34 +25,34 @@ import static org.uitest4j.swing.listener.WeakEventListener.attachAsWeakEventLis
 
 /**
  * Event listener that monitors when a window is ready to receive OS-level event input.
- * 
+ *
  * @author Alex Ruiz
  */
 final class WindowAvailabilityMonitor implements AWTEventListener {
-  private static final long EVENT_MASK = MOUSE_MOTION_EVENT_MASK | MOUSE_EVENT_MASK | PAINT_EVENT_MASK;
+	private static final long EVENT_MASK = MOUSE_MOTION_EVENT_MASK | MOUSE_EVENT_MASK | PAINT_EVENT_MASK;
 
-  private final Windows windows;
+	private final Windows windows;
 
-  WindowAvailabilityMonitor(@Nonnull Windows windows) {
-    this.windows = windows;
-  }
+	WindowAvailabilityMonitor(@Nonnull Windows windows) {
+		this.windows = windows;
+	}
 
-  void attachTo(@Nonnull Toolkit toolkit) {
-    attachAsWeakEventListener(toolkit, this, EVENT_MASK);
-  }
+	void attachTo(@Nonnull Toolkit toolkit) {
+		attachAsWeakEventListener(toolkit, this, EVENT_MASK);
+	}
 
-  @RunsInEDT
-  @Override
-  public void eventDispatched(AWTEvent e) {
-    if (!(e instanceof MouseEvent)) {
-      return;
-    }
-    Object source = e.getSource();
-    if (!(source instanceof Component)) {
-      return;
-    }
-    Component c = (Component) source;
-    Window w = c instanceof Window ? (Window) c : getWindowAncestor(c);
-    windows.markAsReady(w);
-  }
+	@RunsInEDT
+	@Override
+	public void eventDispatched(AWTEvent e) {
+		if (!(e instanceof MouseEvent)) {
+			return;
+		}
+		Object source = e.getSource();
+		if (!(source instanceof Component)) {
+			return;
+		}
+		Component c = (Component) source;
+		Window w = c instanceof Window ? (Window) c : getWindowAncestor(c);
+		windows.markAsReady(w);
+	}
 }

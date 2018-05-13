@@ -12,13 +12,12 @@
  */
 package org.uitest4j.swing.format;
 
-import static java.lang.String.valueOf;
-import static org.uitest4j.swing.util.Maps.newHashMap;
-
-import java.util.Map;
-
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.util.Map;
+
+import static java.lang.String.valueOf;
+import static org.uitest4j.swing.util.Maps.newHashMap;
 
 /**
  * Workaround to obtain a {@code String} representation of an {@code int} enumeration.
@@ -26,19 +25,19 @@ import javax.annotation.Nullable;
  * @author Alex Ruiz
  */
 final class IntEnum {
-  private final Map<Integer, String> map = newHashMap();
+	private final Map<Integer, String> map = newHashMap();
 
-  @Nullable
-  String get(int key) {
-    if (map.containsKey(key)) {
-      return map.get(key);
-    }
-    return valueOf(key);
-  }
+	@Nullable
+	String get(int key) {
+		if (map.containsKey(key)) {
+			return map.get(key);
+		}
+		return valueOf(key);
+	}
 
-  @Nonnull
-  IntEnum put(int key, @Nullable String value) {
-    map.put(key, value);
-    return this;
-  }
+	@Nonnull
+	IntEnum put(int key, @Nullable String value) {
+		map.put(key, value);
+		return this;
+	}
 }

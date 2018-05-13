@@ -19,32 +19,33 @@ import javax.swing.text.JTextComponent;
 
 /**
  * Reads the text displayed in a {@code JTextComponent}.
- * 
+ *
  * @author Alex Ruiz
  */
 public class JTextComponentTextReader extends TextReader<JTextComponent> {
-  /**
-   * @return {@code JTextComponent.class}.
-   */
-  @Override
-  @Nonnull public Class<JTextComponent> supportedComponent() {
-    return JTextComponent.class;
-  }
+	/**
+	 * @return {@code JTextComponent.class}.
+	 */
+	@Override
+	@Nonnull
+	public Class<JTextComponent> supportedComponent() {
+		return JTextComponent.class;
+	}
 
-  /**
-   * Indicates whether the given {@code JTextComponent} displays the given text.
-   * 
-   * @param textComponent the given {@code JTextComponent}.
-   * @param text the given text.
-   * @return {@code true} if the given {@code JTextComponent} displays the given text; {@code false} otherwise.
-   */
-  @RunsInCurrentThread
-  @Override
-  protected boolean checkContainsText(@Nonnull JTextComponent textComponent, @Nonnull String text) {
-    String componentText = textComponent.getText();
-    if (componentText == null) {
-      return false;
-    }
-    return componentText.contains(text);
-  }
+	/**
+	 * Indicates whether the given {@code JTextComponent} displays the given text.
+	 *
+	 * @param textComponent the given {@code JTextComponent}.
+	 * @param text          the given text.
+	 * @return {@code true} if the given {@code JTextComponent} displays the given text; {@code false} otherwise.
+	 */
+	@RunsInCurrentThread
+	@Override
+	protected boolean checkContainsText(@Nonnull JTextComponent textComponent, @Nonnull String text) {
+		String componentText = textComponent.getText();
+		if (componentText == null) {
+			return false;
+		}
+		return componentText.contains(text);
+	}
 }

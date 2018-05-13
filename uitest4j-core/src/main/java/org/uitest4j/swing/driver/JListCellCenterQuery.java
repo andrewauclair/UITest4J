@@ -26,22 +26,23 @@ import static org.uitest4j.swing.awt.AWT.centerOf;
  * @author Alex Ruiz
  */
 final class JListCellCenterQuery {
-  /*
-   * Sometimes the cell is not completely contained in the visible rectangle of the JList (e.g. when a list item
-   * has long text and the JList is in a JScrollPane). In this case, we return the center of the intersection of the
-   * visible rectangle of the JList and the cell bounds. (issue FEST-65).
-   */
-  @RunsInCurrentThread
-  static @Nonnull Point cellCenter(@Nonnull JList<?> list, @Nonnull Rectangle cellBounds) {
-    Point cellCenter = centerOf(cellBounds);
-    Rectangle visibleRect = list.getVisibleRect();
-    if (visibleRect.contains(cellCenter)) {
-      return cellCenter;
-    }
-    Rectangle intersection = visibleRect.intersection(cellBounds);
-    return centerOf(intersection);
-  }
+	/*
+	 * Sometimes the cell is not completely contained in the visible rectangle of the JList (e.g. when a list item
+	 * has long text and the JList is in a JScrollPane). In this case, we return the center of the intersection of the
+	 * visible rectangle of the JList and the cell bounds. (issue FEST-65).
+	 */
+	@RunsInCurrentThread
+	static @Nonnull
+	Point cellCenter(@Nonnull JList<?> list, @Nonnull Rectangle cellBounds) {
+		Point cellCenter = centerOf(cellBounds);
+		Rectangle visibleRect = list.getVisibleRect();
+		if (visibleRect.contains(cellCenter)) {
+			return cellCenter;
+		}
+		Rectangle intersection = visibleRect.intersection(cellBounds);
+		return centerOf(intersection);
+	}
 
-  private JListCellCenterQuery() {
-  }
+	private JListCellCenterQuery() {
+	}
 }

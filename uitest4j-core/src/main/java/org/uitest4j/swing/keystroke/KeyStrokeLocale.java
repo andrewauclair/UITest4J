@@ -22,37 +22,39 @@ import java.util.logging.Logger;
  * @author Christian Roesch
  */
 class KeyStrokeLocale {
-  static final String ASSERTJ_SWING_KEYBOARD_LOCALE = "assertj.swing.keyboard.locale";
-  private static Logger LOGGER = Logger.getLogger(KeyStrokeLocale.class.getName());
-  private static Locale locale;
+	static final String ASSERTJ_SWING_KEYBOARD_LOCALE = "assertj.swing.keyboard.locale";
+	private static Logger LOGGER = Logger.getLogger(KeyStrokeLocale.class.getName());
+	private static Locale locale;
 
-  static {
-    reloadFromSystemSettings();
-  }
+	static {
+		reloadFromSystemSettings();
+	}
 
-  /** Reloads the key stroke locale for the language using the current system settings. */
-  static void reloadFromSystemSettings() {
-    LOGGER.finer("reload locale from settings");
-    String propertyLocale = System.getProperty(ASSERTJ_SWING_KEYBOARD_LOCALE);
-    LOGGER.finer("system property >" + ASSERTJ_SWING_KEYBOARD_LOCALE + "<: " + propertyLocale);
-    if (propertyLocale != null) {
-      locale = Locale.forLanguageTag(propertyLocale);
-      LOGGER.finer("using locale from system property: " + locale);
-    }
-    if (locale == null) {
-      locale = InputContext.getInstance().getLocale();
-      LOGGER.finer("using locale from input context: " + locale);
-    }
-    if (locale == null) {
-      locale = Locale.getDefault();
-      LOGGER.finer("using default locale: " + locale);
-    }
-  }
+	/**
+	 * Reloads the key stroke locale for the language using the current system settings.
+	 */
+	static void reloadFromSystemSettings() {
+		LOGGER.finer("reload locale from settings");
+		String propertyLocale = System.getProperty(ASSERTJ_SWING_KEYBOARD_LOCALE);
+		LOGGER.finer("system property >" + ASSERTJ_SWING_KEYBOARD_LOCALE + "<: " + propertyLocale);
+		if (propertyLocale != null) {
+			locale = Locale.forLanguageTag(propertyLocale);
+			LOGGER.finer("using locale from system property: " + locale);
+		}
+		if (locale == null) {
+			locale = InputContext.getInstance().getLocale();
+			LOGGER.finer("using locale from input context: " + locale);
+		}
+		if (locale == null) {
+			locale = Locale.getDefault();
+			LOGGER.finer("using default locale: " + locale);
+		}
+	}
 
-  static Locale get() {
-    return locale;
-  }
+	static Locale get() {
+		return locale;
+	}
 
-  private KeyStrokeLocale() {
-  }
+	private KeyStrokeLocale() {
+	}
 }

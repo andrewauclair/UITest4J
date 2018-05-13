@@ -26,34 +26,37 @@ import static javax.swing.JFileChooser.*;
  * @author Yvonne Wang
  */
 public class JFileChooserFormatter extends ComponentFormatterTemplate {
-  private static final IntEnum DIALOG_TYPES = new IntEnum();
-  static {
-    DIALOG_TYPES.put(OPEN_DIALOG, "OPEN_DIALOG").put(SAVE_DIALOG, "SAVE_DIALOG").put(CUSTOM_DIALOG, "CUSTOM_DIALOG");
-  }
+	private static final IntEnum DIALOG_TYPES = new IntEnum();
 
-  /**
-   * Returns the {@code String} representation of the given {@code Component}, which should be a {@code JFileChooser}.
-   *
-   * @param c the given {@code Component}.
-   * @return the {@code String} representation of the given {@code JFileChooser}.
-   */
-  @RunsInCurrentThread
-  @Override
-  @Nonnull protected String doFormat(@Nonnull Component c) {
-    JFileChooser fileChooser = (JFileChooser) c;
-	  String format = "%s[name='%s', dialogTitle='%s', dialogType=%s, currentDirectory=%s, enabled=%b, visible=%b, showing=%b";
-	  return String.format(format, getRealClassName(c), fileChooser.getName(),
-			  fileChooser.getDialogTitle(), DIALOG_TYPES.get(fileChooser.getDialogType()),
-              fileChooser.getCurrentDirectory().getAbsolutePath(),
-                         fileChooser.isEnabled(),
-                         fileChooser.isVisible(), fileChooser.isShowing());
-  }
+	static {
+		DIALOG_TYPES.put(OPEN_DIALOG, "OPEN_DIALOG").put(SAVE_DIALOG, "SAVE_DIALOG").put(CUSTOM_DIALOG, "CUSTOM_DIALOG");
+	}
 
-  /**
-   * @return {@code JFileChooser.class}.
-   */
-  @Override
-  @Nonnull public Class<? extends Component> targetType() {
-    return JFileChooser.class;
-  }
+	/**
+	 * Returns the {@code String} representation of the given {@code Component}, which should be a {@code JFileChooser}.
+	 *
+	 * @param c the given {@code Component}.
+	 * @return the {@code String} representation of the given {@code JFileChooser}.
+	 */
+	@RunsInCurrentThread
+	@Override
+	@Nonnull
+	protected String doFormat(@Nonnull Component c) {
+		JFileChooser fileChooser = (JFileChooser) c;
+		String format = "%s[name='%s', dialogTitle='%s', dialogType=%s, currentDirectory=%s, enabled=%b, visible=%b, showing=%b";
+		return String.format(format, getRealClassName(c), fileChooser.getName(),
+				fileChooser.getDialogTitle(), DIALOG_TYPES.get(fileChooser.getDialogType()),
+				fileChooser.getCurrentDirectory().getAbsolutePath(),
+				fileChooser.isEnabled(),
+				fileChooser.isVisible(), fileChooser.isShowing());
+	}
+
+	/**
+	 * @return {@code JFileChooser.class}.
+	 */
+	@Override
+	@Nonnull
+	public Class<? extends Component> targetType() {
+		return JFileChooser.class;
+	}
 }

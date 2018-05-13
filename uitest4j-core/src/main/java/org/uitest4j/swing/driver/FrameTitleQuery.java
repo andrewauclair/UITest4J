@@ -23,16 +23,16 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 /**
  * Returns the title of a given {@code Frame}. This task is executed in the event dispatch thread (EDT).
  *
- * @see Frame#getTitle()
- *
  * @author Christian Rösch
+ * @see Frame#getTitle()
  */
 final class FrameTitleQuery {
-  @RunsInEDT
-  static @Nullable String titleOf(final @Nonnull Frame f) {
-    return execute(f::getTitle);
-  }
+	@RunsInEDT
+	static @Nullable
+	String titleOf(final @Nonnull Frame f) {
+		return execute(f::getTitle);
+	}
 
-  private FrameTitleQuery() {
-  }
+	private FrameTitleQuery() {
+	}
 }

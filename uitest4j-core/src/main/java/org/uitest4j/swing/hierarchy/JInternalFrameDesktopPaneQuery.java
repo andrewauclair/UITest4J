@@ -23,25 +23,26 @@ import javax.swing.JInternalFrame.JDesktopIcon;
  * <p>
  * Returns the desktop the given {@code JInternalFrame} belongs to when iconified.
  * </p>
- * 
+ *
  * <p>
  * <b>Note:</b> Methods in this class are accessed in the current executing thread. Such thread may or may not be the
  * event dispatch thread (EDT). Client code must call methods in this class from the EDT.
  * </p>
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
 final class JInternalFrameDesktopPaneQuery {
-  @RunsInCurrentThread
-  static @Nullable JDesktopPane desktopPaneOf(@Nonnull JInternalFrame internalFrame) {
-    JDesktopIcon icon = internalFrame.getDesktopIcon();
-    if (icon != null) {
-      return icon.getDesktopPane();
-    }
-    return null;
-  }
+	@RunsInCurrentThread
+	static @Nullable
+	JDesktopPane desktopPaneOf(@Nonnull JInternalFrame internalFrame) {
+		JDesktopIcon icon = internalFrame.getDesktopIcon();
+		if (icon != null) {
+			return icon.getDesktopPane();
+		}
+		return null;
+	}
 
-  private JInternalFrameDesktopPaneQuery() {
-  }
+	private JInternalFrameDesktopPaneQuery() {
+	}
 }

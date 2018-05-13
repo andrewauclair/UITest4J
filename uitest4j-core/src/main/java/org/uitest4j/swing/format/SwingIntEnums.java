@@ -12,24 +12,22 @@
  */
 package org.uitest4j.swing.format;
 
-import static javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION;
-import static javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION;
-import static javax.swing.ListSelectionModel.SINGLE_SELECTION;
+import static javax.swing.ListSelectionModel.*;
 
 /**
  * Common Swing {@code int} enumerations.
- * 
+ *
  * @author Alex Ruiz
  */
 final class SwingIntEnums {
-  static final IntEnum SELECTION_MODES = new IntEnum();
+	static final IntEnum SELECTION_MODES = new IntEnum();
 
-  static {
-    SELECTION_MODES.put(SINGLE_SELECTION, "SINGLE_SELECTION")
-        .put(SINGLE_INTERVAL_SELECTION, "SINGLE_INTERVAL_SELECTION")
-        .put(MULTIPLE_INTERVAL_SELECTION, "MULTIPLE_INTERVAL_SELECTION");
-  }
+	static {
+		SELECTION_MODES.put(SINGLE_SELECTION, "SINGLE_SELECTION")
+				.put(SINGLE_INTERVAL_SELECTION, "SINGLE_INTERVAL_SELECTION")
+				.put(MULTIPLE_INTERVAL_SELECTION, "MULTIPLE_INTERVAL_SELECTION");
+	}
 
-  private SwingIntEnums() {
-  }
+	private SwingIntEnums() {
+	}
 }

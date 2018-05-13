@@ -12,85 +12,82 @@
  */
 package org.uitest4j.swing.fixture;
 
-import java.awt.Dimension;
-import java.awt.Point;
-
 import javax.annotation.Nonnull;
+import java.awt.*;
 
 /**
  * Supports functional testing of window-like containers (not necessarily subclasses of {@code Window}).
- * 
+ *
  * @param <S> used to simulate "self types." For more information please read &quot;<a href="http://goo.gl/fjgOM"
- *          target="_blank">Emulating 'self types' using Java Generics to simplify fluent API implementation</a>.&quot;
- * 
+ *            target="_blank">Emulating 'self types' using Java Generics to simplify fluent API implementation</a>.&quot;
  * @author Yvonne Wang
  * @author Alex Ruiz
  */
 public interface WindowLikeContainerFixture<S> {
-  /**
-   * Simulates a user closing this fixture's window-like container.
-   */
-  void close();
+	/**
+	 * Simulates a user closing this fixture's window-like container.
+	 */
+	void close();
 
-  /**
-   * Simulates a user resizing horizontally this fixture's window-like container.
-   * 
-   * @param width the width that this fixture's window-like container should have after being resized.
-   * @return this fixture.
-   */
-  @Nonnull
-  S resizeWidthTo(int width);
+	/**
+	 * Simulates a user resizing horizontally this fixture's window-like container.
+	 *
+	 * @param width the width that this fixture's window-like container should have after being resized.
+	 * @return this fixture.
+	 */
+	@Nonnull
+	S resizeWidthTo(int width);
 
-  /**
-   * Simulates a user resizing vertically this fixture's window-like container.
-   * 
-   * @param height the height that this fixture's window-like container should have after being resized.
-   * @return this fixture.
-   */
-  @Nonnull
-  S resizeHeightTo(int height);
+	/**
+	 * Simulates a user resizing vertically this fixture's window-like container.
+	 *
+	 * @param height the height that this fixture's window-like container should have after being resized.
+	 * @return this fixture.
+	 */
+	@Nonnull
+	S resizeHeightTo(int height);
 
-  /**
-   * Simulates a user resizing this fixture's window-like container.
-   * 
-   * @param size the size that the target window should have after being resized.
-   * @return this fixture.
-   */
-  @Nonnull
-  S resizeTo(@Nonnull Dimension size);
+	/**
+	 * Simulates a user resizing this fixture's window-like container.
+	 *
+	 * @param size the size that the target window should have after being resized.
+	 * @return this fixture.
+	 */
+	@Nonnull
+	S resizeTo(@Nonnull Dimension size);
 
-  /**
-   * Asserts that the size of this fixture's window-like container is equal to given one.
-   * 
-   * @param size the given size to match.
-   * @return this fixture.
-   * @throws AssertionError if the size of this fixture's window-like container is not equal to the given size.
-   */
-  @Nonnull
-  S requireSize(@Nonnull Dimension size);
+	/**
+	 * Asserts that the size of this fixture's window-like container is equal to given one.
+	 *
+	 * @param size the given size to match.
+	 * @return this fixture.
+	 * @throws AssertionError if the size of this fixture's window-like container is not equal to the given size.
+	 */
+	@Nonnull
+	S requireSize(@Nonnull Dimension size);
 
-  /**
-   * Simulates a user moving this fixture's window-like container to the given point.
-   * 
-   * @param p the point to move this fixture's window-like container to.
-   * @return this fixture.
-   */
-  @Nonnull
-  S moveTo(@Nonnull Point p);
+	/**
+	 * Simulates a user moving this fixture's window-like container to the given point.
+	 *
+	 * @param p the point to move this fixture's window-like container to.
+	 * @return this fixture.
+	 */
+	@Nonnull
+	S moveTo(@Nonnull Point p);
 
-  /**
-   * Brings this fixture's window-like component to the front.
-   * 
-   * @return this fixture.
-   */
-  @Nonnull
-  S moveToFront();
+	/**
+	 * Brings this fixture's window-like component to the front.
+	 *
+	 * @return this fixture.
+	 */
+	@Nonnull
+	S moveToFront();
 
-  /**
-   * Sends this fixture's window-like component to the back.
-   * 
-   * @return this fixture.
-   */
-  @Nonnull
-  S moveToBack();
+	/**
+	 * Sends this fixture's window-like component to the back.
+	 *
+	 * @return this fixture.
+	 */
+	@Nonnull
+	S moveToBack();
 }

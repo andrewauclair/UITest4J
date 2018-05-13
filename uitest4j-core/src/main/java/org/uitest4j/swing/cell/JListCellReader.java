@@ -22,30 +22,30 @@ import javax.swing.*;
  * <p>
  * Reads the content of a cell in {@code Jlist}, as it appears to the user.
  * </p>
- * 
+ *
  * <p>
  * <b>Note:</b> Methods in this class are accessed in the current executing thread. Such thread may or may not be the
  * event dispatch thread (EDT). Client code must call methods in this class from the EDT.
  * </p>
- * 
+ *
  * @author Alex Ruiz
  */
 @RunsInCurrentThread
 public interface JListCellReader {
-  /**
-   * <p>
-   * Returns the internal value of a cell in a {@code Jlist} as expected in a test.
-   * </p>
-   * 
-   * <p>
-   * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
-   * dispatch thread (EDT). Client code must call this method from the EDT.
-   * </p>
-   * 
-   * @param list the given {@code JList}.
-   * @param index the index of the cell.
-   * @return the internal value of a cell in a {@code JList} as expected in a test.
-   */
-  @Nullable
-  String valueAt(@Nonnull JList list, int index);
+	/**
+	 * <p>
+	 * Returns the internal value of a cell in a {@code Jlist} as expected in a test.
+	 * </p>
+	 *
+	 * <p>
+	 * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
+	 * dispatch thread (EDT). Client code must call this method from the EDT.
+	 * </p>
+	 *
+	 * @param list  the given {@code JList}.
+	 * @param index the index of the cell.
+	 * @return the internal value of a cell in a {@code JList} as expected in a test.
+	 */
+	@Nullable
+	String valueAt(@Nonnull JList list, int index);
 }

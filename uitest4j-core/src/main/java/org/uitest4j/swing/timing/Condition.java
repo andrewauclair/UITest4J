@@ -18,70 +18,72 @@ import java.util.function.Supplier;
 
 /**
  * A condition to verify, usually used in the method {@link Pause#pause(Condition)}.
- * 
+ *
  * @author Yvonne Wang
  * @author Alex Ruiz
  */
 public abstract class Condition {
-  protected static final String EMPTY_TEXT = "";
+	protected static final String EMPTY_TEXT = "";
 
-  private final Supplier<String> description;
+	private final Supplier<String> description;
 
-  /**
-   * Creates a new {@link Condition}.
-   * 
-   * @param description describes this condition.
-   */
-  public Condition(@Nonnull String description) {
-    this(() -> description);
-  }
+	/**
+	 * Creates a new {@link Condition}.
+	 *
+	 * @param description describes this condition.
+	 */
+	public Condition(@Nonnull String description) {
+		this(() -> description);
+	}
 
-  /**
-   * Creates a new {@link Condition}.
-   * 
-   * @param description describes this condition.
-   */
-  public Condition(@Nullable Supplier<String> description) {
-    this.description = description;
-  }
+	/**
+	 * Creates a new {@link Condition}.
+	 *
+	 * @param description describes this condition.
+	 */
+	public Condition(@Nullable Supplier<String> description) {
+		this.description = description;
+	}
 
-  /**
-   * Checks if the condition has been satisfied.
-   * 
-   * @return {@code true} if the condition has been satisfied, otherwise {@code false}.
-   */
-  public abstract boolean test();
+	/**
+	 * Checks if the condition has been satisfied.
+	 *
+	 * @return {@code true} if the condition has been satisfied, otherwise {@code false}.
+	 */
+	public abstract boolean test();
 
-  /**
-   * Returns the {@code String} representation of this condition, which is its description.
-   * 
-   * @return the description of this condition.
-   */
-  @Override
-  public final @Nonnull String toString() {
-    String descriptionText = description != null ? description.get() : defaultDescription();
-    String addendum = descriptionAddendum();
-	  return descriptionText + addendum;
-  }
+	/**
+	 * Returns the {@code String} representation of this condition, which is its description.
+	 *
+	 * @return the description of this condition.
+	 */
+	@Override
+	public final @Nonnull
+	String toString() {
+		String descriptionText = description != null ? description.get() : defaultDescription();
+		String addendum = descriptionAddendum();
+		return descriptionText + addendum;
+	}
 
-  private String defaultDescription() {
-    return String.format("condition of type [%s]", getClass().getName());
-  }
+	private String defaultDescription() {
+		return String.format("condition of type [%s]", getClass().getName());
+	}
 
-  /**
-   * Returns any text to be added to this condition's description. The default value is an empty {@code String}.
-   * 
-   * @return by default, an empty {@code String}.
-   */
-  @Nonnull protected String descriptionAddendum() {
-    return EMPTY_TEXT;
-  }
+	/**
+	 * Returns any text to be added to this condition's description. The default value is an empty {@code String}.
+	 *
+	 * @return by default, an empty {@code String}.
+	 */
+	@Nonnull
+	protected String descriptionAddendum() {
+		return EMPTY_TEXT;
+	}
 
-  /**
-   * Notification that this condition has been evaluated. This method is invoked by {@link Pause#pause(Condition)} (and
-   * all overloaded methods) when this condition is evaluated (either it was satisfied or it timed-out). This is a good
-   * place to do any necessary resource cleanup.
-   */
-  protected void done() {
-  }
+	/**
+	 * Notification that this condition has been evaluated. This method is invoked by {@link Pause#pause(Condition)} (and
+	 * all overloaded methods) when this condition is evaluated (either it was satisfied or it timed-out). This is a good
+	 * place to do any necessary resource cleanup.
+	 */
+	protected void done() {
+	}
 }

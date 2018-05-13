@@ -22,15 +22,16 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
  * Returns the text of a {@code JProgressBar}. This query is executed in the event dispatch thread (EDT).
- * 
+ *
  * @author Alex Ruiz
  */
 final class JProgressBarStringQuery {
-  @RunsInEDT
-  static @Nullable String stringOf(final @Nonnull JProgressBar progressBar) {
-    return execute(progressBar::getString);
-  }
+	@RunsInEDT
+	static @Nullable
+	String stringOf(final @Nonnull JProgressBar progressBar) {
+		return execute(progressBar::getString);
+	}
 
-  private JProgressBarStringQuery() {
-  }
+	private JProgressBarStringQuery() {
+	}
 }

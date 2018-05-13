@@ -23,10 +23,9 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 /**
  * Returns the text of a Swing {@code AbstractButton}.
  *
- * @see AbstractButton#getText()
- *
  * @author Alex Ruiz
  * @author Yvonne Wang
+ * @see AbstractButton#getText()
  */
 public final class AbstractButtonTextQuery {
 	/**

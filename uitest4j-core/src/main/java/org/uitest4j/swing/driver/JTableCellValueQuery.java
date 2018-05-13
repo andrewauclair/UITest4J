@@ -27,11 +27,12 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
  * @author Alex Ruiz
  */
 final class JTableCellValueQuery {
-  @RunsInEDT
-  static @Nullable Object cellValueOf(final @Nonnull JTable table, final int row, final int column) {
-    return execute(() -> table.getValueAt(row, column));
-  }
+	@RunsInEDT
+	static @Nullable
+	Object cellValueOf(final @Nonnull JTable table, final int row, final int column) {
+		return execute(() -> table.getValueAt(row, column));
+	}
 
-  private JTableCellValueQuery() {
-  }
+	private JTableCellValueQuery() {
+	}
 }

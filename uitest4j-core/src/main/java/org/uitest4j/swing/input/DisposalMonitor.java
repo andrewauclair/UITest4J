@@ -12,30 +12,28 @@
  */
 package org.uitest4j.swing.input;
 
-import java.awt.Component;
-import java.awt.Window;
+import javax.annotation.Nonnull;
+import java.awt.*;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.util.Map;
 
-import javax.annotation.Nonnull;
-
 /**
  * Monitor for disposed {@code Window}s.
- * 
+ *
  * @author Alex Ruiz
  */
 class DisposalMonitor extends ComponentAdapter {
-  final Map<Window, Boolean> disposedWindows;
+	final Map<Window, Boolean> disposedWindows;
 
-  DisposalMonitor(@Nonnull Map<Window, Boolean> disposedWindows) {
-    this.disposedWindows = disposedWindows;
-  }
+	DisposalMonitor(@Nonnull Map<Window, Boolean> disposedWindows) {
+		this.disposedWindows = disposedWindows;
+	}
 
-  @Override
-  public void componentShown(ComponentEvent e) {
-    Component c = e.getComponent();
-    c.removeComponentListener(this); // we are already in EDT
-    disposedWindows.remove(c);
-  }
+	@Override
+	public void componentShown(ComponentEvent e) {
+		Component c = e.getComponent();
+		c.removeComponentListener(this); // we are already in EDT
+		disposedWindows.remove(c);
+	}
 }

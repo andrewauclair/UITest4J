@@ -30,28 +30,28 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
  * @author Yvonne Wang
  */
 final class JTableCancelCellEditingTask {
-  @RunsInEDT
-  static void cancelEditing(final @Nonnull JTable table, final int row, final int column) {
-    execute(() -> {
-      checkCellIndicesInBounds(table, row, column);
-      validateCellIsEditable(table, row, column);
-      TableCellEditor cellEditor = table.getCellEditor(row, column);
-      doCancelEditing(cellEditor);
-    });
-  }
+	@RunsInEDT
+	static void cancelEditing(final @Nonnull JTable table, final int row, final int column) {
+		execute(() -> {
+			checkCellIndicesInBounds(table, row, column);
+			validateCellIsEditable(table, row, column);
+			TableCellEditor cellEditor = table.getCellEditor(row, column);
+			doCancelEditing(cellEditor);
+		});
+	}
 
-  @RunsInEDT
-  static void cancelEditing(final @Nonnull TableCellEditor cellEditor) {
-    execute(() -> doCancelEditing(cellEditor));
-  }
+	@RunsInEDT
+	static void cancelEditing(final @Nonnull TableCellEditor cellEditor) {
+		execute(() -> doCancelEditing(cellEditor));
+	}
 
-  private static void doCancelEditing(@Nullable TableCellEditor cellEditor) {
-    if (cellEditor == null) {
-      return;
-    }
-    cellEditor.cancelCellEditing();
-  }
+	private static void doCancelEditing(@Nullable TableCellEditor cellEditor) {
+		if (cellEditor == null) {
+			return;
+		}
+		cellEditor.cancelCellEditing();
+	}
 
-  private JTableCancelCellEditingTask() {
-  }
+	private JTableCancelCellEditingTask() {
+	}
 }

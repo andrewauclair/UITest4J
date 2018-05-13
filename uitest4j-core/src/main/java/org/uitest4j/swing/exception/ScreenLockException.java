@@ -20,15 +20,17 @@ import javax.annotation.Nonnull;
  * @author Alex Ruiz
  */
 public final class ScreenLockException extends RuntimeException {
-  /** Generated serial version UID. */
-  private static final long serialVersionUID = -7782735097422953775L;
+	/**
+	 * Generated serial version UID.
+	 */
+	private static final long serialVersionUID = -7782735097422953775L;
 
-  /**
-   * Creates a new {@link ScreenLockException}.
-   *
-   * @param message the detail message.
-   */
-  public ScreenLockException(@Nonnull String message) {
-    super(message);
-  }
+	/**
+	 * Creates a new {@link ScreenLockException}.
+	 *
+	 * @param message the detail message.
+	 */
+	public ScreenLockException(@Nonnull String message) {
+		super(message);
+	}
 }

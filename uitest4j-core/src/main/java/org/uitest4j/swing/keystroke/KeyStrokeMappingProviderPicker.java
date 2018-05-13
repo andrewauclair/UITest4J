@@ -27,29 +27,29 @@ import static org.uitest4j.swing.keystroke.KeyStrokeMappingProviderNames.generat
  * @author Alex Ruiz
  */
 class KeyStrokeMappingProviderPicker {
-  private static Logger LOGGER = Logger.getLogger(KeyStrokeMappingProviderPicker.class.getName());
-  private final KeyStrokeMappingProviderFactory factory;
+	private static Logger LOGGER = Logger.getLogger(KeyStrokeMappingProviderPicker.class.getName());
+	private final KeyStrokeMappingProviderFactory factory;
 
-  KeyStrokeMappingProviderPicker() {
-    this(new KeyStrokeMappingProviderFactory());
-  }
+	KeyStrokeMappingProviderPicker() {
+		this(new KeyStrokeMappingProviderFactory());
+	}
 
-  // Used for tests
-  KeyStrokeMappingProviderPicker(@Nonnull KeyStrokeMappingProviderFactory factory) {
-    this.factory = factory;
-  }
+	// Used for tests
+	KeyStrokeMappingProviderPicker(@Nonnull KeyStrokeMappingProviderFactory factory) {
+		this.factory = factory;
+	}
 
-  KeyStrokeMappingProvider providerFor(@Nonnull OSFamily osFamily, @Nonnull Locale locale) {
-    LOGGER.finer("providing keystroke mappings for OS=" + osFamily + ", locale=" + locale);
-    for (String name : generateNamesFrom(osFamily, locale)) {
-      LOGGER.finer("trying >" + name + "<");
-		String typeName = Objects.requireNonNull(name);
-      KeyStrokeMappingProvider provider = factory.createProvider(typeName);
-      if (provider != null) {
-        LOGGER.finer("created successfully.");
-        return provider;
-      }
-    }
-    return new KeyStrokeMappingProvider_en();
-  }
+	KeyStrokeMappingProvider providerFor(@Nonnull OSFamily osFamily, @Nonnull Locale locale) {
+		LOGGER.finer("providing keystroke mappings for OS=" + osFamily + ", locale=" + locale);
+		for (String name : generateNamesFrom(osFamily, locale)) {
+			LOGGER.finer("trying >" + name + "<");
+			String typeName = Objects.requireNonNull(name);
+			KeyStrokeMappingProvider provider = factory.createProvider(typeName);
+			if (provider != null) {
+				LOGGER.finer("created successfully.");
+				return provider;
+			}
+		}
+		return new KeyStrokeMappingProvider_en();
+	}
 }

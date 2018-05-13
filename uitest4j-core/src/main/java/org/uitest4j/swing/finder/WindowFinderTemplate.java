@@ -12,90 +12,90 @@
  */
 package org.uitest4j.swing.finder;
 
-import java.awt.Window;
-import java.util.concurrent.TimeUnit;
-
-import javax.annotation.Nonnegative;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import org.uitest4j.swing.core.GenericTypeMatcher;
 import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.fixture.AbstractWindowFixture;
 
+import javax.annotation.Nonnegative;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import java.awt.*;
+import java.util.concurrent.TimeUnit;
+
 /**
  * Template for {@code Window} finders.
- * 
+ *
  * @param <T> the type of {@code Window} this finder can search.
- * 
  * @author Yvonne Wang
  * @author Alex Ruiz
  */
 public abstract class WindowFinderTemplate<T extends Window> extends ComponentFinderTemplate<T> {
-  /**
-   * Creates a new {@link WindowFinderTemplate}.
-   * 
-   * @param windowName the name of the {@code Window} to find.
-   * @param windowType the type of the {@code Window} to find.
-   */
-  protected WindowFinderTemplate(@Nullable String windowName, @Nonnull Class<? extends T> windowType) {
-    super(windowName, windowType);
-  }
+	/**
+	 * Creates a new {@link WindowFinderTemplate}.
+	 *
+	 * @param windowName the name of the {@code Window} to find.
+	 * @param windowType the type of the {@code Window} to find.
+	 */
+	protected WindowFinderTemplate(@Nullable String windowName, @Nonnull Class<? extends T> windowType) {
+		super(windowName, windowType);
+	}
 
-  /**
-   * Creates a new {@link WindowFinderTemplate}.
-   * 
-   * @param matcher specifies the search criteria to use when looking up a {@code Window}.
-   */
-  protected WindowFinderTemplate(@Nonnull GenericTypeMatcher<? extends T> matcher) {
-    super(matcher);
-  }
+	/**
+	 * Creates a new {@link WindowFinderTemplate}.
+	 *
+	 * @param matcher specifies the search criteria to use when looking up a {@code Window}.
+	 */
+	protected WindowFinderTemplate(@Nonnull GenericTypeMatcher<? extends T> matcher) {
+		super(matcher);
+	}
 
-  /**
-   * Creates a new {@link WindowFinderTemplate}.
-   * 
-   * @param windowType the type of the {@code Window} to find.
-   */
-  protected WindowFinderTemplate(@Nonnull Class<? extends T> windowType) {
-    super(windowType);
-  }
+	/**
+	 * Creates a new {@link WindowFinderTemplate}.
+	 *
+	 * @param windowType the type of the {@code Window} to find.
+	 */
+	protected WindowFinderTemplate(@Nonnull Class<? extends T> windowType) {
+		super(windowType);
+	}
 
-  /**
-   * Sets the timeout for this finder. The {@code Window} to find should be found within the given time period.
-   * 
-   * @param timeout the number of milliseconds before stopping the search.
-   * @return this finder.
-   * @throws IllegalArgumentException if the timeout is a negative number.
-   */
-  @Override
-  @Nonnull protected WindowFinderTemplate<T> withTimeout(@Nonnegative long timeout) {
-    super.withTimeout(timeout);
-    return this;
-  }
+	/**
+	 * Sets the timeout for this finder. The {@code Window} to find should be found within the given time period.
+	 *
+	 * @param timeout the number of milliseconds before stopping the search.
+	 * @return this finder.
+	 * @throws IllegalArgumentException if the timeout is a negative number.
+	 */
+	@Override
+	@Nonnull
+	protected WindowFinderTemplate<T> withTimeout(@Nonnegative long timeout) {
+		super.withTimeout(timeout);
+		return this;
+	}
 
-  /**
-   * Sets the timeout for this finder. The {@code Window} to find should be found within the given time period.
-   * 
-   * @param timeout the period of time the search should be performed.
-   * @param unit the time unit for {@code timeout}.
-   * @return this finder.
-   * @throws NullPointerException if the time unit is {@code null}.
-   * @throws IllegalArgumentException if the timeout is a negative number.
-   */
-  @Override
-  protected WindowFinderTemplate<T> withTimeout(@Nonnegative long timeout, @Nonnull TimeUnit unit) {
-    super.withTimeout(timeout, unit);
-    return this;
-  }
+	/**
+	 * Sets the timeout for this finder. The {@code Window} to find should be found within the given time period.
+	 *
+	 * @param timeout the period of time the search should be performed.
+	 * @param unit    the time unit for {@code timeout}.
+	 * @return this finder.
+	 * @throws NullPointerException     if the time unit is {@code null}.
+	 * @throws IllegalArgumentException if the timeout is a negative number.
+	 */
+	@Override
+	protected WindowFinderTemplate<T> withTimeout(@Nonnegative long timeout, @Nonnull TimeUnit unit) {
+		super.withTimeout(timeout, unit);
+		return this;
+	}
 
-  /**
-   * Finds a {@code Window} by name or type using the given robot.
-   * 
-   * @param robot contains the underlying finding to delegate the search to.
-   * @return a fixture capable of managing the found {@code Window}.
-   * @throws org.uitest4j.swing.exception.WaitTimedOutError if a {@code Window} with the given name or of the given type
-   *           could not be found.
-   */
-  @Override
-  public abstract @Nonnull AbstractWindowFixture<?, T, ?> using(@Nonnull Robot robot);
+	/**
+	 * Finds a {@code Window} by name or type using the given robot.
+	 *
+	 * @param robot contains the underlying finding to delegate the search to.
+	 * @return a fixture capable of managing the found {@code Window}.
+	 * @throws org.uitest4j.swing.exception.WaitTimedOutError if a {@code Window} with the given name or of the given type
+	 *                                                        could not be found.
+	 */
+	@Override
+	public abstract @Nonnull
+	AbstractWindowFixture<?, T, ?> using(@Nonnull Robot robot);
 }

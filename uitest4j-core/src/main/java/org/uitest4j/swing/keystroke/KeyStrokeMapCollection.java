@@ -12,13 +12,12 @@
  */
 package org.uitest4j.swing.keystroke;
 
-import static org.uitest4j.swing.util.Maps.newHashMap;
-
-import java.util.Map;
-
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import javax.swing.KeyStroke;
+import javax.swing.*;
+import java.util.Map;
+
+import static org.uitest4j.swing.util.Maps.newHashMap;
 
 /**
  * Mapping between characters and {@code KeyStroke}s.
@@ -26,30 +25,30 @@ import javax.swing.KeyStroke;
  * @author Alex Ruiz
  */
 class KeyStrokeMapCollection {
-  private final Map<Character, KeyStroke> charToKeyStroke = newHashMap();
-  private final Map<KeyStroke, Character> keyStrokeToChar = newHashMap();
+	private final Map<Character, KeyStroke> charToKeyStroke = newHashMap();
+	private final Map<KeyStroke, Character> keyStrokeToChar = newHashMap();
 
-  void add(@Nonnull Character character, @Nonnull KeyStroke keyStroke) {
-    charToKeyStroke.put(character, keyStroke);
-    keyStrokeToChar.put(keyStroke, character);
-  }
+	void add(@Nonnull Character character, @Nonnull KeyStroke keyStroke) {
+		charToKeyStroke.put(character, keyStroke);
+		keyStrokeToChar.put(keyStroke, character);
+	}
 
-  void clear() {
-    charToKeyStroke.clear();
-    keyStrokeToChar.clear();
-  }
+	void clear() {
+		charToKeyStroke.clear();
+		keyStrokeToChar.clear();
+	}
 
-  boolean isEmpty() {
-    return charToKeyStroke.isEmpty() && keyStrokeToChar.isEmpty();
-  }
+	boolean isEmpty() {
+		return charToKeyStroke.isEmpty() && keyStrokeToChar.isEmpty();
+	}
 
-  @Nullable
-  KeyStroke keyStrokeFor(char character) {
-    return charToKeyStroke.get(character);
-  }
+	@Nullable
+	KeyStroke keyStrokeFor(char character) {
+		return charToKeyStroke.get(character);
+	}
 
-  @Nullable
-  Character charFor(KeyStroke keyStroke) {
-    return keyStrokeToChar.get(keyStroke);
-  }
+	@Nullable
+	Character charFor(KeyStroke keyStroke) {
+		return keyStrokeToChar.get(keyStroke);
+	}
 }

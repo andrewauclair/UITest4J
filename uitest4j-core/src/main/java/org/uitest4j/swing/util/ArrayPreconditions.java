@@ -16,28 +16,28 @@ import javax.annotation.Nullable;
 
 /**
  * Verifies correct state of arrays.
- * 
+ *
  * @author Alex Ruiz
  */
 public final class ArrayPreconditions {
-  /**
-   * Verifies that the given array is not {@code null} or empty.
-   * 
-   * @param array the given array.
-   * @return the validated array.
-   * @throws NullPointerException if the given array is {@code null}.
-   * @throws IllegalArgumentException if the given array is empty.
-   */
-  public static int[] checkNotNullOrEmpty(@Nullable int[] array) {
-    if (array == null) {
-      throw new NullPointerException();
-    }
-    if (array.length == 0) {
-      throw new IllegalArgumentException();
-    }
-    return array;
-  }
+	/**
+	 * Verifies that the given array is not {@code null} or empty.
+	 *
+	 * @param array the given array.
+	 * @return the validated array.
+	 * @throws NullPointerException     if the given array is {@code null}.
+	 * @throws IllegalArgumentException if the given array is empty.
+	 */
+	public static int[] checkNotNullOrEmpty(@Nullable int[] array) {
+		if (array == null) {
+			throw new NullPointerException();
+		}
+		if (array.length == 0) {
+			throw new IllegalArgumentException();
+		}
+		return array;
+	}
 
-  private ArrayPreconditions() {
-  }
+	private ArrayPreconditions() {
+	}
 }

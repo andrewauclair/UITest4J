@@ -12,7 +12,7 @@
  */
 /**
  * Java applications and {@code Applet}s launcher.
- * 
+ *
  * @author Alex Ruiz
  */
 package org.uitest4j.swing.launcher;

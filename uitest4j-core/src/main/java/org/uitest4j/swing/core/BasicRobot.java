@@ -90,7 +90,8 @@ public class BasicRobot implements Robot {
 	@GuardedBy("this")
 	private volatile boolean active;
 
-	private static final Runnable EMPTY_RUNNABLE = () -> {};
+	private static final Runnable EMPTY_RUNNABLE = () -> {
+	};
 
 	private static final int BUTTON_MASK = BUTTON1_DOWN_MASK | BUTTON2_DOWN_MASK | BUTTON3_DOWN_MASK;
 

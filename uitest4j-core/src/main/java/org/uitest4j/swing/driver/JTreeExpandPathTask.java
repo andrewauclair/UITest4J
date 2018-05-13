@@ -29,16 +29,16 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
  * @author Alex Ruiz
  */
 final class JTreeExpandPathTask {
-  @RunsInEDT
-  static void expandTreePath(final @Nonnull JTree tree, final @Nonnull TreePath path) {
-    execute(() -> {
-      TreePath realPath = addRootIfInvisible(tree, path);
-      if (!tree.isExpanded(path)) {
-        tree.expandPath(realPath);
-      }
-    });
-  }
+	@RunsInEDT
+	static void expandTreePath(final @Nonnull JTree tree, final @Nonnull TreePath path) {
+		execute(() -> {
+			TreePath realPath = addRootIfInvisible(tree, path);
+			if (!tree.isExpanded(path)) {
+				tree.expandPath(realPath);
+			}
+		});
+	}
 
-  private JTreeExpandPathTask() {
-  }
+	private JTreeExpandPathTask() {
+	}
 }

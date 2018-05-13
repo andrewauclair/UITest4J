@@ -12,82 +12,80 @@
  */
 package org.uitest4j.swing.input;
 
-import static org.uitest4j.swing.listener.WeakEventListener.attachAsWeakEventListener;
-
-import java.awt.AWTEvent;
-import java.awt.Toolkit;
-import java.awt.event.AWTEventListener;
+import org.uitest4j.swing.listener.WeakEventListener;
 
 import javax.annotation.Nonnull;
+import java.awt.*;
+import java.awt.event.AWTEventListener;
 
-import org.uitest4j.swing.listener.WeakEventListener;
+import static org.uitest4j.swing.listener.WeakEventListener.attachAsWeakEventListener;
 
 /**
  * AWT event listener which normalizes the event stream by sending a single {@code WINDOW_CLOSED}, instead of one every
  * time dispose is called.
- * 
+ *
  * @author Alex Ruiz
  */
 public class EventNormalizer implements AWTEventListener {
-  private final DisposedWindowMonitor disposedWindowMonitor;
+	private final DisposedWindowMonitor disposedWindowMonitor;
 
-  private WeakEventListener weakEventListener;
-  private AWTEventListener listener;
+	private WeakEventListener weakEventListener;
+	private AWTEventListener listener;
 
-  /**
-   * Creates a new {@link EventNormalizer}.
-   */
-  public EventNormalizer() {
-    this(new DisposedWindowMonitor());
-  }
+	/**
+	 * Creates a new {@link EventNormalizer}.
+	 */
+	public EventNormalizer() {
+		this(new DisposedWindowMonitor());
+	}
 
-  // Used for tests
-  EventNormalizer(@Nonnull DisposedWindowMonitor disposedWindowMonitor) {
-    this.disposedWindowMonitor = disposedWindowMonitor;
-  }
+	// Used for tests
+	EventNormalizer(@Nonnull DisposedWindowMonitor disposedWindowMonitor) {
+		this.disposedWindowMonitor = disposedWindowMonitor;
+	}
 
-  /**
-   * Starts listening for events.
-   * 
-   * @param toolkit the {@code Toolkit} to use.
-   * @param delegate the event listener to delegate event processing to.
-   * @param mask the event mask to use to register this normalizer in the {@code Toolkit}.
-   */
-  public void startListening(@Nonnull Toolkit toolkit, @Nonnull AWTEventListener delegate, long mask) {
-    listener = delegate;
-    weakEventListener = attachAsWeakEventListener(toolkit, this, mask);
-  }
+	/**
+	 * Starts listening for events.
+	 *
+	 * @param toolkit  the {@code Toolkit} to use.
+	 * @param delegate the event listener to delegate event processing to.
+	 * @param mask     the event mask to use to register this normalizer in the {@code Toolkit}.
+	 */
+	public void startListening(@Nonnull Toolkit toolkit, @Nonnull AWTEventListener delegate, long mask) {
+		listener = delegate;
+		weakEventListener = attachAsWeakEventListener(toolkit, this, mask);
+	}
 
-  /**
-   * Stops listening for events and disposes the delegate event listener.
-   */
-  public void stopListening() {
-    disposeWeakEventListener();
-    listener = null;
-  }
+	/**
+	 * Stops listening for events and disposes the delegate event listener.
+	 */
+	public void stopListening() {
+		disposeWeakEventListener();
+		listener = null;
+	}
 
-  private void disposeWeakEventListener() {
-    if (weakEventListener == null) {
-      return;
-    }
-    weakEventListener.dispose();
-    weakEventListener = null;
-  }
+	private void disposeWeakEventListener() {
+		if (weakEventListener == null) {
+			return;
+		}
+		weakEventListener.dispose();
+		weakEventListener = null;
+	}
 
-  /**
-   * Event reception callback.
-   * 
-   * @param event the dispatched event.
-   */
-  @Override
-  public void eventDispatched(AWTEvent event) {
-    boolean discard = disposedWindowMonitor.isDuplicateDispose(event);
-    if (!discard && listener != null) {
-      delegate(event);
-    }
-  }
+	/**
+	 * Event reception callback.
+	 *
+	 * @param event the dispatched event.
+	 */
+	@Override
+	public void eventDispatched(AWTEvent event) {
+		boolean discard = disposedWindowMonitor.isDuplicateDispose(event);
+		if (!discard && listener != null) {
+			delegate(event);
+		}
+	}
 
-  private void delegate(@Nonnull AWTEvent e) {
-    listener.eventDispatched(e);
-  }
+	private void delegate(@Nonnull AWTEvent e) {
+		listener.eventDispatched(e);
+	}
 }

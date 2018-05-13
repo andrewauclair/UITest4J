@@ -17,27 +17,27 @@ import javax.annotation.Nullable;
 
 /**
  * Matches a given text to one or more values.
- * 
+ *
  * @author Alex Ruiz
  */
 public interface TextMatcher {
-  /**
-   * Indicates whether the given text matches some value(s).
-   * 
-   * @param text the text to verify.
-   * @return {@code true} if the given text matches some value(s), {@code false} otherwise.
-   */
-  boolean isMatching(@Nullable String text);
+	/**
+	 * Indicates whether the given text matches some value(s).
+	 *
+	 * @param text the text to verify.
+	 * @return {@code true} if the given text matches some value(s), {@code false} otherwise.
+	 */
+	boolean isMatching(@Nullable String text);
 
-  /**
-   * @return the description of the type of value this matcher supports.
-   */
-  @Nonnull
-  String description();
+	/**
+	 * @return the description of the type of value this matcher supports.
+	 */
+	@Nonnull
+	String description();
 
-  /**
-   * @return the values in this matcher, formatted as a {@code String}.
-   */
-  @Nonnull
-  String formattedValues();
+	/**
+	 * @return the values in this matcher, formatted as a {@code String}.
+	 */
+	@Nonnull
+	String formattedValues();
 }

@@ -20,25 +20,27 @@ import javax.annotation.Nonnull;
  * @author Alex Ruiz
  */
 public class LocationUnavailableException extends RuntimeException {
-  /** Generated serial version UID. */
-  private static final long serialVersionUID = 8659958720164983120L;
+	/**
+	 * Generated serial version UID.
+	 */
+	private static final long serialVersionUID = 8659958720164983120L;
 
-  /**
-   * Creates a new {@link LocationUnavailableException}.
-   *
-   * @param message the detail message.
-   */
-  public LocationUnavailableException(@Nonnull String message) {
-    super(message);
-  }
+	/**
+	 * Creates a new {@link LocationUnavailableException}.
+	 *
+	 * @param message the detail message.
+	 */
+	public LocationUnavailableException(@Nonnull String message) {
+		super(message);
+	}
 
-  /**
-   * Creates a new {@link LocationUnavailableException}.
-   *
-   * @param message the detail message.
-   * @param cause the cause of the error.
-   */
-  public LocationUnavailableException(@Nonnull String message, @Nonnull Throwable cause) {
-    super(message, cause);
-  }
+	/**
+	 * Creates a new {@link LocationUnavailableException}.
+	 *
+	 * @param message the detail message.
+	 * @param cause   the cause of the error.
+	 */
+	public LocationUnavailableException(@Nonnull String message, @Nonnull Throwable cause) {
+		super(message, cause);
+	}
 }

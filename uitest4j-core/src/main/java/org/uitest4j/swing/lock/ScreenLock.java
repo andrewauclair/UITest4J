@@ -12,142 +12,149 @@
  */
 package org.uitest4j.swing.lock;
 
-import java.util.concurrent.locks.Condition;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
+import org.uitest4j.swing.exception.ScreenLockException;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
-
-import org.uitest4j.swing.exception.ScreenLockException;
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * A lock that each GUI test should acquire before being executed, to guarantee sequential execution of GUI tests and to
  * prevent GUI tests from blocking each other.
- * 
+ *
  * @author Yvonne Wang
  * @author Alex Ruiz
  */
 @ThreadSafe
 public final class ScreenLock {
-  private final Lock lock = new ReentrantLock();
-  private final Condition released = lock.newCondition();
+	private final Lock lock = new ReentrantLock();
+	private final Condition released = lock.newCondition();
 
-  @GuardedBy("lock")
-  private Object owner;
+	@GuardedBy("lock")
+	private Object owner;
 
-  @GuardedBy("lock")
-  private boolean acquired;
+	@GuardedBy("lock")
+	private boolean acquired;
 
-  /**
-   * Acquires this lock. If this lock was already acquired by another object, this method will block until the lock is
-   * released.
-   * 
-   * @param newOwner the new owner of the lock.
-   */
-  public void acquire(@Nonnull Object newOwner) {
-    lock.lock();
-    try {
-      if (alreadyAcquiredBy(newOwner)) {
-        return;
-      }
-      while (acquired) {
-        released.await();
-      }
-      owner = newOwner;
-      acquired = true;
-    } catch (InterruptedException ignored) {
-      Thread.currentThread().interrupt();
-    } finally {
-      lock.unlock();
-    }
-  }
+	/**
+	 * Acquires this lock. If this lock was already acquired by another object, this method will block until the lock is
+	 * released.
+	 *
+	 * @param newOwner the new owner of the lock.
+	 */
+	public void acquire(@Nonnull Object newOwner) {
+		lock.lock();
+		try {
+			if (alreadyAcquiredBy(newOwner)) {
+				return;
+			}
+			while (acquired) {
+				released.await();
+			}
+			owner = newOwner;
+			acquired = true;
+		}
+		catch (InterruptedException ignored) {
+			Thread.currentThread().interrupt();
+		}
+		finally {
+			lock.unlock();
+		}
+	}
 
-  /**
-   * Releases this lock.
-   * 
-   * @param currentOwner the current owner of the lock.
-   * @throws ScreenLockException if the lock has not been previously acquired.
-   * @throws ScreenLockException if the given owner is not the same as the current owner of the lock.
-   */
-  public void release(@Nonnull Object currentOwner) {
-    lock.lock();
-    try {
-      if (!acquired) {
-        throw new ScreenLockException("No lock to release");
-      }
-      if (owner != currentOwner) {
-        throw new ScreenLockException(String.format("%s is not the lock owner", currentOwner.toString()));
-      }
-      acquired = false;
-      owner = null;
-      released.signal();
-    } finally {
-      lock.unlock();
-    }
-  }
+	/**
+	 * Releases this lock.
+	 *
+	 * @param currentOwner the current owner of the lock.
+	 * @throws ScreenLockException if the lock has not been previously acquired.
+	 * @throws ScreenLockException if the given owner is not the same as the current owner of the lock.
+	 */
+	public void release(@Nonnull Object currentOwner) {
+		lock.lock();
+		try {
+			if (!acquired) {
+				throw new ScreenLockException("No lock to release");
+			}
+			if (owner != currentOwner) {
+				throw new ScreenLockException(String.format("%s is not the lock owner", currentOwner.toString()));
+			}
+			acquired = false;
+			owner = null;
+			released.signal();
+		}
+		finally {
+			lock.unlock();
+		}
+	}
 
-  /**
-   * Indicates whether this lock was acquired by the given object.
-   * 
-   * @param possibleOwner the given object, which could be owning the lock.
-   * @return {@code true} if the given object is owning the lock; {@code false} otherwise.
-   */
-  public boolean acquiredBy(@Nonnull Object possibleOwner) {
-    lock.lock();
-    try {
-      return alreadyAcquiredBy(possibleOwner);
-    } finally {
-      lock.unlock();
-    }
-  }
+	/**
+	 * Indicates whether this lock was acquired by the given object.
+	 *
+	 * @param possibleOwner the given object, which could be owning the lock.
+	 * @return {@code true} if the given object is owning the lock; {@code false} otherwise.
+	 */
+	public boolean acquiredBy(@Nonnull Object possibleOwner) {
+		lock.lock();
+		try {
+			return alreadyAcquiredBy(possibleOwner);
+		}
+		finally {
+			lock.unlock();
+		}
+	}
 
-  private boolean alreadyAcquiredBy(@Nonnull Object possibleOwner) {
-    return acquired && owner == possibleOwner;
-  }
+	private boolean alreadyAcquiredBy(@Nonnull Object possibleOwner) {
+		return acquired && owner == possibleOwner;
+	}
 
-  /**
-   * Indicates whether this lock is already acquired.
-   * 
-   * @return {@code true} if the lock is already acquired; {@code false} otherwise.
-   * @see #acquiredBy(Object)
-   */
-  public boolean acquired() {
-    lock.lock();
-    try {
-      return acquired;
-    } finally {
-      lock.unlock();
-    }
-  }
+	/**
+	 * Indicates whether this lock is already acquired.
+	 *
+	 * @return {@code true} if the lock is already acquired; {@code false} otherwise.
+	 * @see #acquiredBy(Object)
+	 */
+	public boolean acquired() {
+		lock.lock();
+		try {
+			return acquired;
+		}
+		finally {
+			lock.unlock();
+		}
+	}
 
-  /**
-   * @return the object currently owning the lock. Or <code>null</code> if no object is owning the lock. If
-   *         {@link #acquired()} is <code>true</code> calling {@link #acquiredBy(Object)} with getOwner()
-   *         returns <code>true</code>.
-   */
-  @Nullable public Object getOwner() {
-    lock.lock();
-    try {
-      return owner;
-    } finally {
-      lock.unlock();
-    }
-  }
+	/**
+	 * @return the object currently owning the lock. Or <code>null</code> if no object is owning the lock. If
+	 * {@link #acquired()} is <code>true</code> calling {@link #acquiredBy(Object)} with getOwner()
+	 * returns <code>true</code>.
+	 */
+	@Nullable
+	public Object getOwner() {
+		lock.lock();
+		try {
+			return owner;
+		}
+		finally {
+			lock.unlock();
+		}
+	}
 
-  /**
-   * @return the singleton instance of this class.
-   */
-  @Nonnull public static ScreenLock instance() {
-    return ScreenLockHolder.instance;
-  }
+	/**
+	 * @return the singleton instance of this class.
+	 */
+	@Nonnull
+	public static ScreenLock instance() {
+		return ScreenLockHolder.instance;
+	}
 
-  private static class ScreenLockHolder {
-    static ScreenLock instance = new ScreenLock();
-  }
+	private static class ScreenLockHolder {
+		static ScreenLock instance = new ScreenLock();
+	}
 
-  ScreenLock() {
-  }
+	ScreenLock() {
+	}
 }

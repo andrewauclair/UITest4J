@@ -106,9 +106,9 @@ public class ApplicationLauncher {
 	/**
 	 * Starts the application.
 	 *
-	 * @throws NoSuchMethodException If the "main" method cannot be found.
+	 * @throws NoSuchMethodException     If the "main" method cannot be found.
 	 * @throws InvocationTargetException If there was an exception invoking the "main" method.
-	 * @throws IllegalAccessException If the "main" method is not accessible.
+	 * @throws IllegalAccessException    If the "main" method is not accessible.
 	 */
 	public void start() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
 		Method main = applicationType.getMethod("main", String[].class);

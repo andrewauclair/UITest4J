@@ -33,200 +33,207 @@ import static org.uitest4j.swing.exception.UnexpectedException.unexpected;
  */
 @ThreadSafe
 public class GuiActionRunner {
-  @GuardedBy("this")
-  private static boolean executeInEDT = true;
+	@GuardedBy("this")
+	private static boolean executeInEDT = true;
 
-  /**
-   * Indicates {@link GuiActionRunner} whether instances of {@link GuiQuery} and {@link GuiTask} should be executed in
-   * the event dispatch thread (EDT).
-   *
-   * @param b if {@code true}, GUI actions are executed in the event dispatch thread (EDT). If {@code false}, GUI
-   *          actions are executed in the current thread.
-   */
-  public static synchronized void executeInEDT(boolean b) {
-    executeInEDT = b;
-  }
+	/**
+	 * Indicates {@link GuiActionRunner} whether instances of {@link GuiQuery} and {@link GuiTask} should be executed in
+	 * the event dispatch thread (EDT).
+	 *
+	 * @param b if {@code true}, GUI actions are executed in the event dispatch thread (EDT). If {@code false}, GUI
+	 *          actions are executed in the current thread.
+	 */
+	public static synchronized void executeInEDT(boolean b) {
+		executeInEDT = b;
+	}
 
-  /**
-   * Indicates whether instances of {@link GuiQuery} and {@link GuiTask} should be executed in the event dispatch thread
-   * (EDT).
-   *
-   * @return {@code true} if GUI actions are executed in the event dispatch thread, {@code false} otherwise.
-   */
-  public static synchronized boolean executeInEDT() {
-    return executeInEDT;
-  }
+	/**
+	 * Indicates whether instances of {@link GuiQuery} and {@link GuiTask} should be executed in the event dispatch thread
+	 * (EDT).
+	 *
+	 * @return {@code true} if GUI actions are executed in the event dispatch thread, {@code false} otherwise.
+	 */
+	public static synchronized boolean executeInEDT() {
+		return executeInEDT;
+	}
 
-  /**
-   * Executes the given callable in the event dispatch thread (EDT). This method waits until the query has finished its
-   * execution.
-   *
-   * @param query the query to execute.
-   * @param <T> the return type of the action to execute.
-   * @return the result of the query executed in the main thread.
-   * @throws org.uitest4j.swing.exception.UnexpectedException wrapping any <b>checked</b> exception thrown when executing
-   *           the given query in the event dispatch thread (EDT). Unchecked exceptions are re-thrown without any
-   *           wrapping.
-   * @see #execute(GuiQuery)
-   */
-  @Nullable public static <T> T execute(@Nonnull Callable<T> query) {
-    return execute(new GuiQuery<>() {
-		@Override
-		protected T executeInEDT() throws Throwable {
-			return query.call();
+	/**
+	 * Executes the given callable in the event dispatch thread (EDT). This method waits until the query has finished its
+	 * execution.
+	 *
+	 * @param query the query to execute.
+	 * @param <T>   the return type of the action to execute.
+	 * @return the result of the query executed in the main thread.
+	 * @throws org.uitest4j.swing.exception.UnexpectedException wrapping any <b>checked</b> exception thrown when executing
+	 *                                                          the given query in the event dispatch thread (EDT). Unchecked exceptions are re-thrown without any
+	 *                                                          wrapping.
+	 * @see #execute(GuiQuery)
+	 */
+	@Nullable
+	public static <T> T execute(@Nonnull Callable<T> query) {
+		return execute(new GuiQuery<>() {
+			@Override
+			protected T executeInEDT() throws Throwable {
+				return query.call();
+			}
+		});
+	}
+
+	/**
+	 * Executes the given query in the event dispatch thread (EDT). This method waits until the query has finished its
+	 * execution.
+	 *
+	 * @param query the query to execute.
+	 * @param <T>   the return type of the action to execute.
+	 * @return the result of the query executed in the main thread.
+	 * @throws org.uitest4j.swing.exception.UnexpectedException wrapping any <b>checked</b> exception thrown when executing
+	 *                                                          the given query in the
+	 *                                                          event dispatch thread (EDT). Unchecked exceptions are re-thrown without any wrapping.
+	 * @see #executeInEDT()
+	 * @see #execute(Callable)
+	 */
+	@Nullable
+	public static <T> T execute(@Nonnull GuiQuery<T> query) {
+		if (!executeInEDT) {
+			return executeInCurrentThread(query);
 		}
-	});
-  }
+		run(query);
+		return resultOf(query);
+	}
 
-  /**
-   * Executes the given query in the event dispatch thread (EDT). This method waits until the query has finished its
-   * execution.
-   *
-   * @param query the query to execute.
-   * @param <T> the return type of the action to execute.
-   * @return the result of the query executed in the main thread.
-   * @throws org.uitest4j.swing.exception.UnexpectedException wrapping any <b>checked</b> exception thrown when executing
-   *           the given query in the
-   *           event dispatch thread (EDT). Unchecked exceptions are re-thrown without any wrapping.
-   * @see #executeInEDT()
-   * @see #execute(Callable)
-   */
-  @Nullable public static <T> T execute(@Nonnull GuiQuery<T> query) {
-    if (!executeInEDT) {
-      return executeInCurrentThread(query);
-    }
-    run(query);
-    return resultOf(query);
-  }
+	@Nullable
+	private static <T> T executeInCurrentThread(@Nonnull GuiQuery<T> query) {
+		try {
+			return query.executeInEDT();
+		}
+		catch (Throwable e) {
+			throw unexpected(e);
+		}
+	}
 
-  @Nullable private static <T> T executeInCurrentThread(@Nonnull GuiQuery<T> query) {
-    try {
-      return query.executeInEDT();
-    } catch (Throwable e) {
-      throw unexpected(e);
-    }
-  }
+	/**
+	 * Executes the given runnable in the event dispatch thread (EDT). This method waits until the task has finished its
+	 * execution.
+	 *
+	 * @param task the task to execute.
+	 * @throws org.uitest4j.swing.exception.UnexpectedException wrapping any <b>checked</b> exception thrown when executing
+	 *                                                          the given query in the event dispatch thread (EDT). Unchecked exceptions are re-thrown without any
+	 *                                                          wrapping.
+	 * @see #executeInEDT()
+	 * @see #execute(GuiTask)
+	 */
+	public static void execute(@Nonnull GuiActionRunnable task) {
+		execute(new GuiTask() {
+			@Override
+			protected void executeInEDT() throws Throwable {
+				task.run();
+			}
+		});
+	}
 
-  /**
-   * Executes the given runnable in the event dispatch thread (EDT). This method waits until the task has finished its
-   * execution.
-   *
-   * @param task the task to execute.
-   * @throws org.uitest4j.swing.exception.UnexpectedException wrapping any <b>checked</b> exception thrown when executing
-   *           the given query in the event dispatch thread (EDT). Unchecked exceptions are re-thrown without any
-   *           wrapping.
-   * @see #executeInEDT()
-   * @see #execute(GuiTask)
-   */
-  public static void execute(@Nonnull GuiActionRunnable task) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() throws Throwable {
-        task.run();
-      }
-    });
-  }
+	/**
+	 * Executes the given task in the event dispatch thread (EDT). This method waits until the task has finished its
+	 * execution.
+	 *
+	 * @param task the task to execute.
+	 * @throws org.uitest4j.swing.exception.UnexpectedException wrapping any <b>checked</b> exception thrown when executing
+	 *                                                          the given query in the
+	 *                                                          event dispatch thread (EDT). Unchecked exceptions are re-thrown without any wrapping.
+	 * @see #executeInEDT()
+	 * @see #execute(GuiActionRunnable)
+	 */
+	public static void execute(@Nonnull GuiTask task) {
+		if (!executeInEDT) {
+			executeInCurrentThread(task);
+			return;
+		}
+		run(task);
+		rethrowCaughtExceptionIn(task);
+	}
 
-  /**
-   * Executes the given task in the event dispatch thread (EDT). This method waits until the task has finished its
-   * execution.
-   *
-   * @param task the task to execute.
-   * @throws org.uitest4j.swing.exception.UnexpectedException wrapping any <b>checked</b> exception thrown when executing
-   *           the given query in the
-   *           event dispatch thread (EDT). Unchecked exceptions are re-thrown without any wrapping.
-   * @see #executeInEDT()
-   * @see #execute(GuiActionRunnable)
-   */
-  public static void execute(@Nonnull GuiTask task) {
-    if (!executeInEDT) {
-      executeInCurrentThread(task);
-      return;
-    }
-    run(task);
-    rethrowCaughtExceptionIn(task);
-  }
+	private static void executeInCurrentThread(@Nonnull GuiTask task) {
+		try {
+			task.executeInEDT();
+		}
+		catch (Throwable e) {
+			throw unexpected(e);
+		}
+	}
 
-  private static void executeInCurrentThread(@Nonnull GuiTask task) {
-    try {
-      task.executeInEDT();
-    } catch (Throwable e) {
-      throw unexpected(e);
-    }
-  }
+	private static void run(@Nonnull final GuiAction action) {
+		if (isEventDispatchThread()) {
+			action.run();
+			return;
+		}
+		final CountDownLatch latch = new CountDownLatch(1);
+		action.executionNotification(latch);
+		invokeLater(action);
+		try {
+			latch.await();
+		}
+		catch (InterruptedException e) {
+			Thread.currentThread().interrupt();
+		}
+	}
 
-  private static void run(@Nonnull final GuiAction action) {
-    if (isEventDispatchThread()) {
-      action.run();
-      return;
-    }
-    final CountDownLatch latch = new CountDownLatch(1);
-    action.executionNotification(latch);
-    invokeLater(action);
-    try {
-      latch.await();
-    } catch (InterruptedException e) {
-      Thread.currentThread().interrupt();
-    }
-  }
+	@Nullable
+	private static <T> T resultOf(@Nonnull GuiQuery<T> query) {
+		T result = query.result();
+		query.clearResult();
+		rethrowCaughtExceptionIn(query);
+		return result;
+	}
 
-  @Nullable private static <T> T resultOf(@Nonnull GuiQuery<T> query) {
-    T result = query.result();
-    query.clearResult();
-    rethrowCaughtExceptionIn(query);
-    return result;
-  }
+	/**
+	 * Wraps, with a {@link org.uitest4j.swing.exception.UnexpectedException}, and re-throws any caught exception in the given action.
+	 *
+	 * @param action the given action that may have a caught exception during its execution.
+	 * @throws org.uitest4j.swing.exception.UnexpectedException wrapping any <b>checked</b> exception thrown when executing the given query in the
+	 *                                                          event dispatch thread (EDT). Unchecked exceptions are re-thrown without any wrapping.
+	 */
+	private static void rethrowCaughtExceptionIn(@Nonnull GuiAction action) {
+		Throwable caughtException = action.catchedException();
+		action.clearCaughtException();
+		if (caughtException == null) {
+			return;
+		}
+		if (caughtException instanceof RuntimeException) {
+			appendStackTraceInCurrentThreadToThrowable(caughtException, "execute");
+			throw (RuntimeException) caughtException;
+		}
+		if (caughtException instanceof Error) {
+			caughtException.fillInStackTrace();
+			throw (Error) caughtException;
+		}
+		throw unexpected(caughtException);
+	}
 
-  /**
-   * Wraps, with a {@link org.uitest4j.swing.exception.UnexpectedException}, and re-throws any caught exception in the given action.
-   *
-   * @param action the given action that may have a caught exception during its execution.
-   * @throws org.uitest4j.swing.exception.UnexpectedException wrapping any <b>checked</b> exception thrown when executing the given query in the
-   *           event dispatch thread (EDT). Unchecked exceptions are re-thrown without any wrapping.
-   */
-  private static void rethrowCaughtExceptionIn(@Nonnull GuiAction action) {
-    Throwable caughtException = action.catchedException();
-    action.clearCaughtException();
-    if (caughtException == null) {
-      return;
-    }
-    if (caughtException instanceof RuntimeException) {
-      appendStackTraceInCurrentThreadToThrowable(caughtException, "execute");
-      throw (RuntimeException) caughtException;
-    }
-    if (caughtException instanceof Error) {
-      caughtException.fillInStackTrace();
-      throw (Error) caughtException;
-    }
-    throw unexpected(caughtException);
-  }
+	/**
+	 * Borrowed from Throwables in AssertJ Core to break dependency
+	 */
+	public static void appendStackTraceInCurrentThreadToThrowable(Throwable t, String methodToStartFrom) {
+		List<StackTraceElement> stackTrace = new ArrayList<>(Arrays.asList(t.getStackTrace()));
+		stackTrace.addAll(stackTraceInCurrentThread(methodToStartFrom));
+		t.setStackTrace(stackTrace.toArray(new StackTraceElement[0]));
+	}
 
-  /**
-   * Borrowed from Throwables in AssertJ Core to break dependency
-   */
-  public static void appendStackTraceInCurrentThreadToThrowable(Throwable t, String methodToStartFrom) {
-    List<StackTraceElement> stackTrace = new ArrayList<>(Arrays.asList(t.getStackTrace()));
-    stackTrace.addAll(stackTraceInCurrentThread(methodToStartFrom));
-    t.setStackTrace(stackTrace.toArray(new StackTraceElement[0]));
-  }
+	private static List<StackTraceElement> stackTraceInCurrentThread(String methodToStartFrom) {
+		ArrayList<StackTraceElement> filtered = stackTraceInCurrentThread();
+		List<StackTraceElement> toRemove = new ArrayList<>();
 
-  private static List<StackTraceElement> stackTraceInCurrentThread(String methodToStartFrom) {
-	  ArrayList<StackTraceElement> filtered = stackTraceInCurrentThread();
-    List<StackTraceElement> toRemove = new ArrayList<>();
+		for (Object e : filtered) {
+			if (methodToStartFrom.equals(((StackTraceElement) e).getMethodName())) {
+				break;
+			}
 
-    for (Object e : filtered) {
-      if (methodToStartFrom.equals(((StackTraceElement) e).getMethodName())) {
-        break;
-      }
+			toRemove.add((StackTraceElement) e);
+		}
 
-      toRemove.add((StackTraceElement) e);
-    }
-
-    filtered.removeAll(toRemove);
-    return filtered;
-  }
+		filtered.removeAll(toRemove);
+		return filtered;
+	}
 
 	private static ArrayList<StackTraceElement> stackTraceInCurrentThread() {
 		return new ArrayList<>(Arrays.asList(Thread.currentThread().getStackTrace()));
-  }
+	}
 }

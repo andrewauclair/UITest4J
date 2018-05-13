@@ -24,26 +24,26 @@ import static org.uitest4j.swing.image.ImageFileExtensions.PNG;
 
 /**
  * Writes an image as a file in the file system.
- * 
+ *
  * @author Alex Ruiz
  */
 public class ImageFileWriter {
-  /**
-   * Writes an image as a PNG file to the file system. If there is already a {@code File} present, its contents are
-   * discarded.
-   * 
-   * @param image a {@code BufferedImage} to be written.
-   * @param filePath the path of the image file to create.
-   * @return {@code false} if the image could not be saved.
-   * @exception IOException if an error occurs during writing.
-   */
-  public boolean writeAsPng(@Nonnull BufferedImage image, @Nonnull String filePath) throws IOException {
-    File file = new File(filePath);
-    if (!file.exists()) {
-      if (!file.createNewFile()) {
-        throw new AssertionFailedError("Failed to create file: " + filePath);
-      }
-    }
-    return ImageIO.write(image, PNG, file);
-  }
+	/**
+	 * Writes an image as a PNG file to the file system. If there is already a {@code File} present, its contents are
+	 * discarded.
+	 *
+	 * @param image    a {@code BufferedImage} to be written.
+	 * @param filePath the path of the image file to create.
+	 * @return {@code false} if the image could not be saved.
+	 * @throws IOException if an error occurs during writing.
+	 */
+	public boolean writeAsPng(@Nonnull BufferedImage image, @Nonnull String filePath) throws IOException {
+		File file = new File(filePath);
+		if (!file.exists()) {
+			if (!file.createNewFile()) {
+				throw new AssertionFailedError("Failed to create file: " + filePath);
+			}
+		}
+		return ImageIO.write(image, PNG, file);
+	}
 }

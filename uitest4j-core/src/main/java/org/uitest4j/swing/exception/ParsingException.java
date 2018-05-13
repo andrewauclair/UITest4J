@@ -20,25 +20,27 @@ import javax.annotation.Nonnull;
  * @author Alex Ruiz
  */
 public class ParsingException extends RuntimeException {
-  /** Generated serial version UID. */
-  private static final long serialVersionUID = -8420935990336354323L;
+	/**
+	 * Generated serial version UID.
+	 */
+	private static final long serialVersionUID = -8420935990336354323L;
 
-  /**
-   * Creates a new {@link ParsingException}.
-   *
-   * @param message the detail message.
-   */
-  public ParsingException(@Nonnull String message) {
-    super(message);
-  }
+	/**
+	 * Creates a new {@link ParsingException}.
+	 *
+	 * @param message the detail message.
+	 */
+	public ParsingException(@Nonnull String message) {
+		super(message);
+	}
 
-  /**
-   * Creates a new {@link ParsingException}.
-   *
-   * @param message the detail message.
-   * @param cause the cause of the error.
-   */
-  public ParsingException(@Nonnull String message, @Nonnull Throwable cause) {
-    super(message, cause);
-  }
+	/**
+	 * Creates a new {@link ParsingException}.
+	 *
+	 * @param message the detail message.
+	 * @param cause   the cause of the error.
+	 */
+	public ParsingException(@Nonnull String message, @Nonnull Throwable cause) {
+		super(message, cause);
+	}
 }

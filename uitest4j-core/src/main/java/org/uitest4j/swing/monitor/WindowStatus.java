@@ -12,9 +12,9 @@
  */
 package org.uitest4j.swing.monitor;
 
-import org.uitest4j.swing.util.RobotFactory;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.uitest4j.swing.annotation.RunsInEDT;
+import org.uitest4j.swing.util.RobotFactory;
 
 import javax.annotation.Nonnull;
 import java.awt.*;
@@ -31,105 +31,108 @@ import static org.uitest4j.swing.query.ComponentSizeQuery.sizeOf;
  * @author Alex Ruiz
  */
 class WindowStatus {
-  private static final Dimension MINIMUM_WINDOW_SIZE = new Dimension(50, 30);
+	private static final Dimension MINIMUM_WINDOW_SIZE = new Dimension(50, 30);
 
-  private static Logger logger = Logger.getLogger(WindowStatus.class.getCanonicalName());
-  private static int sign = 1;
+	private static Logger logger = Logger.getLogger(WindowStatus.class.getCanonicalName());
+	private static int sign = 1;
 
-  private final Windows windows;
+	private final Windows windows;
 
-  final Robot robot;
+	final Robot robot;
 
-  WindowStatus(@Nonnull Windows windows) {
-    this(windows, new RobotFactory());
-  }
+	WindowStatus(@Nonnull Windows windows) {
+		this(windows, new RobotFactory());
+	}
 
-  WindowStatus(@Nonnull Windows windows, @Nonnull RobotFactory robotFactory) {
-    this.windows = windows;
-    Robot r = null;
-    try {
-      r = robotFactory.newRobotInLeftScreen();
-    } catch (AWTException ignored) {
-      logger.log(WARNING, "Error ocurred when creating a new Robot", ignored);
-    }
-    robot = r;
-  }
+	WindowStatus(@Nonnull Windows windows, @Nonnull RobotFactory robotFactory) {
+		this.windows = windows;
+		Robot r = null;
+		try {
+			r = robotFactory.newRobotInLeftScreen();
+		}
+		catch (AWTException ignored) {
+			logger.log(WARNING, "Error ocurred when creating a new Robot", ignored);
+		}
+		robot = r;
+	}
 
-  @Nonnull
-  Windows windows() {
-    return windows;
-  }
+	@Nonnull
+	Windows windows() {
+		return windows;
+	}
 
-  /**
-   * Checks whether the given window is ready for input.
-   *
-   * @param w the given window.
-   */
-  @RunsInEDT
-  void checkIfReady(@Nonnull Window w) {
-    if (robot == null) {
-      return;
-    }
-    try {
-      checkSafelyIfReady(w);
-    } catch (Exception ignored) {
-      // TODO We are getting InterruptedException in Xwnc
-      // http://groups.google.com/group/easytesting/browse_frm/thread/116cc070ab7b22e6
-      logger.log(WARNING, "Error ocurred when checking if window is ready", ignored);
-    }
-  }
+	/**
+	 * Checks whether the given window is ready for input.
+	 *
+	 * @param w the given window.
+	 */
+	@RunsInEDT
+	void checkIfReady(@Nonnull Window w) {
+		if (robot == null) {
+			return;
+		}
+		try {
+			checkSafelyIfReady(w);
+		}
+		catch (Exception ignored) {
+			// TODO We are getting InterruptedException in Xwnc
+			// http://groups.google.com/group/easytesting/browse_frm/thread/116cc070ab7b22e6
+			logger.log(WARNING, "Error ocurred when checking if window is ready", ignored);
+		}
+	}
 
-  @RunsInEDT
-  private void checkSafelyIfReady(final @Nonnull Window w) {
-    if (!windows.isShowingButNotReady(w)) {
-      return;
-    }
-    execute(() -> makeLargeEnoughToReceiveEvents(w));
-    mouseMove(w, centerOf(w));
-  }
+	@RunsInEDT
+	private void checkSafelyIfReady(final @Nonnull Window w) {
+		if (!windows.isShowingButNotReady(w)) {
+			return;
+		}
+		execute(() -> makeLargeEnoughToReceiveEvents(w));
+		mouseMove(w, centerOf(w));
+	}
 
-  @RunsInEDT
-  private static Point centerOf(final @Nonnull Window w) {
-    return execute(() -> absoluteCenterOf(w));
-  }
+	@RunsInEDT
+	private static Point centerOf(final @Nonnull Window w) {
+		return execute(() -> absoluteCenterOf(w));
+	}
 
-  @RunsInEDT
-  private void mouseMove(@Nonnull Window w, @Nonnull Point point) {
-    int x = point.x;
-    int y = point.y;
-    if (x == 0 || y == 0) {
-      return;
-    }
-    robot.mouseMove(x, y);
-    Dimension windowSize = sizeOf(w);
-    if (windowSize.width > windowSize.height) {
-      robot.mouseMove(x + sign, y);
-    } else {
-      robot.mouseMove(x, y + sign);
-    }
-    sign = -sign;
-  }
+	@RunsInEDT
+	private void mouseMove(@Nonnull Window w, @Nonnull Point point) {
+		int x = point.x;
+		int y = point.y;
+		if (x == 0 || y == 0) {
+			return;
+		}
+		robot.mouseMove(x, y);
+		Dimension windowSize = sizeOf(w);
+		if (windowSize.width > windowSize.height) {
+			robot.mouseMove(x + sign, y);
+		}
+		else {
+			robot.mouseMove(x, y + sign);
+		}
+		sign = -sign;
+	}
 
-  @RunsInCurrentThread
-  private void makeLargeEnoughToReceiveEvents(@Nonnull Window window) {
-    if (!shouldResize(window)) {
-      return;
-    }
-    window.setSize(MINIMUM_WINDOW_SIZE);
-  }
+	@RunsInCurrentThread
+	private void makeLargeEnoughToReceiveEvents(@Nonnull Window window) {
+		if (!shouldResize(window)) {
+			return;
+		}
+		window.setSize(MINIMUM_WINDOW_SIZE);
+	}
 
-  @RunsInCurrentThread
-  private boolean shouldResize(@Nonnull Window window) {
-    Insets insets = window.getInsets();
-    int w = window.getWidth() - (insets.left + insets.right);
-    if (w < MINIMUM_WINDOW_SIZE.width) {
-      return true;
-    }
-    int h = window.getHeight() - (insets.top + insets.bottom);
-    return h < MINIMUM_WINDOW_SIZE.height;
-  }
+	@RunsInCurrentThread
+	private boolean shouldResize(@Nonnull Window window) {
+		Insets insets = window.getInsets();
+		int w = window.getWidth() - (insets.left + insets.right);
+		if (w < MINIMUM_WINDOW_SIZE.width) {
+			return true;
+		}
+		int h = window.getHeight() - (insets.top + insets.bottom);
+		return h < MINIMUM_WINDOW_SIZE.height;
+	}
 
-  static int sign() {
-    return sign;
-  }
+	static int sign() {
+		return sign;
+	}
 }

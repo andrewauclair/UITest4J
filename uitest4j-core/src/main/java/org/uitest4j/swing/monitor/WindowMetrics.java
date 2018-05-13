@@ -21,16 +21,17 @@ import java.awt.*;
  * @author Alex Ruiz
  */
 final class WindowMetrics {
-  @RunsInCurrentThread
-  static @Nonnull Point absoluteCenterOf(@Nonnull Window window) {
-    Insets insets = window.getInsets();
-    int w = window.getWidth() - (insets.left + insets.right);
-    int h = window.getHeight() - (insets.top + insets.bottom);
-    int x = window.getX() + insets.left;
-    int y = window.getY() + insets.top;
-    return new Point(x + (w / 2), y + (h / 2));
-  }
+	@RunsInCurrentThread
+	static @Nonnull
+	Point absoluteCenterOf(@Nonnull Window window) {
+		Insets insets = window.getInsets();
+		int w = window.getWidth() - (insets.left + insets.right);
+		int h = window.getHeight() - (insets.top + insets.bottom);
+		int x = window.getX() + insets.left;
+		int y = window.getY() + insets.top;
+		return new Point(x + (w / 2), y + (h / 2));
+	}
 
-  private WindowMetrics() {
-  }
+	private WindowMetrics() {
+	}
 }

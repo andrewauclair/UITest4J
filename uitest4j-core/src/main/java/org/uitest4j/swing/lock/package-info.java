@@ -13,7 +13,7 @@
 /**
  * Utilities that ensure that GUI tests are executed sequentially, preventing multiple applications from being displayed
  * simultaneously.
- * 
+ *
  * @author Alex Ruiz
  */
 package org.uitest4j.swing.lock;

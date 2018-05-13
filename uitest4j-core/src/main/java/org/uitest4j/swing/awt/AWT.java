@@ -270,7 +270,7 @@ public class AWT {
 	 *
 	 * @param c the given {@code Component}.
 	 * @return the invoker, if any, of the given {@code Component}; or {@code null}, if the {@code Component} is not on a
-	 *     pop-up of any sort.
+	 * pop-up of any sort.
 	 */
 	@RunsInCurrentThread
 	@Nullable

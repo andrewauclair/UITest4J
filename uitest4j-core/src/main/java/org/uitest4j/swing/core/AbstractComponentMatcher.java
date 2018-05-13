@@ -19,75 +19,75 @@ import java.awt.*;
 
 /**
  * Template for implementations of {@link ResettableComponentMatcher}.
- * 
+ *
  * @author Yvonne Wang
  * @author Alex Ruiz
  */
 public abstract class AbstractComponentMatcher implements ResettableComponentMatcher {
-  private boolean requireShowing;
+	private boolean requireShowing;
 
-  /**
-   * Creates a new {@link AbstractComponentMatcher}. The created matcher does not require the AWT or Swing
-   * {@code Component} to match to be showing.
-   */
-  public AbstractComponentMatcher() {
-    this(false);
-  }
+	/**
+	 * Creates a new {@link AbstractComponentMatcher}. The created matcher does not require the AWT or Swing
+	 * {@code Component} to match to be showing.
+	 */
+	public AbstractComponentMatcher() {
+		this(false);
+	}
 
-  /**
-   * Creates a new {@link AbstractComponentMatcher}.
-   * 
-   * @param requireShowing indicates whether the AWT or Swing {@code Component} to match should be showing or not.
-   */
-  public AbstractComponentMatcher(boolean requireShowing) {
-    requireShowing(requireShowing);
-  }
+	/**
+	 * Creates a new {@link AbstractComponentMatcher}.
+	 *
+	 * @param requireShowing indicates whether the AWT or Swing {@code Component} to match should be showing or not.
+	 */
+	public AbstractComponentMatcher(boolean requireShowing) {
+		requireShowing(requireShowing);
+	}
 
-  /**
-   * Indicates whether the AWT or Swing {@code Component} to match has to be showing.
-   * 
-   * @return {@code true} if the {@code Component} to find has to be showing, {@code false} otherwise.
-   */
-  protected final boolean requireShowing() {
-    return requireShowing;
-  }
+	/**
+	 * Indicates whether the AWT or Swing {@code Component} to match has to be showing.
+	 *
+	 * @return {@code true} if the {@code Component} to find has to be showing, {@code false} otherwise.
+	 */
+	protected final boolean requireShowing() {
+		return requireShowing;
+	}
 
-  /**
-   * Updates the value of the flag that indicates if the AWT or Swing {@code Component} to match should be showing or
-   * not.
-   * 
-   * @param shouldBeShowing the new value to set.
-   */
-  protected final void requireShowing(boolean shouldBeShowing) {
-    requireShowing = shouldBeShowing;
-  }
+	/**
+	 * Updates the value of the flag that indicates if the AWT or Swing {@code Component} to match should be showing or
+	 * not.
+	 *
+	 * @param shouldBeShowing the new value to set.
+	 */
+	protected final void requireShowing(boolean shouldBeShowing) {
+		requireShowing = shouldBeShowing;
+	}
 
-  /**
-   * <p>
-   * Indicates if the value of the "showing" property of the given AWT or Swing {@code Component} matches the value
-   * specified in this matcher.
-   * </p>
-   * 
-   * <p>
-   * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
-   * dispatch thread (EDT). Client code must call this method from the EDT.
-   * </p>
-   * 
-   * @param c the component to verify.
-   * @return {@code true} if the value of the "isShowing" property of the given component matches the value specified in
-   *         this matcher, {@code false} otherwise.
-   */
-  @RunsInCurrentThread
-  protected final boolean requireShowingMatches(@Nonnull Component c) {
-    return !requireShowing || c.isShowing();
-  }
+	/**
+	 * <p>
+	 * Indicates if the value of the "showing" property of the given AWT or Swing {@code Component} matches the value
+	 * specified in this matcher.
+	 * </p>
+	 *
+	 * <p>
+	 * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
+	 * dispatch thread (EDT). Client code must call this method from the EDT.
+	 * </p>
+	 *
+	 * @param c the component to verify.
+	 * @return {@code true} if the value of the "isShowing" property of the given component matches the value specified in
+	 * this matcher, {@code false} otherwise.
+	 */
+	@RunsInCurrentThread
+	protected final boolean requireShowingMatches(@Nonnull Component c) {
+		return !requireShowing || c.isShowing();
+	}
 
-  /**
-   * Resets the internal state of this matcher.
-   * 
-   * @param matchFound indicates whether a match has been found before resetting.
-   */
-  @Override
-  public void reset(boolean matchFound) {
-  }
+	/**
+	 * Resets the internal state of this matcher.
+	 *
+	 * @param matchFound indicates whether a match has been found before resetting.
+	 */
+	@Override
+	public void reset(boolean matchFound) {
+	}
 }

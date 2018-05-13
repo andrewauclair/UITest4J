@@ -34,12 +34,13 @@ import static org.uitest4j.swing.driver.JListItemPreconditions.checkIndexInBound
  * @author Alex Ruiz
  */
 final class JListCellBoundsQuery {
-  @RunsInCurrentThread
-  static @Nullable Rectangle cellBounds(@Nonnull JList<?> list, int index) {
-    checkIndexInBounds(list, index);
-    return list.getCellBounds(index, index);
-  }
+	@RunsInCurrentThread
+	static @Nullable
+	Rectangle cellBounds(@Nonnull JList<?> list, int index) {
+		checkIndexInBounds(list, index);
+		return list.getCellBounds(index, index);
+	}
 
-  private JListCellBoundsQuery() {
-  }
+	private JListCellBoundsQuery() {
+	}
 }

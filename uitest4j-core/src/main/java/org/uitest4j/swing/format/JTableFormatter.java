@@ -12,10 +12,9 @@
  */
 package org.uitest4j.swing.format;
 
-import java.awt.Component;
-
 import javax.annotation.Nonnull;
-import javax.swing.JTable;
+import javax.swing.*;
+import java.awt.*;
 
 /**
  * Formatter for {@code JTable}s.
@@ -24,25 +23,27 @@ import javax.swing.JTable;
  * @author Yvonne Wang
  */
 public class JTableFormatter extends ComponentFormatterTemplate {
-  /**
-   * Returns the {@code String} representation of the given {@code Component}, which should be a {@code JTable}.
-   *
-   * @param c the given {@code Component}.
-   * @return the {@code String} representation of the given {@code JTable}.
-   */
-  @Override
-  @Nonnull protected String doFormat(@Nonnull Component c) {
-    JTable table = (JTable) c;
-	  String format = "%s[name='%s', rowCount=%d, columnCount=%d, enabled=%b, visible=%b, showing=%b]";
-	  return String.format(format, getRealClassName(c), table.getName(), table.getRowCount(),
-                         table.getColumnCount(), table.isEnabled(), table.isVisible(), table.isShowing());
-  }
+	/**
+	 * Returns the {@code String} representation of the given {@code Component}, which should be a {@code JTable}.
+	 *
+	 * @param c the given {@code Component}.
+	 * @return the {@code String} representation of the given {@code JTable}.
+	 */
+	@Override
+	@Nonnull
+	protected String doFormat(@Nonnull Component c) {
+		JTable table = (JTable) c;
+		String format = "%s[name='%s', rowCount=%d, columnCount=%d, enabled=%b, visible=%b, showing=%b]";
+		return String.format(format, getRealClassName(c), table.getName(), table.getRowCount(),
+				table.getColumnCount(), table.isEnabled(), table.isVisible(), table.isShowing());
+	}
 
-  /**
-   * @return {@code JTable.class}.
-   */
-  @Override
-  @Nonnull public Class<? extends Component> targetType() {
-    return JTable.class;
-  }
+	/**
+	 * @return {@code JTable.class}.
+	 */
+	@Override
+	@Nonnull
+	public Class<? extends Component> targetType() {
+		return JTable.class;
+	}
 }

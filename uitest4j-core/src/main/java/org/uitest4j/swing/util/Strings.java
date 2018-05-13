@@ -20,120 +20,121 @@ import java.util.regex.PatternSyntaxException;
 
 /**
  * Utility methods related to {@code String}s.
- * 
+ *
  * @author Alex Ruiz
  * @author Uli Schrempp
  */
 public final class Strings {
-  /**
-   * Indicates whether the given {@code String} is the default {@code toString()} implementation of an {@code Object}.
-   * 
-   * @param s the given {@code String}.
-   * @return {@code true} if the given {@code String} is the default {@code toString()} implementation, {@code false}
-   *         otherwise.
-   */
-  public static boolean isDefaultToString(@Nullable String s) {
-    if (s == null || s.isEmpty()) {
-      return false;
-    }
-    int at = s.indexOf("@");
-    if (at == -1) {
-      return false;
-    }
-    String hash = s.substring(at + 1, s.length());
-    try {
-      Integer.parseInt(hash, 16);
-      return true;
-    } catch (NumberFormatException e) {
-      return false;
-    }
-  }
+	/**
+	 * Indicates whether the given {@code String} is the default {@code toString()} implementation of an {@code Object}.
+	 *
+	 * @param s the given {@code String}.
+	 * @return {@code true} if the given {@code String} is the default {@code toString()} implementation, {@code false}
+	 * otherwise.
+	 */
+	public static boolean isDefaultToString(@Nullable String s) {
+		if (s == null || s.isEmpty()) {
+			return false;
+		}
+		int at = s.indexOf("@");
+		if (at == -1) {
+			return false;
+		}
+		String hash = s.substring(at + 1, s.length());
+		try {
+			Integer.parseInt(hash, 16);
+			return true;
+		}
+		catch (NumberFormatException e) {
+			return false;
+		}
+	}
 
-  /**
-   * Indicates if the given {@code String}s match. To match, one of the following conditions needs to be true:
-   * <ul>
-   * <li>both {@code String}s have to be equal</li>
-   * <li>{@code s} matches the regular expression in {@code pattern}</li>
-   * </ul>
-   * 
-   * @param pattern a {@code String} to match (it can be a regular expression).
-   * @param s the {@code String} to verify.
-   * @return {@code true} if the given {@code String}s match, {@code false} otherwise.
-   */
-  public static boolean areEqualOrMatch(@Nullable String pattern, @Nullable String s) {
-	  if (Objects.equals(pattern, s)) {
-      return true;
-    }
-    if (pattern != null && s != null) {
-      try {
-        return s.matches(pattern);
-      } catch (PatternSyntaxException invalidRegex) {
-        return s.contains(pattern);
-      }
-    }
-    return false;
-  }
+	/**
+	 * Indicates if the given {@code String}s match. To match, one of the following conditions needs to be true:
+	 * <ul>
+	 * <li>both {@code String}s have to be equal</li>
+	 * <li>{@code s} matches the regular expression in {@code pattern}</li>
+	 * </ul>
+	 *
+	 * @param pattern a {@code String} to match (it can be a regular expression).
+	 * @param s       the {@code String} to verify.
+	 * @return {@code true} if the given {@code String}s match, {@code false} otherwise.
+	 */
+	public static boolean areEqualOrMatch(@Nullable String pattern, @Nullable String s) {
+		if (Objects.equals(pattern, s)) {
+			return true;
+		}
+		if (pattern != null && s != null) {
+			try {
+				return s.matches(pattern);
+			}
+			catch (PatternSyntaxException invalidRegex) {
+				return s.contains(pattern);
+			}
+		}
+		return false;
+	}
 
-  /**
-   * Indicates if the given {@code String} matches the given regular expression pattern.
-   * 
-   * @param p the given regular expression pattern.
-   * @param s the {@code String} to evaluate.
-   * @return {@code true} if the given {@code String} matches the given regular expression pattern, {@code false}
-   *         otherwise. It also returns {@code false} if the given {@code String} is {@code null}.
-   * @throws NullPointerException if the given regular expression pattern is {@code null}.
-   */
-  public static boolean match(@Nonnull Pattern p, @Nullable String s) {
-    return match(p, (CharSequence) s);
-  }
+	/**
+	 * Indicates if the given {@code String} matches the given regular expression pattern.
+	 *
+	 * @param p the given regular expression pattern.
+	 * @param s the {@code String} to evaluate.
+	 * @return {@code true} if the given {@code String} matches the given regular expression pattern, {@code false}
+	 * otherwise. It also returns {@code false} if the given {@code String} is {@code null}.
+	 * @throws NullPointerException if the given regular expression pattern is {@code null}.
+	 */
+	public static boolean match(@Nonnull Pattern p, @Nullable String s) {
+		return match(p, (CharSequence) s);
+	}
 
-  /**
-   * Indicates if the given {@code CharSequence} matches the given regular expression pattern.
-   * 
-   * @param p the given regular expression pattern.
-   * @param s the {@code CharSequence} to evaluate.
-   * @return {@code true} if the given {@code CharSequence} matches the given regular expression pattern, {@code false}
-   *         otherwise. It also returns {@code false} if the given {@code CharSequence} is {@code null}.
-   * @throws NullPointerException if the given regular expression pattern is {@code null}.
-   */
-  public static boolean match(@Nonnull Pattern p, @Nullable CharSequence s) {
-    Objects.requireNonNull(p);
-    if (s == null) {
-      return false;
-    }
-    return p.matcher(s).matches();
-  }
+	/**
+	 * Indicates if the given {@code CharSequence} matches the given regular expression pattern.
+	 *
+	 * @param p the given regular expression pattern.
+	 * @param s the {@code CharSequence} to evaluate.
+	 * @return {@code true} if the given {@code CharSequence} matches the given regular expression pattern, {@code false}
+	 * otherwise. It also returns {@code false} if the given {@code CharSequence} is {@code null}.
+	 * @throws NullPointerException if the given regular expression pattern is {@code null}.
+	 */
+	public static boolean match(@Nonnull Pattern p, @Nullable CharSequence s) {
+		Objects.requireNonNull(p);
+		if (s == null) {
+			return false;
+		}
+		return p.matcher(s).matches();
+	}
 
-  /**
-   * Indicates whether the given {@code String} is {@code null} or empty.
-   * 
-   * @param s the {@code String} to check.
-   * @return {@code true} if the given {@code String} is {@code null} or empty, otherwise {@code false}.
-   */
-  public static boolean isNullOrEmpty(String s) {
-    return s == null || s.isEmpty();
-  }
+	/**
+	 * Indicates whether the given {@code String} is {@code null} or empty.
+	 *
+	 * @param s the {@code String} to check.
+	 * @return {@code true} if the given {@code String} is {@code null} or empty, otherwise {@code false}.
+	 */
+	public static boolean isNullOrEmpty(String s) {
+		return s == null || s.isEmpty();
+	}
 
-  /**
-   *
-   * @param str the {@code String} to check.
-   * @param name the name of the string to use in the AssertionFailedError, if one is thrown.
-   * @return {@link String} the input string is checks have passed.
-   * @throws NullPointerException if the given string was null.
-   * @throws IllegalArgumentException if the given string was empty.
-   */
-  public static String checkNotNullOrEmpty(String str, String name) {
-    Objects.requireNonNull(str);
-    if (str.isEmpty()) {
-      throw new IllegalArgumentException(name + " should be non-empty string.");
-    }
-    return str;
-  }
+	/**
+	 * @param str  the {@code String} to check.
+	 * @param name the name of the string to use in the AssertionFailedError, if one is thrown.
+	 * @return {@link String} the input string is checks have passed.
+	 * @throws NullPointerException     if the given string was null.
+	 * @throws IllegalArgumentException if the given string was empty.
+	 */
+	public static String checkNotNullOrEmpty(String str, String name) {
+		Objects.requireNonNull(str);
+		if (str.isEmpty()) {
+			throw new IllegalArgumentException(name + " should be non-empty string.");
+		}
+		return str;
+	}
 
-  public static String singleQuote(Object str) {
+	public static String singleQuote(Object str) {
 		return "'" + str + "'";
 	}
 
-  private Strings() {
-  }
+	private Strings() {
+	}
 }

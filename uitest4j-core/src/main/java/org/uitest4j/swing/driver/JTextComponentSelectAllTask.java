@@ -21,15 +21,15 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
  * Selects all the text in a {@code JTextComponent}. This task is executed in the event dispatch thread (EDT).
- * 
+ *
  * @author Alex Ruiz
  */
 final class JTextComponentSelectAllTask {
-  @RunsInEDT
-  static void selectAllText(final @Nonnull JTextComponent textBox) {
-    execute(textBox::selectAll);
-  }
+	@RunsInEDT
+	static void selectAllText(final @Nonnull JTextComponent textBox) {
+		execute(textBox::selectAll);
+	}
 
-  private JTextComponentSelectAllTask() {
-  }
+	private JTextComponentSelectAllTask() {
+	}
 }

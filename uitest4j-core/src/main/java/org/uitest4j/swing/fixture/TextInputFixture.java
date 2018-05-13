@@ -16,54 +16,53 @@ import javax.annotation.Nonnull;
 
 /**
  * Simulates user events on {@code Component}s that accept text input from the user.
- * 
+ *
  * @param <S> used to simulate "self types." For more information please read &quot;<a href="http://goo.gl/fjgOM"
- *          target="_blank">Emulating 'self types' using Java Generics to simplify fluent API implementation</a>.&quot;
- * 
+ *            target="_blank">Emulating 'self types' using Java Generics to simplify fluent API implementation</a>.&quot;
  * @author Alex Ruiz
  */
 public interface TextInputFixture<S> extends TextDisplayFixture<S>, EditableComponentFixture<S> {
-  /**
-   * Simulates a user entering the given text in the {@code Component} managed by this fixture.
-   * 
-   * @param text the text to enter.
-   * @return this fixture.
-   */
-  @Nonnull
-  S enterText(@Nonnull String text);
+	/**
+	 * Simulates a user entering the given text in the {@code Component} managed by this fixture.
+	 *
+	 * @param text the text to enter.
+	 * @return this fixture.
+	 */
+	@Nonnull
+	S enterText(@Nonnull String text);
 
-  /**
-   * Simulates a user deleting all the text in the {@code Component} managed by this fixture.
-   * 
-   * @return this fixture.
-   */
-  @Nonnull
-  S deleteText();
+	/**
+	 * Simulates a user deleting all the text in the {@code Component} managed by this fixture.
+	 *
+	 * @return this fixture.
+	 */
+	@Nonnull
+	S deleteText();
 
-  /**
-   * Simulates a user selecting all the text contained in the {@code Component} managed by this fixture.
-   * 
-   * @return this fixture.
-   */
-  @Nonnull
-  S selectAll();
+	/**
+	 * Simulates a user selecting all the text contained in the {@code Component} managed by this fixture.
+	 *
+	 * @return this fixture.
+	 */
+	@Nonnull
+	S selectAll();
 
-  /**
-   * Simulates a user selecting a portion of the text contained in the {@code Component} managed by this fixture.
-   * 
-   * @param start index where selection should start.
-   * @param end index where selection should end.
-   * @return this fixture.
-   */
-  @Nonnull
-  S selectText(int start, int end);
+	/**
+	 * Simulates a user selecting a portion of the text contained in the {@code Component} managed by this fixture.
+	 *
+	 * @param start index where selection should start.
+	 * @param end   index where selection should end.
+	 * @return this fixture.
+	 */
+	@Nonnull
+	S selectText(int start, int end);
 
-  /**
-   * Simulates a user selecting the given text contained in the {@code Component} managed by this fixture.
-   * 
-   * @param text the text to select.
-   * @return this fixture.
-   */
-  @Nonnull
-  S select(@Nonnull String text);
+	/**
+	 * Simulates a user selecting the given text contained in the {@code Component} managed by this fixture.
+	 *
+	 * @param text the text to select.
+	 * @return this fixture.
+	 */
+	@Nonnull
+	S select(@Nonnull String text);
 }

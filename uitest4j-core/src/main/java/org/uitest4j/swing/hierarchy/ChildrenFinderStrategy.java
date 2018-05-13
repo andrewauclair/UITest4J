@@ -20,26 +20,26 @@ import java.util.Collection;
 
 /**
  * Finds children {@code Component}s in an AWT or Swing {@code Container}.
- * 
+ *
  * @author Yvonne Wang
  */
 interface ChildrenFinderStrategy {
-  /**
-   * <p>
-   * Returns the non-explicit children of an AWT or Swing {@code Container}. Non-explicit children are AWT or Swing
-   * {@code Component}s considered to be children of the given {@code Container} but cannot be obtained by calling
-   * {@code Container.getComponents()}.
-   * </p>
-   * 
-   * <p>
-   * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
-   * dispatch thread (EDT). Client code must call this method from the EDT.
-   * </p>
-   * 
-   * @param c the container whose children we are looking for.
-   * @return a collection containing the non-explicit children found.
-   */
-  @RunsInCurrentThread
-  @Nonnull
-  Collection<Component> nonExplicitChildrenOf(@Nonnull Container c);
+	/**
+	 * <p>
+	 * Returns the non-explicit children of an AWT or Swing {@code Container}. Non-explicit children are AWT or Swing
+	 * {@code Component}s considered to be children of the given {@code Container} but cannot be obtained by calling
+	 * {@code Container.getComponents()}.
+	 * </p>
+	 *
+	 * <p>
+	 * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
+	 * dispatch thread (EDT). Client code must call this method from the EDT.
+	 * </p>
+	 *
+	 * @param c the container whose children we are looking for.
+	 * @return a collection containing the non-explicit children found.
+	 */
+	@RunsInCurrentThread
+	@Nonnull
+	Collection<Component> nonExplicitChildrenOf(@Nonnull Container c);
 }

@@ -17,23 +17,23 @@ import org.uitest4j.swing.annotation.RunsInEDT;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.swing.text.JTextComponent;
-
 import java.util.concurrent.Callable;
 
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
  * Returns the text of a {@code JTextComponent}. This query is executed in the event dispatch thread (EDT).
- * 
+ *
  * @author Yvonne Wang
  * @author Alex Ruiz
  */
 final class JTextComponentTextQuery {
-  @RunsInEDT
-  static @Nullable String textOf(final @Nonnull JTextComponent textComponent) {
-    return execute((Callable<String>) textComponent::getText);
-  }
+	@RunsInEDT
+	static @Nullable
+	String textOf(final @Nonnull JTextComponent textComponent) {
+		return execute((Callable<String>) textComponent::getText);
+	}
 
-  private JTextComponentTextQuery() {
-  }
+	private JTextComponentTextQuery() {
+	}
 }

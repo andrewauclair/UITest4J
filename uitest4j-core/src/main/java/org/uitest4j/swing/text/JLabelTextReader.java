@@ -19,32 +19,33 @@ import javax.swing.*;
 
 /**
  * Reads the text displayed in a {@code JLabel}.
- * 
+ *
  * @author Alex Ruiz
  */
 public class JLabelTextReader extends TextReader<JLabel> {
-  /**
-   * @return {@code JLabel.class}.
-   */
-  @Override
-  @Nonnull public Class<JLabel> supportedComponent() {
-    return JLabel.class;
-  }
+	/**
+	 * @return {@code JLabel.class}.
+	 */
+	@Override
+	@Nonnull
+	public Class<JLabel> supportedComponent() {
+		return JLabel.class;
+	}
 
-  /**
-   * Indicates whether the given {@code JLabel} displays the given text.
-   * 
-   * @param label the given {@code JLabel}.
-   * @param text the given text.
-   * @return {@code true} if the given {@code JLabel} displays the given text; {@code false} otherwise.
-   */
-  @RunsInCurrentThread
-  @Override
-  protected boolean checkContainsText(@Nonnull JLabel label, @Nonnull String text) {
-    String labelText = label.getText();
-    if (labelText == null) {
-      return false;
-    }
-    return labelText.contains(text);
-  }
+	/**
+	 * Indicates whether the given {@code JLabel} displays the given text.
+	 *
+	 * @param label the given {@code JLabel}.
+	 * @param text  the given text.
+	 * @return {@code true} if the given {@code JLabel} displays the given text; {@code false} otherwise.
+	 */
+	@RunsInCurrentThread
+	@Override
+	protected boolean checkContainsText(@Nonnull JLabel label, @Nonnull String text) {
+		String labelText = label.getText();
+		if (labelText == null) {
+			return false;
+		}
+		return labelText.contains(text);
+	}
 }

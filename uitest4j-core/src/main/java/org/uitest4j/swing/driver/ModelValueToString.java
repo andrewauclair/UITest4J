@@ -12,36 +12,37 @@
  */
 package org.uitest4j.swing.driver;
 
-import static org.uitest4j.swing.util.Strings.isDefaultToString;
-
 import javax.annotation.Nullable;
+
+import static org.uitest4j.swing.util.Strings.isDefaultToString;
 
 /**
  * Converts a value from a model into a {@code String}.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
 final class ModelValueToString {
-  /**
-   * Returns the {@code toString} value from the given object. If the given object does not implement {@code toString},
-   * this method will return {@code null}.
-   * 
-   * @param o the given object.
-   * @return the {@code toString} value from the given object, or {@code null} if the given object does not implement
-   *         {@code toString}.
-   */
-  static @Nullable String asText(@Nullable Object o) {
-    if (o == null) {
-      return null;
-    }
-    String text = o.toString();
-    if (!isDefaultToString(text)) {
-      return text;
-    }
-    return null;
-  }
+	/**
+	 * Returns the {@code toString} value from the given object. If the given object does not implement {@code toString},
+	 * this method will return {@code null}.
+	 *
+	 * @param o the given object.
+	 * @return the {@code toString} value from the given object, or {@code null} if the given object does not implement
+	 * {@code toString}.
+	 */
+	static @Nullable
+	String asText(@Nullable Object o) {
+		if (o == null) {
+			return null;
+		}
+		String text = o.toString();
+		if (!isDefaultToString(text)) {
+			return text;
+		}
+		return null;
+	}
 
-  private ModelValueToString() {
-  }
+	private ModelValueToString() {
+	}
 }

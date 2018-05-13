@@ -32,7 +32,6 @@ import static org.uitest4j.swing.hierarchy.NewHierarchy.ignoreExistingComponents
  * Default implementation of {@link ComponentPrinter}.
  *
  * @author Alex Ruiz
- *
  * @see ComponentPrinter
  * @see org.uitest4j.swing.format.Formatting#format(Component)
  */

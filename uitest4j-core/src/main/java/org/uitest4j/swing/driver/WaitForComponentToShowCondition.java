@@ -12,52 +12,51 @@
  */
 package org.uitest4j.swing.driver;
 
+import org.uitest4j.swing.timing.Condition;
+
+import javax.annotation.Nonnull;
+import java.awt.*;
+import java.util.Objects;
+
 import static org.uitest4j.swing.format.Formatting.format;
 import static org.uitest4j.swing.query.ComponentShowingQuery.isShowing;
 
-import java.awt.Component;
-import java.util.Objects;
-
-import javax.annotation.Nonnull;
-
-import org.uitest4j.swing.timing.Condition;
-
 /**
  * Verifies that an AWT or Swing {@code Component} is showing on the screen.
- * 
+ *
  * @author Yvonne Wang
  */
 public class WaitForComponentToShowCondition extends Condition {
-  private Component c;
+	private Component c;
 
-  /**
-   * Creates a new {@link WaitForComponentToShowCondition}.
-   * 
-   * @param c the AWT or Swing {@code Component} to verify.
-   * @return the created condition.
-   * @throws NullPointerException if the {@code Component} is {@code null}.
-   */
-  public static WaitForComponentToShowCondition untilIsShowing(@Nonnull Component c) {
-    return new WaitForComponentToShowCondition(c);
-  }
+	/**
+	 * Creates a new {@link WaitForComponentToShowCondition}.
+	 *
+	 * @param c the AWT or Swing {@code Component} to verify.
+	 * @return the created condition.
+	 * @throws NullPointerException if the {@code Component} is {@code null}.
+	 */
+	public static WaitForComponentToShowCondition untilIsShowing(@Nonnull Component c) {
+		return new WaitForComponentToShowCondition(c);
+	}
 
-  private WaitForComponentToShowCondition(@Nonnull Component c) {
-	  super("Component " + format(c) + " to show on the screen");
-    this.c = Objects.requireNonNull(c);
-  }
+	private WaitForComponentToShowCondition(@Nonnull Component c) {
+		super("Component " + format(c) + " to show on the screen");
+		this.c = Objects.requireNonNull(c);
+	}
 
-  /**
-   * Indicates whether the AWT or Swing {@code Component} in this condition is showing on the screen.
-   * 
-   * @return {@code true} if the {@code Component} in this condition is showing on the screen, {@code false} otherwise
-   */
-  @Override
-  public boolean test() {
-    return isShowing(c);
-  }
+	/**
+	 * Indicates whether the AWT or Swing {@code Component} in this condition is showing on the screen.
+	 *
+	 * @return {@code true} if the {@code Component} in this condition is showing on the screen, {@code false} otherwise
+	 */
+	@Override
+	public boolean test() {
+		return isShowing(c);
+	}
 
-  @Override
-  protected void done() {
-    c = null;
-  }
+	@Override
+	protected void done() {
+		c = null;
+	}
 }

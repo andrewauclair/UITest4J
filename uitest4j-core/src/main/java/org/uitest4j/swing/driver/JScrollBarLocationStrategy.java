@@ -22,22 +22,25 @@ import java.awt.*;
  * <p>
  * A location in a {@code JScrollBar} in a orientation-specific way.
  * </p>
- * 
+ *
  * <p>
  * <b>Note:</b> Methods in this class are accessed in the current executing thread. Such thread may or may not be the
  * event dispatch thread (EDT). Client code must call methods in this class from the EDT.
  * </p>
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
 @RunsInCurrentThread
 abstract class JScrollBarLocationStrategy {
-  abstract int arrow(@Nonnull JScrollBar scrollBar);
+	abstract int arrow(@Nonnull JScrollBar scrollBar);
 
-  abstract @Nonnull Point thumbLocation(@Nonnull JScrollBar scrollBar, double fraction);
+	abstract @Nonnull
+	Point thumbLocation(@Nonnull JScrollBar scrollBar, double fraction);
 
-  abstract @Nonnull Point blockLocation(@Nonnull JScrollBar scrollBar, @Nonnull Point unitLocation, int offset);
+	abstract @Nonnull
+	Point blockLocation(@Nonnull JScrollBar scrollBar, @Nonnull Point unitLocation, int offset);
 
-  abstract @Nonnull Point unitLocationToScrollDown(@Nonnull JScrollBar scrollBar);
+	abstract @Nonnull
+	Point unitLocationToScrollDown(@Nonnull JScrollBar scrollBar);
 }

@@ -32,58 +32,59 @@ import static org.uitest4j.swing.util.Maps.newWeakHashMap;
  * @author Yvonne Wang
  */
 class WindowEventQueueMapping {
-  final Map<EventQueue, Map<Window, Boolean>> queueMap = newWeakHashMap();
+	final Map<EventQueue, Map<Window, Boolean>> queueMap = newWeakHashMap();
 
-  void addQueueFor(@Nonnull Toolkit toolkit) {
-    Map<Window, Boolean> map = newWeakHashMap();
-    queueMap.put(toolkit.getSystemEventQueue(), map);
-  }
+	void addQueueFor(@Nonnull Toolkit toolkit) {
+		Map<Window, Boolean> map = newWeakHashMap();
+		queueMap.put(toolkit.getSystemEventQueue(), map);
+	}
 
-  void addQueueFor(@Nonnull Component component) {
-    EventQueue queue = component.getToolkit().getSystemEventQueue();
-    Map<Window, Boolean> windowMapping = queueMap.get(queue);
-    if (windowMapping == null) {
-      windowMapping = createWindowMapping(queue);
-    }
-    if (!(component instanceof Window) || parentOf(component) != null) {
-      return;
-    }
-    windowMapping.put((Window) component, TRUE);
-  }
+	void addQueueFor(@Nonnull Component component) {
+		EventQueue queue = component.getToolkit().getSystemEventQueue();
+		Map<Window, Boolean> windowMapping = queueMap.get(queue);
+		if (windowMapping == null) {
+			windowMapping = createWindowMapping(queue);
+		}
+		if (!(component instanceof Window) || parentOf(component) != null) {
+			return;
+		}
+		windowMapping.put((Window) component, TRUE);
+	}
 
-  @Nonnull private Map<Window, Boolean> createWindowMapping(EventQueue queue) {
-    Map<Window, Boolean> windowMapping = newWeakHashMap();
-    queueMap.put(queue, windowMapping);
-    return windowMapping;
-  }
+	@Nonnull
+	private Map<Window, Boolean> createWindowMapping(EventQueue queue) {
+		Map<Window, Boolean> windowMapping = newWeakHashMap();
+		queueMap.put(queue, windowMapping);
+		return windowMapping;
+	}
 
-  @RunsInCurrentThread
-  void removeMappingFor(@Nonnull Component component) {
-    EventQueue queue = component.getToolkit().getSystemEventQueue();
-    removeComponent(component, queue);
-    for (EventQueue q : queueMap.keySet()) {
-      removeComponent(component, q);
-    }
-  }
+	@RunsInCurrentThread
+	void removeMappingFor(@Nonnull Component component) {
+		EventQueue queue = component.getToolkit().getSystemEventQueue();
+		removeComponent(component, queue);
+		for (EventQueue q : queueMap.keySet()) {
+			removeComponent(component, q);
+		}
+	}
 
-  private void removeComponent(@Nonnull Component component, @Nonnull EventQueue queue) {
-    Map<Window, Boolean> windowMapping = queueMap.get(queue);
-    if (windowMapping != null) {
-      windowMapping.remove(component);
-    }
-  }
+	private void removeComponent(@Nonnull Component component, @Nonnull EventQueue queue) {
+		Map<Window, Boolean> windowMapping = queueMap.get(queue);
+		if (windowMapping != null) {
+			windowMapping.remove(component);
+		}
+	}
 
-  @Nonnull
-  Collection<Window> windows() {
-	  Set<Window> rootWindows = new HashSet<>();
-    for (EventQueue queue : queueMap.keySet()) {
-      rootWindows.addAll(queueMap.get(queue).keySet());
-    }
-    return rootWindows;
-  }
+	@Nonnull
+	Collection<Window> windows() {
+		Set<Window> rootWindows = new HashSet<>();
+		for (EventQueue queue : queueMap.keySet()) {
+			rootWindows.addAll(queueMap.get(queue).keySet());
+		}
+		return rootWindows;
+	}
 
-  @Nonnull
-  Collection<EventQueue> eventQueues() {
-    return queueMap.keySet();
-  }
+	@Nonnull
+	Collection<EventQueue> eventQueues() {
+		return queueMap.keySet();
+	}
 }

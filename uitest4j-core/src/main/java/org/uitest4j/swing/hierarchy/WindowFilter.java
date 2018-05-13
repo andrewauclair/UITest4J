@@ -29,92 +29,92 @@ import static org.uitest4j.swing.util.Maps.newWeakHashMap;
  * @author Alex Ruiz
  */
 class WindowFilter {
-  private final ParentFinder parentFinder;
-  private final ChildrenFinder childrenFinder;
+	private final ParentFinder parentFinder;
+	private final ChildrenFinder childrenFinder;
 
-  WindowFilter() {
-    this(new ParentFinder(), new ChildrenFinder());
-  }
+	WindowFilter() {
+		this(new ParentFinder(), new ChildrenFinder());
+	}
 
-  WindowFilter(@Nonnull ParentFinder parentFinder, @Nonnull ChildrenFinder childrenFinder) {
-    this.parentFinder = parentFinder;
-    this.childrenFinder = childrenFinder;
-  }
+	WindowFilter(@Nonnull ParentFinder parentFinder, @Nonnull ChildrenFinder childrenFinder) {
+		this.parentFinder = parentFinder;
+		this.childrenFinder = childrenFinder;
+	}
 
-  // Map of components to ignore
-  final Map<Component, Boolean> ignored = newWeakHashMap();
+	// Map of components to ignore
+	final Map<Component, Boolean> ignored = newWeakHashMap();
 
-  // Map of components implicitly ignored; these will be removed if they are re-shown.
-  final Map<Component, Boolean> implicitlyIgnored = newWeakHashMap();
+	// Map of components implicitly ignored; these will be removed if they are re-shown.
+	final Map<Component, Boolean> implicitlyIgnored = newWeakHashMap();
 
-  boolean isImplicitlyIgnored(@Nonnull Component c) {
-    return implicitlyIgnored.containsKey(c);
-  }
+	boolean isImplicitlyIgnored(@Nonnull Component c) {
+		return implicitlyIgnored.containsKey(c);
+	}
 
-  @RunsInCurrentThread
-  boolean isIgnored(@Nullable Component c) {
-    if (c == null) {
-      return false;
-    }
-    // TODO if ("sun.plugin.ConsoleWindow".equals(c.getClass().getName())) return !trackAppletConsole;
-    if (ignored.containsKey(c)) {
-      return true;
-    }
-    if (c instanceof Window && isIgnored(c.getParent())) {
-      return true;
-    }
-    return !(c instanceof Window) && isWindowIgnored(c);
-  }
+	@RunsInCurrentThread
+	boolean isIgnored(@Nullable Component c) {
+		if (c == null) {
+			return false;
+		}
+		// TODO if ("sun.plugin.ConsoleWindow".equals(c.getClass().getName())) return !trackAppletConsole;
+		if (ignored.containsKey(c)) {
+			return true;
+		}
+		if (c instanceof Window && isIgnored(c.getParent())) {
+			return true;
+		}
+		return !(c instanceof Window) && isWindowIgnored(c);
+	}
 
-  private boolean isWindowIgnored(@Nullable Component c) {
-    Window w = parentFinder.windowFor(c);
-    return w != null && isIgnored(w);
-  }
+	private boolean isWindowIgnored(@Nullable Component c) {
+		Window w = parentFinder.windowFor(c);
+		return w != null && isIgnored(w);
+	}
 
-  void implicitlyIgnore(@Nonnull Component c) {
-    implicitlyIgnored.put(c, true);
-  }
+	void implicitlyIgnore(@Nonnull Component c) {
+		implicitlyIgnored.put(c, true);
+	}
 
-  @RunsInCurrentThread
-  void ignore(@Nonnull Component c) {
-    filter(c, true);
-  }
+	@RunsInCurrentThread
+	void ignore(@Nonnull Component c) {
+		filter(c, true);
+	}
 
-  @RunsInCurrentThread
-  void recognize(@Nonnull Component c) {
-    filter(c, false);
-  }
+	@RunsInCurrentThread
+	void recognize(@Nonnull Component c) {
+		filter(c, false);
+	}
 
-  @Nonnull
-  Collection<Component> filtered() {
-    return ignored.keySet();
-  }
+	@Nonnull
+	Collection<Component> filtered() {
+		return ignored.keySet();
+	}
 
-  private void filter(@Nonnull Component c, boolean ignore) {
-    // Never filter the shared frame
-    if (isSharedInvisibleFrame(c)) {
-      for (Component child : childrenFinder.childrenOf(c)) {
-        filter(child, ignore);
-      }
-      return;
-    }
-    doFilter(c, ignore);
-    implicitlyIgnored.remove(c);
-    if (!(c instanceof Window)) {
-      return;
-    }
-    for (Window owned : ((Window) c).getOwnedWindows()) {
-      if (owned != null) {
-        filter(owned, ignore);
-      }
-    }
-  }
+	private void filter(@Nonnull Component c, boolean ignore) {
+		// Never filter the shared frame
+		if (isSharedInvisibleFrame(c)) {
+			for (Component child : childrenFinder.childrenOf(c)) {
+				filter(child, ignore);
+			}
+			return;
+		}
+		doFilter(c, ignore);
+		implicitlyIgnored.remove(c);
+		if (!(c instanceof Window)) {
+			return;
+		}
+		for (Window owned : ((Window) c).getOwnedWindows()) {
+			if (owned != null) {
+				filter(owned, ignore);
+			}
+		}
+	}
 
-  private void doFilter(@Nonnull Component c, boolean ignore) {
-    if (ignore) {
-      ignored.put(c, true);
-      return;
-    }
-    ignored.remove(c);
-  }
+	private void doFilter(@Nonnull Component c, boolean ignore) {
+		if (ignore) {
+			ignored.put(c, true);
+			return;
+		}
+		ignored.remove(c);
+	}
 }

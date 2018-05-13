@@ -12,9 +12,9 @@
  */
 package org.uitest4j.swing.driver;
 
+import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.uitest4j.swing.exception.LocationUnavailableException;
 import org.uitest4j.swing.util.Pair;
-import org.uitest4j.swing.annotation.RunsInCurrentThread;
 
 import javax.annotation.Nonnull;
 import javax.swing.*;
@@ -28,113 +28,117 @@ import static org.uitest4j.swing.util.ArrayUtils.format;
  * {@code TreePath} component is a {@code String}) or a {@code TreePath} of {@code Object} may be used to indicate the
  * location. Note that if a {@code TreePath} is used, the entire path leading up to the designated node must be viewable
  * at the time the location is used.
- * 
+ *
  * @author Alex Ruiz
  */
 public final class JTreeLocation {
-  /**
-   * <p>
-   * Returns the bounds and visible coordinates of the given row.
-   * </p>
-   * 
-   * <p>
-   * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
-   * dispatch thread (EDT). Client code must call this method from the EDT.
-   * </p>
-   * 
-   * @param tree the target {@code JTree}.
-   * @param row the given row.
-   * @return the the bounds and visible coordinates of the given row.
-   * @throws IndexOutOfBoundsException if the given row is less than zero or equal than or greater than the number of
-   *           visible rows in the {@code JTree}.
-   * @throws LocationUnavailableException if a tree path for the given row cannot be found.
-   */
-  @RunsInCurrentThread
-  @Nonnull public Pair<Rectangle, Point> rowBoundsAndCoordinates(@Nonnull JTree tree, int row) {
-    Rectangle rowBounds = tree.getRowBounds(checkRowInBounds(tree, row));
-    if (rowBounds != null) {
-      return Pair.of(rowBounds, pointAt(rowBounds));
-    }
-    throw new LocationUnavailableException(String.format("The tree row <%d> is not visible", row));
-  }
+	/**
+	 * <p>
+	 * Returns the bounds and visible coordinates of the given row.
+	 * </p>
+	 *
+	 * <p>
+	 * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
+	 * dispatch thread (EDT). Client code must call this method from the EDT.
+	 * </p>
+	 *
+	 * @param tree the target {@code JTree}.
+	 * @param row  the given row.
+	 * @return the the bounds and visible coordinates of the given row.
+	 * @throws IndexOutOfBoundsException    if the given row is less than zero or equal than or greater than the number of
+	 *                                      visible rows in the {@code JTree}.
+	 * @throws LocationUnavailableException if a tree path for the given row cannot be found.
+	 */
+	@RunsInCurrentThread
+	@Nonnull
+	public Pair<Rectangle, Point> rowBoundsAndCoordinates(@Nonnull JTree tree, int row) {
+		Rectangle rowBounds = tree.getRowBounds(checkRowInBounds(tree, row));
+		if (rowBounds != null) {
+			return Pair.of(rowBounds, pointAt(rowBounds));
+		}
+		throw new LocationUnavailableException(String.format("The tree row <%d> is not visible", row));
+	}
 
-  /**
-   * <p>
-   * Returns the path for the given row.
-   * </p>
-   * 
-   * <p>
-   * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
-   * dispatch thread (EDT). Client code must call this method from the EDT.
-   * </p>
-   * 
-   * @param tree the target {@code JTree}.
-   * @param row the given row.
-   * @return the path for the given row.
-   * @throws IndexOutOfBoundsException if the given row is less than zero or equal than or greater than the number of
-   *           visible rows in the {@code JTree}.
-   * @throws LocationUnavailableException if a tree path for the given row cannot be found.
-   */
-  @RunsInCurrentThread
-  @Nonnull public TreePath pathFor(@Nonnull JTree tree, int row) {
-    TreePath path = tree.getPathForRow(checkRowInBounds(tree, row));
-    if (path != null) {
-      return path;
-    }
-    throw new LocationUnavailableException(String.format("Unable to find tree path for row <%d>", row));
-  }
+	/**
+	 * <p>
+	 * Returns the path for the given row.
+	 * </p>
+	 *
+	 * <p>
+	 * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
+	 * dispatch thread (EDT). Client code must call this method from the EDT.
+	 * </p>
+	 *
+	 * @param tree the target {@code JTree}.
+	 * @param row  the given row.
+	 * @return the path for the given row.
+	 * @throws IndexOutOfBoundsException    if the given row is less than zero or equal than or greater than the number of
+	 *                                      visible rows in the {@code JTree}.
+	 * @throws LocationUnavailableException if a tree path for the given row cannot be found.
+	 */
+	@RunsInCurrentThread
+	@Nonnull
+	public TreePath pathFor(@Nonnull JTree tree, int row) {
+		TreePath path = tree.getPathForRow(checkRowInBounds(tree, row));
+		if (path != null) {
+			return path;
+		}
+		throw new LocationUnavailableException(String.format("Unable to find tree path for row <%d>", row));
+	}
 
-  /**
-   * <p>
-   * Validates that the given row index is valid.
-   * </p>
-   * 
-   * <p>
-   * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
-   * dispatch thread (EDT). Client code must call this method from the EDT.
-   * </p>
-   * 
-   * @param tree the target {@code JTree}.
-   * @param row the row index to validate.
-   * @return the validated row index.
-   * @throws IndexOutOfBoundsException if the given row is less than zero or equal than or greater than the number of
-   *           visible rows in the {@code JTree}.
-   */
-  @RunsInCurrentThread
-  public int checkRowInBounds(@Nonnull JTree tree, int row) {
-    int rowCount = tree.getRowCount();
-    if (row >= 0 && row < rowCount) {
-      return row;
-    }
-    String msg = String.format("The given row <%d> should be between <0> and <%d>", row, rowCount);
-    throw new IndexOutOfBoundsException(msg);
-  }
+	/**
+	 * <p>
+	 * Validates that the given row index is valid.
+	 * </p>
+	 *
+	 * <p>
+	 * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
+	 * dispatch thread (EDT). Client code must call this method from the EDT.
+	 * </p>
+	 *
+	 * @param tree the target {@code JTree}.
+	 * @param row  the row index to validate.
+	 * @return the validated row index.
+	 * @throws IndexOutOfBoundsException if the given row is less than zero or equal than or greater than the number of
+	 *                                   visible rows in the {@code JTree}.
+	 */
+	@RunsInCurrentThread
+	public int checkRowInBounds(@Nonnull JTree tree, int row) {
+		int rowCount = tree.getRowCount();
+		if (row >= 0 && row < rowCount) {
+			return row;
+		}
+		String msg = String.format("The given row <%d> should be between <0> and <%d>", row, rowCount);
+		throw new IndexOutOfBoundsException(msg);
+	}
 
-  /**
-   * <p>
-   * Returns the bounds and visible coordinates of the given path.
-   * </p>
-   * 
-   * <p>
-   * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
-   * dispatch thread (EDT). Client code must call this method from the EDT.
-   * </p>
-   * 
-   * @param tree the target {@code JTree}.
-   * @param path the given path.
-   * @return the bounds and visible coordinates of the given path.
-   * @throws LocationUnavailableException if any part of the path is not visible.
-   */
-  @RunsInCurrentThread
-  @Nonnull public Pair<Rectangle, Point> pathBoundsAndCoordinates(@Nonnull JTree tree, @Nonnull TreePath path) {
-    Rectangle pathBounds = tree.getPathBounds(path);
-    if (pathBounds != null) {
-      return Pair.of(pathBounds, pointAt(pathBounds));
-    }
-    throw new LocationUnavailableException(String.format("The tree path %s is not visible", format(path.getPath())));
-  }
+	/**
+	 * <p>
+	 * Returns the bounds and visible coordinates of the given path.
+	 * </p>
+	 *
+	 * <p>
+	 * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
+	 * dispatch thread (EDT). Client code must call this method from the EDT.
+	 * </p>
+	 *
+	 * @param tree the target {@code JTree}.
+	 * @param path the given path.
+	 * @return the bounds and visible coordinates of the given path.
+	 * @throws LocationUnavailableException if any part of the path is not visible.
+	 */
+	@RunsInCurrentThread
+	@Nonnull
+	public Pair<Rectangle, Point> pathBoundsAndCoordinates(@Nonnull JTree tree, @Nonnull TreePath path) {
+		Rectangle pathBounds = tree.getPathBounds(path);
+		if (pathBounds != null) {
+			return Pair.of(pathBounds, pointAt(pathBounds));
+		}
+		throw new LocationUnavailableException(String.format("The tree path %s is not visible", format(path.getPath())));
+	}
 
-  @Nonnull private Point pointAt(@Nonnull Rectangle cellBounds) {
-    return new Point(cellBounds.x + cellBounds.width / 2, cellBounds.y + cellBounds.height / 2);
-  }
+	@Nonnull
+	private Point pointAt(@Nonnull Rectangle cellBounds) {
+		return new Point(cellBounds.x + cellBounds.width / 2, cellBounds.y + cellBounds.height / 2);
+	}
 }

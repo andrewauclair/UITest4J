@@ -25,166 +25,173 @@ import java.util.regex.Pattern;
  * @author Alex Ruiz
  */
 public final class JTextComponentMatcher extends NamedComponentMatcherTemplate<JTextComponent> {
-  private Object text;
+	private Object text;
 
-  /**
-   * <p>
-   * Creates a new {@link JTextComponentMatcher} that matches a {@code JTextComponent} by name.
-   * </p>
-   *
-   * <p>
-   * The following code listing shows how to match a {@code JTextComponent} by name and text:
-   * </p>
-   *
-   * <pre>
-   * JTextComponentMatcher m = withName("lastName").{@link #andText(String) andText}("Wang");
-   * </pre>
-   *
-   * <p>
-   * The following code listing shows how to match a {@code JTextComponent}, that should be showing on the screen, by
-   * name and text:
-   * </p>
-   *
-   * <pre>
-   * JTextComponentMatcher m = withName("lastName").{@link #andText(String) andText}("Wang").{@link #andShowing() andShowing}();
-   * </pre>
-   *
-   * @param name the id to match.
-   * @return the created matcher.
-   */
-  @Nonnull public static JTextComponentMatcher withName(@Nullable String name) {
-    return new JTextComponentMatcher(name, anyValue());
-  }
+	/**
+	 * <p>
+	 * Creates a new {@link JTextComponentMatcher} that matches a {@code JTextComponent} by name.
+	 * </p>
+	 *
+	 * <p>
+	 * The following code listing shows how to match a {@code JTextComponent} by name and text:
+	 * </p>
+	 *
+	 * <pre>
+	 * JTextComponentMatcher m = withName("lastName").{@link #andText(String) andText}("Wang");
+	 * </pre>
+	 *
+	 * <p>
+	 * The following code listing shows how to match a {@code JTextComponent}, that should be showing on the screen, by
+	 * name and text:
+	 * </p>
+	 *
+	 * <pre>
+	 * JTextComponentMatcher m = withName("lastName").{@link #andText(String) andText}("Wang").{@link #andShowing() andShowing}();
+	 * </pre>
+	 *
+	 * @param name the id to match.
+	 * @return the created matcher.
+	 */
+	@Nonnull
+	public static JTextComponentMatcher withName(@Nullable String name) {
+		return new JTextComponentMatcher(name, anyValue());
+	}
 
-  /**
-   * <p>
-   * Creates a new {@link JTextComponentMatcher} that matches a {@code JTextComponent} by text.
-   * </p>
-   *
-   * <p>
-   * The following code listing shows how to match a {@code JTextComponent} by text:
-   * </p>
-   *
-   * <pre>
-   * JTextComponentMatcher m = withText("Wang");
-   * </pre>
-   *
-   * <p>
-   * The following code listing shows how to match a {@code JTextComponent}, that should be showing on the screen, by
-   * text:
-   * </p>
-   *
-   * <pre>
-   * JTextComponentMatcher m = withText("Wang").{@link #andShowing() andShowing}();
-   * </pre>
-   *
-   * @param text the text to match. It can be a regular expression.
-   * @return the created matcher.
-   */
-  @Nonnull public static JTextComponentMatcher withText(@Nonnull String text) {
-    return new JTextComponentMatcher(anyValue(), text);
-  }
+	/**
+	 * <p>
+	 * Creates a new {@link JTextComponentMatcher} that matches a {@code JTextComponent} by text.
+	 * </p>
+	 *
+	 * <p>
+	 * The following code listing shows how to match a {@code JTextComponent} by text:
+	 * </p>
+	 *
+	 * <pre>
+	 * JTextComponentMatcher m = withText("Wang");
+	 * </pre>
+	 *
+	 * <p>
+	 * The following code listing shows how to match a {@code JTextComponent}, that should be showing on the screen, by
+	 * text:
+	 * </p>
+	 *
+	 * <pre>
+	 * JTextComponentMatcher m = withText("Wang").{@link #andShowing() andShowing}();
+	 * </pre>
+	 *
+	 * @param text the text to match. It can be a regular expression.
+	 * @return the created matcher.
+	 */
+	@Nonnull
+	public static JTextComponentMatcher withText(@Nonnull String text) {
+		return new JTextComponentMatcher(anyValue(), text);
+	}
 
-  /**
-   * <p>
-   * Creates a new {@link JTextComponentMatcher} that matches a {@code JTextComponent} by its text.
-   * </p>
-   *
-   * <p>
-   * The following code listing shows how to match a {@code JTextComponent} by text, using a regular expression pattern:
-   * </p>
-   *
-   * <pre>
-   * JTextComponentMatcher m = withText(Pattern.compile("W.*"));
-   * </pre>
-   *
-   * <p>
-   * The following code listing shows how to match a {@code JTextComponent}, that should be showing on the screen, by
-   * text, using a regular expression pattern:
-   * </p>
-   *
-   * <pre>
-   * JTextComponentMatcher m = withText(Pattern.compile("W.*")).{@link #andShowing() andShowing}();
-   * </pre>
-   *
-   * @param textPattern the text to match. It can be a regular expression.
-   * @return the created matcher.
-   */
-  @Nonnull public static JTextComponentMatcher withText(@Nonnull Pattern textPattern) {
-    return new JTextComponentMatcher(anyValue(), textPattern);
-  }
+	/**
+	 * <p>
+	 * Creates a new {@link JTextComponentMatcher} that matches a {@code JTextComponent} by its text.
+	 * </p>
+	 *
+	 * <p>
+	 * The following code listing shows how to match a {@code JTextComponent} by text, using a regular expression pattern:
+	 * </p>
+	 *
+	 * <pre>
+	 * JTextComponentMatcher m = withText(Pattern.compile("W.*"));
+	 * </pre>
+	 *
+	 * <p>
+	 * The following code listing shows how to match a {@code JTextComponent}, that should be showing on the screen, by
+	 * text, using a regular expression pattern:
+	 * </p>
+	 *
+	 * <pre>
+	 * JTextComponentMatcher m = withText(Pattern.compile("W.*")).{@link #andShowing() andShowing}();
+	 * </pre>
+	 *
+	 * @param textPattern the text to match. It can be a regular expression.
+	 * @return the created matcher.
+	 */
+	@Nonnull
+	public static JTextComponentMatcher withText(@Nonnull Pattern textPattern) {
+		return new JTextComponentMatcher(anyValue(), textPattern);
+	}
 
-  /**
-   * Creates a new {@link JTextComponentMatcher} that matches any {@code JTextComponent}.
-   *
-   * @return the created matcher.
-   */
-  @Nonnull public static JTextComponentMatcher any() {
-    return new JTextComponentMatcher(anyValue(), anyValue());
-  }
+	/**
+	 * Creates a new {@link JTextComponentMatcher} that matches any {@code JTextComponent}.
+	 *
+	 * @return the created matcher.
+	 */
+	@Nonnull
+	public static JTextComponentMatcher any() {
+		return new JTextComponentMatcher(anyValue(), anyValue());
+	}
 
-  private JTextComponentMatcher(@Nullable Object name, @Nullable Object text) {
-    super(JTextComponent.class, name);
-    this.text = text;
-  }
+	private JTextComponentMatcher(@Nullable Object name, @Nullable Object text) {
+		super(JTextComponent.class, name);
+		this.text = text;
+	}
 
-  /**
-   * Specifies the text to match. If this matcher was created using {@link #withText(String)} or
-   * {@link #withText(Pattern)}, this method will simply update the text to match.
-   *
-   * @param newText the new text to match. It can be a regular expression.
-   * @return this matcher.
-   */
-  @Nonnull public JTextComponentMatcher andText(@Nonnull String newText) {
-    text = newText;
-    return this;
-  }
+	/**
+	 * Specifies the text to match. If this matcher was created using {@link #withText(String)} or
+	 * {@link #withText(Pattern)}, this method will simply update the text to match.
+	 *
+	 * @param newText the new text to match. It can be a regular expression.
+	 * @return this matcher.
+	 */
+	@Nonnull
+	public JTextComponentMatcher andText(@Nonnull String newText) {
+		text = newText;
+		return this;
+	}
 
-  /**
-   * Specifies the text to match. If this matcher was created using {@link #withText(String)} or
-   * {@link #withText(Pattern)}, this method will simply update the text to match.
-   *
-   * @param textPattern the regular expression pattern to match.
-   * @return this matcher.
-   */
-  @Nonnull public JTextComponentMatcher andText(@Nonnull Pattern textPattern) {
-    text = textPattern;
-    return this;
-  }
+	/**
+	 * Specifies the text to match. If this matcher was created using {@link #withText(String)} or
+	 * {@link #withText(Pattern)}, this method will simply update the text to match.
+	 *
+	 * @param textPattern the regular expression pattern to match.
+	 * @return this matcher.
+	 */
+	@Nonnull
+	public JTextComponentMatcher andText(@Nonnull Pattern textPattern) {
+		text = textPattern;
+		return this;
+	}
 
-  /**
-   * Indicates that the {@code JTextComponent} to match should be showing on the screen.
-   *
-   * @return this matcher.
-   */
-  @Nonnull public JTextComponentMatcher andShowing() {
-    requireShowing(true);
-    return this;
-  }
+	/**
+	 * Indicates that the {@code JTextComponent} to match should be showing on the screen.
+	 *
+	 * @return this matcher.
+	 */
+	@Nonnull
+	public JTextComponentMatcher andShowing() {
+		requireShowing(true);
+		return this;
+	}
 
-  /**
-   * <p>
-   * Indicates whether the text of the given {@code JTextComponent} is equal to the text in this matcher.
-   * </p>
-   *
-   * <p>
-   * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
-   * dispatch thread (EDT). Client code must call this method from the EDT.
-   * </p>
-   *
-   * @param textComponent the {@code JTextComponent} to match.
-   * @return {@code true} if the text in the {@code JTextComponent} is equal to the text in this matcher, {@code false}
-   *         otherwise.
-   */
-  @RunsInCurrentThread
-  @Override
-  protected boolean isMatching(@Nonnull JTextComponent textComponent) {
-    return isNameMatching(textComponent.getName()) && arePropertyValuesMatching(text, textComponent.getText());
-  }
+	/**
+	 * <p>
+	 * Indicates whether the text of the given {@code JTextComponent} is equal to the text in this matcher.
+	 * </p>
+	 *
+	 * <p>
+	 * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
+	 * dispatch thread (EDT). Client code must call this method from the EDT.
+	 * </p>
+	 *
+	 * @param textComponent the {@code JTextComponent} to match.
+	 * @return {@code true} if the text in the {@code JTextComponent} is equal to the text in this matcher, {@code false}
+	 * otherwise.
+	 */
+	@RunsInCurrentThread
+	@Override
+	protected boolean isMatching(@Nonnull JTextComponent textComponent) {
+		return isNameMatching(textComponent.getName()) && arePropertyValuesMatching(text, textComponent.getText());
+	}
 
-  @Override
-  public String toString() {
-    String format = "%s[name=%s, text=%s, requireShowing=%b]";
-    return String.format(format, getClass().getName(), quotedName(), quoted(text), requireShowing());
-  }
+	@Override
+	public String toString() {
+		String format = "%s[name=%s, text=%s, requireShowing=%b]";
+		return String.format(format, getClass().getName(), quotedName(), quoted(text), requireShowing());
+	}
 }

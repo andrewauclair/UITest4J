@@ -32,27 +32,27 @@ import static java.lang.String.valueOf;
  * @author Alex Ruiz
  */
 final class JComboBoxItemIndexPreconditions {
-  @RunsInCurrentThread
-  static void checkItemIndexInBounds(@Nonnull JComboBox<?> comboBox, int index) {
-    if (index < 0) {
-      String msg = String.format("%s should not be less than zero", itemIndex(index));
-      throw new IndexOutOfBoundsException(msg);
-    }
-    int itemCount = comboBox.getItemCount();
-    if (itemCount == 0) {
-      throw new IndexOutOfBoundsException("JComboBox is empty");
-    }
-    if (index >= 0 && index < itemCount) {
-      return;
-    }
-    String msg = String.format("%s should be between [0] and [%d] (inclusive)", itemIndex(index), itemCount - 1);
-    throw new IndexOutOfBoundsException(msg);
-  }
+	@RunsInCurrentThread
+	static void checkItemIndexInBounds(@Nonnull JComboBox<?> comboBox, int index) {
+		if (index < 0) {
+			String msg = String.format("%s should not be less than zero", itemIndex(index));
+			throw new IndexOutOfBoundsException(msg);
+		}
+		int itemCount = comboBox.getItemCount();
+		if (itemCount == 0) {
+			throw new IndexOutOfBoundsException("JComboBox is empty");
+		}
+		if (index >= 0 && index < itemCount) {
+			return;
+		}
+		String msg = String.format("%s should be between [0] and [%d] (inclusive)", itemIndex(index), itemCount - 1);
+		throw new IndexOutOfBoundsException(msg);
+	}
 
-  private static String itemIndex(int index) {
-	  return "Item index (" + valueOf(index) + ")";
-  }
+	private static String itemIndex(int index) {
+		return "Item index (" + valueOf(index) + ")";
+	}
 
-  private JComboBoxItemIndexPreconditions() {
-  }
+	private JComboBoxItemIndexPreconditions() {
+	}
 }

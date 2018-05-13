@@ -25,24 +25,24 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
  * Returns the text used in the "approve button" of a {@code JFileChooser}. This action is executed in the event
  * dispatch thread (EDT).
  *
- * @see JFileChooser#getApproveButtonText()
- * @see javax.swing.plaf.FileChooserUI#getApproveButtonText(JFileChooser)
- *
  * @author Alex Ruiz
  * @author Yvonne Wang
+ * @see JFileChooser#getApproveButtonText()
+ * @see javax.swing.plaf.FileChooserUI#getApproveButtonText(JFileChooser)
  */
 final class JFileChooserApproveButtonTextQuery {
-  @RunsInEDT
-  static @Nullable String approveButtonTextFrom(final @Nonnull JFileChooser fileChooser) {
-    return execute(() -> {
-      String text = fileChooser.getApproveButtonText();
-      if (!Strings.isNullOrEmpty(text)) {
-        return text;
-      }
-      return fileChooser.getUI().getApproveButtonText(fileChooser);
-    });
-  }
+	@RunsInEDT
+	static @Nullable
+	String approveButtonTextFrom(final @Nonnull JFileChooser fileChooser) {
+		return execute(() -> {
+			String text = fileChooser.getApproveButtonText();
+			if (!Strings.isNullOrEmpty(text)) {
+				return text;
+			}
+			return fileChooser.getUI().getApproveButtonText(fileChooser);
+		});
+	}
 
-  private JFileChooserApproveButtonTextQuery() {
-  }
+	private JFileChooserApproveButtonTextQuery() {
+	}
 }

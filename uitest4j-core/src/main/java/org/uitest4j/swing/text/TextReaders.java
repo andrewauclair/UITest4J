@@ -30,106 +30,108 @@ import static org.uitest4j.swing.util.Maps.newConcurrentHashMap;
  * @author Alex Ruiz
  */
 public class TextReaders {
-  private static Logger logger = Logger.getLogger(TextReaders.class.getCanonicalName());
+	private static Logger logger = Logger.getLogger(TextReaders.class.getCanonicalName());
 
-  // Used for tests
-  final ConcurrentMap<Class<?>, TextReader<?>> readers = newConcurrentHashMap();
+	// Used for tests
+	final ConcurrentMap<Class<?>, TextReader<?>> readers = newConcurrentHashMap();
 
-  // Used for tests
-  TextReaders() {
-    register(new AbstractButtonTextReader());
-    register(new JLabelTextReader());
-    register(new JListTextReader());
-    register(new JTextComponentTextReader());
-  }
+	// Used for tests
+	TextReaders() {
+		register(new AbstractButtonTextReader());
+		register(new JLabelTextReader());
+		register(new JListTextReader());
+		register(new JTextComponentTextReader());
+	}
 
-  /**
-   * Adds the given {@code TextReader} to this registry.
-   *
-   * @param reader the {@code TextReader} to add.
-   * @throws NullPointerException if the given {@code TextReader} is {@code null}.
-   * @throws NullPointerException if the supported {@code Component} type in the given {@code TextReader} is
-   *           {@code null}.
-   */
-  public void register(@Nonnull TextReader<?> reader) {
-	  Objects.requireNonNull(reader);
-	  Class<?> type = Objects.requireNonNull(reader.supportedComponent());
-    TextReader<?> old = readers.put(type, reader);
-    if (old != null) {
-		logger.info("Replaced reader for type " + type.getName());
-    }
-  }
+	/**
+	 * Adds the given {@code TextReader} to this registry.
+	 *
+	 * @param reader the {@code TextReader} to add.
+	 * @throws NullPointerException if the given {@code TextReader} is {@code null}.
+	 * @throws NullPointerException if the supported {@code Component} type in the given {@code TextReader} is
+	 *                              {@code null}.
+	 */
+	public void register(@Nonnull TextReader<?> reader) {
+		Objects.requireNonNull(reader);
+		Class<?> type = Objects.requireNonNull(reader.supportedComponent());
+		TextReader<?> old = readers.put(type, reader);
+		if (old != null) {
+			logger.info("Replaced reader for type " + type.getName());
+		}
+	}
 
-  /**
-   * Indicates whether the given {@code Container} or any of its subcomponents contains the given text.
-   *
-   * @param container the given {@code Container}. This method is executed in the event dispatch thread (EDT).
-   * @param text the text to look for.
-   * @return {@code true} if the given {@code Container} or any of its subcomponents contains the given text;
-   *         {@code false} otherwise.
-   * @throws NullPointerException if the given {@code Container} is {@code null}.
-   * @throws NullPointerException if the given text is {@code null}.
-   */
-  @RunsInEDT
-  public boolean containsText(final @Nonnull Container container, final @Nonnull String text) {
-	  Objects.requireNonNull(container);
-	  Objects.requireNonNull(text);
-    Boolean result = execute(() -> {
-      if (componentContainsText(container, text)) {
-        return true;
-      }
-      return anyComponentContainsText(container.getComponents(), text);
-    });
-	  return Objects.requireNonNull(result);
-  }
+	/**
+	 * Indicates whether the given {@code Container} or any of its subcomponents contains the given text.
+	 *
+	 * @param container the given {@code Container}. This method is executed in the event dispatch thread (EDT).
+	 * @param text      the text to look for.
+	 * @return {@code true} if the given {@code Container} or any of its subcomponents contains the given text;
+	 * {@code false} otherwise.
+	 * @throws NullPointerException if the given {@code Container} is {@code null}.
+	 * @throws NullPointerException if the given text is {@code null}.
+	 */
+	@RunsInEDT
+	public boolean containsText(final @Nonnull Container container, final @Nonnull String text) {
+		Objects.requireNonNull(container);
+		Objects.requireNonNull(text);
+		Boolean result = execute(() -> {
+			if (componentContainsText(container, text)) {
+				return true;
+			}
+			return anyComponentContainsText(container.getComponents(), text);
+		});
+		return Objects.requireNonNull(result);
+	}
 
-  private boolean anyComponentContainsText(@Nonnull Component[] components, @Nonnull String text) {
-    for (Component c : components) {
-      if (c == null) {
-        continue;
-      }
-      if (componentContainsText(c, text)) {
-        return true;
-      }
-      if (c instanceof Container) {
-        Component[] children = ((Container) c).getComponents();
-        return anyComponentContainsText(children, text);
-      }
-    }
-    return false;
-  }
+	private boolean anyComponentContainsText(@Nonnull Component[] components, @Nonnull String text) {
+		for (Component c : components) {
+			if (c == null) {
+				continue;
+			}
+			if (componentContainsText(c, text)) {
+				return true;
+			}
+			if (c instanceof Container) {
+				Component[] children = ((Container) c).getComponents();
+				return anyComponentContainsText(children, text);
+			}
+		}
+		return false;
+	}
 
-  private boolean componentContainsText(@Nonnull Component c, @Nonnull String text) {
-    TextReader<?> reader = readerFor(c);
-    if (reader == null) {
-      return false;
-    }
-    return reader.containsText(c, text);
-  }
+	private boolean componentContainsText(@Nonnull Component c, @Nonnull String text) {
+		TextReader<?> reader = readerFor(c);
+		if (reader == null) {
+			return false;
+		}
+		return reader.containsText(c, text);
+	}
 
-  @Nullable private TextReader<?> readerFor(@Nonnull Component c) {
-    Class<?> type = c.getClass();
-    while (type != null) {
-      TextReader<?> reader = readers.get(type);
-      if (reader != null) {
-        return reader;
-      }
-      if (type.equals(Component.class)) {
-        break;
-      }
-      type = type.getSuperclass();
-    }
-    return null;
-  }
+	@Nullable
+	private TextReader<?> readerFor(@Nonnull Component c) {
+		Class<?> type = c.getClass();
+		while (type != null) {
+			TextReader<?> reader = readers.get(type);
+			if (reader != null) {
+				return reader;
+			}
+			if (type.equals(Component.class)) {
+				break;
+			}
+			type = type.getSuperclass();
+		}
+		return null;
+	}
 
-  /**
-   * @return the singleton instance of this class.
-   */
-  @Nonnull public static TextReaders instance() {
-    return SingletonHolder.INSTANCE;
-  }
+	/**
+	 * @return the singleton instance of this class.
+	 */
+	@Nonnull
+	public static TextReaders instance() {
+		return SingletonHolder.INSTANCE;
+	}
 
-  private static class SingletonHolder {
-    static final TextReaders INSTANCE = new TextReaders();
-  }
+	private static class SingletonHolder {
+		static final TextReaders INSTANCE = new TextReaders();
+	}
 }

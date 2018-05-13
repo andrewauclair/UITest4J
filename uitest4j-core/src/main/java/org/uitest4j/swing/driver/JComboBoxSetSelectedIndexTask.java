@@ -23,16 +23,15 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
  * Selects the element in the given index in the given {@code JComboBox}. This task is executed in the event dispatch
  * thread (EDT).
  *
- * @see JComboBox#setSelectedIndex(int)
- *
  * @author Alex Ruiz
+ * @see JComboBox#setSelectedIndex(int)
  */
 final class JComboBoxSetSelectedIndexTask {
-  @RunsInEDT
-  static void setSelectedIndex(final @Nonnull JComboBox<?> comboBox, final int index) {
-    execute(() -> comboBox.setSelectedIndex(index));
-  }
+	@RunsInEDT
+	static void setSelectedIndex(final @Nonnull JComboBox<?> comboBox, final int index) {
+		execute(() -> comboBox.setSelectedIndex(index));
+	}
 
-  private JComboBoxSetSelectedIndexTask() {
-  }
+	private JComboBoxSetSelectedIndexTask() {
+	}
 }

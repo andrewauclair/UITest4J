@@ -23,17 +23,17 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
  * Returns the {@code JTableHeader} in a {@code JTable}. This query is executed in the event dispatch thread (EDT).
- * 
- * @see JTable#getTableHeader()
- * 
+ *
  * @author Alex Ruiz
+ * @see JTable#getTableHeader()
  */
 final class JTableHeaderQuery {
-  @RunsInEDT
-  static @Nullable JTableHeader tableHeader(final @Nonnull JTable table) {
-    return execute(table::getTableHeader);
-  }
+	@RunsInEDT
+	static @Nullable
+	JTableHeader tableHeader(final @Nonnull JTable table) {
+		return execute(table::getTableHeader);
+	}
 
-  private JTableHeaderQuery() {
-  }
+	private JTableHeaderQuery() {
+	}
 }

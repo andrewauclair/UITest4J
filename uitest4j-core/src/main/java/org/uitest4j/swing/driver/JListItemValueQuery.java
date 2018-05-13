@@ -12,8 +12,8 @@
  */
 package org.uitest4j.swing.driver;
 
-import org.uitest4j.swing.cell.JListCellReader;
 import org.uitest4j.swing.annotation.RunsInEDT;
+import org.uitest4j.swing.cell.JListCellReader;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -28,15 +28,16 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
  * @author Alex Ruiz
  */
 final class JListItemValueQuery {
-  @RunsInEDT
-  static @Nullable String itemValue(final @Nonnull JList<?> list, final int index,
-                                    final @Nonnull JListCellReader cellReader) {
-    return execute(() -> {
-      checkIndexInBounds(list, index);
-      return cellReader.valueAt(list, index);
-    });
-  }
+	@RunsInEDT
+	static @Nullable
+	String itemValue(final @Nonnull JList<?> list, final int index,
+					 final @Nonnull JListCellReader cellReader) {
+		return execute(() -> {
+			checkIndexInBounds(list, index);
+			return cellReader.valueAt(list, index);
+		});
+	}
 
-  private JListItemValueQuery() {
-  }
+	private JListItemValueQuery() {
+	}
 }

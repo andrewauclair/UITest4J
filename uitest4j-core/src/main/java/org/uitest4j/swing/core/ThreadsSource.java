@@ -16,14 +16,14 @@ import javax.annotation.Nonnull;
 
 /**
  * Utility methods related to threads.
- * 
+ *
  * @author Alex Ruiz
  */
 class ThreadsSource {
-  @Nonnull
-  Thread[] allThreads() {
-    Thread[] all = new Thread[Thread.activeCount()];
-    Thread.enumerate(all);
-    return all;
-  }
+	@Nonnull
+	Thread[] allThreads() {
+		Thread[] all = new Thread[Thread.activeCount()];
+		Thread.enumerate(all);
+		return all;
+	}
 }

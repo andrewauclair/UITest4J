@@ -76,7 +76,7 @@ public class BasicJComboBoxCellReader implements JComboBoxCellReader {
 	 * </p>
 	 *
 	 * @param comboBox the given {@code JComboBox}.
-	 * @param index the index of the cell.
+	 * @param index    the index of the cell.
 	 * @return the internal value of a cell in a {@code JComboBox} as expected in a test.
 	 * @see CellRendererReader#valueFrom(Component)
 	 */

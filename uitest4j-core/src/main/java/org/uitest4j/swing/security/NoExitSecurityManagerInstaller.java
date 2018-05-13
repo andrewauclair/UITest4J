@@ -16,42 +16,44 @@ import javax.annotation.Nonnull;
 
 /**
  * Installs/uninstalls a {@link NoExitSecurityManager}.
- * 
+ *
  * @author Alex Ruiz
  */
 public class NoExitSecurityManagerInstaller {
-  /**
-   * Installs a new {@link NoExitSecurityManager} in {@code System}.
-   * 
-   * @return this installer.
-   */
-  @Nonnull public static NoExitSecurityManagerInstaller installNoExitSecurityManager() {
-    return new NoExitSecurityManagerInstaller(new NoExitSecurityManager());
-  }
+	/**
+	 * Installs a new {@link NoExitSecurityManager} in {@code System}.
+	 *
+	 * @return this installer.
+	 */
+	@Nonnull
+	public static NoExitSecurityManagerInstaller installNoExitSecurityManager() {
+		return new NoExitSecurityManagerInstaller(new NoExitSecurityManager());
+	}
 
-  /**
-   * Installs a new {@link NoExitSecurityManager} in {@code System}.
-   * 
-   * @param hook gets notified when an application tries to terminate the current JVM.
-   * @return this installer.
-   * @throws NullPointerException if the given hook is {@code null}.
-   */
-  @Nonnull public static NoExitSecurityManagerInstaller installNoExitSecurityManager(@Nonnull ExitCallHook hook) {
-    return new NoExitSecurityManagerInstaller(new NoExitSecurityManager(hook));
-  }
+	/**
+	 * Installs a new {@link NoExitSecurityManager} in {@code System}.
+	 *
+	 * @param hook gets notified when an application tries to terminate the current JVM.
+	 * @return this installer.
+	 * @throws NullPointerException if the given hook is {@code null}.
+	 */
+	@Nonnull
+	public static NoExitSecurityManagerInstaller installNoExitSecurityManager(@Nonnull ExitCallHook hook) {
+		return new NoExitSecurityManagerInstaller(new NoExitSecurityManager(hook));
+	}
 
-  private final SecurityManager oldManager;
+	private final SecurityManager oldManager;
 
-  private NoExitSecurityManagerInstaller(@Nonnull NoExitSecurityManager newManager) {
-    oldManager = System.getSecurityManager();
-    System.setSecurityManager(newManager);
-  }
+	private NoExitSecurityManagerInstaller(@Nonnull NoExitSecurityManager newManager) {
+		oldManager = System.getSecurityManager();
+		System.setSecurityManager(newManager);
+	}
 
-  /**
-   * Uninstalls the {@link NoExitSecurityManager} installed by {@link #installNoExitSecurityManager()}, restoring the
-   * original {@code SecurityManager}.
-   */
-  public void uninstall() {
-    System.setSecurityManager(oldManager);
-  }
+	/**
+	 * Uninstalls the {@link NoExitSecurityManager} installed by {@link #installNoExitSecurityManager()}, restoring the
+	 * original {@code SecurityManager}.
+	 */
+	public void uninstall() {
+		System.setSecurityManager(oldManager);
+	}
 }

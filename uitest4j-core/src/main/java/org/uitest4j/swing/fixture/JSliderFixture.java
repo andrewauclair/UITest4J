@@ -12,85 +12,89 @@
  */
 package org.uitest4j.swing.fixture;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.swing.JSlider;
-
 import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.driver.JSliderDriver;
 
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import javax.swing.*;
+
 /**
  * Supports functional testing of {@code JSlider}s.
- * 
+ *
  * @author Yvonne Wang
  * @author Alex Ruiz
  */
 public class JSliderFixture extends AbstractJPopupMenuInvokerFixture<JSliderFixture, JSlider, JSliderDriver> {
-  /**
-   * Creates a new {@link JSliderFixture}.
-   * 
-   * @param robot performs simulation of user events on the given {@code JSlider}.
-   * @param target the {@code JSlider} to be managed {@code JSlider} by this fixture.
-   * @throws NullPointerException if {@code robot} is {@code null}.
-   * @throws NullPointerException if {@code target} is {@code null}.
-   */
-  public JSliderFixture(@Nonnull Robot robot, @Nonnull JSlider target) {
-    super(JSliderFixture.class, robot, target);
-  }
+	/**
+	 * Creates a new {@link JSliderFixture}.
+	 *
+	 * @param robot  performs simulation of user events on the given {@code JSlider}.
+	 * @param target the {@code JSlider} to be managed {@code JSlider} by this fixture.
+	 * @throws NullPointerException if {@code robot} is {@code null}.
+	 * @throws NullPointerException if {@code target} is {@code null}.
+	 */
+	public JSliderFixture(@Nonnull Robot robot, @Nonnull JSlider target) {
+		super(JSliderFixture.class, robot, target);
+	}
 
-  /**
-   * Creates a new {@link JSliderFixture}.
-   * 
-   * @param robot performs simulation of user events on a {@code JSlider}.
-   * @param sliderName the name of the {@code JSlider} to find using the given {@code Robot}.
-   * @throws NullPointerException if {@code robot} is {@code null}.
-   * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching {@code JSlider} could not be found.
-   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching {@code JSlider} is found.
-   */
-  public JSliderFixture(@Nonnull Robot robot, @Nullable String sliderName) {
-    super(JSliderFixture.class, robot, sliderName, JSlider.class);
-  }
+	/**
+	 * Creates a new {@link JSliderFixture}.
+	 *
+	 * @param robot      performs simulation of user events on a {@code JSlider}.
+	 * @param sliderName the name of the {@code JSlider} to find using the given {@code Robot}.
+	 * @throws NullPointerException                                  if {@code robot} is {@code null}.
+	 * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching {@code JSlider} could not be found.
+	 * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching {@code JSlider} is found.
+	 */
+	public JSliderFixture(@Nonnull Robot robot, @Nullable String sliderName) {
+		super(JSliderFixture.class, robot, sliderName, JSlider.class);
+	}
 
-  @Override
-  @Nonnull protected JSliderDriver createDriver(@Nonnull Robot robot) {
-    return new JSliderDriver(robot);
-  }
+	@Override
+	@Nonnull
+	protected JSliderDriver createDriver(@Nonnull Robot robot) {
+		return new JSliderDriver(robot);
+	}
 
-  /**
-   * Simulates a user sliding this fixture's {@code JSlider} to the given value.
-   * 
-   * @param value the value to slide the {@code JSlider} to.
-   * @return this fixture.
-   * @throws IllegalStateException if this fixture's {@code JSlider} is disabled.
-   * @throws IllegalStateException if this fixture's {@code JSlider} is not showing on the screen.
-   * @throws IllegalArgumentException if the given position is not within the {@code JSlider} bounds.
-   */
-  @Nonnull public JSliderFixture slideTo(int value) {
-    driver().slide(target(), value);
-    return this;
-  }
+	/**
+	 * Simulates a user sliding this fixture's {@code JSlider} to the given value.
+	 *
+	 * @param value the value to slide the {@code JSlider} to.
+	 * @return this fixture.
+	 * @throws IllegalStateException    if this fixture's {@code JSlider} is disabled.
+	 * @throws IllegalStateException    if this fixture's {@code JSlider} is not showing on the screen.
+	 * @throws IllegalArgumentException if the given position is not within the {@code JSlider} bounds.
+	 */
+	@Nonnull
+	public JSliderFixture slideTo(int value) {
+		driver().slide(target(), value);
+		return this;
+	}
 
-  /**
-   * Simulates a user sliding this fixture's {@code JSlider} to its maximum value.
-   * 
-   * @return this fixture.
-   * @throws IllegalStateException if this fixture's {@code JSlider} is disabled.
-   * @throws IllegalStateException if this fixture's {@code JSlider} is not showing on the screen.
-   */
-  @Nonnull public JSliderFixture slideToMaximum() {
-    driver().slideToMaximum(target());
-    return this;
-  }
+	/**
+	 * Simulates a user sliding this fixture's {@code JSlider} to its maximum value.
+	 *
+	 * @return this fixture.
+	 * @throws IllegalStateException if this fixture's {@code JSlider} is disabled.
+	 * @throws IllegalStateException if this fixture's {@code JSlider} is not showing on the screen.
+	 */
+	@Nonnull
+	public JSliderFixture slideToMaximum() {
+		driver().slideToMaximum(target());
+		return this;
+	}
 
-  /**
-   * Simulates a user sliding this fixture's {@code JSlider} to its minimum value.
-   * 
-   * @return this fixture.
-   * @throws IllegalStateException if this fixture's {@code JSlider} is disabled.
-   * @throws IllegalStateException if this fixture's {@code JSlider} is not showing on the screen.
-   */
-  @Nonnull public JSliderFixture slideToMinimum() {
-    driver().slideToMinimum(target());
-    return this;
-  }
+	/**
+	 * Simulates a user sliding this fixture's {@code JSlider} to its minimum value.
+	 *
+	 * @return this fixture.
+	 * @throws IllegalStateException if this fixture's {@code JSlider} is disabled.
+	 * @throws IllegalStateException if this fixture's {@code JSlider} is not showing on the screen.
+	 */
+	@Nonnull
+	public JSliderFixture slideToMinimum() {
+		driver().slideToMinimum(target());
+		return this;
+	}
 }

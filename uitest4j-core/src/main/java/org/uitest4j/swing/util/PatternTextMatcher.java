@@ -12,70 +12,70 @@
  */
 package org.uitest4j.swing.util;
 
-import static org.uitest4j.swing.util.Patterns.format;
-import static org.uitest4j.swing.util.Strings.match;
-import static org.uitest4j.swing.util.Strings.singleQuote;
-
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import java.util.Arrays;
 import java.util.Objects;
 import java.util.regex.Pattern;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import static org.uitest4j.swing.util.Strings.match;
+import static org.uitest4j.swing.util.Strings.singleQuote;
 
 /**
  * Matches text to a group of {@code String} values. Matching is perform by equality or by regular expression matching.
- * 
+ *
  * @author Alex Ruiz
  */
 public class PatternTextMatcher implements TextMatcher {
-  private final Pattern[] patterns;
+	private final Pattern[] patterns;
 
-  /**
-   * Creates a new {@link PatternTextMatcher}.
-   * 
-   * @param patterns the regular expression patterns to match.
-   * @throws NullPointerException if the array of patterns is {@code null}.
-   * @throws IllegalArgumentException if the array of patterns is empty.
-   */
-  public PatternTextMatcher(@Nonnull Pattern... patterns) {
-	  this.patterns = ArrayUtils.requireNonNullAndNotEmpty(patterns);
-  }
+	/**
+	 * Creates a new {@link PatternTextMatcher}.
+	 *
+	 * @param patterns the regular expression patterns to match.
+	 * @throws NullPointerException     if the array of patterns is {@code null}.
+	 * @throws IllegalArgumentException if the array of patterns is empty.
+	 */
+	public PatternTextMatcher(@Nonnull Pattern... patterns) {
+		this.patterns = ArrayUtils.requireNonNullAndNotEmpty(patterns);
+	}
 
-  /**
-   * Indicates whether the given text matches the regular expression patterns in this matcher.
-   * 
-   * @param text the text to verify.
-   * @return {@code true} if the given text matches the {@code Pattern} values in this matcher, {@code false} otherwise.
-   * @throws NullPointerException if any of the regular expressions is {@code null}.
-   */
-  @Override
-  public boolean isMatching(@Nullable String text) {
-    for (Pattern pattern : patterns) {
-      if (match(pattern, text)) {
-        return true;
-      }
-    }
-    return false;
-  }
+	/**
+	 * Indicates whether the given text matches the regular expression patterns in this matcher.
+	 *
+	 * @param text the text to verify.
+	 * @return {@code true} if the given text matches the {@code Pattern} values in this matcher, {@code false} otherwise.
+	 * @throws NullPointerException if any of the regular expressions is {@code null}.
+	 */
+	@Override
+	public boolean isMatching(@Nullable String text) {
+		for (Pattern pattern : patterns) {
+			if (match(pattern, text)) {
+				return true;
+			}
+		}
+		return false;
+	}
 
-  /**
-   * @return "pattern" if this matcher contains only one pattern, or "patterns" if this matcher contains more than one
-   *         pattern.
-   */
-  @Override
-  @Nonnull public String description() {
-    return patterns.length == 1 ? "pattern" : "patterns";
-  }
+	/**
+	 * @return "pattern" if this matcher contains only one pattern, or "patterns" if this matcher contains more than one
+	 * pattern.
+	 */
+	@Override
+	@Nonnull
+	public String description() {
+		return patterns.length == 1 ? "pattern" : "patterns";
+	}
 
-  /**
-   * @return the regular expression patterns in this matcher, formatted as a single {@code String}.
-   */
-  @Override
-  @Nonnull public String formattedValues() {
-    if (patterns.length == 1) {
-		return Objects.requireNonNull(singleQuote(patterns[0].pattern()));
-    }
-	  return Arrays.toString(patterns);
-  }
+	/**
+	 * @return the regular expression patterns in this matcher, formatted as a single {@code String}.
+	 */
+	@Override
+	@Nonnull
+	public String formattedValues() {
+		if (patterns.length == 1) {
+			return Objects.requireNonNull(singleQuote(patterns[0].pattern()));
+		}
+		return Arrays.toString(patterns);
+	}
 }

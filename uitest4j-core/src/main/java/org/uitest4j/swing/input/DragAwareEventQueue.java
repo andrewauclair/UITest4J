@@ -12,96 +12,89 @@
  */
 package org.uitest4j.swing.input;
 
-import static java.awt.AWTEvent.MOUSE_EVENT_MASK;
-import static java.awt.AWTEvent.MOUSE_MOTION_EVENT_MASK;
-import static java.awt.event.MouseEvent.MOUSE_DRAGGED;
-import static java.awt.event.MouseEvent.MOUSE_FIRST;
-import static java.awt.event.MouseEvent.MOUSE_LAST;
-import static java.awt.event.MouseEvent.MOUSE_MOVED;
-import static javax.swing.SwingUtilities.convertMouseEvent;
-import static javax.swing.SwingUtilities.getDeepestComponentAt;
-
-import java.awt.AWTEvent;
-import java.awt.Component;
-import java.awt.EventQueue;
-import java.awt.Toolkit;
+import javax.annotation.Nonnull;
+import java.awt.*;
 import java.awt.event.AWTEventListener;
 import java.awt.event.MouseEvent;
 import java.util.EmptyStackException;
 
-import javax.annotation.Nonnull;
+import static java.awt.AWTEvent.MOUSE_EVENT_MASK;
+import static java.awt.AWTEvent.MOUSE_MOTION_EVENT_MASK;
+import static java.awt.event.MouseEvent.*;
+import static javax.swing.SwingUtilities.convertMouseEvent;
+import static javax.swing.SwingUtilities.getDeepestComponentAt;
 
 /**
  * Catches native drop target events, which are normally hidden from AWTEventListeners.
- * 
+ *
  * @author Alex Ruiz
  */
 class DragAwareEventQueue extends EventQueue {
-  private final Toolkit toolkit;
-  private final long mask;
-  private final AWTEventListener eventListener;
-  private final NativeDndIdentifier nativeDnd;
+	private final Toolkit toolkit;
+	private final long mask;
+	private final AWTEventListener eventListener;
+	private final NativeDndIdentifier nativeDnd;
 
-  DragAwareEventQueue(@Nonnull Toolkit toolkit, long mask, @Nonnull AWTEventListener eventListener) {
-    this(toolkit, mask, eventListener, new NativeDndIdentifier());
-  }
+	DragAwareEventQueue(@Nonnull Toolkit toolkit, long mask, @Nonnull AWTEventListener eventListener) {
+		this(toolkit, mask, eventListener, new NativeDndIdentifier());
+	}
 
-  DragAwareEventQueue(@Nonnull Toolkit toolkit, long mask, @Nonnull AWTEventListener eventListener,
-      @Nonnull NativeDndIdentifier nativeDnd) {
-    this.toolkit = toolkit;
-    this.mask = mask;
-    this.eventListener = eventListener;
-    this.nativeDnd = nativeDnd;
-  }
+	DragAwareEventQueue(@Nonnull Toolkit toolkit, long mask, @Nonnull AWTEventListener eventListener,
+						@Nonnull NativeDndIdentifier nativeDnd) {
+		this.toolkit = toolkit;
+		this.mask = mask;
+		this.eventListener = eventListener;
+		this.nativeDnd = nativeDnd;
+	}
 
-  /**
-   * Stops dispatching events using this {@code EventQueue}, only if this {@code EventQueue} is the same as the
-   * {@code Toolkit}'s system event queue. Any pending events are transferred to the previous {@code EventQueue} for
-   * processing.
-   * 
-   * @throws EmptyStackException if no previous push was made on this {@code EventQueue}.
-   */
-  @Override
-  public void pop() throws EmptyStackException {
-    EventQueue systemEventQueue = toolkit.getSystemEventQueue();
-    if (systemEventQueue == this) {
-      super.pop();
-    }
-  }
+	/**
+	 * Stops dispatching events using this {@code EventQueue}, only if this {@code EventQueue} is the same as the
+	 * {@code Toolkit}'s system event queue. Any pending events are transferred to the previous {@code EventQueue} for
+	 * processing.
+	 *
+	 * @throws EmptyStackException if no previous push was made on this {@code EventQueue}.
+	 */
+	@Override
+	public void pop() throws EmptyStackException {
+		EventQueue systemEventQueue = toolkit.getSystemEventQueue();
+		if (systemEventQueue == this) {
+			super.pop();
+		}
+	}
 
-  /**
-   * Dispatch native drag/drop events the same way non-native drags are reported. Enter/Exit are reported with the
-   * appropriate source, while drag and release events use the drag source as the source.
-   * 
-   * @param e an AWT event.
-   */
-  @Override
-  protected void dispatchEvent(AWTEvent e) {
-    // TODO: implement enter/exit events
-    // TODO: change source to drag source, not mouse under
-    if (nativeDnd.isNativeDragAndDrop(e)) {
-      MouseEvent mouseEvent = (MouseEvent) e;
-      Component target = getDeepestComponentAt(mouseEvent.getComponent(), mouseEvent.getX(), mouseEvent.getY());
-      if (target != mouseEvent.getSource()) {
-        mouseEvent = convertMouseEvent(mouseEvent.getComponent(), mouseEvent, target);
-      }
-      relayDndEvent(mouseEvent);
-    }
-    super.dispatchEvent(e);
-  }
+	/**
+	 * Dispatch native drag/drop events the same way non-native drags are reported. Enter/Exit are reported with the
+	 * appropriate source, while drag and release events use the drag source as the source.
+	 *
+	 * @param e an AWT event.
+	 */
+	@Override
+	protected void dispatchEvent(AWTEvent e) {
+		// TODO: implement enter/exit events
+		// TODO: change source to drag source, not mouse under
+		if (nativeDnd.isNativeDragAndDrop(e)) {
+			MouseEvent mouseEvent = (MouseEvent) e;
+			Component target = getDeepestComponentAt(mouseEvent.getComponent(), mouseEvent.getX(), mouseEvent.getY());
+			if (target != mouseEvent.getSource()) {
+				mouseEvent = convertMouseEvent(mouseEvent.getComponent(), mouseEvent, target);
+			}
+			relayDndEvent(mouseEvent);
+		}
+		super.dispatchEvent(e);
+	}
 
-  private void relayDndEvent(@Nonnull MouseEvent event) {
-    int eventId = event.getID();
-    if (eventId == MOUSE_MOVED || eventId == MOUSE_DRAGGED) {
-      if ((mask & MOUSE_MOTION_EVENT_MASK) != 0) {
-        eventListener.eventDispatched(event);
-      }
-      return;
-    }
-    if (eventId >= MOUSE_FIRST && eventId <= MOUSE_LAST) {
-      if ((mask & MOUSE_EVENT_MASK) != 0) {
-        eventListener.eventDispatched(event);
-      }
-    }
-  }
+	private void relayDndEvent(@Nonnull MouseEvent event) {
+		int eventId = event.getID();
+		if (eventId == MOUSE_MOVED || eventId == MOUSE_DRAGGED) {
+			if ((mask & MOUSE_MOTION_EVENT_MASK) != 0) {
+				eventListener.eventDispatched(event);
+			}
+			return;
+		}
+		if (eventId >= MOUSE_FIRST && eventId <= MOUSE_LAST) {
+			if ((mask & MOUSE_EVENT_MASK) != 0) {
+				eventListener.eventDispatched(event);
+			}
+		}
+	}
 }

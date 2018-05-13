@@ -12,17 +12,16 @@
  */
 package org.uitest4j.swing.finder;
 
-import java.awt.Component;
-import java.util.concurrent.TimeUnit;
+import org.uitest4j.swing.core.GenericTypeMatcher;
+import org.uitest4j.swing.core.Robot;
+import org.uitest4j.swing.fixture.JFileChooserFixture;
 
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import javax.swing.JFileChooser;
-
-import org.uitest4j.swing.core.GenericTypeMatcher;
-import org.uitest4j.swing.core.Robot;
-import org.uitest4j.swing.fixture.JFileChooserFixture;
+import javax.swing.*;
+import java.awt.*;
+import java.util.concurrent.TimeUnit;
 
 /**
  * <p>
@@ -74,107 +73,114 @@ import org.uitest4j.swing.fixture.JFileChooserFixture;
  * @author Alex Ruiz
  */
 public class JFileChooserFinder extends ComponentFinderTemplate<JFileChooser> {
-  /**
-   * Creates a new {@link JFileChooserFinder}. This finder looks up a {@code JFileChooser} by type.
-   */
-  protected JFileChooserFinder() {
-    super(JFileChooser.class);
-  }
+	/**
+	 * Creates a new {@link JFileChooserFinder}. This finder looks up a {@code JFileChooser} by type.
+	 */
+	protected JFileChooserFinder() {
+		super(JFileChooser.class);
+	}
 
-  /**
-   * Creates a new {@link JFileChooserFinder}.
-   *
-   * @param name the name of the {@code FileChooser} to look for.
-   */
-  protected JFileChooserFinder(@Nullable String name) {
-    super(name, JFileChooser.class);
-  }
+	/**
+	 * Creates a new {@link JFileChooserFinder}.
+	 *
+	 * @param name the name of the {@code FileChooser} to look for.
+	 */
+	protected JFileChooserFinder(@Nullable String name) {
+		super(name, JFileChooser.class);
+	}
 
-  /**
-   * Creates a new {@link JFileChooserFinder}.
-   *
-   * @param matcher specifies the search criteria to use when looking up a {@code JFileChooser}.
-   */
-  protected JFileChooserFinder(@Nonnull GenericTypeMatcher<? extends JFileChooser> matcher) {
-    super(matcher);
-  }
+	/**
+	 * Creates a new {@link JFileChooserFinder}.
+	 *
+	 * @param matcher specifies the search criteria to use when looking up a {@code JFileChooser}.
+	 */
+	protected JFileChooserFinder(@Nonnull GenericTypeMatcher<? extends JFileChooser> matcher) {
+		super(matcher);
+	}
 
-  /**
-   * Creates a new {@link JFileChooserFinder} capable of looking up a {@code JFileChooser}.
-   *
-   * @return the created finder.
-   */
-  @Nonnull public static JFileChooserFinder findFileChooser() {
-    return new JFileChooserFinder();
-  }
+	/**
+	 * Creates a new {@link JFileChooserFinder} capable of looking up a {@code JFileChooser}.
+	 *
+	 * @return the created finder.
+	 */
+	@Nonnull
+	public static JFileChooserFinder findFileChooser() {
+		return new JFileChooserFinder();
+	}
 
-  /**
-   * Creates a new {@link JFileChooserFinder} capable of looking up a {@code JFileChooser} by name.
-   *
-   * @param name the name of the file chooser to find.
-   * @return the created finder.
-   */
-  @Nonnull public static JFileChooserFinder findFileChooser(@Nullable String name) {
-    return new JFileChooserFinder(name);
-  }
+	/**
+	 * Creates a new {@link JFileChooserFinder} capable of looking up a {@code JFileChooser} by name.
+	 *
+	 * @param name the name of the file chooser to find.
+	 * @return the created finder.
+	 */
+	@Nonnull
+	public static JFileChooserFinder findFileChooser(@Nullable String name) {
+		return new JFileChooserFinder(name);
+	}
 
-  /**
-   * Creates a new {@link JFileChooserFinder} capable of looking up a {@code JFileChooser} using the given matcher.
-   *
-   * @param matcher the given matcher.
-   * @return the created finder.
-   */
-  @Nonnull public static JFileChooserFinder findFileChooser(@Nonnull GenericTypeMatcher<? extends JFileChooser> matcher) {
-    return new JFileChooserFinder(matcher);
-  }
+	/**
+	 * Creates a new {@link JFileChooserFinder} capable of looking up a {@code JFileChooser} using the given matcher.
+	 *
+	 * @param matcher the given matcher.
+	 * @return the created finder.
+	 */
+	@Nonnull
+	public static JFileChooserFinder findFileChooser(@Nonnull GenericTypeMatcher<? extends JFileChooser> matcher) {
+		return new JFileChooserFinder(matcher);
+	}
 
-  /**
-   * Finds a {@code JFileChooser} by name or type.
-   *
-   * @param robot contains the underlying finding to delegate the search to.
-   * @return a {@code JFileChooserFixture} managing the found {@code JFileChooser}.
-   * @throws org.uitest4j.swing.exception.WaitTimedOutError if a {@code JFileChooser} could not be found.
-   */
-  @Override
-  @Nonnull public JFileChooserFixture using(@Nonnull Robot robot) {
-    return new JFileChooserFixture(robot, findComponentWith(robot));
-  }
+	/**
+	 * Finds a {@code JFileChooser} by name or type.
+	 *
+	 * @param robot contains the underlying finding to delegate the search to.
+	 * @return a {@code JFileChooserFixture} managing the found {@code JFileChooser}.
+	 * @throws org.uitest4j.swing.exception.WaitTimedOutError if a {@code JFileChooser} could not be found.
+	 */
+	@Override
+	@Nonnull
+	public JFileChooserFixture using(@Nonnull Robot robot) {
+		return new JFileChooserFixture(robot, findComponentWith(robot));
+	}
 
-  /**
-   * Sets the timeout for this finder. The {@code JFileChooser} to find should be found within the given time period.
-   *
-   * @param timeout the number of milliseconds before stopping the search.
-   * @return this finder.
-   * @throws IllegalArgumentException if the timeout is a negative number.
-   */
-  @Override
-  @Nonnull public JFileChooserFinder withTimeout(@Nonnegative long timeout) {
-    super.withTimeout(timeout);
-    return this;
-  }
+	/**
+	 * Sets the timeout for this finder. The {@code JFileChooser} to find should be found within the given time period.
+	 *
+	 * @param timeout the number of milliseconds before stopping the search.
+	 * @return this finder.
+	 * @throws IllegalArgumentException if the timeout is a negative number.
+	 */
+	@Override
+	@Nonnull
+	public JFileChooserFinder withTimeout(@Nonnegative long timeout) {
+		super.withTimeout(timeout);
+		return this;
+	}
 
-  /**
-   * Sets the timeout for this finder. The {@code JFileChooser} to find should be found within the given time period.
-   *
-   * @param timeout the period of time the search should be performed.
-   * @param unit the time unit for {@code timeout}.
-   * @return this finder.
-   * @throws NullPointerException if the time unit is {@code null}.
-   * @throws IllegalArgumentException if the timeout is a negative number.
-   */
-  @Override
-  @Nonnull public JFileChooserFinder withTimeout(@Nonnegative long timeout, @Nonnull TimeUnit unit) {
-    super.withTimeout(timeout, unit);
-    return this;
-  }
+	/**
+	 * Sets the timeout for this finder. The {@code JFileChooser} to find should be found within the given time period.
+	 *
+	 * @param timeout the period of time the search should be performed.
+	 * @param unit    the time unit for {@code timeout}.
+	 * @return this finder.
+	 * @throws NullPointerException     if the time unit is {@code null}.
+	 * @throws IllegalArgumentException if the timeout is a negative number.
+	 */
+	@Override
+	@Nonnull
+	public JFileChooserFinder withTimeout(@Nonnegative long timeout, @Nonnull TimeUnit unit) {
+		super.withTimeout(timeout, unit);
+		return this;
+	}
 
-  /**
-   * Casts the given AWT or Swing {@code Component} to {@code JFileChooser}.
-   *
-   * @return the given {@code Component}, casted to {@code JFileChooser}.
-   */
-  @Override
-  @Nullable protected JFileChooser cast(@Nullable Component c) {
-    return (JFileChooser) c;
-  }
+	/**
+	 * Casts the given AWT or Swing {@code Component} to {@code JFileChooser}.
+	 *
+	 * @return the given {@code Component}, casted to {@code JFileChooser}.
+	 */
+	@Override
+	@Nullable
+	protected JFileChooser cast(@Nullable Component c) {
+		return (JFileChooser) c;
+	}
 }

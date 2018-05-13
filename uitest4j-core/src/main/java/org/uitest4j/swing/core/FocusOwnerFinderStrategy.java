@@ -12,16 +12,15 @@
  */
 package org.uitest4j.swing.core;
 
-import java.awt.Component;
-
 import javax.annotation.Nullable;
+import java.awt.*;
 
 /**
  * Finds the current focus owner.
- * 
+ *
  * @author Alex Ruiz
  */
 interface FocusOwnerFinderStrategy {
-  @Nullable
-  Component focusOwner();
+	@Nullable
+	Component focusOwner();
 }

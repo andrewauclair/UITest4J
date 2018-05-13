@@ -20,25 +20,25 @@ import java.awt.*;
 /**
  * Task that given a {@link WindowFilter}, marks a given {@code Window} as "ignored" if it is already implicitly ignored
  * by such filter. This task should be executed in the event dispatch thread (EDT).
- * 
+ *
  * @author Alex Ruiz
  */
 class IgnoreWindowTask implements Runnable {
-  private final Window w;
-  private final WindowFilter filter;
+	private final Window w;
+	private final WindowFilter filter;
 
-  IgnoreWindowTask(@Nonnull Window w, @Nonnull WindowFilter filter) {
-    this.w = w;
-    this.filter = filter;
-  }
+	IgnoreWindowTask(@Nonnull Window w, @Nonnull WindowFilter filter) {
+		this.w = w;
+		this.filter = filter;
+	}
 
-  @RunsInCurrentThread
-  @Override
-  public void run() {
-    // If the window was shown again since we queued this action, it will have removed the window from the
-    // implicit filtered set, and we shouldn't filter.
-    if (filter.isImplicitlyIgnored(w)) {
-      filter.ignore(w);
-    }
-  }
+	@RunsInCurrentThread
+	@Override
+	public void run() {
+		// If the window was shown again since we queued this action, it will have removed the window from the
+		// implicit filtered set, and we shouldn't filter.
+		if (filter.isImplicitlyIgnored(w)) {
+			filter.ignore(w);
+		}
+	}
 }

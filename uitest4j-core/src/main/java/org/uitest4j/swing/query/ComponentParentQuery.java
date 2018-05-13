@@ -22,26 +22,26 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
  * Returns the parent of an AWT or Swing {@code Component}. This query is executed in the event dispatch thread (EDT).
- * 
- * @see Component#getParent()
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
+ * @see Component#getParent()
  */
 public final class ComponentParentQuery {
-  /**
-   * Returns the parent of the given AWT or Swing {@code Component}. This query is executed in the event dispatch thread
-   * (EDT).
-   * 
-   * @param component the given {@code Component}.
-   * @return the parent of the given {@code Component}.
-   * @see Component#getParent()
-   */
-  @RunsInEDT
-  @Nullable public static Container parentOf(final @Nonnull Component component) {
-    return execute(component::getParent);
-  }
+	/**
+	 * Returns the parent of the given AWT or Swing {@code Component}. This query is executed in the event dispatch thread
+	 * (EDT).
+	 *
+	 * @param component the given {@code Component}.
+	 * @return the parent of the given {@code Component}.
+	 * @see Component#getParent()
+	 */
+	@RunsInEDT
+	@Nullable
+	public static Container parentOf(final @Nonnull Component component) {
+		return execute(component::getParent);
+	}
 
-  private ComponentParentQuery() {
-  }
+	private ComponentParentQuery() {
+	}
 }

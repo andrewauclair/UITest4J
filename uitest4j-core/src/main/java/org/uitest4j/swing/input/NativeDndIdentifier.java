@@ -12,18 +12,17 @@
  */
 package org.uitest4j.swing.input;
 
-import java.awt.AWTEvent;
-import java.awt.event.MouseEvent;
-
 import javax.annotation.Nonnull;
+import java.awt.*;
+import java.awt.event.MouseEvent;
 
 /**
  * Detects native drag 'n drop events.
- * 
+ *
  * @author Alex Ruiz
  */
 class NativeDndIdentifier {
-  boolean isNativeDragAndDrop(@Nonnull AWTEvent e) {
-    return (e instanceof MouseEvent) && e.getClass().getName().contains("SunDropTargetEvent");
-  }
+	boolean isNativeDragAndDrop(@Nonnull AWTEvent e) {
+		return (e instanceof MouseEvent) && e.getClass().getName().contains("SunDropTargetEvent");
+	}
 }

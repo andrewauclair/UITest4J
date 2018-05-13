@@ -12,13 +12,12 @@
  */
 package org.uitest4j.swing.driver;
 
-import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.annotation.RunsInEDT;
+import org.uitest4j.swing.core.Robot;
 
 import javax.annotation.Nonnull;
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
 import java.util.Arrays;
 
 import static org.uitest4j.swing.driver.JComboBoxEditableQuery.isEditable;
@@ -31,50 +30,50 @@ import static org.uitest4j.swing.driver.JTableStopCellEditingTask.stopEditing;
  * @author Yvonne Wang
  */
 public class JTableComboBoxEditorCellWriter extends AbstractJTableCellWriter {
-  private final JComboBoxDriver driver;
+	private final JComboBoxDriver driver;
 
-  public JTableComboBoxEditorCellWriter(@Nonnull Robot robot) {
-    super(robot);
-    driver = new JComboBoxDriver(robot);
-  }
+	public JTableComboBoxEditorCellWriter(@Nonnull Robot robot) {
+		super(robot);
+		driver = new JComboBoxDriver(robot);
+	}
 
-  @RunsInEDT
-  @Override
-  public void enterValue(@Nonnull JTable table, int row, int column, @Nonnull String value) {
-    JComboBox<?> editor = doStartCellEditing(table, row, column);
-    selectOrType(editor, value);
-    stopEditing(table, row, column);
-  }
+	@RunsInEDT
+	@Override
+	public void enterValue(@Nonnull JTable table, int row, int column, @Nonnull String value) {
+		JComboBox<?> editor = doStartCellEditing(table, row, column);
+		selectOrType(editor, value);
+		stopEditing(table, row, column);
+	}
 
-  private void selectOrType(@Nonnull JComboBox<?> editor, @Nonnull String value) {
-    boolean selectValue = !isEditable(editor);
-    if (!selectValue) {
-      selectValue = Arrays.asList(driver.contentsOf(editor)).contains(value);
-    }
-    if (selectValue) {
-      driver.selectItem(editor, value);
-      return;
-    }
-    driver.replaceText(editor, value);
-  }
+	private void selectOrType(@Nonnull JComboBox<?> editor, @Nonnull String value) {
+		boolean selectValue = !isEditable(editor);
+		if (!selectValue) {
+			selectValue = Arrays.asList(driver.contentsOf(editor)).contains(value);
+		}
+		if (selectValue) {
+			driver.selectItem(editor, value);
+			return;
+		}
+		driver.replaceText(editor, value);
+	}
 
-  @Override
-  @RunsInEDT
-  public void startCellEditing(@Nonnull JTable table, int row, int column) {
-    doStartCellEditing(table, row, column);
-  }
+	@Override
+	@RunsInEDT
+	public void startCellEditing(@Nonnull JTable table, int row, int column) {
+		doStartCellEditing(table, row, column);
+	}
 
-  @RunsInEDT
-  private JComboBox<?> doStartCellEditing(@Nonnull JTable table, int row, int column) {
-    Point cellLocation = cellLocation(table, row, column, location());
-    robot.click(table, cellLocation); // activate JComboBox editor
-    JComboBox<?> comboBox = waitForEditorActivation(table, row, column);
-    cellEditor(cellEditor(table, row, column));
-    return comboBox;
-  }
+	@RunsInEDT
+	private JComboBox<?> doStartCellEditing(@Nonnull JTable table, int row, int column) {
+		Point cellLocation = cellLocation(table, row, column, location());
+		robot.click(table, cellLocation); // activate JComboBox editor
+		JComboBox<?> comboBox = waitForEditorActivation(table, row, column);
+		cellEditor(cellEditor(table, row, column));
+		return comboBox;
+	}
 
-  @RunsInEDT
-  private JComboBox<?> waitForEditorActivation(@Nonnull JTable table, int row, int column) {
-    return waitForEditorActivation(table, row, column, JComboBox.class);
-  }
+	@RunsInEDT
+	private JComboBox<?> waitForEditorActivation(@Nonnull JTable table, int row, int column) {
+		return waitForEditorActivation(table, row, column, JComboBox.class);
+	}
 }

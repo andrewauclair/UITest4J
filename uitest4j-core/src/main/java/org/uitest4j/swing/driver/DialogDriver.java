@@ -21,8 +21,6 @@ import org.uitest4j.swing.internal.assertions.OpenTest4JAssertions;
 import javax.annotation.Nonnull;
 import java.awt.*;
 
-import static org.uitest4j.swing.format.Formatting.format;
-
 /**
  * <p>
  * Supports functional testing of AWT or Swing {@code Dialog}s.

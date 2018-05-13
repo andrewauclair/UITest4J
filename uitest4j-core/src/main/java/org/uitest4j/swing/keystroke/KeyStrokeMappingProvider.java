@@ -12,22 +12,23 @@
  */
 package org.uitest4j.swing.keystroke;
 
-import java.util.Collection;
-
 import javax.annotation.Nonnull;
+import java.util.Collection;
 
 /**
  * Provides a mapping between characters and {@code KeyStroke}s.
- * 
+ *
  * @author Alex Ruiz
  */
 public interface KeyStrokeMappingProvider {
-  /** Value to use when a key stroke is not using modifiers. */
-  int NO_MASK = 0;
+	/**
+	 * Value to use when a key stroke is not using modifiers.
+	 */
+	int NO_MASK = 0;
 
-  /**
-   * @return the {@code KeyStrokeMapping}s to be used by {@link KeyStrokeMap}.
-   */
-  @Nonnull
-  Collection<KeyStrokeMapping> keyStrokeMappings();
+	/**
+	 * @return the {@code KeyStrokeMapping}s to be used by {@link KeyStrokeMap}.
+	 */
+	@Nonnull
+	Collection<KeyStrokeMapping> keyStrokeMappings();
 }

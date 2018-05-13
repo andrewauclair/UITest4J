@@ -22,101 +22,101 @@ import static org.uitest4j.swing.util.Platform.osFamily;
 
 /**
  * A collection of {@link KeyStrokeMapping}.
- * 
+ *
  * @author Yvonne Wang
  * @author Alex Ruiz
  */
 public class KeyStrokeMap {
-  private static KeyStrokeMapCollection maps = new KeyStrokeMapCollection();
+	private static KeyStrokeMapCollection maps = new KeyStrokeMapCollection();
 
-  static {
-    reloadFromSystemSettings();
-  }
+	static {
+		reloadFromSystemSettings();
+	}
 
-  /**
-   * Reloads the key stroke mappings for the language using the current system settings.
-   */
-  public static void reloadFromSystemSettings() {
-    KeyStrokeMappingProviderPicker picker = new KeyStrokeMappingProviderPicker();
-    maps.clear();
-    addKeyStrokesFrom(picker.providerFor(osFamily(), KeyStrokeLocale.get()));
-  }
+	/**
+	 * Reloads the key stroke mappings for the language using the current system settings.
+	 */
+	public static void reloadFromSystemSettings() {
+		KeyStrokeMappingProviderPicker picker = new KeyStrokeMappingProviderPicker();
+		maps.clear();
+		addKeyStrokesFrom(picker.providerFor(osFamily(), KeyStrokeLocale.get()));
+	}
 
-  // Used for tests
-  static void updateKeyStrokeMapCollection(@Nonnull KeyStrokeMapCollection c) {
-    maps = c;
-  }
+	// Used for tests
+	static void updateKeyStrokeMapCollection(@Nonnull KeyStrokeMapCollection c) {
+		maps = c;
+	}
 
-  /**
-   * Adds the collection of {@link KeyStrokeMapping}s from the given {@link KeyStrokeMappingProvider} to this map.
-   * 
-   * @param provider the given {@code KeyStrokeMappingProvider}.
-   */
-  public static void addKeyStrokesFrom(@Nonnull KeyStrokeMappingProvider provider) {
-    for (KeyStrokeMapping entry : provider.keyStrokeMappings()) {
-      add(entry.character(), entry.keyStroke());
-    }
-  }
+	/**
+	 * Adds the collection of {@link KeyStrokeMapping}s from the given {@link KeyStrokeMappingProvider} to this map.
+	 *
+	 * @param provider the given {@code KeyStrokeMappingProvider}.
+	 */
+	public static void addKeyStrokesFrom(@Nonnull KeyStrokeMappingProvider provider) {
+		for (KeyStrokeMapping entry : provider.keyStrokeMappings()) {
+			add(entry.character(), entry.keyStroke());
+		}
+	}
 
-  private static void add(@Nonnull Character character, @Nonnull KeyStroke keyStroke) {
-    maps.add(character, keyStroke);
-  }
+	private static void add(@Nonnull Character character, @Nonnull KeyStroke keyStroke) {
+		maps.add(character, keyStroke);
+	}
 
-  /**
-   * Removes all the character-{@code KeyStroke} mappings.
-   */
-  public static void clearKeyStrokes() {
-    maps.clear();
-  }
+	/**
+	 * Removes all the character-{@code KeyStroke} mappings.
+	 */
+	public static void clearKeyStrokes() {
+		maps.clear();
+	}
 
-  /**
-   * Indicates whether {@link KeyStrokeMap} has mappings.
-   * 
-   * @return {@code true} if it has mappings, {@code false} otherwise.
-   */
-  public static boolean hasKeyStrokes() {
-    return !maps.isEmpty();
-  }
+	/**
+	 * Indicates whether {@link KeyStrokeMap} has mappings.
+	 *
+	 * @return {@code true} if it has mappings, {@code false} otherwise.
+	 */
+	public static boolean hasKeyStrokes() {
+		return !maps.isEmpty();
+	}
 
-  /**
-   * Returns the {@code KeyStroke} corresponding to the given character, as best we can guess it, or {@code null} if we
-   * don't know how to generate it.
-   * 
-   * @param character the given character.
-   * @return the key code-based {@code KeyStroke} corresponding to the given character, or {@code null} if we cannot
-   *         generate it.
-   */
-  @Nullable public static
-  KeyStroke keyStrokeFor(char character) {
-    return maps.keyStrokeFor(character);
-  }
+	/**
+	 * Returns the {@code KeyStroke} corresponding to the given character, as best we can guess it, or {@code null} if we
+	 * don't know how to generate it.
+	 *
+	 * @param character the given character.
+	 * @return the key code-based {@code KeyStroke} corresponding to the given character, or {@code null} if we cannot
+	 * generate it.
+	 */
+	@Nullable
+	public static KeyStroke keyStrokeFor(char character) {
+		return maps.keyStrokeFor(character);
+	}
 
-  /**
-   * Given a {@link KeyStroke}, returns the equivalent character. Key strokes are defined properly for US keyboards
-   * only. To contribute your own, please add them using the method {@link #addKeyStrokesFrom(KeyStrokeMappingProvider)}
-   * .
-   * 
-   * @param keyStroke the given {@code KeyStroke}.
-   * @return {@code KeyEvent.VK_UNDEFINED} if the result is unknown.
-   */
-  public static char charFor(@Nonnull KeyStroke keyStroke) {
-    Character character = maps.charFor(keyStroke);
-    // Try again, but strip all modifiers but shift
-    if (character == null) {
-      character = charWithoutModifiersButShift(keyStroke);
-    }
-    if (character == null) {
-      return CHAR_UNDEFINED;
-    }
-    return character;
-  }
+	/**
+	 * Given a {@link KeyStroke}, returns the equivalent character. Key strokes are defined properly for US keyboards
+	 * only. To contribute your own, please add them using the method {@link #addKeyStrokesFrom(KeyStrokeMappingProvider)}
+	 * .
+	 *
+	 * @param keyStroke the given {@code KeyStroke}.
+	 * @return {@code KeyEvent.VK_UNDEFINED} if the result is unknown.
+	 */
+	public static char charFor(@Nonnull KeyStroke keyStroke) {
+		Character character = maps.charFor(keyStroke);
+		// Try again, but strip all modifiers but shift
+		if (character == null) {
+			character = charWithoutModifiersButShift(keyStroke);
+		}
+		if (character == null) {
+			return CHAR_UNDEFINED;
+		}
+		return character;
+	}
 
-  @Nullable private static
-  Character charWithoutModifiersButShift(@Nonnull KeyStroke keyStroke) {
-    int mask = keyStroke.getModifiers() & ~SHIFT_DOWN_MASK;
-    return maps.charFor(KeyStroke.getKeyStroke(keyStroke.getKeyCode(), mask));
-  }
+	@Nullable
+	private static Character charWithoutModifiersButShift(@Nonnull KeyStroke keyStroke) {
+		int mask = keyStroke.getModifiers() & ~SHIFT_DOWN_MASK;
+		return maps.charFor(KeyStroke.getKeyStroke(keyStroke.getKeyCode(), mask));
+	}
 
-  private KeyStrokeMap() {
-  }
+	private KeyStrokeMap() {
+	}
 }

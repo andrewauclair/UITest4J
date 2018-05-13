@@ -21,15 +21,15 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
  * Closes a {@code JInternalFrame}. This task is executed in the event dispatch thread (EDT).
- * 
+ *
  * @author Yvonne Wang
  */
 final class JInternalFrameCloseTask {
-  @RunsInEDT
-  static void close(final @Nonnull JInternalFrame internalFrame) {
-    execute(internalFrame::doDefaultCloseAction);
-  }
+	@RunsInEDT
+	static void close(final @Nonnull JInternalFrame internalFrame) {
+		execute(internalFrame::doDefaultCloseAction);
+	}
 
-  private JInternalFrameCloseTask() {
-  }
+	private JInternalFrameCloseTask() {
+	}
 }

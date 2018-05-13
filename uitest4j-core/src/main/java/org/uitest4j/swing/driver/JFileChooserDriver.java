@@ -12,7 +12,6 @@
  */
 package org.uitest4j.swing.driver;
 
-import org.opentest4j.AssertionFailedError;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.internal.annotation.InternalApi;
@@ -58,14 +57,14 @@ public class JFileChooserDriver extends JComponentDriver {
 	 * Selects the given file in the {@code JFileChooser}.
 	 *
 	 * @param fileChooser the target {@code JFileChooser}.
-	 * @param file the file to select.
-	 * @throws NullPointerException if the given file is {@code null}.
-	 * @throws IllegalStateException if the {@code JFileChooser} is disabled.
-	 * @throws IllegalStateException if the {@code JFileChooser} is not showing on the screen.
+	 * @param file        the file to select.
+	 * @throws NullPointerException     if the given file is {@code null}.
+	 * @throws IllegalStateException    if the {@code JFileChooser} is disabled.
+	 * @throws IllegalStateException    if the {@code JFileChooser} is not showing on the screen.
 	 * @throws IllegalArgumentException if the {@code JFileChooser} can select directories only and the file to select is
-	 *           not a directory.
+	 *                                  not a directory.
 	 * @throws IllegalArgumentException if the {@code JFileChooser} cannot select directories and the file to select is a
-	 *           directory.
+	 *                                  directory.
 	 */
 	@RunsInEDT
 	public void selectFile(@Nonnull JFileChooser fileChooser, @Nonnull File file) {
@@ -76,17 +75,17 @@ public class JFileChooserDriver extends JComponentDriver {
 	 * Selects the given file in the {@code JFileChooser}.
 	 *
 	 * @param fileChooser the target {@code JFileChooser}.
-	 * @param files the files to select.
-	 * @throws NullPointerException if the given array of files is {@code null}.
+	 * @param files       the files to select.
+	 * @throws NullPointerException     if the given array of files is {@code null}.
 	 * @throws IllegalArgumentException if the given array of files is empty.
-	 * @throws IllegalStateException if this fixture's {@code JFileChooser} is disabled.
-	 * @throws IllegalStateException if this fixture's {@code JFileChooser} is not showing on the screen.
-	 * @throws IllegalStateException if this fixture's {@code JFileChooser} does not support multiple selection and there
-	 *           is more than one file to select.
+	 * @throws IllegalStateException    if this fixture's {@code JFileChooser} is disabled.
+	 * @throws IllegalStateException    if this fixture's {@code JFileChooser} is not showing on the screen.
+	 * @throws IllegalStateException    if this fixture's {@code JFileChooser} does not support multiple selection and there
+	 *                                  is more than one file to select.
 	 * @throws IllegalArgumentException if this fixture's {@code JFileChooser} can select directories only and any of the
-	 *           files to select is not a directory.
+	 *                                  files to select is not a directory.
 	 * @throws IllegalArgumentException if this fixture's {@code JFileChooser} cannot select directories and any of the
-	 *           files to select is a directory.
+	 *                                  files to select is a directory.
 	 */
 	public void selectFiles(@Nonnull JFileChooser fileChooser, @Nonnull File[] files) {
 		ArrayUtils.requireNonNullAndNotEmpty(files);
@@ -101,7 +100,7 @@ public class JFileChooserDriver extends JComponentDriver {
 	 * Sets the current directory in the {@code JFileChooser} to the given one.
 	 *
 	 * @param fileChooser the target {@code JFileChooser}.
-	 * @param dir the directory to set as current.
+	 * @param dir         the directory to set as current.
 	 * @throws IllegalStateException if the {@code JFileChooser} is disabled.
 	 * @throws IllegalStateException if the {@code JFileChooser} is not showing on the screen.
 	 */
@@ -130,8 +129,8 @@ public class JFileChooserDriver extends JComponentDriver {
 	 *
 	 * @param fileChooser the target {@code JFileChooser}.
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if the "Cancel" button cannot be found.
-	 * @throws IllegalStateException if the "Cancel" button is disabled.
-	 * @throws IllegalStateException if the "Cancel" button is not showing on the screen.
+	 * @throws IllegalStateException                                 if the "Cancel" button is disabled.
+	 * @throws IllegalStateException                                 if the "Cancel" button is not showing on the screen.
 	 */
 	@RunsInEDT
 	public void clickCancelButton(@Nonnull JFileChooser fileChooser) {
@@ -157,8 +156,8 @@ public class JFileChooserDriver extends JComponentDriver {
 	 *
 	 * @param fileChooser the target {@code JFileChooser}.
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if the "Approve" button cannot be found.
-	 * @throws IllegalStateException if the "Approve" button is disabled.
-	 * @throws IllegalStateException if the "Approve" button is not showing on the screen.
+	 * @throws IllegalStateException                                 if the "Approve" button is disabled.
+	 * @throws IllegalStateException                                 if the "Approve" button is not showing on the screen.
 	 */
 	@RunsInEDT
 	public void clickApproveButton(@Nonnull JFileChooser fileChooser) {

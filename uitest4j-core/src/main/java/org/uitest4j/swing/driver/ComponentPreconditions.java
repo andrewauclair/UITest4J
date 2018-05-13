@@ -21,71 +21,71 @@ import static org.uitest4j.swing.format.Formatting.format;
 
 /**
  * Verifies correct state of a {@code Component}.
- * 
+ *
  * @author Alex Ruiz
  */
 public final class ComponentPreconditions {
-  /**
-   * <p>
-   * Verifies that the {@code Component} is enabled and showing.
-   * </p>
-   * 
-   * <p>
-   * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
-   * dispatch thread (EDT). Client code must call this method from the EDT.
-   * </p>
-   * 
-   * @param c the target component.
-   * @throws IllegalStateException if the {@code Component} is disabled.
-   * @throws IllegalStateException if the {@code Component} is not showing on the screen.
-   */
-  @RunsInCurrentThread
-  public static void checkEnabledAndShowing(@Nonnull Component c) {
-    checkEnabled(c);
-    checkShowing(c);
-  }
+	/**
+	 * <p>
+	 * Verifies that the {@code Component} is enabled and showing.
+	 * </p>
+	 *
+	 * <p>
+	 * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
+	 * dispatch thread (EDT). Client code must call this method from the EDT.
+	 * </p>
+	 *
+	 * @param c the target component.
+	 * @throws IllegalStateException if the {@code Component} is disabled.
+	 * @throws IllegalStateException if the {@code Component} is not showing on the screen.
+	 */
+	@RunsInCurrentThread
+	public static void checkEnabledAndShowing(@Nonnull Component c) {
+		checkEnabled(c);
+		checkShowing(c);
+	}
 
-  /**
-   * <p>
-   * Verifies that the {@code Component} is enabled.
-   * </p>
-   * 
-   * <p>
-   * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
-   * dispatch thread (EDT). Client code must call this method from the EDT.
-   * </p>
-   * 
-   * @param c the target component.
-   * @throws IllegalStateException if the {@code Component} is disabled.
-   */
-  @RunsInCurrentThread
-  public static void checkEnabled(@Nonnull Component c) {
-    if (!c.isEnabled()) {
-		throw new IllegalStateException("Expecting component " + format(c) + " to be enabled");
-    }
-  }
+	/**
+	 * <p>
+	 * Verifies that the {@code Component} is enabled.
+	 * </p>
+	 *
+	 * <p>
+	 * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
+	 * dispatch thread (EDT). Client code must call this method from the EDT.
+	 * </p>
+	 *
+	 * @param c the target component.
+	 * @throws IllegalStateException if the {@code Component} is disabled.
+	 */
+	@RunsInCurrentThread
+	public static void checkEnabled(@Nonnull Component c) {
+		if (!c.isEnabled()) {
+			throw new IllegalStateException("Expecting component " + format(c) + " to be enabled");
+		}
+	}
 
-  /**
-   * <p>
-   * Verifies that the {@code Component} is showing on the screen.
-   * </p>
-   * 
-   * <p>
-   * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
-   * dispatch thread (EDT). Client code must call this method from the EDT.
-   * </p>
-   * 
-   * @param c the target component.
-   * @throws IllegalStateException if the {@code Component} is not showing on the screen.
-   */
-  @RunsInCurrentThread
-  public static void checkShowing(@Nonnull Component c) {
-    if (!c.isShowing()) {
-      String msg = String.format("Expecting component %s to be showing on the screen", format(c));
-      throw new IllegalStateException(msg);
-    }
-  }
+	/**
+	 * <p>
+	 * Verifies that the {@code Component} is showing on the screen.
+	 * </p>
+	 *
+	 * <p>
+	 * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
+	 * dispatch thread (EDT). Client code must call this method from the EDT.
+	 * </p>
+	 *
+	 * @param c the target component.
+	 * @throws IllegalStateException if the {@code Component} is not showing on the screen.
+	 */
+	@RunsInCurrentThread
+	public static void checkShowing(@Nonnull Component c) {
+		if (!c.isShowing()) {
+			String msg = String.format("Expecting component %s to be showing on the screen", format(c));
+			throw new IllegalStateException(msg);
+		}
+	}
 
-  private ComponentPreconditions() {
-  }
+	private ComponentPreconditions() {
+	}
 }

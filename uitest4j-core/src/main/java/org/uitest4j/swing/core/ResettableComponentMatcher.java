@@ -14,14 +14,14 @@ package org.uitest4j.swing.core;
 
 /**
  * {@link ComponentMatcher} whose internal state can be reset.
- * 
+ *
  * @author Alex Ruiz
  */
 public interface ResettableComponentMatcher extends ComponentMatcher {
-  /**
-   * Resets the internal state of this matcher.
-   * 
-   * @param matchFound indicates whether a match has been found before resetting.
-   */
-  void reset(boolean matchFound);
+	/**
+	 * Resets the internal state of this matcher.
+	 *
+	 * @param matchFound indicates whether a match has been found before resetting.
+	 */
+	void reset(boolean matchFound);
 }

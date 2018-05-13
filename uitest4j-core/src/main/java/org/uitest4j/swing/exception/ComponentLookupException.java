@@ -12,13 +12,12 @@
  */
 package org.uitest4j.swing.exception;
 
-import static java.util.Collections.unmodifiableCollection;
-
-import java.awt.Component;
+import javax.annotation.Nonnull;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import javax.annotation.Nonnull;
+import static java.util.Collections.unmodifiableCollection;
 
 /**
  * Error thrown when looking up a component using a {@link org.uitest4j.swing.core.ComponentFinder}.
@@ -26,34 +25,37 @@ import javax.annotation.Nonnull;
  * @author Alex Ruiz
  */
 public class ComponentLookupException extends RuntimeException {
-  /** Generated serial version UID. */
-  private static final long serialVersionUID = 8565803426992774170L;
-  private final Collection<Component> found = new ArrayList<>();
+	/**
+	 * Generated serial version UID.
+	 */
+	private static final long serialVersionUID = 8565803426992774170L;
+	private final Collection<Component> found = new ArrayList<>();
 
-  /**
-   * Creates a new {@link ComponentLookupException}.
-   *
-   * @param message the detail message.
-   * @param found the AWT and Swing {@code Component}s found by the lookup (if any).
-   */
-  public ComponentLookupException(@Nonnull String message, @Nonnull Collection<? extends Component> found) {
-    this(message);
-    this.found.addAll(found);
-  }
+	/**
+	 * Creates a new {@link ComponentLookupException}.
+	 *
+	 * @param message the detail message.
+	 * @param found   the AWT and Swing {@code Component}s found by the lookup (if any).
+	 */
+	public ComponentLookupException(@Nonnull String message, @Nonnull Collection<? extends Component> found) {
+		this(message);
+		this.found.addAll(found);
+	}
 
-  /**
-   * Creates a new {@link ComponentLookupException}.
-   *
-   * @param message the detail message.
-   */
-  public ComponentLookupException(@Nonnull String message) {
-    super(message);
-  }
+	/**
+	 * Creates a new {@link ComponentLookupException}.
+	 *
+	 * @param message the detail message.
+	 */
+	public ComponentLookupException(@Nonnull String message) {
+		super(message);
+	}
 
-  /**
-   * @return the AWT and Swing {@code Component}s found by the lookup (if any).
-   */
-  public final @Nonnull Collection<Component> found() {
-    return unmodifiableCollection(found);
-  }
+	/**
+	 * @return the AWT and Swing {@code Component}s found by the lookup (if any).
+	 */
+	public final @Nonnull
+	Collection<Component> found() {
+		return unmodifiableCollection(found);
+	}
 }

@@ -12,22 +12,22 @@
  */
 package org.uitest4j.swing.driver;
 
-import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-
 import javax.annotation.Nonnull;
-import javax.swing.JScrollBar;
+import javax.swing.*;
+
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
  * Sets the value of a {@code JScrollBar}. This task is executed in the event dispatch thread (EDT).
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
 final class JScrollBarSetValueTask {
-  static void setValue(final @Nonnull JScrollBar scrollBar, final int value) {
-    execute(() -> scrollBar.setValue(value));
-  }
+	static void setValue(final @Nonnull JScrollBar scrollBar, final int value) {
+		execute(() -> scrollBar.setValue(value));
+	}
 
-  private JScrollBarSetValueTask() {
-  }
+	private JScrollBarSetValueTask() {
+	}
 }

@@ -20,34 +20,35 @@ import java.awt.*;
 
 /**
  * Finds the focus owner of an AWT or Swing {@code Container}.
- * 
+ *
  * @author Alex Ruiz
  */
 class ContainerFocusOwnerFinder {
-  @RunsInCurrentThread
-  @Nullable
-  Component focusOwnerOf(@Nullable Container c) {
-    if (!(c instanceof Window)) {
-      return null;
-    }
-    return focusOwnerOf((Window) c);
-  }
+	@RunsInCurrentThread
+	@Nullable
+	Component focusOwnerOf(@Nullable Container c) {
+		if (!(c instanceof Window)) {
+			return null;
+		}
+		return focusOwnerOf((Window) c);
+	}
 
-  @RunsInCurrentThread
-  @Nullable private Component focusOwnerOf(@Nonnull Window w) {
-    if (!w.isShowing()) {
-      return null;
-    }
-    Component focus = w.getFocusOwner();
-    if (focus != null) {
-      return focus;
-    }
-    for (Window o : w.getOwnedWindows()) {
-      focus = o.getFocusOwner();
-      if (focus != null) {
-        return focus;
-      }
-    }
-    return null;
-  }
+	@RunsInCurrentThread
+	@Nullable
+	private Component focusOwnerOf(@Nonnull Window w) {
+		if (!w.isShowing()) {
+			return null;
+		}
+		Component focus = w.getFocusOwner();
+		if (focus != null) {
+			return focus;
+		}
+		for (Window o : w.getOwnedWindows()) {
+			focus = o.getFocusOwner();
+			if (focus != null) {
+				return focus;
+			}
+		}
+		return null;
+	}
 }

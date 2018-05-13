@@ -12,51 +12,51 @@
  */
 package org.uitest4j.swing.edt;
 
-import java.util.concurrent.CountDownLatch;
-
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.util.concurrent.CountDownLatch;
 
 /**
  * Action executed in the event dispatch thread (EDT).
- * 
+ *
  * @author Alex Ruiz
  */
 abstract class GuiAction implements Runnable {
-  private boolean executedInEDT;
-  private Throwable caughtException;
-  private CountDownLatch executionNotification;
+	private boolean executedInEDT;
+	private Throwable caughtException;
+	private CountDownLatch executionNotification;
 
-  final @Nullable Throwable catchedException() {
-    return caughtException;
-  }
+	final @Nullable
+	Throwable catchedException() {
+		return caughtException;
+	}
 
-  final void catchedException(@Nullable Throwable catched) {
-    caughtException = catched;
-  }
+	final void catchedException(@Nullable Throwable catched) {
+		caughtException = catched;
+	}
 
-  final boolean wasExecutedInEDT() {
-    return executedInEDT;
-  }
+	final boolean wasExecutedInEDT() {
+		return executedInEDT;
+	}
 
-  final void clearCaughtException() {
-    caughtException = null;
-  }
+	final void clearCaughtException() {
+		caughtException = null;
+	}
 
-  final void executionNotification(@Nonnull CountDownLatch c) {
-    executionNotification = c;
-  }
+	final void executionNotification(@Nonnull CountDownLatch c) {
+		executionNotification = c;
+	}
 
-  final void notifyExecutionCompleted() {
-    executedInEDT();
-    if (executionNotification == null) {
-      return;
-    }
-    executionNotification.countDown();
-    executionNotification = null;
-  }
+	final void notifyExecutionCompleted() {
+		executedInEDT();
+		if (executionNotification == null) {
+			return;
+		}
+		executionNotification.countDown();
+		executionNotification = null;
+	}
 
-  private void executedInEDT() {
-    executedInEDT = true;
-  }
+	private void executedInEDT() {
+		executedInEDT = true;
+	}
 }

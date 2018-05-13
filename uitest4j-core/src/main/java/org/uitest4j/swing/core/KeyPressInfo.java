@@ -12,9 +12,9 @@
  */
 package org.uitest4j.swing.core;
 
-import static org.uitest4j.swing.util.ArrayUtils.copyOf;
-
 import javax.annotation.Nonnull;
+
+import static org.uitest4j.swing.util.ArrayUtils.copyOf;
 
 /**
  * <p>
@@ -52,57 +52,60 @@ import javax.annotation.Nonnull;
  * @author Yvonne Wang
  */
 public final class KeyPressInfo {
-  private static final int[] NO_MODIFIERS = {};
+	private static final int[] NO_MODIFIERS = {};
 
-  private final int keyCode;
-  private int[] modifiers;
+	private final int keyCode;
+	private int[] modifiers;
 
-  /**
-   * Specifies the code of the key to press, without any modifiers (e.g. {@code java.awt.event.KeyEvent.VK_C}).
-   *
-   * @param keyCode the code of the key to press.
-   * @return the created {@code KeyPressInfo}.
-   */
-  @Nonnull public static KeyPressInfo keyCode(int keyCode) {
-    return new KeyPressInfo(keyCode);
-  }
+	/**
+	 * Specifies the code of the key to press, without any modifiers (e.g. {@code java.awt.event.KeyEvent.VK_C}).
+	 *
+	 * @param keyCode the code of the key to press.
+	 * @return the created {@code KeyPressInfo}.
+	 */
+	@Nonnull
+	public static KeyPressInfo keyCode(int keyCode) {
+		return new KeyPressInfo(keyCode);
+	}
 
-  private KeyPressInfo(int keyCode) {
-    this.keyCode = keyCode;
-    this.modifiers = KeyPressInfo.NO_MODIFIERS;
-  }
+	private KeyPressInfo(int keyCode) {
+		this.keyCode = keyCode;
+		this.modifiers = KeyPressInfo.NO_MODIFIERS;
+	}
 
-  /**
-   * @return the code of the key to press.
-   */
-  public int keyCode() {
-    return keyCode;
-  }
+	/**
+	 * @return the code of the key to press.
+	 */
+	public int keyCode() {
+		return keyCode;
+	}
 
-  /**
-   * @return the modifiers to use when pressing {@link #keyCode() the specified key}.
-   */
-  @Nonnull public int[] modifiers() {
-    return copyOf(modifiers);
-  }
+	/**
+	 * @return the modifiers to use when pressing {@link #keyCode() the specified key}.
+	 */
+	@Nonnull
+	public int[] modifiers() {
+		return copyOf(modifiers);
+	}
 
-  /**
-   * <p>
-   * Specifies the modifiers to use when pressing {@link #keyCode() the specified key} (e.g.
-   * {@code java.awt.Event.CTRL_MASK}).
-   * </p>
-   *
-   * <p>
-   * For platform-safe mask pressing (e.g. 'Control' in Windows or 'Command' in MacOS) use
-   * {@link org.uitest4j.swing.util.Platform#controlOrCommandMask()}.
-   * </p>
-   *
-   * @param newModifiers the new modifiers to use.
-   * @return this object.
-   * @throws NullPointerException if {@code newModifiers} is {@code null}.
-   */
-  @Nonnull public KeyPressInfo modifiers(@Nonnull int... newModifiers) {
-    modifiers = copyOf(newModifiers);
-    return this;
-  }
+	/**
+	 * <p>
+	 * Specifies the modifiers to use when pressing {@link #keyCode() the specified key} (e.g.
+	 * {@code java.awt.Event.CTRL_MASK}).
+	 * </p>
+	 *
+	 * <p>
+	 * For platform-safe mask pressing (e.g. 'Control' in Windows or 'Command' in MacOS) use
+	 * {@link org.uitest4j.swing.util.Platform#controlOrCommandMask()}.
+	 * </p>
+	 *
+	 * @param newModifiers the new modifiers to use.
+	 * @return this object.
+	 * @throws NullPointerException if {@code newModifiers} is {@code null}.
+	 */
+	@Nonnull
+	public KeyPressInfo modifiers(@Nonnull int... newModifiers) {
+		modifiers = copyOf(newModifiers);
+		return this;
+	}
 }

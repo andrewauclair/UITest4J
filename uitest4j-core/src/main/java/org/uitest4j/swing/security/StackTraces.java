@@ -16,10 +16,10 @@ package org.uitest4j.swing.security;
  * @author Alex Ruiz
  */
 class StackTraces {
-  /**
-   * @return the stack trace for the current thread.
-   */
-  StackTraceElement[] stackTraceInCurrentThread() {
-    return Thread.currentThread().getStackTrace();
-  }
+	/**
+	 * @return the stack trace for the current thread.
+	 */
+	StackTraceElement[] stackTraceInCurrentThread() {
+		return Thread.currentThread().getStackTrace();
+	}
 }

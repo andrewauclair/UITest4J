@@ -20,35 +20,38 @@ import javax.annotation.Nonnull;
  * @author Yvonne Wang
  */
 public class ActionFailedException extends RuntimeException {
-  /** Generated serial version UID. */
-  private static final long serialVersionUID = 8302395324992017367L;
+	/**
+	 * Generated serial version UID.
+	 */
+	private static final long serialVersionUID = 8302395324992017367L;
 
-  /**
-   * Creates a new {@link ActionFailedException}.
-   *
-   * @param message the detail message.
-   * @return the created exception.
-   */
-  @Nonnull public static ActionFailedException actionFailure(@Nonnull String message) {
-    return new ActionFailedException(message);
-  }
+	/**
+	 * Creates a new {@link ActionFailedException}.
+	 *
+	 * @param message the detail message.
+	 * @return the created exception.
+	 */
+	@Nonnull
+	public static ActionFailedException actionFailure(@Nonnull String message) {
+		return new ActionFailedException(message);
+	}
 
-  /**
-   * Creates a new {@link ActionFailedException}.
-   *
-   * @param message the detail message.
-   * @param cause the cause of the error.
-   * @return the created exception.
-   */
-  public static ActionFailedException actionFailure(@Nonnull String message, @Nonnull Throwable cause) {
-    return new ActionFailedException(message, cause);
-  }
+	/**
+	 * Creates a new {@link ActionFailedException}.
+	 *
+	 * @param message the detail message.
+	 * @param cause   the cause of the error.
+	 * @return the created exception.
+	 */
+	public static ActionFailedException actionFailure(@Nonnull String message, @Nonnull Throwable cause) {
+		return new ActionFailedException(message, cause);
+	}
 
-  private ActionFailedException(@Nonnull String message) {
-    super(message);
-  }
+	private ActionFailedException(@Nonnull String message) {
+		super(message);
+	}
 
-  private ActionFailedException(@Nonnull String message, @Nonnull Throwable cause) {
-    super(message, cause);
-  }
+	private ActionFailedException(@Nonnull String message, @Nonnull Throwable cause) {
+		super(message, cause);
+	}
 }

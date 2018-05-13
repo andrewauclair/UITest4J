@@ -24,17 +24,17 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
  * @author Alex Ruiz
  */
 class FrameDisposer {
-  @RunsInEDT
-  void disposeFrames() {
-    doDisposeFrames();
-  }
+	@RunsInEDT
+	void disposeFrames() {
+		doDisposeFrames();
+	}
 
-  @RunsInEDT
-  private static void doDisposeFrames() {
-    execute(() -> {
-      for (Frame f : Frame.getFrames()) {
-        f.dispose();
-      }
-    });
-  }
+	@RunsInEDT
+	private static void doDisposeFrames() {
+		execute(() -> {
+			for (Frame f : Frame.getFrames()) {
+				f.dispose();
+			}
+		});
+	}
 }

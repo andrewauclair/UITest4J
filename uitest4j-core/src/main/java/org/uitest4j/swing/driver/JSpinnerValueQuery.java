@@ -22,16 +22,17 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
  * Returns the value of a {@code JSpinner}. This query is executed in the event dispatch thread (EDT).
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
 final class JSpinnerValueQuery {
-  @RunsInEDT
-  static @Nullable Object valueOf(final @Nonnull JSpinner spinner) {
-    return execute(spinner::getValue);
-  }
+	@RunsInEDT
+	static @Nullable
+	Object valueOf(final @Nonnull JSpinner spinner) {
+		return execute(spinner::getValue);
+	}
 
-  private JSpinnerValueQuery() {
-  }
+	private JSpinnerValueQuery() {
+	}
 }

@@ -40,7 +40,9 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 final class JListScrollToItemTask {
 	static final Pair<Integer, Point> ITEM_NOT_FOUND = Pair.of(-1, null);
 
-	/** @return the point that the JList was scrolled to. */
+	/**
+	 * @return the point that the JList was scrolled to.
+	 */
 	@RunsInEDT
 	static @Nonnull
 	Point scrollToItem(final @Nonnull JList<?> list, final int index) {
@@ -52,7 +54,9 @@ final class JListScrollToItemTask {
 		return Objects.requireNonNull(result);
 	}
 
-	/** @return the index of first matching element and the point that the JList was scrolled to. */
+	/**
+	 * @return the index of first matching element and the point that the JList was scrolled to.
+	 */
 	@RunsInEDT
 	static @Nonnull
 	Pair<Integer, Point> scrollToItem(final @Nonnull JList<?> list, final @Nonnull TextMatcher matcher,
@@ -71,7 +75,9 @@ final class JListScrollToItemTask {
 		return Objects.requireNonNull(result);
 	}
 
-	/** @return the index of first matching element and the point that the JList was scrolled to. */
+	/**
+	 * @return the index of first matching element and the point that the JList was scrolled to.
+	 */
 	@RunsInEDT
 	static @Nonnull
 	Pair<Integer, Point> scrollToItemIfNotSelectedYet(final @Nonnull JList<?> list,
@@ -91,7 +97,9 @@ final class JListScrollToItemTask {
 		return Objects.requireNonNull(result);
 	}
 
-	/** @return the point that the JList was scrolled to. */
+	/**
+	 * @return the point that the JList was scrolled to.
+	 */
 	@RunsInEDT
 	static @Nullable
 	Point scrollToItemIfNotSelectedYet(final @Nonnull JList<?> list, final int index) {
@@ -102,7 +110,9 @@ final class JListScrollToItemTask {
 		});
 	}
 
-	/** @return the point that the JList was scrolled to. */
+	/**
+	 * @return the point that the JList was scrolled to.
+	 */
 	@RunsInCurrentThread
 	@Nullable
 	private static Point scrollToItemWithIndexIfNotSelectedYet(final @Nonnull JList<?> list, final int index) {

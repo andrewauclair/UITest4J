@@ -12,21 +12,20 @@
  */
 package org.uitest4j.swing.core;
 
-import java.awt.Component;
-
 import javax.annotation.Nullable;
+import java.awt.*;
 
 /**
  * Indicates whether an AWT or Swing {@code Component} matches some desired criteria.
- * 
+ *
  * @author Alex Ruiz
  */
 public interface ComponentMatcher {
-  /**
-   * Indicates whether the given AWT or Swing {@code Component} matches some lookup criteria.
-   * 
-   * @param c the {@code Component} to verify.
-   * @return {@code true} if the given {@code Component} matches some lookup criteria, otherwise {@code false}.
-   */
-  boolean matches(@Nullable Component c);
+	/**
+	 * Indicates whether the given AWT or Swing {@code Component} matches some lookup criteria.
+	 *
+	 * @param c the {@code Component} to verify.
+	 * @return {@code true} if the given {@code Component} matches some lookup criteria, otherwise {@code false}.
+	 */
+	boolean matches(@Nullable Component c);
 }

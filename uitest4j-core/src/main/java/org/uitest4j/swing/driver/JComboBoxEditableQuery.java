@@ -27,12 +27,12 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
  * @author Yvonne Wang
  */
 final class JComboBoxEditableQuery {
-  @RunsInEDT
-  static boolean isEditable(final @Nonnull JComboBox<?> comboBox) {
-	  Boolean result = execute(comboBox::isEditable);
-	  return Objects.requireNonNull(result);
-  }
+	@RunsInEDT
+	static boolean isEditable(final @Nonnull JComboBox<?> comboBox) {
+		Boolean result = execute(comboBox::isEditable);
+		return Objects.requireNonNull(result);
+	}
 
-  private JComboBoxEditableQuery() {
-  }
+	private JComboBoxEditableQuery() {
+	}
 }

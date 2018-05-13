@@ -12,7 +12,7 @@
  */
 /**
  * Base test classes.
- * 
+ *
  * @author Alex Ruiz
  */
 package org.uitest4j.swing.testing;

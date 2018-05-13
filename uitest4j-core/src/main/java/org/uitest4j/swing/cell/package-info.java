@@ -13,7 +13,7 @@
 /**
  * Support for reading from and writing to cells in {@code JComponent}s (for example: {@code JList}s, {@code JTable}s,
  * etc).
- * 
+ *
  * @author Alex Ruiz
  */
 package org.uitest4j.swing.cell;

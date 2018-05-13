@@ -20,100 +20,101 @@ import static org.uitest4j.swing.util.OSFamily.*;
 
 /**
  * Identifies the current Operating System.
- * 
+ *
  * @author Alex Ruiz
  */
 class OSIdentifier {
-  private final boolean isWindows;
-  private final boolean isWindows9x;
-  private final boolean isWindowsXP;
-  private final boolean isOSX;
-  private final boolean isX11;
-  private final boolean isSolaris;
-  private final boolean isHPUX;
-  private final boolean isLinux;
-  private final OSFamily osFamily;
+	private final boolean isWindows;
+	private final boolean isWindows9x;
+	private final boolean isWindowsXP;
+	private final boolean isOSX;
+	private final boolean isX11;
+	private final boolean isSolaris;
+	private final boolean isHPUX;
+	private final boolean isLinux;
+	private final OSFamily osFamily;
 
-  OSIdentifier() {
-    this(new SystemPropertyReader());
-  }
+	OSIdentifier() {
+		this(new SystemPropertyReader());
+	}
 
-  // Used for tests
-  OSIdentifier(@Nonnull SystemPropertyReader reader) {
-	  String osName = Objects.requireNonNull(reader.systemProperty("os.name")).toLowerCase(ENGLISH);
-    isWindows = osName.startsWith("windows");
-    isWindows9x = isWindows && containsAny(osName, "95", "98", "me");
-    isWindowsXP = isWindows && osName.contains("xp");
-    isOSX = osName.contains("os x");
-    isX11 = !isOSX && !isWindows;
-    isSolaris = osName.startsWith("sunos") || osName.startsWith("solaris");
-    isHPUX = osName.equals("hp-ux");
-    isLinux = osName.equals("linux");
-    osFamily = findOSFamily();
-  }
+	// Used for tests
+	OSIdentifier(@Nonnull SystemPropertyReader reader) {
+		String osName = Objects.requireNonNull(reader.systemProperty("os.name")).toLowerCase(ENGLISH);
+		isWindows = osName.startsWith("windows");
+		isWindows9x = isWindows && containsAny(osName, "95", "98", "me");
+		isWindowsXP = isWindows && osName.contains("xp");
+		isOSX = osName.contains("os x");
+		isX11 = !isOSX && !isWindows;
+		isSolaris = osName.startsWith("sunos") || osName.startsWith("solaris");
+		isHPUX = osName.equals("hp-ux");
+		isLinux = osName.equals("linux");
+		osFamily = findOSFamily();
+	}
 
-  private static boolean containsAny(@Nonnull String target, @Nonnull String... subs) {
-    for (String sub : subs) {
-      if (target.contains(sub)) {
-        return true;
-      }
-    }
-    return false;
-  }
+	private static boolean containsAny(@Nonnull String target, @Nonnull String... subs) {
+		for (String sub : subs) {
+			if (target.contains(sub)) {
+				return true;
+			}
+		}
+		return false;
+	}
 
-  @Nonnull private OSFamily findOSFamily() {
-    if (isWindows()) {
-      return WINDOWS;
-    }
-    if (isMacintosh() || isOSX()) {
-      return MAC;
-    }
-    if (isLinux()) {
-      return LINUX;
-    }
-    return UNIX;
-  }
+	@Nonnull
+	private OSFamily findOSFamily() {
+		if (isWindows()) {
+			return WINDOWS;
+		}
+		if (isMacintosh() || isOSX()) {
+			return MAC;
+		}
+		if (isLinux()) {
+			return LINUX;
+		}
+		return UNIX;
+	}
 
-  boolean isWindows() {
-    return isWindows;
-  }
+	boolean isWindows() {
+		return isWindows;
+	}
 
-  boolean isWindows9x() {
-    return isWindows9x;
-  }
+	boolean isWindows9x() {
+		return isWindows9x;
+	}
 
-  boolean isWindowsXP() {
-    return isWindowsXP;
-  }
+	boolean isWindowsXP() {
+		return isWindowsXP;
+	}
 
-  boolean isMacintosh() {
-    // currently we assume only Mac OS X is used
-    return isOSX();
-  }
+	boolean isMacintosh() {
+		// currently we assume only Mac OS X is used
+		return isOSX();
+	}
 
-  boolean isOSX() {
-    return isOSX;
-  }
+	boolean isOSX() {
+		return isOSX;
+	}
 
-  boolean isX11() {
-    return isX11;
-  }
+	boolean isX11() {
+		return isX11;
+	}
 
-  boolean isSolaris() {
-    return isSolaris;
-  }
+	boolean isSolaris() {
+		return isSolaris;
+	}
 
-  boolean isHPUX() {
-    return isHPUX;
-  }
+	boolean isHPUX() {
+		return isHPUX;
+	}
 
-  boolean isLinux() {
-    return isLinux;
-  }
+	boolean isLinux() {
+		return isLinux;
+	}
 
-  /* Since 1.2 */
-  @Nonnull
-  OSFamily osFamily() {
-    return osFamily;
-  }
+	/* Since 1.2 */
+	@Nonnull
+	OSFamily osFamily() {
+		return osFamily;
+	}
 }

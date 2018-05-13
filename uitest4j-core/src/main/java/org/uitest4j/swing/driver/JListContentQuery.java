@@ -12,12 +12,11 @@
  */
 package org.uitest4j.swing.driver;
 
-import org.uitest4j.swing.cell.JListCellReader;
 import org.uitest4j.swing.annotation.RunsInEDT;
+import org.uitest4j.swing.cell.JListCellReader;
 
 import javax.annotation.Nonnull;
 import javax.swing.*;
-
 import java.util.Objects;
 
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
@@ -29,18 +28,19 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
  * @author Alex Ruiz
  */
 final class JListContentQuery {
-  @RunsInEDT
-  static @Nonnull String[] contents(final @Nonnull JList<?> list, final @Nonnull JListCellReader cellReader) {
-    String[] result = execute(() -> {
-      String[] values = new String[list.getModel().getSize()];
-      for (int i = 0; i < values.length; i++) {
-        values[i] = cellReader.valueAt(list, i);
-      }
-      return values;
-    });
-    return Objects.requireNonNull(result);
-  }
+	@RunsInEDT
+	static @Nonnull
+	String[] contents(final @Nonnull JList<?> list, final @Nonnull JListCellReader cellReader) {
+		String[] result = execute(() -> {
+			String[] values = new String[list.getModel().getSize()];
+			for (int i = 0; i < values.length; i++) {
+				values[i] = cellReader.valueAt(list, i);
+			}
+			return values;
+		});
+		return Objects.requireNonNull(result);
+	}
 
-  private JListContentQuery() {
-  }
+	private JListContentQuery() {
+	}
 }

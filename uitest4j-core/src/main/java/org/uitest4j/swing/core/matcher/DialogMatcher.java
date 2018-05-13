@@ -25,164 +25,169 @@ import java.util.regex.Pattern;
  * @author Alex Ruiz
  */
 public final class DialogMatcher extends NamedComponentMatcherTemplate<Dialog> {
-  private Object title;
+	private Object title;
 
-  /**
-   * <p>
-   * Creates a new {@link DialogMatcher} that matches an AWT or Swing {@code Dialog} by name.
-   * </p>
-   *
-   * <p>
-   * The following code listing shows how to match a {@code Dialog} by name and title:
-   * </p>
-   *
-   * <pre>
-   * DialogMatcher m = withName("saveFile").{@link #andTitle(String) andTitle}("Save File");
-   * </pre>
-   *
-   * <p>
-   * The following code listing shows how to match a {@code Dialog}, that should be showing on the screen, by name and
-   * title:
-   * </p>
-   *
-   * <pre>
-   * DialogMatcher m = withName("saveFile").{@link #andTitle(String) andTitle}("Save File").{@link #andShowing() andShowing}();
-   * </pre>
-   *
-   * @param name the id to match.
-   * @return the created matcher.
-   */
-  public static DialogMatcher withName(@Nullable String name) {
-    return new DialogMatcher(name, anyValue());
-  }
+	/**
+	 * <p>
+	 * Creates a new {@link DialogMatcher} that matches an AWT or Swing {@code Dialog} by name.
+	 * </p>
+	 *
+	 * <p>
+	 * The following code listing shows how to match a {@code Dialog} by name and title:
+	 * </p>
+	 *
+	 * <pre>
+	 * DialogMatcher m = withName("saveFile").{@link #andTitle(String) andTitle}("Save File");
+	 * </pre>
+	 *
+	 * <p>
+	 * The following code listing shows how to match a {@code Dialog}, that should be showing on the screen, by name and
+	 * title:
+	 * </p>
+	 *
+	 * <pre>
+	 * DialogMatcher m = withName("saveFile").{@link #andTitle(String) andTitle}("Save File").{@link #andShowing() andShowing}();
+	 * </pre>
+	 *
+	 * @param name the id to match.
+	 * @return the created matcher.
+	 */
+	public static DialogMatcher withName(@Nullable String name) {
+		return new DialogMatcher(name, anyValue());
+	}
 
-  /**
-   * <p>
-   * Creates a new {@link DialogMatcher} that matches an AWT or Swing {@code Dialog} by title.
-   * </p>
-   *
-   * <p>
-   * The following code listing shows how to match a {@code Dialog} title:
-   * </p>
-   *
-   * <pre>
-   * DialogMatcher m = withTitle("Save File");
-   * </pre>
-   *
-   * <p>
-   * The following code listing shows how to match a {@code Dialog}, that should be showing on the screen, by title:
-   * </p>
-   *
-   * <pre>
-   * DialogMatcher m = withTitle("Save File").{@link #andShowing() andShowing}();
-   * </pre>
-   *
-   * @param title the title to match. It can be a regular expression.
-   * @return the created matcher.
-   */
-  @Nonnull public static DialogMatcher withTitle(@Nullable String title) {
-    return new DialogMatcher(anyValue(), title);
-  }
+	/**
+	 * <p>
+	 * Creates a new {@link DialogMatcher} that matches an AWT or Swing {@code Dialog} by title.
+	 * </p>
+	 *
+	 * <p>
+	 * The following code listing shows how to match a {@code Dialog} title:
+	 * </p>
+	 *
+	 * <pre>
+	 * DialogMatcher m = withTitle("Save File");
+	 * </pre>
+	 *
+	 * <p>
+	 * The following code listing shows how to match a {@code Dialog}, that should be showing on the screen, by title:
+	 * </p>
+	 *
+	 * <pre>
+	 * DialogMatcher m = withTitle("Save File").{@link #andShowing() andShowing}();
+	 * </pre>
+	 *
+	 * @param title the title to match. It can be a regular expression.
+	 * @return the created matcher.
+	 */
+	@Nonnull
+	public static DialogMatcher withTitle(@Nullable String title) {
+		return new DialogMatcher(anyValue(), title);
+	}
 
-  /**
-   * <p>
-   * Creates a new {@link DialogMatcher} that matches an AWT or Swing {@code Dialog} by title.
-   * </p>
-   *
-   * <p>
-   * The following code listing shows how to match a {@code Dialog} title, using a regular expression pattern:
-   * </p>
-   *
-   * <pre>
-   * DialogMatcher m = withTitle(Pattern.compile("Sav.*"));
-   * </pre>
-   *
-   * <p>
-   * The following code listing shows how to match a {@code Dialog}, that should be showing on the screen, by title,
-   * using a regular expression pattern:
-   * </p>
-   *
-   * <pre>
-   * DialogMatcher m = withTitle(Pattern.compile("Sav.*")).{@link #andShowing() andShowing}();
-   * </pre>
-   *
-   * @param pattern the regular expression pattern to match.
-   * @return the created matcher.
-   */
-  @Nonnull public static DialogMatcher withTitle(@Nonnull Pattern pattern) {
-    return new DialogMatcher(anyValue(), pattern);
-  }
+	/**
+	 * <p>
+	 * Creates a new {@link DialogMatcher} that matches an AWT or Swing {@code Dialog} by title.
+	 * </p>
+	 *
+	 * <p>
+	 * The following code listing shows how to match a {@code Dialog} title, using a regular expression pattern:
+	 * </p>
+	 *
+	 * <pre>
+	 * DialogMatcher m = withTitle(Pattern.compile("Sav.*"));
+	 * </pre>
+	 *
+	 * <p>
+	 * The following code listing shows how to match a {@code Dialog}, that should be showing on the screen, by title,
+	 * using a regular expression pattern:
+	 * </p>
+	 *
+	 * <pre>
+	 * DialogMatcher m = withTitle(Pattern.compile("Sav.*")).{@link #andShowing() andShowing}();
+	 * </pre>
+	 *
+	 * @param pattern the regular expression pattern to match.
+	 * @return the created matcher.
+	 */
+	@Nonnull
+	public static DialogMatcher withTitle(@Nonnull Pattern pattern) {
+		return new DialogMatcher(anyValue(), pattern);
+	}
 
-  /**
-   * Creates a new {@link DialogMatcher} that matches any {@code Dialog}.
-   *
-   * @return the created matcher.
-   */
-  @Nonnull public static DialogMatcher any() {
-    return new DialogMatcher(anyValue(), anyValue());
-  }
+	/**
+	 * Creates a new {@link DialogMatcher} that matches any {@code Dialog}.
+	 *
+	 * @return the created matcher.
+	 */
+	@Nonnull
+	public static DialogMatcher any() {
+		return new DialogMatcher(anyValue(), anyValue());
+	}
 
-  private DialogMatcher(@Nullable Object name, @Nullable Object title) {
-    super(Dialog.class, name);
-    this.title = title;
-  }
+	private DialogMatcher(@Nullable Object name, @Nullable Object title) {
+		super(Dialog.class, name);
+		this.title = title;
+	}
 
-  /**
-   * Specifies the title to match. If this matcher was created using {@link #withTitle(String)} or
-   * {@link #withTitle(Pattern)}, this method will simply update the title to match.
-   *
-   * @param newTitle the new title to match. It can be a regular expression.
-   * @return this matcher.
-   */
-  @Nonnull public DialogMatcher andTitle(@Nullable String newTitle) {
-    title = newTitle;
-    return this;
-  }
+	/**
+	 * Specifies the title to match. If this matcher was created using {@link #withTitle(String)} or
+	 * {@link #withTitle(Pattern)}, this method will simply update the title to match.
+	 *
+	 * @param newTitle the new title to match. It can be a regular expression.
+	 * @return this matcher.
+	 */
+	@Nonnull
+	public DialogMatcher andTitle(@Nullable String newTitle) {
+		title = newTitle;
+		return this;
+	}
 
-  /**
-   * Specifies the title to match. If this matcher was created using {@link #withTitle(String)}, or
-   * {@link #withTitle(Pattern)} this method will simply update the title to match.
-   *
-   * @param titlePattern the regular expression pattern to match.
-   * @return this matcher.
-   */
-  public DialogMatcher andTitle(@Nonnull Pattern titlePattern) {
-    title = titlePattern;
-    return this;
-  }
+	/**
+	 * Specifies the title to match. If this matcher was created using {@link #withTitle(String)}, or
+	 * {@link #withTitle(Pattern)} this method will simply update the title to match.
+	 *
+	 * @param titlePattern the regular expression pattern to match.
+	 * @return this matcher.
+	 */
+	public DialogMatcher andTitle(@Nonnull Pattern titlePattern) {
+		title = titlePattern;
+		return this;
+	}
 
-  /**
-   * Indicates that the AWT or Swing {@code Dialog} to match should be showing on the screen.
-   *
-   * @return this matcher.
-   */
-  @Nonnull public DialogMatcher andShowing() {
-    requireShowing(true);
-    return this;
-  }
+	/**
+	 * Indicates that the AWT or Swing {@code Dialog} to match should be showing on the screen.
+	 *
+	 * @return this matcher.
+	 */
+	@Nonnull
+	public DialogMatcher andShowing() {
+		requireShowing(true);
+		return this;
+	}
 
-  /**
-   * <p>
-   * Indicates whether the name and title of the given AWT or Swing {@code Dialog} match the ones in this matcher.
-   * </p>
-   *
-   * <p>
-   * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
-   * dispatch thread (EDT). Client code must call this method from the EDT.
-   * </p>
-   *
-   * @param dialog the {@code Dialog} to match.
-   * @return {@code true} if the {@code Dialog} matches the search criteria in this matcher.
-   */
-  @RunsInCurrentThread
-  @Override
-  protected boolean isMatching(@Nonnull Dialog dialog) {
-    return isNameMatching(dialog.getName()) && arePropertyValuesMatching(title, dialog.getTitle());
-  }
+	/**
+	 * <p>
+	 * Indicates whether the name and title of the given AWT or Swing {@code Dialog} match the ones in this matcher.
+	 * </p>
+	 *
+	 * <p>
+	 * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
+	 * dispatch thread (EDT). Client code must call this method from the EDT.
+	 * </p>
+	 *
+	 * @param dialog the {@code Dialog} to match.
+	 * @return {@code true} if the {@code Dialog} matches the search criteria in this matcher.
+	 */
+	@RunsInCurrentThread
+	@Override
+	protected boolean isMatching(@Nonnull Dialog dialog) {
+		return isNameMatching(dialog.getName()) && arePropertyValuesMatching(title, dialog.getTitle());
+	}
 
-  @Override
-  public String toString() {
-    String format = "%s[name=%s, title=%s, requireShowing=%b]";
-    return String.format(format, getClass().getName(), quotedName(), quoted(title), requireShowing());
-  }
+	@Override
+	public String toString() {
+		String format = "%s[name=%s, title=%s, requireShowing=%b]";
+		return String.format(format, getClass().getName(), quotedName(), quoted(title), requireShowing());
+	}
 }

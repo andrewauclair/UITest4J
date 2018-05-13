@@ -12,20 +12,15 @@
  */
 package org.uitest4j.swing.format;
 
-import static javax.swing.tree.TreeSelectionModel.CONTIGUOUS_TREE_SELECTION;
-import static javax.swing.tree.TreeSelectionModel.DISCONTIGUOUS_TREE_SELECTION;
-import static javax.swing.tree.TreeSelectionModel.SINGLE_TREE_SELECTION;
-
-import java.awt.Component;
-import java.util.Arrays;
-
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import javax.swing.JTree;
+import javax.swing.*;
 import javax.swing.tree.TreePath;
 import javax.swing.tree.TreeSelectionModel;
+import java.awt.*;
+import java.util.Arrays;
 
-import org.uitest4j.swing.util.ArrayUtils;
+import static javax.swing.tree.TreeSelectionModel.*;
 
 /**
  * Formatter for {@code JTree}s.
@@ -33,58 +28,63 @@ import org.uitest4j.swing.util.ArrayUtils;
  * @author Alex Ruiz
  */
 public class JTreeFormatter extends ComponentFormatterTemplate {
-  private static final String[] EMPTY = {};
+	private static final String[] EMPTY = {};
 
-  private static final IntEnum SELECTION_MODES = new IntEnum();
-  static {
-    SELECTION_MODES.put(SINGLE_TREE_SELECTION, "SINGLE_TREE_SELECTION")
-                   .put(CONTIGUOUS_TREE_SELECTION, "CONTIGUOUS_TREE_SELECTION")
-                   .put(DISCONTIGUOUS_TREE_SELECTION, "DISCONTIGUOUS_TREE_SELECTION");
-  }
+	private static final IntEnum SELECTION_MODES = new IntEnum();
 
-  /**
-   * Returns the {@code String} representation of the given {@code Component}, which should be a {@code JTree} (or
-   * subclass).
-   *
-   * @param c the given {@code Component}.
-   * @return the {@code String} representation of the given {@code JTree}.
-   */
-  @Override
-  @Nonnull protected String doFormat(@Nonnull Component c) {
-    JTree tree = (JTree) c;
-	  String format = "%s[name='%s', selectionCount=%d, selectionPaths=%s, selectionMode=%s, enabled=%b, visible=%b, showing=%b";
-	  return String.format(format, getRealClassName(c), tree.getName(), tree.getSelectionCount(),
-			  Arrays.toString(selectionPaths(tree)), selectionMode(tree), tree.isEnabled(), tree.isVisible(),
-                         tree.isShowing());
-  }
+	static {
+		SELECTION_MODES.put(SINGLE_TREE_SELECTION, "SINGLE_TREE_SELECTION")
+				.put(CONTIGUOUS_TREE_SELECTION, "CONTIGUOUS_TREE_SELECTION")
+				.put(DISCONTIGUOUS_TREE_SELECTION, "DISCONTIGUOUS_TREE_SELECTION");
+	}
 
-  @Nonnull private String[] selectionPaths(@Nonnull JTree tree) {
-    TreePath[] paths = tree.getSelectionPaths();
-    if (paths == null) {
-      return EMPTY;
-    }
-    int count = paths.length;
-    if (count == 0) {
-      return EMPTY;
-    }
-    String[] pathArray = new String[count];
-    for (int i = 0; i < count; i++) {
-      TreePath path = paths[i];
-      pathArray[i] = path != null ? path.toString() : null;
-    }
-    return pathArray;
-  }
+	/**
+	 * Returns the {@code String} representation of the given {@code Component}, which should be a {@code JTree} (or
+	 * subclass).
+	 *
+	 * @param c the given {@code Component}.
+	 * @return the {@code String} representation of the given {@code JTree}.
+	 */
+	@Override
+	@Nonnull
+	protected String doFormat(@Nonnull Component c) {
+		JTree tree = (JTree) c;
+		String format = "%s[name='%s', selectionCount=%d, selectionPaths=%s, selectionMode=%s, enabled=%b, visible=%b, showing=%b";
+		return String.format(format, getRealClassName(c), tree.getName(), tree.getSelectionCount(),
+				Arrays.toString(selectionPaths(tree)), selectionMode(tree), tree.isEnabled(), tree.isVisible(),
+				tree.isShowing());
+	}
 
-  @Nullable private String selectionMode(JTree tree) {
-    TreeSelectionModel model = tree.getSelectionModel();
-    return SELECTION_MODES.get(model.getSelectionMode());
-  }
+	@Nonnull
+	private String[] selectionPaths(@Nonnull JTree tree) {
+		TreePath[] paths = tree.getSelectionPaths();
+		if (paths == null) {
+			return EMPTY;
+		}
+		int count = paths.length;
+		if (count == 0) {
+			return EMPTY;
+		}
+		String[] pathArray = new String[count];
+		for (int i = 0; i < count; i++) {
+			TreePath path = paths[i];
+			pathArray[i] = path != null ? path.toString() : null;
+		}
+		return pathArray;
+	}
 
-  /**
-   * @return {@code JTree.class}.
-   */
-  @Override
-  @Nonnull public Class<? extends Component> targetType() {
-    return JTree.class;
-  }
+	@Nullable
+	private String selectionMode(JTree tree) {
+		TreeSelectionModel model = tree.getSelectionModel();
+		return SELECTION_MODES.get(model.getSelectionMode());
+	}
+
+	/**
+	 * @return {@code JTree.class}.
+	 */
+	@Override
+	@Nonnull
+	public Class<? extends Component> targetType() {
+		return JTree.class;
+	}
 }

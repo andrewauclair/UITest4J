@@ -22,16 +22,16 @@ import java.awt.*;
 /**
  * Uses reflection to toggle the "expand state" of a node in a given {@code JTextComponent}. This task is executed in
  * the event dispatch thread (EDT).
- * 
+ *
  * @author Yvonne Wang
  */
 final class JTreeToggleExpandStateTask {
-  @RunsInCurrentThread
-  static void toggleExpandState(final @Nonnull JTree tree, final @Nonnull Point pathLocation) {
-    TreePath path = tree.getPathForLocation(pathLocation.x, pathLocation.y);
-    tree.expandPath(path);
-  }
+	@RunsInCurrentThread
+	static void toggleExpandState(final @Nonnull JTree tree, final @Nonnull Point pathLocation) {
+		TreePath path = tree.getPathForLocation(pathLocation.x, pathLocation.y);
+		tree.expandPath(path);
+	}
 
-  private JTreeToggleExpandStateTask() {
-  }
+	private JTreeToggleExpandStateTask() {
+	}
 }

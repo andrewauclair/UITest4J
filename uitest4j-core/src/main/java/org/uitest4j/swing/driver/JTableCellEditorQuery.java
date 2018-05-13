@@ -24,25 +24,25 @@ import java.awt.*;
  * <p>
  * Returns the AWT or Swing {@code Component} of a {@code JTable} cell editor.
  * </p>
- * 
+ *
  * <p>
  * <b>Note:</b> Methods in this class are accessed in the current executing thread. Such thread may or may not be the
  * event dispatch thread (EDT). Client code must call methods in this class from the EDT.
  * </p>
- * 
- * @see JTable#getCellEditor()
- * @see TableCellEditor#getTableCellEditorComponent(JTable, Object, boolean, int, int)
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
+ * @see JTable#getCellEditor()
+ * @see TableCellEditor#getTableCellEditorComponent(JTable, Object, boolean, int, int)
  */
 final class JTableCellEditorQuery {
-  @RunsInCurrentThread
-  static @Nullable Component cellEditorIn(final @Nonnull JTable table, final int row, final int column) {
-    TableCellEditor cellEditor = table.getCellEditor(row, column);
-    return cellEditor.getTableCellEditorComponent(table, table.getValueAt(row, column), false, row, column);
-  }
+	@RunsInCurrentThread
+	static @Nullable
+	Component cellEditorIn(final @Nonnull JTable table, final int row, final int column) {
+		TableCellEditor cellEditor = table.getCellEditor(row, column);
+		return cellEditor.getTableCellEditorComponent(table, table.getValueAt(row, column), false, row, column);
+	}
 
-  private JTableCellEditorQuery() {
-  }
+	private JTableCellEditorQuery() {
+	}
 }

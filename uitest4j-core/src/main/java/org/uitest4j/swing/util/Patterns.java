@@ -12,11 +12,10 @@
  */
 package org.uitest4j.swing.util;
 
+import javax.annotation.Nonnull;
 import java.util.Arrays;
 import java.util.Objects;
 import java.util.regex.Pattern;
-
-import javax.annotation.Nonnull;
 
 /**
  * Utility methods for regular expression patterns.
@@ -24,44 +23,45 @@ import javax.annotation.Nonnull;
  * @author Alex Ruiz
  */
 public final class Patterns {
-  /**
-   * <p>
-   * Formats the given array of regular expression patterns.
-   * </p>
-   *
-   * <p>
-   * For example, the array
-   * </p>
-   *
-   * <pre>
-   * Pattern[] patterns = { Pattern.compile(&quot;hello&quot;), Pattern.compile(&quot;world&quot;) };
-   * </pre>
-   *
-   * <p>
-   * will be formatted as
-   * </p>
-   *
-   * <pre>
-   * ['hello', 'world']
-   * </pre>
-   *
-   * @param patterns the array of patterns to format.
-   * @return the {@code String} containing the formatted array.
-   * @throws NullPointerException if the given array of patterns is {@code null}.
-   * @throws NullPointerException if any of the patterns in the given array is {@code null}.
-   */
-  @Nonnull public static String format(@Nonnull Pattern[] patterns) {
-	  Objects.requireNonNull(patterns);
-    int patternCount = patterns.length;
-    String[] patternsAsText = new String[patternCount];
-    for (int i = 0; i < patternCount; i++) {
-		Pattern p = Objects.requireNonNull(patterns[i]);
-      patternsAsText[i] = p.pattern();
-    }
-	  return Arrays.toString(patternsAsText);
+	/**
+	 * <p>
+	 * Formats the given array of regular expression patterns.
+	 * </p>
+	 *
+	 * <p>
+	 * For example, the array
+	 * </p>
+	 *
+	 * <pre>
+	 * Pattern[] patterns = { Pattern.compile(&quot;hello&quot;), Pattern.compile(&quot;world&quot;) };
+	 * </pre>
+	 *
+	 * <p>
+	 * will be formatted as
+	 * </p>
+	 *
+	 * <pre>
+	 * ['hello', 'world']
+	 * </pre>
+	 *
+	 * @param patterns the array of patterns to format.
+	 * @return the {@code String} containing the formatted array.
+	 * @throws NullPointerException if the given array of patterns is {@code null}.
+	 * @throws NullPointerException if any of the patterns in the given array is {@code null}.
+	 */
+	@Nonnull
+	public static String format(@Nonnull Pattern[] patterns) {
+		Objects.requireNonNull(patterns);
+		int patternCount = patterns.length;
+		String[] patternsAsText = new String[patternCount];
+		for (int i = 0; i < patternCount; i++) {
+			Pattern p = Objects.requireNonNull(patterns[i]);
+			patternsAsText[i] = p.pattern();
+		}
+		return Arrays.toString(patternsAsText);
 //	  return Objects.requireNonNull(ArrayUtils.format(patternsAsText));
-  }
+	}
 
-  private Patterns() {
-  }
+	private Patterns() {
+	}
 }

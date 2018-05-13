@@ -23,28 +23,31 @@ import java.util.Collection;
 
 /**
  * Find children {@code Component}s in a {@code Window}.
- * 
+ *
  * @author Yvonne Wang
  */
 final class WindowChildrenFinder implements ChildrenFinderStrategy {
-  @RunsInCurrentThread
-  @Override
-  @Nonnull public Collection<Component> nonExplicitChildrenOf(@Nonnull Container c) {
-    if (!(c instanceof Window)) {
-		return new ArrayList<>();
-    }
-    return ownedWindows((Window) c);
-  }
+	@RunsInCurrentThread
+	@Override
+	@Nonnull
+	public Collection<Component> nonExplicitChildrenOf(@Nonnull Container c) {
+		if (!(c instanceof Window)) {
+			return new ArrayList<>();
+		}
+		return ownedWindows((Window) c);
+	}
 
-  @RunsInCurrentThread
-  @Nonnull private Collection<Component> ownedWindows(Window w) {
-    return windows(w.getOwnedWindows());
-  }
+	@RunsInCurrentThread
+	@Nonnull
+	private Collection<Component> ownedWindows(Window w) {
+		return windows(w.getOwnedWindows());
+	}
 
-  @Nonnull private Collection<Component> windows(@Nonnull Component[] windows) {
-	  if (ArrayUtils.isNullOrEmpty(windows)) {
-		return new ArrayList<>();
-    }
-	  return Arrays.asList(windows);
-  }
+	@Nonnull
+	private Collection<Component> windows(@Nonnull Component[] windows) {
+		if (ArrayUtils.isNullOrEmpty(windows)) {
+			return new ArrayList<>();
+		}
+		return Arrays.asList(windows);
+	}
 }

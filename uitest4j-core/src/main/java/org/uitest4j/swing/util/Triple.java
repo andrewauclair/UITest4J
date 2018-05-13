@@ -20,30 +20,32 @@ import javax.annotation.Nonnull;
  * @param <F> the generic type of the 1st. value in this tuple.
  * @param <S> the generic type of the 2nd. value in this tuple.
  * @param <T> the generic type of the 3rd. value in this tuple.
- *
  * @author Alex Ruiz
  */
 public class Triple<F, S, T> extends Pair<F, S> {
-  /** The third value in this tuple. */
-  public final T third;
+	/**
+	 * The third value in this tuple.
+	 */
+	public final T third;
 
-  /**
-   * Creates a new {@link Triple}.
-   * 
-   * @param <F> the generic type of the 1st. value in this tuple.
-   * @param <S> the generic type of the 2nd. value in this tuple.
-   * @param <T> the generic type of the 3rd. value in this tuple.
-   * @param first the 1st. value in this tuple.
-   * @param second the 2nd. value in this tuple.
-   * @param third the 3rd. value in this tuple.
-   * @return the created {@code Triple}.
-   */
-  @Nonnull public static <F, S, T> Triple<F, S, T> of(F first, S second, T third) {
-    return new Triple<>(first, second, third);
-  }
+	/**
+	 * Creates a new {@link Triple}.
+	 *
+	 * @param <F>    the generic type of the 1st. value in this tuple.
+	 * @param <S>    the generic type of the 2nd. value in this tuple.
+	 * @param <T>    the generic type of the 3rd. value in this tuple.
+	 * @param first  the 1st. value in this tuple.
+	 * @param second the 2nd. value in this tuple.
+	 * @param third  the 3rd. value in this tuple.
+	 * @return the created {@code Triple}.
+	 */
+	@Nonnull
+	public static <F, S, T> Triple<F, S, T> of(F first, S second, T third) {
+		return new Triple<>(first, second, third);
+	}
 
-  private Triple(F first, S second, T third) {
-    super(first, second);
-    this.third = third;
-  }
+	private Triple(F first, S second, T third) {
+		super(first, second);
+		this.third = third;
+	}
 }

@@ -12,12 +12,10 @@
  */
 package org.uitest4j.swing.listener;
 
-import java.awt.AWTEvent;
-import java.awt.Toolkit;
+import javax.annotation.Nonnull;
+import java.awt.*;
 import java.awt.event.AWTEventListener;
 import java.lang.ref.WeakReference;
-
-import javax.annotation.Nonnull;
 
 
 /**
@@ -27,71 +25,75 @@ import javax.annotation.Nonnull;
  * <li>dispatches any given event to the wrapped listener</li>
  * <li>removes itself from the default toolkit when the wrapped listener gets garbage-collected</li>
  * </ul>
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
 public final class WeakEventListener implements AWTEventListener {
-  private final WeakReference<AWTEventListener> listenerReference;
-  private final Toolkit toolkit;
+	private final WeakReference<AWTEventListener> listenerReference;
+	private final Toolkit toolkit;
 
-  /**
-   * Creates a new {@link WeakEventListener} and adds it to the given {@code Toolkit} using the given event mask. The
-   * created {@link WeakEventListener} simply "decorates" the given {@code AWTEventListener}. All events dispatched to
-   * the {@link WeakEventListener} are re-routed to the underlying {@code AWTEventListener}. When the underlying
-   * {@code AWTEventListener} is garbage-collected, the {@link WeakEventListener} will remove itself from the toolkit.
-   * 
-   * @param toolkit the given AWT {@code Toolkit}.
-   * @param listener the underlying listener to wrap.
-   * @param eventMask the event mask to use to attach the {@code WeakEventListener} to the toolkit.
-   * @return the created {@code WeakEventListener}.
-   */
-  @Nonnull public static WeakEventListener attachAsWeakEventListener(@Nonnull Toolkit toolkit,
-      @Nonnull AWTEventListener listener, long eventMask) {
-    WeakEventListener l = new WeakEventListener(toolkit, listener);
-    toolkit.addAWTEventListener(l, eventMask);
-    return l;
-  }
+	/**
+	 * Creates a new {@link WeakEventListener} and adds it to the given {@code Toolkit} using the given event mask. The
+	 * created {@link WeakEventListener} simply "decorates" the given {@code AWTEventListener}. All events dispatched to
+	 * the {@link WeakEventListener} are re-routed to the underlying {@code AWTEventListener}. When the underlying
+	 * {@code AWTEventListener} is garbage-collected, the {@link WeakEventListener} will remove itself from the toolkit.
+	 *
+	 * @param toolkit   the given AWT {@code Toolkit}.
+	 * @param listener  the underlying listener to wrap.
+	 * @param eventMask the event mask to use to attach the {@code WeakEventListener} to the toolkit.
+	 * @return the created {@code WeakEventListener}.
+	 */
+	@Nonnull
+	public static WeakEventListener attachAsWeakEventListener(@Nonnull Toolkit toolkit,
+															  @Nonnull AWTEventListener listener, long eventMask) {
+		WeakEventListener l = new WeakEventListener(toolkit, listener);
+		toolkit.addAWTEventListener(l, eventMask);
+		return l;
+	}
 
-  private WeakEventListener(@Nonnull Toolkit toolkit, @Nonnull AWTEventListener listener) {
-    listenerReference = new WeakReference<>(listener);
-    this.toolkit = toolkit;
-  }
+	private WeakEventListener(@Nonnull Toolkit toolkit, @Nonnull AWTEventListener listener) {
+		listenerReference = new WeakReference<>(listener);
+		this.toolkit = toolkit;
+	}
 
-  /**
-   * @return the underlying listener.
-   */
-  @Nonnull public AWTEventListener underlyingListener() {
-    return listenerReference.get();
-  }
+	/**
+	 * @return the underlying listener.
+	 */
+	@Nonnull
+	public AWTEventListener underlyingListener() {
+		return listenerReference.get();
+	}
 
-  /**
-   * Dispatches the given event to the wrapped event listener. If the wrapped listener is {@code null}
-   * (garbage-collected), this listener will remove itself from the default toolkit.
-   * 
-   * @param e the event dispatched in the AWT.
-   */
-  @Override
-  public void eventDispatched(AWTEvent e) {
-    AWTEventListener listener = listenerReference.get();
-    if (listener == null) {
-      dispose();
-      return;
-    }
-    listener.eventDispatched(e);
-  }
+	/**
+	 * Dispatches the given event to the wrapped event listener. If the wrapped listener is {@code null}
+	 * (garbage-collected), this listener will remove itself from the default toolkit.
+	 *
+	 * @param e the event dispatched in the AWT.
+	 */
+	@Override
+	public void eventDispatched(AWTEvent e) {
+		AWTEventListener listener = listenerReference.get();
+		if (listener == null) {
+			dispose();
+			return;
+		}
+		listener.eventDispatched(e);
+	}
 
-  /** Removes itself from the {@code Toolkit} this listener is attached to. */
-  public void dispose() {
-    toolkit.removeAWTEventListener(this);
-  }
+	/**
+	 * Removes itself from the {@code Toolkit} this listener is attached to.
+	 */
+	public void dispose() {
+		toolkit.removeAWTEventListener(this);
+	}
 
-  /**
-   * Removes the wrapped listener from the {@link WeakReference} (to simulate garbage collection). This method should be
-   * used only for <strong>testing only</strong>.
-   */
-  // Used for tests
-  void simulateUnderlyingListenerIsGarbageCollected() {
-    listenerReference.clear();
-  }
+	/**
+	 * Removes the wrapped listener from the {@link WeakReference} (to simulate garbage collection). This method should be
+	 * used only for <strong>testing only</strong>.
+	 */
+	// Used for tests
+	void simulateUnderlyingListenerIsGarbageCollected() {
+		listenerReference.clear();
+	}
 }

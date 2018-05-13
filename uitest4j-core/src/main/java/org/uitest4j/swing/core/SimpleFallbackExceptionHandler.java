@@ -33,12 +33,12 @@ import javax.annotation.Nonnull;
  * @author <a href="mailto:simeon.fitch@mseedsoft.com">Simeon H.K. Fitch</a>
  */
 public class SimpleFallbackExceptionHandler {
-  /**
-   * Prints the stack trace of the given exception to the standard error stream.
-   *
-   * @param t the given exception.
-   */
-  public void handle(@Nonnull Throwable t) {
-    t.printStackTrace();
-  }
+	/**
+	 * Prints the stack trace of the given exception to the standard error stream.
+	 *
+	 * @param t the given exception.
+	 */
+	public void handle(@Nonnull Throwable t) {
+		t.printStackTrace();
+	}
 }

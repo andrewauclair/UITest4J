@@ -14,13 +14,15 @@ package org.uitest4j.swing.image;
 
 /**
  * Common image file extensions.
- * 
+ *
  * @author Alex Ruiz
  */
 public final class ImageFileExtensions {
-  /** PNG file extension */
-  public static final String PNG = "png";
+	/**
+	 * PNG file extension
+	 */
+	public static final String PNG = "png";
 
-  private ImageFileExtensions() {
-  }
+	private ImageFileExtensions() {
+	}
 }

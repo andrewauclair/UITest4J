@@ -12,16 +12,13 @@
  */
 package org.uitest4j.swing.driver;
 
-import java.awt.Component;
-
-import javax.annotation.Nonnull;
-import javax.swing.JCheckBox;
-import javax.swing.JComboBox;
-import javax.swing.JTable;
-import javax.swing.text.JTextComponent;
-
 import org.uitest4j.swing.cell.JTableCellWriter;
 import org.uitest4j.swing.core.Robot;
+
+import javax.annotation.Nonnull;
+import javax.swing.*;
+import javax.swing.text.JTextComponent;
+import java.awt.*;
 
 /**
  * Default implementation of {@link JTableCellWriter}.
@@ -30,111 +27,112 @@ import org.uitest4j.swing.core.Robot;
  * @author Alex Ruiz
  */
 public class BasicJTableCellWriter extends AbstractJTableCellWriter {
-  private final JTableCheckBoxEditorCellWriter checkBoxWriter;
-  private final JTableComboBoxEditorCellWriter comboBoxWriter;
-  private final JTableTextComponentEditorCellWriter textComponentWriter;
+	private final JTableCheckBoxEditorCellWriter checkBoxWriter;
+	private final JTableComboBoxEditorCellWriter comboBoxWriter;
+	private final JTableTextComponentEditorCellWriter textComponentWriter;
 
-  public BasicJTableCellWriter(@Nonnull Robot robot) {
-    super(robot);
-    checkBoxWriter = new JTableCheckBoxEditorCellWriter(robot);
-    comboBoxWriter = new JTableComboBoxEditorCellWriter(robot);
-    textComponentWriter = new JTableTextComponentEditorCellWriter(robot);
-  }
+	public BasicJTableCellWriter(@Nonnull Robot robot) {
+		super(robot);
+		checkBoxWriter = new JTableCheckBoxEditorCellWriter(robot);
+		comboBoxWriter = new JTableComboBoxEditorCellWriter(robot);
+		textComponentWriter = new JTableTextComponentEditorCellWriter(robot);
+	}
 
-  /**
-   * Enters the given value at the given cell of the {@code JTable}. This method only supports the following GUI
-   * components as cell editors:
-   * <ul>
-   * <li>{@code JCheckBox}: valid values for the property "selected" (a boolean) are "true" and "yes", other values are
-   * considered {@code false}.</li>
-   * <li>{@code JComboBox}: this writer will select the element which {@code String} representation matches the given
-   * value.</li>
-   * <li>{@code JTextComponent}: any value will be entered in the cell.</li>
-   * </ul>
-   *
-   * @param table the target {@code JTable}.
-   * @param row the row index of the cell.
-   * @param column the column index of the cell.
-   * @param value the value to enter.
-   * @throws org.uitest4j.swing.exception.ActionFailedException if this writer is unable to handle the underlying cell
-   *           editor.
-   */
-  @Override
-  public void enterValue(@Nonnull JTable table, int row, int column, @Nonnull String value) {
-    cellWriterFor(table, row, column).enterValue(table, row, column, value);
-  }
+	/**
+	 * Enters the given value at the given cell of the {@code JTable}. This method only supports the following GUI
+	 * components as cell editors:
+	 * <ul>
+	 * <li>{@code JCheckBox}: valid values for the property "selected" (a boolean) are "true" and "yes", other values are
+	 * considered {@code false}.</li>
+	 * <li>{@code JComboBox}: this writer will select the element which {@code String} representation matches the given
+	 * value.</li>
+	 * <li>{@code JTextComponent}: any value will be entered in the cell.</li>
+	 * </ul>
+	 *
+	 * @param table  the target {@code JTable}.
+	 * @param row    the row index of the cell.
+	 * @param column the column index of the cell.
+	 * @param value  the value to enter.
+	 * @throws org.uitest4j.swing.exception.ActionFailedException if this writer is unable to handle the underlying cell
+	 *                                                            editor.
+	 */
+	@Override
+	public void enterValue(@Nonnull JTable table, int row, int column, @Nonnull String value) {
+		cellWriterFor(table, row, column).enterValue(table, row, column, value);
+	}
 
-  /**
-   * Starts editing the given cell of the {@code JTable}. This method only supports the following Swing components as
-   * cell editors:
-   * <ul>
-   * <li>{@code JCheckBox}</li>
-   * <li>{@code JComboBox}</li>
-   * <li>{@code JTextComponent}</li>
-   * </ul>
-   *
-   * @param row the row index of the cell.
-   * @param column the column index of the cell.
-   * @throws org.uitest4j.swing.exception.ActionFailedException if this writer is unable to handle the underlying cell
-   *           editor.
-   * @see JTableCellWriter#startCellEditing(JTable, int, int)
-   */
-  @Override
-  public void startCellEditing(@Nonnull JTable table, int row, int column) {
-    cellWriterFor(table, row, column).startCellEditing(table, row, column);
-  }
+	/**
+	 * Starts editing the given cell of the {@code JTable}. This method only supports the following Swing components as
+	 * cell editors:
+	 * <ul>
+	 * <li>{@code JCheckBox}</li>
+	 * <li>{@code JComboBox}</li>
+	 * <li>{@code JTextComponent}</li>
+	 * </ul>
+	 *
+	 * @param row    the row index of the cell.
+	 * @param column the column index of the cell.
+	 * @throws org.uitest4j.swing.exception.ActionFailedException if this writer is unable to handle the underlying cell
+	 *                                                            editor.
+	 * @see JTableCellWriter#startCellEditing(JTable, int, int)
+	 */
+	@Override
+	public void startCellEditing(@Nonnull JTable table, int row, int column) {
+		cellWriterFor(table, row, column).startCellEditing(table, row, column);
+	}
 
-  /**
-   * Stops editing the given cell of the {@code JTable}. This method only supports the following Swing components as
-   * cell editors:
-   * <ul>
-   * <li>{@code JCheckBox}</li>
-   * <li>{@code JComboBox}</li>
-   * <li>{@code JTextComponent}</li>
-   * </ul>
-   *
-   * @param row the row index of the cell.
-   * @param column the column index of the cell.
-   * @throws org.uitest4j.swing.exception.ActionFailedException if this writer is unable to handle the underlying cell
-   *           editor.
-   * @see JTableCellWriter#stopCellEditing(JTable, int, int)
-   */
-  @Override
-  public void stopCellEditing(@Nonnull JTable table, int row, int column) {
-    cellWriterFor(table, row, column).stopCellEditing(table, row, column);
-  }
+	/**
+	 * Stops editing the given cell of the {@code JTable}. This method only supports the following Swing components as
+	 * cell editors:
+	 * <ul>
+	 * <li>{@code JCheckBox}</li>
+	 * <li>{@code JComboBox}</li>
+	 * <li>{@code JTextComponent}</li>
+	 * </ul>
+	 *
+	 * @param row    the row index of the cell.
+	 * @param column the column index of the cell.
+	 * @throws org.uitest4j.swing.exception.ActionFailedException if this writer is unable to handle the underlying cell
+	 *                                                            editor.
+	 * @see JTableCellWriter#stopCellEditing(JTable, int, int)
+	 */
+	@Override
+	public void stopCellEditing(@Nonnull JTable table, int row, int column) {
+		cellWriterFor(table, row, column).stopCellEditing(table, row, column);
+	}
 
-  /**
-   * Cancels editing the given cell of the {@code JTable}. This method only supports the following Swing components as
-   * cell editors:
-   * <ul>
-   * <li>{@code JCheckBox}</li>
-   * <li>{@code JComboBox}</li>
-   * <li>{@code JTextComponent}</li>
-   * </ul>
-   *
-   * @param row the row index of the cell.
-   * @param column the column index of the cell.
-   * @throws org.uitest4j.swing.exception.ActionFailedException if this writer is unable to handle the underlying cell
-   *           editor.
-   * @see JTableCellWriter#cancelCellEditing(JTable, int, int)
-   */
-  @Override
-  public void cancelCellEditing(@Nonnull JTable table, int row, int column) {
-    cellWriterFor(table, row, column).cancelCellEditing(table, row, column);
-  }
+	/**
+	 * Cancels editing the given cell of the {@code JTable}. This method only supports the following Swing components as
+	 * cell editors:
+	 * <ul>
+	 * <li>{@code JCheckBox}</li>
+	 * <li>{@code JComboBox}</li>
+	 * <li>{@code JTextComponent}</li>
+	 * </ul>
+	 *
+	 * @param row    the row index of the cell.
+	 * @param column the column index of the cell.
+	 * @throws org.uitest4j.swing.exception.ActionFailedException if this writer is unable to handle the underlying cell
+	 *                                                            editor.
+	 * @see JTableCellWriter#cancelCellEditing(JTable, int, int)
+	 */
+	@Override
+	public void cancelCellEditing(@Nonnull JTable table, int row, int column) {
+		cellWriterFor(table, row, column).cancelCellEditing(table, row, column);
+	}
 
-  @Nonnull private JTableCellWriter cellWriterFor(@Nonnull JTable table, int row, int column) {
-    Component editor = editorForCell(table, row, column);
-    if (editor instanceof JCheckBox) {
-      return checkBoxWriter;
-    }
-    if (editor instanceof JComboBox) {
-      return comboBoxWriter;
-    }
-    if (editor instanceof JTextComponent) {
-      return textComponentWriter;
-    }
-    throw cannotFindOrActivateEditor(row, column);
-  }
+	@Nonnull
+	private JTableCellWriter cellWriterFor(@Nonnull JTable table, int row, int column) {
+		Component editor = editorForCell(table, row, column);
+		if (editor instanceof JCheckBox) {
+			return checkBoxWriter;
+		}
+		if (editor instanceof JComboBox) {
+			return comboBoxWriter;
+		}
+		if (editor instanceof JTextComponent) {
+			return textComponentWriter;
+		}
+		throw cannotFindOrActivateEditor(row, column);
+	}
 }

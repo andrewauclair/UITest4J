@@ -33,7 +33,7 @@ public final class NameMatcher extends AbstractComponentMatcher {
 	 * Creates a new {@link NameMatcher}. The AWT or Swing {@code Component} to match does not have to be showing.
 	 *
 	 * @param name the name of the {@code Component} we are looking for.
-	 * @throws NullPointerException if the given name is {@code null}.
+	 * @throws NullPointerException     if the given name is {@code null}.
 	 * @throws IllegalArgumentException if the given name is empty.
 	 */
 	public NameMatcher(@Nullable String name) {
@@ -43,9 +43,9 @@ public final class NameMatcher extends AbstractComponentMatcher {
 	/**
 	 * Creates a new {@link NameMatcher}.
 	 *
-	 * @param name the name of the AWT or Swing {@code Component} we are looking for.
+	 * @param name           the name of the AWT or Swing {@code Component} we are looking for.
 	 * @param requireShowing indicates if the {@code Component} to match should be showing or not.
-	 * @throws NullPointerException if the given name is {@code null}.
+	 * @throws NullPointerException     if the given name is {@code null}.
 	 * @throws IllegalArgumentException if the given name is empty.
 	 */
 	public NameMatcher(@Nullable String name, boolean requireShowing) {
@@ -57,9 +57,9 @@ public final class NameMatcher extends AbstractComponentMatcher {
 	 *
 	 * @param name the name of the {@code Component} we are looking for.
 	 * @param type the type of the {@code Component} we are looking for.
-	 * @throws NullPointerException if the given name is empty.
+	 * @throws NullPointerException     if the given name is empty.
 	 * @throws IllegalArgumentException if the given name is empty.
-	 * @throws NullPointerException if the given type is {@code null}.
+	 * @throws NullPointerException     if the given type is {@code null}.
 	 */
 	public NameMatcher(@Nullable String name, @Nonnull Class<? extends Component> type) {
 		this(name, type, false);
@@ -68,12 +68,12 @@ public final class NameMatcher extends AbstractComponentMatcher {
 	/**
 	 * Creates a new {@link NameMatcher}.
 	 *
-	 * @param name the name of the AWT or Swing {@code Component} we are looking for.
-	 * @param type the type of the {@code Component} we are looking for.
+	 * @param name           the name of the AWT or Swing {@code Component} we are looking for.
+	 * @param type           the type of the {@code Component} we are looking for.
 	 * @param requireShowing indicates if the {@code Component} to match should be showing or not.
-	 * @throws NullPointerException if the given name is empty.
+	 * @throws NullPointerException     if the given name is empty.
 	 * @throws IllegalArgumentException if the given name is empty.
-	 * @throws NullPointerException if the given type is {@code null}.
+	 * @throws NullPointerException     if the given type is {@code null}.
 	 */
 	public NameMatcher(@Nullable String name, @Nonnull Class<? extends Component> type, boolean requireShowing) {
 		super(requireShowing);
@@ -93,7 +93,7 @@ public final class NameMatcher extends AbstractComponentMatcher {
 	 * </p>
 	 *
 	 * @return {@code true} if the name and visibility of the given {@code Component} matches the values specified in this
-	 *         matcher, {@code false} otherwise.
+	 * matcher, {@code false} otherwise.
 	 */
 	@Override
 	@RunsInCurrentThread

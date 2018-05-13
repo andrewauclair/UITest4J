@@ -12,9 +12,9 @@
  */
 package org.uitest4j.swing.driver;
 
+import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.exception.ActionFailedException;
-import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -33,57 +33,62 @@ import static org.uitest4j.swing.core.MouseButton.LEFT_BUTTON;
  * @author Yvonne Wang
  */
 public class JTableTextComponentEditorCellWriter extends AbstractJTableCellWriter {
-  protected final JTextComponentDriver driver;
+	protected final JTextComponentDriver driver;
 
-  public JTableTextComponentEditorCellWriter(@Nonnull Robot robot) {
-    super(robot);
-    driver = new JTextComponentDriver(robot);
-  }
+	public JTableTextComponentEditorCellWriter(@Nonnull Robot robot) {
+		super(robot);
+		driver = new JTextComponentDriver(robot);
+	}
 
-  @RunsInEDT
-  @Override
-  public void enterValue(@Nonnull JTable table, int row, int column, @Nonnull String value) {
-    JTextComponent editor = doStartCellEditing(table, row, column);
-    driver.replaceText(editor, value);
-    stopCellEditing(table, row, column);
-  }
+	@RunsInEDT
+	@Override
+	public void enterValue(@Nonnull JTable table, int row, int column, @Nonnull String value) {
+		JTextComponent editor = doStartCellEditing(table, row, column);
+		driver.replaceText(editor, value);
+		stopCellEditing(table, row, column);
+	}
 
-  @RunsInEDT
-  @Override
-  public void startCellEditing(@Nonnull JTable table, int row, int column) {
-    doStartCellEditing(table, row, column);
-  }
+	@RunsInEDT
+	@Override
+	public void startCellEditing(@Nonnull JTable table, int row, int column) {
+		doStartCellEditing(table, row, column);
+	}
 
-  @RunsInEDT
-  @Nonnull private JTextComponent doStartCellEditing(@Nonnull JTable table, int row, int column) {
-    Point cellLocation = cellLocation(table, row, column, location());
-    JTextComponent textComponent;
-    try {
-      textComponent = activateEditorWithF2Key(table, row, column, cellLocation);
-    } catch (ActionFailedException e) {
-      textComponent = activateEditorWithDoubleClick(table, row, column, cellLocation);
-    }
-    cellEditor(cellEditor(table, row, column));
-    return Objects.requireNonNull(textComponent);
-  }
+	@RunsInEDT
+	@Nonnull
+	private JTextComponent doStartCellEditing(@Nonnull JTable table, int row, int column) {
+		Point cellLocation = cellLocation(table, row, column, location());
+		JTextComponent textComponent;
+		try {
+			textComponent = activateEditorWithF2Key(table, row, column, cellLocation);
+		}
+		catch (ActionFailedException e) {
+			textComponent = activateEditorWithDoubleClick(table, row, column, cellLocation);
+		}
+		cellEditor(cellEditor(table, row, column));
+		return Objects.requireNonNull(textComponent);
+	}
 
-  @RunsInEDT
-  @Nullable private JTextComponent activateEditorWithF2Key(@Nonnull JTable table, int row, int column,
-                                                           @Nonnull Point cellLocation) {
-    robot.click(table, cellLocation);
-    robot.pressAndReleaseKeys(VK_F2);
-    return waitForEditorActivation(table, row, column);
-  }
+	@RunsInEDT
+	@Nullable
+	private JTextComponent activateEditorWithF2Key(@Nonnull JTable table, int row, int column,
+												   @Nonnull Point cellLocation) {
+		robot.click(table, cellLocation);
+		robot.pressAndReleaseKeys(VK_F2);
+		return waitForEditorActivation(table, row, column);
+	}
 
-  @RunsInEDT
-  @Nullable private JTextComponent activateEditorWithDoubleClick(@Nonnull JTable table, int row, int column,
-                                                                 @Nonnull Point cellLocation) {
-    robot.click(table, cellLocation, LEFT_BUTTON, 2);
-    return waitForEditorActivation(table, row, column);
-  }
+	@RunsInEDT
+	@Nullable
+	private JTextComponent activateEditorWithDoubleClick(@Nonnull JTable table, int row, int column,
+														 @Nonnull Point cellLocation) {
+		robot.click(table, cellLocation, LEFT_BUTTON, 2);
+		return waitForEditorActivation(table, row, column);
+	}
 
-  @RunsInEDT
-  @Nullable private JTextComponent waitForEditorActivation(@Nonnull JTable table, int row, int column) {
-    return waitForEditorActivation(table, row, column, JTextComponent.class);
-  }
+	@RunsInEDT
+	@Nullable
+	private JTextComponent waitForEditorActivation(@Nonnull JTable table, int row, int column) {
+		return waitForEditorActivation(table, row, column, JTextComponent.class);
+	}
 }

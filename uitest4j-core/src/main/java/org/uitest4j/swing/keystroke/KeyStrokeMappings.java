@@ -12,40 +12,36 @@
  */
 package org.uitest4j.swing.keystroke;
 
-import static java.awt.event.KeyEvent.VK_BACK_SPACE;
-import static java.awt.event.KeyEvent.VK_DELETE;
-import static java.awt.event.KeyEvent.VK_ENTER;
-import static java.awt.event.KeyEvent.VK_ESCAPE;
-import static java.awt.event.KeyEvent.VK_TAB;
-import static org.uitest4j.swing.keystroke.KeyStrokeMapping.mapping;
-import static org.uitest4j.swing.keystroke.KeyStrokeMappingProvider.NO_MASK;
-import static org.uitest4j.swing.util.Platform.isWindows;
-
+import javax.annotation.Nonnull;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import javax.annotation.Nonnull;
+import static java.awt.event.KeyEvent.*;
+import static org.uitest4j.swing.keystroke.KeyStrokeMapping.mapping;
+import static org.uitest4j.swing.keystroke.KeyStrokeMappingProvider.NO_MASK;
+import static org.uitest4j.swing.util.Platform.isWindows;
 
 /**
  * Utility methods related to {@link KeyStrokeMapping}s.
- * 
+ *
  * @author Alex Ruiz
  */
 final class KeyStrokeMappings {
-  static @Nonnull Collection<KeyStrokeMapping> defaultMappings() {
-    List<KeyStrokeMapping> mappings = new ArrayList<>();
-    mappings.add(mapping('\b', VK_BACK_SPACE, NO_MASK));
-    mappings.add(mapping('', VK_DELETE, NO_MASK));
-    mappings.add(mapping('\n', VK_ENTER, NO_MASK));
-    if (isWindows()) {
-      mappings.add(mapping('\r', VK_ENTER, NO_MASK));
-    }
-    mappings.add(mapping('', VK_ESCAPE, NO_MASK));
-    mappings.add(mapping('\t', VK_TAB, NO_MASK));
-    return mappings;
-  }
+	static @Nonnull
+	Collection<KeyStrokeMapping> defaultMappings() {
+		List<KeyStrokeMapping> mappings = new ArrayList<>();
+		mappings.add(mapping('\b', VK_BACK_SPACE, NO_MASK));
+		mappings.add(mapping('', VK_DELETE, NO_MASK));
+		mappings.add(mapping('\n', VK_ENTER, NO_MASK));
+		if (isWindows()) {
+			mappings.add(mapping('\r', VK_ENTER, NO_MASK));
+		}
+		mappings.add(mapping('', VK_ESCAPE, NO_MASK));
+		mappings.add(mapping('\t', VK_TAB, NO_MASK));
+		return mappings;
+	}
 
-  private KeyStrokeMappings() {
-  }
+	private KeyStrokeMappings() {
+	}
 }

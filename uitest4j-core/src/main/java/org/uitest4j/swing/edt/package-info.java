@@ -12,7 +12,7 @@
  */
 /**
  * Ensure that {@code Component} access is done in the event dispatch thread (EDT).
- * 
+ *
  * @author Alex Ruiz
  */
 package org.uitest4j.swing.edt;

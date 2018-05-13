@@ -20,32 +20,36 @@ import javax.annotation.Nullable;
  *
  * @param <F> the generic type of the 1st. value in this tuple.
  * @param <S> the generic type of the 2nd. value in this tuple.
- *
  * @author Yvonne Wang
  * @author Alex Ruiz
  */
 public class Pair<F, S> {
-  /** The first value in this tuple. */
-  public final F first;
+	/**
+	 * The first value in this tuple.
+	 */
+	public final F first;
 
-  /** The second value in this tuple. */
-  public final S second;
+	/**
+	 * The second value in this tuple.
+	 */
+	public final S second;
 
-  /**
-   * Creates a new {@link Pair}.
-   * 
-   * @param <F> the generic type of the 1st. value in this tuple.
-   * @param <S> the generic type of the 2nd. value in this tuple.
-   * @param first the 1st. value in this tuple.
-   * @param second the 2nd. value in this tuple.
-   * @return the created {@code Pair}.
-   */
-  @Nonnull public static <F, S> Pair<F, S> of(@Nullable F first, @Nullable S second) {
-    return new Pair<>(first, second);
-  }
+	/**
+	 * Creates a new {@link Pair}.
+	 *
+	 * @param <F>    the generic type of the 1st. value in this tuple.
+	 * @param <S>    the generic type of the 2nd. value in this tuple.
+	 * @param first  the 1st. value in this tuple.
+	 * @param second the 2nd. value in this tuple.
+	 * @return the created {@code Pair}.
+	 */
+	@Nonnull
+	public static <F, S> Pair<F, S> of(@Nullable F first, @Nullable S second) {
+		return new Pair<>(first, second);
+	}
 
-  Pair(@Nullable F first, @Nullable S second) {
-    this.first = first;
-    this.second = second;
-  }
+	Pair(@Nullable F first, @Nullable S second) {
+		this.first = first;
+		this.second = second;
+	}
 }

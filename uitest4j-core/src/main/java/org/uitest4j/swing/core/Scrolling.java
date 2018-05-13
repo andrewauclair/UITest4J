@@ -31,7 +31,7 @@ public final class Scrolling {
 	 * Scrolls a {@code JComponent} into view within a container.
 	 *
 	 * @param robot simulates user input.
-	 * @param c the given {@code JComponent}.
+	 * @param c     the given {@code JComponent}.
 	 */
 	public static void scrollToVisible(@Nonnull Robot robot, @Nonnull JComponent c) {
 		JComponent root = findClosestValidatingRootAncestor(c);
@@ -72,9 +72,9 @@ public final class Scrolling {
 	/**
 	 * Scrolls an AWT or Swing {@code Component} into view within a container.
 	 *
-	 * @param robot simulates user input.
+	 * @param robot     simulates user input.
 	 * @param container the given container.
-	 * @param target the given {@code Component}.
+	 * @param target    the given {@code Component}.
 	 */
 	private static void scrollToVisible(@Nonnull Robot robot, @Nonnull JComponent container, @Nonnull Component target) {
 		Rectangle r = convertRectangle(target.getParent(), target.getBounds(), container);
@@ -84,8 +84,8 @@ public final class Scrolling {
 	/**
 	 * Scrolls a rectangular region of a {@code JComponent} into view.
 	 *
-	 * @param robot simulates user input.
-	 * @param c the {@code JComponent}.
+	 * @param robot     simulates user input.
+	 * @param c         the {@code JComponent}.
 	 * @param rectangle the rectangular region.
 	 */
 	private static void scrollToVisible(@Nonnull Robot robot, final @Nonnull JComponent c,

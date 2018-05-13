@@ -12,13 +12,12 @@
  */
 package org.uitest4j.swing.driver;
 
+import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.cell.JComboBoxCellReader;
 import org.uitest4j.swing.util.TextMatcher;
-import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.annotation.Nonnull;
 import javax.swing.*;
-
 import java.util.Objects;
 
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
@@ -29,22 +28,22 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
  * @author Alex Ruiz
  */
 final class JComboBoxMatchingItemQuery {
-  @RunsInEDT
-  static int matchingItemIndex(final @Nonnull JComboBox<?> comboBox, final @Nonnull TextMatcher matcher,
-                               final @Nonnull JComboBoxCellReader cellReader) {
-    Integer result = execute(() -> {
-      int itemCount = comboBox.getItemCount();
-      for (int i = 0; i < itemCount; i++) {
-        String value = cellReader.valueAt(comboBox, i);
-        if (value != null && matcher.isMatching(value)) {
-          return i;
-        }
-      }
-      return -1;
-    });
-    return Objects.requireNonNull(result);
-  }
+	@RunsInEDT
+	static int matchingItemIndex(final @Nonnull JComboBox<?> comboBox, final @Nonnull TextMatcher matcher,
+								 final @Nonnull JComboBoxCellReader cellReader) {
+		Integer result = execute(() -> {
+			int itemCount = comboBox.getItemCount();
+			for (int i = 0; i < itemCount; i++) {
+				String value = cellReader.valueAt(comboBox, i);
+				if (value != null && matcher.isMatching(value)) {
+					return i;
+				}
+			}
+			return -1;
+		});
+		return Objects.requireNonNull(result);
+	}
 
-  private JComboBoxMatchingItemQuery() {
-  }
+	private JComboBoxMatchingItemQuery() {
+	}
 }

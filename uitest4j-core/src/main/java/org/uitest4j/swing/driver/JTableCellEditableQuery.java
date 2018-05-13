@@ -12,8 +12,8 @@
  */
 package org.uitest4j.swing.driver;
 
-import org.uitest4j.swing.data.TableCell;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
+import org.uitest4j.swing.data.TableCell;
 
 import javax.annotation.Nonnull;
 import javax.swing.*;
@@ -24,24 +24,23 @@ import static org.uitest4j.swing.driver.JTableCellPreconditions.checkCellIndices
  * <p>
  * Indicates whether a cell in a {@code JTable} is editable.
  * </p>
- * 
+ *
  * <p>
  * <b>Note:</b> Methods in this class are accessed in the current executing thread. Such thread may or may not be the
  * event dispatch thread (EDT). Client code must call methods in this class from the EDT.
  * </p>
- * 
- * @see JTable#isCellEditable(int, int)
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
+ * @see JTable#isCellEditable(int, int)
  */
 final class JTableCellEditableQuery {
-  @RunsInCurrentThread
-  static boolean isCellEditable(@Nonnull JTable table, @Nonnull TableCell cell) {
-    checkCellIndicesInBounds(table, cell);
-    return table.isCellEditable(cell.row, cell.column);
-  }
+	@RunsInCurrentThread
+	static boolean isCellEditable(@Nonnull JTable table, @Nonnull TableCell cell) {
+		checkCellIndicesInBounds(table, cell);
+		return table.isCellEditable(cell.row, cell.column);
+	}
 
-  private JTableCellEditableQuery() {
-  }
+	private JTableCellEditableQuery() {
+	}
 }

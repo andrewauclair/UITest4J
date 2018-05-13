@@ -23,56 +23,56 @@ import java.util.Collection;
  * <p>
  * Provides access to all AWT or Swing {@code Component}s in a hierarchy.
  * </p>
- * 
+ *
  * <p>
  * <b>Note:</b> Methods in this interface are accessed in the current executing thread. Such thread may or may not be
  * the event dispatch thread (EDT). Client code must call methods in this interface from the EDT.
  * </p>
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
 @RunsInCurrentThread
 public interface ComponentHierarchy {
-  /**
-   * @return all root {@code Container}s in the {@code ComponentHierarchy}.
-   */
-  @Nonnull
-  Collection<Container> roots();
+	/**
+	 * @return all root {@code Container}s in the {@code ComponentHierarchy}.
+	 */
+	@Nonnull
+	Collection<Container> roots();
 
-  /**
-   * Returns all the children of the given AWT or Swing {@code Component}.
-   * 
-   * @param c the given {@code Component}.
-   * @return all the children of the given {@code Component}.
-   */
-  @Nonnull
-  Collection<Component> childrenOf(@Nonnull Component c);
+	/**
+	 * Returns all the children of the given AWT or Swing {@code Component}.
+	 *
+	 * @param c the given {@code Component}.
+	 * @return all the children of the given {@code Component}.
+	 */
+	@Nonnull
+	Collection<Component> childrenOf(@Nonnull Component c);
 
-  /**
-   * Returns the parent for the given AWT or Swing {@code Component}.
-   * 
-   * @param c the given {@code Component}.
-   * @return the parent for the given {@code Component}.
-   */
-  @Nullable
-  Container parentOf(@Nonnull Component c);
+	/**
+	 * Returns the parent for the given AWT or Swing {@code Component}.
+	 *
+	 * @param c the given {@code Component}.
+	 * @return the parent for the given {@code Component}.
+	 */
+	@Nullable
+	Container parentOf(@Nonnull Component c);
 
-  /**
-   * Indicates whether this {@code ComponentHierarchy} contains the given AWT or Swing {@code Component}.
-   * 
-   * @param c the given {@code Component}.
-   * @return {@code true} if this {@code ComponentHierarchy} contains the given {@code Component}, {@code false}
-   *         otherwise.
-   */
-  boolean contains(@Nonnull Component c);
+	/**
+	 * Indicates whether this {@code ComponentHierarchy} contains the given AWT or Swing {@code Component}.
+	 *
+	 * @param c the given {@code Component}.
+	 * @return {@code true} if this {@code ComponentHierarchy} contains the given {@code Component}, {@code false}
+	 * otherwise.
+	 */
+	boolean contains(@Nonnull Component c);
 
-  /**
-   * Provides proper disposal of the given AWT or Swing {@code Window}, appropriate to this {@code ComponentHierarchy}.
-   * After disposal, the {@code Window} and its descendants will no longer be reachable from this
-   * {@code ComponentHierarchy}.
-   * 
-   * @param w the {@code Window} to dispose.
-   */
-  void dispose(@Nonnull Window w);
+	/**
+	 * Provides proper disposal of the given AWT or Swing {@code Window}, appropriate to this {@code ComponentHierarchy}.
+	 * After disposal, the {@code Window} and its descendants will no longer be reachable from this
+	 * {@code ComponentHierarchy}.
+	 *
+	 * @param w the {@code Window} to dispose.
+	 */
+	void dispose(@Nonnull Window w);
 }

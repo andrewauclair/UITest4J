@@ -21,32 +21,37 @@ import java.util.Objects;
  * @author Alex Ruiz
  */
 public class TableCell {
-  /** The row of the cell. */
-  public final int row;
+	/**
+	 * The row of the cell.
+	 */
+	public final int row;
 
-  /** The column of the cell. */
-  public final int column;
+	/**
+	 * The column of the cell.
+	 */
+	public final int column;
 
-  /**
-   * <p>
-   * Starting point for the creation of a {@link TableCell}.
-   * </p>
-   *
-   * <p>
-   * Example:
-   * </p>
-   *
-   * <pre>
-   * // import static org.uitest4j.swing.data.TableCell.row;
-   * TableCell cell = row(5).column(3);
-   * </pre>
-   *
-   * @param row the row index of the table cell to create.
-   * @return the created builder.
-   */
-  @Nonnull public static TableCellBuilder row(int row) {
-    return new TableCellBuilder(row);
-  }
+	/**
+	 * <p>
+	 * Starting point for the creation of a {@link TableCell}.
+	 * </p>
+	 *
+	 * <p>
+	 * Example:
+	 * </p>
+	 *
+	 * <pre>
+	 * // import static org.uitest4j.swing.data.TableCell.row;
+	 * TableCell cell = row(5).column(3);
+	 * </pre>
+	 *
+	 * @param row the row index of the table cell to create.
+	 * @return the created builder.
+	 */
+	@Nonnull
+	public static TableCellBuilder row(int row) {
+		return new TableCellBuilder(row);
+	}
 
 	@Override
 	public boolean equals(Object o) {
@@ -66,43 +71,44 @@ public class TableCell {
 		return Objects.hash(row, column);
 	}
 
-  /**
-   * Factory of {@link TableCell}s.
-   *
-   * @author Alex Ruiz
-   */
-  public static class TableCellBuilder {
-    private final int row;
+	/**
+	 * Factory of {@link TableCell}s.
+	 *
+	 * @author Alex Ruiz
+	 */
+	public static class TableCellBuilder {
+		private final int row;
 
-    TableCellBuilder(int row) {
-      this.row = row;
-    }
+		TableCellBuilder(int row) {
+			this.row = row;
+		}
 
-    /**
-     * Creates a new table cell using the row index specified in {@link TableCellBuilder#row(int)} and the column index
-     * specified as the argument in this method.
-     *
-     * @param column the column index of the table cell to create.
-     * @return the created table cell.
-     */
-    @Nonnull public TableCell column(int column) {
-      return new TableCell(row, column);
-    }
-  }
+		/**
+		 * Creates a new table cell using the row index specified in {@link TableCellBuilder#row(int)} and the column index
+		 * specified as the argument in this method.
+		 *
+		 * @param column the column index of the table cell to create.
+		 * @return the created table cell.
+		 */
+		@Nonnull
+		public TableCell column(int column) {
+			return new TableCell(row, column);
+		}
+	}
 
-  /**
-   * Creates a new {@link TableCell}.
-   *
-   * @param row the row of the cell.
-   * @param column the column of the cell.
-   */
-  protected TableCell(int row, int column) {
-    this.row = row;
-    this.column = column;
-  }
+	/**
+	 * Creates a new {@link TableCell}.
+	 *
+	 * @param row    the row of the cell.
+	 * @param column the column of the cell.
+	 */
+	protected TableCell(int row, int column) {
+		this.row = row;
+		this.column = column;
+	}
 
-  @Override
-  public String toString() {
-	  return String.format("[%d, %d]", row, column);
-  }
+	@Override
+	public String toString() {
+		return String.format("[%d, %d]", row, column);
+	}
 }

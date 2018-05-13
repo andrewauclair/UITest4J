@@ -21,26 +21,26 @@ import java.awt.*;
  * <p>
  * Reads the value of an AWT or Swing {@code Component} that used as a cell renderer.
  * </p>
- * 
+ *
  * @author Alex Ruiz
  */
 public interface CellRendererReader {
-  /**
-   * <p>
-   * Reads the value in the given cell renderer {@code Component}, or returns {@code null} if the component is not
-   * recognized by this reader.
-   * </p>
-   * 
-   * <p>
-   * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
-   * dispatch thread (EDT). Client code must call this method from the EDT.
-   * </p>
-   * 
-   * @param c the given cell renderer component.
-   * @return the value of the given {@code Component}, or {@code null} if the renderer belongs to an unknown component
-   *         type.
-   */
-  @RunsInCurrentThread
-  @Nullable
-  String valueFrom(@Nullable Component c);
+	/**
+	 * <p>
+	 * Reads the value in the given cell renderer {@code Component}, or returns {@code null} if the component is not
+	 * recognized by this reader.
+	 * </p>
+	 *
+	 * <p>
+	 * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
+	 * dispatch thread (EDT). Client code must call this method from the EDT.
+	 * </p>
+	 *
+	 * @param c the given cell renderer component.
+	 * @return the value of the given {@code Component}, or {@code null} if the renderer belongs to an unknown component
+	 * type.
+	 */
+	@RunsInCurrentThread
+	@Nullable
+	String valueFrom(@Nullable Component c);
 }

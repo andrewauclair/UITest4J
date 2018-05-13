@@ -12,22 +12,21 @@
  */
 package org.uitest4j.swing.core;
 
-import java.awt.Container;
-import java.util.Collection;
+import org.uitest4j.swing.hierarchy.ExistingHierarchy;
 
 import javax.annotation.Nonnull;
-
-import org.uitest4j.swing.hierarchy.ExistingHierarchy;
+import java.awt.*;
+import java.util.Collection;
 
 /**
  * Obtains all the root AWT and Swing {@code Container}s of an {@link ExistingHierarchy}.
- * 
+ *
  * @author Alex Ruiz
  */
 class HierarchyRootsSource {
-  @Nonnull
-  Container[] existingHierarchyRoots() {
-    Collection<? extends Container> roots = new ExistingHierarchy().roots();
-    return roots.toArray(new Container[0]);
-  }
+	@Nonnull
+	Container[] existingHierarchyRoots() {
+		Collection<? extends Container> roots = new ExistingHierarchy().roots();
+		return roots.toArray(new Container[0]);
+	}
 }

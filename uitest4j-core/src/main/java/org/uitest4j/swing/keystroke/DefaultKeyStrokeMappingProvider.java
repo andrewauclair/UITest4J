@@ -12,39 +12,39 @@
  */
 package org.uitest4j.swing.keystroke;
 
-import static org.uitest4j.swing.keystroke.KeyStrokeMappings.defaultMappings;
-
+import javax.annotation.Nonnull;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import javax.annotation.Nonnull;
+import static org.uitest4j.swing.keystroke.KeyStrokeMappings.defaultMappings;
 
 /**
  * Default mapping of characters and {@code javax.swing.KeyStroke}s.
- * 
+ *
  * @author Alex Ruiz
  */
 public class DefaultKeyStrokeMappingProvider implements KeyStrokeMappingProvider {
-  /**
-   * Returns the default mapping of characters and {@code KeyStroke}s. This provider will only return the mappings for
-   * following keys:
-   * <ul>
-   * <li>Backspace</li>
-   * <li>Delete</li>
-   * <li>Enter</li>
-   * <li>Escape</li>
-   * <li>Tab</li>
-   * </ul>
-   * 
-   * @return the default mapping of characters and {@code KeyStroke}s
-   */
-  @Override
-  @Nonnull public Collection<KeyStrokeMapping> keyStrokeMappings() {
-    return LazyLoadingSingleton.instance;
-  }
+	/**
+	 * Returns the default mapping of characters and {@code KeyStroke}s. This provider will only return the mappings for
+	 * following keys:
+	 * <ul>
+	 * <li>Backspace</li>
+	 * <li>Delete</li>
+	 * <li>Enter</li>
+	 * <li>Escape</li>
+	 * <li>Tab</li>
+	 * </ul>
+	 *
+	 * @return the default mapping of characters and {@code KeyStroke}s
+	 */
+	@Override
+	@Nonnull
+	public Collection<KeyStrokeMapping> keyStrokeMappings() {
+		return LazyLoadingSingleton.instance;
+	}
 
-  private static class LazyLoadingSingleton {
-    static List<KeyStrokeMapping> instance = new ArrayList<>(defaultMappings());
-  }
+	private static class LazyLoadingSingleton {
+		static List<KeyStrokeMapping> instance = new ArrayList<>(defaultMappings());
+	}
 }

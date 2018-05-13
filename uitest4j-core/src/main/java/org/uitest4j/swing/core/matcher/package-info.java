@@ -12,7 +12,7 @@
  */
 /**
  * Common-use implementations of {@link org.uitest4j.swing.core.GenericTypeMatcher}.
- * 
+ *
  * @author Alex Ruiz
  */
 package org.uitest4j.swing.core.matcher;

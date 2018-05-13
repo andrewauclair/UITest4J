@@ -12,17 +12,16 @@
  */
 package org.uitest4j.swing.finder;
 
-import java.awt.Component;
-import java.util.concurrent.TimeUnit;
+import org.uitest4j.swing.core.GenericTypeMatcher;
+import org.uitest4j.swing.core.Robot;
+import org.uitest4j.swing.fixture.JOptionPaneFixture;
 
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import javax.swing.JOptionPane;
-
-import org.uitest4j.swing.core.GenericTypeMatcher;
-import org.uitest4j.swing.core.Robot;
-import org.uitest4j.swing.fixture.JOptionPaneFixture;
+import javax.swing.*;
+import java.awt.*;
+import java.util.concurrent.TimeUnit;
 
 /**
  * <p>
@@ -75,85 +74,91 @@ import org.uitest4j.swing.fixture.JOptionPaneFixture;
  * @author Alex Ruiz
  */
 public class JOptionPaneFinder extends ComponentFinderTemplate<JOptionPane> {
-  /**
-   * Creates a new {@link JOptionPaneFinder}. This finder looks up a {@code JOptionPane} by type.
-   */
-  protected JOptionPaneFinder() {
-    super(JOptionPane.class);
-  }
+	/**
+	 * Creates a new {@link JOptionPaneFinder}. This finder looks up a {@code JOptionPane} by type.
+	 */
+	protected JOptionPaneFinder() {
+		super(JOptionPane.class);
+	}
 
-  /**
-   * Creates a new {@link JOptionPaneFinder}.
-   *
-   * @param matcher specifies the search criteria to use when looking up a {@code JOptionPane}.
-   */
-  protected JOptionPaneFinder(@Nonnull GenericTypeMatcher<? extends JOptionPane> matcher) {
-    super(matcher);
-  }
+	/**
+	 * Creates a new {@link JOptionPaneFinder}.
+	 *
+	 * @param matcher specifies the search criteria to use when looking up a {@code JOptionPane}.
+	 */
+	protected JOptionPaneFinder(@Nonnull GenericTypeMatcher<? extends JOptionPane> matcher) {
+		super(matcher);
+	}
 
-  /**
-   * Creates a new {@link JOptionPaneFinder} capable of looking up a {@code JOptionPane}.
-   *
-   * @return the created finder.
-   */
-  @Nonnull public static JOptionPaneFinder findOptionPane() {
-    return new JOptionPaneFinder();
-  }
+	/**
+	 * Creates a new {@link JOptionPaneFinder} capable of looking up a {@code JOptionPane}.
+	 *
+	 * @return the created finder.
+	 */
+	@Nonnull
+	public static JOptionPaneFinder findOptionPane() {
+		return new JOptionPaneFinder();
+	}
 
-  /**
-   * Creates a new {@link JOptionPaneFinder} capable of looking up a {@code JOptionPane} using the given matcher.
-   *
-   * @param matcher the given matcher.
-   * @return the created finder.
-   */
-  @Nonnull public static JOptionPaneFinder findOptionPane(@Nonnull GenericTypeMatcher<? extends JOptionPane> matcher) {
-    return new JOptionPaneFinder(matcher);
-  }
+	/**
+	 * Creates a new {@link JOptionPaneFinder} capable of looking up a {@code JOptionPane} using the given matcher.
+	 *
+	 * @param matcher the given matcher.
+	 * @return the created finder.
+	 */
+	@Nonnull
+	public static JOptionPaneFinder findOptionPane(@Nonnull GenericTypeMatcher<? extends JOptionPane> matcher) {
+		return new JOptionPaneFinder(matcher);
+	}
 
-  /**
-   * Finds a {@code JOptionPane} by name or type.
-   *
-   * @param robot contains the underlying finding to delegate the search to.
-   * @return a {@code JOptionPaneFixture} managing the found {@code JOptionPane}.
-   * @throws org.uitest4j.swing.exception.WaitTimedOutError if a {@code JOptionPane} could not be found.
-   */
-  @Override
-  @Nonnull public JOptionPaneFixture using(@Nonnull Robot robot) {
-    return new JOptionPaneFixture(robot, findComponentWith(robot));
-  }
+	/**
+	 * Finds a {@code JOptionPane} by name or type.
+	 *
+	 * @param robot contains the underlying finding to delegate the search to.
+	 * @return a {@code JOptionPaneFixture} managing the found {@code JOptionPane}.
+	 * @throws org.uitest4j.swing.exception.WaitTimedOutError if a {@code JOptionPane} could not be found.
+	 */
+	@Override
+	@Nonnull
+	public JOptionPaneFixture using(@Nonnull Robot robot) {
+		return new JOptionPaneFixture(robot, findComponentWith(robot));
+	}
 
-  /**
-   * Sets the timeout for this finder. The window to search should be found within the given time period.
-   *
-   * @param timeout the number of milliseconds before stopping the search.
-   * @return this finder.
-   */
-  @Override
-  @Nonnull public JOptionPaneFinder withTimeout(@Nonnegative long timeout) {
-    super.withTimeout(timeout);
-    return this;
-  }
+	/**
+	 * Sets the timeout for this finder. The window to search should be found within the given time period.
+	 *
+	 * @param timeout the number of milliseconds before stopping the search.
+	 * @return this finder.
+	 */
+	@Override
+	@Nonnull
+	public JOptionPaneFinder withTimeout(@Nonnegative long timeout) {
+		super.withTimeout(timeout);
+		return this;
+	}
 
-  /**
-   * Sets the timeout for this finder. The window to search should be found within the given time period.
-   *
-   * @param timeout the period of time the search should be performed.
-   * @param unit the time unit for {@code timeout}.
-   * @return this finder.
-   */
-  @Override
-  @Nonnull public JOptionPaneFinder withTimeout(@Nonnegative long timeout, @Nonnull TimeUnit unit) {
-    super.withTimeout(timeout, unit);
-    return this;
-  }
+	/**
+	 * Sets the timeout for this finder. The window to search should be found within the given time period.
+	 *
+	 * @param timeout the period of time the search should be performed.
+	 * @param unit    the time unit for {@code timeout}.
+	 * @return this finder.
+	 */
+	@Override
+	@Nonnull
+	public JOptionPaneFinder withTimeout(@Nonnegative long timeout, @Nonnull TimeUnit unit) {
+		super.withTimeout(timeout, unit);
+		return this;
+	}
 
-  /**
-   * Casts the given AWT or Swing {@code Component} to {@code JOptionPane}.
-   *
-   * @return the given {@code Component}, casted to {@code JFileChooser}.
-   */
-  @Override
-  @Nullable protected JOptionPane cast(@Nullable Component c) {
-    return (JOptionPane) c;
-  }
+	/**
+	 * Casts the given AWT or Swing {@code Component} to {@code JOptionPane}.
+	 *
+	 * @return the given {@code Component}, casted to {@code JFileChooser}.
+	 */
+	@Override
+	@Nullable
+	protected JOptionPane cast(@Nullable Component c) {
+		return (JOptionPane) c;
+	}
 }

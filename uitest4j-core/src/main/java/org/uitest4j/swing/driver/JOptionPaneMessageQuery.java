@@ -22,16 +22,17 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
  * Returns the message of a {@code JOptionPane}. This query is executed in the event dispatch thread (EDT).
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
 final class JOptionPaneMessageQuery {
-  @RunsInEDT
-  static @Nullable Object messageOf(final @Nonnull JOptionPane optionPane) {
-    return execute(optionPane::getMessage);
-  }
+	@RunsInEDT
+	static @Nullable
+	Object messageOf(final @Nonnull JOptionPane optionPane) {
+		return execute(optionPane::getMessage);
+	}
 
-  private JOptionPaneMessageQuery() {
-  }
+	private JOptionPaneMessageQuery() {
+	}
 }

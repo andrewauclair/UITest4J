@@ -21,15 +21,15 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
  * Sets the size of an AWT or Swing {@code Component}. This task is executed in the event dispatch thread (EDT).
- * 
+ *
  * @author Alex Ruiz
  */
 final class ComponentSetSizeTask {
-  @RunsInEDT
-  static void setComponentSize(final @Nonnull Component c, final int width, final int height) {
-    execute(() -> c.setSize(width, height));
-  }
+	@RunsInEDT
+	static void setComponentSize(final @Nonnull Component c, final int width, final int height) {
+		execute(() -> c.setSize(width, height));
+	}
 
-  private ComponentSetSizeTask() {
-  }
+	private ComponentSetSizeTask() {
+	}
 }

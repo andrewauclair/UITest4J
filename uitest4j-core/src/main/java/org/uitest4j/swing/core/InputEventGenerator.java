@@ -12,10 +12,8 @@
  */
 package org.uitest4j.swing.core;
 
-import java.awt.Component;
-import java.awt.Point;
-
 import javax.annotation.Nonnull;
+import java.awt.*;
 
 /**
  * Generates input events.
@@ -24,80 +22,80 @@ import javax.annotation.Nonnull;
  * @author Yvonne Wang
  */
 interface InputEventGenerator {
-  /**
-   * Simulates a user pressing mouse buttons.
-   *
-   * @param buttons the buttons to press.
-   */
-  void pressMouse(int buttons);
+	/**
+	 * Simulates a user pressing mouse buttons.
+	 *
+	 * @param buttons the buttons to press.
+	 */
+	void pressMouse(int buttons);
 
-  /**
-   * Simulates a user pressing the given mouse buttons on the given AWT or Swing {@code Component}.
-   *
-   * @param c the {@code Component} to click on.
-   * @param where the given coordinates, relative to the given {@code Component}.
-   * @param buttons the mouse buttons to press.
-   * @throws org.uitest4j.swing.exception.ActionFailedException if the {@code Component} to click is out of the
-   *           boundaries of the screen.
-   */
-  void pressMouse(@Nonnull Component c, @Nonnull Point where, int buttons);
+	/**
+	 * Simulates a user pressing the given mouse buttons on the given AWT or Swing {@code Component}.
+	 *
+	 * @param c       the {@code Component} to click on.
+	 * @param where   the given coordinates, relative to the given {@code Component}.
+	 * @param buttons the mouse buttons to press.
+	 * @throws org.uitest4j.swing.exception.ActionFailedException if the {@code Component} to click is out of the
+	 *                                                            boundaries of the screen.
+	 */
+	void pressMouse(@Nonnull Component c, @Nonnull Point where, int buttons);
 
-  /**
-   * Simulates a user pressing the given mouse buttons on the given coordinates.
-   *
-   * @param where the coordinates where to press the given mouse buttons.
-   * @param buttons the mouse buttons to press.
-   */
-  void pressMouse(@Nonnull Point where, int buttons);
+	/**
+	 * Simulates a user pressing the given mouse buttons on the given coordinates.
+	 *
+	 * @param where   the coordinates where to press the given mouse buttons.
+	 * @param buttons the mouse buttons to press.
+	 */
+	void pressMouse(@Nonnull Point where, int buttons);
 
-  /**
-   * Simulates a user moving the mouse pointer to the given coordinates relative to the given AWT or Swing
-   * {@code Component}.
-   *
-   * @param c the given {@code Component}.
-   * @param x X coordinate, relative to the given {@code Component}.
-   * @param y Y coordinate, relative to the given {@code Component}.
-   */
-  void moveMouse(@Nonnull Component c, int x, int y);
+	/**
+	 * Simulates a user moving the mouse pointer to the given coordinates relative to the given AWT or Swing
+	 * {@code Component}.
+	 *
+	 * @param c the given {@code Component}.
+	 * @param x X coordinate, relative to the given {@code Component}.
+	 * @param y Y coordinate, relative to the given {@code Component}.
+	 */
+	void moveMouse(@Nonnull Component c, int x, int y);
 
-  /**
-   * Simulates a user moving the mouse pointer to the given coordinates.
-   *
-   * @param x X coordinate.
-   * @param y Y coordinate.
-   */
-  void moveMouse(int x, int y);
+	/**
+	 * Simulates a user moving the mouse pointer to the given coordinates.
+	 *
+	 * @param x X coordinate.
+	 * @param y Y coordinate.
+	 */
+	void moveMouse(int x, int y);
 
-  /**
-   * Releases the given mouse buttons.
-   *
-   * @param buttons the mouse buttons to release.
-   */
-  void releaseMouse(int buttons);
+	/**
+	 * Releases the given mouse buttons.
+	 *
+	 * @param buttons the mouse buttons to release.
+	 */
+	void releaseMouse(int buttons);
 
-  /**
-   * Rotates the scroll wheel on wheel-equipped mice.
-   *
-   * @param amount number of "notches" to move the mouse wheel. Negative values indicate movement up/away from the user,
-   *          while positive values indicate movement down/towards the user.
-   */
-  void rotateMouseWheel(int amount);
+	/**
+	 * Rotates the scroll wheel on wheel-equipped mice.
+	 *
+	 * @param amount number of "notches" to move the mouse wheel. Negative values indicate movement up/away from the user,
+	 *               while positive values indicate movement down/towards the user.
+	 */
+	void rotateMouseWheel(int amount);
 
-  /**
-   * Simulates a user pressing given key.
-   *
-   * @param keyCode the code of the key to press.
-   * @param keyChar the given character.
-   * @throws IllegalArgumentException if the key code is not valid.
-   * @see java.awt.event.KeyEvent
-   */
-  void pressKey(int keyCode, char keyChar);
+	/**
+	 * Simulates a user pressing given key.
+	 *
+	 * @param keyCode the code of the key to press.
+	 * @param keyChar the given character.
+	 * @throws IllegalArgumentException if the key code is not valid.
+	 * @see java.awt.event.KeyEvent
+	 */
+	void pressKey(int keyCode, char keyChar);
 
-  /**
-   * Simulates a user releasing the given key.
-   *
-   * @param keyCode the code of the key to release.
-   * @see java.awt.event.KeyEvent
-   */
-  void releaseKey(int keyCode);
+	/**
+	 * Simulates a user releasing the given key.
+	 *
+	 * @param keyCode the code of the key to release.
+	 * @see java.awt.event.KeyEvent
+	 */
+	void releaseKey(int keyCode);
 }

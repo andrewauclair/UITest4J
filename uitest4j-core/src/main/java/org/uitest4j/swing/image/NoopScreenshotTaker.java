@@ -12,41 +12,41 @@
  */
 package org.uitest4j.swing.image;
 
-import java.awt.Component;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 
 /**
  * Screenshot taker, which does nothing.
  * It's used in headless mode
- * 
+ *
  * @author Carsten Behring
  */
 public class NoopScreenshotTaker implements ScreenshotTakerIF {
 
-  private static final BufferedImage EMPTY_BUFFERED_IMAGE = new BufferedImage(1, 1, BufferedImage.TYPE_INT_RGB);
+	private static final BufferedImage EMPTY_BUFFERED_IMAGE = new BufferedImage(1, 1, BufferedImage.TYPE_INT_RGB);
 
-  @Override
-  public void saveDesktopAsPng(String imageFilePath) {
-    // do nothing
-  }
+	@Override
+	public void saveDesktopAsPng(String imageFilePath) {
+		// do nothing
+	}
 
-  @Override
-  public BufferedImage takeDesktopScreenshot() {
-    return EMPTY_BUFFERED_IMAGE;
-  }
+	@Override
+	public BufferedImage takeDesktopScreenshot() {
+		return EMPTY_BUFFERED_IMAGE;
+	}
 
-  @Override
-  public void saveComponentAsPng(Component c, String imageFilePath) {
-    // do nothing
-  }
+	@Override
+	public void saveComponentAsPng(Component c, String imageFilePath) {
+		// do nothing
+	}
 
-  @Override
-  public BufferedImage takeScreenshotOf(Component c) {
-    return EMPTY_BUFFERED_IMAGE;
-  }
+	@Override
+	public BufferedImage takeScreenshotOf(Component c) {
+		return EMPTY_BUFFERED_IMAGE;
+	}
 
-  @Override
-  public void saveImage(BufferedImage image, String filePath) {
-    // do nothing
-  }
+	@Override
+	public void saveImage(BufferedImage image, String filePath) {
+		// do nothing
+	}
 }

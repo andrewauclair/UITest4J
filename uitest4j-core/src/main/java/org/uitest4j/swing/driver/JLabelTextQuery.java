@@ -22,18 +22,18 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
  * Returns the text of a {@code JLabel}. This task is executed in the event dispatch thread (EDT).
- * 
- * @see JLabel#getText()
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
+ * @see JLabel#getText()
  */
 final class JLabelTextQuery {
-  @RunsInEDT
-  static @Nullable String textOf(final @Nonnull JLabel label) {
-    return execute(label::getText);
-  }
+	@RunsInEDT
+	static @Nullable
+	String textOf(final @Nonnull JLabel label) {
+		return execute(label::getText);
+	}
 
-  private JLabelTextQuery() {
-  }
+	private JLabelTextQuery() {
+	}
 }

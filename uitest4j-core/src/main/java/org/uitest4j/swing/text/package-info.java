@@ -12,7 +12,7 @@
  */
 /**
  * Utilities for reading the text displayed in AWT or Swing {@code Component}s.
- * 
+ *
  * @author Alex Ruiz
  */
 package org.uitest4j.swing.text;

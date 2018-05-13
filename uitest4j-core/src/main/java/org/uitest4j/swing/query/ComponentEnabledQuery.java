@@ -12,36 +12,34 @@
  */
 package org.uitest4j.swing.query;
 
-import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-
-import java.awt.Component;
+import javax.annotation.Nonnull;
+import java.awt.*;
 import java.util.Objects;
 
-import javax.annotation.Nonnull;
+import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
  * Indicates whether an AWT or Swing {@code Component} is enabled or not. This query is executed in the event dispatch
  * thread (EDT).
  *
- * @see Component#isEnabled()
- *
  * @author Alex Ruiz
  * @author Yvonne Wang
+ * @see Component#isEnabled()
  */
 public final class ComponentEnabledQuery {
-  /**
-   * Indicates whether the given AWT or Swing {@code Component} is enabled or not. This query is executed in the event
-   * dispatch thread (EDT).
-   *
-   * @param component the given {@code Component}.
-   * @return {@code true} if the given {@code Component} is enabled, {@code false} otherwise.
-   * @see Component#isEnabled()
-   */
-  public static boolean isEnabled(final @Nonnull Component component) {
-    Boolean result = execute(component::isEnabled);
-    return Objects.requireNonNull(result);
-  }
+	/**
+	 * Indicates whether the given AWT or Swing {@code Component} is enabled or not. This query is executed in the event
+	 * dispatch thread (EDT).
+	 *
+	 * @param component the given {@code Component}.
+	 * @return {@code true} if the given {@code Component} is enabled, {@code false} otherwise.
+	 * @see Component#isEnabled()
+	 */
+	public static boolean isEnabled(final @Nonnull Component component) {
+		Boolean result = execute(component::isEnabled);
+		return Objects.requireNonNull(result);
+	}
 
-  private ComponentEnabledQuery() {
-  }
+	private ComponentEnabledQuery() {
+	}
 }

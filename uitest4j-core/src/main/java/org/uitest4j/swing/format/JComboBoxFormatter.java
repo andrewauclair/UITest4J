@@ -12,7 +12,6 @@
  */
 package org.uitest4j.swing.format;
 
-import org.uitest4j.swing.util.ArrayUtils;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 
 import javax.annotation.Nonnull;
@@ -28,37 +27,40 @@ import java.util.List;
  * @author Yvonne Wang
  */
 public class JComboBoxFormatter extends ComponentFormatterTemplate {
-  /**
-   * Returns the {@code String} representation of the given {@code Component}, which should be a {@code JComboBox}.
-   *
-   * @param c the given {@code Component}.
-   * @return the {@code String} representation of the given {@code JComboBox}.
-   */
-  @RunsInCurrentThread
-  @Override
-  @Nonnull protected String doFormat(@Nonnull Component c) {
-    JComboBox<?> comboBox = (JComboBox<?>) c;
-	  String format = "%s[name='%s', selectedItem='%s', contents=%s, editable=%b, enabled=%b, visible=%b, showing=%b]";
-	  return String.format(format, getRealClassName(c), comboBox.getName(),
-              comboBox.getSelectedItem(), Arrays.toString(contentsOf(comboBox)), comboBox.isEditable(),
-                         comboBox.isEnabled(), comboBox.isVisible(), comboBox.isShowing());
-  }
+	/**
+	 * Returns the {@code String} representation of the given {@code Component}, which should be a {@code JComboBox}.
+	 *
+	 * @param c the given {@code Component}.
+	 * @return the {@code String} representation of the given {@code JComboBox}.
+	 */
+	@RunsInCurrentThread
+	@Override
+	@Nonnull
+	protected String doFormat(@Nonnull Component c) {
+		JComboBox<?> comboBox = (JComboBox<?>) c;
+		String format = "%s[name='%s', selectedItem='%s', contents=%s, editable=%b, enabled=%b, visible=%b, showing=%b]";
+		return String.format(format, getRealClassName(c), comboBox.getName(),
+				comboBox.getSelectedItem(), Arrays.toString(contentsOf(comboBox)), comboBox.isEditable(),
+				comboBox.isEnabled(), comboBox.isVisible(), comboBox.isShowing());
+	}
 
-  @RunsInCurrentThread
-  @Nonnull private Object[] contentsOf(@Nonnull JComboBox<?> comboBox) {
-    List<Object> contents = new ArrayList<>();
-    int count = comboBox.getItemCount();
-    for (int i = 0; i < count; i++) {
-      contents.add(comboBox.getItemAt(i));
-    }
-    return contents.toArray();
-  }
+	@RunsInCurrentThread
+	@Nonnull
+	private Object[] contentsOf(@Nonnull JComboBox<?> comboBox) {
+		List<Object> contents = new ArrayList<>();
+		int count = comboBox.getItemCount();
+		for (int i = 0; i < count; i++) {
+			contents.add(comboBox.getItemAt(i));
+		}
+		return contents.toArray();
+	}
 
-  /**
-   * @return {@code JComboBox.class}.
-   */
-  @Override
-  @Nonnull public Class<? extends Component> targetType() {
-    return JComboBox.class;
-  }
+	/**
+	 * @return {@code JComboBox.class}.
+	 */
+	@Override
+	@Nonnull
+	public Class<? extends Component> targetType() {
+		return JComboBox.class;
+	}
 }

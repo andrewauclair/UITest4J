@@ -31,11 +31,11 @@ import javax.swing.*;
  * @author Christian Rösch
  */
 final class JTableRowCellSelectedQuery {
-  @RunsInCurrentThread
-  static boolean isCellSelected(final @Nonnull JTable table, final int row, final int column) {
-    return table.isCellSelected(row, column);
-  }
+	@RunsInCurrentThread
+	static boolean isCellSelected(final @Nonnull JTable table, final int row, final int column) {
+		return table.isCellSelected(row, column);
+	}
 
-  private JTableRowCellSelectedQuery() {
-  }
+	private JTableRowCellSelectedQuery() {
+	}
 }

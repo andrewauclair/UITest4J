@@ -23,37 +23,39 @@ import java.util.Collection;
 
 /**
  * Finds children {@code Component}s in a {@code JDesktopPane}.
- * 
+ *
  * @author Yvonne Wang
  */
 final class JDesktopPaneChildrenFinder implements ChildrenFinderStrategy {
-  @Override
-  @RunsInCurrentThread
-  @Nonnull public Collection<Component> nonExplicitChildrenOf(@Nonnull Container c) {
-    if (!(c instanceof JDesktopPane)) {
-		return new ArrayList<>();
-    }
-    return internalFramesFromIcons(c);
-  }
+	@Override
+	@RunsInCurrentThread
+	@Nonnull
+	public Collection<Component> nonExplicitChildrenOf(@Nonnull Container c) {
+		if (!(c instanceof JDesktopPane)) {
+			return new ArrayList<>();
+		}
+		return internalFramesFromIcons(c);
+	}
 
-  // From Abbot: add iconified frames, which are otherwise unreachable. For consistency, they are still considered
-  // children of the desktop pane.
-  @RunsInCurrentThread
-  @Nonnull private Collection<Component> internalFramesFromIcons(@Nonnull Container c) {
-	  Collection<Component> frames = new ArrayList<>();
-    for (Component child : c.getComponents()) {
-      if (child instanceof JDesktopIcon) {
-        JInternalFrame frame = ((JDesktopIcon) child).getInternalFrame();
-        if (frame != null) {
-          frames.add(frame);
-        }
-        continue;
-      }
-      // OSX puts icons into a dock; handle icon manager situations here
-      if (child instanceof Container) {
-        frames.addAll(internalFramesFromIcons((Container) child));
-      }
-    }
-    return frames;
-  }
+	// From Abbot: add iconified frames, which are otherwise unreachable. For consistency, they are still considered
+	// children of the desktop pane.
+	@RunsInCurrentThread
+	@Nonnull
+	private Collection<Component> internalFramesFromIcons(@Nonnull Container c) {
+		Collection<Component> frames = new ArrayList<>();
+		for (Component child : c.getComponents()) {
+			if (child instanceof JDesktopIcon) {
+				JInternalFrame frame = ((JDesktopIcon) child).getInternalFrame();
+				if (frame != null) {
+					frames.add(frame);
+				}
+				continue;
+			}
+			// OSX puts icons into a dock; handle icon manager situations here
+			if (child instanceof Container) {
+				frames.addAll(internalFramesFromIcons((Container) child));
+			}
+		}
+		return frames;
+	}
 }

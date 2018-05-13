@@ -12,70 +12,69 @@
  */
 package org.uitest4j.swing.fixture;
 
-import javax.annotation.Nonnull;
-
 import org.uitest4j.swing.core.MouseButton;
 import org.uitest4j.swing.core.MouseClickInfo;
 
+import javax.annotation.Nonnull;
+
 /**
  * Simulates mouse input on an AWT or Swing {@code Component}.
- * 
+ *
  * @param <S> used to simulate "self types." For more information please read &quot;<a href="http://goo.gl/fjgOM"
- *          target="_blank">Emulating 'self types' using Java Generics to simplify fluent API implementation</a>.&quot;
- * 
+ *            target="_blank">Emulating 'self types' using Java Generics to simplify fluent API implementation</a>.&quot;
  * @author Alex Ruiz
  */
 public interface MouseInputSimulationFixture<S> {
-  /**
-   * Simulates a user clicking this fixture's {@code Component}.
-   * 
-   * @return this fixture.
-   * @throws IllegalStateException if the {@code Component} is disabled.
-   * @throws IllegalStateException if the {@code Component} is not showing on the screen.
-   */
-  @Nonnull
-  S click();
+	/**
+	 * Simulates a user clicking this fixture's {@code Component}.
+	 *
+	 * @return this fixture.
+	 * @throws IllegalStateException if the {@code Component} is disabled.
+	 * @throws IllegalStateException if the {@code Component} is not showing on the screen.
+	 */
+	@Nonnull
+	S click();
 
-  /**
-   * Simulates a user clicking this fixture's {@code Component}.
-   * 
-   * @param button the button to click.
-   * @return this fixture.
-   * @throws IllegalStateException if the {@code Component} is disabled.
-   * @throws IllegalStateException if the {@code Component} is not showing on the screen.
-   */
-  @Nonnull
-  S click(@Nonnull MouseButton button);
+	/**
+	 * Simulates a user clicking this fixture's {@code Component}.
+	 *
+	 * @param button the button to click.
+	 * @return this fixture.
+	 * @throws IllegalStateException if the {@code Component} is disabled.
+	 * @throws IllegalStateException if the {@code Component} is not showing on the screen.
+	 */
+	@Nonnull
+	S click(@Nonnull MouseButton button);
 
-  /**
-   * Simulates a user clicking this fixture's {@code Component}.
-   * 
-   * @param mouseClickInfo specifies the button to click and the times the button should be clicked.
-   * @return this fixture.
-   * @throws NullPointerException if the given {@code MouseClickInfo} is {@code null}.
-   * @throws IllegalStateException if the {@code Component} is disabled.
-   * @throws IllegalStateException if the {@code Component} is not showing on the screen.
-   */
-  @Nonnull
-  S click(@Nonnull MouseClickInfo mouseClickInfo);
+	/**
+	 * Simulates a user clicking this fixture's {@code Component}.
+	 *
+	 * @param mouseClickInfo specifies the button to click and the times the button should be clicked.
+	 * @return this fixture.
+	 * @throws NullPointerException  if the given {@code MouseClickInfo} is {@code null}.
+	 * @throws IllegalStateException if the {@code Component} is disabled.
+	 * @throws IllegalStateException if the {@code Component} is not showing on the screen.
+	 */
+	@Nonnull
+	S click(@Nonnull MouseClickInfo mouseClickInfo);
 
-  /**
-   * Simulates a user double-clicking this fixture's {@code Component}.
-   * 
-   * @return this fixture.
-   * @throws IllegalStateException if the {@code Component} is disabled.
-   * @throws IllegalStateException if the {@code Component} is not showing on the screen.
-   */
-  @Nonnull
-  S doubleClick();
+	/**
+	 * Simulates a user double-clicking this fixture's {@code Component}.
+	 *
+	 * @return this fixture.
+	 * @throws IllegalStateException if the {@code Component} is disabled.
+	 * @throws IllegalStateException if the {@code Component} is not showing on the screen.
+	 */
+	@Nonnull
+	S doubleClick();
 
-  /**
-   * Simulates a user right-clicking this fixture's {@code Component}.
-   * 
-   * @return this fixture.
-   * @throws IllegalStateException if the {@code Component} is disabled.
-   * @throws IllegalStateException if the {@code Component} is not showing on the screen.
-   */
-  @Nonnull
-  S rightClick();
+	/**
+	 * Simulates a user right-clicking this fixture's {@code Component}.
+	 *
+	 * @return this fixture.
+	 * @throws IllegalStateException if the {@code Component} is disabled.
+	 * @throws IllegalStateException if the {@code Component} is not showing on the screen.
+	 */
+	@Nonnull
+	S rightClick();
 }

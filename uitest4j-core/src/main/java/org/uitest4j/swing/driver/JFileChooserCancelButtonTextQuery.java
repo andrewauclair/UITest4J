@@ -13,21 +13,22 @@
 package org.uitest4j.swing.driver;
 
 import javax.annotation.Nullable;
-import javax.swing.UIManager;
+import javax.swing.*;
 
 /**
  * Returns the text used in the "cancel" button of a {@code JFileChooser}.
- * 
+ *
  * @author Yvonne Wang
  * @author Alex Ruiz
  */
 final class JFileChooserCancelButtonTextQuery {
-  private static final String CANCEL_BUTTON_TEXT_KEY = "FileChooser.cancelButtonText";
+	private static final String CANCEL_BUTTON_TEXT_KEY = "FileChooser.cancelButtonText";
 
-  static @Nullable String cancelButtonText() {
-    return UIManager.getString(CANCEL_BUTTON_TEXT_KEY);
-  }
+	static @Nullable
+	String cancelButtonText() {
+		return UIManager.getString(CANCEL_BUTTON_TEXT_KEY);
+	}
 
-  private JFileChooserCancelButtonTextQuery() {
-  }
+	private JFileChooserCancelButtonTextQuery() {
+	}
 }

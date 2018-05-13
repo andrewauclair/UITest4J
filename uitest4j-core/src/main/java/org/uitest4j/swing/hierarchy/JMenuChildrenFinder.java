@@ -25,21 +25,22 @@ import java.util.Collections;
  * <p>
  * Find children {@code Component}s in a {@code JMenu}.
  * </p>
- * 
+ *
  * <p>
  * <b>Note:</b> Methods in this class are accessed in the current executing thread. Such thread may or may not be the
  * event dispatch thread (EDT). Client code must call methods in this class from the EDT.
  * </p>
- * 
+ *
  * @author Yvonne Wang
  */
 final class JMenuChildrenFinder implements ChildrenFinderStrategy {
-  @RunsInCurrentThread
-  @Override
-  @Nonnull public Collection<Component> nonExplicitChildrenOf(@Nonnull Container c) {
-    if (!(c instanceof JMenu)) {
-		return new ArrayList<>();
-    }
-	  return Collections.singletonList(((JMenu) c).getPopupMenu());
-  }
+	@RunsInCurrentThread
+	@Override
+	@Nonnull
+	public Collection<Component> nonExplicitChildrenOf(@Nonnull Container c) {
+		if (!(c instanceof JMenu)) {
+			return new ArrayList<>();
+		}
+		return Collections.singletonList(((JMenu) c).getPopupMenu());
+	}
 }

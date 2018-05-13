@@ -20,32 +20,33 @@ import java.awt.*;
 
 /**
  * Default implementation of {@link CellRendererReader}.
- * 
+ *
  * @author Alex Ruiz
  */
 public class BasicCellRendererReader implements CellRendererReader {
-  /**
-   * <p>
-   * Reads the value in the given cell renderer {@code Component}, or returns {@code null} if the renderer belongs to an
-   * unknown type. Internally, this method will call {@code getText()} if the given renderer is an instance of
-   * {@code JLabel}.
-   * </p>
-   * 
-   * <p>
-   * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
-   * dispatch thread (EDT). Client code must call this method from the EDT.
-   * </p>
-   * 
-   * @param c the given cell renderer component.
-   * @return the value of the given {@code Component}, or {@code null} if the renderer belongs to an unknown component
-   *         type.
-   */
-  @RunsInCurrentThread
-  @Override
-  @Nullable public String valueFrom(@Nullable Component c) {
-    if (c instanceof JLabel) {
-      return ((JLabel) c).getText();
-    }
-    return null;
-  }
+	/**
+	 * <p>
+	 * Reads the value in the given cell renderer {@code Component}, or returns {@code null} if the renderer belongs to an
+	 * unknown type. Internally, this method will call {@code getText()} if the given renderer is an instance of
+	 * {@code JLabel}.
+	 * </p>
+	 *
+	 * <p>
+	 * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
+	 * dispatch thread (EDT). Client code must call this method from the EDT.
+	 * </p>
+	 *
+	 * @param c the given cell renderer component.
+	 * @return the value of the given {@code Component}, or {@code null} if the renderer belongs to an unknown component
+	 * type.
+	 */
+	@RunsInCurrentThread
+	@Override
+	@Nullable
+	public String valueFrom(@Nullable Component c) {
+		if (c instanceof JLabel) {
+			return ((JLabel) c).getText();
+		}
+		return null;
+	}
 }

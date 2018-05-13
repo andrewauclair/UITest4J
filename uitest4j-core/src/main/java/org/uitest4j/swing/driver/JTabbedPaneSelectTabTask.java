@@ -22,16 +22,16 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 /**
  * Selects the tab with the given index in a {@code JTabbedPane}. This task is executed in the event dispatch thread
  * (EDT).
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
 final class JTabbedPaneSelectTabTask {
-  @RunsInEDT
-  static void setSelectedTab(final @Nonnull JTabbedPane tabbedPane, final int index) {
-    execute(() -> tabbedPane.setSelectedIndex(index));
-  }
+	@RunsInEDT
+	static void setSelectedTab(final @Nonnull JTabbedPane tabbedPane, final int index) {
+		execute(() -> tabbedPane.setSelectedIndex(index));
+	}
 
-  private JTabbedPaneSelectTabTask() {
-  }
+	private JTabbedPaneSelectTabTask() {
+	}
 }

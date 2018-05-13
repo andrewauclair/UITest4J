@@ -12,33 +12,33 @@
  */
 package org.uitest4j.swing.internal.assertions;
 
-import static org.uitest4j.swing.assertions.data.Point.atPoint;
-
 import org.uitest4j.swing.assertions.data.Point;
 import org.uitest4j.swing.assertions.data.RgbColor;
+
+import static org.uitest4j.swing.assertions.data.Point.atPoint;
 
 /**
  * @author Yvonne Wang
  */
 class ColorComparisonResult {
 
-  static final ColorComparisonResult ARE_EQUAL = new ColorComparisonResult();
+	static final ColorComparisonResult ARE_EQUAL = new ColorComparisonResult();
 
-  static ColorComparisonResult notEqual(RgbColor c1, RgbColor c2, int x, int y) {
-    return new ColorComparisonResult(c1, c2, atPoint(x, y));
-  }
+	static ColorComparisonResult notEqual(RgbColor c1, RgbColor c2, int x, int y) {
+		return new ColorComparisonResult(c1, c2, atPoint(x, y));
+	}
 
-  final RgbColor color1;
-  final RgbColor color2;
-  final Point point;
+	final RgbColor color1;
+	final RgbColor color2;
+	final Point point;
 
-  private ColorComparisonResult() {
-    this(null, null, null);
-  }
+	private ColorComparisonResult() {
+		this(null, null, null);
+	}
 
-  private ColorComparisonResult(RgbColor c1, RgbColor c2, Point p) {
-    color1 = c1;
-    color2 = c2;
-    point = p;
-  }
+	private ColorComparisonResult(RgbColor c1, RgbColor c2, Point p) {
+		color1 = c1;
+		color2 = c2;
+		point = p;
+	}
 }

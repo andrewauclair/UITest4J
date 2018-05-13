@@ -12,99 +12,99 @@
  */
 package org.uitest4j.swing.fixture;
 
-import java.awt.Point;
+import org.uitest4j.swing.core.Robot;
+import org.uitest4j.swing.driver.JComponentDriver;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import javax.swing.JComponent;
-
-import org.uitest4j.swing.core.Robot;
-import org.uitest4j.swing.driver.JComponentDriver;
+import javax.swing.*;
+import java.awt.*;
 
 /**
  * Supports functional testing of {@code JComponent}s capable of invoking {@code JPopupMenu}s.
  *
  * @param <S> used to simulate "self types." For more information please read &quot;<a href="http://goo.gl/fjgOM"
- *          target="_blank">Emulating 'self types' using Java Generics to simplify fluent API implementation</a>.&quot;
+ *            target="_blank">Emulating 'self types' using Java Generics to simplify fluent API implementation</a>.&quot;
  * @param <T> the type of {@code JComponent} that this fixture can manage.
  * @param <D> the type of {@link JComponentDriver} that this fixture uses internally.
- *
  * @author Alex Ruiz
  */
 public abstract class AbstractJPopupMenuInvokerFixture<S, T extends JComponent, D extends JComponentDriver> extends
-    AbstractJComponentFixture<S, T, D> implements JPopupMenuInvokerFixture {
-  /**
-   * Creates a new {@link AbstractJPopupMenuInvokerFixture}.
-   *
-   * @param selfType the "self type."
-   * @param robot performs simulation of user events on a {@code JComponent}.
-   * @param type the type of the {@code JComponent} to find using the given {@code Robot}.
-   * @throws NullPointerException if {@code robot} is {@code null}.
-   * @throws NullPointerException if {@code type} is {@code null}.
-   * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching component could not be found.
-   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching component is found.
-   */
-  public AbstractJPopupMenuInvokerFixture(@Nonnull Class<S> selfType, @Nonnull Robot robot,
-                                          @Nonnull Class<? extends T> type) {
-    super(selfType, robot, type);
-  }
+		AbstractJComponentFixture<S, T, D> implements JPopupMenuInvokerFixture {
+	/**
+	 * Creates a new {@link AbstractJPopupMenuInvokerFixture}.
+	 *
+	 * @param selfType the "self type."
+	 * @param robot    performs simulation of user events on a {@code JComponent}.
+	 * @param type     the type of the {@code JComponent} to find using the given {@code Robot}.
+	 * @throws NullPointerException                                  if {@code robot} is {@code null}.
+	 * @throws NullPointerException                                  if {@code type} is {@code null}.
+	 * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching component could not be found.
+	 * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching component is found.
+	 */
+	public AbstractJPopupMenuInvokerFixture(@Nonnull Class<S> selfType, @Nonnull Robot robot,
+											@Nonnull Class<? extends T> type) {
+		super(selfType, robot, type);
+	}
 
-  /**
-   * Creates a new {@link AbstractJPopupMenuInvokerFixture}.
-   *
-   * @param selfType the "self type."
-   * @param robot performs simulation of user events on a {@code JComponent}.
-   * @param name the name of the {@code JComponent} to find using the given {@code Robot}.
-   * @param type the type of the {@code JComponent} to find using the given {@code Robot}.
-   * @throws NullPointerException if {@code robot} is {@code null}.
-   * @throws NullPointerException if {@code type} is {@code null}.
-   * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching component could not be found.
-   * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching component is found.
-   */
-  public AbstractJPopupMenuInvokerFixture(@Nonnull Class<S> selfType, @Nonnull Robot robot, @Nullable String name,
-                                          @Nonnull Class<? extends T> type) {
-    super(selfType, robot, name, type);
-  }
+	/**
+	 * Creates a new {@link AbstractJPopupMenuInvokerFixture}.
+	 *
+	 * @param selfType the "self type."
+	 * @param robot    performs simulation of user events on a {@code JComponent}.
+	 * @param name     the name of the {@code JComponent} to find using the given {@code Robot}.
+	 * @param type     the type of the {@code JComponent} to find using the given {@code Robot}.
+	 * @throws NullPointerException                                  if {@code robot} is {@code null}.
+	 * @throws NullPointerException                                  if {@code type} is {@code null}.
+	 * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching component could not be found.
+	 * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching component is found.
+	 */
+	public AbstractJPopupMenuInvokerFixture(@Nonnull Class<S> selfType, @Nonnull Robot robot, @Nullable String name,
+											@Nonnull Class<? extends T> type) {
+		super(selfType, robot, name, type);
+	}
 
-  /**
-   * Creates a new {@link AbstractJPopupMenuInvokerFixture}.
-   *
-   * @param selfType the "self type."
-   * @param robot performs simulation of user events on the given {@code JComponent}.
-   * @param target the {@code JComponent} to be managed by this fixture.
-   * @throws NullPointerException if {@code robot} is {@code null}.
-   * @throws NullPointerException if {@code target} is {@code null}.
-   */
-  public AbstractJPopupMenuInvokerFixture(@Nonnull Class<S> selfType, @Nonnull Robot robot, @Nonnull T target) {
-    super(selfType, robot, target);
-  }
+	/**
+	 * Creates a new {@link AbstractJPopupMenuInvokerFixture}.
+	 *
+	 * @param selfType the "self type."
+	 * @param robot    performs simulation of user events on the given {@code JComponent}.
+	 * @param target   the {@code JComponent} to be managed by this fixture.
+	 * @throws NullPointerException if {@code robot} is {@code null}.
+	 * @throws NullPointerException if {@code target} is {@code null}.
+	 */
+	public AbstractJPopupMenuInvokerFixture(@Nonnull Class<S> selfType, @Nonnull Robot robot, @Nonnull T target) {
+		super(selfType, robot, target);
+	}
 
-  /**
-   * Shows a pop-up menu using this fixture's {@code JComponent} as the invoker of the pop-up menu.
-   *
-   * @return a fixture that manages the displayed pop-up menu.
-   * @throws IllegalStateException if {@link org.uitest4j.swing.core.Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and this
-   *           fixture's {@code JComponent} is disabled.
-   * @throws IllegalStateException if this fixture's {@code JComponent} is not showing on the screen.
-   * @throws org.uitest4j.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
-   */
-  @Override
-  @Nonnull public JPopupMenuFixture showPopupMenu() {
-    return new JPopupMenuFixture(robot(), driver().invokePopupMenu(target()));
-  }
+	/**
+	 * Shows a pop-up menu using this fixture's {@code JComponent} as the invoker of the pop-up menu.
+	 *
+	 * @return a fixture that manages the displayed pop-up menu.
+	 * @throws IllegalStateException                                 if {@link org.uitest4j.swing.core.Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and this
+	 *                                                               fixture's {@code JComponent} is disabled.
+	 * @throws IllegalStateException                                 if this fixture's {@code JComponent} is not showing on the screen.
+	 * @throws org.uitest4j.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
+	 */
+	@Override
+	@Nonnull
+	public JPopupMenuFixture showPopupMenu() {
+		return new JPopupMenuFixture(robot(), driver().invokePopupMenu(target()));
+	}
 
-  /**
-   * Shows a pop-up menu at the given point using this fixture's {@code JComponent} as the invoker of the pop-up menu.
-   *
-   * @param p the given point where to show the pop-up menu.
-   * @return a fixture that manages the displayed pop-up menu.
-   * @throws IllegalStateException if {@link org.uitest4j.swing.core.Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and this
-   *           fixture's {@code JComponent} is disabled.
-   * @throws IllegalStateException if this fixture's {@code JComponent} is not showing on the screen.
-   * @throws org.uitest4j.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
-   */
-  @Override
-  @Nonnull public JPopupMenuFixture showPopupMenuAt(@Nonnull Point p) {
-    return new JPopupMenuFixture(robot(), driver().invokePopupMenu(target(), p));
-  }
+	/**
+	 * Shows a pop-up menu at the given point using this fixture's {@code JComponent} as the invoker of the pop-up menu.
+	 *
+	 * @param p the given point where to show the pop-up menu.
+	 * @return a fixture that manages the displayed pop-up menu.
+	 * @throws IllegalStateException                                 if {@link org.uitest4j.swing.core.Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and this
+	 *                                                               fixture's {@code JComponent} is disabled.
+	 * @throws IllegalStateException                                 if this fixture's {@code JComponent} is not showing on the screen.
+	 * @throws org.uitest4j.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
+	 */
+	@Override
+	@Nonnull
+	public JPopupMenuFixture showPopupMenuAt(@Nonnull Point p) {
+		return new JPopupMenuFixture(robot(), driver().invokePopupMenu(target(), p));
+	}
 }

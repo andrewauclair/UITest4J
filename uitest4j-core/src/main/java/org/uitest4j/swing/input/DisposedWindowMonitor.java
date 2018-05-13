@@ -12,14 +12,13 @@
  */
 package org.uitest4j.swing.input;
 
+import java.awt.*;
+import java.awt.event.WindowEvent;
+import java.util.Map;
+
 import static java.awt.event.WindowEvent.WINDOW_CLOSED;
 import static java.awt.event.WindowEvent.WINDOW_CLOSING;
 import static org.uitest4j.swing.util.Maps.newWeakHashMap;
-
-import java.awt.AWTEvent;
-import java.awt.Window;
-import java.awt.event.WindowEvent;
-import java.util.Map;
 
 /**
  * Verifies that a notification of the disposal of an AWT or Swing {@code Window} is not duplicated.
@@ -27,30 +26,30 @@ import java.util.Map;
  * @author Alex Ruiz
  */
 class DisposedWindowMonitor {
-  final Map<Window, Boolean> disposedWindows = newWeakHashMap();
+	final Map<Window, Boolean> disposedWindows = newWeakHashMap();
 
-  // We want to ignore consecutive event indicating window disposal; it needs to be an intervening SHOWN/OPEN before
-  // we're interested again.
-  boolean isDuplicateDispose(AWTEvent event) {
-    if (!(event instanceof WindowEvent)) {
-      return false;
-    }
-    WindowEvent windowEvent = (WindowEvent) event;
-    int eventId = windowEvent.getID();
-    if (eventId == WINDOW_CLOSING) {
-      return false;
-    }
-    if (eventId == WINDOW_CLOSED) {
-      Window w = windowEvent.getWindow();
-      if (disposedWindows.containsKey(w)) {
-        return true;
-      }
-      disposedWindows.put(w, true);
-      // execute(addComponentListenerTask(w, new DisposalMonitor(disposedWindows)));
-      w.addComponentListener(new DisposalMonitor(disposedWindows));
-      return false;
-    }
-    disposedWindows.remove(windowEvent.getWindow());
-    return false;
-  }
+	// We want to ignore consecutive event indicating window disposal; it needs to be an intervening SHOWN/OPEN before
+	// we're interested again.
+	boolean isDuplicateDispose(AWTEvent event) {
+		if (!(event instanceof WindowEvent)) {
+			return false;
+		}
+		WindowEvent windowEvent = (WindowEvent) event;
+		int eventId = windowEvent.getID();
+		if (eventId == WINDOW_CLOSING) {
+			return false;
+		}
+		if (eventId == WINDOW_CLOSED) {
+			Window w = windowEvent.getWindow();
+			if (disposedWindows.containsKey(w)) {
+				return true;
+			}
+			disposedWindows.put(w, true);
+			// execute(addComponentListenerTask(w, new DisposalMonitor(disposedWindows)));
+			w.addComponentListener(new DisposalMonitor(disposedWindows));
+			return false;
+		}
+		disposedWindows.remove(windowEvent.getWindow());
+		return false;
+	}
 }

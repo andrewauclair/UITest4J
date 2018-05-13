@@ -30,28 +30,28 @@ import javax.swing.*;
  * @author Alex Ruiz
  */
 final class JListItemPreconditions {
-  @RunsInCurrentThread
-  static void checkIndexInBounds(@Nonnull JList<?> list, int index) {
-    checkIndexInBounds(index, list.getModel().getSize());
-  }
+	@RunsInCurrentThread
+	static void checkIndexInBounds(@Nonnull JList<?> list, int index) {
+		checkIndexInBounds(index, list.getModel().getSize());
+	}
 
-  @RunsInCurrentThread
-  static void checkIndicesInBounds(@Nonnull JList<?> list, @Nonnull int... indices) {
-    int itemCount = list.getModel().getSize();
-    for (int index : indices) {
-      checkIndexInBounds(index, itemCount);
-    }
-  }
+	@RunsInCurrentThread
+	static void checkIndicesInBounds(@Nonnull JList<?> list, @Nonnull int... indices) {
+		int itemCount = list.getModel().getSize();
+		for (int index : indices) {
+			checkIndexInBounds(index, itemCount);
+		}
+	}
 
-  private static void checkIndexInBounds(int index, int itemCount) {
-    if (index >= 0 && index < itemCount) {
-      return;
-    }
-    String format = "Item index (%d) should be between [0] and [%d] (inclusive)";
-    String msg = String.format(format, index, itemCount - 1);
-    throw new IndexOutOfBoundsException(msg);
-  }
+	private static void checkIndexInBounds(int index, int itemCount) {
+		if (index >= 0 && index < itemCount) {
+			return;
+		}
+		String format = "Item index (%d) should be between [0] and [%d] (inclusive)";
+		String msg = String.format(format, index, itemCount - 1);
+		throw new IndexOutOfBoundsException(msg);
+	}
 
-  private JListItemPreconditions() {
-  }
+	private JListItemPreconditions() {
+	}
 }

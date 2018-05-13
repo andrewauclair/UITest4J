@@ -34,66 +34,67 @@ public class ImageAssert {
 	private Images images = Images.instance();
 
 	BufferedImage actual;
-  protected ImageAssert(BufferedImage actual) {
-    this.actual = actual;
-  }
 
-  /**
-   * Verifies that the actual image is equal to the given one. Two images are equal if:
-   * <ol>
-   * <li>they have equal size</li>
-   * <li>the the RGB values of the color at each pixel are equal</li>
-   * </ol>
-   *
-   * @param expected the given image to compare the actual image to.
-   * @return {@code this} assertion object.
-   * @throws AssertionError if the actual image is not equal to the given one.
-   */
-  public ImageAssert isEqualTo(BufferedImage expected) {
-    images.assertEqual(actual, expected);
-    return this;
-  }
+	protected ImageAssert(BufferedImage actual) {
+		this.actual = actual;
+	}
 
-  /**
-   * Verifies that the actual image is equal to the given one. Two images are equal if:
-   * <ol>
-   * <li>they have the same size</li>
-   * <li>the difference between the RGB values of the color at each pixel is less than or equal to the given offset</li>
-   * </ol>
-   *
-   * @param expected the given image to compare the actual image to.
-   * @param offset helps decide if the color of two pixels are similar: two pixels that are identical to the human eye
-   *          may still have slightly different color values. For example, by using an offset of 1 we can indicate that
-   *          a blue value of 60 is similar to a blue value of 61.
-   * @return {@code this} assertion object.
-   * @throws NullPointerException if the given offset is {@code null}.
-   * @throws AssertionError if the actual image is not equal to the given one.
-   */
-  public ImageAssert isEqualTo(BufferedImage expected, int offset) {
-    images.assertEqual(actual, expected, offset);
-    return this;
-  }
+	/**
+	 * Verifies that the actual image is equal to the given one. Two images are equal if:
+	 * <ol>
+	 * <li>they have equal size</li>
+	 * <li>the the RGB values of the color at each pixel are equal</li>
+	 * </ol>
+	 *
+	 * @param expected the given image to compare the actual image to.
+	 * @return {@code this} assertion object.
+	 * @throws AssertionError if the actual image is not equal to the given one.
+	 */
+	public ImageAssert isEqualTo(BufferedImage expected) {
+		images.assertEqual(actual, expected);
+		return this;
+	}
 
-  public ImageAssert isNotEqualTo(BufferedImage other) {
-	  images.assertNotEqual(actual, other);
-    return this;
-  }
+	/**
+	 * Verifies that the actual image is equal to the given one. Two images are equal if:
+	 * <ol>
+	 * <li>they have the same size</li>
+	 * <li>the difference between the RGB values of the color at each pixel is less than or equal to the given offset</li>
+	 * </ol>
+	 *
+	 * @param expected the given image to compare the actual image to.
+	 * @param offset   helps decide if the color of two pixels are similar: two pixels that are identical to the human eye
+	 *                 may still have slightly different color values. For example, by using an offset of 1 we can indicate that
+	 *                 a blue value of 60 is similar to a blue value of 61.
+	 * @return {@code this} assertion object.
+	 * @throws NullPointerException if the given offset is {@code null}.
+	 * @throws AssertionError       if the actual image is not equal to the given one.
+	 */
+	public ImageAssert isEqualTo(BufferedImage expected, int offset) {
+		images.assertEqual(actual, expected, offset);
+		return this;
+	}
 
-  public ImageAssert isNotNull() {
-    Objects.requireNonNull(actual);
-    return this;
-  }
+	public ImageAssert isNotEqualTo(BufferedImage other) {
+		images.assertNotEqual(actual, other);
+		return this;
+	}
 
-  /**
-   * Verifies that the actual image has the given size.
-   *
-   * @param expected the expected size of the actual image.
-   * @return {@code this} assertion object.
-   * @throws NullPointerException if the given size is {@code null}.
-   * @throws AssertionError if the size of the actual image is not equal to the given size.
-   */
-  public ImageAssert hasSize(Dimension expected) {
-	  images.assertHasSize(actual, expected);
-    return this;
-  }
+	public ImageAssert isNotNull() {
+		Objects.requireNonNull(actual);
+		return this;
+	}
+
+	/**
+	 * Verifies that the actual image has the given size.
+	 *
+	 * @param expected the expected size of the actual image.
+	 * @return {@code this} assertion object.
+	 * @throws NullPointerException if the given size is {@code null}.
+	 * @throws AssertionError       if the size of the actual image is not equal to the given size.
+	 */
+	public ImageAssert hasSize(Dimension expected) {
+		images.assertHasSize(actual, expected);
+		return this;
+	}
 }

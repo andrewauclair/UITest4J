@@ -12,7 +12,7 @@
  */
 /**
  * Utilities related to security.
- * 
+ *
  * @author Alex Ruiz
  */
 package org.uitest4j.swing.security;

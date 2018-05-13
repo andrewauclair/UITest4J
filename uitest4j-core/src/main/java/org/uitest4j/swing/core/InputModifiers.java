@@ -37,27 +37,27 @@ final class InputModifiers {
 		}
 		return unified;
 	}
-	
+
 	static boolean isShiftDown(int modifiers) {
 		return (modifiers & SHIFT_DOWN_MASK) != 0;
 	}
-	
+
 	static boolean isControlDown(int modifiers) {
 		return (modifiers & CTRL_DOWN_MASK) != 0;
 	}
-	
+
 	static boolean isMetaDown(int modifiers) {
 		return (modifiers & META_DOWN_MASK) != 0;
 	}
-	
+
 	static boolean isAltDown(int modifiers) {
 		return (modifiers & ALT_DOWN_MASK) != 0;
 	}
-	
+
 	static boolean isAltGraphDown(int modifiers) {
 		return (modifiers & ALT_GRAPH_DOWN_MASK) != 0;
 	}
-	
+
 	static boolean modifiersMatch(@Nonnull InputEvent e, int modifiers) {
 		return e.isAltDown() == isAltDown(modifiers) &&
 				e.isAltGraphDown() == isAltGraphDown(modifiers) &&
@@ -65,7 +65,7 @@ final class InputModifiers {
 				e.isMetaDown() == isMetaDown(modifiers) &&
 				e.isShiftDown() == isShiftDown(modifiers);
 	}
-	
+
 	private InputModifiers() {
 	}
 }

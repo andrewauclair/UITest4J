@@ -12,7 +12,7 @@
  */
 /**
  * Miscellaneous utilities.
- * 
+ *
  * @author Alex Ruiz
  */
 package org.uitest4j.swing.util;

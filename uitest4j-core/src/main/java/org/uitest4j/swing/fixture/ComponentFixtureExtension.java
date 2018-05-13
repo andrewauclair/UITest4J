@@ -12,30 +12,28 @@
  */
 package org.uitest4j.swing.fixture;
 
-import java.awt.Component;
-import java.awt.Container;
+import org.uitest4j.swing.core.Robot;
 
 import javax.annotation.Nonnull;
-
-import org.uitest4j.swing.core.Robot;
+import java.awt.*;
 
 /**
  * An "extension method" for implementations of {@link AbstractContainerFixture}. This extension creates new
  * {@link AbstractComponentFixture}s that can handle {@code Component}s inside a {@link AbstractContainerFixture}'s
  * {@code Container}.
- * 
+ *
  * @param <C> the type of {@code Component} the {@code ComponentFixture} to create can handle.
  * @param <F> the type of {@code ComponentFixture} this extension can create.
- * 
  * @author Alex Ruiz
  */
 public abstract class ComponentFixtureExtension<C extends Component, F extends AbstractComponentFixture<?, C, ?>> {
-  /**
-   * Creates a new {@link AbstractComponentFixture}.
-   * 
-   * @param robot the {@code Robot} to pass to the new fixture.
-   * @param root the container where the component to handle by the created fixture is contained.
-   * @return the created {@code ComponentFixture}.
-   */
-  public abstract @Nonnull F createFixture(@Nonnull Robot robot, @Nonnull Container root);
+	/**
+	 * Creates a new {@link AbstractComponentFixture}.
+	 *
+	 * @param robot the {@code Robot} to pass to the new fixture.
+	 * @param root  the container where the component to handle by the created fixture is contained.
+	 * @return the created {@code ComponentFixture}.
+	 */
+	public abstract @Nonnull
+	F createFixture(@Nonnull Robot robot, @Nonnull Container root);
 }

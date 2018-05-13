@@ -21,21 +21,21 @@ import javax.swing.text.JTextComponent;
  * <p>
  * Selects text in a given {@code JTextComponent}.
  * </p>
- * 
+ *
  * <p>
  * <b>Note:</b> Methods in this class are accessed in the current executing thread. Such thread may or may not be the
  * event dispatch thread (EDT). Client code must call methods in this class from the EDT.
  * </p>
- * 
+ *
  * @author Alex Ruiz
  */
 final class JTextComponentSelectTextTask {
-  @RunsInCurrentThread
-  static void selectTextInRange(@Nonnull JTextComponent textBox, int start, int end) {
-    textBox.setCaretPosition(start);
-    textBox.moveCaretPosition(end);
-  }
+	@RunsInCurrentThread
+	static void selectTextInRange(@Nonnull JTextComponent textBox, int start, int end) {
+		textBox.setCaretPosition(start);
+		textBox.moveCaretPosition(end);
+	}
 
-  private JTextComponentSelectTextTask() {
-  }
+	private JTextComponentSelectTextTask() {
+	}
 }

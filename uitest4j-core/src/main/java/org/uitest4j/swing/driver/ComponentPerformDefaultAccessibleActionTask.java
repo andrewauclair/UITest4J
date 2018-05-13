@@ -25,22 +25,22 @@ import static org.uitest4j.swing.format.Formatting.format;
  * <p>
  * Executes the default (first) {@code Action} in an AWT or Swing {@code Component}'s {@code AccessibleAction}.
  * </p>
- * 
+ *
  * <p>
  * This task is <b>not</b> guaranteed to be executed in the event dispatch thread (EDT).
  * </p>
- * 
+ *
  * @author Alex Ruiz
  */
 class ComponentPerformDefaultAccessibleActionTask {
-  private static final int DEFAULT_ACTION_INDEX = 0;
+	private static final int DEFAULT_ACTION_INDEX = 0;
 
-  @RunsInCurrentThread
-  static void performDefaultAccessibleAction(final @Nonnull Component c) {
-    AccessibleAction action = c.getAccessibleContext().getAccessibleAction();
-    if (action == null || action.getAccessibleActionCount() == 0) {
-		throw actionFailure("Unable to perform accessible action for " + format(c));
-    }
-    action.doAccessibleAction(DEFAULT_ACTION_INDEX);
-  }
+	@RunsInCurrentThread
+	static void performDefaultAccessibleAction(final @Nonnull Component c) {
+		AccessibleAction action = c.getAccessibleContext().getAccessibleAction();
+		if (action == null || action.getAccessibleActionCount() == 0) {
+			throw actionFailure("Unable to perform accessible action for " + format(c));
+		}
+		action.doAccessibleAction(DEFAULT_ACTION_INDEX);
+	}
 }

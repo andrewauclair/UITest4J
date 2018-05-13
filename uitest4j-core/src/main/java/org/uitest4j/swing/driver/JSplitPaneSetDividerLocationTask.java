@@ -21,16 +21,16 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
  * Sets the location of the divider of a {@code JSplitPane}. This task is executed in the event dispatch thread (EDT).
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
 final class JSplitPaneSetDividerLocationTask {
-  @RunsInEDT
-  static void setDividerLocation(final @Nonnull JSplitPane splitPane, final int location) {
-    execute(() -> splitPane.setDividerLocation(location));
-  }
+	@RunsInEDT
+	static void setDividerLocation(final @Nonnull JSplitPane splitPane, final int location) {
+		execute(() -> splitPane.setDividerLocation(location));
+	}
 
-  private JSplitPaneSetDividerLocationTask() {
-  }
+	private JSplitPaneSetDividerLocationTask() {
+	}
 }

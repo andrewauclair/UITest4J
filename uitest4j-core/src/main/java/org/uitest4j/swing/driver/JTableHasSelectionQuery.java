@@ -21,21 +21,21 @@ import javax.swing.*;
  * <p>
  * Indicates whether a {@code JTable} has any selection.
  * </p>
- * 
+ *
  * <p>
  * <b>Note:</b> Methods in this class are accessed in the current executing thread. Such thread may or may not be the
  * event dispatch thread (EDT). Client code must call methods in this class from the EDT.
  * </p>
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
 final class JTableHasSelectionQuery {
-  @RunsInCurrentThread
-  static boolean hasSelection(@Nonnull JTable table) {
-    return table.getSelectedRowCount() > 0 || table.getSelectedColumnCount() > 0;
-  }
+	@RunsInCurrentThread
+	static boolean hasSelection(@Nonnull JTable table) {
+		return table.getSelectedRowCount() > 0 || table.getSelectedColumnCount() > 0;
+	}
 
-  private JTableHasSelectionQuery() {
-  }
+	private JTableHasSelectionQuery() {
+	}
 }

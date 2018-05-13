@@ -18,7 +18,6 @@ import org.uitest4j.swing.annotation.RunsInEDT;
 import javax.annotation.Nonnull;
 import javax.swing.*;
 import javax.swing.table.TableCellEditor;
-
 import java.util.Objects;
 
 import static org.uitest4j.swing.driver.JTableCellPreconditions.checkCellIndicesInBounds;
@@ -32,37 +31,37 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
  * @author Yvonne Wang
  */
 final class JTableStopCellEditingTask {
-  @RunsInEDT
-  static void stopEditing(final @Nonnull TableCellEditor cellEditor) {
-    execute(() -> doStopCellEditing(cellEditor));
-  }
+	@RunsInEDT
+	static void stopEditing(final @Nonnull TableCellEditor cellEditor) {
+		execute(() -> doStopCellEditing(cellEditor));
+	}
 
-  @RunsInEDT
-  static void stopEditing(final @Nonnull JTable table, final int row, final int column) {
-    execute(() -> doStopCellEditing(table, row, column));
-  }
+	@RunsInEDT
+	static void stopEditing(final @Nonnull JTable table, final int row, final int column) {
+		execute(() -> doStopCellEditing(table, row, column));
+	}
 
-  @RunsInEDT
-  static void checkStateAndStopEditing(final @Nonnull JTable table, final int row, final int column) {
-    execute(() -> {
-      checkCellIndicesInBounds(table, row, column);
-      validateCellIsEditable(table, row, column);
-      doStopCellEditing(table, row, column);
-    });
-  }
+	@RunsInEDT
+	static void checkStateAndStopEditing(final @Nonnull JTable table, final int row, final int column) {
+		execute(() -> {
+			checkCellIndicesInBounds(table, row, column);
+			validateCellIsEditable(table, row, column);
+			doStopCellEditing(table, row, column);
+		});
+	}
 
-  @RunsInCurrentThread
-  private static void doStopCellEditing(@Nonnull JTable table, int row, int column) {
-    TableCellEditor editor = Objects.requireNonNull(table.getCellEditor(row, column));
-    doStopCellEditing(editor);
-  }
+	@RunsInCurrentThread
+	private static void doStopCellEditing(@Nonnull JTable table, int row, int column) {
+		TableCellEditor editor = Objects.requireNonNull(table.getCellEditor(row, column));
+		doStopCellEditing(editor);
+	}
 
-  @RunsInCurrentThread
-  private static void doStopCellEditing(@Nonnull TableCellEditor cellEditor) {
-    Objects.requireNonNull(cellEditor);
-    cellEditor.stopCellEditing();
-  }
+	@RunsInCurrentThread
+	private static void doStopCellEditing(@Nonnull TableCellEditor cellEditor) {
+		Objects.requireNonNull(cellEditor);
+		cellEditor.stopCellEditing();
+	}
 
-  private JTableStopCellEditingTask() {
-  }
+	private JTableStopCellEditingTask() {
+	}
 }

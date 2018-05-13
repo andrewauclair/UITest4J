@@ -18,19 +18,21 @@ import java.lang.reflect.Field;
 
 /**
  * Finds the current focus owner using Java reflection.
- * 
+ *
  * @author Alex Ruiz
  */
 class ReflectionBasedFocusOwnerFinder implements FocusOwnerFinderStrategy {
-  @Override
-  @Nullable public Component focusOwner() {
-    try {
-      Field focusOwner = KeyboardFocusManager.class.getDeclaredField("focusOwner");
-      focusOwner.setAccessible(true);
-      return (Component) focusOwner.get(KeyboardFocusManager.getCurrentKeyboardFocusManager());
-    } catch (NoSuchFieldException | IllegalAccessException e) {
-      e.printStackTrace();
-    }
-    return null;
-  }
+	@Override
+	@Nullable
+	public Component focusOwner() {
+		try {
+			Field focusOwner = KeyboardFocusManager.class.getDeclaredField("focusOwner");
+			focusOwner.setAccessible(true);
+			return (Component) focusOwner.get(KeyboardFocusManager.getCurrentKeyboardFocusManager());
+		}
+		catch (NoSuchFieldException | IllegalAccessException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 }

@@ -26,41 +26,45 @@ import static javax.swing.JOptionPane.*;
  * @author Alex Ruiz
  */
 public class JOptionPaneFormatter extends ComponentFormatterTemplate {
-  private static final IntEnum MESSAGE_TYPES = new IntEnum();
-  static {
-    MESSAGE_TYPES.put(ERROR_MESSAGE, "ERROR_MESSAGE").put(INFORMATION_MESSAGE, "INFORMATION_MESSAGE")
-                 .put(WARNING_MESSAGE, "WARNING_MESSAGE").put(QUESTION_MESSAGE, "QUESTION_MESSAGE")
-                 .put(PLAIN_MESSAGE, "PLAIN_MESSAGE");
-  }
+	private static final IntEnum MESSAGE_TYPES = new IntEnum();
 
-  private static final IntEnum OPTION_TYPES = new IntEnum();
-  static {
-    OPTION_TYPES.put(DEFAULT_OPTION, "DEFAULT_OPTION").put(YES_NO_OPTION, "YES_NO_OPTION")
-                .put(YES_NO_CANCEL_OPTION, "YES_NO_CANCEL_OPTION").put(QUESTION_MESSAGE, "QUESTION_MESSAGE")
-                .put(OK_CANCEL_OPTION, "OK_CANCEL_OPTION");
-  }
+	static {
+		MESSAGE_TYPES.put(ERROR_MESSAGE, "ERROR_MESSAGE").put(INFORMATION_MESSAGE, "INFORMATION_MESSAGE")
+				.put(WARNING_MESSAGE, "WARNING_MESSAGE").put(QUESTION_MESSAGE, "QUESTION_MESSAGE")
+				.put(PLAIN_MESSAGE, "PLAIN_MESSAGE");
+	}
 
-  /**
-   * Returns the {@code String} representation of the given {@code Component}, which should be a {@code JOptionPane}.
-   *
-   * @param c the given {@code Component}.
-   * @return the {@code String} representation of the given {@code JOptionPane}.
-   */
-  @RunsInCurrentThread
-  @Override
-  @Nonnull protected String doFormat(@Nonnull Component c) {
-    JOptionPane optionPane = (JOptionPane) c;
-	  String format = "%s[message='%s', messageType=%s, optionType=%s, enabled=%b, visible=%b, showing=%b]";
-	  return String.format(format, getRealClassName(c), optionPane.getMessage(),
-                         MESSAGE_TYPES.get(optionPane.getMessageType()), OPTION_TYPES.get(optionPane.getOptionType()),
-                         optionPane.isEnabled(), optionPane.isVisible(), optionPane.isShowing());
-  }
+	private static final IntEnum OPTION_TYPES = new IntEnum();
 
-  /**
-   * @return {@code JOptionPane.class}.
-   */
-  @Override
-  @Nonnull public Class<? extends Component> targetType() {
-    return JOptionPane.class;
-  }
+	static {
+		OPTION_TYPES.put(DEFAULT_OPTION, "DEFAULT_OPTION").put(YES_NO_OPTION, "YES_NO_OPTION")
+				.put(YES_NO_CANCEL_OPTION, "YES_NO_CANCEL_OPTION").put(QUESTION_MESSAGE, "QUESTION_MESSAGE")
+				.put(OK_CANCEL_OPTION, "OK_CANCEL_OPTION");
+	}
+
+	/**
+	 * Returns the {@code String} representation of the given {@code Component}, which should be a {@code JOptionPane}.
+	 *
+	 * @param c the given {@code Component}.
+	 * @return the {@code String} representation of the given {@code JOptionPane}.
+	 */
+	@RunsInCurrentThread
+	@Override
+	@Nonnull
+	protected String doFormat(@Nonnull Component c) {
+		JOptionPane optionPane = (JOptionPane) c;
+		String format = "%s[message='%s', messageType=%s, optionType=%s, enabled=%b, visible=%b, showing=%b]";
+		return String.format(format, getRealClassName(c), optionPane.getMessage(),
+				MESSAGE_TYPES.get(optionPane.getMessageType()), OPTION_TYPES.get(optionPane.getOptionType()),
+				optionPane.isEnabled(), optionPane.isVisible(), optionPane.isShowing());
+	}
+
+	/**
+	 * @return {@code JOptionPane.class}.
+	 */
+	@Override
+	@Nonnull
+	public Class<? extends Component> targetType() {
+		return JOptionPane.class;
+	}
 }

@@ -19,8 +19,8 @@ import javax.annotation.Nullable;
  * @author Alex Ruiz
  */
 class SystemPropertyReader {
-  @Nullable
-  String systemProperty(@Nonnull String propertyName) {
-    return System.getProperty(propertyName);
-  }
+	@Nullable
+	String systemProperty(@Nonnull String propertyName) {
+		return System.getProperty(propertyName);
+	}
 }

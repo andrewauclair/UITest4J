@@ -25,14 +25,14 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
  * @author Yvonne Wang
  */
 final class JInternalFrameSetMaximumTask {
-  @RunsInEDT
-  static void setMaximum(final @Nonnull JInternalFrame internalFrame, final @Nonnull JInternalFrameAction action) {
-    execute(() -> {
-      internalFrame.setIcon(false);
-      internalFrame.setMaximum(action.value);
-    });
-  }
+	@RunsInEDT
+	static void setMaximum(final @Nonnull JInternalFrame internalFrame, final @Nonnull JInternalFrameAction action) {
+		execute(() -> {
+			internalFrame.setIcon(false);
+			internalFrame.setMaximum(action.value);
+		});
+	}
 
-  private JInternalFrameSetMaximumTask() {
-  }
+	private JInternalFrameSetMaximumTask() {
+	}
 }

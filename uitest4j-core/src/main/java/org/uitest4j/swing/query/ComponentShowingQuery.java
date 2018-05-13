@@ -24,26 +24,25 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
  * Indicates whether an AWT or Swing {@code Component} is showing on the screen. This query is executed in the event
  * dispatch thread (EDT).
  *
- * @see Component#isShowing()
- *
  * @author Alex Ruiz
  * @author Yvonne Wang
+ * @see Component#isShowing()
  */
 public final class ComponentShowingQuery {
-  /**
-   * Indicates whether the given AWT or Swing {@code Component} is showing or not. This query is executed in the event
-   * dispatch thread (EDT).
-   *
-   * @param component the given {@code Component}.
-   * @return {@code true} if the given {@code Component} is showing, {@code false} otherwise.
-   * @see Component#isShowing()
-   */
-  @RunsInEDT
-  public static boolean isShowing(final @Nonnull Component component) {
-    Boolean result = execute(component::isShowing);
-    return Objects.requireNonNull(result);
-  }
+	/**
+	 * Indicates whether the given AWT or Swing {@code Component} is showing or not. This query is executed in the event
+	 * dispatch thread (EDT).
+	 *
+	 * @param component the given {@code Component}.
+	 * @return {@code true} if the given {@code Component} is showing, {@code false} otherwise.
+	 * @see Component#isShowing()
+	 */
+	@RunsInEDT
+	public static boolean isShowing(final @Nonnull Component component) {
+		Boolean result = execute(component::isShowing);
+		return Objects.requireNonNull(result);
+	}
 
-  private ComponentShowingQuery() {
-  }
+	private ComponentShowingQuery() {
+	}
 }

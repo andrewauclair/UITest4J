@@ -16,7 +16,6 @@ import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.annotation.Nonnull;
 import javax.swing.*;
-
 import java.util.Objects;
 
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
@@ -27,12 +26,12 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
  * @author Alex Ruiz
  */
 final class JTreeEditableQuery {
-  @RunsInEDT
-  static boolean isEditable(final @Nonnull JTree tree) {
-    Boolean result = execute(tree::isEditable);
-    return Objects.requireNonNull(result);
-  }
+	@RunsInEDT
+	static boolean isEditable(final @Nonnull JTree tree) {
+		Boolean result = execute(tree::isEditable);
+		return Objects.requireNonNull(result);
+	}
 
-  private JTreeEditableQuery() {
-  }
+	private JTreeEditableQuery() {
+	}
 }

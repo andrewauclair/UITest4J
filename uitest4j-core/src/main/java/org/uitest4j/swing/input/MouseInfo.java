@@ -27,144 +27,150 @@ import static org.uitest4j.swing.query.ComponentShowingQuery.isShowing;
 
 /**
  * A description mouse-related operations.
- * 
+ *
  * @author Alex Ruiz
  */
 class MouseInfo {
-  static final int BUTTON_MASK = BUTTON1_DOWN_MASK | BUTTON2_DOWN_MASK | BUTTON3_DOWN_MASK;
+	static final int BUTTON_MASK = BUTTON1_DOWN_MASK | BUTTON2_DOWN_MASK | BUTTON3_DOWN_MASK;
 
-  /** Current mouse position, in component coordinates. */
-  private Point location = new Point(0, 0);
+	/**
+	 * Current mouse position, in component coordinates.
+	 */
+	private Point location = new Point(0, 0);
 
-  /** Current mouse position, in screen coordinates. */
-  private Point locationOnScreen = new Point(0, 0);
+	/**
+	 * Current mouse position, in screen coordinates.
+	 */
+	private Point locationOnScreen = new Point(0, 0);
 
-  private final Stack<WeakReference<Component>> componentStack = new Stack<>();
-  private final Stack<Point> locationStack = new Stack<>();
-  private final Stack<Point> screenLocationStack = new Stack<>();
+	private final Stack<WeakReference<Component>> componentStack = new Stack<>();
+	private final Stack<Point> locationStack = new Stack<>();
+	private final Stack<Point> screenLocationStack = new Stack<>();
 
-  private int buttons;
-  private int modifiers;
-  private int clickCount;
+	private int buttons;
+	private int modifiers;
+	private int clickCount;
 
-  void clear() {
-    buttons = modifiers = clickCount = 0;
-    componentStack.clear();
-    locationStack.clear();
-    screenLocationStack.clear();
-  }
+	void clear() {
+		buttons = modifiers = clickCount = 0;
+		componentStack.clear();
+		locationStack.clear();
+		screenLocationStack.clear();
+	}
 
-  void update(@Nonnull MouseEvent event, @Nullable Point eventScreenLocation) {
-    // When a button is released, only that button appears in the modifier mask
-    clickCount(event.getClickCount());
-    updateOnMousePressed(event);
-    updateOnMouseReleased(event);
-    updateOnMouseEntered(event, eventScreenLocation);
-    updateOnMouseExited(event);
-    if (eventScreenLocation != null) {
-      Point where = event.getPoint();
-      location = componentStack.empty() ? null : new Point(where);
-      locationOnScreen.setLocation(eventScreenLocation);
-      locationOnScreen.translate(where.x, where.y);
-    }
-  }
+	void update(@Nonnull MouseEvent event, @Nullable Point eventScreenLocation) {
+		// When a button is released, only that button appears in the modifier mask
+		clickCount(event.getClickCount());
+		updateOnMousePressed(event);
+		updateOnMouseReleased(event);
+		updateOnMouseEntered(event, eventScreenLocation);
+		updateOnMouseExited(event);
+		if (eventScreenLocation != null) {
+			Point where = event.getPoint();
+			location = componentStack.empty() ? null : new Point(where);
+			locationOnScreen.setLocation(eventScreenLocation);
+			locationOnScreen.translate(where.x, where.y);
+		}
+	}
 
-  private void updateOnMousePressed(@Nonnull MouseEvent event) {
-    if (event.getID() != MOUSE_PRESSED) {
-      return;
-    }
-    int buttonUsed = buttonUsed(event);
-    buttons |= buttonUsed;
-    modifiers |= buttonUsed;
-  }
+	private void updateOnMousePressed(@Nonnull MouseEvent event) {
+		if (event.getID() != MOUSE_PRESSED) {
+			return;
+		}
+		int buttonUsed = buttonUsed(event);
+		buttons |= buttonUsed;
+		modifiers |= buttonUsed;
+	}
 
-  private void updateOnMouseReleased(@Nonnull MouseEvent event) {
-    if (event.getID() != MOUSE_RELEASED) {
-      return;
-    }
-    int buttonUsed = buttonUsed(event);
-    buttons &= ~buttonUsed;
-    modifiers &= ~buttonUsed;
-  }
+	private void updateOnMouseReleased(@Nonnull MouseEvent event) {
+		if (event.getID() != MOUSE_RELEASED) {
+			return;
+		}
+		int buttonUsed = buttonUsed(event);
+		buttons &= ~buttonUsed;
+		modifiers &= ~buttonUsed;
+	}
 
-  private int buttonUsed(@Nonnull MouseEvent event) {
-    return event.getModifiersEx() & BUTTON_MASK;
-  }
+	private int buttonUsed(@Nonnull MouseEvent event) {
+		return event.getModifiersEx() & BUTTON_MASK;
+	}
 
-  private void updateOnMouseEntered(@Nonnull MouseEvent event, @Nullable Point eventScreenLocation) {
-    if (event.getID() != MOUSE_ENTERED) {
-      return;
-    }
-    componentStack.push(new WeakReference<>(event.getComponent()));
-    Point eventPoint = event.getPoint();
-    locationStack.push(eventPoint);
-    screenLocationStack.push(eventScreenLocation != null ? eventScreenLocation : eventPoint);
-  }
+	private void updateOnMouseEntered(@Nonnull MouseEvent event, @Nullable Point eventScreenLocation) {
+		if (event.getID() != MOUSE_ENTERED) {
+			return;
+		}
+		componentStack.push(new WeakReference<>(event.getComponent()));
+		Point eventPoint = event.getPoint();
+		locationStack.push(eventPoint);
+		screenLocationStack.push(eventScreenLocation != null ? eventScreenLocation : eventPoint);
+	}
 
-  private void updateOnMouseExited(@Nonnull MouseEvent event) {
-    if (event.getID() != MOUSE_EXITED || componentStack.empty()) {
-      return;
-    }
-    componentStack.pop();
-    locationStack.pop();
-    screenLocationStack.pop();
-  }
+	private void updateOnMouseExited(@Nonnull MouseEvent event) {
+		if (event.getID() != MOUSE_EXITED || componentStack.empty()) {
+			return;
+		}
+		componentStack.pop();
+		locationStack.pop();
+		screenLocationStack.pop();
+	}
 
-  @Nullable public Component component() {
-    if (componentStack.empty()) {
-      return null;
-    }
-    Component c = componentStack.peek().get();
-    // Make sure we don't return a component that has gone away.
-    if (c != null && isShowing(c)) {
-      return c;
-    }
-    componentStack.pop();
-    locationStack.pop();
-    screenLocationStack.pop();
-    c = component();
-    if (c != null) {
-      location = locationStack.peek();
-      locationOnScreen = screenLocationStack.peek();
-    }
-    return c;
-  }
+	@Nullable
+	public Component component() {
+		if (componentStack.empty()) {
+			return null;
+		}
+		Component c = componentStack.peek().get();
+		// Make sure we don't return a component that has gone away.
+		if (c != null && isShowing(c)) {
+			return c;
+		}
+		componentStack.pop();
+		locationStack.pop();
+		screenLocationStack.pop();
+		c = component();
+		if (c != null) {
+			location = locationStack.peek();
+			locationOnScreen = screenLocationStack.peek();
+		}
+		return c;
+	}
 
-  int buttons() {
-    return buttons;
-  }
+	int buttons() {
+		return buttons;
+	}
 
-  void buttons(int newButtons) {
-    buttons = newButtons;
-  }
+	void buttons(int newButtons) {
+		buttons = newButtons;
+	}
 
-  int modifiers() {
-    return modifiers;
-  }
+	int modifiers() {
+		return modifiers;
+	}
 
-  void modifiers(int newModifiers) {
-    modifiers = newModifiers;
-  }
+	void modifiers(int newModifiers) {
+		modifiers = newModifiers;
+	}
 
-  int clickCount() {
-    return clickCount;
-  }
+	int clickCount() {
+		return clickCount;
+	}
 
-  void clickCount(int newClickCount) {
-    clickCount = newClickCount;
-  }
+	void clickCount(int newClickCount) {
+		clickCount = newClickCount;
+	}
 
-  @Nullable
-  Point location() {
-    return pointFrom(location);
-  }
+	@Nullable
+	Point location() {
+		return pointFrom(location);
+	}
 
-  @Nullable
-  Point locationOnScreen() {
-    return pointFrom(locationOnScreen);
-  }
+	@Nullable
+	Point locationOnScreen() {
+		return pointFrom(locationOnScreen);
+	}
 
-  @Nullable private Point pointFrom(Point source) {
-    return source != null ? new Point(source) : null;
-  }
+	@Nullable
+	private Point pointFrom(Point source) {
+		return source != null ? new Point(source) : null;
+	}
 }

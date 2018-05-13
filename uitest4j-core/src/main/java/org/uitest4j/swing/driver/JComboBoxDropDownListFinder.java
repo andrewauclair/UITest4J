@@ -12,11 +12,11 @@
  */
 package org.uitest4j.swing.driver;
 
+import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.core.ComponentMatcher;
 import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.core.TypeMatcher;
 import org.uitest4j.swing.util.TimeoutWatch;
-import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -34,42 +34,43 @@ import static org.uitest4j.swing.util.TimeoutWatch.startWatchWithTimeoutOf;
  * @author Alex Ruiz
  */
 final class JComboBoxDropDownListFinder {
-  static final ComponentMatcher LIST_MATCHER = new TypeMatcher(JList.class);
+	static final ComponentMatcher LIST_MATCHER = new TypeMatcher(JList.class);
 
-  private final Robot robot;
+	private final Robot robot;
 
-  JComboBoxDropDownListFinder(Robot robot) {
-    this.robot = robot;
-  }
+	JComboBoxDropDownListFinder(Robot robot) {
+		this.robot = robot;
+	}
 
-  /**
-   * Finds the {@code JList} in the pop-up raised by a {@code JComboBox}, if the LAF actually uses one.
-   *
-   * @return the found {@code JList}, or {@code null} if a drop-down list cannot be found.
-   */
-  @RunsInEDT
-  @Nullable
-  JList<?> findDropDownList() {
-    JPopupMenu popup = robot.findActivePopupMenu();
-    if (popup == null) {
-      TimeoutWatch watch = startWatchWithTimeoutOf(robot.settings().timeoutToFindPopup());
-      popup = robot.findActivePopupMenu();
-      while (popup == null) {
-        if (watch.isTimeOut()) {
-          return null;
-        }
-        pause();
-        popup = robot.findActivePopupMenu();
-      }
-    }
-    return findListIn(popup);
-  }
+	/**
+	 * Finds the {@code JList} in the pop-up raised by a {@code JComboBox}, if the LAF actually uses one.
+	 *
+	 * @return the found {@code JList}, or {@code null} if a drop-down list cannot be found.
+	 */
+	@RunsInEDT
+	@Nullable
+	JList<?> findDropDownList() {
+		JPopupMenu popup = robot.findActivePopupMenu();
+		if (popup == null) {
+			TimeoutWatch watch = startWatchWithTimeoutOf(robot.settings().timeoutToFindPopup());
+			popup = robot.findActivePopupMenu();
+			while (popup == null) {
+				if (watch.isTimeOut()) {
+					return null;
+				}
+				pause();
+				popup = robot.findActivePopupMenu();
+			}
+		}
+		return findListIn(popup);
+	}
 
-  @Nullable private JList<?> findListIn(@Nonnull Container parent) {
-	  List<Component> found = new ArrayList<>(robot.finder().findAll(parent, LIST_MATCHER));
-    if (found.size() != 1) {
-      return null;
-    }
-    return (JList<?>) found.get(0);
-  }
+	@Nullable
+	private JList<?> findListIn(@Nonnull Container parent) {
+		List<Component> found = new ArrayList<>(robot.finder().findAll(parent, LIST_MATCHER));
+		if (found.size() != 1) {
+			return null;
+		}
+		return (JList<?>) found.get(0);
+	}
 }

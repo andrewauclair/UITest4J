@@ -21,15 +21,15 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
  * Sets text in a given {@code JTextComponent}. This task is executed in the event dispatch thread (EDT).
- * 
+ *
  * @author Alex Ruiz
  */
 final class JTextComponentSetTextTask {
-  @RunsInEDT
-  static void setTextIn(final @Nonnull JTextComponent textBox, final String text) {
-    execute(() -> textBox.setText(text));
-  }
+	@RunsInEDT
+	static void setTextIn(final @Nonnull JTextComponent textBox, final String text) {
+		execute(() -> textBox.setText(text));
+	}
 
-  private JTextComponentSetTextTask() {
-  }
+	private JTextComponentSetTextTask() {
+	}
 }

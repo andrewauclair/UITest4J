@@ -12,8 +12,8 @@
  */
 package org.uitest4j.swing.driver;
 
-import org.uitest4j.swing.cell.JListCellReader;
 import org.uitest4j.swing.annotation.RunsInEDT;
+import org.uitest4j.swing.cell.JListCellReader;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -28,16 +28,17 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
  * @author Alex Ruiz
  */
 final class JListSelectionValueQuery {
-  static final Object NO_SELECTION_VALUE = new Object();
+	static final Object NO_SELECTION_VALUE = new Object();
 
-  @RunsInEDT
-  static @Nullable Object singleSelectionValue(final @Nonnull JList<?> list, final @Nonnull JListCellReader cellReader) {
-    return execute(() -> {
-      int selectedIndex = list.getSelectedIndex();
-      return (selectedIndex >= 0) ? cellReader.valueAt(list, selectedIndex) : NO_SELECTION_VALUE;
-    });
-  }
+	@RunsInEDT
+	static @Nullable
+	Object singleSelectionValue(final @Nonnull JList<?> list, final @Nonnull JListCellReader cellReader) {
+		return execute(() -> {
+			int selectedIndex = list.getSelectedIndex();
+			return (selectedIndex >= 0) ? cellReader.valueAt(list, selectedIndex) : NO_SELECTION_VALUE;
+		});
+	}
 
-  private JListSelectionValueQuery() {
-  }
+	private JListSelectionValueQuery() {
+	}
 }

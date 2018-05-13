@@ -12,38 +12,38 @@
  */
 package org.uitest4j.swing.util;
 
+import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-import javax.imageio.ImageIO;
-
 /**
  * Reads an image from a file.
- * 
+ *
  * @author Yvonne Wang
  */
 public final class ImageReader {
 
-  /**
-   * Decodes the image in the file at the specified path.
-   * 
-   * @param path the path of the image to read.
-   * @return the read image.
-   * @throws NullPointerException if the given path is {@code null}.
-   * @throws IllegalArgumentException if the given path does not belong to a file.
-   * @throws IOException if an error occurs during reading.
-   */
-  public static BufferedImage readImageFrom(String path) throws IOException {
-    if (path == null)
-      throw new NullPointerException("The path of the image to read should not be null");
-    File file = new File(path);
-    if (!file.isFile()) {
-      throw new IllegalArgumentException(String.format("The path '%s' does not belong to a file", path));
-    }
-    return ImageIO.read(file);
-  }
+	/**
+	 * Decodes the image in the file at the specified path.
+	 *
+	 * @param path the path of the image to read.
+	 * @return the read image.
+	 * @throws NullPointerException     if the given path is {@code null}.
+	 * @throws IllegalArgumentException if the given path does not belong to a file.
+	 * @throws IOException              if an error occurs during reading.
+	 */
+	public static BufferedImage readImageFrom(String path) throws IOException {
+		if (path == null) {
+			throw new NullPointerException("The path of the image to read should not be null");
+		}
+		File file = new File(path);
+		if (!file.isFile()) {
+			throw new IllegalArgumentException(String.format("The path '%s' does not belong to a file", path));
+		}
+		return ImageIO.read(file);
+	}
 
-  private ImageReader() {
-  }
+	private ImageReader() {
+	}
 }

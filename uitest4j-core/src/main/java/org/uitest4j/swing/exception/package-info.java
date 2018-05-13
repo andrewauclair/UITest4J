@@ -12,7 +12,7 @@
  */
 /**
  * Exceptions.
- * 
+ *
  * @author Alex Ruiz
  */
 package org.uitest4j.swing.exception;

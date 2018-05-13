@@ -19,25 +19,25 @@ import java.awt.*;
 
 /**
  * Returns a {@code String} representation of a given AWT or Swing {@code Component}.
- * 
+ *
  * @author Alex Ruiz
  */
 public interface ComponentFormatter {
-  /**
-   * Returns a {@code String} representation of the given AWT or Swing {@code Component}.
-   * 
-   * @param c the given {@code Component}.
-   * @return a {@code String} representation of the given {@code Component}.
-   */
-  @RunsInCurrentThread
-  @Nonnull
-  String format(@Nonnull Component c);
+	/**
+	 * Returns a {@code String} representation of the given AWT or Swing {@code Component}.
+	 *
+	 * @param c the given {@code Component}.
+	 * @return a {@code String} representation of the given {@code Component}.
+	 */
+	@RunsInCurrentThread
+	@Nonnull
+	String format(@Nonnull Component c);
 
-  /**
-   * Returns the type of AWT or Swing {@code Component} this formatter supports.
-   * 
-   * @return the type of {@code Component} this formatter supports.
-   */
-  @Nonnull
-  Class<? extends Component> targetType();
+	/**
+	 * Returns the type of AWT or Swing {@code Component} this formatter supports.
+	 *
+	 * @return the type of {@code Component} this formatter supports.
+	 */
+	@Nonnull
+	Class<? extends Component> targetType();
 }

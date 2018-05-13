@@ -12,44 +12,44 @@
  */
 package org.uitest4j.swing.keystroke;
 
-import static java.util.Collections.unmodifiableList;
-import static org.uitest4j.swing.keystroke.KeyStrokeMappings.defaultMappings;
-
+import javax.annotation.Nonnull;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import javax.annotation.Nonnull;
+import static java.util.Collections.unmodifiableList;
+import static org.uitest4j.swing.keystroke.KeyStrokeMappings.defaultMappings;
 
 /**
  * {@link KeyStrokeMappingProvider} created by parsing a text file containing all the key mappings.
- * 
+ *
  * @author Alex Ruiz
  * @see KeyStrokeMappingsParser
  */
 class ParsedKeyStrokeMappingProvider implements KeyStrokeMappingProvider {
-  private final List<KeyStrokeMapping> mappings = new ArrayList<>();
+	private final List<KeyStrokeMapping> mappings = new ArrayList<>();
 
-  ParsedKeyStrokeMappingProvider(@Nonnull List<KeyStrokeMapping> mappings) {
-    this.mappings.addAll(defaultMappings());
-    this.mappings.addAll(mappings);
-  }
+	ParsedKeyStrokeMappingProvider(@Nonnull List<KeyStrokeMapping> mappings) {
+		this.mappings.addAll(defaultMappings());
+		this.mappings.addAll(mappings);
+	}
 
-  /**
-   * Returns the mapping of characters and {@link javax.swing.KeyStroke}s. The mappings are obtained from a text file. In addition,
-   * this provider will automatically add mappings for following keys:
-   * <ul>
-   * <li>Backspace</li>
-   * <li>Delete</li>
-   * <li>Enter</li>
-   * <li>Escape</li>
-   * <li>Tab</li>
-   * </ul>
-   * 
-   * @return the mapping of characters and {@code KeyStroke}s.
-   */
-  @Override
-  @Nonnull public Collection<KeyStrokeMapping> keyStrokeMappings() {
-    return unmodifiableList(mappings);
-  }
+	/**
+	 * Returns the mapping of characters and {@link javax.swing.KeyStroke}s. The mappings are obtained from a text file. In addition,
+	 * this provider will automatically add mappings for following keys:
+	 * <ul>
+	 * <li>Backspace</li>
+	 * <li>Delete</li>
+	 * <li>Enter</li>
+	 * <li>Escape</li>
+	 * <li>Tab</li>
+	 * </ul>
+	 *
+	 * @return the mapping of characters and {@code KeyStroke}s.
+	 */
+	@Override
+	@Nonnull
+	public Collection<KeyStrokeMapping> keyStrokeMappings() {
+		return unmodifiableList(mappings);
+	}
 }

@@ -14,5 +14,5 @@ package org.uitest4j.swing.edt;
 
 @FunctionalInterface
 public interface GuiActionRunnable {
-  void run() throws Exception;
+	void run() throws Exception;
 }

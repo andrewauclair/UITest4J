@@ -20,37 +20,37 @@ import javax.swing.table.TableColumn;
 
 /**
  * An action that returns the index of a column in a {@code JTable} whose identifier matches the given one.
- * 
+ *
+ * @author Alex Ruiz
  * @see JTable#getColumn(Object)
  * @see TableColumn#getModelIndex()
- * 
- * @author Alex Ruiz
  */
 public final class JTableColumnByIdentifierQuery {
-  /**
-   * <p>
-   * Returns the index of a column in a {@code JTable} whose identifier matches the given one.
-   * </p>
-   * 
-   * <p>
-   * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
-   * dispatch thread (EDT). Client code must call this method from the EDT.
-   * </p>
-   * 
-   * @param table the given {@code JTable}.
-   * @param identifier the column identifier.
-   * @return the index of a column with a matching identifier. Otherwise it returns -1.
-   */
-  @RunsInCurrentThread
-  public static int columnIndexByIdentifier(final @Nonnull JTable table, final @Nonnull Object identifier) {
-    try {
-      TableColumn column = table.getColumn(identifier);
-      return table.convertColumnIndexToView(column.getModelIndex());
-    } catch (IllegalArgumentException e) {
-      return -1;
-    }
-  }
+	/**
+	 * <p>
+	 * Returns the index of a column in a {@code JTable} whose identifier matches the given one.
+	 * </p>
+	 *
+	 * <p>
+	 * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
+	 * dispatch thread (EDT). Client code must call this method from the EDT.
+	 * </p>
+	 *
+	 * @param table      the given {@code JTable}.
+	 * @param identifier the column identifier.
+	 * @return the index of a column with a matching identifier. Otherwise it returns -1.
+	 */
+	@RunsInCurrentThread
+	public static int columnIndexByIdentifier(final @Nonnull JTable table, final @Nonnull Object identifier) {
+		try {
+			TableColumn column = table.getColumn(identifier);
+			return table.convertColumnIndexToView(column.getModelIndex());
+		}
+		catch (IllegalArgumentException e) {
+			return -1;
+		}
+	}
 
-  private JTableColumnByIdentifierQuery() {
-  }
+	private JTableColumnByIdentifierQuery() {
+	}
 }

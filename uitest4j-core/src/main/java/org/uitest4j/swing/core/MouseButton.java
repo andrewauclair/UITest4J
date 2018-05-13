@@ -22,33 +22,34 @@ import static java.awt.event.InputEvent.*;
  * @author Alex Ruiz
  */
 public enum MouseButton {
-  LEFT_BUTTON(BUTTON1_DOWN_MASK), MIDDLE_BUTTON(BUTTON2_DOWN_MASK), RIGHT_BUTTON(BUTTON3_DOWN_MASK);
+	LEFT_BUTTON(BUTTON1_DOWN_MASK), MIDDLE_BUTTON(BUTTON2_DOWN_MASK), RIGHT_BUTTON(BUTTON3_DOWN_MASK);
 
-  /**
-   * The mouse button modifier.
-   *
-   * @see java.awt.event.InputEvent
-   */
-  public final int mask;
+	/**
+	 * The mouse button modifier.
+	 *
+	 * @see java.awt.event.InputEvent
+	 */
+	public final int mask;
 
-  MouseButton(int mask) {
-    this.mask = mask;
-  }
+	MouseButton(int mask) {
+		this.mask = mask;
+	}
 
-  /**
-   * Returns the mouse button whose mask matches the given mask. Valid values are the constants {@code BUTTON1_MASK},
-   * {@code BUTTON2_MASK}, and {@code BUTTON3_MASK} in {@code java.awt.event.InputEvent}.
-   *
-   * @param mask the mask of the button we are looking for.
-   * @return the found button.
-   * @throws IllegalArgumentException if the given mask is not a valid one.
-   */
-  @Nonnull public static MouseButton lookup(int mask) {
-    for (MouseButton button : values()) {
-      if (button.mask == mask) {
-        return button;
-      }
-    }
-    throw new IllegalArgumentException(String.format("%d is not a valid button mas", mask));
-  }
+	/**
+	 * Returns the mouse button whose mask matches the given mask. Valid values are the constants {@code BUTTON1_MASK},
+	 * {@code BUTTON2_MASK}, and {@code BUTTON3_MASK} in {@code java.awt.event.InputEvent}.
+	 *
+	 * @param mask the mask of the button we are looking for.
+	 * @return the found button.
+	 * @throws IllegalArgumentException if the given mask is not a valid one.
+	 */
+	@Nonnull
+	public static MouseButton lookup(int mask) {
+		for (MouseButton button : values()) {
+			if (button.mask == mask) {
+				return button;
+			}
+		}
+		throw new IllegalArgumentException(String.format("%d is not a valid button mas", mask));
+	}
 }

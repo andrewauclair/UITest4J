@@ -14,12 +14,12 @@
  * <p>
  * Monitors of different input events.
  * </p>
- * 
+ *
  * <p>
  * Most of the classes of in this packages were adapted from <a href="http://abbot.sourceforge.net"
  * target="_blank">Abbot</a>. Many thanks to Timothy Wall for allowing us to use them.
  * </p>
- * 
+ *
  * @author Alex Ruiz
  */
 package org.uitest4j.swing.input;

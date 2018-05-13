@@ -16,17 +16,17 @@ import javax.annotation.Nonnull;
 
 /**
  * Action to execute on a {@code JInternalFrame}.
- * 
+ *
  * @author Alex Ruiz
  */
 enum JInternalFrameAction {
-  MAXIMIZE("Maximize", true), NORMALIZE("Normalize", false), ICONIFY("Iconify", true), DEICONIFY("Deiconify", false);
+	MAXIMIZE("Maximize", true), NORMALIZE("Normalize", false), ICONIFY("Iconify", true), DEICONIFY("Deiconify", false);
 
-  final String name;
-  final boolean value;
+	final String name;
+	final boolean value;
 
-  JInternalFrameAction(@Nonnull String name, boolean value) {
-    this.name = name;
-    this.value = value;
-  }
+	JInternalFrameAction(@Nonnull String name, boolean value) {
+		this.name = name;
+		this.value = value;
+	}
 }

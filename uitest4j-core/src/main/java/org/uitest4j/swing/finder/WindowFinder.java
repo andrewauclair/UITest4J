@@ -12,13 +12,11 @@
  */
 package org.uitest4j.swing.finder;
 
-import java.awt.Dialog;
-import java.awt.Frame;
+import org.uitest4j.swing.core.GenericTypeMatcher;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-
-import org.uitest4j.swing.core.GenericTypeMatcher;
+import java.awt.*;
 
 /**
  * <p>
@@ -72,66 +70,72 @@ import org.uitest4j.swing.core.GenericTypeMatcher;
  * @author Yvonne Wang
  */
 public final class WindowFinder {
-  private WindowFinder() {
-  }
+	private WindowFinder() {
+	}
 
-  /**
-   * Creates a new {@link FrameFinder} capable of looking up a {@code Frame} by name.
-   *
-   * @param frameName the name of the frame to find.
-   * @return the created finder.
-   */
-  @Nonnull public static FrameFinder findFrame(@Nullable String frameName) {
-    return new FrameFinder(frameName);
-  }
+	/**
+	 * Creates a new {@link FrameFinder} capable of looking up a {@code Frame} by name.
+	 *
+	 * @param frameName the name of the frame to find.
+	 * @return the created finder.
+	 */
+	@Nonnull
+	public static FrameFinder findFrame(@Nullable String frameName) {
+		return new FrameFinder(frameName);
+	}
 
-  /**
-   * Creates a new {@link FrameFinder} capable of looking up a {@code Frame} by type.
-   *
-   * @param frameType the type of the frame to find.
-   * @return the created finder.
-   */
-  @Nonnull public static FrameFinder findFrame(@Nonnull Class<? extends Frame> frameType) {
-    return new FrameFinder(frameType);
-  }
+	/**
+	 * Creates a new {@link FrameFinder} capable of looking up a {@code Frame} by type.
+	 *
+	 * @param frameType the type of the frame to find.
+	 * @return the created finder.
+	 */
+	@Nonnull
+	public static FrameFinder findFrame(@Nonnull Class<? extends Frame> frameType) {
+		return new FrameFinder(frameType);
+	}
 
-  /**
-   * Creates a new {@link FrameFinder} capable of looking up a {@code Frame} using the provided matcher.
-   *
-   * @param matcher the matcher to use to find a frame.
-   * @return the created finder.
-   */
-  @Nonnull public static FrameFinder findFrame(@Nonnull GenericTypeMatcher<? extends Frame> matcher) {
-    return new FrameFinder(matcher);
-  }
+	/**
+	 * Creates a new {@link FrameFinder} capable of looking up a {@code Frame} using the provided matcher.
+	 *
+	 * @param matcher the matcher to use to find a frame.
+	 * @return the created finder.
+	 */
+	@Nonnull
+	public static FrameFinder findFrame(@Nonnull GenericTypeMatcher<? extends Frame> matcher) {
+		return new FrameFinder(matcher);
+	}
 
-  /**
-   * Creates a new {@link DialogFinder} capable of looking up a {@code Dialog} by name.
-   *
-   * @param dialogName the name of the dialog to find.
-   * @return the created finder.
-   */
-  @Nonnull public static DialogFinder findDialog(@Nullable String dialogName) {
-    return new DialogFinder(dialogName);
-  }
+	/**
+	 * Creates a new {@link DialogFinder} capable of looking up a {@code Dialog} by name.
+	 *
+	 * @param dialogName the name of the dialog to find.
+	 * @return the created finder.
+	 */
+	@Nonnull
+	public static DialogFinder findDialog(@Nullable String dialogName) {
+		return new DialogFinder(dialogName);
+	}
 
-  /**
-   * Creates a new {@link DialogFinder} capable of looking up a {@code Dialog} by type.
-   *
-   * @param dialogType the type of the dialog to find.
-   * @return the created finder.
-   */
-  @Nonnull public static DialogFinder findDialog(@Nonnull Class<? extends Dialog> dialogType) {
-    return new DialogFinder(dialogType);
-  }
+	/**
+	 * Creates a new {@link DialogFinder} capable of looking up a {@code Dialog} by type.
+	 *
+	 * @param dialogType the type of the dialog to find.
+	 * @return the created finder.
+	 */
+	@Nonnull
+	public static DialogFinder findDialog(@Nonnull Class<? extends Dialog> dialogType) {
+		return new DialogFinder(dialogType);
+	}
 
-  /**
-   * Creates a new {@link DialogFinder} capable of looking up a {@code Dialog} using the provided matcher.
-   *
-   * @param matcher the matcher to use to find a dialog.
-   * @return the created finder.
-   */
-  @Nonnull public static DialogFinder findDialog(@Nonnull GenericTypeMatcher<? extends Dialog> matcher) {
-    return new DialogFinder(matcher);
-  }
+	/**
+	 * Creates a new {@link DialogFinder} capable of looking up a {@code Dialog} using the provided matcher.
+	 *
+	 * @param matcher the matcher to use to find a dialog.
+	 * @return the created finder.
+	 */
+	@Nonnull
+	public static DialogFinder findDialog(@Nonnull GenericTypeMatcher<? extends Dialog> matcher) {
+		return new DialogFinder(matcher);
+	}
 }

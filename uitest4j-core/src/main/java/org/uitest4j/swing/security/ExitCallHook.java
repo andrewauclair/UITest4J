@@ -15,16 +15,16 @@ package org.uitest4j.swing.security;
 /**
  * Hook called by {@link NoExitSecurityManager} when an application tries to terminate the current JVM. This hook is
  * called before throwing {@link ExitException}.
- * 
+ *
  * @author Alex Ruiz
  */
 public interface ExitCallHook {
-  /**
-   * Implement this method to do any context-specific cleanup. This hook is provided since it may not always be possible
-   * to catch the {@link ExitException} explicitly (like when it's caught by someone else, or thrown from the event
-   * dispatch thread).
-   * 
-   * @param status the status the exit status.
-   */
-  void exitCalled(int status);
+	/**
+	 * Implement this method to do any context-specific cleanup. This hook is provided since it may not always be possible
+	 * to catch the {@link ExitException} explicitly (like when it's caught by someone else, or thrown from the event
+	 * dispatch thread).
+	 *
+	 * @param status the status the exit status.
+	 */
+	void exitCalled(int status);
 }

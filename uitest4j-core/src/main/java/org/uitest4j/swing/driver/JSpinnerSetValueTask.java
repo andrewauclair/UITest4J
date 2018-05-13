@@ -23,19 +23,18 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 /**
  * Sets a value in a {@code JSpinner}. This task is executed in the event dispatch thread (EDT).
  *
- * @see JSpinner#setValue(Object)
- *
  * @author Alex Ruiz
+ * @see JSpinner#setValue(Object)
  */
 final class JSpinnerSetValueTask {
-  @RunsInEDT
-  static void setValue(final @Nonnull JSpinner spinner, final @Nonnull Object value) {
-    execute(() -> {
-      checkEnabledAndShowing(spinner);
-      spinner.setValue(value);
-    });
-  }
+	@RunsInEDT
+	static void setValue(final @Nonnull JSpinner spinner, final @Nonnull Object value) {
+		execute(() -> {
+			checkEnabledAndShowing(spinner);
+			spinner.setValue(value);
+		});
+	}
 
-  private JSpinnerSetValueTask() {
-  }
+	private JSpinnerSetValueTask() {
+	}
 }

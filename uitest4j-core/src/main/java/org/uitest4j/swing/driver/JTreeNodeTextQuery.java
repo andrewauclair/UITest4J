@@ -18,7 +18,6 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.swing.*;
 import javax.swing.tree.TreePath;
-
 import java.util.Objects;
 
 import static org.uitest4j.swing.driver.JTreeMatchingPathQuery.matchingPathWithRootIfInvisible;
@@ -30,24 +29,26 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
  * @author Alex Ruiz
  */
 final class JTreeNodeTextQuery {
-  @RunsInEDT
-  static @Nullable String nodeText(final @Nonnull JTree tree, final int row, final @Nonnull JTreeLocation location,
-                                   final @Nonnull JTreePathFinder pathFinder) {
-    return execute(() -> {
-      TreePath matchingPath = location.pathFor(tree, row);
-      return pathFinder.cellReader().valueAt(tree, Objects.requireNonNull(matchingPath.getLastPathComponent()));
-    });
-  }
+	@RunsInEDT
+	static @Nullable
+	String nodeText(final @Nonnull JTree tree, final int row, final @Nonnull JTreeLocation location,
+					final @Nonnull JTreePathFinder pathFinder) {
+		return execute(() -> {
+			TreePath matchingPath = location.pathFor(tree, row);
+			return pathFinder.cellReader().valueAt(tree, Objects.requireNonNull(matchingPath.getLastPathComponent()));
+		});
+	}
 
-  @RunsInEDT
-  static @Nullable String nodeText(final @Nonnull JTree tree, final @Nonnull String path,
-                                   final @Nonnull JTreePathFinder pathFinder) {
-    return execute(() -> {
-      TreePath matchingPath = matchingPathWithRootIfInvisible(tree, path, pathFinder);
-      return pathFinder.cellReader().valueAt(tree, Objects.requireNonNull(matchingPath.getLastPathComponent()));
-    });
-  }
+	@RunsInEDT
+	static @Nullable
+	String nodeText(final @Nonnull JTree tree, final @Nonnull String path,
+					final @Nonnull JTreePathFinder pathFinder) {
+		return execute(() -> {
+			TreePath matchingPath = matchingPathWithRootIfInvisible(tree, path, pathFinder);
+			return pathFinder.cellReader().valueAt(tree, Objects.requireNonNull(matchingPath.getLastPathComponent()));
+		});
+	}
 
-  private JTreeNodeTextQuery() {
-  }
+	private JTreeNodeTextQuery() {
+	}
 }

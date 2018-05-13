@@ -31,46 +31,46 @@ import static org.uitest4j.swing.format.Formatting.format;
  * @author Alex Ruiz
  */
 final class JFileChooserSelectFileTask {
-  @RunsInEDT
-  static void setSelectedFile(final @Nonnull JFileChooser fileChooser, final @Nonnull File file) {
-    execute(() -> {
-      checkEnabledAndShowing(fileChooser);
-      checkSelectionMode(fileChooser, file);
-      fileChooser.setSelectedFile(file);
-    });
-  }
+	@RunsInEDT
+	static void setSelectedFile(final @Nonnull JFileChooser fileChooser, final @Nonnull File file) {
+		execute(() -> {
+			checkEnabledAndShowing(fileChooser);
+			checkSelectionMode(fileChooser, file);
+			fileChooser.setSelectedFile(file);
+		});
+	}
 
-  @RunsInEDT
-  static void setSelectedFiles(final @Nonnull JFileChooser fileChooser, final @Nonnull File[] files) {
-    execute(() -> {
-      checkEnabledAndShowing(fileChooser);
-      if (files.length > 1 && !fileChooser.isMultiSelectionEnabled()) {
-		  throw new IllegalStateException("Expecting file chooser " + format(fileChooser) +
-				  " to handle multiple selection");
-      }
-      for (File file : files) {
-        checkSelectionMode(fileChooser, file);
-      }
-      fileChooser.setSelectedFiles(files);
-    });
-  }
+	@RunsInEDT
+	static void setSelectedFiles(final @Nonnull JFileChooser fileChooser, final @Nonnull File[] files) {
+		execute(() -> {
+			checkEnabledAndShowing(fileChooser);
+			if (files.length > 1 && !fileChooser.isMultiSelectionEnabled()) {
+				throw new IllegalStateException("Expecting file chooser " + format(fileChooser) +
+						" to handle multiple selection");
+			}
+			for (File file : files) {
+				checkSelectionMode(fileChooser, file);
+			}
+			fileChooser.setSelectedFiles(files);
+		});
+	}
 
-  @RunsInCurrentThread
-  private static void checkSelectionMode(JFileChooser fileChooser, File file) {
-    int mode = fileChooser.getFileSelectionMode();
-    if (mode == FILES_ONLY && !file.isFile()) {
-      throw cannotSelectFile(file, "the file chooser can only open files");
-    }
-    if (mode == DIRECTORIES_ONLY && !file.isDirectory()) {
-      throw cannotSelectFile(file, "the file chooser can only open directories");
-    }
-  }
+	@RunsInCurrentThread
+	private static void checkSelectionMode(JFileChooser fileChooser, File file) {
+		int mode = fileChooser.getFileSelectionMode();
+		if (mode == FILES_ONLY && !file.isFile()) {
+			throw cannotSelectFile(file, "the file chooser can only open files");
+		}
+		if (mode == DIRECTORIES_ONLY && !file.isDirectory()) {
+			throw cannotSelectFile(file, "the file chooser can only open directories");
+		}
+	}
 
-  private static IllegalArgumentException cannotSelectFile(File file, String reason) {
-    String msg = String.format("Unabled to select file %s: %s", file.getAbsolutePath(), reason);
-    return new IllegalArgumentException(msg);
-  }
+	private static IllegalArgumentException cannotSelectFile(File file, String reason) {
+		String msg = String.format("Unabled to select file %s: %s", file.getAbsolutePath(), reason);
+		return new IllegalArgumentException(msg);
+	}
 
-  private JFileChooserSelectFileTask() {
-  }
+	private JFileChooserSelectFileTask() {
+	}
 }

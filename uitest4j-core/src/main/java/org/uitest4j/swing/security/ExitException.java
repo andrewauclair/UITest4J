@@ -14,16 +14,16 @@ package org.uitest4j.swing.security;
 
 /**
  * Exception thrown when an application under tests tries to terminate the current JVM.
- * 
+ *
  * @author Alex Ruiz
  */
 public class ExitException extends RuntimeException {
-  /**
-   * Creates a new {@link ExitException}.
-   * 
-   * @param message the detail message.
-   */
-  public ExitException(String message) {
-    super(message);
-  }
+	/**
+	 * Creates a new {@link ExitException}.
+	 *
+	 * @param message the detail message.
+	 */
+	public ExitException(String message) {
+		super(message);
+	}
 }

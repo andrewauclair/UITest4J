@@ -23,48 +23,48 @@ import java.awt.event.WindowEvent;
 
 /**
  * Keeps track of window visibility state.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
 class WindowVisibilityMonitor extends WindowAdapter implements ComponentListener {
-  private final Windows windows;
+	private final Windows windows;
 
-  WindowVisibilityMonitor(@Nonnull Windows windows) {
-    this.windows = windows;
-  }
+	WindowVisibilityMonitor(@Nonnull Windows windows) {
+		this.windows = windows;
+	}
 
-  @Override
-  public void componentShown(ComponentEvent e) {
-    Object source = e.getSource();
-    if (!(source instanceof Window)) {
-      return;
-    }
-    windows.markAsShowing((Window) source);
-  }
+	@Override
+	public void componentShown(ComponentEvent e) {
+		Object source = e.getSource();
+		if (!(source instanceof Window)) {
+			return;
+		}
+		windows.markAsShowing((Window) source);
+	}
 
-  @Override
-  public void componentHidden(ComponentEvent e) {
-    Object source = e.getSource();
-    if (!(source instanceof Window)) {
-      return;
-    }
-    windows.markAsHidden((Window) source);
-  }
+	@Override
+	public void componentHidden(ComponentEvent e) {
+		Object source = e.getSource();
+		if (!(source instanceof Window)) {
+			return;
+		}
+		windows.markAsHidden((Window) source);
+	}
 
-  @RunsInEDT
-  @Override
-  public void windowClosed(WindowEvent e) {
-    Window w = e.getWindow();
-    w.removeComponentListener(this);
-    w.removeWindowListener(this);
-  }
+	@RunsInEDT
+	@Override
+	public void windowClosed(WindowEvent e) {
+		Window w = e.getWindow();
+		w.removeComponentListener(this);
+		w.removeWindowListener(this);
+	}
 
-  @Override
-  public void componentMoved(ComponentEvent e) {
-  }
+	@Override
+	public void componentMoved(ComponentEvent e) {
+	}
 
-  @Override
-  public void componentResized(ComponentEvent e) {
-  }
+	@Override
+	public void componentResized(ComponentEvent e) {
+	}
 }

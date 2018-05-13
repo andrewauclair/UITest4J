@@ -21,15 +21,15 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
  * Clears the selection in a given {@code JTree}. This task is executed in the event dispatch thread (EDT).
- * 
+ *
  * @author Alex Ruiz
  */
 final class JTreeClearSelectionTask {
-  @RunsInEDT
-  static void clearSelectionOf(final @Nonnull JTree tree) {
-    execute(tree::clearSelection);
-  }
+	@RunsInEDT
+	static void clearSelectionOf(final @Nonnull JTree tree) {
+		execute(tree::clearSelection);
+	}
 
-  private JTreeClearSelectionTask() {
-  }
+	private JTreeClearSelectionTask() {
+	}
 }

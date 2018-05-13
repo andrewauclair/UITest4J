@@ -25,14 +25,14 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
  * @author Yvonne Wang
  */
 final class JInternalFrameSetIconTask {
-  @RunsInEDT
-  static void setIcon(final @Nonnull JInternalFrame internalFrame, final @Nonnull JInternalFrameAction action) {
-    execute(() -> {
-      internalFrame.setMaximum(false);
-      internalFrame.setIcon(action.value);
-    });
-  }
+	@RunsInEDT
+	static void setIcon(final @Nonnull JInternalFrame internalFrame, final @Nonnull JInternalFrameAction action) {
+		execute(() -> {
+			internalFrame.setMaximum(false);
+			internalFrame.setIcon(action.value);
+		});
+	}
 
-  private JInternalFrameSetIconTask() {
-  }
+	private JInternalFrameSetIconTask() {
+	}
 }

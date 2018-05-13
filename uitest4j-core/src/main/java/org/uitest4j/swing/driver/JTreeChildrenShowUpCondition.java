@@ -12,8 +12,8 @@
  */
 package org.uitest4j.swing.driver;
 
-import org.uitest4j.swing.timing.Condition;
 import org.uitest4j.swing.annotation.RunsInEDT;
+import org.uitest4j.swing.timing.Condition;
 
 import javax.annotation.Nonnull;
 import javax.swing.*;
@@ -23,32 +23,33 @@ import static org.uitest4j.swing.driver.JTreeChildOfPathCountQuery.childCount;
 
 /**
  * Verifies that the children of a node in a {@code JTree} are displayed.
- * 
+ *
  * @author Alex Ruiz
  */
 class JTreeChildrenShowUpCondition extends Condition {
-  private JTree tree;
-  private TreePath path;
+	private JTree tree;
+	private TreePath path;
 
-  static @Nonnull JTreeChildrenShowUpCondition untilChildrenShowUp(@Nonnull JTree tree, @Nonnull TreePath path) {
-    return new JTreeChildrenShowUpCondition(tree, path);
-  }
+	static @Nonnull
+	JTreeChildrenShowUpCondition untilChildrenShowUp(@Nonnull JTree tree, @Nonnull TreePath path) {
+		return new JTreeChildrenShowUpCondition(tree, path);
+	}
 
-  private JTreeChildrenShowUpCondition(@Nonnull JTree tree, @Nonnull TreePath path) {
-	  super(path.toString() + " to show");
-    this.tree = tree;
-    this.path = path;
-  }
+	private JTreeChildrenShowUpCondition(@Nonnull JTree tree, @Nonnull TreePath path) {
+		super(path.toString() + " to show");
+		this.tree = tree;
+		this.path = path;
+	}
 
-  @Override
-  @RunsInEDT
-  public boolean test() {
-    return childCount(tree, path) != 0;
-  }
+	@Override
+	@RunsInEDT
+	public boolean test() {
+		return childCount(tree, path) != 0;
+	}
 
-  @Override
-  protected void done() {
-    tree = null;
-    path = null;
-  }
+	@Override
+	protected void done() {
+		tree = null;
+		path = null;
+	}
 }

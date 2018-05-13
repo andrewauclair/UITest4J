@@ -27,90 +27,94 @@ import javax.swing.*;
  * @author Alex Ruiz
  */
 public class FailOnThreadViolationRepaintManager extends CheckThreadViolationRepaintManager {
-  /** the {@link RepaintManager} that was installed before {@link #install()} has been called. */
-  private static RepaintManager previousRepaintManager;
+	/**
+	 * the {@link RepaintManager} that was installed before {@link #install()} has been called.
+	 */
+	private static RepaintManager previousRepaintManager;
 
-  /**
-   * <p>
-   * Creates a new {@link FailOnThreadViolationRepaintManager} and sets it as the current repaint manager.
-   * </p>
-   *
-   * <p>
-   * On Sun JVMs, this method will install the new repaint manager the first time only. Once installed, subsequent calls
-   * to this method will not install new repaint managers. This optimization may not work on non-Sun JVMs, since we use
-   * reflection to check if a {@code CheckThreadViolationRepaintManager} is already installed.
-   * </p>
-   *
-   * @return the created (and installed) repaint manager.
-   * @see #uninstall()
-   * @see RepaintManager#setCurrentManager(RepaintManager)
-   */
-  @Nonnull public static FailOnThreadViolationRepaintManager install() {
-    Object m = currentRepaintManager();
-    if (m instanceof FailOnThreadViolationRepaintManager) {
-      return (FailOnThreadViolationRepaintManager) m;
-    }
-    return installNew();
-  }
+	/**
+	 * <p>
+	 * Creates a new {@link FailOnThreadViolationRepaintManager} and sets it as the current repaint manager.
+	 * </p>
+	 *
+	 * <p>
+	 * On Sun JVMs, this method will install the new repaint manager the first time only. Once installed, subsequent calls
+	 * to this method will not install new repaint managers. This optimization may not work on non-Sun JVMs, since we use
+	 * reflection to check if a {@code CheckThreadViolationRepaintManager} is already installed.
+	 * </p>
+	 *
+	 * @return the created (and installed) repaint manager.
+	 * @see #uninstall()
+	 * @see RepaintManager#setCurrentManager(RepaintManager)
+	 */
+	@Nonnull
+	public static FailOnThreadViolationRepaintManager install() {
+		Object m = currentRepaintManager();
+		if (m instanceof FailOnThreadViolationRepaintManager) {
+			return (FailOnThreadViolationRepaintManager) m;
+		}
+		return installNew();
+	}
 
-  /**
-   * <p>
-   * Tries to restore the repaint manager before installing the {@link FailOnThreadViolationRepaintManager} via
-   * {@link #install()}.
-   * </p>
-   *
-   * @return the restored (and installed) repaint manager.
-   * @see #install()
-   * @see RepaintManager#setCurrentManager(RepaintManager)
-   */
-  public static
-  RepaintManager uninstall() {
-    RepaintManager restored = previousRepaintManager;
-    setCurrentManager(restored);
-    previousRepaintManager = null;
-    return restored;
-  }
+	/**
+	 * <p>
+	 * Tries to restore the repaint manager before installing the {@link FailOnThreadViolationRepaintManager} via
+	 * {@link #install()}.
+	 * </p>
+	 *
+	 * @return the restored (and installed) repaint manager.
+	 * @see #install()
+	 * @see RepaintManager#setCurrentManager(RepaintManager)
+	 */
+	public static RepaintManager uninstall() {
+		RepaintManager restored = previousRepaintManager;
+		setCurrentManager(restored);
+		previousRepaintManager = null;
+		return restored;
+	}
 
-  @Nullable private static
-  RepaintManager currentRepaintManager() {
-    try {
-      RepaintManager repaintManager = RepaintManager.currentManager(null);
+	@Nullable
+	private static RepaintManager currentRepaintManager() {
+		try {
+			RepaintManager repaintManager = RepaintManager.currentManager(null);
 //      Object repaintManager = method("appContextGet").withReturnType(Object.class).withParameterTypes(Object.class)
 //                                                     .in(SwingUtilities.class).invoke(RepaintManager.class);
-      if (repaintManager != null) {
-        return repaintManager;
-      }
-    } catch (RuntimeException e) {
-      return null;
-    }
-    return null;
-  }
+			if (repaintManager != null) {
+				return repaintManager;
+			}
+		}
+		catch (RuntimeException e) {
+			return null;
+		}
+		return null;
+	}
 
-  @Nonnull private static FailOnThreadViolationRepaintManager installNew() {
-    FailOnThreadViolationRepaintManager m = new FailOnThreadViolationRepaintManager();
-    previousRepaintManager = currentRepaintManager();
-    setCurrentManager(m);
-    return m;
-  }
+	@Nonnull
+	private static FailOnThreadViolationRepaintManager installNew() {
+		FailOnThreadViolationRepaintManager m = new FailOnThreadViolationRepaintManager();
+		previousRepaintManager = currentRepaintManager();
+		setCurrentManager(m);
+		return m;
+	}
 
-  public FailOnThreadViolationRepaintManager() {
-  }
+	public FailOnThreadViolationRepaintManager() {
+	}
 
-  public FailOnThreadViolationRepaintManager(boolean completeCheck) {
-    super(completeCheck);
-  }
+	public FailOnThreadViolationRepaintManager(boolean completeCheck) {
+		super(completeCheck);
+	}
 
-  /**
-   * Throws a {@link EdtViolationException} when a EDT access violation is found.
-   *
-   * @param c the component involved in the EDT violation.
-   * @param stackTraceElements stack trace elements to be set to the thrown exception.
-   * @throws EdtViolationException when a EDT access violation is found.
-   */
-  @Override
-  void violationFound(@Nonnull JComponent c, @Nonnull StackTraceElement[] stackTraceElements) {
-    EdtViolationException e = new EdtViolationException("EDT violation detected");
-    e.setStackTrace(stackTraceElements);
-    throw e;
-  }
+	/**
+	 * Throws a {@link EdtViolationException} when a EDT access violation is found.
+	 *
+	 * @param c                  the component involved in the EDT violation.
+	 * @param stackTraceElements stack trace elements to be set to the thrown exception.
+	 * @throws EdtViolationException when a EDT access violation is found.
+	 */
+	@Override
+	void violationFound(@Nonnull JComponent c, @Nonnull StackTraceElement[] stackTraceElements) {
+		EdtViolationException e = new EdtViolationException("EDT violation detected");
+		e.setStackTrace(stackTraceElements);
+		throw e;
+	}
 }

@@ -31,8 +31,8 @@ import static javax.swing.SwingUtilities.isEventDispatchThread;
  *
  * @author Scott Delap
  * @author Alexander Potochkin
- *
- *         https://swinghelper.dev.java.net/
+ * <p>
+ * https://swinghelper.dev.java.net/
  */
 abstract class CheckThreadViolationRepaintManager extends RepaintManager {
 	private final boolean completeCheck;

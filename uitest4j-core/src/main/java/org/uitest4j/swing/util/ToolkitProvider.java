@@ -12,30 +12,31 @@
  */
 package org.uitest4j.swing.util;
 
-import java.awt.Toolkit;
-import java.util.Objects;
-
 import javax.annotation.Nonnull;
+import java.awt.*;
+import java.util.Objects;
 
 /**
  * Provider of {@code Toolkit}s.
- * 
+ *
  * @author Alex Ruiz
  */
 public class ToolkitProvider {
-  /**
-   * @return the singleton instance of this class.
-   */
-  @Nonnull public static ToolkitProvider instance() {
-    return SingletonHolder.instance;
-  }
+	/**
+	 * @return the singleton instance of this class.
+	 */
+	@Nonnull
+	public static ToolkitProvider instance() {
+		return SingletonHolder.instance;
+	}
 
-  @Nonnull public Toolkit defaultToolkit() {
-	  return Objects.requireNonNull(Toolkit.getDefaultToolkit());
-  }
+	@Nonnull
+	public Toolkit defaultToolkit() {
+		return Objects.requireNonNull(Toolkit.getDefaultToolkit());
+	}
 
-  // Thread-safe, lazy-loading singleton.
-  private static class SingletonHolder {
-    static ToolkitProvider instance = new ToolkitProvider();
-  }
+	// Thread-safe, lazy-loading singleton.
+	private static class SingletonHolder {
+		static ToolkitProvider instance = new ToolkitProvider();
+	}
 }

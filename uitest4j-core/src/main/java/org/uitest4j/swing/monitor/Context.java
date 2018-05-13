@@ -33,107 +33,112 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
  */
 @ThreadSafe
 class Context {
-  /** Maps unique event queues to the set of root windows found on each queue. */
-  @GuardedBy("lock")
-  private final WindowEventQueueMapping windowEventQueueMapping;
+	/**
+	 * Maps unique event queues to the set of root windows found on each queue.
+	 */
+	@GuardedBy("lock")
+	private final WindowEventQueueMapping windowEventQueueMapping;
 
-  /** Maps components to their corresponding event queues. */
-  @GuardedBy("lock")
-  private final EventQueueMapping eventQueueMapping;
+	/**
+	 * Maps components to their corresponding event queues.
+	 */
+	@GuardedBy("lock")
+	private final EventQueueMapping eventQueueMapping;
 
-  private final Object lock = new Object();
+	private final Object lock = new Object();
 
-  Context(@Nonnull Toolkit toolkit) {
-    this(toolkit, new WindowEventQueueMapping(), new EventQueueMapping());
-  }
+	Context(@Nonnull Toolkit toolkit) {
+		this(toolkit, new WindowEventQueueMapping(), new EventQueueMapping());
+	}
 
-  Context(@Nonnull Toolkit toolkit, @Nonnull WindowEventQueueMapping windowEventQueueMapping,
-          @Nonnull EventQueueMapping eventQueueMapping) {
-    this.windowEventQueueMapping = windowEventQueueMapping;
-    this.eventQueueMapping = eventQueueMapping;
-    this.windowEventQueueMapping.addQueueFor(toolkit);
-  }
+	Context(@Nonnull Toolkit toolkit, @Nonnull WindowEventQueueMapping windowEventQueueMapping,
+			@Nonnull EventQueueMapping eventQueueMapping) {
+		this.windowEventQueueMapping = windowEventQueueMapping;
+		this.eventQueueMapping = eventQueueMapping;
+		this.windowEventQueueMapping.addQueueFor(toolkit);
+	}
 
-  /**
-   * Return all available root {@code Window}s. A root {@code Window} is one that has a {@code null} parent. Nominally
-   * this means a list similar to that returned by {@code Frame.getFrames()}, but in the case of an {@code Applet} may
-   * return a few dialogs as well.
-   *
-   * @return all available root {@code Window}s.
-   */
-  @Nonnull
-  Collection<Window> rootWindows() {
-    Set<Window> rootWindows;
-    synchronized (lock) {
-      rootWindows = new LinkedHashSet<>(windowEventQueueMapping.windows());
-    }
-    rootWindows.addAll(Arrays.asList(Frame.getFrames()));
-    rootWindows.addAll(Arrays.asList(Window.getOwnerlessWindows()));
-    return rootWindows;
-  }
+	/**
+	 * Return all available root {@code Window}s. A root {@code Window} is one that has a {@code null} parent. Nominally
+	 * this means a list similar to that returned by {@code Frame.getFrames()}, but in the case of an {@code Applet} may
+	 * return a few dialogs as well.
+	 *
+	 * @return all available root {@code Window}s.
+	 */
+	@Nonnull
+	Collection<Window> rootWindows() {
+		Set<Window> rootWindows;
+		synchronized (lock) {
+			rootWindows = new LinkedHashSet<>(windowEventQueueMapping.windows());
+		}
+		rootWindows.addAll(Arrays.asList(Frame.getFrames()));
+		rootWindows.addAll(Arrays.asList(Window.getOwnerlessWindows()));
+		return rootWindows;
+	}
 
-  @Nullable
-  EventQueue storedQueueFor(@Nonnull Component c) {
-    synchronized (lock) {
-      return eventQueueMapping.storedQueueFor(c);
-    }
-  }
+	@Nullable
+	EventQueue storedQueueFor(@Nonnull Component c) {
+		synchronized (lock) {
+			return eventQueueMapping.storedQueueFor(c);
+		}
+	}
 
-  void removeContextFor(@Nonnull Component component) {
-    synchronized (lock) {
-      windowEventQueueMapping.removeMappingFor(component);
-    }
-  }
+	void removeContextFor(@Nonnull Component component) {
+		synchronized (lock) {
+			windowEventQueueMapping.removeMappingFor(component);
+		}
+	}
 
-  void addContextFor(@Nonnull Component component) {
-    synchronized (lock) {
-      windowEventQueueMapping.addQueueFor(component);
-      eventQueueMapping.addQueueFor(component);
-    }
-  }
+	void addContextFor(@Nonnull Component component) {
+		synchronized (lock) {
+			windowEventQueueMapping.addQueueFor(component);
+			eventQueueMapping.addQueueFor(component);
+		}
+	}
 
-  /**
-   * Return the event queue corresponding to the given AWT or Swing {@code Component}. In most cases, this is the same
-   * as {@link java.awt.Toolkit#getSystemEventQueue()}, but in the case of applets will bypass the {@code AppContext}
-   * and provide the real event queue.
-   *
-   * @param c the given {@code Component}.
-   * @return the event queue corresponding to the given {@code Component}.
-   */
-  @RunsInEDT
-  @Nullable
-  EventQueue eventQueueFor(@Nonnull Component c) {
-    Component component = topParentOf(c);
-    if (component == null) {
-      return null;
-    }
-    synchronized (lock) {
-      return eventQueueMapping.queueFor(component);
-    }
-  }
+	/**
+	 * Return the event queue corresponding to the given AWT or Swing {@code Component}. In most cases, this is the same
+	 * as {@link java.awt.Toolkit#getSystemEventQueue()}, but in the case of applets will bypass the {@code AppContext}
+	 * and provide the real event queue.
+	 *
+	 * @param c the given {@code Component}.
+	 * @return the event queue corresponding to the given {@code Component}.
+	 */
+	@RunsInEDT
+	@Nullable
+	EventQueue eventQueueFor(@Nonnull Component c) {
+		Component component = topParentOf(c);
+		if (component == null) {
+			return null;
+		}
+		synchronized (lock) {
+			return eventQueueMapping.queueFor(component);
+		}
+	}
 
-  @RunsInEDT
-  @Nullable private static Component topParentOf(final @Nonnull Component c) {
-    return execute(() -> {
-      Component parent = c;
-      // Components above the applet in the hierarchy may or may not share the same context with the applet itself.
-      while (parent.getParent() != null) {
-        parent = parent.getParent();
-      }
-      return parent;
-    });
-  }
+	@RunsInEDT
+	@Nullable
+	private static Component topParentOf(final @Nonnull Component c) {
+		return execute(() -> {
+			Component parent = c;
+			// Components above the applet in the hierarchy may or may not share the same context with the applet itself.
+			while (parent.getParent() != null) {
+				parent = parent.getParent();
+			}
+			return parent;
+		});
+	}
 
-  /**
-   * @return all known event queues.
-   */
-  @Nonnull
-  Collection<EventQueue> allEventQueues() {
-    Set<EventQueue> eventQueues = new LinkedHashSet<>();
-    synchronized (lock) {
-      eventQueues.addAll(windowEventQueueMapping.eventQueues());
-      eventQueues.addAll(eventQueueMapping.eventQueues());
-    }
-    return eventQueues;
-  }
+	/**
+	 * @return all known event queues.
+	 */
+	@Nonnull
+	Collection<EventQueue> allEventQueues() {
+		Set<EventQueue> eventQueues = new LinkedHashSet<>();
+		synchronized (lock) {
+			eventQueues.addAll(windowEventQueueMapping.eventQueues());
+			eventQueues.addAll(eventQueueMapping.eventQueues());
+		}
+		return eventQueues;
+	}
 }

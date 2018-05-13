@@ -12,96 +12,98 @@
  */
 package org.uitest4j.swing.finder;
 
-import java.awt.Component;
-import java.awt.Frame;
-import java.util.concurrent.TimeUnit;
-
-import javax.annotation.Nonnegative;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import org.uitest4j.swing.core.GenericTypeMatcher;
 import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.fixture.FrameFixture;
 
+import javax.annotation.Nonnegative;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import java.awt.*;
+import java.util.concurrent.TimeUnit;
+
 /**
  * Finder for {@code Frame}s. This class cannot be used directly, please see {@link WindowFinder}.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
 public class FrameFinder extends WindowFinderTemplate<Frame> {
-  /**
-   * Creates a new {@link FrameFinder}.
-   * 
-   * @param frameName the name of the {@code Frame} to look for.
-   */
-  protected FrameFinder(@Nullable String frameName) {
-    super(frameName, Frame.class);
-  }
+	/**
+	 * Creates a new {@link FrameFinder}.
+	 *
+	 * @param frameName the name of the {@code Frame} to look for.
+	 */
+	protected FrameFinder(@Nullable String frameName) {
+		super(frameName, Frame.class);
+	}
 
-  /**
-   * Creates a new {@link FrameFinder}.
-   * 
-   * @param matcher specifies the search criteria to use when looking up a {@code Frame}.
-   */
-  protected FrameFinder(@Nonnull GenericTypeMatcher<? extends Frame> matcher) {
-    super(matcher);
-  }
+	/**
+	 * Creates a new {@link FrameFinder}.
+	 *
+	 * @param matcher specifies the search criteria to use when looking up a {@code Frame}.
+	 */
+	protected FrameFinder(@Nonnull GenericTypeMatcher<? extends Frame> matcher) {
+		super(matcher);
+	}
 
-  /**
-   * Creates a new {@link FrameFinder}.
-   * 
-   * @param frameType the type of {@code Frame} to look for.
-   */
-  protected FrameFinder(@Nonnull Class<? extends Frame> frameType) {
-    super(frameType);
-  }
+	/**
+	 * Creates a new {@link FrameFinder}.
+	 *
+	 * @param frameType the type of {@code Frame} to look for.
+	 */
+	protected FrameFinder(@Nonnull Class<? extends Frame> frameType) {
+		super(frameType);
+	}
 
-  /**
-   * Sets the timeout for this finder. The {@code Frame} to search should be found within the given time period.
-   * 
-   * @param timeout the number of milliseconds before stopping the search.
-   * @return this finder.
-   */
-  @Override
-  @Nonnull public FrameFinder withTimeout(@Nonnegative long timeout) {
-    super.withTimeout(timeout);
-    return this;
-  }
+	/**
+	 * Sets the timeout for this finder. The {@code Frame} to search should be found within the given time period.
+	 *
+	 * @param timeout the number of milliseconds before stopping the search.
+	 * @return this finder.
+	 */
+	@Override
+	@Nonnull
+	public FrameFinder withTimeout(@Nonnegative long timeout) {
+		super.withTimeout(timeout);
+		return this;
+	}
 
-  /**
-   * Sets the timeout for this finder. The {@code Frame} to search should be found within the given time period.
-   * 
-   * @param timeout the period of time the search should be performed.
-   * @param unit the time unit for {@code timeout}.
-   * @return this finder.
-   */
-  @Override
-  @Nonnull public FrameFinder withTimeout(@Nonnegative long timeout, @Nonnull TimeUnit unit) {
-    super.withTimeout(timeout, unit);
-    return this;
-  }
+	/**
+	 * Sets the timeout for this finder. The {@code Frame} to search should be found within the given time period.
+	 *
+	 * @param timeout the period of time the search should be performed.
+	 * @param unit    the time unit for {@code timeout}.
+	 * @return this finder.
+	 */
+	@Override
+	@Nonnull
+	public FrameFinder withTimeout(@Nonnegative long timeout, @Nonnull TimeUnit unit) {
+		super.withTimeout(timeout, unit);
+		return this;
+	}
 
-  /**
-   * Finds a {@code Frame} by name or type.
-   * 
-   * @param robot contains the underlying finding to delegate the search to.
-   * @return a {@code FrameFixture} managing the found {@code Frame}.
-   * @throws org.uitest4j.swing.exception.WaitTimedOutError if a {@code Frame} could not be found.
-   */
-  @Override
-  @Nonnull public FrameFixture using(@Nonnull Robot robot) {
-    return new FrameFixture(robot, findComponentWith(robot));
-  }
+	/**
+	 * Finds a {@code Frame} by name or type.
+	 *
+	 * @param robot contains the underlying finding to delegate the search to.
+	 * @return a {@code FrameFixture} managing the found {@code Frame}.
+	 * @throws org.uitest4j.swing.exception.WaitTimedOutError if a {@code Frame} could not be found.
+	 */
+	@Override
+	@Nonnull
+	public FrameFixture using(@Nonnull Robot robot) {
+		return new FrameFixture(robot, findComponentWith(robot));
+	}
 
-  /**
-   * Casts the given AWT or Swing {@code Component} to {@code Frame}.
-   * 
-   * @return the given {@code Component}, casted to {@code Frame}.
-   */
-  @Override
-  @Nullable protected Frame cast(@Nullable Component c) {
-    return (Frame) c;
-  }
+	/**
+	 * Casts the given AWT or Swing {@code Component} to {@code Frame}.
+	 *
+	 * @return the given {@code Component}, casted to {@code Frame}.
+	 */
+	@Override
+	@Nullable
+	protected Frame cast(@Nullable Component c) {
+		return (Frame) c;
+	}
 }

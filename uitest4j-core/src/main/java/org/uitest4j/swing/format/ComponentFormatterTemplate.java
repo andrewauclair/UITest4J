@@ -24,46 +24,48 @@ import java.util.Objects;
  * @author Yvonne Wang
  */
 public abstract class ComponentFormatterTemplate implements ComponentFormatter {
-  /**
-   * Returns the {@code String} representation of the given AWT or Swing {@code Component}.
-   *
-   * @param c the given {@code Component}.
-   * @return the {@code String} representation of the given {@code Component}.
-   * @throws NullPointerException if the given {@code Component} is {@code null}.
-   * @throws IllegalArgumentException if the type of the given {@code Component} is not supported by this formatter.
-   */
-  @RunsInCurrentThread
-  @Override
-  public final @Nonnull String format(@Nonnull Component c) {
-    checkTypeOf(c);
-    return doFormat(c);
-  }
+	/**
+	 * Returns the {@code String} representation of the given AWT or Swing {@code Component}.
+	 *
+	 * @param c the given {@code Component}.
+	 * @return the {@code String} representation of the given {@code Component}.
+	 * @throws NullPointerException     if the given {@code Component} is {@code null}.
+	 * @throws IllegalArgumentException if the type of the given {@code Component} is not supported by this formatter.
+	 */
+	@RunsInCurrentThread
+	@Override
+	public final @Nonnull
+	String format(@Nonnull Component c) {
+		checkTypeOf(c);
+		return doFormat(c);
+	}
 
-  /**
-   * Returns the {@code String} representation of the given AWT or Swing {@code Component}.
-   *
-   * @param c the given {@code Component}.
-   * @return the {@code String} representation of the given {@code Component}.
-   */
-  @RunsInCurrentThread
-  protected abstract @Nonnull String doFormat(@Nonnull Component c);
+	/**
+	 * Returns the {@code String} representation of the given AWT or Swing {@code Component}.
+	 *
+	 * @param c the given {@code Component}.
+	 * @return the {@code String} representation of the given {@code Component}.
+	 */
+	@RunsInCurrentThread
+	protected abstract @Nonnull
+	String doFormat(@Nonnull Component c);
 
-  private void checkTypeOf(@Nonnull Component c) {
-	  Objects.requireNonNull(c);
-    if (!targetType().isAssignableFrom(c.getClass())) {
-      String msg = String.format("This formatter only supports components of type %s", targetType().getName());
-      throw new IllegalArgumentException(msg);
-    }
-  }
+	private void checkTypeOf(@Nonnull Component c) {
+		Objects.requireNonNull(c);
+		if (!targetType().isAssignableFrom(c.getClass())) {
+			String msg = String.format("This formatter only supports components of type %s", targetType().getName());
+			throw new IllegalArgumentException(msg);
+		}
+	}
 
-  protected String getRealClassName(Component c) {
-    return getRealClassName(c.getClass());
-  }
+	protected String getRealClassName(Component c) {
+		return getRealClassName(c.getClass());
+	}
 
-  private String getRealClassName(Class<?> type) {
-    if (type.isAnonymousClass()) {
-      return type.getName() + "(" + getRealClassName(type.getSuperclass()) + ")";
-    }
-    return type.getName();
-  }
+	private String getRealClassName(Class<?> type) {
+		if (type.isAnonymousClass()) {
+			return type.getName() + "(" + getRealClassName(type.getSuperclass()) + ")";
+		}
+		return type.getName();
+	}
 }

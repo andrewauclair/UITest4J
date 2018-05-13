@@ -12,7 +12,7 @@
  */
 /**
  * Utility methods related to AWT.
- * 
+ *
  * @author Alex Ruiz
  */
 package org.uitest4j.swing.awt;

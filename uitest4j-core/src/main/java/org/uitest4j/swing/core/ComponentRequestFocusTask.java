@@ -22,15 +22,15 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
  * Task that request input focus for an AWT or Swing {@code Component}.
- * 
+ *
  * @author Alex Ruiz
  */
 final class ComponentRequestFocusTask {
-  @RunsInEDT
-  static void giveFocusTo(final @Nonnull Component c) {
-    execute((Callable<Boolean>) c::requestFocusInWindow);
-  }
+	@RunsInEDT
+	static void giveFocusTo(final @Nonnull Component c) {
+		execute((Callable<Boolean>) c::requestFocusInWindow);
+	}
 
-  private ComponentRequestFocusTask() {
-  }
+	private ComponentRequestFocusTask() {
+	}
 }

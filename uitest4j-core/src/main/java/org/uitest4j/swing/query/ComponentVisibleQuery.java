@@ -28,20 +28,20 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
  * @author Alex Ruiz
  */
 public final class ComponentVisibleQuery {
-  /**
-   * Indicates whether the given AWT or Swing {@code Component} is visible or not. This query is executed in the event
-   * dispatch thread (EDT).
-   *
-   * @param component the given {@code Component}.
-   * @return {@code true} if the given {@code Component} is visible, {@code false} otherwise.
-   * @see Component#isVisible()
-   */
-  @RunsInEDT
-  public static boolean isVisible(final @Nonnull Component component) {
-    Boolean result = execute(component::isVisible);
-    return Objects.requireNonNull(result);
-  }
+	/**
+	 * Indicates whether the given AWT or Swing {@code Component} is visible or not. This query is executed in the event
+	 * dispatch thread (EDT).
+	 *
+	 * @param component the given {@code Component}.
+	 * @return {@code true} if the given {@code Component} is visible, {@code false} otherwise.
+	 * @see Component#isVisible()
+	 */
+	@RunsInEDT
+	public static boolean isVisible(final @Nonnull Component component) {
+		Boolean result = execute(component::isVisible);
+		return Objects.requireNonNull(result);
+	}
 
-  private ComponentVisibleQuery() {
-  }
+	private ComponentVisibleQuery() {
+	}
 }

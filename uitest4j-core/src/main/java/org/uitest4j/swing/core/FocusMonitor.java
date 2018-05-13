@@ -12,44 +12,44 @@
  */
 package org.uitest4j.swing.core;
 
-import static org.uitest4j.swing.core.FocusOwnerFinder.focusOwner;
-
-import java.awt.Component;
+import javax.annotation.Nonnull;
+import java.awt.*;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 
-import javax.annotation.Nonnull;
+import static org.uitest4j.swing.core.FocusOwnerFinder.focusOwner;
 
 /**
  * Attaches itself to an AWT or Swing {@code Component} and keeps record of when such {@code Component} gains or loses
  * focus.
- * 
+ *
  * @author Alex Ruiz
  */
 final class FocusMonitor implements FocusListener {
-  private volatile boolean hasFocus;
+	private volatile boolean hasFocus;
 
-  static @Nonnull FocusMonitor attachTo(@Nonnull Component c) {
-    FocusMonitor monitor = new FocusMonitor(c);
-    c.addFocusListener(monitor);
-    return monitor;
-  }
+	static @Nonnull
+	FocusMonitor attachTo(@Nonnull Component c) {
+		FocusMonitor monitor = new FocusMonitor(c);
+		c.addFocusListener(monitor);
+		return monitor;
+	}
 
-  private FocusMonitor(Component c) {
-    hasFocus = focusOwner() == c;
-  }
+	private FocusMonitor(Component c) {
+		hasFocus = focusOwner() == c;
+	}
 
-  @Override
-  public void focusGained(FocusEvent e) {
-    hasFocus = true;
-  }
+	@Override
+	public void focusGained(FocusEvent e) {
+		hasFocus = true;
+	}
 
-  @Override
-  public void focusLost(FocusEvent e) {
-    hasFocus = false;
-  }
+	@Override
+	public void focusLost(FocusEvent e) {
+		hasFocus = false;
+	}
 
-  boolean hasFocus() {
-    return hasFocus;
-  }
+	boolean hasFocus() {
+		return hasFocus;
+	}
 }

@@ -22,15 +22,17 @@ import javax.annotation.Nonnull;
  * @author Alex Ruiz
  */
 public class EdtViolationException extends RuntimeException {
-  /** Generated serial version UID. */
-  private static final long serialVersionUID = -4009316969453779435L;
+	/**
+	 * Generated serial version UID.
+	 */
+	private static final long serialVersionUID = -4009316969453779435L;
 
-  /**
-   * Creates a new {@link EdtViolationException}.
-   *
-   * @param message the detail message.
-   */
-  public EdtViolationException(@Nonnull String message) {
-    super(message);
-  }
+	/**
+	 * Creates a new {@link EdtViolationException}.
+	 *
+	 * @param message the detail message.
+	 */
+	public EdtViolationException(@Nonnull String message) {
+		super(message);
+	}
 }

@@ -21,15 +21,15 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
  * Sets the location of an AWT or Swing {@code Component}. This task is executed in the event dispatch thread (EDT).
- * 
+ *
  * @author Alex Ruiz
  */
 final class ComponentMoveTask {
-  @RunsInEDT
-  static void moveComponent(final @Nonnull Component c, final @Nonnull Point location) {
-    execute(() -> c.setLocation(location));
-  }
+	@RunsInEDT
+	static void moveComponent(final @Nonnull Component c, final @Nonnull Point location) {
+		execute(() -> c.setLocation(location));
+	}
 
-  private ComponentMoveTask() {
-  }
+	private ComponentMoveTask() {
+	}
 }

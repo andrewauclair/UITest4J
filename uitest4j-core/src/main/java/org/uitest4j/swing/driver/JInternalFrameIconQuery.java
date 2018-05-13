@@ -21,26 +21,25 @@ import javax.swing.*;
  * <p>
  * Indicates whether a {@code JInternalFrame} is iconified.
  * </p>
- * 
+ *
  * <p>
  * <b>Note:</b> Methods in this class are accessed in the current executing thread. Such thread may or may not be the
  * event dispatch thread (EDT). Client code must call methods in this class from the EDT.
  * </p>
- * 
- * @see JInternalFrame#isIcon()
- * 
+ *
  * @author Yvonne Wang
  * @author Alex Ruiz
+ * @see JInternalFrame#isIcon()
  */
 final class JInternalFrameIconQuery {
-  @RunsInCurrentThread
-  static boolean isIconified(@Nonnull JInternalFrame frame) {
-    if (frame.isMaximum()) {
-      return false;
-    }
-    return frame.isIcon();
-  }
+	@RunsInCurrentThread
+	static boolean isIconified(@Nonnull JInternalFrame frame) {
+		if (frame.isMaximum()) {
+			return false;
+		}
+		return frame.isIcon();
+	}
 
-  private JInternalFrameIconQuery() {
-  }
+	private JInternalFrameIconQuery() {
+	}
 }

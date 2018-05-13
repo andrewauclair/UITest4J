@@ -32,20 +32,20 @@ import javax.swing.*;
  */
 @RunsInCurrentThread
 public interface JComboBoxCellReader {
-  /**
-   * <p>
-   * Returns the internal value of a cell in a {@code JComboBox} as expected in a test.
-   * </p>
-   *
-   * <p>
-   * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
-   * dispatch thread (EDT). Client code must call this method from the EDT.
-   * </p>
-   *
-   * @param comboBox the given {@code JComboBox}.
-   * @param index the index of the cell.
-   * @return the internal value of a cell in a {@code JComboBox} as expected in a test.
-   */
-  @Nullable
-  String valueAt(@Nonnull JComboBox<?> comboBox, int index);
+	/**
+	 * <p>
+	 * Returns the internal value of a cell in a {@code JComboBox} as expected in a test.
+	 * </p>
+	 *
+	 * <p>
+	 * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
+	 * dispatch thread (EDT). Client code must call this method from the EDT.
+	 * </p>
+	 *
+	 * @param comboBox the given {@code JComboBox}.
+	 * @param index    the index of the cell.
+	 * @return the internal value of a cell in a {@code JComboBox} as expected in a test.
+	 */
+	@Nullable
+	String valueAt(@Nonnull JComboBox<?> comboBox, int index);
 }

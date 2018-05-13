@@ -23,186 +23,192 @@ import static org.uitest4j.swing.timing.Timeout.timeout;
 
 /**
  * Waits for period of time or for a particular condition to be satisfied.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
 public final class Pause {
-  private static final Timeout DEFAULT_TIMEOUT = timeout();
-  private static final int SLEEP_INTERVAL = 10;
-  private static final ExecutorService EXECUTOR_SERVICE = Executors.newCachedThreadPool();
+	private static final Timeout DEFAULT_TIMEOUT = timeout();
+	private static final int SLEEP_INTERVAL = 10;
+	private static final ExecutorService EXECUTOR_SERVICE = Executors.newCachedThreadPool();
 
-  /**
-   * Waits until the given condition is satisfied.
-   * 
-   * @param condition the condition to verify.
-   * @throws NullPointerException if the given condition is {@code null}.
-   * @throws WaitTimedOutError if the wait times out (more than 30 seconds).
-   */
-  public static void pause(@Nonnull Condition condition) {
-    pause(condition, DEFAULT_TIMEOUT);
-  }
+	/**
+	 * Waits until the given condition is satisfied.
+	 *
+	 * @param condition the condition to verify.
+	 * @throws NullPointerException if the given condition is {@code null}.
+	 * @throws WaitTimedOutError    if the wait times out (more than 30 seconds).
+	 */
+	public static void pause(@Nonnull Condition condition) {
+		pause(condition, DEFAULT_TIMEOUT);
+	}
 
-  /**
-   * Waits until the given condition is satisfied.
-   * 
-   * @param condition the condition to verify.
-   * @param timeout the timeout.
-   * @throws NullPointerException if the given timeout is {@code null}.
-   * @throws NullPointerException if the given condition is {@code null}.
-   * @throws WaitTimedOutError if the wait times out.
-   */
-  public static void pause(@Nonnull Condition condition, @Nonnull Timeout timeout) {
-	  Objects.requireNonNull(timeout);
-    pause(condition, timeout.duration());
-  }
+	/**
+	 * Waits until the given condition is satisfied.
+	 *
+	 * @param condition the condition to verify.
+	 * @param timeout   the timeout.
+	 * @throws NullPointerException if the given timeout is {@code null}.
+	 * @throws NullPointerException if the given condition is {@code null}.
+	 * @throws WaitTimedOutError    if the wait times out.
+	 */
+	public static void pause(@Nonnull Condition condition, @Nonnull Timeout timeout) {
+		Objects.requireNonNull(timeout);
+		pause(condition, timeout.duration());
+	}
 
-  /**
-   * Waits until the given condition is satisfied.
-   * 
-   * @param condition the condition to verify.
-   * @param timeout the timeout (in milliseconds).
-   * @throws NullPointerException if the given condition is {@code null}.
-   * @throws WaitTimedOutError if the wait times out.
-   */
-  public static void pause(@Nonnull final Condition condition, final long timeout) {
-	  Objects.requireNonNull(condition);
-    try {
-		Callable<Object> task = () -> {
-			while (!Thread.currentThread().isInterrupted() && !condition.test()) {
-				pause();
-			}
-			return condition;
-      };
-      performPause(task, timeout, condition);
-    } finally {
-      condition.done();
-    }
-  }
-
-  private static void performPause(Callable<Object> task, long timeout, Object value) {
-    Future<Object> futureResult = EXECUTOR_SERVICE.submit(task);
-    try {
-      futureResult.get(timeout, TimeUnit.MILLISECONDS);
-    } catch (TimeoutException ex) {
-      futureResult.cancel(true);
-      throw new WaitTimedOutError(String.format("Timed out waiting for %s", value.toString()));
-    } catch (InterruptedException e) {
-      e.printStackTrace();
-    } catch (ExecutionException e) {
-      if (e.getCause() instanceof RuntimeException) {
-        throw (RuntimeException) e.getCause();
-      }
-      e.printStackTrace();
-    }
-  }
-
-  /**
-   * Waits until the given conditions are satisfied.
-   * 
-   * @param conditions the conditions to verify.
-   * @throws NullPointerException if the array of conditions is {@code null}.
-   * @throws IllegalArgumentException if the array of conditions is empty.
-   * @throws NullPointerException if the array of conditions has one or more {@code null} values.
-   * @throws WaitTimedOutError if the wait times out (more than 30 seconds).
-   */
-  public static void pause(@Nonnull Condition[] conditions) {
-    pause(conditions, DEFAULT_TIMEOUT);
-  }
-
-  /**
-   * Waits until the given conditions are satisfied.
-   * 
-   * @param conditions the conditions to verify.
-   * @param timeout the timeout.
-   * @throws NullPointerException if the given timeout is {@code null}.
-   * @throws NullPointerException if the array of conditions is {@code null}.
-   * @throws IllegalArgumentException if the array of conditions is empty.
-   * @throws NullPointerException if the array of conditions has one or more {@code null} values.
-   * @throws WaitTimedOutError if the wait times out.
-   */
-  public static void pause(@Nonnull Condition[] conditions, @Nonnull Timeout timeout) {
-    pause(conditions, timeout.duration());
-  }
-
-  /**
-   * Waits until the given conditions are satisfied.
-   * 
-   * @param conditions the conditions to verify.
-   * @param timeout the timeout (in milliseconds).
-   * @throws NullPointerException if the array of conditions is {@code null}.
-   * @throws IllegalArgumentException if the array of conditions is empty.
-   * @throws NullPointerException if the array of conditions has one or more {@code null} values.
-   * @throws WaitTimedOutError if the wait times out.
-   */
-  public static void pause(@Nonnull final Condition[] conditions, final long timeout) {
-	  ArrayUtils.requireNonNullAndNotEmpty(conditions);
-    for (Condition condition : conditions) {
+	/**
+	 * Waits until the given condition is satisfied.
+	 *
+	 * @param condition the condition to verify.
+	 * @param timeout   the timeout (in milliseconds).
+	 * @throws NullPointerException if the given condition is {@code null}.
+	 * @throws WaitTimedOutError    if the wait times out.
+	 */
+	public static void pause(@Nonnull final Condition condition, final long timeout) {
 		Objects.requireNonNull(condition);
-    }
-    try {
-		Callable<Object> task = () -> {
-			while (!Thread.currentThread().isInterrupted() && !areSatisfied(conditions)) {
-				pause();
+		try {
+			Callable<Object> task = () -> {
+				while (!Thread.currentThread().isInterrupted() && !condition.test()) {
+					pause();
+				}
+				return condition;
+			};
+			performPause(task, timeout, condition);
+		}
+		finally {
+			condition.done();
+		}
+	}
+
+	private static void performPause(Callable<Object> task, long timeout, Object value) {
+		Future<Object> futureResult = EXECUTOR_SERVICE.submit(task);
+		try {
+			futureResult.get(timeout, TimeUnit.MILLISECONDS);
+		}
+		catch (TimeoutException ex) {
+			futureResult.cancel(true);
+			throw new WaitTimedOutError(String.format("Timed out waiting for %s", value.toString()));
+		}
+		catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		catch (ExecutionException e) {
+			if (e.getCause() instanceof RuntimeException) {
+				throw (RuntimeException) e.getCause();
 			}
-			return conditions;
-      };
-      performPause(task, timeout, conditions);
-    } finally {
-      for (Condition condition : conditions) {
-        condition.done();
-      }
-    }
-  }
+			e.printStackTrace();
+		}
+	}
 
-  private static boolean areSatisfied(@Nonnull Condition[] conditions) {
-    for (Condition condition : conditions) {
-      if (!condition.test()) {
-        return false;
-      }
-    }
-    return true;
-  }
+	/**
+	 * Waits until the given conditions are satisfied.
+	 *
+	 * @param conditions the conditions to verify.
+	 * @throws NullPointerException     if the array of conditions is {@code null}.
+	 * @throws IllegalArgumentException if the array of conditions is empty.
+	 * @throws NullPointerException     if the array of conditions has one or more {@code null} values.
+	 * @throws WaitTimedOutError        if the wait times out (more than 30 seconds).
+	 */
+	public static void pause(@Nonnull Condition[] conditions) {
+		pause(conditions, DEFAULT_TIMEOUT);
+	}
 
-  /**
-   * Sleeps for the specified time.
-   * 
-   * @param timeout the quantity of time units to sleep.
-   * @param unit the time units.
-   * @see #pause(long)
-   * @throws NullPointerException if {@code unit} is {@code null}.
-   */
-  public static void pause(long timeout, @Nonnull TimeUnit unit) {
-	  Objects.requireNonNull(unit);
-    pause(unit.toMillis(timeout));
-  }
+	/**
+	 * Waits until the given conditions are satisfied.
+	 *
+	 * @param conditions the conditions to verify.
+	 * @param timeout    the timeout.
+	 * @throws NullPointerException     if the given timeout is {@code null}.
+	 * @throws NullPointerException     if the array of conditions is {@code null}.
+	 * @throws IllegalArgumentException if the array of conditions is empty.
+	 * @throws NullPointerException     if the array of conditions has one or more {@code null} values.
+	 * @throws WaitTimedOutError        if the wait times out.
+	 */
+	public static void pause(@Nonnull Condition[] conditions, @Nonnull Timeout timeout) {
+		pause(conditions, timeout.duration());
+	}
 
-  /**
-   * <p>
-   * Sleeps for the specified time.
-   * </p>
-   * 
-   * <p>
-   * To catch any {@code InterruptedException}s that occur, {@code Thread#sleep(long)} may be used instead.
-   * </p>
-   * 
-   * @param ms the time to sleep in milliseconds.
-   */
-  public static void pause(long ms) {
-    try {
-      Thread.sleep(ms);
-    } catch (InterruptedException e) {
-      Thread.currentThread().interrupt();
-    }
-  }
+	/**
+	 * Waits until the given conditions are satisfied.
+	 *
+	 * @param conditions the conditions to verify.
+	 * @param timeout    the timeout (in milliseconds).
+	 * @throws NullPointerException     if the array of conditions is {@code null}.
+	 * @throws IllegalArgumentException if the array of conditions is empty.
+	 * @throws NullPointerException     if the array of conditions has one or more {@code null} values.
+	 * @throws WaitTimedOutError        if the wait times out.
+	 */
+	public static void pause(@Nonnull final Condition[] conditions, final long timeout) {
+		ArrayUtils.requireNonNullAndNotEmpty(conditions);
+		for (Condition condition : conditions) {
+			Objects.requireNonNull(condition);
+		}
+		try {
+			Callable<Object> task = () -> {
+				while (!Thread.currentThread().isInterrupted() && !areSatisfied(conditions)) {
+					pause();
+				}
+				return conditions;
+			};
+			performPause(task, timeout, conditions);
+		}
+		finally {
+			for (Condition condition : conditions) {
+				condition.done();
+			}
+		}
+	}
 
-  /**
-   * Sleeps for 10 milliseconds.
-   */
-  public static void pause() {
-    pause(SLEEP_INTERVAL);
-  }
+	private static boolean areSatisfied(@Nonnull Condition[] conditions) {
+		for (Condition condition : conditions) {
+			if (!condition.test()) {
+				return false;
+			}
+		}
+		return true;
+	}
 
-  private Pause() {
-  }
+	/**
+	 * Sleeps for the specified time.
+	 *
+	 * @param timeout the quantity of time units to sleep.
+	 * @param unit    the time units.
+	 * @throws NullPointerException if {@code unit} is {@code null}.
+	 * @see #pause(long)
+	 */
+	public static void pause(long timeout, @Nonnull TimeUnit unit) {
+		Objects.requireNonNull(unit);
+		pause(unit.toMillis(timeout));
+	}
+
+	/**
+	 * <p>
+	 * Sleeps for the specified time.
+	 * </p>
+	 *
+	 * <p>
+	 * To catch any {@code InterruptedException}s that occur, {@code Thread#sleep(long)} may be used instead.
+	 * </p>
+	 *
+	 * @param ms the time to sleep in milliseconds.
+	 */
+	public static void pause(long ms) {
+		try {
+			Thread.sleep(ms);
+		}
+		catch (InterruptedException e) {
+			Thread.currentThread().interrupt();
+		}
+	}
+
+	/**
+	 * Sleeps for 10 milliseconds.
+	 */
+	public static void pause() {
+		pause(SLEEP_INTERVAL);
+	}
+
+	private Pause() {
+	}
 }
