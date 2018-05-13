@@ -19,7 +19,6 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.Collection;
 
 import static java.awt.event.InputEvent.SHIFT_DOWN_MASK;
-import static java.awt.event.InputEvent.SHIFT_MASK;
 import static java.awt.event.KeyEvent.VK_A;
 import static java.awt.event.KeyEvent.VK_COMMA;
 import static org.assertj.core.api.Assertions.assertThat;

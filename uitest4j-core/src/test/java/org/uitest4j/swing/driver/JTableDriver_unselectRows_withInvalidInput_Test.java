@@ -12,7 +12,6 @@
  */
 package org.uitest4j.swing.driver;
 
-import org.uitest4j.swing.test.ExpectedException;
 import org.uitest4j.swing.test.core.RobotBasedTestCase;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;

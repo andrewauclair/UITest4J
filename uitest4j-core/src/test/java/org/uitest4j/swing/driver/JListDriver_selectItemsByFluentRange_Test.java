@@ -13,7 +13,6 @@
 package org.uitest4j.swing.driver;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.util.Arrays.array;
 import static org.uitest4j.swing.util.Range.from;
 import static org.uitest4j.swing.util.Range.to;
 

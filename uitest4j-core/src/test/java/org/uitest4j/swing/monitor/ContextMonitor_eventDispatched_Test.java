@@ -24,8 +24,6 @@ import java.awt.*;
 import java.awt.event.ComponentEvent;
 import java.util.List;
 
-import static java.awt.AWTEvent.COMPONENT_EVENT_MASK;
-import static java.awt.AWTEvent.WINDOW_EVENT_MASK;
 import static java.awt.event.WindowEvent.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.uitest4j.swing.monitor.TestContexts.newMockContext;

@@ -14,8 +14,6 @@ package org.uitest4j.swing.driver;
 
 import static org.uitest4j.swing.data.TableCell.row;
 
-import java.util.regex.Pattern;
-
 import org.uitest4j.swing.test.ExpectedException;
 import org.junit.jupiter.api.Test;
 

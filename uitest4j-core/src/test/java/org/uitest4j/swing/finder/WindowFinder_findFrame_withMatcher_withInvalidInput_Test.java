@@ -19,7 +19,6 @@ import javax.swing.JFrame;
 
 import org.uitest4j.swing.core.GenericTypeMatcher;
 import org.junit.jupiter.api.Test;
-import org.mockito.internal.matchers.Null;
 
 /**
  * Tests for {@link WindowFinder#findFrame(GenericTypeMatcher)}.

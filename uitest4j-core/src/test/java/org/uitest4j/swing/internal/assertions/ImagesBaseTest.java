@@ -14,16 +14,12 @@ package org.uitest4j.swing.internal.assertions;
 
 import org.assertj.core.api.AssertionInfo;
 import org.assertj.core.api.WritableAssertionInfo;
-import org.assertj.core.data.Offset;
-import org.assertj.core.internal.Failures;
 import org.junit.jupiter.api.BeforeEach;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-import static org.assertj.core.data.Offset.offset;
 import static org.uitest4j.swing.test.awt.AwtTestData.fivePixelBlueImage;
-import static org.mockito.Mockito.spy;
 
 /**
  * Base class for {@link Images} unit tests

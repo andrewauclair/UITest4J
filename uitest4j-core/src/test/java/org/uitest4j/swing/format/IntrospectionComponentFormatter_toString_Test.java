@@ -18,7 +18,6 @@ import org.uitest4j.swing.test.core.EDTSafeTestCase;
 import javax.swing.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * Tests for {@link IntrospectionComponentFormatter#toString()}.

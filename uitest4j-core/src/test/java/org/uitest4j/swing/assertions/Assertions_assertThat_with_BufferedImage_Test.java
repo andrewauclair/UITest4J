@@ -16,7 +16,6 @@ import org.junit.jupiter.api.Test;
 
 import java.awt.image.BufferedImage;
 
-import static org.assertj.core.api.AssertionInternalData.getActual;
 import static org.uitest4j.swing.assertions.Assertions.assertThat;
 import static org.uitest4j.swing.test.awt.AwtTestData.fivePixelBlueImage;
 import static org.junit.jupiter.api.Assertions.assertNotNull;

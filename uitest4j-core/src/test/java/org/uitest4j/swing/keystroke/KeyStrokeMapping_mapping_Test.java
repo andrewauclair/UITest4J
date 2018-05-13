@@ -13,7 +13,6 @@
 package org.uitest4j.swing.keystroke;
 
 import static java.awt.event.InputEvent.SHIFT_DOWN_MASK;
-import static java.awt.event.InputEvent.SHIFT_MASK;
 import static java.awt.event.KeyEvent.VK_A;
 import static javax.swing.KeyStroke.getKeyStroke;
 import static org.assertj.core.api.Assertions.assertThat;

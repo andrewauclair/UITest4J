@@ -16,7 +16,6 @@ import org.uitest4j.swing.core.Robot;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 
-import static org.uitest4j.swing.core.BasicRobot.robotWithCurrentAwtHierarchy;
 import static org.uitest4j.swing.core.BasicRobot.robotWithNewAwtHierarchy;
 
 /**

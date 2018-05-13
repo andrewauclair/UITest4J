@@ -14,13 +14,6 @@ package org.uitest4j.swing.util;
 
 import org.junit.jupiter.api.Test;
 
-import static java.awt.event.InputEvent.ALT_DOWN_MASK;
-import static java.awt.event.InputEvent.ALT_GRAPH_DOWN_MASK;
-import static java.awt.event.InputEvent.CTRL_DOWN_MASK;
-import static java.awt.event.InputEvent.META_DOWN_MASK;
-import static java.awt.event.InputEvent.META_MASK;
-import static java.awt.event.InputEvent.SHIFT_DOWN_MASK;
-import static java.awt.event.InputEvent.SHIFT_MASK;
 import static java.awt.event.KeyEvent.*;
 import static org.assertj.core.api.Assertions.assertThat;
 

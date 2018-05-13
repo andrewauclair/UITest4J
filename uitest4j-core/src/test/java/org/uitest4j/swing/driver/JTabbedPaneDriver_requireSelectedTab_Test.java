@@ -15,8 +15,6 @@ package org.uitest4j.swing.driver;
 import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.test.ExpectedException;
 
-import static org.uitest4j.swing.format.Formatting.format;
-
 /**
  * Tests for {@link JTabbedPaneDriver#requireSelectedTab(javax.swing.JTabbedPane, int)}.
  *

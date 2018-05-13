@@ -17,8 +17,6 @@ import org.uitest4j.swing.test.ExpectedException;
 
 import java.util.regex.Pattern;
 
-import static org.uitest4j.swing.format.Formatting.format;
-
 /**
  * Tests for
  * {@link JTabbedPaneDriver#requireTabToolTipText(javax.swing.JTabbedPane, Pattern, int)}
