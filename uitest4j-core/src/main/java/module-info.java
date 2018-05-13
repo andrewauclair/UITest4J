@@ -23,4 +23,5 @@ module org.uitest4j.core {
 	requires jsr305;
 
 	exports org.uitest4j.swing.fixture;
+	exports org.uitest4j.swing.launcher;
 }
