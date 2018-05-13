@@ -8,7 +8,7 @@
  * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
  *
- * Copyright 2012-2015 the original author or authors.
+ * Copyright 2012-2018 the original author or authors.
  */
 package org.uitest4j.swing.driver;
 
@@ -21,6 +21,8 @@ import org.uitest4j.swing.internal.assertions.OpenTest4JAssertions;
 import javax.annotation.Nonnull;
 import java.awt.*;
 
+import static org.uitest4j.swing.driver.DialogTitleQuery.titleOf;
+
 /**
  * <p>
  * Supports functional testing of AWT or Swing {@code Dialog}s.
@@ -32,6 +34,7 @@ import java.awt.*;
  * </p>
  *
  * @author Alex Ruiz
+ * @author Andrew Auclair
  */
 @InternalApi
 public class DialogDriver extends WindowDriver {
@@ -53,5 +56,19 @@ public class DialogDriver extends WindowDriver {
 	@RunsInEDT
 	public void requireModal(@Nonnull Dialog dialog) {
 		OpenTest4JAssertions.assertTrue(dialog.isModal(), () -> "Expected '" + dialog.getName() + "' to be modal");
+	}
+
+	/**
+	 * Verifies that the title of the given {@code Dialog} is equal to the expected one.
+	 *
+	 * @param dialog    the target {@code Dialog}.
+	 * @param expected the expected title.
+	 * @throws AssertionError if the title of the given {@code Dialog} is not equal to the expected one.
+	 */
+	@RunsInEDT
+	public void requireTitle(@Nonnull Dialog dialog, String expected) {
+		String actual = titleOf(dialog);
+		OpenTest4JAssertions.assertEquals(expected, actual,
+				() -> String.format("Expected title of '%s' to be '%s' but was '%s'", dialog.getName(), expected, actual));
 	}
 }

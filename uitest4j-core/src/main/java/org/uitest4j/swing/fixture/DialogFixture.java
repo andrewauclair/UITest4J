@@ -92,4 +92,10 @@ public class DialogFixture extends AbstractWindowFixture<DialogFixture, Dialog, 
 		driver().requireModal(target());
 		return this;
 	}
+
+	@Nonnull
+	public DialogFixture requireTitle(String expected) {
+		driver().requireTitle(target(), expected);
+		return this;
+	}
 }

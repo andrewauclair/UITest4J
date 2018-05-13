@@ -8,31 +8,27 @@
   an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
   specific language governing permissions and limitations under the License.
 
-  Copyright 2012-2015 the original author or authors.
+  Copyright 2018 the original author or authors.
  */
 package org.uitest4j.swing.driver;
 
-import org.uitest4j.swing.annotation.RunsInEDT;
+import org.junit.jupiter.api.Test;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import java.awt.*;
 
-import static org.uitest4j.swing.edt.GuiActionRunner.execute;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
- * Returns the title of a given {@code Frame}. This task is executed in the event dispatch thread (EDT).
+ * Verifies that {@link DialogTitleQuery#titleOf(Dialog)} returns the title of the dialog.
  *
- * @author Christian Rösch
- * @see Frame#getTitle()
+ * @author Andrew Auclair
+ * @see DialogTitleQuery#titleOf(Dialog)
  */
-final class FrameTitleQuery {
-	@RunsInEDT
-	static @Nullable
-	String titleOf(final @Nonnull Frame frame) {
-		return execute(frame::getTitle);
-	}
+class DialogTitleQuery_titleOf_Test extends DialogDriver_TestCase {
+	private static final String CORRECT_TITLE = DialogTitleQuery_titleOf_Test.class.getSimpleName();
 
-	private FrameTitleQuery() {
+	@Test
+	void returns_title_of_frame() {
+		assertThat(DialogTitleQuery.titleOf(dialog)).isEqualTo(CORRECT_TITLE);
 	}
 }

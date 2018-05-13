@@ -8,7 +8,7 @@
   an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
   specific language governing permissions and limitations under the License.
 
-  Copyright 2012-2015 the original author or authors.
+  Copyright 2018 the original author or authors.
  */
 package org.uitest4j.swing.driver;
 
@@ -21,18 +21,18 @@ import java.awt.*;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
- * Returns the title of a given {@code Frame}. This task is executed in the event dispatch thread (EDT).
+ * Returns the title of a given {@code Dialog}. This task is executed in the event dispatch thread (EDT).
  *
- * @author Christian Rösch
- * @see Frame#getTitle()
+ * @author Andrew Auclair
+ * @see Dialog#getTitle()
  */
-final class FrameTitleQuery {
+public class DialogTitleQuery {
 	@RunsInEDT
 	static @Nullable
-	String titleOf(final @Nonnull Frame frame) {
-		return execute(frame::getTitle);
+	String titleOf(final @Nonnull Dialog dialog) {
+		return execute(dialog::getTitle);
 	}
 
-	private FrameTitleQuery() {
+	private DialogTitleQuery() {
 	}
 }
