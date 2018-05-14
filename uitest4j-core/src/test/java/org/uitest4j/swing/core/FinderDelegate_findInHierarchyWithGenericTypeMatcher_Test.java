@@ -29,7 +29,7 @@ import static org.uitest4j.swing.test.core.NeverMatchingComponentMatcher.neverMa
 class FinderDelegate_findInHierarchyWithGenericTypeMatcher_Test extends FinderDelegate_TestCase {
 	@Test
 	void should_Return_Components_Matching_GenericTypeMatcher() {
-		GenericTypeMatcher<JTextField> matcher = new GenericTypeMatcher<>(JTextField.class) {
+		GenericTypeMatcher<JTextField> matcher = new GenericTypeMatcher<JTextField>(JTextField.class) {
 			@Override
 			protected boolean isMatching(@Nonnull JTextField textField) {
 				return "textBox".equals(textField.getName());

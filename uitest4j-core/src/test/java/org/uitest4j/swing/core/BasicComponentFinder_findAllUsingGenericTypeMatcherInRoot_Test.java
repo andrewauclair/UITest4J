@@ -32,7 +32,7 @@ class BasicComponentFinder_findAllUsingGenericTypeMatcherInRoot_Test extends Bas
 	@Test
 	void should_Return_All_Matching_Components() {
 		windowTwo = MyWindow.createNew(getClass());
-		Collection<JButton> found = finder.findAll(windowTwo, new GenericTypeMatcher<>(JButton.class) {
+		Collection<JButton> found = finder.findAll(windowTwo, new GenericTypeMatcher<JButton>(JButton.class) {
 			@Override
 			public boolean isMatching(@Nonnull JButton c) {
 				return true;

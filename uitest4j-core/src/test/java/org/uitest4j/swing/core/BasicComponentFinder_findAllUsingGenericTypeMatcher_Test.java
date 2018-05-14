@@ -29,7 +29,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class BasicComponentFinder_findAllUsingGenericTypeMatcher_Test extends BasicComponentFinder_TestCase {
 	@Test
 	void should_Return_All_Components_Matching_GenericTypeMatcher() {
-		Collection<JTextField> found = finder.findAll(new GenericTypeMatcher<>(JTextField.class) {
+		Collection<JTextField> found = finder.findAll(new GenericTypeMatcher<JTextField>(JTextField.class) {
 			@Override
 			protected boolean isMatching(@Nonnull JTextField c) {
 				return true;

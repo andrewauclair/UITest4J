@@ -34,7 +34,7 @@ class BasicComponentFinder_findUsingGenericTypeMatcherInRoot_Test extends BasicC
 	@Test
 	void should_Find_Component() {
 		windowTwo = MyWindow.createNew(getClass());
-		JButton foundButton = finder.find(window, new GenericTypeMatcher<>(JButton.class) {
+		JButton foundButton = finder.find(window, new GenericTypeMatcher<JButton>(JButton.class) {
 			@Override
 			protected boolean isMatching(@Nonnull JButton button) {
 				return "A Button".equals(button.getText());
@@ -45,7 +45,7 @@ class BasicComponentFinder_findUsingGenericTypeMatcherInRoot_Test extends BasicC
 
 	@Test
 	void should_Throw_Error_If_GenericTypeMatcher_Matches_Wrong_Type() {
-		assertThrows(ComponentLookupException.class, () -> finder.find(window, new GenericTypeMatcher<>(JTree.class) {
+		assertThrows(ComponentLookupException.class, () -> finder.find(window, new GenericTypeMatcher<JTree>(JTree.class) {
 			@Override
 			protected boolean isMatching(@Nonnull JTree component) {
 				return true;
