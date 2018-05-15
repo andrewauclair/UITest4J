@@ -10,14 +10,14 @@
 
   Copyright 2012-2015 the original author or authors.
  */
-package org.uitest4j.swing.fixture;
+package org.uitest4j.fixture;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.regex.Pattern;
 
 /**
- * Supports functional testing of {@code Component}s that display text.
+ * Supports functional testing of {@code Component}s and {@code Node}s that display text.
  *
  * @param <S> used to simulate "self types." For more information please read &quot;<a href="http://goo.gl/fjgOM"
  *            target="_blank">Emulating 'self types' using Java Generics to simplify fluent API implementation</a>.&quot;

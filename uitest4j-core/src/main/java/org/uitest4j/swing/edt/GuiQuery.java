@@ -41,7 +41,7 @@ public abstract class GuiQuery<T> extends GuiAction {
 			result = executeInEDT();
 		}
 		catch (Throwable t) {
-			catchedException(t);
+			caughtException(t);
 		}
 		finally {
 			notifyExecutionCompleted();

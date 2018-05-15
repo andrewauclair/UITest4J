@@ -36,7 +36,7 @@ public abstract class GuiTask extends GuiAction {
 			executeInEDT();
 		}
 		catch (Throwable t) {
-			catchedException(t);
+			caughtException(t);
 		}
 		finally {
 			notifyExecutionCompleted();

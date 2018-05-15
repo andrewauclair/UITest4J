@@ -27,10 +27,10 @@ import static org.uitest4j.swing.driver.AbstractButtonTextQuery.textOf;
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
-public class JPopupMenuDriver_menuItemUsingGenericTypeMatcher_Test extends JPopupMenuDriver_TestCase {
+class JPopupMenuDriver_menuItemUsingGenericTypeMatcher_Test extends JPopupMenuDriver_TestCase {
 	@Test
-	public void should_Find_JMenuItems_With_GenericTypeMatcher() {
-		JMenuItem found = driver.menuItem(popupMenu, new GenericTypeMatcher<>(JMenuItem.class) {
+	void should_Find_JMenuItems_With_GenericTypeMatcher() {
+		JMenuItem found = driver.menuItem(popupMenu, new GenericTypeMatcher<JMenuItem>(JMenuItem.class) {
 			@Override
 			protected boolean isMatching(@Nonnull JMenuItem menuItem) {
 				return "Second".equals(textOf(menuItem));

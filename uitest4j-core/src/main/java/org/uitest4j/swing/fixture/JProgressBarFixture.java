@@ -12,6 +12,7 @@
  */
 package org.uitest4j.swing.fixture;
 
+import org.uitest4j.fixture.TextDisplayFixture;
 import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.driver.JProgressBarDriver;
 import org.uitest4j.swing.timing.Timeout;

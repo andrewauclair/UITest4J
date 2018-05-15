@@ -192,7 +192,7 @@ public class GuiActionRunner {
 	 *                                                          event dispatch thread (EDT). Unchecked exceptions are re-thrown without any wrapping.
 	 */
 	private static void rethrowCaughtExceptionIn(@Nonnull GuiAction action) {
-		Throwable caughtException = action.catchedException();
+		Throwable caughtException = action.caughtException();
 		action.clearCaughtException();
 		if (caughtException == null) {
 			return;

@@ -21,6 +21,10 @@ module org.uitest4j.core {
 	requires org.opentest4j;
 	requires java.desktop;
 	requires java.logging;
+	requires javafx.graphics;
+	requires javafx.base;
+	requires javafx.controls;
+	requires javafx.swing;
 	requires jsr305;
 
 	exports org.uitest4j.swing.annotation;

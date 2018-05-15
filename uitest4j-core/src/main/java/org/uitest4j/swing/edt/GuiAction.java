@@ -27,11 +27,11 @@ abstract class GuiAction implements Runnable {
 	private CountDownLatch executionNotification;
 
 	final @Nullable
-	Throwable catchedException() {
+	Throwable caughtException() {
 		return caughtException;
 	}
 
-	final void catchedException(@Nullable Throwable catched) {
+	final void caughtException(@Nullable Throwable catched) {
 		caughtException = catched;
 	}
 

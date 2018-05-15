@@ -25,12 +25,12 @@ import java.util.regex.Pattern;
  */
 class JLabelDriver_requireTextAsPattern_Test extends JLabelDriver_TestCase {
 	@Test
-	void should_Pass_If_Text_Matches_Pattern() {
+	void pases_when_text_matches_expected_pattern() {
 		driver.requireText(label, Pattern.compile("H.*"));
 	}
 
 	@Test
-	void should_Fail_If_Text_Does_Not_Match_Pattern() {
+	void fails_when_text_does_not_match_expected_pattern() {
 		Pattern pattern = Pattern.compile("B.*");
 		ExpectedException.assertOpenTest4jError(() -> driver.requireText(label, pattern), "Expected text of 'TestLabel' to match pattern 'B.*' but was 'Hi'", pattern, "Hi");
 	}

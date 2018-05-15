@@ -12,6 +12,8 @@
  */
 package org.uitest4j.swing.fixture;
 
+import org.uitest4j.fixture.TextDisplayFixture;
+
 import javax.annotation.Nonnull;
 
 /**
