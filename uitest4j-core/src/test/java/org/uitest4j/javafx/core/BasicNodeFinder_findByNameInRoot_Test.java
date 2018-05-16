@@ -10,33 +10,10 @@
  * <p>
  * Copyright 2018 the original author or authors.
  */
-package org.uitest4j.javafx.fixture;
-
-import javafx.application.Platform;
-import javafx.scene.control.Button;
-import javafx.stage.Stage;
-import org.uitest4j.javafx.test.FXTestApp;
+package org.uitest4j.javafx.core;
 
 /**
  * @author Andrew Auclair
  */
-public class AbstractControlFixture_button_Test {
-
-	private static class MyApp extends FXTestApp {
-		final Button button = new Button("Click Me");
-
-		static MyApp createNew(final Class<?> testClass) {
-			Platform.runLater(MyApp::new);
-			return null;
-		}
-
-		private MyApp() {
-
-		}
-
-		@Override
-		public void start(Stage primaryStage) throws Exception {
-
-		}
-	}
+public class BasicNodeFinder_findByNameInRoot_Test extends BasicNodeFinder_TestCase {
 }

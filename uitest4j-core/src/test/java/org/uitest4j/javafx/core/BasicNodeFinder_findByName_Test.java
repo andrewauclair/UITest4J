@@ -10,33 +10,26 @@
  * <p>
  * Copyright 2018 the original author or authors.
  */
-package org.uitest4j.javafx.fixture;
+package org.uitest4j.javafx.core;
 
-import javafx.application.Platform;
-import javafx.scene.control.Button;
-import javafx.stage.Stage;
-import org.uitest4j.javafx.test.FXTestApp;
+import javafx.scene.Node;
+import org.junit.jupiter.api.Test;
+import org.uitest4j.swing.test.ExpectedException;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * @author Andrew Auclair
  */
-public class AbstractControlFixture_button_Test {
+class BasicNodeFinder_findByName_Test extends BasicNodeFinder_TestCase {
+	@Test
+	void finds_node_by_name() {
+		Node label = finder.findByName("label");
+		assertThat(label).isSameAs(this.label);
+	}
 
-	private static class MyApp extends FXTestApp {
-		final Button button = new Button("Click Me");
-
-		static MyApp createNew(final Class<?> testClass) {
-			Platform.runLater(MyApp::new);
-			return null;
-		}
-
-		private MyApp() {
-
-		}
-
-		@Override
-		public void start(Stage primaryStage) throws Exception {
-
-		}
+	@Test
+	void throws_error_if_node_is_not_found_by_name() {
+		// TODO Need to make a NodeLookupException, maybe
 	}
 }

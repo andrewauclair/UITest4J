@@ -10,7 +10,7 @@
  * <p>
  * Copyright 2018 the original author or authors.
  */
-package org.uitest4j.javafx.driver;
+package org.uitest4j.javafx.core;
 
 import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
@@ -21,15 +21,16 @@ import javafx.stage.Stage;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.uitest4j.javafx.driver.LabelDriver;
 
 import static org.uitest4j.javafx.platform.FXGUI.runAndWait;
 
 /**
  * @author Andrew Auclair
  */
-class LabelDriver_TestCase {
+class BasicNodeFinder_TestCase {
+	BasicNodeFinder finder;
 	Label label;
-	LabelDriver driver;
 
 	private Stage stage;
 
@@ -42,8 +43,6 @@ class LabelDriver_TestCase {
 
 	@BeforeEach
 	void beforeEach() {
-		driver = new LabelDriver();
-
 		label = new Label("Hi");
 		label.setUserData("TestLabel");
 		StackPane root = new StackPane();
@@ -52,6 +51,7 @@ class LabelDriver_TestCase {
 
 		runAndWait(() -> {
 			stage = new Stage();
+			finder = new BasicNodeFinder(stage);
 			stage.setScene(scene);
 			stage.centerOnScreen();
 			stage.show();
