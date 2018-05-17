@@ -12,6 +12,7 @@
  */
 package org.uitest4j.swing.core;
 
+import org.uitest4j.core.Robot;
 import org.uitest4j.exception.ActionFailedException;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.uitest4j.swing.annotation.RunsInEDT;
@@ -73,15 +74,15 @@ import static org.uitest4j.swing.util.Modifiers.updateModifierWithKeyCode;
 import static org.uitest4j.swing.util.TimeoutWatch.startWatchWithTimeoutOf;
 
 /**
- * Default implementation of {@link Robot}.
+ * Default implementation of {@link org.uitest4j.core.Robot}.
  *
  * @author Alex Ruiz
  * @author Yvonne Wang
  * @author Christian Rösch
  * @author DaveBrad
- * @see Robot
+ * @see org.uitest4j.core.Robot
  */
-public class BasicRobot implements Robot {
+public class BasicRobot implements org.uitest4j.core.Robot<Component, Window> {
 	private static final int POPUP_DELAY = 10000;
 	private static final int POPUP_TIMEOUT = 5000;
 	private static final int WINDOW_DELAY = 20000;
@@ -109,29 +110,29 @@ public class BasicRobot implements Robot {
 	private final UnexpectedJOptionPaneFinder unexpectedJOptionPaneFinder;
 
 	/**
-	 * Creates a new {@link Robot} with a new AWT hierarchy. The created {@code Robot} will not be able to access any AWT
+	 * Creates a new {@link org.uitest4j.core.Robot} with a new AWT hierarchy. The created {@code Robot} will not be able to access any AWT
 	 * and Swing {@code Component}s that were created before it.
 	 *
 	 * @return the created {@code Robot}.
 	 */
 	@Nonnull
-	public static Robot robotWithNewAwtHierarchy() {
+	public static org.uitest4j.core.Robot robotWithNewAwtHierarchy() {
 		Object screenLockOwner = acquireScreenLock();
 		return new BasicRobot(screenLockOwner, ignoreExistingComponents());
 	}
 
 	@Nonnull
-	public static Robot robotWithNewAwtHierarchyWithoutScreenLock() {
+	public static org.uitest4j.core.Robot robotWithNewAwtHierarchyWithoutScreenLock() {
 		return new BasicRobot(null, ignoreExistingComponents());
 	}
 
 	/**
-	 * Creates a new {@link Robot} that has access to all the AWT and Swing {@code Component}s in the AWT hierarchy.
+	 * Creates a new {@link org.uitest4j.core.Robot} that has access to all the AWT and Swing {@code Component}s in the AWT hierarchy.
 	 *
 	 * @return the created {@code Robot}.
 	 */
 	@Nonnull
-	public static Robot robotWithCurrentAwtHierarchy() {
+	public static org.uitest4j.core.Robot robotWithCurrentAwtHierarchy() {
 		Object screenLockOwner = acquireScreenLock();
 		return new BasicRobot(screenLockOwner, new ExistingHierarchy());
 	}

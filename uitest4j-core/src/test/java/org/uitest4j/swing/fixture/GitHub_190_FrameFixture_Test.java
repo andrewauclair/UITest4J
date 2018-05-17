@@ -14,7 +14,7 @@ package org.uitest4j.swing.fixture;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import org.uitest4j.swing.core.Robot;
+import org.uitest4j.core.Robot;
 import org.uitest4j.swing.edt.GuiActionRunner;
 import org.uitest4j.swing.test.core.RobotBasedTestCase;
 

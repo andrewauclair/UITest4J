@@ -13,6 +13,7 @@
 package org.uitest4j.swing.core;
 
 import org.mockito.stubbing.Answer;
+import org.uitest4j.core.Robot;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyInt;

@@ -15,7 +15,7 @@ package org.uitest4j.swing.fixture;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.core.MouseClickInfo;
-import org.uitest4j.swing.core.Robot;
+import org.uitest4j.core.Robot;
 import org.uitest4j.swing.driver.JTableHeaderDriver;
 
 import javax.swing.*;

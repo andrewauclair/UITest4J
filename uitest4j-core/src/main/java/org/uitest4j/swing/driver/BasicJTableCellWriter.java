@@ -14,7 +14,7 @@ package org.uitest4j.swing.driver;
 
 import org.uitest4j.exception.ActionFailedException;
 import org.uitest4j.swing.cell.JTableCellWriter;
-import org.uitest4j.swing.core.Robot;
+import org.uitest4j.core.Robot;
 
 import javax.annotation.Nonnull;
 import javax.swing.*;

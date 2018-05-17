@@ -13,6 +13,7 @@
 package org.uitest4j.swing.fixture;
 
 import org.junit.jupiter.api.Test;
+import org.uitest4j.core.Robot;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.uitest4j.swing.exception.ComponentLookupException;
 import org.uitest4j.swing.test.core.RobotBasedTestCase;
@@ -31,7 +32,7 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 import static org.uitest4j.swing.test.swing.TreeNodeFactory.node;
 
 /**
- * Tests for {@link JTreeFixture#JTreeFixture(org.uitest4j.swing.core.Robot, String)}.
+ * Tests for {@link JTreeFixture#JTreeFixture(Robot, String)}.
  *
  * @author Alex Ruiz
  * @author Yvonne Wang

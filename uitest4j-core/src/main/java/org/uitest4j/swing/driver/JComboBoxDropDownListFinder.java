@@ -14,7 +14,7 @@ package org.uitest4j.swing.driver;
 
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.core.ComponentMatcher;
-import org.uitest4j.swing.core.Robot;
+import org.uitest4j.core.Robot;
 import org.uitest4j.swing.core.TypeMatcher;
 import org.uitest4j.swing.util.TimeoutWatch;
 

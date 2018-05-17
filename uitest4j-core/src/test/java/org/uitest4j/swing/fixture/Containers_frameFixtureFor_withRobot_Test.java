@@ -14,6 +14,7 @@ package org.uitest4j.swing.fixture;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.uitest4j.core.Robot;
 import org.uitest4j.swing.test.core.RobotBasedTestCase;
 
 import javax.swing.*;
@@ -25,7 +26,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
- * Tests for {@link Containers#frameFixtureFor(org.uitest4j.swing.core.Robot, java.awt.Container)}.
+ * Tests for {@link Containers#frameFixtureFor(Robot, java.awt.Container)}.
  *
  * @author Christian Rösch
  */

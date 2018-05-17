@@ -15,7 +15,7 @@ package org.uitest4j.swing.testing;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.core.BasicRobot;
-import org.uitest4j.swing.core.Robot;
+import org.uitest4j.core.Robot;
 import org.uitest4j.swing.hierarchy.ExistingHierarchy;
 
 import static org.assertj.core.api.Assertions.assertThat;

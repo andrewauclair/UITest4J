@@ -12,6 +12,7 @@
  */
 package org.uitest4j.swing.core;
 
+import org.uitest4j.core.Robot;
 import org.uitest4j.exception.ActionFailedException;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.util.TimeoutWatch;
@@ -32,14 +33,14 @@ import static org.uitest4j.swing.util.TimeoutWatch.startWatchWithTimeoutOf;
  * @author Alex Ruiz
  */
 public class ComponentDragAndDrop {
-	private final Robot robot;
+	private final org.uitest4j.core.Robot robot;
 
 	/**
 	 * Creates a new {@link ComponentDragAndDrop}.
 	 *
 	 * @param robot the robot to use to simulate user input.
 	 */
-	public ComponentDragAndDrop(@Nonnull Robot robot) {
+	public ComponentDragAndDrop(@Nonnull org.uitest4j.core.Robot robot) {
 		this.robot = robot;
 	}
 
@@ -103,7 +104,7 @@ public class ComponentDragAndDrop {
 	 * <p>
 	 * <p>
 	 * This method is tuned for native drag/drop operations, so if you get odd behavior, you might try using a simple
-	 * {@link Robot#moveMouse(Component, int, int)} and {@link Robot#releaseMouseButtons()}.
+	 * {@link org.uitest4j.core.Robot#moveMouse(Component, int, int)} and {@link Robot#releaseMouseButtons()}.
 	 *
 	 * @param target the target AWT or Swing {@code Component}.
 	 * @param where  the point where the drag operation ends.

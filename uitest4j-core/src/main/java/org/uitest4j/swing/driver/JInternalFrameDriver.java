@@ -15,7 +15,7 @@ package org.uitest4j.swing.driver;
 import org.uitest4j.exception.ActionFailedException;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.uitest4j.swing.annotation.RunsInEDT;
-import org.uitest4j.swing.core.Robot;
+import org.uitest4j.core.Robot;
 import org.uitest4j.swing.edt.GuiQuery;
 import org.uitest4j.swing.exception.UnexpectedException;
 import org.uitest4j.swing.internal.annotation.InternalApi;

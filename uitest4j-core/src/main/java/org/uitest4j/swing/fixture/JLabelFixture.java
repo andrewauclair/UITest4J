@@ -13,7 +13,7 @@
 package org.uitest4j.swing.fixture;
 
 import org.uitest4j.fixture.TextDisplayFixture;
-import org.uitest4j.swing.core.Robot;
+import org.uitest4j.core.Robot;
 import org.uitest4j.swing.driver.JLabelDriver;
 
 import javax.annotation.Nonnull;

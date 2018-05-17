@@ -13,6 +13,7 @@
 package org.uitest4j.swing.fixture;
 
 import org.junit.jupiter.api.Test;
+import org.uitest4j.core.Robot;
 import org.uitest4j.swing.exception.ComponentLookupException;
 import org.uitest4j.swing.test.core.RobotBasedTestCase;
 import org.uitest4j.swing.test.swing.TestWindow;
@@ -24,7 +25,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
- * Tests for {@link JFileChooserFixture#JFileChooserFixture(org.uitest4j.swing.core.Robot)}.
+ * Tests for {@link JFileChooserFixture#JFileChooserFixture(Robot)}.
  *
  * @author Alex Ruiz
  * @author Yvonne Wang

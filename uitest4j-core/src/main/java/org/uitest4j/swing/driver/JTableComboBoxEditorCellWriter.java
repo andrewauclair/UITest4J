@@ -13,7 +13,7 @@
 package org.uitest4j.swing.driver;
 
 import org.uitest4j.swing.annotation.RunsInEDT;
-import org.uitest4j.swing.core.Robot;
+import org.uitest4j.core.Robot;
 
 import javax.annotation.Nonnull;
 import javax.swing.*;

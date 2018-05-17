@@ -13,6 +13,7 @@
 package org.uitest4j.swing.fixture;
 
 import org.junit.jupiter.api.Test;
+import org.uitest4j.core.Robot;
 import org.uitest4j.swing.exception.ComponentLookupException;
 import org.uitest4j.swing.test.core.RobotBasedTestCase;
 
@@ -23,7 +24,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.uitest4j.swing.test.builder.JFrames.frame;
 
 /**
- * Tests for {@link FrameFixture#FrameFixture(org.uitest4j.swing.core.Robot, String)}.
+ * Tests for {@link FrameFixture#FrameFixture(Robot, String)}.
  *
  * @author Alex Ruiz
  * @author Yvonne Wang

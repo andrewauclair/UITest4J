@@ -13,6 +13,7 @@
 package org.uitest4j.swing.fixture;
 
 import org.junit.jupiter.api.Test;
+import org.uitest4j.core.Robot;
 import org.uitest4j.swing.test.core.RobotBasedTestCase;
 
 import javax.swing.*;
@@ -22,7 +23,7 @@ import static org.uitest4j.swing.test.builder.JOptionPanes.optionPane;
 import static org.uitest4j.swing.test.swing.JOptionPaneLauncher.launch;
 
 /**
- * Tests for {@link JOptionPaneFixture#JOptionPaneFixture(org.uitest4j.swing.core.Robot)}.
+ * Tests for {@link JOptionPaneFixture#JOptionPaneFixture(Robot)}.
  *
  * @author Alex Ruiz
  * @author Yvonne Wang
