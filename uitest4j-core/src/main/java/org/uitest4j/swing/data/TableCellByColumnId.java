@@ -12,6 +12,7 @@
  */
 package org.uitest4j.swing.data;
 
+import org.uitest4j.exception.ActionFailedException;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.cell.JTableCellReader;
 
@@ -21,7 +22,7 @@ import java.util.Objects;
 
 import static java.lang.String.valueOf;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-import static org.uitest4j.swing.exception.ActionFailedException.actionFailure;
+import static org.uitest4j.exception.ActionFailedException.actionFailure;
 import static org.uitest4j.swing.query.JTableColumnByIdentifierQuery.columnIndexByIdentifier;
 
 /**
@@ -97,7 +98,7 @@ public class TableCellByColumnId implements TableCellFinder {
 	 * @param table      the target {@code JTable}.
 	 * @param cellReader knows how to read the contents of a cell in a {@code JTable}.
 	 * @return the cell found, if any.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if a matching cell could not be found.
+	 * @throws ActionFailedException if a matching cell could not be found.
 	 */
 	@RunsInEDT
 	@Override

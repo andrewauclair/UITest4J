@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.core;
 
-import org.uitest4j.swing.hierarchy.ComponentHierarchy;
+import org.uitest4j.hierarchy.ComponentHierarchy;
 
 import static org.mockito.Mockito.mock;
 

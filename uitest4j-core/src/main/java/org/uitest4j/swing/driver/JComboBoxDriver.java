@@ -13,6 +13,7 @@
 package org.uitest4j.swing.driver;
 
 import org.opentest4j.AssertionFailedError;
+import org.uitest4j.exception.ActionFailedException;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.cell.JComboBoxCellReader;
@@ -45,7 +46,7 @@ import static org.uitest4j.swing.driver.JComboBoxSelectedIndexQuery.selectedInde
 import static org.uitest4j.swing.driver.JComboBoxSelectionValueQuery.selection;
 import static org.uitest4j.swing.driver.JComboBoxSetSelectedIndexTask.setSelectedIndex;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-import static org.uitest4j.swing.exception.ActionFailedException.actionFailure;
+import static org.uitest4j.exception.ActionFailedException.actionFailure;
 import static org.uitest4j.swing.format.Formatting.format;
 import static org.uitest4j.swing.util.ArrayUtils.format;
 
@@ -399,7 +400,7 @@ public class JComboBoxDriver extends JComponentDriver {
 	 * @throws IllegalStateException                              if the {@code JComboBox} is disabled.
 	 * @throws IllegalStateException                              if the {@code JComboBox} is not showing on the screen.
 	 * @throws IllegalStateException                              if the {@code JComboBox} is not editable.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if the {@code JComboBox} does not have an editor.
+	 * @throws ActionFailedException if the {@code JComboBox} does not have an editor.
 	 */
 	@RunsInEDT
 	public void enterText(final @Nonnull JComboBox<?> comboBox, @Nonnull String text) {

@@ -12,6 +12,7 @@
  */
 package org.uitest4j.swing.driver;
 
+import org.uitest4j.exception.ActionFailedException;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.core.Robot;
@@ -30,7 +31,7 @@ import static org.uitest4j.swing.driver.Actions.findActionKey;
 import static org.uitest4j.swing.driver.JComponentToolTipQuery.toolTipOf;
 import static org.uitest4j.swing.driver.KeyStrokes.findKeyStrokesForAction;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-import static org.uitest4j.swing.exception.ActionFailedException.actionFailure;
+import static org.uitest4j.exception.ActionFailedException.actionFailure;
 
 /**
  * <p>
@@ -124,7 +125,7 @@ public class JComponentDriver extends ContainerDriver {
 	 *
 	 * @param c    the given {@code JComponent}.
 	 * @param name the name of the {@code Action} to invoke.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if an {@code Action} cannot be found under the given
+	 * @throws ActionFailedException if an {@code Action} cannot be found under the given
 	 *                                                            name. Or if a {@code KeyStroke} cannot be found for the {@code Action} under the given name. Or if it is
 	 *                                                            not possible to type any of the found {@code KeyStroke}s.
 	 */

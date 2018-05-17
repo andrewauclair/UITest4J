@@ -12,6 +12,7 @@
  */
 package org.uitest4j.swing.fixture;
 
+import org.uitest4j.exception.ActionFailedException;
 import org.uitest4j.swing.core.MouseButton;
 import org.uitest4j.swing.core.MouseClickInfo;
 
@@ -45,7 +46,7 @@ public class JTreeRowFixture implements JTreeNodeFixture<JTreeRowFixture> {
 	 * @return this fixture.
 	 * @throws IllegalStateException                              if the {@code JTree} is disabled.
 	 * @throws IllegalStateException                              if the {@code JTree} is not showing on the screen.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if this method fails to expand the row.
+	 * @throws ActionFailedException if this method fails to expand the row.
 	 */
 	@Override
 	@Nonnull
@@ -60,7 +61,7 @@ public class JTreeRowFixture implements JTreeNodeFixture<JTreeRowFixture> {
 	 * @return this fixture.
 	 * @throws IllegalStateException                              if the {@code JTree} is disabled.
 	 * @throws IllegalStateException                              if the {@code JTree} is not showing on the screen.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if this method fails to collapse the row.
+	 * @throws ActionFailedException if this method fails to collapse the row.
 	 */
 	@Override
 	@Nonnull
@@ -192,7 +193,7 @@ public class JTreeRowFixture implements JTreeNodeFixture<JTreeRowFixture> {
 	 * @return this fixture.
 	 * @throws IllegalStateException                              if the {@code JTree} is disabled.
 	 * @throws IllegalStateException                              if the {@code JTree} is not showing on the screen.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if there is no drag action in effect.
+	 * @throws ActionFailedException if there is no drag action in effect.
 	 */
 	@Override
 	@Nonnull

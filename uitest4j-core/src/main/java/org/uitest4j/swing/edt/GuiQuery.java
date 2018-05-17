@@ -12,10 +12,12 @@
  */
 package org.uitest4j.swing.edt;
 
+import org.uitest4j.exception.ActionFailedException;
+
 import javax.annotation.Nullable;
 
 import static javax.swing.SwingUtilities.isEventDispatchThread;
-import static org.uitest4j.swing.exception.ActionFailedException.actionFailure;
+import static org.uitest4j.exception.ActionFailedException.actionFailure;
 
 /**
  * Executes in the event dispatch thread (EDT) an action that returns a value.
@@ -29,7 +31,7 @@ public abstract class GuiQuery<T> extends GuiAction {
 	/**
 	 * Executes the query in the event dispatch thread (EDT). This method waits until the action has finish its execution.
 	 *
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if this task is not executed in the event dispatch thread
+	 * @throws ActionFailedException if this task is not executed in the event dispatch thread
 	 *                                                            (EDT).
 	 */
 	@Override
@@ -37,6 +39,7 @@ public abstract class GuiQuery<T> extends GuiAction {
 		if (!isEventDispatchThread()) {
 			throw actionFailure("Query should be executed in the event dispatch thread");
 		}
+		
 		try {
 			result = executeInEDT();
 		}

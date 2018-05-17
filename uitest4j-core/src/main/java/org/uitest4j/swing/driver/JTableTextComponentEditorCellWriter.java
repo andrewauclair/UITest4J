@@ -14,7 +14,7 @@ package org.uitest4j.swing.driver;
 
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.core.Robot;
-import org.uitest4j.swing.exception.ActionFailedException;
+import org.uitest4j.exception.ActionFailedException;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;

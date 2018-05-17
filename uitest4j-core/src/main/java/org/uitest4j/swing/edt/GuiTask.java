@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.edt;
 
-import org.uitest4j.swing.exception.ActionFailedException;
+import org.uitest4j.exception.ActionFailedException;
 
 import static javax.swing.SwingUtilities.isEventDispatchThread;
 

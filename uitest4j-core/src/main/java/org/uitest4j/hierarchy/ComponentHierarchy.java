@@ -10,7 +10,7 @@
 
   Copyright 2012-2015 the original author or authors.
  */
-package org.uitest4j.swing.hierarchy;
+package org.uitest4j.hierarchy;
 
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 

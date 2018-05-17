@@ -12,6 +12,7 @@
  */
 package org.uitest4j.swing.driver;
 
+import org.uitest4j.exception.ActionFailedException;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.internal.annotation.InternalApi;
@@ -52,9 +53,9 @@ public class WindowDriver extends ContainerDriver {
 	 *
 	 * @param w     the target {@code Window}.
 	 * @param width the width that the {@code Window} should have after being resized.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if the {@code Window} is not enabled.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if the {@code Window} is not resizable by the user.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if the {@code Window} is not showing on the screen.
+	 * @throws ActionFailedException if the {@code Window} is not enabled.
+	 * @throws ActionFailedException if the {@code Window} is not resizable by the user.
+	 * @throws ActionFailedException if the {@code Window} is not showing on the screen.
 	 */
 	@RunsInEDT
 	public void resizeWidthTo(@Nonnull Window w, int width) {
@@ -66,9 +67,9 @@ public class WindowDriver extends ContainerDriver {
 	 *
 	 * @param w      the target {@code Window}.
 	 * @param height the height that the {@code Window} should have after being resized.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if the {@code Window} is not enabled.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if the {@code Window} is not resizable by the user.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if the {@code Window} is not showing on the screen.
+	 * @throws ActionFailedException if the {@code Window} is not enabled.
+	 * @throws ActionFailedException if the {@code Window} is not resizable by the user.
+	 * @throws ActionFailedException if the {@code Window} is not showing on the screen.
 	 */
 	@RunsInEDT
 	public void resizeHeightTo(@Nonnull Window w, int height) {
@@ -80,9 +81,9 @@ public class WindowDriver extends ContainerDriver {
 	 *
 	 * @param w    the target {@code Window}.
 	 * @param size the size to resize the {@code Window} to.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if the {@code Window} is not enabled.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if the {@code Window} is not resizable by the user.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if the {@code Window} is not showing on the screen.
+	 * @throws ActionFailedException if the {@code Window} is not enabled.
+	 * @throws ActionFailedException if the {@code Window} is not resizable by the user.
+	 * @throws ActionFailedException if the {@code Window} is not showing on the screen.
 	 */
 	@RunsInEDT
 	public void resizeTo(@Nonnull Window w, @Nonnull Dimension size) {
@@ -94,9 +95,9 @@ public class WindowDriver extends ContainerDriver {
 	 *
 	 * @param w     the target {@code Window}.
 	 * @param where the location to move the {@code Window} to.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if the {@code Window} is not enabled.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if the {@code Window} is not movable by the user.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if the {@code Window} is not showing on the screen.
+	 * @throws ActionFailedException if the {@code Window} is not enabled.
+	 * @throws ActionFailedException if the {@code Window} is not movable by the user.
+	 * @throws ActionFailedException if the {@code Window} is not showing on the screen.
 	 */
 	public void moveTo(@Nonnull Window w, @Nonnull Point where) {
 		move(w, where.x, where.y);
@@ -106,7 +107,7 @@ public class WindowDriver extends ContainerDriver {
 	 * Closing the {@code Window}.
 	 *
 	 * @param w the target {@code Window}.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if the {@code Window} is not enabled. Or if the
+	 * @throws ActionFailedException if the {@code Window} is not enabled. Or if the
 	 *                                                            {@code Window} is not showing on the screen.
 	 */
 	@RunsInEDT

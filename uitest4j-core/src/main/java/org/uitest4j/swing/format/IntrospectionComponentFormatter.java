@@ -25,7 +25,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-import static org.uitest4j.swing.exception.ActionFailedException.actionFailure;
+import static org.uitest4j.exception.ActionFailedException.actionFailure;
 import static org.uitest4j.swing.util.Maps.newHashMap;
 import static org.uitest4j.swing.util.Strings.singleQuote;
 

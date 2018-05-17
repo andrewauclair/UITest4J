@@ -12,7 +12,8 @@
  */
 package org.uitest4j.swing.fixture;
 
-import org.uitest4j.swing.exception.ActionFailedException;
+import org.uitest4j.exception.ActionFailedException;
+import org.uitest4j.fixture.MouseInputSimulationFixture;
 import org.uitest4j.swing.exception.ComponentLookupException;
 
 import javax.annotation.Nonnull;

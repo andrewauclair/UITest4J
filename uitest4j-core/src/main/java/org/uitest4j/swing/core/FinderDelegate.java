@@ -13,7 +13,7 @@
 package org.uitest4j.swing.core;
 
 import org.uitest4j.swing.annotation.RunsInEDT;
-import org.uitest4j.swing.hierarchy.ComponentHierarchy;
+import org.uitest4j.hierarchy.ComponentHierarchy;
 
 import javax.annotation.Nonnull;
 import java.awt.*;

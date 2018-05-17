@@ -12,7 +12,8 @@
  */
 package org.uitest4j.swing.core;
 
-import org.uitest4j.swing.hierarchy.ComponentHierarchy;
+import org.uitest4j.exception.ActionFailedException;
+import org.uitest4j.hierarchy.ComponentHierarchy;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -127,7 +128,7 @@ public interface Robot {
 	 * Simulates a user clicking once the given AWT or Swing {@code Component} using the left mouse button.
 	 *
 	 * @param c the {@code Component} to click on.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if the {@code Component} to click is out of the
+	 * @throws ActionFailedException if the {@code Component} to click is out of the
 	 *                                                            boundaries of the screen.
 	 */
 	void click(@Nonnull Component c);
@@ -136,7 +137,7 @@ public interface Robot {
 	 * Simulates a user right-clicking the given AWT or Swing {@code Component}.
 	 *
 	 * @param c the {@code Component} to click on.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if the {@code Component} to click is out of the
+	 * @throws ActionFailedException if the {@code Component} to click is out of the
 	 *                                                            boundaries of the screen.
 	 */
 	void rightClick(@Nonnull Component c);
@@ -146,7 +147,7 @@ public interface Robot {
 	 *
 	 * @param c      the {@code Component} to click on.
 	 * @param button the mouse button to use.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if the {@code Component} to click is out of the
+	 * @throws ActionFailedException if the {@code Component} to click is out of the
 	 *                                                            boundaries of the screen.
 	 */
 	void click(@Nonnull Component c, @Nonnull MouseButton button);
@@ -155,7 +156,7 @@ public interface Robot {
 	 * Simulates a user double-clicking the given AWT or Swing {@code Component}.
 	 *
 	 * @param c the {@code Component} to click on.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if the {@code Component} to click is out of the
+	 * @throws ActionFailedException if the {@code Component} to click is out of the
 	 *                                                            boundaries of the screen.
 	 */
 	void doubleClick(@Nonnull Component c);
@@ -166,7 +167,7 @@ public interface Robot {
 	 * @param c      the {@code Component} to click on.
 	 * @param button the mouse button to click.
 	 * @param times  the number of times to click the given mouse button.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if the {@code Component} to click is out of the
+	 * @throws ActionFailedException if the {@code Component} to click is out of the
 	 *                                                            boundaries of the screen.
 	 */
 	void click(@Nonnull Component c, @Nonnull MouseButton button, int times);
@@ -176,7 +177,7 @@ public interface Robot {
 	 *
 	 * @param c     the {@code Component} to click on.
 	 * @param where the given coordinates, relative to the given {@code Component}.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if the {@code Component} to click is out of the
+	 * @throws ActionFailedException if the {@code Component} to click is out of the
 	 *                                                            boundaries of the screen.
 	 */
 	void click(@Nonnull Component c, @Nonnull Point where);
@@ -189,7 +190,7 @@ public interface Robot {
 	 * @param where  the given coordinates, relative to the given {@code Component}.
 	 * @param button the mouse button to click.
 	 * @param times  the number of times to click the given mouse button.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if the {@code Component} to click is out of the
+	 * @throws ActionFailedException if the {@code Component} to click is out of the
 	 *                                                            boundaries of the screen.
 	 */
 	void click(@Nonnull Component c, @Nonnull Point where, @Nonnull MouseButton button, int times);
@@ -294,7 +295,7 @@ public interface Robot {
 	 *
 	 * @param c the given {@code Component}.
 	 * @param p the given coordinates, relative to the given {@code Component}.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if the given {@code Component} is not showing and ready
+	 * @throws ActionFailedException if the given {@code Component} is not showing and ready
 	 *                                                            for input.
 	 */
 	void moveMouse(@Nonnull Component c, @Nonnull Point p);
@@ -306,7 +307,7 @@ public interface Robot {
 	 * @param c the given {@code Component}.
 	 * @param x X coordinate, relative to the given {@code Component}.
 	 * @param y Y coordinate, relative to the given {@code Component}.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if the given {@code Component} is not showing and ready
+	 * @throws ActionFailedException if the given {@code Component} is not showing and ready
 	 *                                                            for input.
 	 */
 	void moveMouse(@Nonnull Component c, int x, int y);
@@ -493,7 +494,7 @@ public interface Robot {
 	 *
 	 * @param c the given {@code Component}.
 	 * @return {@code true} if the given {@code Component} is ready for input, {@code false} otherwise.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if the given {@code Component} does not have a
+	 * @throws ActionFailedException if the given {@code Component} does not have a
 	 *                                                            {@code Window} ancestor.
 	 */
 	boolean isReadyForInput(@Nonnull Component c);

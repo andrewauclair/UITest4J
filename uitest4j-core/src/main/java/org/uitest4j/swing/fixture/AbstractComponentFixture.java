@@ -13,6 +13,8 @@
 package org.uitest4j.swing.fixture;
 
 import org.opentest4j.AssertionFailedError;
+import org.uitest4j.exception.ActionFailedException;
+import org.uitest4j.fixture.MouseInputSimulationFixture;
 import org.uitest4j.swing.core.KeyPressInfo;
 import org.uitest4j.swing.core.MouseButton;
 import org.uitest4j.swing.core.MouseClickInfo;
@@ -239,7 +241,7 @@ public abstract class AbstractComponentFixture<S, C extends Component, D extends
 	 * @return this fixture.
 	 * @throws IllegalStateException                              if this fixture's {@code Component} is disabled.
 	 * @throws IllegalStateException                              if this fixture's {@code Component} is not showing on the screen.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if there is no drag action in effect.
+	 * @throws ActionFailedException if there is no drag action in effect.
 	 */
 	public final @Nonnull
 	S drop() {

@@ -14,7 +14,7 @@ package org.uitest4j.swing.core;
 
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.uitest4j.swing.annotation.RunsInEDT;
-import org.uitest4j.swing.hierarchy.ComponentHierarchy;
+import org.uitest4j.hierarchy.ComponentHierarchy;
 import org.uitest4j.swing.hierarchy.ExistingHierarchy;
 import org.uitest4j.swing.hierarchy.SingleComponentHierarchy;
 

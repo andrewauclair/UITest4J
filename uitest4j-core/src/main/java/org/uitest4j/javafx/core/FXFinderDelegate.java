@@ -22,7 +22,7 @@ import java.util.LinkedHashSet;
 import java.util.Objects;
 import java.util.Set;
 
-import static org.uitest4j.javafx.platform.FXGUIActionRunner.execute;
+import static org.uitest4j.javafx.platform.FXGUIActionRunner.executeFX;
 
 /**
  * @author Andrew Auclair
@@ -50,7 +50,7 @@ public class FXFinderDelegate {
 	@Nonnull
 	private static Collection<Node> childrenOfNode(final @Nonnull Node node,
 															 final @Nonnull NodeHierarchy hierarchy) {
-		Collection<Node> children = execute(() -> hierarchy.childrenOf(node));
+		Collection<Node> children = executeFX(() -> hierarchy.childrenOf(node));
 		return Objects.requireNonNull(children);
 	}
 
@@ -61,6 +61,6 @@ public class FXFinderDelegate {
 
 	@Nonnull
 	private static Collection<? extends Node> rootsOf(final @Nonnull NodeHierarchy hierarchy) {
-		return Objects.requireNonNull(execute(hierarchy::roots));
+		return Objects.requireNonNull(executeFX(hierarchy::roots));
 	}
 }

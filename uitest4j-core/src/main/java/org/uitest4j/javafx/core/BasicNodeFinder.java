@@ -12,21 +12,15 @@
  */
 package org.uitest4j.javafx.core;
 
-import javafx.application.Platform;
 import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.control.Dialog;
 import javafx.stage.Stage;
-import javafx.stage.Window;
 import org.uitest4j.javafx.hierarchy.NodeHierarchy;
 import org.uitest4j.swing.annotation.RunsInEDT;
-import org.uitest4j.swing.core.NameMatcher;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.awt.*;
-import java.util.Collection;
-import java.util.Objects;
 
 /**
  * @author Andrew Auclair

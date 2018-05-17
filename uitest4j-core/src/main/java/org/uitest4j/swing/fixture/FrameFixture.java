@@ -12,6 +12,7 @@
  */
 package org.uitest4j.swing.fixture;
 
+import org.uitest4j.exception.ActionFailedException;
 import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.driver.FrameDriver;
 
@@ -111,7 +112,7 @@ public class FrameFixture extends AbstractWindowFixture<FrameFixture, Frame, Fra
 	 * Simulates a user maximizing this fixture's {@code Frame}.
 	 *
 	 * @return this fixture.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if the operating system does not support maximizing frames.
+	 * @throws ActionFailedException if the operating system does not support maximizing frames.
 	 */
 	@Override
 	@Nonnull

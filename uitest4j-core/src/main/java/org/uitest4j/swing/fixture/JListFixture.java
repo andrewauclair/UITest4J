@@ -12,6 +12,7 @@
  */
 package org.uitest4j.swing.fixture;
 
+import org.uitest4j.exception.ActionFailedException;
 import org.uitest4j.swing.cell.JListCellReader;
 import org.uitest4j.swing.core.MouseButton;
 import org.uitest4j.swing.core.Robot;
@@ -542,7 +543,7 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
 	 * @throws IllegalStateException                              if this fixture's {@code JList} is not showing on the screen.
 	 * @throws IndexOutOfBoundsException                          if the given index is negative or greater than the index of the last item in the
 	 *                                                            {@code JList}.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if there is no drag action in effect.
+	 * @throws ActionFailedException if there is no drag action in effect.
 	 */
 	@Nonnull
 	public JListFixture drop(int index) {
@@ -559,7 +560,7 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
 	 * @throws IllegalStateException                              if this fixture's {@code JList} is not showing on the screen.
 	 * @throws IndexOutOfBoundsException                          if the given index is negative or greater than the index of the last item in the
 	 *                                                            {@code JList}.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if there is no drag action in effect.
+	 * @throws ActionFailedException if there is no drag action in effect.
 	 * @see #drop(int)
 	 */
 	@Nonnull
@@ -576,7 +577,7 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
 	 * @throws IllegalStateException                              if this fixture's {@code JList} is not showing on the screen.
 	 * @throws IndexOutOfBoundsException                          if the given index is negative or greater than the index of the last item in the
 	 *                                                            {@code JList}.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if there is no drag action in effect.
+	 * @throws ActionFailedException if there is no drag action in effect.
 	 * @see #drop(int)
 	 */
 	@Nonnull
@@ -608,7 +609,7 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
 	 * @throws IllegalStateException                                     if this fixture's {@code JList} is disabled.
 	 * @throws IllegalStateException                                     if this fixture's {@code JList} is not showing on the screen.
 	 * @throws org.uitest4j.swing.exception.LocationUnavailableException if an element matching the given text cannot be found.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException        if there is no drag action in effect.
+	 * @throws ActionFailedException        if there is no drag action in effect.
 	 */
 	@Nonnull
 	public JListFixture drop(@Nullable String text) {
@@ -642,7 +643,7 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
 	 * @throws IllegalStateException                                     if this fixture's {@code JList} is not showing on the screen.
 	 * @throws NullPointerException                                      if the given regular expression pattern in {@code null}.
 	 * @throws org.uitest4j.swing.exception.LocationUnavailableException if an element matching the given text cannot be found.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException        if there is no drag action in effect.
+	 * @throws ActionFailedException        if there is no drag action in effect.
 	 */
 	@Nonnull
 	public JListFixture drop(@Nonnull Pattern pattern) {

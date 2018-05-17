@@ -14,7 +14,7 @@ package org.uitest4j.swing.data;
 
 import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.cell.JTableCellReader;
-import org.uitest4j.swing.exception.ActionFailedException;
+import org.uitest4j.exception.ActionFailedException;
 
 import javax.annotation.Nonnull;
 import javax.swing.*;

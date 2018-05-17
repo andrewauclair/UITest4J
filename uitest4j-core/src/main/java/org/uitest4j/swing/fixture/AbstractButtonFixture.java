@@ -36,8 +36,8 @@ public abstract class AbstractButtonFixture<S, T extends AbstractButton> extends
 	 * Creates a new {@link AbstractButtonFixture}.
 	 *
 	 * @param selfType the "self type."
-	 * @param target   the {@code JButton} to be managed by this fixture.
 	 * @param robot    performs simulation of user events on the given {@code AbstractButton}.
+	 * @param target   the {@code JButton} to be managed by this fixture.
 	 * @throws NullPointerException if {@code robot} is {@code null}.
 	 * @throws NullPointerException if {@code target} is {@code null}.
 	 */

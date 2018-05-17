@@ -12,6 +12,7 @@
  */
 package org.uitest4j.swing.hierarchy;
 
+import org.uitest4j.hierarchy.ComponentHierarchy;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.uitest4j.swing.monitor.WindowMonitor;
 
@@ -29,7 +30,7 @@ import static org.uitest4j.swing.awt.AWT.isSharedInvisibleFrame;
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
-public class ExistingHierarchy implements ComponentHierarchy {
+public class ExistingHierarchy implements ComponentHierarchy {//<Component, Container, Window> {
 	private static WindowMonitor windowMonitor = WindowMonitor.instance();
 
 	private final ParentFinder parentFinder;

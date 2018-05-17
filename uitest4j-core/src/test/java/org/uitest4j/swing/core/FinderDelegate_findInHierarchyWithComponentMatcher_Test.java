@@ -13,6 +13,7 @@
 package org.uitest4j.swing.core;
 
 import org.junit.jupiter.api.Test;
+import org.uitest4j.hierarchy.ComponentHierarchy;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,7 +22,7 @@ import java.util.Collection;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
- * Tests for {@link FinderDelegate#find(org.uitest4j.swing.hierarchy.ComponentHierarchy, ComponentMatcher)}.
+ * Tests for {@link FinderDelegate#find(ComponentHierarchy, ComponentMatcher)}.
  *
  * @author Alex Ruiz
  */

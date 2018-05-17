@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.core;
 
-import org.uitest4j.swing.hierarchy.ComponentHierarchy;
+import org.uitest4j.hierarchy.ComponentHierarchy;
 
 /**
  * A {@link BasicRobot} to be used for testing.

@@ -16,7 +16,7 @@ import org.uitest4j.driver.TextDisplayDriver;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.core.Robot;
-import org.uitest4j.swing.exception.ActionFailedException;
+import org.uitest4j.exception.ActionFailedException;
 import org.uitest4j.swing.internal.annotation.InternalApi;
 import org.uitest4j.swing.internal.assertions.OpenTest4JAssertions;
 import org.uitest4j.swing.util.Pair;
@@ -44,7 +44,7 @@ import static org.uitest4j.swing.driver.JTextComponentSelectTextTask.selectTextI
 import static org.uitest4j.swing.driver.JTextComponentSetTextTask.setTextIn;
 import static org.uitest4j.swing.driver.PointAndParentForScrollingJTextFieldQuery.pointAndParentForScrolling;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-import static org.uitest4j.swing.exception.ActionFailedException.actionFailure;
+import static org.uitest4j.exception.ActionFailedException.actionFailure;
 import static org.uitest4j.swing.format.Formatting.format;
 
 /**

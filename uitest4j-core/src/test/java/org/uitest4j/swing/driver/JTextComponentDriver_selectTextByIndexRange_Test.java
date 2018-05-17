@@ -13,7 +13,7 @@
 package org.uitest4j.swing.driver;
 
 import org.junit.jupiter.api.Test;
-import org.uitest4j.swing.exception.ActionFailedException;
+import org.uitest4j.exception.ActionFailedException;
 import org.uitest4j.swing.test.ExpectedException;
 
 /**

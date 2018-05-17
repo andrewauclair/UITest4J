@@ -12,6 +12,7 @@
  */
 package org.uitest4j.swing.fixture;
 
+import org.uitest4j.exception.ActionFailedException;
 import org.uitest4j.swing.cell.JTreeCellReader;
 import org.uitest4j.swing.core.MouseButton;
 import org.uitest4j.swing.core.MouseClickInfo;
@@ -291,7 +292,7 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
 	 * @throws IndexOutOfBoundsException                                 if the given row is less than zero or equal than or greater than the number of
 	 *                                                                   visible rows in the {@code JTree}.
 	 * @throws org.uitest4j.swing.exception.LocationUnavailableException if a tree path for the given row cannot be found.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException        if there is no drag action in effect.
+	 * @throws ActionFailedException        if there is no drag action in effect.
 	 */
 	@Nonnull
 	public JTreeFixture drop(int row) {
@@ -309,7 +310,7 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
 	 * @throws IndexOutOfBoundsException                                 if the given row is less than zero or equal than or greater than the number of
 	 *                                                                   visible rows in the {@code JTree}.
 	 * @throws org.uitest4j.swing.exception.LocationUnavailableException if a tree path for the given row cannot be found.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException        if there is no drag action in effect.
+	 * @throws ActionFailedException        if there is no drag action in effect.
 	 * @see #drop(int)
 	 */
 	@Nonnull
@@ -327,7 +328,7 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
 	 * @throws IndexOutOfBoundsException                                 if the given row is less than zero or equal than or greater than the number of
 	 *                                                                   visible rows in the {@code JTree}.
 	 * @throws org.uitest4j.swing.exception.LocationUnavailableException if a tree path for the given row cannot be found.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException        if there is no drag action in effect.
+	 * @throws ActionFailedException        if there is no drag action in effect.
 	 * @see #drop(int)
 	 */
 	@Nonnull
@@ -358,7 +359,7 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
 	 * @throws IllegalStateException                                     if this fixture's {@code JTree} is disabled.
 	 * @throws IllegalStateException                                     if this fixture's {@code JTree} is not showing on the screen.
 	 * @throws org.uitest4j.swing.exception.LocationUnavailableException if the given path cannot be found.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException        if there is no drag action in effect.
+	 * @throws ActionFailedException        if there is no drag action in effect.
 	 */
 	@Nonnull
 	public JTreeFixture drop(@Nonnull String path) {
@@ -516,7 +517,7 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
 	 * @throws IndexOutOfBoundsException                                 if the given row is less than zero or equal than or greater than the number of
 	 *                                                                   visible rows in the {@code JTree}.
 	 * @throws org.uitest4j.swing.exception.LocationUnavailableException if a tree path for the given row cannot be found.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException        if this method fails to toggle the row.
+	 * @throws ActionFailedException        if this method fails to toggle the row.
 	 */
 	@Nonnull
 	public JTreeFixture toggleRow(int row) {
@@ -534,7 +535,7 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
 	 * @throws IndexOutOfBoundsException                                 if the given row is less than zero or equal than or greater than the number of
 	 *                                                                   visible rows in the {@code JTree}.
 	 * @throws org.uitest4j.swing.exception.LocationUnavailableException if a tree path for the given row cannot be found.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException        if this method fails to expand the row.
+	 * @throws ActionFailedException        if this method fails to expand the row.
 	 */
 	@Nonnull
 	public JTreeFixture expandRow(int row) {
@@ -552,7 +553,7 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
 	 * @throws IndexOutOfBoundsException                                 if the given row is less than zero or equal than or greater than the number of
 	 *                                                                   visible rows in the {@code JTree}.
 	 * @throws org.uitest4j.swing.exception.LocationUnavailableException if a tree path for the given row cannot be found.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException        if this method fails to collapse the row.
+	 * @throws ActionFailedException        if this method fails to collapse the row.
 	 */
 	@Nonnull
 	public JTreeFixture collapseRow(int row) {
@@ -568,7 +569,7 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
 	 * @throws IllegalStateException                                     if this fixture's {@code JTree} is disabled.
 	 * @throws IllegalStateException                                     if this fixture's {@code JTree} is not showing on the screen.
 	 * @throws org.uitest4j.swing.exception.LocationUnavailableException if the given path cannot be found.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException        if this method fails to expand the path.
+	 * @throws ActionFailedException        if this method fails to expand the path.
 	 */
 	@Nonnull
 	public JTreeFixture expandPath(@Nonnull String path) {
@@ -584,7 +585,7 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
 	 * @throws IllegalStateException                                     if this fixture's {@code JTree} is disabled.
 	 * @throws IllegalStateException                                     if this fixture's {@code JTree} is not showing on the screen.
 	 * @throws org.uitest4j.swing.exception.LocationUnavailableException if the given path cannot be found.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException        if this method fails to collapse the path.
+	 * @throws ActionFailedException        if this method fails to collapse the path.
 	 */
 	@Nonnull
 	public JTreeFixture collapsePath(@Nonnull String path) {

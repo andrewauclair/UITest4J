@@ -12,6 +12,7 @@
  */
 package org.uitest4j.swing.fixture;
 
+import org.uitest4j.exception.ActionFailedException;
 import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.driver.JSpinnerDriver;
 
@@ -121,7 +122,7 @@ public class JSpinnerFixture extends AbstractJPopupMenuInvokerFixture<JSpinnerFi
 	 * @return this fixture.
 	 * @throws IllegalStateException                              if this fixture's {@code JSpinner} is disabled.
 	 * @throws IllegalStateException                              if this fixture's {@code JSpinner} is not showing on the screen.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if the editor of the {@code JSpinner} is not a {@code JTextComponent} or cannot be
+	 * @throws ActionFailedException if the editor of the {@code JSpinner} is not a {@code JTextComponent} or cannot be
 	 *                                                            found.
 	 * @throws org.uitest4j.swing.exception.UnexpectedException   if the entering the text in the {@code JSpinner}'s editor fails.
 	 */
@@ -139,7 +140,7 @@ public class JSpinnerFixture extends AbstractJPopupMenuInvokerFixture<JSpinnerFi
 	 * @return this fixture.
 	 * @throws IllegalStateException                              if this fixture's {@code JSpinner} is disabled.
 	 * @throws IllegalStateException                              if this fixture's {@code JSpinner} is not showing on the screen.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if the editor of the {@code JSpinner} is not a {@code JTextComponent} or cannot be
+	 * @throws ActionFailedException if the editor of the {@code JSpinner} is not a {@code JTextComponent} or cannot be
 	 *                                                            found.
 	 * @throws org.uitest4j.swing.exception.UnexpectedException   if the entering the text in the {@code JSpinner}'s editor fails.
 	 */

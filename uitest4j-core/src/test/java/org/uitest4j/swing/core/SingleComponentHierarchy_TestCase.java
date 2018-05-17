@@ -13,7 +13,7 @@
 package org.uitest4j.swing.core;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.uitest4j.swing.hierarchy.ComponentHierarchy;
+import org.uitest4j.hierarchy.ComponentHierarchy;
 import org.uitest4j.swing.hierarchy.SingleComponentHierarchy;
 import org.uitest4j.swing.test.core.EDTSafeTestCase;
 import org.uitest4j.swing.test.swing.TestWindow;

@@ -19,7 +19,7 @@ import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.uitest4j.swing.exception.ActionFailedException.actionFailure;
+import static org.uitest4j.exception.ActionFailedException.actionFailure;
 
 /**
  * <p>

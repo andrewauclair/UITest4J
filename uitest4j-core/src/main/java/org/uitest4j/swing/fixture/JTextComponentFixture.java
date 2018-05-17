@@ -12,6 +12,7 @@
  */
 package org.uitest4j.swing.fixture;
 
+import org.uitest4j.exception.ActionFailedException;
 import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.driver.JTextComponentDriver;
 
@@ -77,7 +78,7 @@ public class JTextComponentFixture extends
 	 * @throws IllegalStateException                              if this fixture's {@code JTextComponent} is not showing on the screen.
 	 * @throws IllegalArgumentException                           if this fixture's {@code JTextComponent} does not contain the given text to
 	 *                                                            select.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if the selecting the text in the given range fails.
+	 * @throws ActionFailedException if the selecting the text in the given range fails.
 	 */
 	@Override
 	@Nonnull
@@ -94,7 +95,7 @@ public class JTextComponentFixture extends
 	 * @return this fixture.
 	 * @throws IllegalStateException                              if this fixture's {@code JTextComponent} is disabled.
 	 * @throws IllegalStateException                              if this fixture's {@code JTextComponent} is not showing on the screen.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if the selecting the text in the given range fails.
+	 * @throws ActionFailedException if the selecting the text in the given range fails.
 	 */
 	@Override
 	@Nonnull

@@ -16,14 +16,17 @@ import javafx.application.Platform;
 
 import javax.annotation.Nullable;
 
+import static org.uitest4j.exception.ActionFailedException.actionFailure;
+
 public abstract class FXGUIQuery<T> extends FXGUIAction {
 	private T result;
 
 	@Override
 	public void run() {
 		if (!Platform.isFxApplicationThread()) {
-			// TODO Throw exception for not running in UI thread
+			throw actionFailure("Query should be executed in the JavaFX Application Thread");
 		}
+		
 		try {
 			result = executeOnUIThread();
 		}

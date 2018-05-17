@@ -12,6 +12,7 @@
  */
 package org.uitest4j.swing.driver;
 
+import org.uitest4j.exception.ActionFailedException;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.core.*;
@@ -412,7 +413,7 @@ public class ComponentDriver {
 	 * @param c the target {@code Component}.
 	 * @throws IllegalStateException                              if the {@code Component} is disabled.
 	 * @throws IllegalStateException                              if the {@code Component} is not showing on the screen.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if there is no drag action in effect.
+	 * @throws ActionFailedException if there is no drag action in effect.
 	 */
 	@RunsInEDT
 	public void drop(@Nonnull Component c) {
@@ -430,7 +431,7 @@ public class ComponentDriver {
 	 *
 	 * @param c     the target {@code Component}.
 	 * @param where the point where the drag operation ends.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if there is no drag action in effect.
+	 * @throws ActionFailedException if there is no drag action in effect.
 	 */
 	@RunsInEDT
 	protected final void drop(@Nonnull Component c, @Nonnull Point where) {
@@ -459,7 +460,7 @@ public class ComponentDriver {
 	 * </p>
 	 *
 	 * @param c the given {@code Component}.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if something goes wrong.
+	 * @throws ActionFailedException if something goes wrong.
 	 */
 	@RunsInCurrentThread
 	protected final void performAccessibleActionOf(@Nonnull Component c) {

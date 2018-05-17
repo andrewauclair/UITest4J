@@ -20,7 +20,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.regex.Pattern;
 
-import static org.uitest4j.javafx.platform.FXGUIActionRunner.execute;
+import static org.uitest4j.javafx.platform.FXGUIActionRunner.executeFX;
 
 /**
  * @author Andrew Auclair
@@ -41,6 +41,6 @@ public class LabelDriver implements TextDisplayDriver<Label> {
 	@Nullable
 	@Override
 	public String textOf(@Nonnull Label labeled) {
-		return execute(labeled::getText);
+		return executeFX(labeled::getText);
 	}
 }

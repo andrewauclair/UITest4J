@@ -13,6 +13,7 @@
 package org.uitest4j.swing.exception;
 
 import org.junit.jupiter.api.Test;
+import org.uitest4j.exception.ActionFailedException;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

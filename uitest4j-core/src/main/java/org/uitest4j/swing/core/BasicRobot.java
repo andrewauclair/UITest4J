@@ -12,13 +12,14 @@
  */
 package org.uitest4j.swing.core;
 
+import org.uitest4j.exception.ActionFailedException;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.edt.GuiQuery;
 import org.uitest4j.swing.exception.ComponentLookupException;
 import org.uitest4j.swing.exception.UnexpectedException;
 import org.uitest4j.swing.exception.WaitTimedOutError;
-import org.uitest4j.swing.hierarchy.ComponentHierarchy;
+import org.uitest4j.hierarchy.ComponentHierarchy;
 import org.uitest4j.swing.hierarchy.ExistingHierarchy;
 import org.uitest4j.swing.input.InputState;
 import org.uitest4j.swing.lock.ScreenLock;
@@ -60,7 +61,7 @@ import static org.uitest4j.swing.core.MouseButton.RIGHT_BUTTON;
 import static org.uitest4j.swing.core.Scrolling.scrollToVisible;
 import static org.uitest4j.swing.core.WindowAncestorFinder.windowAncestorOf;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-import static org.uitest4j.swing.exception.ActionFailedException.actionFailure;
+import static org.uitest4j.exception.ActionFailedException.actionFailure;
 import static org.uitest4j.swing.format.Formatting.format;
 import static org.uitest4j.swing.format.Formatting.inEdtFormat;
 import static org.uitest4j.swing.hierarchy.NewHierarchy.ignoreExistingComponents;
@@ -903,7 +904,7 @@ public class BasicRobot implements Robot {
 	 *
 	 * @param c the given {@code Component}.
 	 * @return {@code true} if the given {@code Component} is ready for input, {@code false} otherwise.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if the given {@code Component} does not have a
+	 * @throws ActionFailedException if the given {@code Component} does not have a
 	 *                                                            {@code Window} ancestor.
 	 */
 	@Override

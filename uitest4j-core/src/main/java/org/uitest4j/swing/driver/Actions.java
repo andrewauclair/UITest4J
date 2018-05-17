@@ -21,7 +21,7 @@ import java.util.Objects;
 
 import static java.util.Collections.sort;
 import static javax.swing.Action.NAME;
-import static org.uitest4j.swing.exception.ActionFailedException.actionFailure;
+import static org.uitest4j.exception.ActionFailedException.actionFailure;
 
 /**
  * Utility methods related to Swing {@code Action}s.

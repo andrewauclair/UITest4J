@@ -18,7 +18,7 @@ import javax.annotation.Nonnull;
 import java.util.Map;
 
 import static javax.swing.JOptionPane.*;
-import static org.uitest4j.swing.exception.ActionFailedException.actionFailure;
+import static org.uitest4j.exception.ActionFailedException.actionFailure;
 import static org.uitest4j.swing.util.Maps.newHashMap;
 
 /**

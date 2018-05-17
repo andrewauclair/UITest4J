@@ -22,7 +22,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 
-import static org.uitest4j.javafx.platform.FXGUI.runAndWait;
+import static org.uitest4j.javafx.platform.FXGUIActionRunner.executeFX;
 
 /**
  * @author Andrew Auclair
@@ -50,7 +50,7 @@ class LabelDriver_TestCase {
 		root.getChildren().add(label);
 		Scene scene = new Scene(root, 200, 200);
 
-		runAndWait(() -> {
+		executeFX(() -> {
 			stage = new Stage();
 			stage.setScene(scene);
 			stage.centerOnScreen();
@@ -60,6 +60,6 @@ class LabelDriver_TestCase {
 
 	@AfterEach
 	void afterEach() {
-		runAndWait(stage::close);
+		executeFX(stage::close);
 	}
 }

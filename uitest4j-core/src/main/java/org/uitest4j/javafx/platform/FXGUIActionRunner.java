@@ -13,6 +13,8 @@
 package org.uitest4j.javafx.platform;
 
 import javafx.application.Platform;
+import org.uitest4j.swing.edt.GuiActionRunnable;
+import org.uitest4j.swing.edt.GuiTask;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -25,8 +27,8 @@ import java.util.concurrent.CountDownLatch;
 public class FXGUIActionRunner {
 
 	@Nullable
-	public static <T> T execute(@Nonnull Callable<T> query) {
-		return execute(new FXGUIQuery<>() {
+	public static <T> T executeFX(@Nonnull Callable<T> query) {
+		return executeFX(new FXGUIQuery<>() {
 			@Nullable
 			@Override
 			protected T executeOnUIThread() throws Exception {
@@ -36,11 +38,25 @@ public class FXGUIActionRunner {
 	}
 
 	@Nullable
-	public static <T> T execute(@Nonnull FXGUIQuery<T> query) {
+	public static <T> T executeFX(@Nonnull FXGUIQuery<T> query) {
 		run(query);
 		return resultOf(query);
 	}
-
+	
+	public static void executeFX(@Nonnull FXGUIActionRunnable task) {
+		executeFX(new FXGUITask() {
+			@Override
+			protected void executeOnUIThread() throws Throwable {
+				task.run();
+			}
+		});
+	}
+	
+	public static void executeFX(@Nonnull FXGUITask task) {
+		run(task);
+		// TODO rethrow exception
+	}
+	
 	private static synchronized void run(@Nonnull final FXGUIAction action) {
 		if (Platform.isFxApplicationThread()) {
 			action.run();

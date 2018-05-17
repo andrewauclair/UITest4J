@@ -13,6 +13,7 @@
 package org.uitest4j.swing.driver;
 
 import org.opentest4j.AssertionFailedError;
+import org.uitest4j.exception.ActionFailedException;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.cell.JListCellReader;
 import org.uitest4j.swing.core.MouseButton;
@@ -655,7 +656,7 @@ public class JListDriver extends JComponentDriver {
 	 * @throws IllegalStateException                              if the {@code JList} is disabled.
 	 * @throws IllegalStateException                              if the {@code JList} is not showing on the screen.
 	 * @throws LocationUnavailableException                       if an element matching the given value cannot be found.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if there is no drag action in effect.
+	 * @throws ActionFailedException if there is no drag action in effect.
 	 */
 	@RunsInEDT
 	public void drop(@Nonnull JList<?> list, @Nullable String value) {
@@ -671,7 +672,7 @@ public class JListDriver extends JComponentDriver {
 	 * @throws IllegalStateException                              if the {@code JList} is not showing on the screen.
 	 * @throws NullPointerException                               if the given regular expression pattern is {@code null}.
 	 * @throws LocationUnavailableException                       if an element matching the given value cannot be found.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if there is no drag action in effect.
+	 * @throws ActionFailedException if there is no drag action in effect.
 	 */
 	public void drop(@Nonnull JList<?> list, @Nonnull Pattern pattern) {
 		drop(list, new PatternTextMatcher(pattern));
@@ -717,7 +718,7 @@ public class JListDriver extends JComponentDriver {
 	 * @throws IllegalStateException                              if the {@code JList} is not showing on the screen.
 	 * @throws IndexOutOfBoundsException                          if the given index is negative or greater than the index of the last item in the
 	 *                                                            {@code JList}.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if there is no drag action in effect.
+	 * @throws ActionFailedException if there is no drag action in effect.
 	 */
 	@RunsInEDT
 	public void drop(@Nonnull JList<?> list, int index) {

@@ -12,6 +12,7 @@
  */
 package org.uitest4j.swing.fixture;
 
+import org.uitest4j.exception.ActionFailedException;
 import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.driver.JInternalFrameDriver;
 
@@ -132,7 +133,7 @@ public class JInternalFrameFixture extends
 	 * Simulates a user deiconifying this fixture's {@code JInternalFrame}.
 	 *
 	 * @return this fixture.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if the {@code JInternalFrame} vetoes the action.
+	 * @throws ActionFailedException if the {@code JInternalFrame} vetoes the action.
 	 */
 	@Override
 	@Nonnull
@@ -145,8 +146,8 @@ public class JInternalFrameFixture extends
 	 * Simulates a user iconifying this fixture's {@code JInternalFrame}.
 	 *
 	 * @return this fixture.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if the given {@code JInternalFrame} is not iconifiable.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if the {@code JInternalFrame} vetoes the action.
+	 * @throws ActionFailedException if the given {@code JInternalFrame} is not iconifiable.
+	 * @throws ActionFailedException if the {@code JInternalFrame} vetoes the action.
 	 */
 	@Override
 	@Nonnull
@@ -159,8 +160,8 @@ public class JInternalFrameFixture extends
 	 * Simulates a user maximizing this fixture's {@code JInternalFrame}, deconifying it first if it is iconified.
 	 *
 	 * @return this fixture.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if the given {@code JInternalFrame} is not maximizable.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if the {@code JInternalFrame} vetoes the action.
+	 * @throws ActionFailedException if the given {@code JInternalFrame} is not maximizable.
+	 * @throws ActionFailedException if the {@code JInternalFrame} vetoes the action.
 	 */
 	@Override
 	@Nonnull
@@ -173,7 +174,7 @@ public class JInternalFrameFixture extends
 	 * Simulates a user normalizing this fixture's {@code JInternalFrame}, deconifying it first if it is iconified.
 	 *
 	 * @return this fixture.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if the {@code JInternalFrame} vetoes the action.
+	 * @throws ActionFailedException if the {@code JInternalFrame} vetoes the action.
 	 */
 	@Override
 	@Nonnull
@@ -185,7 +186,7 @@ public class JInternalFrameFixture extends
 	/**
 	 * Simulates a user closing this fixture's {@code JInternalFrame}.
 	 *
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if the {@code JInternalFrame} is not closable.
+	 * @throws ActionFailedException if the {@code JInternalFrame} is not closable.
 	 */
 	@Override
 	public void close() {

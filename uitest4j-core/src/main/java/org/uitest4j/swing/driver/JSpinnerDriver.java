@@ -12,6 +12,7 @@
  */
 package org.uitest4j.swing.driver;
 
+import org.uitest4j.exception.ActionFailedException;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.core.ComponentFinder;
@@ -32,7 +33,7 @@ import static org.uitest4j.swing.driver.ComponentPreconditions.checkEnabledAndSh
 import static org.uitest4j.swing.driver.JSpinnerSetValueTask.setValue;
 import static org.uitest4j.swing.driver.JSpinnerValueQuery.valueOf;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-import static org.uitest4j.swing.exception.ActionFailedException.actionFailure;
+import static org.uitest4j.exception.ActionFailedException.actionFailure;
 import static org.uitest4j.swing.format.Formatting.format;
 
 /**
@@ -213,7 +214,7 @@ public class JSpinnerDriver extends JComponentDriver {
 	 * @param text    the text to enter.
 	 * @throws IllegalStateException                              if the {@code JSpinner} is disabled. Or if the {@code JSpinner} is not showing on the
 	 *                                                            screen.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if the editor of the {@code JSpinner} is not a
+	 * @throws ActionFailedException if the editor of the {@code JSpinner} is not a
 	 *                                                            {@code JTextComponent} or cannot be found.
 	 */
 	@RunsInEDT
@@ -236,7 +237,7 @@ public class JSpinnerDriver extends JComponentDriver {
 	 * @param text    the text to enter.
 	 * @throws IllegalStateException                              if the {@code JSpinner} is disabled. Or if the {@code JSpinner} is not showing on the
 	 *                                                            screen.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if the editor of the {@code JSpinner} is not a
+	 * @throws ActionFailedException if the editor of the {@code JSpinner} is not a
 	 *                                                            {@code JTextComponent} or cannot be
 	 *                                                            found.
 	 * @see #enterTextAndCommit(JSpinner, String)

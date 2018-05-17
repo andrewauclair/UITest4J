@@ -13,7 +13,7 @@
 package org.uitest4j.swing.core;
 
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
-import org.uitest4j.swing.hierarchy.ComponentHierarchy;
+import org.uitest4j.hierarchy.ComponentHierarchy;
 import org.uitest4j.swing.hierarchy.ExistingHierarchy;
 
 import javax.annotation.Nonnull;
@@ -67,7 +67,7 @@ public final class WindowAncestorFinder {
 				return windowAncestorOf(invoker);
 			}
 		}
-		return findWindowAncestor(hierarchy.parentOf(c));
+		return findWindowAncestor((Component) hierarchy.parentOf(c));
 	}
 
 	private WindowAncestorFinder() {

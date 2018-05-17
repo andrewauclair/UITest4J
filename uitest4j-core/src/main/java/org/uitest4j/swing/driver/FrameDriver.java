@@ -12,6 +12,7 @@
  */
 package org.uitest4j.swing.driver;
 
+import org.uitest4j.exception.ActionFailedException;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.annotation.ThreadSafeAction;
 import org.uitest4j.swing.core.Robot;
@@ -29,7 +30,7 @@ import static org.uitest4j.swing.driver.FrameTitleQuery.titleOf;
 import static org.uitest4j.swing.driver.WindowLikeContainers.iconifyButtonLocation;
 import static org.uitest4j.swing.driver.WindowLikeContainers.maximizeButtonLocation;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-import static org.uitest4j.swing.exception.ActionFailedException.actionFailure;
+import static org.uitest4j.exception.ActionFailedException.actionFailure;
 
 /**
  * <p>
@@ -110,7 +111,7 @@ public class FrameDriver extends WindowDriver {
 	 * @param frame the target {@code Frame}.
 	 * @throws IllegalStateException                              if the {@code Frame} is not enabled.
 	 * @throws IllegalStateException                              if the {@code Frame} is not showing on the screen.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if the operating system does not support maximizing
+	 * @throws ActionFailedException if the operating system does not support maximizing
 	 *                                                            frames.
 	 */
 	@RunsInEDT

@@ -12,6 +12,7 @@
  */
 package org.uitest4j.swing.fixture;
 
+import org.uitest4j.exception.ActionFailedException;
 import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.core.Settings;
 import org.uitest4j.swing.driver.WindowDriver;
@@ -134,8 +135,8 @@ public abstract class AbstractWindowFixture<S, C extends Window, D extends Windo
 	 *
 	 * @param p the point to move this fixture's {@code Window} to.
 	 * @return this fixture.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if the {@code Window} is not movable.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if the given {@code Window} is not showing on the screen.
+	 * @throws ActionFailedException if the {@code Window} is not movable.
+	 * @throws ActionFailedException if the given {@code Window} is not showing on the screen.
 	 */
 	@Override
 	public final @Nonnull
@@ -188,7 +189,7 @@ public abstract class AbstractWindowFixture<S, C extends Window, D extends Windo
 	 *
 	 * @param height the height that this fixture's {@code Window} should have after being resized.
 	 * @return this fixture.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if the {@code Window} is not resizable.
+	 * @throws ActionFailedException if the {@code Window} is not resizable.
 	 */
 	@Override
 	public final @Nonnull
@@ -202,7 +203,7 @@ public abstract class AbstractWindowFixture<S, C extends Window, D extends Windo
 	 *
 	 * @param size the size that the target window should have after being resized.
 	 * @return this fixture.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if the {@code Window} is not resizable.
+	 * @throws ActionFailedException if the {@code Window} is not resizable.
 	 */
 	@Override
 	public final @Nonnull
@@ -216,7 +217,7 @@ public abstract class AbstractWindowFixture<S, C extends Window, D extends Windo
 	 *
 	 * @param width the width that this fixture's {@code Window} should have after being resized.
 	 * @return this fixture.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if the {@code Window} is not resizable.
+	 * @throws ActionFailedException if the {@code Window} is not resizable.
 	 */
 	@Override
 	public final @Nonnull

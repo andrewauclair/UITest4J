@@ -12,6 +12,7 @@
  */
 package org.uitest4j.swing.fixture;
 
+import org.uitest4j.exception.ActionFailedException;
 import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.driver.JToolBarDriver;
 
@@ -82,8 +83,8 @@ public class JToolBarFixture extends AbstractSwingContainerFixture<JToolBarFixtu
 	 *
 	 * @param point the point where the {@code JToolBar} will be floating to.
 	 * @return this fixture.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if the {@code JToolBar} is not floatable.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if the {@code JToolBar} cannot be dragged.
+	 * @throws ActionFailedException if the {@code JToolBar} is not floatable.
+	 * @throws ActionFailedException if the {@code JToolBar} cannot be dragged.
 	 */
 	@Nonnull
 	public JToolBarFixture floatTo(@Nonnull Point point) {
@@ -95,7 +96,7 @@ public class JToolBarFixture extends AbstractSwingContainerFixture<JToolBarFixtu
 	 * Simulates a user unfloating this fixture's {@code JToolBar}.
 	 *
 	 * @return this fixture.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if the dock container cannot be found.
+	 * @throws ActionFailedException if the dock container cannot be found.
 	 */
 	@Nonnull
 	public JToolBarFixture unfloat() {
@@ -108,7 +109,7 @@ public class JToolBarFixture extends AbstractSwingContainerFixture<JToolBarFixtu
 	 *
 	 * @param constraint the constraint position.
 	 * @return this fixture.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if the dock container cannot be found.
+	 * @throws ActionFailedException if the dock container cannot be found.
 	 */
 	@Nonnull
 	public JToolBarFixture unfloat(@Nonnull UnfloatConstraint constraint) {

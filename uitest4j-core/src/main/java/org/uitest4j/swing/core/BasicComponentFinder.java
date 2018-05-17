@@ -15,7 +15,7 @@ package org.uitest4j.swing.core;
 import org.opentest4j.AssertionFailedError;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.exception.ComponentLookupException;
-import org.uitest4j.swing.hierarchy.ComponentHierarchy;
+import org.uitest4j.hierarchy.ComponentHierarchy;
 import org.uitest4j.swing.hierarchy.ExistingHierarchy;
 import org.uitest4j.swing.hierarchy.SingleComponentHierarchy;
 

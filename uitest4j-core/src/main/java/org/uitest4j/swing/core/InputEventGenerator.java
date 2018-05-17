@@ -12,6 +12,8 @@
  */
 package org.uitest4j.swing.core;
 
+import org.uitest4j.exception.ActionFailedException;
+
 import javax.annotation.Nonnull;
 import java.awt.*;
 
@@ -35,7 +37,7 @@ interface InputEventGenerator {
 	 * @param c       the {@code Component} to click on.
 	 * @param where   the given coordinates, relative to the given {@code Component}.
 	 * @param buttons the mouse buttons to press.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if the {@code Component} to click is out of the
+	 * @throws ActionFailedException if the {@code Component} to click is out of the
 	 *                                                            boundaries of the screen.
 	 */
 	void pressMouse(@Nonnull Component c, @Nonnull Point where, int buttons);

@@ -12,6 +12,7 @@
  */
 package org.uitest4j.swing.fixture;
 
+import org.uitest4j.exception.ActionFailedException;
 import org.uitest4j.swing.cell.JComboBoxCellReader;
 import org.uitest4j.swing.core.Robot;
 import org.uitest4j.swing.driver.JComboBoxDriver;
@@ -313,7 +314,7 @@ public class JComboBoxFixture extends AbstractJPopupMenuInvokerFixture<JComboBox
 	 * @throws IllegalStateException                              if this fixture's {@code JComboBox} is disabled.
 	 * @throws IllegalStateException                              if this fixture's {@code JComboBox} is not showing on the screen.
 	 * @throws IllegalStateException                              if this fixture's {@code JComboBox} is not editable.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if this fixture's {@code JComboBox} does not have an editor.
+	 * @throws ActionFailedException if this fixture's {@code JComboBox} does not have an editor.
 	 */
 	@Nonnull
 	public JComboBoxFixture enterText(@Nonnull String text) {

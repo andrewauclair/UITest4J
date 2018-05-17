@@ -13,6 +13,7 @@
 package org.uitest4j.swing.core;
 
 import org.junit.jupiter.api.Test;
+import org.uitest4j.hierarchy.ComponentHierarchy;
 
 import javax.annotation.Nonnull;
 import javax.swing.*;
@@ -22,7 +23,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.uitest4j.swing.test.core.NeverMatchingComponentMatcher.neverMatches;
 
 /**
- * Tests for {@link FinderDelegate#find(org.uitest4j.swing.hierarchy.ComponentHierarchy, GenericTypeMatcher)}.
+ * Tests for {@link FinderDelegate#find(ComponentHierarchy, GenericTypeMatcher)}.
  *
  * @author Alex Ruiz
  */

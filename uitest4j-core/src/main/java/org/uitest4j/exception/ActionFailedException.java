@@ -10,7 +10,7 @@
 
   Copyright 2012-2015 the original author or authors.
  */
-package org.uitest4j.swing.exception;
+package org.uitest4j.exception;
 
 import javax.annotation.Nonnull;
 

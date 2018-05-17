@@ -14,7 +14,7 @@ package org.uitest4j.swing.fixture;
 
 import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.annotation.RunsInEDT;
-import org.uitest4j.swing.exception.ActionFailedException;
+import org.uitest4j.exception.ActionFailedException;
 import org.uitest4j.swing.test.ExpectedException;
 import org.uitest4j.swing.test.core.RobotBasedTestCase;
 import org.uitest4j.swing.test.swing.TestWindow;

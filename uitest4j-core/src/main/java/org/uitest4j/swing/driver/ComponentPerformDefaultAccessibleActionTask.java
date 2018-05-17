@@ -18,7 +18,7 @@ import javax.accessibility.AccessibleAction;
 import javax.annotation.Nonnull;
 import java.awt.*;
 
-import static org.uitest4j.swing.exception.ActionFailedException.actionFailure;
+import static org.uitest4j.exception.ActionFailedException.actionFailure;
 import static org.uitest4j.swing.format.Formatting.format;
 
 /**

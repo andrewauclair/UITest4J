@@ -12,6 +12,7 @@
  */
 package org.uitest4j.swing.driver;
 
+import org.uitest4j.exception.ActionFailedException;
 import org.uitest4j.swing.cell.JTableCellWriter;
 import org.uitest4j.swing.core.Robot;
 
@@ -53,7 +54,7 @@ public class BasicJTableCellWriter extends AbstractJTableCellWriter {
 	 * @param row    the row index of the cell.
 	 * @param column the column index of the cell.
 	 * @param value  the value to enter.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if this writer is unable to handle the underlying cell
+	 * @throws ActionFailedException if this writer is unable to handle the underlying cell
 	 *                                                            editor.
 	 */
 	@Override
@@ -72,7 +73,7 @@ public class BasicJTableCellWriter extends AbstractJTableCellWriter {
 	 *
 	 * @param row    the row index of the cell.
 	 * @param column the column index of the cell.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if this writer is unable to handle the underlying cell
+	 * @throws ActionFailedException if this writer is unable to handle the underlying cell
 	 *                                                            editor.
 	 * @see JTableCellWriter#startCellEditing(JTable, int, int)
 	 */
@@ -92,7 +93,7 @@ public class BasicJTableCellWriter extends AbstractJTableCellWriter {
 	 *
 	 * @param row    the row index of the cell.
 	 * @param column the column index of the cell.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if this writer is unable to handle the underlying cell
+	 * @throws ActionFailedException if this writer is unable to handle the underlying cell
 	 *                                                            editor.
 	 * @see JTableCellWriter#stopCellEditing(JTable, int, int)
 	 */
@@ -112,7 +113,7 @@ public class BasicJTableCellWriter extends AbstractJTableCellWriter {
 	 *
 	 * @param row    the row index of the cell.
 	 * @param column the column index of the cell.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if this writer is unable to handle the underlying cell
+	 * @throws ActionFailedException if this writer is unable to handle the underlying cell
 	 *                                                            editor.
 	 * @see JTableCellWriter#cancelCellEditing(JTable, int, int)
 	 */

@@ -12,6 +12,8 @@
  */
 package org.uitest4j.swing.hierarchy;
 
+import org.uitest4j.hierarchy.ComponentHierarchy;
+
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.awt.*;

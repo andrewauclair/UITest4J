@@ -12,6 +12,7 @@
  */
 package org.uitest4j.swing.core;
 
+import org.uitest4j.exception.ActionFailedException;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.util.TimeoutWatch;
 
@@ -19,7 +20,7 @@ import javax.annotation.Nonnull;
 import java.awt.*;
 import java.util.Objects;
 
-import static org.uitest4j.swing.exception.ActionFailedException.actionFailure;
+import static org.uitest4j.exception.ActionFailedException.actionFailure;
 import static org.uitest4j.swing.timing.Pause.pause;
 import static org.uitest4j.swing.util.Platform.isMacintosh;
 import static org.uitest4j.swing.util.Platform.isWindows;
@@ -106,7 +107,7 @@ public class ComponentDragAndDrop {
 	 *
 	 * @param target the target AWT or Swing {@code Component}.
 	 * @param where  the point where the drag operation ends.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if there is no drag action in effect.
+	 * @throws ActionFailedException if there is no drag action in effect.
 	 */
 	@RunsInEDT
 	public void drop(@Nonnull Component target, @Nonnull Point where) {

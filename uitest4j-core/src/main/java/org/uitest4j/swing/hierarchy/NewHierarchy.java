@@ -12,6 +12,7 @@
  */
 package org.uitest4j.swing.hierarchy;
 
+import org.uitest4j.hierarchy.ComponentHierarchy;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.uitest4j.swing.util.ToolkitProvider;
 

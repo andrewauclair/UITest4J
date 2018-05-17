@@ -12,6 +12,7 @@
  */
 package org.uitest4j.swing.data;
 
+import org.uitest4j.exception.ActionFailedException;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.cell.JTableCellReader;
 
@@ -31,7 +32,7 @@ public interface TableCellFinder {
 	 * @param table      the target {@code JTable}.
 	 * @param cellReader knows how to read the contents of a cell in a {@code JTable}.
 	 * @return the cell found, if any.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if a matching cell could not be found.
+	 * @throws ActionFailedException if a matching cell could not be found.
 	 */
 	@RunsInEDT
 	@Nonnull

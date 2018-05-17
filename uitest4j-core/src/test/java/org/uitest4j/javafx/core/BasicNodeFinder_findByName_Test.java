@@ -13,6 +13,7 @@
 package org.uitest4j.javafx.core;
 
 import javafx.scene.Node;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.test.ExpectedException;
 
@@ -23,6 +24,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 class BasicNodeFinder_findByName_Test extends BasicNodeFinder_TestCase {
 	@Test
+	@Disabled
 	void finds_node_by_name() {
 		Node label = finder.findByName("label");
 		assertThat(label).isSameAs(this.label);

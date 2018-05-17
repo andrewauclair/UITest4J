@@ -12,6 +12,7 @@
  */
 package org.uitest4j.swing.fixture;
 
+import org.uitest4j.exception.ActionFailedException;
 import org.uitest4j.swing.core.MouseButton;
 import org.uitest4j.swing.core.MouseClickInfo;
 import org.uitest4j.swing.data.TableCell;
@@ -187,7 +188,7 @@ public class JTableCellFixture implements ItemFixture<JTableCellFixture> {
 	 * @throws IllegalStateException                              if this fixture's {@code JTable} is not showing on the screen.
 	 * @throws IllegalStateException                              if this cell is not editable.
 	 * @throws IndexOutOfBoundsException                          if any of the indices (row and column) is out of bounds.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if this writer is unable to handle the underlying cell
+	 * @throws ActionFailedException if this writer is unable to handle the underlying cell
 	 *                                                            editor.
 	 * @see JTableFixture#replaceCellWriter(org.uitest4j.swing.cell.JTableCellWriter)
 	 * @see org.uitest4j.swing.cell.JTableCellWriter
@@ -212,7 +213,7 @@ public class JTableCellFixture implements ItemFixture<JTableCellFixture> {
 	 * @throws IllegalStateException                              if this fixture's {@code JTable} is not showing on the screen.
 	 * @throws IllegalStateException                              if this cell is not editable.
 	 * @throws IndexOutOfBoundsException                          if any of the indices (row and column) is out of bounds.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if this writer is unable to handle the underlying cell
+	 * @throws ActionFailedException if this writer is unable to handle the underlying cell
 	 *                                                            editor.
 	 * @see JTableFixture#replaceCellWriter(org.uitest4j.swing.cell.JTableCellWriter)
 	 * @see org.uitest4j.swing.cell.JTableCellWriter
@@ -251,7 +252,7 @@ public class JTableCellFixture implements ItemFixture<JTableCellFixture> {
 	 * @throws IllegalStateException                              if this fixture's {@code JTable} is not showing on the screen.
 	 * @throws IllegalStateException                              if this cell is not editable.
 	 * @throws IndexOutOfBoundsException                          if any of the indices (row and column) is out of bounds.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if this writer is unable to handle the underlying cell
+	 * @throws ActionFailedException if this writer is unable to handle the underlying cell
 	 *                                                            editor.
 	 * @see JTableFixture#replaceCellWriter(org.uitest4j.swing.cell.JTableCellWriter)
 	 * @see org.uitest4j.swing.cell.JTableCellWriter
@@ -305,7 +306,7 @@ public class JTableCellFixture implements ItemFixture<JTableCellFixture> {
 	 * @throws IllegalStateException                              if this fixture's {@code JTable} is not showing on the screen.
 	 * @throws IllegalStateException                              if this cell is not editable.
 	 * @throws IndexOutOfBoundsException                          if any of the indices (row and column) is out of bounds.
-	 * @throws org.uitest4j.swing.exception.ActionFailedException if this driver's {@code JTableCellValueReader} is unable
+	 * @throws ActionFailedException if this driver's {@code JTableCellValueReader} is unable
 	 *                                                            to enter the given value.
 	 * @see JTableFixture#replaceCellWriter(org.uitest4j.swing.cell.JTableCellWriter)
 	 * @see org.uitest4j.swing.cell.JTableCellWriter

@@ -10,7 +10,7 @@
 
   Copyright 2012-2015 the original author or authors.
  */
-package org.uitest4j.swing.fixture;
+package org.uitest4j.fixture;
 
 import org.uitest4j.swing.core.MouseButton;
 import org.uitest4j.swing.core.MouseClickInfo;

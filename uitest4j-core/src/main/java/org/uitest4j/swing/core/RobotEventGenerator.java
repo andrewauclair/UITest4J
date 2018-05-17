@@ -23,7 +23,7 @@ import java.util.Objects;
 import static org.uitest4j.swing.awt.AWT.isPointInScreenBoundaries;
 import static org.uitest4j.swing.awt.AWT.translate;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-import static org.uitest4j.swing.exception.ActionFailedException.actionFailure;
+import static org.uitest4j.exception.ActionFailedException.actionFailure;
 import static org.uitest4j.swing.exception.UnexpectedException.unexpected;
 import static org.uitest4j.swing.timing.Pause.pause;
 import static org.uitest4j.swing.util.Platform.isOSX;
