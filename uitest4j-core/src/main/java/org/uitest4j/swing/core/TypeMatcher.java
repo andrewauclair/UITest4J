@@ -25,7 +25,7 @@ import java.util.Objects;
  * @author Alex Ruiz
  */
 public final class TypeMatcher extends AbstractComponentMatcher {
-	private final Class<? extends Component> type;
+	private final Class<?> type;
 
 	/**
 	 * Creates a new {@link TypeMatcher}. The AWT or Swing {@code Component} to match does not have to be showing.
@@ -33,7 +33,7 @@ public final class TypeMatcher extends AbstractComponentMatcher {
 	 * @param type the type of the {@code Component} we are looking for.
 	 * @throws NullPointerException if the given type is {@code null}.
 	 */
-	public TypeMatcher(@Nonnull Class<? extends Component> type) {
+	public TypeMatcher(@Nonnull Class<?> type) {
 		this(type, false);
 	}
 
@@ -44,7 +44,7 @@ public final class TypeMatcher extends AbstractComponentMatcher {
 	 * @param requireShowing indicates if the {@code Component} to match should be showing or not.
 	 * @throws NullPointerException if the given type is {@code null}.
 	 */
-	public TypeMatcher(@Nonnull Class<? extends Component> type, boolean requireShowing) {
+	public TypeMatcher(@Nonnull Class<?> type, boolean requireShowing) {
 		super(requireShowing);
 		this.type = Objects.requireNonNull(type);
 	}

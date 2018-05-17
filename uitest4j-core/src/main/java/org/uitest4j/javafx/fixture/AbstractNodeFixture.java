@@ -13,12 +13,16 @@
 package org.uitest4j.javafx.fixture;
 
 import javafx.scene.Node;
+import org.uitest4j.core.Robot;
 import org.uitest4j.fixture.MouseInputSimulationFixture;
 import org.uitest4j.javafx.driver.NodeDriver;
 import org.uitest4j.swing.core.MouseButton;
 import org.uitest4j.swing.core.MouseClickInfo;
+import org.uitest4j.swing.fixture.AbstractComponentFixture;
 
 import javax.annotation.Nonnull;
+import java.awt.*;
+import java.util.Objects;
 
 /**
  * @author Andrew Auclair
@@ -26,8 +30,62 @@ import javax.annotation.Nonnull;
  * @param <N>
  * @param <D>
  */
-public class AbstractNodeFixture<S, N extends Node, D extends NodeDriver>
+public abstract class AbstractNodeFixture<S, C extends Node, D extends NodeDriver>
 		implements MouseInputSimulationFixture<S> {
+	/**
+	 * Performs simulation of user events on {@link #target}
+	 */
+	private final Robot robot;
+	
+	private final C target;
+	private final S myself;
+	
+	private D driver;
+	
+	/**
+	 * Creates a new {@link AbstractComponentFixture}.
+	 *
+	 * @param selfType the "self type."
+	 * @param robot    performs simulation of user events on a {@code Component}.
+	 * @param type     the type of the {@code Component} to find using the given {@code Robot}.
+	 * @throws NullPointerException                                  if {@code robot} is {@code null}.
+	 * @throws NullPointerException                                  if {@code type} is {@code null}.
+	 * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching component could not be found.
+	 * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching component is found.
+	 */
+	public AbstractNodeFixture(@Nonnull Class<S> selfType, @Nonnull Robot robot, @Nonnull Class<? extends C> type) {
+		this(selfType, robot, findTarget(robot, type));
+	}
+	
+	@Nonnull
+	private static <C extends Node> C findTarget(@Nonnull Robot robot, @Nonnull Class<? extends C> type) {
+		Objects.requireNonNull(robot);
+		Objects.requireNonNull(type);
+//		return null;
+		return robot.finder().findByType(type, requireShowing(robot));
+	}
+	
+	public AbstractNodeFixture(@Nonnull Class<S> selfType, @Nonnull Robot robot, @Nonnull C target) {
+		myself = Objects.requireNonNull(selfType).cast(this);
+		this.robot = Objects.requireNonNull(robot);
+		this.target = Objects.requireNonNull(target);
+		replaceDriverWith(createDriver(robot));
+	}
+	
+	/**
+	 * Returns whether showing components are the only ones participating in a component lookup. The returned value is
+	 * obtained from the {@link org.uitest4j.swing.core.Settings#componentLookupScope() component lookup scope} stored in
+	 * this fixture's {@link Robot}.
+	 *
+	 * @return {@code true} if only showing components can participate in a component lookup, {@code false} otherwise.
+	 */
+	protected boolean requireShowing() {
+		return requireShowing(robot());
+	}
+	
+	private static boolean requireShowing(@Nonnull Robot robot) {
+		return robot.settings().componentLookupScope().requireShowing();
+	}
 	
 	@Nonnull
 	@Override
@@ -57,5 +115,53 @@ public class AbstractNodeFixture<S, N extends Node, D extends NodeDriver>
 	@Override
 	public S rightClick() {
 		return null;
+	}
+	
+	protected abstract @Nonnull
+	D createDriver(@Nonnull Robot robot);
+	
+	protected final @Nonnull
+	D driver() {
+		return driver;
+	}
+	
+	public final void replaceDriverWith(@Nonnull D driver) {
+		this.driver = Objects.requireNonNull(driver);
+	}
+	
+	/**
+	 * <p>
+	 * Returns the GUI component in this fixture.
+	 * </p>
+	 * <p>
+	 * <strong>Note:</strong> Access to the GUI component returned by this method <em>must</em> be executed in the event
+	 * dispatch thread (EDT). To do so, please execute a {@link org.uitest4j.swing.edt.GuiQuery GuiQuery} or
+	 * {@link org.uitest4j.swing.edt.GuiTask GuiTask} (depending on what you need to do), inside a
+	 * {@link org.uitest4j.swing.edt.GuiActionRunner}. To learn more about Swing threading, please read the <a
+	 * href="http://java.sun.com/javase/6/docs/api/javax/swing/package-summary.html#threading" target="_blank">Swing
+	 * Threading Policy</a>.
+	 * </p>
+	 *
+	 * @return the GUI component in this fixture.
+	 */
+	public final @Nonnull
+	C target() {
+		return target;
+	}
+	
+	/**
+	 * @return the {@link Robot} that simulates user events on {@link #target()}.
+	 */
+	public final @Nonnull
+	Robot robot() {
+		return robot;
+	}
+	
+	/**
+	 * @return {@code this} casted to the "self type".
+	 */
+	protected final @Nonnull
+	S myself() {
+		return myself;
 	}
 }

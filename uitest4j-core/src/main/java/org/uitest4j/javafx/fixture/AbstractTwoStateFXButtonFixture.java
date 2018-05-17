@@ -17,6 +17,5 @@ import javafx.scene.control.ButtonBase;
 /**
  * @author Andrew Auclair
  */
-public abstract class ButtonBaseFixture<S, T extends ButtonBase> extends LabeledFixture<S, T> {
-
+public abstract class AbstractTwoStateFXButtonFixture<S, T extends ButtonBase> extends ButtonBaseFixture<S, T> {
 }

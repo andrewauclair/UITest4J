@@ -12,6 +12,7 @@
  */
 package org.uitest4j.swing.core;
 
+import javafx.scene.Node;
 import org.uitest4j.core.Robot;
 import org.uitest4j.swing.annotation.RunsInEDT;
 
@@ -60,7 +61,7 @@ public interface ComponentFinder {
 	 * @see ComponentLookupScope
 	 */
 	@Nonnull
-	<T extends Component> T findByType(@Nonnull Class<T> type);
+	<T> T findByType(@Nonnull Class<T> type);
 
 	/**
 	 * Finds an AWT or Swing {@code Component} by type. For example:
@@ -74,7 +75,7 @@ public interface ComponentFinder {
 	 * @see #findByType(Class)
 	 */
 	@Nonnull
-	<T extends Component> T findByType(@Nonnull Class<T> type, boolean showing);
+	<T> T findByType(@Nonnull Class<T> type, boolean showing);
 
 	/**
 	 * <p>

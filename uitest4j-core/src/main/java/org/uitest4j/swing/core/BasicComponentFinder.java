@@ -100,14 +100,14 @@ public final class BasicComponentFinder implements ComponentFinder {
 
 	@Override
 	@Nonnull
-	public <T extends Component> T findByType(@Nonnull Class<T> type) {
+	public <T> T findByType(@Nonnull Class<T> type) {
 		return findByType(type, requireShowing());
 	}
 
 	@RunsInEDT
 	@Override
 	@Nonnull
-	public <T extends Component> T findByType(@Nonnull Class<T> type, boolean showing) {
+	public <T> T findByType(@Nonnull Class<T> type, boolean showing) {
 		return type.cast(find(new TypeMatcher(type, showing)));
 	}
 
