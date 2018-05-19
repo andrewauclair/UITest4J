@@ -20,6 +20,7 @@ import java.awt.*;
 import java.io.PrintStream;
 
 /**
+ * @author Alex Ruiz
  * @author Andrew Auclair
  */
 public interface Printer<C, P> {
