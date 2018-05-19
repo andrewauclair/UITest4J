@@ -31,12 +31,17 @@ import static org.uitest4j.swing.util.Maps.newHashMap;
  */
 public class AbstractClickRecorder {
 
-	private static final Map<Integer, MouseButton> MOUSE_BUTTON_MAP = newHashMap();
+	private static final Map<Integer, MouseButton> SWING_MOUSE_BUTTON_MAP = newHashMap();
+	private static final Map<javafx.scene.input.MouseButton, MouseButton> JAVAFX_MOUSE_BUTTON_MAP = newHashMap();
 
 	static {
-		MOUSE_BUTTON_MAP.put(MouseEvent.BUTTON1, LEFT_BUTTON);
-		MOUSE_BUTTON_MAP.put(MouseEvent.BUTTON2, MIDDLE_BUTTON);
-		MOUSE_BUTTON_MAP.put(MouseEvent.BUTTON3, RIGHT_BUTTON);
+		SWING_MOUSE_BUTTON_MAP.put(MouseEvent.BUTTON1, LEFT_BUTTON);
+		SWING_MOUSE_BUTTON_MAP.put(MouseEvent.BUTTON2, MIDDLE_BUTTON);
+		SWING_MOUSE_BUTTON_MAP.put(MouseEvent.BUTTON3, RIGHT_BUTTON);
+		
+		JAVAFX_MOUSE_BUTTON_MAP.put(javafx.scene.input.MouseButton.PRIMARY, LEFT_BUTTON);
+		JAVAFX_MOUSE_BUTTON_MAP.put(javafx.scene.input.MouseButton.MIDDLE, MIDDLE_BUTTON);
+		JAVAFX_MOUSE_BUTTON_MAP.put(javafx.scene.input.MouseButton.SECONDARY, RIGHT_BUTTON);
 	}
 
 	private MouseButton clickedButton;
@@ -44,11 +49,17 @@ public class AbstractClickRecorder {
 	private Point pointClicked;
 
 	protected void record(@Nonnull MouseEvent e) {
-		clickedButton = MOUSE_BUTTON_MAP.get(e.getButton());
+		clickedButton = SWING_MOUSE_BUTTON_MAP.get(e.getButton());
 		clickCount = e.getClickCount();
 		pointClicked = e.getPoint();
 	}
 
+	protected void record(@Nonnull javafx.scene.input.MouseEvent e) {
+		clickedButton = JAVAFX_MOUSE_BUTTON_MAP.get(e.getButton());
+		clickCount = e.getClickCount();
+		pointClicked = new Point((int) e.getX(), (int) e.getY());
+	}
+	
 	public final @Nonnull
 	AbstractClickRecorder wasNotClicked() {
 		assertThat(clickedButton).isNull();

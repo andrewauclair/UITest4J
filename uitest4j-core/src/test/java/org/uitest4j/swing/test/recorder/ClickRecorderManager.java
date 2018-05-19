@@ -12,6 +12,8 @@
  */
 package org.uitest4j.swing.test.recorder;
 
+import javafx.scene.Node;
+
 import javax.annotation.Nonnull;
 import java.awt.*;
 import java.util.List;
@@ -31,6 +33,11 @@ public class ClickRecorderManager {//implements TestRule {
 		return ClickRecorder.attachTo(target);
 	}
 
+	@Nonnull
+	public ClickRecorder attachDirectlyTo(@Nonnull Node target) {
+		return ClickRecorder.attachTo(target);
+	}
+	
 	@Nonnull
 	public ToolkitClickRecorder attachToToolkitFor(@Nonnull Component target) {
 		ToolkitClickRecorder clickRecorder = ToolkitClickRecorder.attachTo(target);

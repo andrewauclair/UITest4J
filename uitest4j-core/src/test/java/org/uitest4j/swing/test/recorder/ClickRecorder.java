@@ -12,10 +12,16 @@
  */
 package org.uitest4j.swing.test.recorder;
 
+import javafx.event.Event;
+import javafx.event.EventHandler;
+import javafx.scene.Node;
+import javafx.scene.input.MouseEvent;
+
 import javax.annotation.Nonnull;
+
+
 import java.awt.*;
 import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 import static org.assertj.core.util.Preconditions.checkNotNull;
 
@@ -38,6 +44,13 @@ public class ClickRecorder extends AbstractClickRecorder {
 		return recorder;
 	}
 
+	static @Nonnull
+	ClickRecorder attachTo(@Nonnull Node target) {
+		ClickRecorder recorder = new ClickRecorder();
+		attach(recorder, target);
+		return recorder;
+	}
+	
 	private static void attach(@Nonnull ClickListener listener, @Nonnull Component target) {
 		target.addMouseListener(listener);
 		if (!(target instanceof Container)) {
@@ -48,6 +61,15 @@ public class ClickRecorder extends AbstractClickRecorder {
 		}
 	}
 
+	public static void attach(@Nonnull ClickRecorder recorder, @Nonnull Node target) {
+		target.addEventHandler(MouseEvent.MOUSE_PRESSED, event -> {
+			recorder.record(checkNotNull(event));
+		});
+		target.addEventHandler(MouseEvent.MOUSE_RELEASED, event -> {
+			recorder.record(checkNotNull(event));
+		});
+	}
+	
 	private static class ClickListener extends MouseAdapter {
 		private final ClickRecorder owner;
 
@@ -56,12 +78,12 @@ public class ClickRecorder extends AbstractClickRecorder {
 		}
 
 		@Override
-		public void mousePressed(MouseEvent e) {
+		public void mousePressed(java.awt.event.MouseEvent e) {
 			owner.record(checkNotNull(e));
 		}
 
 		@Override
-		public void mouseReleased(MouseEvent e) {
+		public void mouseReleased(java.awt.event.MouseEvent e) {
 			owner.record(checkNotNull(e));
 		}
 	}
