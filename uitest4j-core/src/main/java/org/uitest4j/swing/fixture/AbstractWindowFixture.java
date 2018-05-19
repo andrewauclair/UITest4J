@@ -13,7 +13,7 @@
 package org.uitest4j.swing.fixture;
 
 import org.uitest4j.exception.ActionFailedException;
-import org.uitest4j.core.api.Robot;
+import org.uitest4j.core.api.swing.Robot;
 import org.uitest4j.swing.core.Settings;
 import org.uitest4j.swing.driver.WindowDriver;
 

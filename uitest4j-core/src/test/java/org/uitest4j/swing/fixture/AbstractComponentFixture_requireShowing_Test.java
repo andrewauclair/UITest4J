@@ -16,7 +16,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.uitest4j.swing.core.ComponentLookupScope;
-import org.uitest4j.core.api.Robot;
+import org.uitest4j.core.api.swing.Robot;
 import org.uitest4j.swing.core.Settings;
 import org.uitest4j.swing.driver.ComponentDriver;
 

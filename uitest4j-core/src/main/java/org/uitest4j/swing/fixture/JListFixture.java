@@ -15,7 +15,7 @@ package org.uitest4j.swing.fixture;
 import org.uitest4j.exception.ActionFailedException;
 import org.uitest4j.swing.cell.JListCellReader;
 import org.uitest4j.swing.core.MouseButton;
-import org.uitest4j.core.api.Robot;
+import org.uitest4j.core.api.swing.Robot;
 import org.uitest4j.swing.driver.JListDriver;
 import org.uitest4j.swing.util.Range;
 

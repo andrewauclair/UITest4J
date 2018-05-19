@@ -14,7 +14,7 @@ package org.uitest4j.swing.driver;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.uitest4j.core.api.Robot;
+import org.uitest4j.core.api.swing.Robot;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;

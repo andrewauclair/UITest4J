@@ -13,7 +13,7 @@
 package org.uitest4j.javafx.fixture;
 
 import javafx.scene.Node;
-import org.uitest4j.core.api.Robot;
+import org.uitest4j.core.api.swing.Robot;
 import org.uitest4j.fixture.MouseInputSimulationFixture;
 import org.uitest4j.javafx.driver.NodeDriver;
 import org.uitest4j.swing.core.MouseButton;

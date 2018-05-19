@@ -13,7 +13,7 @@
 package org.uitest4j.swing.fixture;
 
 import org.uitest4j.swing.core.GenericTypeMatcher;
-import org.uitest4j.core.api.Robot;
+import org.uitest4j.core.api.swing.Robot;
 import org.uitest4j.swing.driver.JPopupMenuDriver;
 
 import javax.annotation.Nonnull;

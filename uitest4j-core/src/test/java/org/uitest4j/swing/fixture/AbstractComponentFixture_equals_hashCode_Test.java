@@ -14,7 +14,7 @@ package org.uitest4j.swing.fixture;
 
 import nl.jqno.equalsverifier.EqualsVerifier;
 import org.junit.jupiter.api.Test;
-import org.uitest4j.core.api.Robot;
+import org.uitest4j.core.api.swing.Robot;
 import org.uitest4j.swing.driver.ComponentDriver;
 import org.uitest4j.swing.test.core.RobotBasedTestCase;
 

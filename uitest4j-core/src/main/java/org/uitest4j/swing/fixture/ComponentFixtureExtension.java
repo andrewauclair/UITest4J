@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.fixture;
 
-import org.uitest4j.core.api.Robot;
+import org.uitest4j.core.api.swing.Robot;
 
 import javax.annotation.Nonnull;
 import java.awt.*;

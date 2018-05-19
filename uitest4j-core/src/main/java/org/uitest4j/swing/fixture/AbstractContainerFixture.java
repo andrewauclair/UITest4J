@@ -14,7 +14,7 @@ package org.uitest4j.swing.fixture;
 
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.core.*;
-import org.uitest4j.core.api.Robot;
+import org.uitest4j.core.api.swing.Robot;
 import org.uitest4j.swing.driver.ComponentDriver;
 import org.uitest4j.swing.timing.Timeout;
 

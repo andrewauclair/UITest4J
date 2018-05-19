@@ -13,7 +13,7 @@
 package org.uitest4j.swing.core;
 
 import org.junit.jupiter.api.Test;
-import org.uitest4j.core.api.Robot;
+import org.uitest4j.core.api.swing.Robot;
 import org.uitest4j.swing.edt.GuiQuery;
 import org.uitest4j.swing.fixture.JButtonFixture;
 import org.uitest4j.swing.test.core.RobotBasedTestCase;

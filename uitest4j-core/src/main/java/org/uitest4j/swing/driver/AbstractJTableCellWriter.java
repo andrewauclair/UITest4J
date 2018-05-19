@@ -17,7 +17,7 @@ import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.cell.JTableCellWriter;
 import org.uitest4j.swing.core.ComponentFoundCondition;
 import org.uitest4j.swing.core.ComponentMatcher;
-import org.uitest4j.core.api.Robot;
+import org.uitest4j.core.api.swing.Robot;
 import org.uitest4j.swing.core.TypeMatcher;
 import org.uitest4j.exception.ActionFailedException;
 import org.uitest4j.swing.exception.WaitTimedOutError;

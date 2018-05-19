@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.core;
 
-import org.uitest4j.core.api.Robot;
+import org.uitest4j.core.api.swing.Robot;
 import org.uitest4j.core.api.swing.ComponentPrinter;
 import org.uitest4j.exception.ActionFailedException;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
@@ -83,7 +83,7 @@ import static org.uitest4j.swing.util.TimeoutWatch.startWatchWithTimeoutOf;
  * @author DaveBrad
  * @see Robot
  */
-public class BasicRobot implements Robot<Component, Window> {
+public class BasicRobot implements Robot {
 	private static final int POPUP_DELAY = 10000;
 	private static final int POPUP_TIMEOUT = 5000;
 	private static final int WINDOW_DELAY = 20000;

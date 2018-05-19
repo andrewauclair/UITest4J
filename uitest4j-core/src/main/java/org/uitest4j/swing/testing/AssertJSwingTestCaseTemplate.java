@@ -13,7 +13,7 @@
 package org.uitest4j.swing.testing;
 
 import org.uitest4j.swing.core.BasicRobot;
-import org.uitest4j.core.api.Robot;
+import org.uitest4j.core.api.swing.Robot;
 
 import javax.annotation.Nonnull;
 

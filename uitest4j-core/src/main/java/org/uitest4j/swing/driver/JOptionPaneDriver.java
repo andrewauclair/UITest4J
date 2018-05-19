@@ -13,7 +13,7 @@
 package org.uitest4j.swing.driver;
 
 import org.uitest4j.swing.annotation.RunsInEDT;
-import org.uitest4j.core.api.Robot;
+import org.uitest4j.core.api.swing.Robot;
 import org.uitest4j.swing.core.matcher.JButtonMatcher;
 import org.uitest4j.swing.internal.annotation.InternalApi;
 import org.uitest4j.swing.internal.assertions.OpenTest4JAssertions;

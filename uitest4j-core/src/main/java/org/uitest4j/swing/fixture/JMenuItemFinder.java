@@ -14,7 +14,7 @@ package org.uitest4j.swing.fixture;
 
 import org.opentest4j.AssertionFailedError;
 import org.uitest4j.swing.core.ComponentMatcher;
-import org.uitest4j.core.api.Robot;
+import org.uitest4j.core.api.swing.Robot;
 import org.uitest4j.swing.driver.JMenuItemMatcher;
 
 import javax.annotation.Nonnull;

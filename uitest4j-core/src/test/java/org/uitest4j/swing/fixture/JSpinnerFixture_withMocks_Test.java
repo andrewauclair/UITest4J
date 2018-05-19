@@ -14,7 +14,7 @@ package org.uitest4j.swing.fixture;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.uitest4j.core.api.Robot;
+import org.uitest4j.core.api.swing.Robot;
 import org.uitest4j.swing.driver.JSpinnerDriver;
 
 import javax.swing.*;

@@ -15,7 +15,7 @@ package org.uitest4j.swing.fixture;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.cell.JComboBoxCellReader;
-import org.uitest4j.core.api.Robot;
+import org.uitest4j.core.api.swing.Robot;
 import org.uitest4j.swing.driver.JComboBoxDriver;
 
 import javax.swing.*;

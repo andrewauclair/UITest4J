@@ -17,7 +17,7 @@ import org.uitest4j.swing.cell.JTableCellReader;
 import org.uitest4j.swing.cell.JTableCellWriter;
 import org.uitest4j.swing.core.MouseButton;
 import org.uitest4j.swing.core.MouseClickInfo;
-import org.uitest4j.core.api.Robot;
+import org.uitest4j.core.api.swing.Robot;
 import org.uitest4j.swing.data.TableCell;
 import org.uitest4j.swing.data.TableCellFinder;
 import org.uitest4j.swing.driver.JTableDriver;

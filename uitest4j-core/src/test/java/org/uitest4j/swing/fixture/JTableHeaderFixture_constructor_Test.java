@@ -13,7 +13,7 @@
 package org.uitest4j.swing.fixture;
 
 import org.junit.jupiter.api.Test;
-import org.uitest4j.core.api.Robot;
+import org.uitest4j.core.api.swing.Robot;
 
 import javax.swing.table.JTableHeader;
 

@@ -72,7 +72,7 @@
  *
  * <p>
  * Something that you may find weird in the code examples is &quot;{@code using(loginDialog.robot)}.&quot; This is
- * necessary because, in a given test, only one instance of {@link org.uitest4j.core.api.Robot Robot} can be running,
+ * necessary because, in a given test, only one instance of {@link org.uitest4j.core.api.swing.Robot Robot} can be running,
  * to prevent GUI tests from blocking each other on the screen. In another words, in a test class you can only use one
  * and only one instance of {@code Robot}.
  * </p>

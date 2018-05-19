@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.fixture;
 
-import org.uitest4j.core.api.Robot;
+import org.uitest4j.core.api.swing.Robot;
 import org.uitest4j.swing.exception.ComponentLookupException;
 
 import javax.annotation.Nonnull;
