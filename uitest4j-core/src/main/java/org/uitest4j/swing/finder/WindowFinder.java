@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.finder;
 
-import org.uitest4j.core.Robot;
+import org.uitest4j.core.api.Robot;
 import org.uitest4j.swing.core.GenericTypeMatcher;
 
 import javax.annotation.Nonnull;

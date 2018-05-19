@@ -14,7 +14,7 @@ package org.uitest4j.swing.driver;
 
 import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.annotation.RunsInEDT;
-import org.uitest4j.core.Robot;
+import org.uitest4j.core.api.Robot;
 import org.uitest4j.swing.test.ExpectedException;
 import org.uitest4j.swing.test.core.RobotBasedTestCase;
 import org.uitest4j.swing.test.swing.TestMdiWindow;

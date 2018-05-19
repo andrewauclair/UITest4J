@@ -18,7 +18,7 @@ import org.uitest4j.fixture.MouseInputSimulationFixture;
 import org.uitest4j.swing.core.KeyPressInfo;
 import org.uitest4j.swing.core.MouseButton;
 import org.uitest4j.swing.core.MouseClickInfo;
-import org.uitest4j.core.Robot;
+import org.uitest4j.core.api.Robot;
 import org.uitest4j.swing.driver.ComponentDriver;
 import org.uitest4j.swing.exception.ComponentLookupException;
 import org.uitest4j.swing.query.ComponentEnabledQuery;

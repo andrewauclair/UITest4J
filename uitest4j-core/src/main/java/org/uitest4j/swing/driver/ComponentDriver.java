@@ -16,7 +16,7 @@ import org.uitest4j.exception.ActionFailedException;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.core.*;
-import org.uitest4j.core.Robot;
+import org.uitest4j.core.api.Robot;
 import org.uitest4j.swing.internal.annotation.InternalApi;
 import org.uitest4j.swing.internal.assertions.OpenTest4JAssertions;
 import org.uitest4j.swing.timing.Timeout;

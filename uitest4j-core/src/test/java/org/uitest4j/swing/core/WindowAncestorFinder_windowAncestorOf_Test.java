@@ -15,7 +15,7 @@ package org.uitest4j.swing.core;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.uitest4j.core.Robot;
+import org.uitest4j.core.api.Robot;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.test.core.EDTSafeTestCase;
 import org.uitest4j.swing.test.swing.TestWindow;

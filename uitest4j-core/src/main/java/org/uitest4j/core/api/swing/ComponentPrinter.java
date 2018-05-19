@@ -10,31 +10,20 @@
 
   Copyright 2012-2015 the original author or authors.
  */
-package org.uitest4j.swing.driver;
+package org.uitest4j.core.api.swing;
 
-import org.uitest4j.core.api.Robot;
+import org.uitest4j.core.api.Printer;
 
 import javax.annotation.Nonnull;
-import javax.swing.*;
+import javax.annotation.Nullable;
+import java.awt.*;
+import java.io.PrintStream;
 
-class AbstractJTableCellWriterStub extends AbstractJTableCellWriter {
-	AbstractJTableCellWriterStub(Robot robot) {
-		super(robot);
-	}
-
-	@Override
-	public void enterValue(@Nonnull JTable table, int row, int column, @Nonnull String value) {
-	}
-
-	@Override
-	public void startCellEditing(@Nonnull JTable table, int row, int column) {
-	}
-
-	@Override
-	public void stopCellEditing(@Nonnull JTable table, int row, int column) {
-	}
-
-	@Override
-	public void cancelCellEditing(@Nonnull JTable table, int row, int column) {
-	}
+/**
+ * Sends the {@code String} representation of AWT and Swing {@code Component}s to a {@code java.io.PrintStream}, to
+ * facilitate debugging.
+ *
+ * @author Alex Ruiz
+ */
+public interface ComponentPrinter extends Printer<Component, Container> {
 }

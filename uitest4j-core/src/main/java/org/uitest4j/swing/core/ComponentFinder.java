@@ -12,8 +12,8 @@
  */
 package org.uitest4j.swing.core;
 
-import javafx.scene.Node;
-import org.uitest4j.core.Robot;
+import org.uitest4j.core.api.Robot;
+import org.uitest4j.core.api.swing.ComponentPrinter;
 import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.annotation.Nonnull;
@@ -37,7 +37,7 @@ public interface ComponentFinder {
 
 	/**
 	 * <p>
-	 * Finds an AWT or Swing {@code Component} by type. If this finder is attached to a {@link org.uitest4j.core.Robot}, it will use the
+	 * Finds an AWT or Swing {@code Component} by type. If this finder is attached to a {@link Robot}, it will use the
 	 * component lookup scope in the {@code Robot}'s {@link Settings} to determine whether the component to find should be
 	 * showing or not. If this finder is <em>not</em> attached to any {@code Robot}, the component to find does not have
 	 * to be showing.
@@ -56,7 +56,7 @@ public interface ComponentFinder {
 	 * @return the found component.
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching component could not be found.
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching component is found.
-	 * @see org.uitest4j.core.Robot#settings()
+	 * @see Robot#settings()
 	 * @see Settings#componentLookupScope()
 	 * @see ComponentLookupScope
 	 */
@@ -80,7 +80,7 @@ public interface ComponentFinder {
 	/**
 	 * <p>
 	 * Finds an AWT or Swing {@code Component} by type in the hierarchy under the given root. If this finder is attached
-	 * to a {@link org.uitest4j.core.Robot}, it will use the component lookup scope in the {@code Robot}'s {@link Settings} to determine
+	 * to a {@link Robot}, it will use the component lookup scope in the {@code Robot}'s {@link Settings} to determine
 	 * whether the component to find should be showing or not. If this finder is <em>not</em> attached to any
 	 * {@code Robot}, the component to find does not have to be showing.
 	 * </p>
@@ -109,7 +109,7 @@ public interface ComponentFinder {
 	 * @return the found component.
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching component could not be found.
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching component is found.
-	 * @see org.uitest4j.core.Robot#settings()
+	 * @see Robot#settings()
 	 * @see Settings#componentLookupScope()
 	 * @see ComponentLookupScope
 	 */
@@ -134,7 +134,7 @@ public interface ComponentFinder {
 	/**
 	 * <p>
 	 * Finds an AWT or Swing {@code Component} by by the text of its associated {@code JLabel}. If this finder is attached
-	 * to a {@link org.uitest4j.core.Robot}, it will use the component lookup scope in the {@code Robot}'s {@link Settings} to determine
+	 * to a {@link Robot}, it will use the component lookup scope in the {@code Robot}'s {@link Settings} to determine
 	 * whether the component to find should be showing or not. If this finder is <em>not</em> attached to any
 	 * {@code Robot}, the component to find does not have to be showing.
 	 * </p>
@@ -174,7 +174,7 @@ public interface ComponentFinder {
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching component is found.
 	 * @see javax.swing.JLabel#getLabelFor()
 	 * @see javax.swing.JLabel#setLabelFor(Component)
-	 * @see org.uitest4j.core.Robot#settings()
+	 * @see Robot#settings()
 	 * @see Settings#componentLookupScope()
 	 * @see ComponentLookupScope
 	 */
@@ -183,7 +183,7 @@ public interface ComponentFinder {
 
 	/**
 	 * Finds an AWT or Swing {@code Component} by the text of its associated {@code JLabel} and type. If this finder is
-	 * attached to a {@link org.uitest4j.core.Robot}, it will use the component lookup scope in the {@code Robot}'s {@link Settings} to
+	 * attached to a {@link Robot}, it will use the component lookup scope in the {@code Robot}'s {@link Settings} to
 	 * determine whether the component to find should be showing or not. If this finder is <em>not</em> attached to any
 	 * {@code Robot}, the component to find does not have to be showing.
 	 *
@@ -196,7 +196,7 @@ public interface ComponentFinder {
 	 * @see #findByLabel(String)
 	 * @see javax.swing.JLabel#getLabelFor()
 	 * @see javax.swing.JLabel#setLabelFor(Component)
-	 * @see org.uitest4j.core.Robot#settings()
+	 * @see Robot#settings()
 	 * @see Settings#componentLookupScope()
 	 * @see ComponentLookupScope
 	 */
@@ -237,7 +237,7 @@ public interface ComponentFinder {
 
 	/**
 	 * Finds an AWT or Swing {@code Component} by the text of its associated {@code JLabel}, in the hierarchy under the
-	 * given root. If this finder is attached to a {@link org.uitest4j.core.Robot}, it will use the component lookup scope in the
+	 * given root. If this finder is attached to a {@link Robot}, it will use the component lookup scope in the
 	 * {@code Robot}'s {@link Settings} to determine whether the component to find should be showing or not. If this
 	 * finder is <em>not</em> attached to any {@code Robot}, the component to find does not have to be showing.
 	 *
@@ -249,7 +249,7 @@ public interface ComponentFinder {
 	 * @see #findByLabel(String)
 	 * @see javax.swing.JLabel#getLabelFor()
 	 * @see javax.swing.JLabel#setLabelFor(Component)
-	 * @see org.uitest4j.core.Robot#settings()
+	 * @see Robot#settings()
 	 * @see Settings#componentLookupScope()
 	 * @see ComponentLookupScope
 	 */
@@ -275,7 +275,7 @@ public interface ComponentFinder {
 
 	/**
 	 * Finds an AWT or Swing {@code Component} by the text of its associated {@code JLabel} and type, in the hierarchy
-	 * under the given root. If this finder is attached to a {@link org.uitest4j.core.Robot}, it will use the component lookup scope in the
+	 * under the given root. If this finder is attached to a {@link Robot}, it will use the component lookup scope in the
 	 * {@code Robot}'s {@link Settings} to determine whether the component to find should be showing or not. If this
 	 * finder is <em>not</em> attached to any {@code Robot}, the component to find does not have to be showing.
 	 *
@@ -289,7 +289,7 @@ public interface ComponentFinder {
 	 * @see #findByLabel(String)
 	 * @see javax.swing.JLabel#getLabelFor()
 	 * @see javax.swing.JLabel#setLabelFor(Component)
-	 * @see org.uitest4j.core.Robot#settings()
+	 * @see Robot#settings()
 	 * @see Settings#componentLookupScope()
 	 * @see ComponentLookupScope
 	 */
@@ -318,7 +318,7 @@ public interface ComponentFinder {
 
 	/**
 	 * <p>
-	 * Finds an AWT or Swing {@code Component} by name. If this finder is attached to a {@link org.uitest4j.core.Robot}, it will use the
+	 * Finds an AWT or Swing {@code Component} by name. If this finder is attached to a {@link Robot}, it will use the
 	 * component lookup scope in the {@code Robot}'s {@link Settings} to determine whether the component to find should be
 	 * showing or not. If this finder is <em>not</em> attached to any {@code Robot}, the component to find does not have
 	 * to be showing.
@@ -356,7 +356,7 @@ public interface ComponentFinder {
 	 * @return the found component.
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching component could not be found.
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching component is found.
-	 * @see org.uitest4j.core.Robot#settings()
+	 * @see Robot#settings()
 	 * @see Settings#componentLookupScope()
 	 * @see ComponentLookupScope
 	 */
@@ -364,7 +364,7 @@ public interface ComponentFinder {
 	Component findByName(@Nullable String name);
 
 	/**
-	 * Finds an AWT or Swing {@code Component} by name and type. If this finder is attached to a {@link org.uitest4j.core.Robot} , it will
+	 * Finds an AWT or Swing {@code Component} by name and type. If this finder is attached to a {@link Robot} , it will
 	 * use the component lookup scope in the {@code Robot}'s {@link Settings} to determine whether the component to find
 	 * should be showing or not. If this finder is <em>not</em> attached to any {@code Robot}, the component to find does
 	 * not have to be showing.
@@ -375,7 +375,7 @@ public interface ComponentFinder {
 	 * @return the found component.
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching component could not be found.
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching component is found.
-	 * @see org.uitest4j.core.Robot#settings()
+	 * @see Robot#settings()
 	 * @see Settings#componentLookupScope()
 	 * @see ComponentLookupScope
 	 * @see #findByName(String)
@@ -413,7 +413,7 @@ public interface ComponentFinder {
 
 	/**
 	 * Finds an AWT or Swing {@code Component} by name, in the hierarchy under the given root. If this finder is attached
-	 * to a {@link org.uitest4j.core.Robot}, it will use the component lookup scope in the {@code Robot}'s {@link Settings} to determine
+	 * to a {@link Robot}, it will use the component lookup scope in the {@code Robot}'s {@link Settings} to determine
 	 * whether the component to find should be showing or not. If this finder is <em>not</em> attached to any
 	 * {@code Robot}, the component to find does not have to be showing.
 	 *
@@ -422,7 +422,7 @@ public interface ComponentFinder {
 	 * @return the found component.
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching component could not be found.
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching component is found.
-	 * @see org.uitest4j.core.Robot#settings()
+	 * @see Robot#settings()
 	 * @see Settings#componentLookupScope()
 	 * @see ComponentLookupScope
 	 * @see #findByName(String)
@@ -446,7 +446,7 @@ public interface ComponentFinder {
 
 	/**
 	 * Finds an AWT or Swing {@code Component} by name and type, in the hierarchy under the given root. If this finder is
-	 * attached to a {@link org.uitest4j.core.Robot}, it will use the component lookup scope in the {@code Robot}'s {@link Settings} to
+	 * attached to a {@link Robot}, it will use the component lookup scope in the {@code Robot}'s {@link Settings} to
 	 * determine whether the component to find should be showing or not. If this finder is <em>not</em> attached to any
 	 * {@code Robot}, the component to find does not have to be showing.
 	 *

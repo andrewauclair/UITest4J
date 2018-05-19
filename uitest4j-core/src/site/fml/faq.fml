@@ -111,7 +111,7 @@ Settings.<span class="fnc">componentLookupScope</span>(ComponentLookupScope.ALL)
       </question>
       <answer>
         <p>
-          You can use a <code class="code">org.uitest4j.swing.core.ComponentPrinter</code> to &quot;print&quot; the AWT
+          You can use a <code class="code">org.uitest4j.core.api.swing.ComponentPrinter</code> to &quot;print&quot; the AWT
           component hierarchy used in your GUI test. The following code listing shows how to print the component 
           hierarchy to the &quot;stardard&quot; output stream:
           <pre class="prettyprint">

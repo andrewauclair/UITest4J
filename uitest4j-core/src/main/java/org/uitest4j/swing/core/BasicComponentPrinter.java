@@ -12,6 +12,7 @@
  */
 package org.uitest4j.swing.core;
 
+import org.uitest4j.core.api.swing.ComponentPrinter;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.hierarchy.ComponentHierarchy;
@@ -36,7 +37,7 @@ import static org.uitest4j.swing.hierarchy.NewHierarchy.ignoreExistingComponents
  * @see org.uitest4j.swing.format.Formatting#format(Component)
  */
 public final class BasicComponentPrinter implements ComponentPrinter {
-	private static final String INDENTATION = "  ";
+	private static final String INDENTATION = "    ";
 
 	private static final ComponentMatcher ALWAYS_MATCHES = alwaysMatches();
 

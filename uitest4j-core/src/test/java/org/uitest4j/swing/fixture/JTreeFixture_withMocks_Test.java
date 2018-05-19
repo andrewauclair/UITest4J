@@ -16,7 +16,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.cell.JTreeCellReader;
 import org.uitest4j.swing.core.MouseClickInfo;
-import org.uitest4j.core.Robot;
+import org.uitest4j.core.api.Robot;
 import org.uitest4j.swing.driver.JTreeDriver;
 
 import javax.swing.*;

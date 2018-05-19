@@ -13,8 +13,6 @@
 
 /**
  * Module info for UITest4J Core
- *
- * @author Andrew Auclair
  */
 // TODO For now we're exporting everything but the internal package and start moving things into the internal package if they shouldn't be exposed
 module org.uitest4j.core {

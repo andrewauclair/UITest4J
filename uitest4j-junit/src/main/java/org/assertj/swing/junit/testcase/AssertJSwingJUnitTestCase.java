@@ -15,7 +15,7 @@ package org.assertj.swing.junit.testcase;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
-import org.uitest4j.core.Robot;
+import org.uitest4j.core.api.Robot;
 import org.uitest4j.swing.edt.FailOnThreadViolationRepaintManager;
 import org.uitest4j.swing.testing.AssertJSwingTestCaseTemplate;
 import org.junit.Before;

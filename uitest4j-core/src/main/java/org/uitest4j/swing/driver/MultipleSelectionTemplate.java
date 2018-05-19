@@ -14,7 +14,7 @@ package org.uitest4j.swing.driver;
 
 import org.opentest4j.AssertionFailedError;
 import org.uitest4j.swing.annotation.RunsInEDT;
-import org.uitest4j.core.Robot;
+import org.uitest4j.core.api.Robot;
 
 import javax.annotation.Nonnull;
 import java.util.function.Consumer;

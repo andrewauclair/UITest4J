@@ -10,12 +10,12 @@
 
   Copyright 2012-2015 the original author or authors.
  */
-package org.uitest4j.core;
+package org.uitest4j.core.api;
 
 import org.uitest4j.exception.ActionFailedException;
 import org.uitest4j.hierarchy.ComponentHierarchy;
 import org.uitest4j.swing.core.ComponentFinder;
-import org.uitest4j.swing.core.ComponentPrinter;
+import org.uitest4j.core.api.swing.ComponentPrinter;
 import org.uitest4j.swing.core.MouseButton;
 import org.uitest4j.swing.core.Settings;
 

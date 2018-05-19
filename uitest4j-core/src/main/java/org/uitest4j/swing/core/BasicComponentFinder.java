@@ -13,6 +13,7 @@
 package org.uitest4j.swing.core;
 
 import org.opentest4j.AssertionFailedError;
+import org.uitest4j.core.api.swing.ComponentPrinter;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.exception.ComponentLookupException;
 import org.uitest4j.hierarchy.ComponentHierarchy;

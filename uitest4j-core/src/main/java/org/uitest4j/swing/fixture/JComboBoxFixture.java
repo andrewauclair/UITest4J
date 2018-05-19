@@ -14,7 +14,7 @@ package org.uitest4j.swing.fixture;
 
 import org.uitest4j.exception.ActionFailedException;
 import org.uitest4j.swing.cell.JComboBoxCellReader;
-import org.uitest4j.core.Robot;
+import org.uitest4j.core.api.Robot;
 import org.uitest4j.swing.driver.JComboBoxDriver;
 
 import javax.annotation.Nonnull;

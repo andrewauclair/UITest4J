@@ -14,7 +14,7 @@ package org.uitest4j.swing.awt;
 
 import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.annotation.RunsInEDT;
-import org.uitest4j.core.Robot;
+import org.uitest4j.core.api.Robot;
 import org.uitest4j.swing.test.swing.TestWindow;
 
 import java.awt.*;

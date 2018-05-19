@@ -14,7 +14,7 @@ package org.uitest4j.swing.driver;
 
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.uitest4j.swing.annotation.RunsInEDT;
-import org.uitest4j.core.Robot;
+import org.uitest4j.core.api.Robot;
 import org.uitest4j.swing.edt.GuiQuery;
 import org.uitest4j.swing.internal.annotation.InternalApi;
 import org.uitest4j.swing.util.Pair;
