@@ -27,11 +27,11 @@ import static org.mockito.Mockito.when;
 import static org.uitest4j.swing.util.TestRobotFactories.newRobotFactoryMock;
 
 /**
- * Tests for {@link RobotEventGenerator#RobotEventGenerator(org.uitest4j.swing.util.RobotFactory, Settings)}.
+ * Tests for {@link SwingRobotEventGenerator#SwingRobotEventGenerator(org.uitest4j.swing.util.RobotFactory, Settings)}.
  *
  * @author Alex Ruiz
  */
-class RobotEventGenerator_constructorWithSwingRobotFactory_Test {
+class RobotEventGenerator_constructorWithSwingSwingRobotFactory_Test {
 	private RobotFactory robotFactory;
 
 	@BeforeEach
@@ -43,7 +43,7 @@ class RobotEventGenerator_constructorWithSwingRobotFactory_Test {
 	void should_Use_RobotFactory_To_Create_AWTRobot() throws AWTException {
 		Robot robot = mock(Robot.class);
 		when(robotFactory.newRobotInLeftScreen()).thenReturn(robot);
-		RobotEventGenerator eventGenerator = new RobotEventGenerator(robotFactory, new Settings());
+		SwingRobotEventGenerator eventGenerator = new SwingRobotEventGenerator(robotFactory, new Settings());
 		assertThat(eventGenerator.robot()).isSameAs(robot);
 	}
 
@@ -52,7 +52,7 @@ class RobotEventGenerator_constructorWithSwingRobotFactory_Test {
 		AWTException toThrow = new AWTException("Thrown on purpose");
 		when(robotFactory.newRobotInLeftScreen()).thenThrow(toThrow);
 		try {
-			assertThrows(UnexpectedException.class, () -> new RobotEventGenerator(robotFactory, new Settings()));
+			assertThrows(UnexpectedException.class, () -> new SwingRobotEventGenerator(robotFactory, new Settings()));
 		}
 		catch (UnexpectedException e) {
 			assertThat(e.getCause()).isSameAs(toThrow);

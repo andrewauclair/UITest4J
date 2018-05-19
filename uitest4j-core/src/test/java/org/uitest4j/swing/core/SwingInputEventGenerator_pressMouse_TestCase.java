@@ -14,6 +14,7 @@ package org.uitest4j.swing.core;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
+import org.uitest4j.core.api.swing.SwingInputEventGenerator;
 import org.uitest4j.swing.test.recorder.ClickRecorder;
 import org.uitest4j.swing.test.recorder.ClickRecorderManager;
 
@@ -27,12 +28,12 @@ import static org.uitest4j.swing.awt.AWT.centerOf;
 import static org.uitest4j.swing.timing.Pause.pause;
 
 /**
- * Base test case for implementations of {@link InputEventGenerator#pressMouse(Point, int)} and
- * {@link InputEventGenerator#releaseMouse(int)}.
+ * Base test case for implementations of {@link SwingInputEventGenerator#pressMouse(Point, int)} and
+ * {@link SwingInputEventGenerator#releaseMouse(int)}.
  *
  * @author Alex Ruiz
  */
-public class InputEventGenerator_pressMouse_TestCase extends InputEventGenerator_TestCase {
+public class SwingInputEventGenerator_pressMouse_TestCase extends InputEventGenerator_TestCase {
 	public ClickRecorderManager clickRecorder = new ClickRecorderManager();
 
 	@Nonnull

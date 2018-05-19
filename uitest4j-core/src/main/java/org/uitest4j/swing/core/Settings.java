@@ -139,7 +139,7 @@ public class Settings {
 		return PRESERVE_SCREENSHOTS;
 	}
 
-	void attachTo(@Nonnull java.awt.Robot newRobot) {
+	public void attachTo(@Nonnull java.awt.Robot newRobot) {
 		robot = newRobot;
 		if (delayBetweenEvents < 0) {
 			delayBetweenEvents = robot.getAutoDelay();

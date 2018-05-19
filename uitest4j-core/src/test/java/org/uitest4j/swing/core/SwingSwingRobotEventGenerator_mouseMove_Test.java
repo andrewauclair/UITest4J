@@ -17,11 +17,11 @@ import org.junit.jupiter.api.Test;
 import static org.mockito.Mockito.verify;
 
 /**
- * Tests for {@link RobotEventGenerator#moveMouse(int, int)}.
+ * Tests for {@link SwingRobotEventGenerator#moveMouse(int, int)}.
  *
  * @author Alex Ruiz
  */
-public class SwingRobotEventGenerator_mouseMove_Test extends SwingRobotEventGenerator_TestCase {
+public class SwingSwingRobotEventGenerator_mouseMove_Test extends SwingSwingRobotEventGenerator_TestCase {
 	@Test
 	public void should_Move_Mouse_To_Given_Coordinates() {
 		int x = 6;

@@ -14,6 +14,7 @@ package org.uitest4j.swing.core;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
+import org.uitest4j.core.api.swing.SwingInputEventGenerator;
 import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.swing.text.JTextComponent;
@@ -28,12 +29,12 @@ import static org.uitest4j.swing.test.task.ComponentRequestFocusAndWaitForFocusG
 import static org.uitest4j.swing.timing.Pause.pause;
 
 /**
- * Base test case for implementations of {@link InputEventGenerator#pressKey(int, char)} and
- * {@link InputEventGenerator#releaseKey(int)}.
+ * Base test case for implementations of {@link SwingInputEventGenerator#pressKey(int, char)} and
+ * {@link SwingInputEventGenerator#releaseKey(int)}.
  *
  * @author Alex Ruiz
  */
-abstract class InputEventGenerator_pressKey_TestCase extends InputEventGenerator_TestCase {
+abstract class SwingInputEventGenerator_pressKey_TestCase extends InputEventGenerator_TestCase {
 	private static Collection<Object[]> keys() {
 		return newArrayList(new Object[][]{{VK_A, "a"}, {VK_S, "s"}, {VK_D, "d"}});
 	}

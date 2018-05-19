@@ -12,6 +12,7 @@
  */
 package org.uitest4j.swing.core;
 
+import org.uitest4j.core.api.swing.SwingInputEventGenerator;
 import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.core.api.swing.ComponentPrinter;
 import org.uitest4j.exception.ActionFailedException;
@@ -107,7 +108,7 @@ public class BasicSwingRobot implements SwingRobot {
 	private final ComponentFinder finder;
 	private final Settings settings;
 	private final AWTEventPoster eventPoster;
-	private final InputEventGenerator eventGenerator;
+	private final SwingInputEventGenerator eventGenerator;
 	private final UnexpectedJOptionPaneFinder unexpectedJOptionPaneFinder;
 
 	/**
@@ -159,7 +160,7 @@ public class BasicSwingRobot implements SwingRobot {
 		this.screenLockOwner = screenLockOwner;
 		this.hierarchy = hierarchy;
 		settings = new Settings();
-		eventGenerator = new RobotEventGenerator(settings);
+		eventGenerator = new SwingRobotEventGenerator(settings);
 		eventPoster = new AWTEventPoster(toolkit, inputState, windowMonitor, settings);
 		finder = new BasicComponentFinder(hierarchy, settings);
 		unexpectedJOptionPaneFinder = new UnexpectedJOptionPaneFinder(finder);

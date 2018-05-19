@@ -23,20 +23,20 @@ import static org.mockito.Mockito.when;
 import static org.uitest4j.swing.util.TestRobotFactories.newRobotFactoryMock;
 
 /**
- * Base test case for {@link RobotEventGenerator}.
+ * Base test case for {@link SwingRobotEventGenerator}.
  *
  * @author Alex Ruiz
  */
-public abstract class SwingRobotEventGenerator_TestCase {
+public abstract class SwingSwingRobotEventGenerator_TestCase {
 	Robot robot;
-	RobotEventGenerator eventGenerator;
+	SwingRobotEventGenerator eventGenerator;
 
 	@BeforeEach
 	public final void setUp() throws Exception {
 		RobotFactory robotFactory = newRobotFactoryMock();
 		robot = mock(Robot.class);
 		when(robotFactory.newRobotInLeftScreen()).thenReturn(robot);
-		eventGenerator = new RobotEventGenerator(robotFactory, new Settings());
+		eventGenerator = new SwingRobotEventGenerator(robotFactory, new Settings());
 	}
 
 	final Method methodFromAWTRobot(String name, Class<?>... parameterTypes) throws Exception {

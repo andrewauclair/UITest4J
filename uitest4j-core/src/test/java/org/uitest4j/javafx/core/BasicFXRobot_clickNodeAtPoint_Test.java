@@ -12,27 +12,21 @@
  */
 package org.uitest4j.javafx.core;
 
-import javafx.scene.Node;
-import org.junit.jupiter.api.Disabled;
+import javafx.geometry.Point2D;
 import org.junit.jupiter.api.Test;
-import org.uitest4j.swing.test.ExpectedException;
+import org.uitest4j.swing.test.recorder.ClickRecorder;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.uitest4j.swing.core.MouseButton.LEFT_BUTTON;
 
 /**
  * @author Andrew Auclair
  */
-class BasicNodeFinder_findByName_Test extends BasicNodeFinder_TestCase {
+class BasicFXRobot_clickNodeAtPoint_Test extends BasicFXRobot_TestCase {
 	@Test
-	@Disabled
-	void finds_node_by_name() {
-		Node label = finder.findByName("label");
-		assertThat(label).isSameAs(this.label);
-	}
-
-	@Test
-	@Disabled
-	void throws_error_if_node_is_not_found_by_name() {
-		// TODO Need to make a NodeLookupException, maybe
+	void click_node_at_given_point() {
+		Point2D p = new Point2D(10, 10);
+		ClickRecorder recorder = clickRecorder.attachDirectlyTo(button);
+		robot().click(button, p);
+		recorder.clicked(LEFT_BUTTON).timesClicked(1).clickedAt(p);
 	}
 }

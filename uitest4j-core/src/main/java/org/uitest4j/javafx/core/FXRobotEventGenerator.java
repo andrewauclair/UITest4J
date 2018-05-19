@@ -8,47 +8,45 @@
  * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
  * <p>
- * Copyright 2012-2015 the original author or authors.
+ * Copyright 2018 the original author or authors.
  */
-package org.uitest4j.swing.core;
+package org.uitest4j.javafx.core;
 
-import org.uitest4j.swing.annotation.RunsInEDT;
+import javafx.geometry.Point2D;
+import javafx.scene.Node;
+import org.uitest4j.core.api.javafx.FXInputEventGenerator;
+import org.uitest4j.javafx.JavaFX;
+import org.uitest4j.swing.core.Settings;
 import org.uitest4j.swing.util.RobotFactory;
 
 import javax.annotation.Nonnull;
 import java.awt.*;
-import java.awt.Robot;
 import java.util.Objects;
 
-import static org.uitest4j.swing.awt.AWT.isPointInScreenBoundaries;
-import static org.uitest4j.swing.awt.AWT.translate;
-import static org.uitest4j.swing.edt.GuiActionRunner.execute;
-import static org.uitest4j.exception.ActionFailedException.actionFailure;
+import static org.uitest4j.javafx.platform.FXGUIActionRunner.executeFX;
 import static org.uitest4j.swing.exception.UnexpectedException.unexpected;
 import static org.uitest4j.swing.timing.Pause.pause;
 import static org.uitest4j.swing.util.Platform.isOSX;
 import static org.uitest4j.swing.util.Platform.isWindows;
 
 /**
- * Simulates user input by using an AWT {@code SwingRobot}.
- *
- * @author Alex Ruiz
+ * @author Andrew Auclair
  */
-class RobotEventGenerator implements InputEventGenerator {
+public class FXRobotEventGenerator implements FXInputEventGenerator {
 	private static final int KEY_INPUT_DELAY = 200;
 
 	private final Robot robot;
 	private final Settings settings;
 
-	RobotEventGenerator() {
+	FXRobotEventGenerator() {
 		this(new Settings());
 	}
 
-	RobotEventGenerator(@Nonnull Settings settings) {
+	FXRobotEventGenerator(@Nonnull Settings settings) {
 		this(new RobotFactory(), settings);
 	}
 
-	RobotEventGenerator(@Nonnull RobotFactory robotFactory, @Nonnull Settings settings) {
+	FXRobotEventGenerator(@Nonnull RobotFactory robotFactory, @Nonnull Settings settings) {
 		try {
 			robot = robotFactory.newRobotInLeftScreen();
 			if (isWindows() || isOSX()) {
@@ -67,25 +65,32 @@ class RobotEventGenerator implements InputEventGenerator {
 		return robot;
 	}
 
-	@RunsInEDT
 	@Override
-	public void pressMouse(@Nonnull Component c, @Nonnull Point where, int buttons) {
-		Point p = Objects.requireNonNull(execute(() -> translate(c, where.x, where.y)));
-		if (!isPointInScreenBoundaries(p)) {
-			throw actionFailure("The component to click is out of the boundaries of the screen");
-		}
+	public void pressMouse(int buttons) {
+		robot.mousePress(buttons);
+	}
+
+	@Override
+	public void pressMouse(@Nonnull Node node, @Nonnull Point2D where, int buttons) {
+		Point2D p = Objects.requireNonNull(executeFX(() -> JavaFX.localToScreen(node, where.getX(), where.getY())));
 		pressMouse(p, buttons);
 	}
 
 	@Override
-	public void pressMouse(@Nonnull Point where, int buttons) {
-		moveMouse(where.x, where.y);
+	public void pressMouse(@Nonnull Point2D where, int buttons) {
+		moveMouse(where.getX(), where.getY());
 		pressMouse(buttons);
 	}
 
 	@Override
-	public void pressMouse(int buttons) {
-		robot.mousePress(buttons);
+	public void moveMouse(@Nonnull Node node, double x, double y) {
+		Point2D p = Objects.requireNonNull(executeFX(() -> JavaFX.localToScreen(node, x, y)));
+		moveMouse(p.getX(), p.getX());
+	}
+
+	@Override
+	public void moveMouse(double x, double y) {
+		robot.mouseMove((int) x, (int) y);
 	}
 
 	@Override
@@ -96,18 +101,6 @@ class RobotEventGenerator implements InputEventGenerator {
 	@Override
 	public void rotateMouseWheel(int amount) {
 		robot.mouseWheel(amount);
-	}
-
-	@RunsInEDT
-	@Override
-	public void moveMouse(@Nonnull Component c, int x, int y) {
-		Point p = Objects.requireNonNull(execute(() -> translate(c, x, y)));
-		moveMouse(p.x, p.y);
-	}
-
-	@Override
-	public void moveMouse(int x, int y) {
-		robot.mouseMove(x, y);
 	}
 
 	@Override

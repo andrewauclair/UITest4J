@@ -13,13 +13,14 @@
 package org.uitest4j.swing.core;
 
 /**
- * Tests for {@link RobotEventGenerator#pressKey(int, char)} and {@link RobotEventGenerator#releaseKey(int)}.
+ * Tests for {@link SwingRobotEventGenerator#pressMouse(java.awt.Point, int)} and
+ * {@link SwingRobotEventGenerator#releaseMouse(int)}.
  *
  * @author Alex Ruiz
  */
-public class SwingRobotEventGenerator_pressKey_Test extends InputEventGenerator_pressKey_TestCase {
-//  public SwingRobotEventGenerator_pressKey_Test(int keyToPress, String expectedText) {
-//    super(keyToPress, expectedText);
+public class SwingSwingRobotEventGenerator_pressMouse_Test extends SwingInputEventGenerator_pressMouse_TestCase {
+//  public SwingRobotEventGenerator_pressMouse_Test(MouseButton button) {
+//    super(button);
 //  }
 
 //  @Override

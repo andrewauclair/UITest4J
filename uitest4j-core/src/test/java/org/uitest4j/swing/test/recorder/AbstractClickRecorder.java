@@ -12,6 +12,7 @@
  */
 package org.uitest4j.swing.test.recorder;
 
+import javafx.geometry.Point2D;
 import org.uitest4j.swing.core.MouseButton;
 
 import javax.annotation.Nonnull;
@@ -101,6 +102,12 @@ public class AbstractClickRecorder {
 	public final @Nonnull
 	AbstractClickRecorder clickedAt(@Nonnull Point p) {
 		assertThat(pointClicked).isEqualTo(p);
+		return this;
+	}
+
+	public final @Nonnull
+	AbstractClickRecorder clickedAt(@Nonnull Point2D p) {
+		assertThat(pointClicked).isEqualTo(new Point((int) p.getX(), (int) p.getY()));
 		return this;
 	}
 

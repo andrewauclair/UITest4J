@@ -12,28 +12,20 @@
  */
 package org.uitest4j.swing.core;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.verify;
 
 /**
- * Tests for {@link RobotEventGenerator#RobotEventGenerator(Settings)}.
+ * Tests for {@link SwingRobotEventGenerator#rotateMouseWheel(int)}.
  *
  * @author Alex Ruiz
  */
-class SwingRobotEventGenerator_constructorWithSettings_Test {
-	private RobotEventGenerator eventGenerator;
-	private Settings settings;
-
-	@BeforeEach
-	void setUp() {
-		settings = new Settings();
-		eventGenerator = new RobotEventGenerator(settings);
-	}
-
+public class SwingSwingRobotEventGenerator_rotateWheel_Test extends SwingSwingRobotEventGenerator_TestCase {
 	@Test
-	void should_Attach_Robot_To_Settings() {
-		assertThat(eventGenerator.robot()).isSameAs(settings.robot());
+	public void should_Rotate_Mouse_Wheel() {
+		int amount = 8;
+		eventGenerator.rotateMouseWheel(amount);
+		verify(robot).mouseWheel(amount);
 	}
 }

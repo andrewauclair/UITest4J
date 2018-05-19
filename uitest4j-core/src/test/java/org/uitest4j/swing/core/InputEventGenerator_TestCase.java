@@ -13,6 +13,7 @@
 package org.uitest4j.swing.core;
 
 import org.junit.jupiter.api.Disabled;
+import org.uitest4j.core.api.swing.SwingInputEventGenerator;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.test.core.SequentialEDTSafeTestCase;
 import org.uitest4j.swing.test.swing.TestWindow;
@@ -28,7 +29,7 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 import static org.uitest4j.swing.timing.Pause.pause;
 
 /**
- * Base test case for implementations of {@link InputEventGenerator}.
+ * Base test case for implementations of {@link SwingInputEventGenerator}.
  *
  * @author Alex Ruiz
  * @author Yvonne Wang
@@ -37,7 +38,7 @@ public class InputEventGenerator_TestCase extends SequentialEDTSafeTestCase {
 	static final int DELAY = 200;
 
 	MyWindow window;
-	InputEventGenerator eventGenerator;
+	SwingInputEventGenerator eventGenerator;
 
 	protected static final String MOVE_MOUSE_TEST = "Move Mouse Test";
 
@@ -52,8 +53,8 @@ public class InputEventGenerator_TestCase extends SequentialEDTSafeTestCase {
 	void extraSetUp() {
 	}
 
-	private InputEventGenerator eventGenerator() {
-		return new RobotEventGenerator();
+	private SwingInputEventGenerator eventGenerator() {
+		return new SwingRobotEventGenerator();
 	}
 
 	@Override

@@ -10,8 +10,9 @@
 
   Copyright 2012-2015 the original author or authors.
  */
-package org.uitest4j.swing.core;
+package org.uitest4j.core.api.swing;
 
+import javafx.scene.Node;
 import org.uitest4j.exception.ActionFailedException;
 
 import javax.annotation.Nonnull;
@@ -23,7 +24,7 @@ import java.awt.*;
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
-interface InputEventGenerator {
+public interface SwingInputEventGenerator {
 	/**
 	 * Simulates a user pressing mouse buttons.
 	 *
@@ -38,7 +39,7 @@ interface InputEventGenerator {
 	 * @param where   the given coordinates, relative to the given {@code Component}.
 	 * @param buttons the mouse buttons to press.
 	 * @throws ActionFailedException if the {@code Component} to click is out of the
-	 *                                                            boundaries of the screen.
+	 *                               boundaries of the screen.
 	 */
 	void pressMouse(@Nonnull Component c, @Nonnull Point where, int buttons);
 
