@@ -15,10 +15,8 @@ package org.uitest4j.javafx;
 import javafx.geometry.Bounds;
 import javafx.geometry.Point2D;
 import javafx.scene.Node;
-import org.uitest4j.swing.assertions.data.Point;
 
 import javax.annotation.Nonnull;
-
 import java.util.Objects;
 
 import static org.uitest4j.javafx.platform.FXGUIActionRunner.executeFX;

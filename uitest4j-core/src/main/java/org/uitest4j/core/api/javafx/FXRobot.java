@@ -34,6 +34,34 @@ public interface FXRobot {
 	void click(@Nonnull Node node);
 
 	/**
+	 * Simulates a user right-clicking the given JavaFX {@code Node}.
+	 *
+	 * @param node the {@code Node} to click on.
+	 * @throws ActionFailedException if the {@code Node} to click is out of the
+	 *                                                            boundaries of the screen.
+	 */
+	void rightClick(@Nonnull Node node);
+
+	/**
+	 * Simulates a user clicking once the given JavaFX {@code Node} using the given mouse button.
+	 *
+	 * @param node      the {@code Node} to click on.
+	 * @param button the mouse button to use.
+	 * @throws ActionFailedException if the {@code Node} to click is out of the
+	 *                                                            boundaries of the screen.
+	 */
+	void click(@Nonnull Node node, @Nonnull MouseButton button);
+
+	/**
+	 * Simulates a user double-clicking the given JavaFX {@code Node}.
+	 *
+	 * @param node the {@code Node} to click on.
+	 * @throws ActionFailedException if the {@code Node} to click is out of the
+	 *                                                            boundaries of the screen.
+	 */
+	void doubleClick(@Nonnull Node node);
+
+	/**
 	 * Simulates a user clicking the given mouse button, the given times on the given JavaFX {@code Node}.
 	 *
 	 * @param node      the {@code Node} to click on.

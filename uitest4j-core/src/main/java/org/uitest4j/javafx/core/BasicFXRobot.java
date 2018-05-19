@@ -30,6 +30,7 @@ import static java.awt.event.InputEvent.BUTTON1_DOWN_MASK;
 import static java.awt.event.InputEvent.BUTTON2_DOWN_MASK;
 import static java.awt.event.InputEvent.BUTTON3_DOWN_MASK;
 import static org.uitest4j.swing.core.MouseButton.LEFT_BUTTON;
+import static org.uitest4j.swing.core.MouseButton.RIGHT_BUTTON;
 import static org.uitest4j.swing.util.Modifiers.keysFor;
 
 /**
@@ -51,8 +52,22 @@ public class BasicFXRobot implements FXRobot {
 
 	@Override
 	public void click(@Nonnull Node node) {
-		// TODO This should click at center of node
-		eventGenerator.pressMouse(node, new Point2D(0, 0), LEFT_BUTTON.mask);
+		click(node, LEFT_BUTTON);
+	}
+
+	@Override
+	public void rightClick(@Nonnull Node node) {
+		click(node, RIGHT_BUTTON);
+	}
+
+	@Override
+	public void click(@Nonnull Node node, @Nonnull MouseButton button) {
+		click(node, button, 1);
+	}
+
+	@Override
+	public void doubleClick(@Nonnull Node node) {
+		click(node, LEFT_BUTTON, 2);
 	}
 
 	@Override
@@ -68,7 +83,7 @@ public class BasicFXRobot implements FXRobot {
 
 	@Override
 	public void click(@Nonnull Node node, @Nonnull Point2D where, @Nonnull MouseButton button, int times) {
-
+		doClick(node, where, button, times);
 	}
 
 	@Override
