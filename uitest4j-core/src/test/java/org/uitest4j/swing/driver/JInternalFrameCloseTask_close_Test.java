@@ -13,7 +13,7 @@
 package org.uitest4j.swing.driver;
 
 import org.junit.jupiter.api.Test;
-import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.core.SwingRobotBasedTestCase;
 import org.uitest4j.swing.test.swing.TestMdiWindow;
 
 import javax.swing.*;
@@ -25,7 +25,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  *
  * @author Yvonne Wang
  */
-public class JInternalFrameCloseTask_close_Test extends RobotBasedTestCase {
+public class JInternalFrameCloseTask_close_Test extends SwingRobotBasedTestCase {
 	private JInternalFrame internalFrame;
 
 	@Override

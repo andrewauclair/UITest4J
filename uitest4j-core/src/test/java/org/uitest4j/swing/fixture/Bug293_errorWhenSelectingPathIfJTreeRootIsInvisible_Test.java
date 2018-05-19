@@ -14,7 +14,7 @@ package org.uitest4j.swing.fixture;
 
 import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.annotation.RunsInEDT;
-import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.core.SwingRobotBasedTestCase;
 import org.uitest4j.swing.test.swing.TestWindow;
 
 import javax.swing.*;
@@ -31,7 +31,7 @@ import static org.uitest4j.swing.test.swing.TreeNodeFactory.node;
  *
  * @author Alex Ruiz
  */
-public class Bug293_errorWhenSelectingPathIfJTreeRootIsInvisible_Test extends RobotBasedTestCase {
+public class Bug293_errorWhenSelectingPathIfJTreeRootIsInvisible_Test extends SwingRobotBasedTestCase {
 	@Test
 	public void should_Select_Path_If_Root_Is_Invisible() {
 		MyWindow window = MyWindow.createNewWithTreeRootInvisible();

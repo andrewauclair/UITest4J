@@ -14,7 +14,7 @@ package org.uitest4j.swing.fixture;
 
 import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.annotation.RunsInEDT;
-import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.core.SwingRobotBasedTestCase;
 import org.uitest4j.swing.test.swing.TestDialog;
 import org.uitest4j.swing.test.swing.TestWindow;
 
@@ -32,7 +32,7 @@ import static org.uitest4j.swing.finder.WindowFinder.findDialog;
  *
  * @author Alex Ruiz
  */
-public class ModalDialogLookupTest extends RobotBasedTestCase {
+public class ModalDialogLookupTest extends SwingRobotBasedTestCase {
 	private MyWindow frame;
 
 	@Override

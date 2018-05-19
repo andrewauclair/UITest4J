@@ -13,7 +13,7 @@
 package org.uitest4j.swing.core;
 
 import org.mockito.stubbing.Answer;
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyInt;
@@ -21,21 +21,21 @@ import static org.mockito.Mockito.doAnswer;
 import static org.mockito.Mockito.mock;
 
 /**
- * Implementations of {@link Robot} to be used for testing.
+ * Implementations of {@link SwingRobot} to be used for testing.
  *
  * @author Alex Ruiz
  */
 public final class TestRobots {
-	public static Robot singletonRobotMock() {
+	public static SwingRobot singletonRobotMock() {
 		return LazyLoadedSingleton.INSTANCE;
 	}
 
 	private static class LazyLoadedSingleton {
-		static final Robot INSTANCE = newRobotMock();
+		static final SwingRobot INSTANCE = newRobotMock();
 	}
 
-	public static Robot newRobotMock() {
-		Robot mock = mock(Robot.class);
+	public static SwingRobot newRobotMock() {
+		SwingRobot mock = mock(SwingRobot.class);
 		doAnswer((Answer<Object>) invocation -> {
 			invocation.<Runnable>getArgument(1).run();
 			return null;

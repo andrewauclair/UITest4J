@@ -28,7 +28,7 @@ import static org.uitest4j.swing.timing.Timeout.timeout;
 /**
  * Tests for issue with slow waitForIdle with a custom event queue
  */
-class CustomEventQueue_Test extends BasicRobot_TestCase {
+class CustomEventQueue_Test extends BasicSwingRobot_TestCase {
 	private CustomEventQueue newEventQueue = new CustomEventQueue();
 
 	@Override

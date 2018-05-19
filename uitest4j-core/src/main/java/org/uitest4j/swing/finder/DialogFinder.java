@@ -13,7 +13,7 @@
 package org.uitest4j.swing.finder;
 
 import org.uitest4j.swing.core.GenericTypeMatcher;
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.fixture.DialogFixture;
 
 import javax.annotation.Nonnegative;
@@ -92,7 +92,7 @@ public class DialogFinder extends WindowFinderTemplate<Dialog> {
 	 */
 	@Override
 	@Nonnull
-	public DialogFixture using(@Nonnull Robot robot) {
+	public DialogFixture using(@Nonnull SwingRobot robot) {
 		return new DialogFixture(robot, findComponentWith(robot));
 	}
 

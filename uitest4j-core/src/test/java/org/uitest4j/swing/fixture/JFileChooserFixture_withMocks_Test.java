@@ -14,7 +14,7 @@ package org.uitest4j.swing.fixture;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.driver.JFileChooserDriver;
 
 import javax.swing.*;
@@ -37,7 +37,7 @@ class JFileChooserFixture_withMocks_Test {
 
 	@BeforeEach
 	void setUp() {
-		fixture = new JFileChooserFixture(mock(Robot.class), mock(JFileChooser.class));
+		fixture = new JFileChooserFixture(mock(SwingRobot.class), mock(JFileChooser.class));
 		fixture.replaceDriverWith(mock(JFileChooserDriver.class));
 		driver = fixture.driver();
 		target = fixture.target();

@@ -13,7 +13,7 @@
 package org.uitest4j.swing.driver;
 
 import org.uitest4j.swing.annotation.RunsInEDT;
-import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.core.SwingRobotBasedTestCase;
 
 import javax.swing.*;
 
@@ -28,7 +28,7 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
  *
  * @author Alex Ruiz
  */
-public abstract class JOptionPaneDriver_TestCase extends RobotBasedTestCase {
+public abstract class JOptionPaneDriver_TestCase extends SwingRobotBasedTestCase {
 	private static final Icon ICON = null;
 	private static final String MESSAGE = "Message";
 

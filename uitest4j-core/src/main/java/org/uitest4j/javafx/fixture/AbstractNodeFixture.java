@@ -13,7 +13,7 @@
 package org.uitest4j.javafx.fixture;
 
 import javafx.scene.Node;
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.fixture.MouseInputSimulationFixture;
 import org.uitest4j.javafx.driver.NodeDriver;
 import org.uitest4j.swing.core.MouseButton;
@@ -34,7 +34,7 @@ public abstract class AbstractNodeFixture<S, C extends Node, D extends NodeDrive
 	/**
 	 * Performs simulation of user events on {@link #target}
 	 */
-	private final Robot robot;
+	private final SwingRobot robot;
 	
 	private final C target;
 	private final S myself;
@@ -46,25 +46,25 @@ public abstract class AbstractNodeFixture<S, C extends Node, D extends NodeDrive
 	 *
 	 * @param selfType the "self type."
 	 * @param robot    performs simulation of user events on a {@code Component}.
-	 * @param type     the type of the {@code Component} to find using the given {@code Robot}.
+	 * @param type     the type of the {@code Component} to find using the given {@code SwingRobot}.
 	 * @throws NullPointerException                                  if {@code robot} is {@code null}.
 	 * @throws NullPointerException                                  if {@code type} is {@code null}.
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching component could not be found.
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching component is found.
 	 */
-	public AbstractNodeFixture(@Nonnull Class<S> selfType, @Nonnull Robot robot, @Nonnull Class<? extends C> type) {
+	public AbstractNodeFixture(@Nonnull Class<S> selfType, @Nonnull SwingRobot robot, @Nonnull Class<? extends C> type) {
 		this(selfType, robot, findTarget(robot, type));
 	}
 	
 	@Nonnull
-	private static <C extends Node> C findTarget(@Nonnull Robot robot, @Nonnull Class<? extends C> type) {
+	private static <C extends Node> C findTarget(@Nonnull SwingRobot robot, @Nonnull Class<? extends C> type) {
 		Objects.requireNonNull(robot);
 		Objects.requireNonNull(type);
 //		return null;
 		return robot.finder().findByType(type, requireShowing(robot));
 	}
 	
-	public AbstractNodeFixture(@Nonnull Class<S> selfType, @Nonnull Robot robot, @Nonnull C target) {
+	public AbstractNodeFixture(@Nonnull Class<S> selfType, @Nonnull SwingRobot robot, @Nonnull C target) {
 		myself = Objects.requireNonNull(selfType).cast(this);
 		this.robot = Objects.requireNonNull(robot);
 		this.target = Objects.requireNonNull(target);
@@ -74,7 +74,7 @@ public abstract class AbstractNodeFixture<S, C extends Node, D extends NodeDrive
 	/**
 	 * Returns whether showing components are the only ones participating in a component lookup. The returned value is
 	 * obtained from the {@link org.uitest4j.swing.core.Settings#componentLookupScope() component lookup scope} stored in
-	 * this fixture's {@link Robot}.
+	 * this fixture's {@link SwingRobot}.
 	 *
 	 * @return {@code true} if only showing components can participate in a component lookup, {@code false} otherwise.
 	 */
@@ -82,7 +82,7 @@ public abstract class AbstractNodeFixture<S, C extends Node, D extends NodeDrive
 		return requireShowing(robot());
 	}
 	
-	private static boolean requireShowing(@Nonnull Robot robot) {
+	private static boolean requireShowing(@Nonnull SwingRobot robot) {
 		return robot.settings().componentLookupScope().requireShowing();
 	}
 	
@@ -117,7 +117,7 @@ public abstract class AbstractNodeFixture<S, C extends Node, D extends NodeDrive
 	}
 	
 	protected abstract @Nonnull
-	D createDriver(@Nonnull Robot robot);
+	D createDriver(@Nonnull SwingRobot robot);
 	
 	protected final @Nonnull
 	D driver() {
@@ -149,10 +149,10 @@ public abstract class AbstractNodeFixture<S, C extends Node, D extends NodeDrive
 	}
 	
 	/**
-	 * @return the {@link Robot} that simulates user events on {@link #target()}.
+	 * @return the {@link SwingRobot} that simulates user events on {@link #target()}.
 	 */
 	public final @Nonnull
-	Robot robot() {
+	SwingRobot robot() {
 		return robot;
 	}
 	

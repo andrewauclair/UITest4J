@@ -14,9 +14,9 @@ package org.uitest4j.swing.fixture;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.edt.GuiActionRunner;
-import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.core.SwingRobotBasedTestCase;
 
 import javax.swing.*;
 import java.awt.*;
@@ -27,7 +27,7 @@ import java.util.List;
 /**
  * Test for <a href="https://github.com/joel-costigliola/assertj-swing/issues/190">github.com - assertj-swing #190</a>
  */
-class GitHub_190_FrameFixture_Test extends RobotBasedTestCase {
+class GitHub_190_FrameFixture_Test extends SwingRobotBasedTestCase {
 	private static Collection<Object[]> data() {
 		List<Object[]> list = new ArrayList<>();
 		for (int i = 0; i < 100; i++) {
@@ -50,7 +50,7 @@ class GitHub_190_FrameFixture_Test extends RobotBasedTestCase {
 		fixture.close();
 	}
 
-	public void setup(Robot robot) {
+	public void setup(SwingRobot robot) {
 		robot.settings().delayBetweenEvents(100);
 		robot.settings().dragDelay(0);
 		robot.settings().dropDelay(0);

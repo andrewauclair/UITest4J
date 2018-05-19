@@ -16,7 +16,7 @@ import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.exception.LocationUnavailableException;
 import org.uitest4j.swing.test.ExpectedException;
-import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.core.SwingRobotBasedTestCase;
 import org.uitest4j.swing.test.swing.TestTree;
 import org.uitest4j.swing.test.swing.TestWindow;
 
@@ -34,7 +34,7 @@ import static org.uitest4j.swing.test.swing.TreeNodeFactory.node;
  *
  * @author Alex Ruiz
  */
-public class JTreeMatchingPathQuery_matchingPathFor_Test extends RobotBasedTestCase {
+public class JTreeMatchingPathQuery_matchingPathFor_Test extends SwingRobotBasedTestCase {
 	private MyWindow window;
 	private JTreePathFinder pathFinder;
 

@@ -15,7 +15,7 @@ package org.uitest4j.swing.core;
 import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.uitest4j.swing.annotation.RunsInEDT;
-import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.core.SwingRobotBasedTestCase;
 import org.uitest4j.swing.test.swing.TestWindow;
 
 import javax.swing.*;
@@ -31,7 +31,7 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
  *
  * @author Alex Ruiz
  */
-class Bug235_findAllNotInSameOrder_Test extends RobotBasedTestCase {
+class Bug235_findAllNotInSameOrder_Test extends SwingRobotBasedTestCase {
 	@Test
 	void should_Always_Return_All_Found_Components_In_Same_Order() {
 		MyWindow window = MyWindow.createNew();

@@ -12,8 +12,8 @@
  */
 package org.uitest4j.swing.fixture;
 
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.core.MouseClickInfo;
-import org.uitest4j.core.api.swing.Robot;
 import org.uitest4j.swing.driver.JTableHeaderDriver;
 
 import javax.annotation.Nonnull;
@@ -39,13 +39,13 @@ public class JTableHeaderFixture extends
 	 * @throws NullPointerException if {@code robot} is {@code null}.
 	 * @throws NullPointerException if {@code target} is {@code null}.
 	 */
-	public JTableHeaderFixture(@Nonnull Robot robot, @Nonnull JTableHeader target) {
+	public JTableHeaderFixture(@Nonnull SwingRobot robot, @Nonnull JTableHeader target) {
 		super(JTableHeaderFixture.class, robot, target);
 	}
 
 	@Override
 	@Nonnull
-	protected JTableHeaderDriver createDriver(@Nonnull Robot robot) {
+	protected JTableHeaderDriver createDriver(@Nonnull SwingRobot robot) {
 		return new JTableHeaderDriver(robot);
 	}
 

@@ -14,7 +14,7 @@ package org.uitest4j.swing.driver;
 
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.uitest4j.swing.annotation.RunsInEDT;
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.edt.GuiQuery;
 import org.uitest4j.swing.internal.annotation.InternalApi;
 import org.uitest4j.swing.internal.assertions.OpenTest4JAssertions;
@@ -55,7 +55,7 @@ public class JScrollBarDriver extends JComponentDriver {
 	 *
 	 * @param robot the robot to use to simulate user input.
 	 */
-	public JScrollBarDriver(@Nonnull Robot robot) {
+	public JScrollBarDriver(@Nonnull SwingRobot robot) {
 		super(robot);
 	}
 

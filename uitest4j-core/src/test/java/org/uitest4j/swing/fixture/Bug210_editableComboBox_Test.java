@@ -14,7 +14,7 @@ package org.uitest4j.swing.fixture;
 
 import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.annotation.RunsInEDT;
-import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.core.SwingRobotBasedTestCase;
 
 import javax.swing.*;
 
@@ -35,7 +35,7 @@ import static org.uitest4j.swing.test.task.JComboBoxSetSelectedItemTask.setSelec
  * @author Ewan McDougall
  * @author Alex Ruiz
  */
-public class Bug210_editableComboBox_Test extends RobotBasedTestCase {
+public class Bug210_editableComboBox_Test extends SwingRobotBasedTestCase {
 	private final static String ADDED_STRING = "rocket";
 	private DialogFixture dialog;
 

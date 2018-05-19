@@ -13,7 +13,7 @@
 package org.uitest4j.swing.fixture;
 
 import org.junit.jupiter.api.Test;
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.driver.ComponentDriver;
 import org.uitest4j.swing.edt.GuiActionRunner;
 
@@ -53,12 +53,12 @@ class AbstractComponentFixture_targetCastedTo_Test {
 	private static class ConcreteComponentFixture extends
 			AbstractComponentFixture<ConcreteComponentFixture, Component, ComponentDriver> {
 		ConcreteComponentFixture(Component component) {
-			super(ConcreteComponentFixture.class, mock(Robot.class), component);
+			super(ConcreteComponentFixture.class, mock(SwingRobot.class), component);
 		}
 
 		@Override
 		@Nonnull
-		protected ComponentDriver createDriver(@Nonnull Robot robot) {
+		protected ComponentDriver createDriver(@Nonnull SwingRobot robot) {
 			return mock(ComponentDriver.class);
 		}
 	}

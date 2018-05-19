@@ -13,8 +13,8 @@
 package org.uitest4j.swing.fixture;
 
 import org.opentest4j.AssertionFailedError;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.core.ComponentMatcher;
-import org.uitest4j.core.api.swing.Robot;
 import org.uitest4j.swing.driver.JMenuItemMatcher;
 
 import javax.annotation.Nonnull;
@@ -28,10 +28,10 @@ import java.awt.*;
  * @author Yvonne Wang
  */
 class JMenuItemFinder {
-	private final Robot robot;
+	private final SwingRobot robot;
 	private final Container target;
 
-	JMenuItemFinder(@Nonnull Robot robot, @Nonnull Container target) {
+	JMenuItemFinder(@Nonnull SwingRobot robot, @Nonnull Container target) {
 		this.robot = robot;
 		this.target = target;
 	}

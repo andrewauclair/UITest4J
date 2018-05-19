@@ -15,8 +15,8 @@ package org.uitest4j.swing.fixture;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.core.ComponentLookupScope;
-import org.uitest4j.core.api.swing.Robot;
 import org.uitest4j.swing.core.Settings;
 import org.uitest4j.swing.driver.ComponentDriver;
 
@@ -60,12 +60,12 @@ class AbstractComponentFixture_requireShowing_Test {
 	private static class ConcreteComponentFixture extends
 			AbstractComponentFixture<ConcreteComponentFixture, Component, ComponentDriver> {
 		ConcreteComponentFixture() {
-			super(ConcreteComponentFixture.class, mock(Robot.class), mock(Component.class));
+			super(ConcreteComponentFixture.class, mock(SwingRobot.class), mock(Component.class));
 		}
 
 		@Override
 		@Nonnull
-		protected ComponentDriver createDriver(@Nonnull Robot robot) {
+		protected ComponentDriver createDriver(@Nonnull SwingRobot robot) {
 			return mock(ComponentDriver.class);
 		}
 	}

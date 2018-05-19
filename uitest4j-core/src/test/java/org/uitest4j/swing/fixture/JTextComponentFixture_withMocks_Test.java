@@ -14,7 +14,7 @@ package org.uitest4j.swing.fixture;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.driver.JTextComponentDriver;
 
 import javax.swing.text.JTextComponent;
@@ -34,7 +34,7 @@ class JTextComponentFixture_withMocks_Test {
 
 	@BeforeEach
 	void setUp() {
-		fixture = new JTextComponentFixture(mock(Robot.class), mock(JTextComponent.class));
+		fixture = new JTextComponentFixture(mock(SwingRobot.class), mock(JTextComponent.class));
 		fixture.replaceDriverWith(mock(JTextComponentDriver.class));
 	}
 

@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.fixture;
 
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.driver.JScrollPaneDriver;
 
 import javax.annotation.Nonnull;
@@ -35,7 +35,7 @@ public class JScrollPaneFixture extends
 	 * @throws NullPointerException     if {@code robot} is {@code null}.
 	 * @throws IllegalArgumentException if {@code target} is {@code null}.
 	 */
-	public JScrollPaneFixture(@Nonnull Robot robot, @Nonnull JScrollPane target) {
+	public JScrollPaneFixture(@Nonnull SwingRobot robot, @Nonnull JScrollPane target) {
 		super(JScrollPaneFixture.class, robot, target);
 	}
 
@@ -43,18 +43,18 @@ public class JScrollPaneFixture extends
 	 * Creates a new {@link JScrollPaneFixture}.
 	 *
 	 * @param robot     performs simulation of user events on a {@code JScrollPane}.
-	 * @param panelName the name of the {@code JScrollPane} to find using the given {@code Robot}.
+	 * @param panelName the name of the {@code JScrollPane} to find using the given {@code SwingRobot}.
 	 * @throws NullPointerException                                  if {@code robot} is {@code null}.
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching {@code JScrollPane} could not be found.
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching {@code JScrollPane} is found.
 	 */
-	public JScrollPaneFixture(@Nonnull Robot robot, @Nullable String panelName) {
+	public JScrollPaneFixture(@Nonnull SwingRobot robot, @Nullable String panelName) {
 		super(JScrollPaneFixture.class, robot, panelName, JScrollPane.class);
 	}
 
 	@Override
 	@Nonnull
-	protected JScrollPaneDriver createDriver(@Nonnull Robot robot) {
+	protected JScrollPaneDriver createDriver(@Nonnull SwingRobot robot) {
 		return new JScrollPaneDriver(robot);
 	}
 

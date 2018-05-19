@@ -12,8 +12,8 @@
  */
 package org.uitest4j.swing.finder;
 
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.core.GenericTypeMatcher;
-import org.uitest4j.core.api.swing.Robot;
 import org.uitest4j.swing.fixture.JOptionPaneFixture;
 
 import javax.annotation.Nonnegative;
@@ -38,7 +38,7 @@ import java.util.concurrent.TimeUnit;
  * </pre>
  *
  * <p>
- * Where {@code robot} is an instance of {@link Robot}.
+ * Where {@code robot} is an instance of {@link SwingRobot}.
  * </p>
  *
  * <p>
@@ -120,7 +120,7 @@ public class JOptionPaneFinder extends ComponentFinderTemplate<JOptionPane> {
 	 */
 	@Override
 	@Nonnull
-	public JOptionPaneFixture using(@Nonnull Robot robot) {
+	public JOptionPaneFixture using(@Nonnull SwingRobot robot) {
 		return new JOptionPaneFixture(robot, findComponentWith(robot));
 	}
 

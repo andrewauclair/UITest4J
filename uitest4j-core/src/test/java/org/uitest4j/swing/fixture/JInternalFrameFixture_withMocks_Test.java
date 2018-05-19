@@ -14,7 +14,7 @@ package org.uitest4j.swing.fixture;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.driver.JInternalFrameDriver;
 
 import javax.swing.*;
@@ -34,7 +34,7 @@ class JInternalFrameFixture_withMocks_Test {
 
 	@BeforeEach
 	void setUp() {
-		fixture = new JInternalFrameFixture(mock(Robot.class), mock(JInternalFrame.class));
+		fixture = new JInternalFrameFixture(mock(SwingRobot.class), mock(JInternalFrame.class));
 		fixture.replaceDriverWith(mock(JInternalFrameDriver.class));
 	}
 

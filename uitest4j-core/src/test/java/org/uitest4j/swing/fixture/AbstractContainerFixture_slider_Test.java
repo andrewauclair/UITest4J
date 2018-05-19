@@ -16,7 +16,7 @@ import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.core.GenericTypeMatcher;
 import org.uitest4j.swing.exception.ComponentLookupException;
 import org.uitest4j.swing.test.ExpectedException;
-import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.core.SwingRobotBasedTestCase;
 import org.uitest4j.swing.test.swing.TestWindow;
 
 import javax.annotation.Nonnull;
@@ -33,7 +33,7 @@ import static org.uitest4j.swing.test.core.NeverMatchingComponentMatcher.neverMa
  *
  * @author Alex Ruiz
  */
-public class AbstractContainerFixture_slider_Test extends RobotBasedTestCase {
+public class AbstractContainerFixture_slider_Test extends SwingRobotBasedTestCase {
 	private ContainerFixture fixture;
 	private MyWindow window;
 

@@ -17,7 +17,7 @@ import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.cell.JTableCellReader;
 import org.uitest4j.swing.cell.JTableCellWriter;
 import org.uitest4j.swing.core.MouseClickInfo;
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.data.TableCell;
 import org.uitest4j.swing.data.TableCellFinder;
 import org.uitest4j.swing.driver.JTableDriver;
@@ -52,7 +52,7 @@ class JTableFixture_withMocks_Test {
 	@BeforeEach
 	void setUp() {
 		cell = row(6).column(8);
-		fixture = new JTableFixture(mock(Robot.class), mock(JTable.class));
+		fixture = new JTableFixture(mock(SwingRobot.class), mock(JTable.class));
 		fixture.replaceDriverWith(mock(JTableDriver.class));
 		driver = fixture.driver();
 		target = fixture.target();

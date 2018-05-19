@@ -15,7 +15,7 @@ package org.uitest4j.swing.driver;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.uitest4j.swing.annotation.RunsInEDT;
-import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.core.SwingRobotBasedTestCase;
 import org.uitest4j.swing.test.data.BooleanProvider;
 import org.uitest4j.swing.test.swing.TestWindow;
 
@@ -33,7 +33,7 @@ import static org.uitest4j.swing.test.task.AbstractButtonSetArmedTask.setArmed;
  *
  * @author Christian Rösch
  */
-public class AbstractButtonArmedQuery_isArmed_Test extends RobotBasedTestCase {
+public class AbstractButtonArmedQuery_isArmed_Test extends SwingRobotBasedTestCase {
 	private JCheckBox checkBox;
 
 	@Nonnull

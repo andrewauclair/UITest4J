@@ -36,13 +36,13 @@ import static org.uitest4j.swing.test.task.WindowDestroyTask.hideAndDisposeInEDT
  */
 class Bug138_disposeWindows_Test extends EDTSafeTestCase {
 	private ComponentHierarchy hierarchy;
-	private BasicRobot robot;
+	private BasicSwingRobot robot;
 	private JFrame frame;
 
 	@BeforeEach
 	void setUp() {
 		hierarchy = newComponentHierarchyMock();
-		robot = new TestRobotFixture(hierarchy);
+		robot = new TestSwingRobotFixture(hierarchy);
 	}
 
 	@AfterEach

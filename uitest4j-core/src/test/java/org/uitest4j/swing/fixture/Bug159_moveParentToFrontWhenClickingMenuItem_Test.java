@@ -14,7 +14,7 @@ package org.uitest4j.swing.fixture;
 
 import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.annotation.RunsInEDT;
-import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.core.SwingRobotBasedTestCase;
 import org.uitest4j.swing.test.recorder.ClickRecorder;
 import org.uitest4j.swing.test.recorder.ClickRecorderManager;
 import org.uitest4j.swing.test.swing.TestWindow;
@@ -33,7 +33,7 @@ import static org.uitest4j.swing.timing.Pause.pause;
  *
  * @author Alex Ruiz
  */
-class Bug159_moveParentToFrontWhenClickingMenuItem_Test extends RobotBasedTestCase {
+class Bug159_moveParentToFrontWhenClickingMenuItem_Test extends SwingRobotBasedTestCase {
 	private ClickRecorderManager clickRecorder = new ClickRecorderManager();
 
 	private static final int DELAY_BEFORE_SHOWING_MENU = 2000;

@@ -12,11 +12,11 @@
  */
 package org.uitest4j.swing.driver;
 
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.exception.ActionFailedException;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.core.ComponentFinder;
-import org.uitest4j.core.api.swing.Robot;
 import org.uitest4j.swing.core.TypeMatcher;
 import org.uitest4j.swing.internal.assertions.OpenTest4JAssertions;
 
@@ -57,7 +57,7 @@ public class JSpinnerDriver extends JComponentDriver {
 	 *
 	 * @param robot the robot to use to simulate user input.
 	 */
-	public JSpinnerDriver(@Nonnull Robot robot) {
+	public JSpinnerDriver(@Nonnull SwingRobot robot) {
 		super(robot);
 	}
 

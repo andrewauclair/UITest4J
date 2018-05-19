@@ -17,7 +17,7 @@ import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.cell.JTableCellWriter;
 import org.uitest4j.exception.ActionFailedException;
 import org.uitest4j.swing.test.ExpectedException;
-import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.core.SwingRobotBasedTestCase;
 
 import javax.swing.*;
 import java.awt.*;
@@ -30,7 +30,7 @@ import static org.uitest4j.swing.driver.JTableCellValueQuery.cellValueOf;
  * @author Yvonne Wang
  * @author Alex Ruiz
  */
-public abstract class JTableCellWriter_TestCase extends RobotBasedTestCase {
+public abstract class JTableCellWriter_TestCase extends SwingRobotBasedTestCase {
 	TableDialogEditDemoWindow window;
 	JTable table;
 	JTableCellWriter writer;

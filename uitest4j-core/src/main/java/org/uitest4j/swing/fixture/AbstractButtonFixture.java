@@ -13,7 +13,7 @@
 package org.uitest4j.swing.fixture;
 
 import org.uitest4j.fixture.TextDisplayFixture;
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.driver.AbstractButtonDriver;
 
 import javax.annotation.Nonnull;
@@ -41,7 +41,7 @@ public abstract class AbstractButtonFixture<S, T extends AbstractButton> extends
 	 * @throws NullPointerException if {@code robot} is {@code null}.
 	 * @throws NullPointerException if {@code target} is {@code null}.
 	 */
-	public AbstractButtonFixture(@Nonnull Class<S> selfType, @Nonnull Robot robot, @Nonnull T target) {
+	public AbstractButtonFixture(@Nonnull Class<S> selfType, @Nonnull SwingRobot robot, @Nonnull T target) {
 		super(selfType, robot, target);
 	}
 
@@ -51,20 +51,20 @@ public abstract class AbstractButtonFixture<S, T extends AbstractButton> extends
 	 * @param selfType   the "self type."
 	 * @param robot      performs simulation of user events on a {@code AbstractButton}.
 	 * @param buttonName the name of the {@code AbstractButton} to find using the given {@code RobotFixture}.
-	 * @param type       the type of the {@code AbstractButton} to find using the given {@code Robot}.
+	 * @param type       the type of the {@code AbstractButton} to find using the given {@code SwingRobot}.
 	 * @throws NullPointerException                                  if {@code robot} is {@code null}.
 	 * @throws NullPointerException                                  if {@code type} is {@code null}.
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching {@code AbstractButton} could not be
 	 *                                                               found. Or if more than one matching {@code AbstractButton} is found.
 	 */
-	public AbstractButtonFixture(@Nonnull Class<S> selfType, @Nonnull Robot robot, @Nullable String buttonName,
+	public AbstractButtonFixture(@Nonnull Class<S> selfType, @Nonnull SwingRobot robot, @Nullable String buttonName,
 								 @Nonnull Class<? extends T> type) {
 		super(selfType, robot, buttonName, type);
 	}
 
 	@Override
 	@Nonnull
-	protected AbstractButtonDriver createDriver(@Nonnull Robot robot) {
+	protected AbstractButtonDriver createDriver(@Nonnull SwingRobot robot) {
 		return new AbstractButtonDriver(robot);
 	}
 

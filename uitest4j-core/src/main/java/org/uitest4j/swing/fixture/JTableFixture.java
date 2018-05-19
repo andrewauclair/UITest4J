@@ -12,12 +12,12 @@
  */
 package org.uitest4j.swing.fixture;
 
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.exception.ActionFailedException;
 import org.uitest4j.swing.cell.JTableCellReader;
 import org.uitest4j.swing.cell.JTableCellWriter;
 import org.uitest4j.swing.core.MouseButton;
 import org.uitest4j.swing.core.MouseClickInfo;
-import org.uitest4j.core.api.swing.Robot;
 import org.uitest4j.swing.data.TableCell;
 import org.uitest4j.swing.data.TableCellFinder;
 import org.uitest4j.swing.driver.JTableDriver;
@@ -58,7 +58,7 @@ public class JTableFixture extends AbstractJPopupMenuInvokerFixture<JTableFixtur
 	 * @throws NullPointerException if {@code robot} is {@code null}.
 	 * @throws NullPointerException if {@code target} is {@code null}.
 	 */
-	public JTableFixture(@Nonnull Robot robot, @Nonnull JTable target) {
+	public JTableFixture(@Nonnull SwingRobot robot, @Nonnull JTable target) {
 		super(JTableFixture.class, robot, target);
 	}
 
@@ -66,18 +66,18 @@ public class JTableFixture extends AbstractJPopupMenuInvokerFixture<JTableFixtur
 	 * Creates a new {@link JTableFixture}.
 	 *
 	 * @param robot     performs simulation of user events on a {@code JTable}.
-	 * @param tableName the name of the {@code JTable} to find using the given {@code Robot}.
+	 * @param tableName the name of the {@code JTable} to find using the given {@code SwingRobot}.
 	 * @throws NullPointerException                                  if {@code robot} is {@code null}.
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching {@code JTable} could not be found. Or if
 	 *                                                               more than one matching {@code JTable} is found.
 	 */
-	public JTableFixture(@Nonnull Robot robot, @Nullable String tableName) {
+	public JTableFixture(@Nonnull SwingRobot robot, @Nullable String tableName) {
 		super(JTableFixture.class, robot, tableName, JTable.class);
 	}
 
 	@Override
 	@Nonnull
-	protected JTableDriver createDriver(@Nonnull Robot robot) {
+	protected JTableDriver createDriver(@Nonnull SwingRobot robot) {
 		return new JTableDriver(robot);
 	}
 

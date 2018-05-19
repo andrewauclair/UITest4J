@@ -14,7 +14,7 @@ package org.uitest4j.swing.driver;
 
 import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.annotation.RunsInEDT;
-import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.core.SwingRobotBasedTestCase;
 
 import java.awt.*;
 
@@ -26,7 +26,7 @@ import static org.uitest4j.swing.driver.JTableCellValueQuery.cellValueOf;
  *
  * @author Alex Ruiz
  */
-public class Bug225_pressF2ToStartEditingTableCell_Test extends RobotBasedTestCase {
+public class Bug225_pressF2ToStartEditingTableCell_Test extends SwingRobotBasedTestCase {
 	private JTableTextComponentEditorCellWriter writer;
 	private TableDialogEditDemoWindow window;
 

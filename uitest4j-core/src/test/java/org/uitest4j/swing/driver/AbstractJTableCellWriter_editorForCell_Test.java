@@ -14,7 +14,7 @@ package org.uitest4j.swing.driver;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.core.SwingRobotBasedTestCase;
 
 import javax.swing.*;
 import java.awt.*;
@@ -29,7 +29,7 @@ import static org.assertj.core.util.Lists.newArrayList;
  * @author Yvonne Wang
  * @author Alex Ruiz
  */
-class AbstractJTableCellWriter_editorForCell_Test extends RobotBasedTestCase {
+class AbstractJTableCellWriter_editorForCell_Test extends SwingRobotBasedTestCase {
 	private TableDialogEditDemoWindow frame;
 	private AbstractJTableCellWriter writer;
 

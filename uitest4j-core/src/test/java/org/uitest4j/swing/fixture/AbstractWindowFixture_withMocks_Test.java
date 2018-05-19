@@ -14,7 +14,7 @@ package org.uitest4j.swing.fixture;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.driver.WindowDriver;
 
 import javax.annotation.Nonnull;
@@ -126,12 +126,12 @@ class AbstractWindowFixture_withMocks_Test {
 
 	private static class WindowFixture extends AbstractWindowFixture<WindowFixture, Window, WindowDriver> {
 		WindowFixture() {
-			super(WindowFixture.class, mock(Robot.class), mock(Window.class));
+			super(WindowFixture.class, mock(SwingRobot.class), mock(Window.class));
 		}
 
 		@Override
 		@Nonnull
-		protected WindowDriver createDriver(@Nonnull Robot robot) {
+		protected WindowDriver createDriver(@Nonnull SwingRobot robot) {
 			return mock(WindowDriver.class);
 		}
 	}

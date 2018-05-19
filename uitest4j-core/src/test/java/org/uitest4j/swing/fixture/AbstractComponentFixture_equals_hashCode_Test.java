@@ -14,9 +14,9 @@ package org.uitest4j.swing.fixture;
 
 import nl.jqno.equalsverifier.EqualsVerifier;
 import org.junit.jupiter.api.Test;
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.driver.ComponentDriver;
-import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.core.SwingRobotBasedTestCase;
 
 import javax.annotation.Nonnull;
 import javax.swing.*;
@@ -33,7 +33,7 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
  *
  * @author Christian Rösch
  */
-public class AbstractComponentFixture_equals_hashCode_Test extends RobotBasedTestCase {
+public class AbstractComponentFixture_equals_hashCode_Test extends SwingRobotBasedTestCase {
 	@Test
 	public void should_Work() {
 		ConcreteComponentFixture one = new ConcreteComponentFixture(robot, execute((Callable<JLabel>) JLabel::new));
@@ -52,13 +52,13 @@ public class AbstractComponentFixture_equals_hashCode_Test extends RobotBasedTes
 
 	private static class ConcreteComponentFixture extends
 			AbstractComponentFixture<ConcreteComponentFixture, Component, ComponentDriver> {
-		public ConcreteComponentFixture(Robot robot, Component component) {
+		public ConcreteComponentFixture(SwingRobot robot, Component component) {
 			super(ConcreteComponentFixture.class, robot, component);
 		}
 
 		@Override
 		@Nonnull
-		protected ComponentDriver createDriver(@Nonnull Robot robot) {
+		protected ComponentDriver createDriver(@Nonnull SwingRobot robot) {
 			return mock(ComponentDriver.class);
 		}
 	}

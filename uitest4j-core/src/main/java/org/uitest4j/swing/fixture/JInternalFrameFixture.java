@@ -12,8 +12,8 @@
  */
 package org.uitest4j.swing.fixture;
 
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.exception.ActionFailedException;
-import org.uitest4j.core.api.swing.Robot;
 import org.uitest4j.swing.driver.JInternalFrameDriver;
 
 import javax.annotation.Nonnull;
@@ -35,12 +35,12 @@ public class JInternalFrameFixture extends
 	 * Creates a new {@link JInternalFrameFixture}.
 	 *
 	 * @param robot             performs simulation of user events on a {@code JInternalFrame}.
-	 * @param internalFrameName the name of the {@code JInternalFrame} to find using the given {@code Robot}.
+	 * @param internalFrameName the name of the {@code JInternalFrame} to find using the given {@code SwingRobot}.
 	 * @throws NullPointerException                                  if {@code robot} is {@code null}.
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching {@code JInternalFrame} could not be found.
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching {@code JInternalFrame} is found.
 	 */
-	public JInternalFrameFixture(@Nonnull Robot robot, @Nullable String internalFrameName) {
+	public JInternalFrameFixture(@Nonnull SwingRobot robot, @Nullable String internalFrameName) {
 		super(JInternalFrameFixture.class, robot, internalFrameName, JInternalFrame.class);
 	}
 
@@ -52,13 +52,13 @@ public class JInternalFrameFixture extends
 	 * @throws NullPointerException if {@code robot} is {@code null}.
 	 * @throws NullPointerException if {@code target} is {@code null}.
 	 */
-	public JInternalFrameFixture(@Nonnull Robot robot, @Nonnull JInternalFrame target) {
+	public JInternalFrameFixture(@Nonnull SwingRobot robot, @Nonnull JInternalFrame target) {
 		super(JInternalFrameFixture.class, robot, target);
 	}
 
 	@Override
 	@Nonnull
-	protected JInternalFrameDriver createDriver(@Nonnull Robot robot) {
+	protected JInternalFrameDriver createDriver(@Nonnull SwingRobot robot) {
 		return new JInternalFrameDriver(robot);
 	}
 

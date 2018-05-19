@@ -12,8 +12,8 @@
  */
 package org.uitest4j.swing.finder;
 
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.core.*;
-import org.uitest4j.core.api.swing.Robot;
 import org.uitest4j.swing.fixture.AbstractComponentFixture;
 
 import javax.annotation.Nonnegative;
@@ -112,7 +112,7 @@ public abstract class ComponentFinderTemplate<T extends Component> {
 	 *                                                        not be found.
 	 */
 	public abstract @Nonnull
-	AbstractComponentFixture<?, T, ?> using(@Nonnull Robot robot);
+	AbstractComponentFixture<?, T, ?> using(@Nonnull SwingRobot robot);
 
 	/**
 	 * Finds the component using either by name or type.
@@ -123,7 +123,7 @@ public abstract class ComponentFinderTemplate<T extends Component> {
 	 *                                                        not be found.
 	 */
 	protected final @Nonnull
-	T findComponentWith(@Nonnull Robot robot) {
+	T findComponentWith(@Nonnull SwingRobot robot) {
 		ComponentFoundCondition condition = new ComponentFoundCondition(searchDescription, robot.finder(), matcher);
 		pause(condition, timeout);
 		return Objects.requireNonNull(cast(condition.found()));

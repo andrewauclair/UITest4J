@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.fixture;
 
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.exception.ComponentLookupException;
 
 import javax.annotation.Nonnull;
@@ -34,7 +34,7 @@ public class JRadioButtonFixture extends AbstractTwoStateButtonFixture<JRadioBut
 	 * @throws NullPointerException if {@code robot} is {@code null}.
 	 * @throws NullPointerException if {@code target} is {@code null}.
 	 */
-	public JRadioButtonFixture(@Nonnull Robot robot, @Nonnull JRadioButton target) {
+	public JRadioButtonFixture(@Nonnull SwingRobot robot, @Nonnull JRadioButton target) {
 		super(JRadioButtonFixture.class, robot, target);
 	}
 
@@ -42,12 +42,12 @@ public class JRadioButtonFixture extends AbstractTwoStateButtonFixture<JRadioBut
 	 * Creates a new {@link JRadioButtonFixture}.
 	 *
 	 * @param robot      performs simulation of user events on a {@code JRadioButton}.
-	 * @param buttonName the name of the {@code JRadioButton} to find using the given {@code Robot}.
+	 * @param buttonName the name of the {@code JRadioButton} to find using the given {@code SwingRobot}.
 	 * @throws NullPointerException     if {@code robot} is {@code null}.
 	 * @throws ComponentLookupException if a matching {@code JRadioButton} could not be found.
 	 * @throws ComponentLookupException if more than one matching {@code JRadioButton} is found.
 	 */
-	public JRadioButtonFixture(@Nonnull Robot robot, @Nullable String buttonName) {
+	public JRadioButtonFixture(@Nonnull SwingRobot robot, @Nullable String buttonName) {
 		super(JRadioButtonFixture.class, robot, buttonName, JRadioButton.class);
 	}
 }

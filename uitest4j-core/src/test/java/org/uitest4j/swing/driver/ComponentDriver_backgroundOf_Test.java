@@ -15,7 +15,7 @@ package org.uitest4j.swing.driver;
 import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.test.core.MethodInvocations;
-import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.core.SwingRobotBasedTestCase;
 import org.uitest4j.swing.test.swing.TestWindow;
 
 import java.awt.*;
@@ -30,7 +30,7 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
-public class ComponentDriver_backgroundOf_Test extends RobotBasedTestCase {
+public class ComponentDriver_backgroundOf_Test extends SwingRobotBasedTestCase {
 	private static final Color BACKGROUND = BLUE;
 
 	private MyWindow window;

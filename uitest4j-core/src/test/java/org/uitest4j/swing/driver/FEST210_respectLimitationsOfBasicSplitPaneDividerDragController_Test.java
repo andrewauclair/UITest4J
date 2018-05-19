@@ -14,7 +14,7 @@ package org.uitest4j.swing.driver;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.core.SwingRobotBasedTestCase;
 import org.uitest4j.swing.test.swing.TestWindow;
 
 import javax.swing.*;
@@ -33,7 +33,7 @@ import static org.uitest4j.swing.query.ComponentSizeQuery.sizeOf;
  *
  * @author Alex Ruiz
  */
-class FEST210_respectLimitationsOfBasicSplitPaneDividerDragController_Test extends RobotBasedTestCase {
+class FEST210_respectLimitationsOfBasicSplitPaneDividerDragController_Test extends SwingRobotBasedTestCase {
 	private static final int MINIMUM_SIZE = 20;
 
 	private JSplitPaneDriver driver;

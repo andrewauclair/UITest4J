@@ -13,8 +13,8 @@
 package org.uitest4j.swing.driver;
 
 import org.opentest4j.AssertionFailedError;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.annotation.RunsInEDT;
-import org.uitest4j.core.api.swing.Robot;
 import org.uitest4j.swing.edt.GuiQuery;
 import org.uitest4j.exception.ActionFailedException;
 import org.uitest4j.swing.exception.LocationUnavailableException;
@@ -64,7 +64,7 @@ public class JTabbedPaneDriver extends JComponentDriver {
 	 *
 	 * @param robot the robot to use to simulate user input.
 	 */
-	public JTabbedPaneDriver(@Nonnull Robot robot) {
+	public JTabbedPaneDriver(@Nonnull SwingRobot robot) {
 		this(robot, new JTabbedPaneLocation());
 	}
 
@@ -76,7 +76,7 @@ public class JTabbedPaneDriver extends JComponentDriver {
 	 * @param robot    the robot to use to simulate user input.
 	 * @param location knows how to find the location of a tab.
 	 */
-	JTabbedPaneDriver(@Nonnull Robot robot, @Nonnull JTabbedPaneLocation location) {
+	JTabbedPaneDriver(@Nonnull SwingRobot robot, @Nonnull JTabbedPaneLocation location) {
 		super(robot);
 		this.location = location;
 	}

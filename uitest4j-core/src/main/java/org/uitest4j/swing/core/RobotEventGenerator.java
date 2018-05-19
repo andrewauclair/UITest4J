@@ -30,7 +30,7 @@ import static org.uitest4j.swing.util.Platform.isOSX;
 import static org.uitest4j.swing.util.Platform.isWindows;
 
 /**
- * Simulates user input by using an AWT {@code Robot}.
+ * Simulates user input by using an AWT {@code SwingRobot}.
  *
  * @author Alex Ruiz
  */

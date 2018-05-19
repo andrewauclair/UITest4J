@@ -15,7 +15,7 @@ package org.uitest4j.swing.fixture;
 import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.test.ExpectedException;
-import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.core.SwingRobotBasedTestCase;
 import org.uitest4j.swing.test.swing.TableRenderDemo;
 import org.uitest4j.swing.test.swing.TestWindow;
 
@@ -32,7 +32,7 @@ import static org.uitest4j.swing.util.ArrayUtils.format;
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
-public class Bug305_TableContentsTest extends RobotBasedTestCase {
+public class Bug305_TableContentsTest extends SwingRobotBasedTestCase {
 	private JTableFixture fixture;
 
 	@Override

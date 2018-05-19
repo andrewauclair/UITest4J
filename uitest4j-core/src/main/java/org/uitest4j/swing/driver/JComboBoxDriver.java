@@ -13,11 +13,11 @@
 package org.uitest4j.swing.driver;
 
 import org.opentest4j.AssertionFailedError;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.exception.ActionFailedException;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.cell.JComboBoxCellReader;
-import org.uitest4j.core.api.swing.Robot;
 import org.uitest4j.swing.exception.ComponentLookupException;
 import org.uitest4j.swing.exception.LocationUnavailableException;
 import org.uitest4j.swing.internal.annotation.InternalApi;
@@ -77,7 +77,7 @@ public class JComboBoxDriver extends JComponentDriver {
 	 *
 	 * @param robot the robot to use to simulate user input.
 	 */
-	public JComboBoxDriver(@Nonnull Robot robot) {
+	public JComboBoxDriver(@Nonnull SwingRobot robot) {
 		super(robot);
 		listDriver = new JListDriver(robot);
 		dropDownListFinder = new JComboBoxDropDownListFinder(robot);

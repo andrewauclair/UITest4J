@@ -13,10 +13,10 @@
 package org.uitest4j.swing.core;
 
 import org.junit.jupiter.api.Test;
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.edt.GuiQuery;
 import org.uitest4j.swing.fixture.JButtonFixture;
-import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.core.SwingRobotBasedTestCase;
 import org.uitest4j.swing.test.swing.TestWindow;
 
 import javax.swing.*;
@@ -28,12 +28,12 @@ import static javax.swing.BoxLayout.Y_AXIS;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
- * Tests for {@link Scrolling#scrollToVisible(Robot, javax.swing.JComponent)}.
+ * Tests for {@link Scrolling#scrollToVisible(SwingRobot, javax.swing.JComponent)}.
  *
  * @author Juhos Csaba-Zsolt
  * @author Alex Ruiz
  */
-public class Scrolling_scrollToVisible_Test extends RobotBasedTestCase {
+public class Scrolling_scrollToVisible_Test extends SwingRobotBasedTestCase {
 	private MyWindow window;
 
 	@Override

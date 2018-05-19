@@ -12,9 +12,9 @@
  */
 package org.uitest4j.swing.driver;
 
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.driver.TextDisplayDriver;
 import org.uitest4j.swing.annotation.RunsInEDT;
-import org.uitest4j.core.api.swing.Robot;
 import org.uitest4j.swing.internal.annotation.InternalApi;
 import org.uitest4j.swing.internal.assertions.OpenTest4JAssertions;
 
@@ -42,7 +42,7 @@ public class JLabelDriver extends JComponentDriver implements TextDisplayDriver<
 	 *
 	 * @param robot the robot to use to simulate user input.
 	 */
-	public JLabelDriver(@Nonnull Robot robot) {
+	public JLabelDriver(@Nonnull SwingRobot robot) {
 		super(robot);
 	}
 

@@ -16,7 +16,7 @@ import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.core.GenericTypeMatcher;
 import org.uitest4j.swing.finder.WindowFinder;
-import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.core.SwingRobotBasedTestCase;
 
 import javax.annotation.Nonnull;
 import javax.swing.*;
@@ -35,7 +35,7 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
  * @author Bryan Shannon
  * @author Alex Ruiz
  */
-public class Bug195_findDialogMultipleTimes_Test extends RobotBasedTestCase {
+public class Bug195_findDialogMultipleTimes_Test extends SwingRobotBasedTestCase {
 	@Test
 	public void should_Find_Dialog_Multiple_Times() {
 		JDialog dialog = TestDialog.createNew("title 1");

@@ -13,9 +13,9 @@
 package org.uitest4j.swing.fixture;
 
 import org.junit.jupiter.api.Test;
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.driver.JComponentDriver;
-import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.core.SwingRobotBasedTestCase;
 import org.uitest4j.swing.test.swing.TestWindow;
 
 import javax.annotation.Nonnull;
@@ -31,7 +31,7 @@ import static org.uitest4j.swing.test.builder.JTextFields.textField;
  *
  * @author Alex Ruiz
  */
-public class ExtensionTest extends RobotBasedTestCase {
+public class ExtensionTest extends SwingRobotBasedTestCase {
 	private FrameFixture fixture;
 
 	@Override
@@ -62,19 +62,19 @@ public class ExtensionTest extends RobotBasedTestCase {
 		}
 
 		@Override
-		public JTextFieldFixture createFixture(@Nonnull Robot robot, @Nonnull Container root) {
+		public JTextFieldFixture createFixture(@Nonnull SwingRobot robot, @Nonnull Container root) {
 			return new JTextFieldFixture(robot, textField().createNew());
 		}
 	}
 
 	static class JTextFieldFixture extends AbstractComponentFixture<JTextFieldFixture, JTextField, JComponentDriver> {
-		JTextFieldFixture(Robot robot, JTextField target) {
+		JTextFieldFixture(SwingRobot robot, JTextField target) {
 			super(JTextFieldFixture.class, robot, target);
 		}
 
 		@Override
 		@Nonnull
-		protected JComponentDriver createDriver(@Nonnull Robot robot) {
+		protected JComponentDriver createDriver(@Nonnull SwingRobot robot) {
 			return new JComponentDriver(robot);
 		}
 	}

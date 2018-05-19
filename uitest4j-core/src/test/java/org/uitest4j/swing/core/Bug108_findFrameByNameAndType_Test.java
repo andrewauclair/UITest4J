@@ -15,7 +15,7 @@ package org.uitest4j.swing.core;
 import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.exception.WaitTimedOutError;
-import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.core.SwingRobotBasedTestCase;
 import org.uitest4j.swing.test.swing.TestWindow;
 
 import java.awt.*;
@@ -30,7 +30,7 @@ import static org.uitest4j.swing.finder.WindowFinder.findFrame;
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
-class Bug108_findFrameByNameAndType_Test extends RobotBasedTestCase {
+class Bug108_findFrameByNameAndType_Test extends SwingRobotBasedTestCase {
 
 	@Override
 	protected void onSetUp() {

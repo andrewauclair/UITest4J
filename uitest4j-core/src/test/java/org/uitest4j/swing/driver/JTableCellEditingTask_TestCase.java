@@ -13,7 +13,7 @@
 package org.uitest4j.swing.driver;
 
 import org.uitest4j.swing.annotation.RunsInEDT;
-import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.core.SwingRobotBasedTestCase;
 import org.uitest4j.swing.test.swing.TestWindow;
 
 import javax.swing.*;
@@ -28,7 +28,7 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
  *
  * @author Alex Ruiz
  */
-public abstract class JTableCellEditingTask_TestCase extends RobotBasedTestCase {
+public abstract class JTableCellEditingTask_TestCase extends SwingRobotBasedTestCase {
 	MyWindow window;
 
 	@Override

@@ -14,7 +14,7 @@ package org.uitest4j.swing.fixture;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.driver.JScrollPaneDriver;
 
 import javax.swing.*;
@@ -36,7 +36,7 @@ class JScrollPaneFixture_withMocks_Test {
 
 	@BeforeEach
 	void setUp() {
-		fixture = new JScrollPaneFixture(mock(Robot.class), mock(JScrollPane.class));
+		fixture = new JScrollPaneFixture(mock(SwingRobot.class), mock(JScrollPane.class));
 		fixture.replaceDriverWith(mock(JScrollPaneDriver.class));
 		driver = fixture.driver();
 		target = fixture.target();

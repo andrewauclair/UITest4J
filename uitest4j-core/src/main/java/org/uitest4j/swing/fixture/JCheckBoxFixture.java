@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.fixture;
 
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.exception.ComponentLookupException;
 
 import javax.annotation.Nonnull;
@@ -32,7 +32,7 @@ public class JCheckBoxFixture extends AbstractTwoStateButtonFixture<JCheckBoxFix
 	 * @throws NullPointerException if {@code robot} is {@code null}.
 	 * @throws NullPointerException if {@code target} is {@code null}.
 	 */
-	public JCheckBoxFixture(@Nonnull Robot robot, @Nonnull JCheckBox target) {
+	public JCheckBoxFixture(@Nonnull SwingRobot robot, @Nonnull JCheckBox target) {
 		super(JCheckBoxFixture.class, robot, target);
 	}
 
@@ -40,12 +40,12 @@ public class JCheckBoxFixture extends AbstractTwoStateButtonFixture<JCheckBoxFix
 	 * Creates a new {@link JCheckBoxFixture}.
 	 *
 	 * @param robot        performs simulation of user events on a {@code JCheckBox}.
-	 * @param checkBoxName the name of the {@code JCheckBox} to find using the given {@code Robot}.
+	 * @param checkBoxName the name of the {@code JCheckBox} to find using the given {@code SwingRobot}.
 	 * @throws NullPointerException     if {@code robot} is {@code null}.
 	 * @throws ComponentLookupException if a matching {@code JCheckBox} could not be found.
 	 * @throws ComponentLookupException if more than one matching {@code JCheckBox} is found.
 	 */
-	public JCheckBoxFixture(@Nonnull Robot robot, @Nonnull String checkBoxName) {
+	public JCheckBoxFixture(@Nonnull SwingRobot robot, @Nonnull String checkBoxName) {
 		super(JCheckBoxFixture.class, robot, checkBoxName, JCheckBox.class);
 	}
 }

@@ -14,7 +14,7 @@ package org.uitest4j.swing.fixture;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.driver.JSliderDriver;
 
 import javax.swing.*;
@@ -34,7 +34,7 @@ class JSliderFixture_withMocks_Test {
 
 	@BeforeEach
 	void setUp() {
-		fixture = new JSliderFixture(mock(Robot.class), mock(JSlider.class));
+		fixture = new JSliderFixture(mock(SwingRobot.class), mock(JSlider.class));
 		fixture.replaceDriverWith(mock(JSliderDriver.class));
 	}
 

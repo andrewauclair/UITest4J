@@ -16,15 +16,15 @@ import javax.annotation.Nonnull;
 import java.awt.*;
 
 /**
- * Factory of AWT {@code Robot}s.
+ * Factory of AWT {@code SwingRobot}s.
  *
  * @author Alex Ruiz
  */
 public class RobotFactory {
 	/**
-	 * Creates a new AWT {@code Robot} object in the coordinate system of the primary screen.
+	 * Creates a new AWT {@code SwingRobot} object in the coordinate system of the primary screen.
 	 *
-	 * @return the created {@code Robot}.
+	 * @return the created {@code SwingRobot}.
 	 * @throws AWTException      if the platform configuration does not allow low-level input control. This exception is always
 	 *                           thrown when {@code GraphicsEnvironment.isHeadless()} returns {@code true}.
 	 * @throws SecurityException if {@code createRobot} permission is not granted.
@@ -35,9 +35,9 @@ public class RobotFactory {
 	}
 
 	/**
-	 * Creates a new AWT {@code Robot} object in the coordinate system of the left screen (in terms of coordinates).
+	 * Creates a new AWT {@code SwingRobot} object in the coordinate system of the left screen (in terms of coordinates).
 	 *
-	 * @return the created {@code Robot}.
+	 * @return the created {@code SwingRobot}.
 	 * @throws AWTException      if the platform configuration does not allow low-level input control. This exception is always
 	 *                           thrown when {@code GraphicsEnvironment.isHeadless()} returns {@code true}.
 	 * @throws SecurityException if {@code createRobot} permission is not granted.

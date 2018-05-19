@@ -14,7 +14,7 @@ package org.uitest4j.swing.driver;
 
 import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.annotation.RunsInEDT;
-import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.core.SwingRobotBasedTestCase;
 
 import javax.swing.*;
 
@@ -28,7 +28,7 @@ import static org.uitest4j.swing.test.swing.JOptionPaneLauncher.launch;
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
-public class JOptionPaneTitleQuery_titleOf_Test extends RobotBasedTestCase {
+public class JOptionPaneTitleQuery_titleOf_Test extends SwingRobotBasedTestCase {
 	private static final String TITLE = "My Message";
 
 	private MyOptionPane optionPane;

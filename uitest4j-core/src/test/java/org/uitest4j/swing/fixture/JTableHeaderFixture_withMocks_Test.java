@@ -15,7 +15,7 @@ package org.uitest4j.swing.fixture;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.core.MouseClickInfo;
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.driver.JTableHeaderDriver;
 
 import javax.swing.*;
@@ -41,7 +41,7 @@ class JTableHeaderFixture_withMocks_Test {
 
 	@BeforeEach
 	void setUp() {
-		fixture = new JTableHeaderFixture(mock(Robot.class), mock(JTableHeader.class));
+		fixture = new JTableHeaderFixture(mock(SwingRobot.class), mock(JTableHeader.class));
 		fixture.replaceDriverWith(mock(JTableHeaderDriver.class));
 		driver = fixture.driver();
 		target = fixture.target();

@@ -14,7 +14,7 @@ package org.uitest4j.swing.driver;
 
 import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.exception.WaitTimedOutError;
-import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.core.SwingRobotBasedTestCase;
 import org.uitest4j.swing.test.swing.TestWindow;
 import org.uitest4j.swing.test.util.StopWatch;
 
@@ -27,7 +27,7 @@ import static org.uitest4j.swing.test.util.StopWatch.startNewStopWatch;
  *
  * @author Alex Ruiz
  */
-public class ComponentShownWaiter_waitTillShown_Test extends RobotBasedTestCase {
+public class ComponentShownWaiter_waitTillShown_Test extends SwingRobotBasedTestCase {
 	private TestWindow window;
 
 	@Override

@@ -14,7 +14,7 @@ package org.uitest4j.swing.security;
 
 import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.fixture.FrameFixture;
-import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.core.SwingRobotBasedTestCase;
 import org.uitest4j.swing.test.swing.TestWindow;
 
 import javax.swing.*;
@@ -27,7 +27,7 @@ import static org.uitest4j.swing.security.NoExitSecurityManagerInstaller.install
  *
  * @author Alex Ruiz
  */
-public class FEST249_shouldNotAllowExit extends RobotBasedTestCase {
+public class FEST249_shouldNotAllowExit extends SwingRobotBasedTestCase {
 	private FrameFixture frame;
 	private NoExitSecurityManagerInstaller noExitSecurityManagerInstaller;
 

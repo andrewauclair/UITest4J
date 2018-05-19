@@ -13,7 +13,7 @@
 package org.uitest4j.swing.driver;
 
 import org.uitest4j.swing.annotation.RunsInEDT;
-import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.core.SwingRobotBasedTestCase;
 import org.uitest4j.swing.test.swing.TestWindow;
 import org.uitest4j.swing.test.util.StopWatch;
 
@@ -32,7 +32,7 @@ import static org.uitest4j.swing.timing.Pause.pause;
  *
  * @author Alex Ruiz
  */
-public abstract class ComponentDriver_TestCase extends RobotBasedTestCase {
+public abstract class ComponentDriver_TestCase extends SwingRobotBasedTestCase {
 	static final int TIME_TO_WAIT_FOR_FOCUS_GAIN = 2000;
 	ComponentDriver driver;
 	MyWindow window;

@@ -12,9 +12,9 @@
  */
 package org.uitest4j.swing.fixture;
 
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.core.*;
-import org.uitest4j.core.api.swing.Robot;
 import org.uitest4j.swing.driver.ComponentDriver;
 import org.uitest4j.swing.timing.Timeout;
 
@@ -50,14 +50,14 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
 	 *
 	 * @param selfType the "self type."
 	 * @param robot    performs simulation of user events on a {@code Container}.
-	 * @param type     the type of the {@code Container} to find using the given {@code Robot}.
+	 * @param type     the type of the {@code Container} to find using the given {@code SwingRobot}.
 	 * @throws NullPointerException                                  if {@code robot} is {@code null}.
 	 * @throws NullPointerException                                  if {@code type} is {@code null}.
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching component could not be found.
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching component is found.
 	 * @see org.uitest4j.swing.core.ComponentFinder#findByType(Class)
 	 */
-	public AbstractContainerFixture(@Nonnull Class<S> selfType, @Nonnull Robot robot, @Nonnull Class<? extends C> type) {
+	public AbstractContainerFixture(@Nonnull Class<S> selfType, @Nonnull SwingRobot robot, @Nonnull Class<? extends C> type) {
 		super(selfType, robot, type);
 		menuItemFinder = new JMenuItemFinder(robot, target());
 	}
@@ -67,15 +67,15 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
 	 *
 	 * @param selfType the "self type."
 	 * @param robot    performs simulation of user events on a {@code Container}.
-	 * @param name     the name of the {@code Container} to find using the given {@code Robot}.
-	 * @param type     the type of the {@code Container} to find using the given {@code Robot}.
+	 * @param name     the name of the {@code Container} to find using the given {@code SwingRobot}.
+	 * @param type     the type of the {@code Container} to find using the given {@code SwingRobot}.
 	 * @throws NullPointerException                                  if {@code robot} is {@code null}.
 	 * @throws NullPointerException                                  if {@code type} is {@code null}.
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching component could not be found.
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching component is found.
 	 * @see org.uitest4j.swing.core.ComponentFinder#findByName(String, Class)
 	 */
-	public AbstractContainerFixture(@Nonnull Class<S> selfType, @Nonnull Robot robot, @Nullable String name,
+	public AbstractContainerFixture(@Nonnull Class<S> selfType, @Nonnull SwingRobot robot, @Nullable String name,
 									@Nonnull Class<? extends C> type) {
 		super(selfType, robot, name, type);
 		menuItemFinder = new JMenuItemFinder(robot, target());
@@ -90,7 +90,7 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
 	 * @throws NullPointerException if {@code robot} is {@code null}.
 	 * @throws NullPointerException if {@code target} is {@code null}.
 	 */
-	public AbstractContainerFixture(@Nonnull Class<S> selfType, @Nonnull Robot robot, @Nonnull C target) {
+	public AbstractContainerFixture(@Nonnull Class<S> selfType, @Nonnull SwingRobot robot, @Nonnull C target) {
 		super(selfType, robot, target);
 		menuItemFinder = new JMenuItemFinder(robot, target());
 	}
@@ -716,7 +716,7 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
 	}
 
 	/**
-	 * @return the {@code ComponentFinder} contained in this fixture's {@code Robot}.
+	 * @return the {@code ComponentFinder} contained in this fixture's {@code SwingRobot}.
 	 */
 	protected final @Nonnull
 	ComponentFinder finder() {

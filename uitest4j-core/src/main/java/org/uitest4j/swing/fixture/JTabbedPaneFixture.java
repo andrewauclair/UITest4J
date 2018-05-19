@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.fixture;
 
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.driver.JTabbedPaneDriver;
 
 import javax.annotation.Nonnull;
@@ -37,7 +37,7 @@ public class JTabbedPaneFixture extends
 	 * @throws NullPointerException if {@code robot} is {@code null}.
 	 * @throws NullPointerException if {@code target} is {@code null}.
 	 */
-	public JTabbedPaneFixture(@Nonnull Robot robot, @Nonnull JTabbedPane target) {
+	public JTabbedPaneFixture(@Nonnull SwingRobot robot, @Nonnull JTabbedPane target) {
 		super(JTabbedPaneFixture.class, robot, target);
 	}
 
@@ -45,18 +45,18 @@ public class JTabbedPaneFixture extends
 	 * Creates a new {@link JTabbedPaneFixture}.
 	 *
 	 * @param robot          performs simulation of user events on a {@code JTabbedPane}.
-	 * @param tabbedPaneName the name of the {@code JTabbedPane} to find using the given {@code Robot}.
+	 * @param tabbedPaneName the name of the {@code JTabbedPane} to find using the given {@code SwingRobot}.
 	 * @throws NullPointerException                                  if {@code robot} is {@code null}.
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching {@code JTabbedPane} could not be found.
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching {@code JTabbedPane} is found.
 	 */
-	public JTabbedPaneFixture(@Nonnull Robot robot, @Nonnull String tabbedPaneName) {
+	public JTabbedPaneFixture(@Nonnull SwingRobot robot, @Nonnull String tabbedPaneName) {
 		super(JTabbedPaneFixture.class, robot, tabbedPaneName, JTabbedPane.class);
 	}
 
 	@Override
 	@Nonnull
-	protected JTabbedPaneDriver createDriver(@Nonnull Robot robot) {
+	protected JTabbedPaneDriver createDriver(@Nonnull SwingRobot robot) {
 		return new JTabbedPaneDriver(robot);
 	}
 

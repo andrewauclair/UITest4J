@@ -14,7 +14,7 @@ package org.uitest4j.swing.fixture;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.driver.JLabelDriver;
 
 import javax.swing.*;
@@ -34,7 +34,7 @@ class JLabelFixture_withMocks_Test {
 
 	@BeforeEach
 	void setUp() {
-		fixture = new JLabelFixture(mock(Robot.class), mock(JLabel.class));
+		fixture = new JLabelFixture(mock(SwingRobot.class), mock(JLabel.class));
 		fixture.replaceDriverWith(mock(JLabelDriver.class));
 	}
 

@@ -12,7 +12,8 @@
  */
 package org.uitest4j.swing.fixture;
 
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
+import org.uitest4j.swing.core.BasicSwingRobot;
 import org.uitest4j.swing.driver.DialogDriver;
 
 import javax.annotation.Nonnull;
@@ -26,12 +27,12 @@ import java.awt.*;
  */
 public class DialogFixture extends AbstractWindowFixture<DialogFixture, Dialog, DialogDriver> {
 	/**
-	 * Creates a new {@link DialogFixture}. This constructor creates a new {@link Robot} containing the current AWT
+	 * Creates a new {@link DialogFixture}. This constructor creates a new {@link SwingRobot} containing the current AWT
 	 * hierarchy.
 	 *
 	 * @param target the {@code Dialog} to be managed by this fixture.
 	 * @throws NullPointerException if {@code target} is {@code null}.
-	 * @see org.uitest4j.swing.core.BasicRobot#robotWithCurrentAwtHierarchy()
+	 * @see BasicSwingRobot#robotWithCurrentAwtHierarchy()
 	 */
 	public DialogFixture(@Nonnull Dialog target) {
 		super(DialogFixture.class, target);
@@ -45,7 +46,7 @@ public class DialogFixture extends AbstractWindowFixture<DialogFixture, Dialog, 
 	 * @throws NullPointerException if {@code robot} is {@code null}.
 	 * @throws NullPointerException if {@code target} is {@code null}.
 	 */
-	public DialogFixture(@Nonnull Robot robot, @Nonnull Dialog target) {
+	public DialogFixture(@Nonnull SwingRobot robot, @Nonnull Dialog target) {
 		super(DialogFixture.class, robot, target);
 	}
 
@@ -53,23 +54,23 @@ public class DialogFixture extends AbstractWindowFixture<DialogFixture, Dialog, 
 	 * Creates a new {@link DialogFixture}.
 	 *
 	 * @param robot      performs simulation of user events on a {@code Dialog}.
-	 * @param dialogName the name of the {@code Dialog} to find using the given {@code Robot}.
+	 * @param dialogName the name of the {@code Dialog} to find using the given {@code SwingRobot}.
 	 * @throws NullPointerException                                  if {@code robot} is {@code null}.
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code Dialog} having a matching name could not be found.
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code Dialog} having a matching name is found.
 	 */
-	public DialogFixture(@Nonnull Robot robot, @Nullable String dialogName) {
+	public DialogFixture(@Nonnull SwingRobot robot, @Nullable String dialogName) {
 		super(DialogFixture.class, robot, dialogName, Dialog.class);
 	}
 
 	/**
-	 * Creates a new {@link DialogFixture}. This constructor creates a new {@link Robot} containing the current AWT
+	 * Creates a new {@link DialogFixture}. This constructor creates a new {@link SwingRobot} containing the current AWT
 	 * hierarchy.
 	 *
 	 * @param dialogName the name of the {@code Dialog} to find.
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code Dialog} having a matching name could not be found.
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code Dialog} having a matching name is found.
-	 * @see org.uitest4j.swing.core.BasicRobot#robotWithCurrentAwtHierarchy()
+	 * @see BasicSwingRobot#robotWithCurrentAwtHierarchy()
 	 */
 	public DialogFixture(@Nullable String dialogName) {
 		super(DialogFixture.class, dialogName, Dialog.class);
@@ -77,7 +78,7 @@ public class DialogFixture extends AbstractWindowFixture<DialogFixture, Dialog, 
 
 	@Override
 	@Nonnull
-	protected DialogDriver createDriver(@Nonnull Robot robot) {
+	protected DialogDriver createDriver(@Nonnull SwingRobot robot) {
 		return new DialogDriver(robot);
 	}
 

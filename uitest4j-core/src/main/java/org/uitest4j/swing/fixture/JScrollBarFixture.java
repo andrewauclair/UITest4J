@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.fixture;
 
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.driver.JScrollBarDriver;
 
 import javax.annotation.Nonnull;
@@ -34,7 +34,7 @@ public class JScrollBarFixture extends
 	 * @throws NullPointerException if {@code robot} is {@code null}.
 	 * @throws NullPointerException if {@code target} is {@code null}.
 	 */
-	public JScrollBarFixture(@Nonnull Robot robot, @Nonnull JScrollBar target) {
+	public JScrollBarFixture(@Nonnull SwingRobot robot, @Nonnull JScrollBar target) {
 		super(JScrollBarFixture.class, robot, target);
 	}
 
@@ -42,18 +42,18 @@ public class JScrollBarFixture extends
 	 * Creates a new {@link JScrollBarFixture}.
 	 *
 	 * @param robot         performs simulation of user events on a {@code JScrollBar}.
-	 * @param scrollBarName the name of the {@code JScrollBar} to find using the given {@code Robot}.
+	 * @param scrollBarName the name of the {@code JScrollBar} to find using the given {@code SwingRobot}.
 	 * @throws NullPointerException                                  if {@code robot} is {@code null}.
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching {@code JScrollBar} could not be found.
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching {@code JScrollBar} is found.
 	 */
-	public JScrollBarFixture(@Nonnull Robot robot, @Nullable String scrollBarName) {
+	public JScrollBarFixture(@Nonnull SwingRobot robot, @Nullable String scrollBarName) {
 		super(JScrollBarFixture.class, robot, scrollBarName, JScrollBar.class);
 	}
 
 	@Override
 	@Nonnull
-	protected JScrollBarDriver createDriver(@Nonnull Robot robot) {
+	protected JScrollBarDriver createDriver(@Nonnull SwingRobot robot) {
 		return new JScrollBarDriver(robot);
 	}
 

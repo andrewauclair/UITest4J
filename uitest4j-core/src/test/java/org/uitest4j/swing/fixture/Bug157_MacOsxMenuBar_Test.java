@@ -14,7 +14,7 @@ package org.uitest4j.swing.fixture;
 
 import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.annotation.RunsInEDT;
-import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.core.SwingRobotBasedTestCase;
 import org.uitest4j.swing.test.swing.TestWindow;
 
 import javax.swing.*;
@@ -30,7 +30,7 @@ import static org.uitest4j.swing.finder.WindowFinder.findFrame;
  * @author Andriy Tsykholyas
  * @author Yvonne Wang
  */
-public class Bug157_MacOsxMenuBar_Test extends RobotBasedTestCase {
+public class Bug157_MacOsxMenuBar_Test extends SwingRobotBasedTestCase {
 	private JMenuItemFixture menuItemFixture;
 
 	@Override

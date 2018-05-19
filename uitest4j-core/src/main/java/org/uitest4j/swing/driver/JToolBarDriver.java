@@ -12,10 +12,10 @@
  */
 package org.uitest4j.swing.driver;
 
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.exception.ActionFailedException;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.uitest4j.swing.annotation.RunsInEDT;
-import org.uitest4j.core.api.swing.Robot;
 import org.uitest4j.swing.edt.GuiQuery;
 import org.uitest4j.swing.internal.annotation.InternalApi;
 import org.uitest4j.swing.util.GenericRange;
@@ -56,7 +56,7 @@ public class JToolBarDriver extends JComponentDriver {
 	 *
 	 * @param robot the robot to use to simulate user input.
 	 */
-	public JToolBarDriver(@Nonnull Robot robot) {
+	public JToolBarDriver(@Nonnull SwingRobot robot) {
 		super(robot);
 	}
 

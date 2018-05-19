@@ -13,7 +13,7 @@
 package org.uitest4j.swing.driver;
 
 import org.uitest4j.swing.annotation.RunsInEDT;
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.exception.ActionFailedException;
 
 import javax.annotation.Nonnull;
@@ -35,7 +35,7 @@ import static org.uitest4j.swing.core.MouseButton.LEFT_BUTTON;
 public class JTableTextComponentEditorCellWriter extends AbstractJTableCellWriter {
 	protected final JTextComponentDriver driver;
 
-	public JTableTextComponentEditorCellWriter(@Nonnull Robot robot) {
+	public JTableTextComponentEditorCellWriter(@Nonnull SwingRobot robot) {
 		super(robot);
 		driver = new JTextComponentDriver(robot);
 	}

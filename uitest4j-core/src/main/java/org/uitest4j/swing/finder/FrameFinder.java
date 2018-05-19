@@ -12,8 +12,8 @@
  */
 package org.uitest4j.swing.finder;
 
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.core.GenericTypeMatcher;
-import org.uitest4j.core.api.swing.Robot;
 import org.uitest4j.swing.fixture.FrameFixture;
 
 import javax.annotation.Nonnegative;
@@ -92,7 +92,7 @@ public class FrameFinder extends WindowFinderTemplate<Frame> {
 	 */
 	@Override
 	@Nonnull
-	public FrameFixture using(@Nonnull Robot robot) {
+	public FrameFixture using(@Nonnull SwingRobot robot) {
 		return new FrameFixture(robot, findComponentWith(robot));
 	}
 

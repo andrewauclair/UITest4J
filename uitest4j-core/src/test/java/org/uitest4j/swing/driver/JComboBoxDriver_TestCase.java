@@ -16,7 +16,7 @@ import org.junit.jupiter.api.function.Executable;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.test.ExpectedException;
 import org.uitest4j.swing.test.core.MethodInvocations;
-import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.core.SwingRobotBasedTestCase;
 import org.uitest4j.swing.test.swing.TestWindow;
 
 import javax.annotation.Nonnull;
@@ -39,7 +39,7 @@ import static org.uitest4j.swing.test.task.ComponentSetEnabledTask.disable;
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
-public abstract class JComboBoxDriver_TestCase extends RobotBasedTestCase {
+public abstract class JComboBoxDriver_TestCase extends SwingRobotBasedTestCase {
 	JComboBoxCellReaderStub cellReader;
 	JComboBox comboBox;
 	JComboBoxDriver driver;

@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.fixture;
 
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.driver.JMenuItemDriver;
 
 import javax.annotation.Nonnull;
@@ -29,12 +29,12 @@ public class JMenuItemFixture extends AbstractJComponentFixture<JMenuItemFixture
 	 * Creates a new {@link JMenuItemFixture}.
 	 *
 	 * @param robot        performs simulation of user events on a {@code JMenuItem}.
-	 * @param menuItemName the name of the {@code JMenuItem} to find using the given {@code Robot}.
+	 * @param menuItemName the name of the {@code JMenuItem} to find using the given {@code SwingRobot}.
 	 * @throws NullPointerException                                  if {@code robot} is {@code null}.
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching {@code JMenuItem} could not be found.
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching {@code JMenuItem} is found.
 	 */
-	public JMenuItemFixture(@Nonnull Robot robot, @Nullable String menuItemName) {
+	public JMenuItemFixture(@Nonnull SwingRobot robot, @Nullable String menuItemName) {
 		this(robot, robot.finder().findByName(menuItemName, JMenuItem.class, false));
 	}
 
@@ -46,13 +46,13 @@ public class JMenuItemFixture extends AbstractJComponentFixture<JMenuItemFixture
 	 * @throws NullPointerException if {@code robot} is {@code null}.
 	 * @throws NullPointerException if {@code target} is {@code null}.
 	 */
-	public JMenuItemFixture(@Nonnull Robot robot, @Nonnull JMenuItem target) {
+	public JMenuItemFixture(@Nonnull SwingRobot robot, @Nonnull JMenuItem target) {
 		super(JMenuItemFixture.class, robot, target);
 	}
 
 	@Override
 	@Nonnull
-	protected JMenuItemDriver createDriver(@Nonnull Robot robot) {
+	protected JMenuItemDriver createDriver(@Nonnull SwingRobot robot) {
 		return new JMenuItemDriver(robot);
 	}
 }

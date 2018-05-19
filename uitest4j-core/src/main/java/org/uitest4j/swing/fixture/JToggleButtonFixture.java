@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.fixture;
 
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.exception.ComponentLookupException;
 
 import javax.annotation.Nonnull;
@@ -32,7 +32,7 @@ public class JToggleButtonFixture extends AbstractTwoStateButtonFixture<JToggleB
 	 * @throws NullPointerException if {@code robot} is {@code null}.
 	 * @throws NullPointerException if {@code target} is {@code null}.
 	 */
-	public JToggleButtonFixture(@Nonnull Robot robot, @Nonnull JToggleButton target) {
+	public JToggleButtonFixture(@Nonnull SwingRobot robot, @Nonnull JToggleButton target) {
 		super(JToggleButtonFixture.class, robot, target);
 	}
 
@@ -40,12 +40,12 @@ public class JToggleButtonFixture extends AbstractTwoStateButtonFixture<JToggleB
 	 * Creates a new {@link org.uitest4j.swing.fixture.JToggleButtonFixture}.
 	 *
 	 * @param robot            performs simulation of user events on a {@code JToggleButton}.
-	 * @param toggleButtonName the name of the {@code JToggleButton} to find using the given {@code Robot}.
+	 * @param toggleButtonName the name of the {@code JToggleButton} to find using the given {@code SwingRobot}.
 	 * @throws NullPointerException     if {@code robot} is {@code null}.
 	 * @throws ComponentLookupException if a matching {@code JToggleButton} could not be found.
 	 * @throws ComponentLookupException if more than one matching {@code JToggleButton} is found.
 	 */
-	public JToggleButtonFixture(@Nonnull Robot robot, @Nonnull String toggleButtonName) {
+	public JToggleButtonFixture(@Nonnull SwingRobot robot, @Nonnull String toggleButtonName) {
 		super(JToggleButtonFixture.class, robot, toggleButtonName, JToggleButton.class);
 	}
 }

@@ -51,7 +51,7 @@ class WindowStatus {
 			r = robotFactory.newRobotInLeftScreen();
 		}
 		catch (AWTException ignored) {
-			logger.log(WARNING, "Error ocurred when creating a new Robot", ignored);
+			logger.log(WARNING, "Error ocurred when creating a new SwingRobot", ignored);
 		}
 		robot = r;
 	}

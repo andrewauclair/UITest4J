@@ -15,7 +15,7 @@ package org.uitest4j.swing.query;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.test.core.MethodInvocations;
 import org.uitest4j.swing.test.core.MethodInvocations.Args;
-import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.core.SwingRobotBasedTestCase;
 import org.uitest4j.swing.test.swing.TestTable;
 import org.uitest4j.swing.test.swing.TestWindow;
 
@@ -29,7 +29,7 @@ import static org.uitest4j.swing.test.core.MethodInvocations.Args.args;
  *
  * @author Alex Ruiz
  */
-public abstract class JTableColumnByIdentifierQuery_TestCase extends RobotBasedTestCase {
+public abstract class JTableColumnByIdentifierQuery_TestCase extends SwingRobotBasedTestCase {
 	MyTable table;
 
 	@Override

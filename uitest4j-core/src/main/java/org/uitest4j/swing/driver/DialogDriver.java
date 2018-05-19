@@ -13,8 +13,8 @@
 package org.uitest4j.swing.driver;
 
 import org.opentest4j.AssertionFailedError;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.annotation.RunsInEDT;
-import org.uitest4j.core.api.swing.Robot;
 import org.uitest4j.swing.internal.annotation.InternalApi;
 import org.uitest4j.swing.internal.assertions.OpenTest4JAssertions;
 
@@ -43,7 +43,7 @@ public class DialogDriver extends WindowDriver {
 	 *
 	 * @param robot the robot to use to simulate user input.
 	 */
-	public DialogDriver(@Nonnull Robot robot) {
+	public DialogDriver(@Nonnull SwingRobot robot) {
 		super(robot);
 	}
 

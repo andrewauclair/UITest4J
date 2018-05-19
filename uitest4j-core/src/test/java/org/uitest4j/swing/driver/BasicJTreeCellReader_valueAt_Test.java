@@ -14,7 +14,7 @@ package org.uitest4j.swing.driver;
 
 import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.annotation.RunsInEDT;
-import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.core.SwingRobotBasedTestCase;
 import org.uitest4j.swing.test.swing.CustomCellRenderer;
 import org.uitest4j.swing.test.swing.TestWindow;
 
@@ -34,7 +34,7 @@ import static org.uitest4j.swing.test.builder.JToolBars.toolBar;
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
-public class BasicJTreeCellReader_valueAt_Test extends RobotBasedTestCase {
+public class BasicJTreeCellReader_valueAt_Test extends SwingRobotBasedTestCase {
 	private JTree tree;
 	private BasicJTreeCellReader reader;
 	private DefaultMutableTreeNode root;

@@ -12,8 +12,8 @@
  */
 package org.uitest4j.swing.testing;
 
-import org.uitest4j.swing.core.BasicRobot;
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
+import org.uitest4j.swing.core.BasicSwingRobot;
 
 import javax.annotation.Nonnull;
 
@@ -23,31 +23,31 @@ import javax.annotation.Nonnull;
  * @author Alex Ruiz
  */
 public abstract class AssertJSwingTestCaseTemplate {
-	private Robot robot;
+	private SwingRobot robot;
 
 	public AssertJSwingTestCaseTemplate() {
 		robot = null; // Just to satisfy FindBugs
 	}
 
 	/**
-	 * Creates this test's {@link Robot} using a new AWT hierarchy.
+	 * Creates this test's {@link SwingRobot} using a new AWT hierarchy.
 	 */
 	protected final void setUpRobot() {
-		robot = BasicRobot.robotWithNewAwtHierarchy();
+		robot = BasicSwingRobot.robotWithNewAwtHierarchy();
 	}
 
 	/**
-	 * Cleans up resources used by this test's {@link Robot}.
+	 * Cleans up resources used by this test's {@link SwingRobot}.
 	 */
 	protected final void cleanUp() {
 		robot.cleanUp();
 	}
 
 	/**
-	 * @return this test's {@link Robot}
+	 * @return this test's {@link SwingRobot}
 	 */
 	protected final @Nonnull
-	Robot robot() {
+	SwingRobot robot() {
 		return robot;
 	}
 }

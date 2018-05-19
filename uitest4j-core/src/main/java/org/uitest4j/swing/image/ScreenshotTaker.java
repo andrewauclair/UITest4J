@@ -45,7 +45,7 @@ public class ScreenshotTaker implements ScreenshotTakerIF {
 	/**
 	 * Creates a new {@link ScreenshotTaker}.
 	 *
-	 * @throws ImageException if an AWT Robot (the responsible for taking screenshots) cannot be instantiated.
+	 * @throws ImageException if an AWT SwingRobot (the responsible for taking screenshots) cannot be instantiated.
 	 */
 	public ScreenshotTaker() {
 		this(new ImageFileWriter(), new RobotFactory());
@@ -58,7 +58,7 @@ public class ScreenshotTaker implements ScreenshotTakerIF {
 			robot = robotFactory.newRobotInLeftScreen();
 		}
 		catch (AWTException e) {
-			throw new ImageException("Unable to create AWT Robot", e);
+			throw new ImageException("Unable to create AWT SwingRobot", e);
 		}
 	}
 

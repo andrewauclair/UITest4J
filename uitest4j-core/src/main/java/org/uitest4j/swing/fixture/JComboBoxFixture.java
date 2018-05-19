@@ -12,9 +12,9 @@
  */
 package org.uitest4j.swing.fixture;
 
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.exception.ActionFailedException;
 import org.uitest4j.swing.cell.JComboBoxCellReader;
-import org.uitest4j.core.api.swing.Robot;
 import org.uitest4j.swing.driver.JComboBoxDriver;
 
 import javax.annotation.Nonnull;
@@ -45,7 +45,7 @@ public class JComboBoxFixture extends AbstractJPopupMenuInvokerFixture<JComboBox
 	 * @throws NullPointerException if {@code robot} is {@code null}.
 	 * @throws NullPointerException if {@code target} is {@code null}.
 	 */
-	public JComboBoxFixture(@Nonnull Robot robot, @Nonnull JComboBox target) {
+	public JComboBoxFixture(@Nonnull SwingRobot robot, @Nonnull JComboBox target) {
 		super(JComboBoxFixture.class, robot, target);
 	}
 
@@ -53,18 +53,18 @@ public class JComboBoxFixture extends AbstractJPopupMenuInvokerFixture<JComboBox
 	 * Creates a new {@link JComboBoxFixture}.
 	 *
 	 * @param robot        performs simulation of user events on a {@code JComboBox}.
-	 * @param comboBoxName the name of the {@code JComboBox} to find using the given {@code Robot}.
+	 * @param comboBoxName the name of the {@code JComboBox} to find using the given {@code SwingRobot}.
 	 * @throws NullPointerException                                  if {@code robot} is {@code null}.
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching {@code JComboBox} could not be found.
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching {@code JComboBox} is found.
 	 */
-	public JComboBoxFixture(@Nonnull Robot robot, @Nullable String comboBoxName) {
+	public JComboBoxFixture(@Nonnull SwingRobot robot, @Nullable String comboBoxName) {
 		super(JComboBoxFixture.class, robot, comboBoxName, JComboBox.class);
 	}
 
 	@Override
 	@Nonnull
-	protected JComboBoxDriver createDriver(@Nonnull Robot robot) {
+	protected JComboBoxDriver createDriver(@Nonnull SwingRobot robot) {
 		return new JComboBoxDriver(robot);
 	}
 

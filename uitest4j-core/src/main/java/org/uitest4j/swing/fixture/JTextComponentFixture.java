@@ -13,7 +13,7 @@
 package org.uitest4j.swing.fixture;
 
 import org.uitest4j.exception.ActionFailedException;
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.driver.JTextComponentDriver;
 
 import javax.annotation.Nonnull;
@@ -37,7 +37,7 @@ public class JTextComponentFixture extends
 	 * @throws NullPointerException if {@code robot} is {@code null}.
 	 * @throws NullPointerException if {@code target} is {@code null}.
 	 */
-	public JTextComponentFixture(@Nonnull Robot robot, @Nonnull JTextComponent target) {
+	public JTextComponentFixture(@Nonnull SwingRobot robot, @Nonnull JTextComponent target) {
 		super(JTextComponentFixture.class, robot, target);
 	}
 
@@ -45,18 +45,18 @@ public class JTextComponentFixture extends
 	 * Creates a new {@link JTextComponentFixture}.
 	 *
 	 * @param robot             performs simulation of user events on a {@code JTextComponent}.
-	 * @param textComponentName the name of the {@code JTextComponent} to find using the given {@code Robot}.
+	 * @param textComponentName the name of the {@code JTextComponent} to find using the given {@code SwingRobot}.
 	 * @throws NullPointerException                                  if {@code robot} is {@code null}.
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching {@code JTextComponent} could not be found.
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching {@code JTextComponent} is found.
 	 */
-	public JTextComponentFixture(@Nonnull Robot robot, @Nullable String textComponentName) {
+	public JTextComponentFixture(@Nonnull SwingRobot robot, @Nullable String textComponentName) {
 		super(JTextComponentFixture.class, robot, textComponentName, JTextComponent.class);
 	}
 
 	@Override
 	@Nonnull
-	protected JTextComponentDriver createDriver(@Nonnull Robot robot) {
+	protected JTextComponentDriver createDriver(@Nonnull SwingRobot robot) {
 		return new JTextComponentDriver(robot);
 	}
 

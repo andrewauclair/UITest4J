@@ -14,7 +14,7 @@ package org.uitest4j.swing.finder;
 
 import org.uitest4j.swing.fixture.FrameFixture;
 import org.uitest4j.swing.fixture.JButtonFixture;
-import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.core.SwingRobotBasedTestCase;
 import org.uitest4j.swing.test.swing.WindowLauncher;
 
 /**
@@ -23,7 +23,7 @@ import org.uitest4j.swing.test.swing.WindowLauncher;
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
-public abstract class WindowFinder_TestCase extends RobotBasedTestCase {
+public abstract class WindowFinder_TestCase extends SwingRobotBasedTestCase {
 	private FrameFixture launcher;
 
 	WindowLauncher window;

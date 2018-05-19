@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.fixture;
 
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.driver.JComponentDriver;
 
 import javax.annotation.Nonnull;
@@ -33,12 +33,12 @@ public class JPanelFixture extends AbstractContainerFixture<JPanelFixture, JPane
 	 * Creates a new {@link JPanelFixture}.
 	 *
 	 * @param robot     performs simulation of user events on a {@code JPanel}.
-	 * @param panelName the name of the {@code JPanel} to find using the given {@code Robot}.
+	 * @param panelName the name of the {@code JPanel} to find using the given {@code SwingRobot}.
 	 * @throws NullPointerException                                  if {@code robot} is {@code null}.
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching {@code JPanel} could not be found.
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching {@code JPanel} is found.
 	 */
-	public JPanelFixture(@Nonnull Robot robot, @Nonnull String panelName) {
+	public JPanelFixture(@Nonnull SwingRobot robot, @Nonnull String panelName) {
 		super(JPanelFixture.class, robot, panelName, JPanel.class);
 	}
 
@@ -50,13 +50,13 @@ public class JPanelFixture extends AbstractContainerFixture<JPanelFixture, JPane
 	 * @throws NullPointerException if {@code robot} is {@code null}.
 	 * @throws NullPointerException if {@code target} is {@code null}.
 	 */
-	public JPanelFixture(@Nonnull Robot robot, @Nonnull JPanel target) {
+	public JPanelFixture(@Nonnull SwingRobot robot, @Nonnull JPanel target) {
 		super(JPanelFixture.class, robot, target);
 	}
 
 	@Override
 	@Nonnull
-	protected JComponentDriver createDriver(@Nonnull Robot robot) {
+	protected JComponentDriver createDriver(@Nonnull SwingRobot robot) {
 		return new JComponentDriver(robot);
 	}
 

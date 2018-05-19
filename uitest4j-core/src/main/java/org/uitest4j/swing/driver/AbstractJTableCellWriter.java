@@ -12,12 +12,12 @@
  */
 package org.uitest4j.swing.driver;
 
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.cell.JTableCellWriter;
 import org.uitest4j.swing.core.ComponentFoundCondition;
 import org.uitest4j.swing.core.ComponentMatcher;
-import org.uitest4j.core.api.swing.Robot;
 import org.uitest4j.swing.core.TypeMatcher;
 import org.uitest4j.exception.ActionFailedException;
 import org.uitest4j.swing.exception.WaitTimedOutError;
@@ -48,14 +48,14 @@ import static org.uitest4j.swing.timing.Pause.pause;
  * @author Yvonne Wang
  */
 public abstract class AbstractJTableCellWriter implements JTableCellWriter {
-	protected final Robot robot;
+	protected final SwingRobot robot;
 	private final JTableLocation location = new JTableLocation();
 
 	private TableCellEditor cellEditor;
 
 	private static final long EDITOR_LOOKUP_TIMEOUT = 5000;
 
-	public AbstractJTableCellWriter(@Nonnull Robot robot) {
+	public AbstractJTableCellWriter(@Nonnull SwingRobot robot) {
 		this.robot = robot;
 	}
 

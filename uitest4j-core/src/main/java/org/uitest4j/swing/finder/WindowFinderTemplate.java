@@ -12,8 +12,8 @@
  */
 package org.uitest4j.swing.finder;
 
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.core.GenericTypeMatcher;
-import org.uitest4j.core.api.swing.Robot;
 import org.uitest4j.swing.fixture.AbstractWindowFixture;
 
 import javax.annotation.Nonnegative;
@@ -97,5 +97,5 @@ public abstract class WindowFinderTemplate<T extends Window> extends ComponentFi
 	 */
 	@Override
 	public abstract @Nonnull
-	AbstractWindowFixture<?, T, ?> using(@Nonnull Robot robot);
+	AbstractWindowFixture<?, T, ?> using(@Nonnull SwingRobot robot);
 }

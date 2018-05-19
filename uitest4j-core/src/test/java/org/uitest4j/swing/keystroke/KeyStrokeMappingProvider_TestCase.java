@@ -14,7 +14,7 @@ package org.uitest4j.swing.keystroke;
 
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.driver.JTextComponentDriver;
-import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.core.SwingRobotBasedTestCase;
 import org.uitest4j.swing.test.recorder.KeyRecorder;
 import org.uitest4j.swing.test.swing.TestWindow;
 import org.uitest4j.swing.timing.Condition;
@@ -41,7 +41,7 @@ import static org.uitest4j.swing.util.Maps.newHashMap;
  *
  * @author Alex Ruiz
  */
-public abstract class KeyStrokeMappingProvider_TestCase extends RobotBasedTestCase {
+public abstract class KeyStrokeMappingProvider_TestCase extends SwingRobotBasedTestCase {
 	private static final Map<Character, Integer> BASIC_CHARS_AND_KEYS_MAP = newHashMap();
 
 	static {

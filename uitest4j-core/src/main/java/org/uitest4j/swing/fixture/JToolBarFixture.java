@@ -12,8 +12,8 @@
  */
 package org.uitest4j.swing.fixture;
 
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.exception.ActionFailedException;
-import org.uitest4j.core.api.swing.Robot;
 import org.uitest4j.swing.driver.JToolBarDriver;
 
 import javax.annotation.Nonnull;
@@ -55,7 +55,7 @@ public class JToolBarFixture extends AbstractSwingContainerFixture<JToolBarFixtu
 	 * @throws NullPointerException if {@code robot} is {@code null}.
 	 * @throws NullPointerException if {@code target} is {@code null}.
 	 */
-	public JToolBarFixture(@Nonnull Robot robot, @Nonnull JToolBar target) {
+	public JToolBarFixture(@Nonnull SwingRobot robot, @Nonnull JToolBar target) {
 		super(JToolBarFixture.class, robot, target);
 	}
 
@@ -63,18 +63,18 @@ public class JToolBarFixture extends AbstractSwingContainerFixture<JToolBarFixtu
 	 * Creates a new {@link JToolBarFixture}.
 	 *
 	 * @param robot       performs simulation of user events on a {@code JToolBar}.
-	 * @param toolbarName the name of the {@code JToolBar} to find using the given {@code Robot}.
+	 * @param toolbarName the name of the {@code JToolBar} to find using the given {@code SwingRobot}.
 	 * @throws NullPointerException                                  if {@code robot} is {@code null}.
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching {@code JToolBar} could not be found.
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching {@code JToolBar} is found.
 	 */
-	public JToolBarFixture(@Nonnull Robot robot, @Nullable String toolbarName) {
+	public JToolBarFixture(@Nonnull SwingRobot robot, @Nullable String toolbarName) {
 		super(JToolBarFixture.class, robot, toolbarName, JToolBar.class);
 	}
 
 	@Override
 	@Nonnull
-	protected JToolBarDriver createDriver(@Nonnull Robot robot) {
+	protected JToolBarDriver createDriver(@Nonnull SwingRobot robot) {
 		return new JToolBarDriver(robot);
 	}
 

@@ -16,7 +16,7 @@ import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.data.TableCell;
 import org.uitest4j.swing.edt.GuiActionRunner;
 import org.uitest4j.swing.fixture.FrameFixture;
-import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.core.SwingRobotBasedTestCase;
 import org.uitest4j.swing.test.swing.TestTable;
 
 import javax.swing.*;
@@ -28,7 +28,7 @@ import java.awt.event.MouseEvent;
  *
  * @author Angelo Gülle
  */
-public class GitHub_169_DisabledComponentTest extends RobotBasedTestCase {
+public class GitHub_169_DisabledComponentTest extends SwingRobotBasedTestCase {
 	protected FrameFixture window;
 
 	@Override

@@ -16,7 +16,7 @@ import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.core.GenericTypeMatcher;
 import org.uitest4j.swing.exception.WaitTimedOutError;
 import org.uitest4j.swing.test.ExpectedException;
-import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.core.SwingRobotBasedTestCase;
 import org.uitest4j.swing.test.swing.WindowLauncher;
 import org.uitest4j.swing.test.swing.WindowLauncher.DialogToLaunch;
 
@@ -33,7 +33,7 @@ import static org.uitest4j.swing.timing.Timeout.timeout;
  *
  * @author Alex Ruiz
  */
-public class AbstractContainerFixture_dialog_Test extends RobotBasedTestCase {
+public class AbstractContainerFixture_dialog_Test extends SwingRobotBasedTestCase {
 	private ContainerFixture fixture;
 	private WindowLauncher window;
 

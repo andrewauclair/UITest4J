@@ -17,7 +17,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.rules.TemporaryFolder;
 import org.uitest4j.swing.edt.GuiActionRunner;
 import org.uitest4j.swing.finder.JFileChooserFinder;
-import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.core.SwingRobotBasedTestCase;
 
 import javax.swing.*;
 import java.awt.*;
@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * Test for <a href="https://github.com/joel-costigliola/assertj-swing/issues/191">github.com - assertj-swing #191</a>
  */
-public class GitHub_191_FileChooser_Test extends RobotBasedTestCase {
+public class GitHub_191_FileChooser_Test extends SwingRobotBasedTestCase {
 	private TemporaryFolder temporaryFolder = new TemporaryFolder();
 
 	protected FrameFixture window;

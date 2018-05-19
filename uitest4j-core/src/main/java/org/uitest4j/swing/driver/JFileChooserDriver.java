@@ -13,7 +13,7 @@
 package org.uitest4j.swing.driver;
 
 import org.uitest4j.swing.annotation.RunsInEDT;
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.internal.annotation.InternalApi;
 import org.uitest4j.swing.util.ArrayUtils;
 
@@ -49,7 +49,7 @@ public class JFileChooserDriver extends JComponentDriver {
 	 *
 	 * @param robot the robot to use to simulate user input.
 	 */
-	public JFileChooserDriver(@Nonnull Robot robot) {
+	public JFileChooserDriver(@Nonnull SwingRobot robot) {
 		super(robot);
 	}
 

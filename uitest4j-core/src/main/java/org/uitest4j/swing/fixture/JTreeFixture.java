@@ -16,7 +16,7 @@ import org.uitest4j.exception.ActionFailedException;
 import org.uitest4j.swing.cell.JTreeCellReader;
 import org.uitest4j.swing.core.MouseButton;
 import org.uitest4j.swing.core.MouseClickInfo;
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.driver.JTreeDriver;
 
 import javax.annotation.Nonnull;
@@ -74,7 +74,7 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
 	 * @throws NullPointerException if {@code robot} is {@code null}.
 	 * @throws NullPointerException if {@code target} is {@code null}.
 	 */
-	public JTreeFixture(@Nonnull Robot robot, @Nonnull JTree target) {
+	public JTreeFixture(@Nonnull SwingRobot robot, @Nonnull JTree target) {
 		super(JTreeFixture.class, robot, target);
 	}
 
@@ -82,18 +82,18 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
 	 * Creates a new {@link JTreeFixture}.
 	 *
 	 * @param robot    performs simulation of user events on a {@code JTree}.
-	 * @param treeName the name of the {@code JTree} to find using the given {@code Robot}.
+	 * @param treeName the name of the {@code JTree} to find using the given {@code SwingRobot}.
 	 * @throws NullPointerException                                  if {@code robot} is {@code null}.
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching {@code JTree} could not be found.
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching {@code JTree} is found.
 	 */
-	public JTreeFixture(@Nonnull Robot robot, @Nullable String treeName) {
+	public JTreeFixture(@Nonnull SwingRobot robot, @Nullable String treeName) {
 		super(JTreeFixture.class, robot, treeName, JTree.class);
 	}
 
 	@Override
 	@Nonnull
-	protected JTreeDriver createDriver(@Nonnull Robot robot) {
+	protected JTreeDriver createDriver(@Nonnull SwingRobot robot) {
 		return new JTreeDriver(robot);
 	}
 

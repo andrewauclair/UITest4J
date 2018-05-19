@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.core;
 
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -35,7 +35,7 @@ public final class Scrolling {
 	 * @param robot simulates user input.
 	 * @param c     the given {@code JComponent}.
 	 */
-	public static void scrollToVisible(@Nonnull Robot robot, @Nonnull JComponent c) {
+	public static void scrollToVisible(@Nonnull SwingRobot robot, @Nonnull JComponent c) {
 		JComponent root = findClosestValidatingRootAncestor(c);
 		// scroll the component to view within each validating root ancestor, starting from the nearest
 		while (root != null) {
@@ -78,7 +78,7 @@ public final class Scrolling {
 	 * @param container the given container.
 	 * @param target    the given {@code Component}.
 	 */
-	private static void scrollToVisible(@Nonnull Robot robot, @Nonnull JComponent container, @Nonnull Component target) {
+	private static void scrollToVisible(@Nonnull SwingRobot robot, @Nonnull JComponent container, @Nonnull Component target) {
 		Rectangle r = convertRectangle(target.getParent(), target.getBounds(), container);
 		scrollToVisible(robot, container, Objects.requireNonNull(r));
 	}
@@ -90,7 +90,7 @@ public final class Scrolling {
 	 * @param c         the {@code JComponent}.
 	 * @param rectangle the rectangular region.
 	 */
-	private static void scrollToVisible(@Nonnull Robot robot, final @Nonnull JComponent c,
+	private static void scrollToVisible(@Nonnull SwingRobot robot, final @Nonnull JComponent c,
 										final @Nonnull Rectangle rectangle) {
 		execute(() -> c.scrollRectToVisible(rectangle));
 		robot.waitForIdle();

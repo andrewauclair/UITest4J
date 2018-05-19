@@ -13,7 +13,7 @@
 package org.uitest4j.swing.fixture;
 
 import org.junit.jupiter.api.Test;
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
 
 import javax.swing.table.JTableHeader;
 
@@ -22,7 +22,7 @@ import static org.mockito.Mockito.mock;
 import static org.uitest4j.swing.core.TestRobots.singletonRobotMock;
 
 /**
- * Tests for {@link JTableHeaderFixture#JTableHeaderFixture(Robot, JTableHeader)}.
+ * Tests for {@link JTableHeaderFixture#JTableHeaderFixture(SwingRobot, JTableHeader)}.
  *
  * @author Yvonne Wang
  * @author Alex Ruiz

@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.fixture;
 
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.driver.JFileChooserDriver;
 
 import javax.annotation.Nonnull;
@@ -36,7 +36,7 @@ public class JFileChooserFixture extends
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching {@code JFileChooser} could not be found.
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching {@code JFileChooser} is found.
 	 */
-	public JFileChooserFixture(@Nonnull Robot robot) {
+	public JFileChooserFixture(@Nonnull SwingRobot robot) {
 		super(JFileChooserFixture.class, robot, JFileChooser.class);
 	}
 
@@ -48,7 +48,7 @@ public class JFileChooserFixture extends
 	 * @throws NullPointerException if {@code robot} is {@code null}.
 	 * @throws NullPointerException if {@code target} is {@code null}.
 	 */
-	public JFileChooserFixture(@Nonnull Robot robot, @Nonnull JFileChooser target) {
+	public JFileChooserFixture(@Nonnull SwingRobot robot, @Nonnull JFileChooser target) {
 		super(JFileChooserFixture.class, robot, target);
 	}
 
@@ -61,13 +61,13 @@ public class JFileChooserFixture extends
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching {@code JFileChooser} could not be found.
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching {@code JFileChooser} is found.
 	 */
-	public JFileChooserFixture(@Nonnull Robot robot, @Nullable String fileChooserName) {
+	public JFileChooserFixture(@Nonnull SwingRobot robot, @Nullable String fileChooserName) {
 		super(JFileChooserFixture.class, robot, fileChooserName, JFileChooser.class);
 	}
 
 	@Override
 	@Nonnull
-	protected JFileChooserDriver createDriver(@Nonnull Robot robot) {
+	protected JFileChooserDriver createDriver(@Nonnull SwingRobot robot) {
 		return new JFileChooserDriver(robot);
 	}
 

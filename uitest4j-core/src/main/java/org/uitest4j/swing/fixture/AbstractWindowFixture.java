@@ -12,8 +12,9 @@
  */
 package org.uitest4j.swing.fixture;
 
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.exception.ActionFailedException;
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.swing.core.BasicSwingRobot;
 import org.uitest4j.swing.core.Settings;
 import org.uitest4j.swing.driver.WindowDriver;
 
@@ -21,7 +22,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.awt.*;
 
-import static org.uitest4j.swing.core.BasicRobot.robotWithCurrentAwtHierarchy;
+import static org.uitest4j.swing.core.BasicSwingRobot.robotWithCurrentAwtHierarchy;
 
 /**
  * Supports functional testing of {@code Window}.
@@ -35,17 +36,17 @@ import static org.uitest4j.swing.core.BasicRobot.robotWithCurrentAwtHierarchy;
 public abstract class AbstractWindowFixture<S, C extends Window, D extends WindowDriver> extends
 		AbstractContainerFixture<S, C, D> implements WindowLikeContainerFixture<S>, JPopupMenuInvokerFixture {
 	/**
-	 * Creates a new {@link AbstractWindowFixture}. This constructor creates a new {@link Robot} containing the current
+	 * Creates a new {@link AbstractWindowFixture}. This constructor creates a new {@link SwingRobot} containing the current
 	 * AWT hierarchy.
 	 *
 	 * @param selfType the "self type."
-	 * @param type     the type of {@code Window} to find using the created {@code Robot}.
+	 * @param type     the type of {@code Window} to find using the created {@code SwingRobot}.
 	 * @throws NullPointerException                                  if the given {@code Window} type is {@code null}.
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code Window} having a matching type could not
 	 *                                                               be found.
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code Window} having a matching type
 	 *                                                               is found.
-	 * @see org.uitest4j.swing.core.BasicRobot#robotWithCurrentAwtHierarchy()
+	 * @see BasicSwingRobot#robotWithCurrentAwtHierarchy()
 	 */
 	public AbstractWindowFixture(@Nonnull Class<S> selfType, @Nonnull Class<? extends C> type) {
 		this(selfType, robotWithCurrentAwtHierarchy(), type);
@@ -56,7 +57,7 @@ public abstract class AbstractWindowFixture<S, C extends Window, D extends Windo
 	 *
 	 * @param selfType the "self type."
 	 * @param robot    performs simulation of user events on a {@code Window}.
-	 * @param type     the type of {@code Window} to find using the given {@code Robot}.
+	 * @param type     the type of {@code Window} to find using the given {@code SwingRobot}.
 	 * @throws NullPointerException                                  if the given robot is {@code null}.
 	 * @throws NullPointerException                                  if the given {@code Window} type is {@code null}.
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code Window} having a matching type could not
@@ -64,23 +65,23 @@ public abstract class AbstractWindowFixture<S, C extends Window, D extends Windo
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code Window} having a matching type
 	 *                                                               is found.
 	 */
-	public AbstractWindowFixture(@Nonnull Class<S> selfType, @Nonnull Robot robot, @Nonnull Class<? extends C> type) {
+	public AbstractWindowFixture(@Nonnull Class<S> selfType, @Nonnull SwingRobot robot, @Nonnull Class<? extends C> type) {
 		super(selfType, robot, type);
 	}
 
 	/**
-	 * Creates a new {@link AbstractWindowFixture}. This constructor creates a new {@link Robot} containing the current
+	 * Creates a new {@link AbstractWindowFixture}. This constructor creates a new {@link SwingRobot} containing the current
 	 * AWT hierarchy.
 	 *
 	 * @param selfType the "self type."
 	 * @param name     the name of the {@code Window} to find.
-	 * @param type     the type of {@code Window} to find using the created {@code Robot}.
+	 * @param type     the type of {@code Window} to find using the created {@code SwingRobot}.
 	 * @throws NullPointerException                                  if the given {@code Window} type is {@code null}.
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code Window} having a matching name could not
 	 *                                                               be found.
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code Window} having a matching name
 	 *                                                               is found.
-	 * @see org.uitest4j.swing.core.BasicRobot#robotWithCurrentAwtHierarchy()
+	 * @see BasicSwingRobot#robotWithCurrentAwtHierarchy()
 	 */
 	public AbstractWindowFixture(@Nonnull Class<S> selfType, @Nullable String name, @Nonnull Class<? extends C> type) {
 		this(selfType, robotWithCurrentAwtHierarchy(), name, type);
@@ -91,8 +92,8 @@ public abstract class AbstractWindowFixture<S, C extends Window, D extends Windo
 	 *
 	 * @param selfType the "self type."
 	 * @param robot    performs simulation of user events on a {@code Window}.
-	 * @param name     the name of the {@code Window} to find using the given {@code Robot}.
-	 * @param type     the type of {@code Window} to find using the given {@code Robot}.
+	 * @param name     the name of the {@code Window} to find using the given {@code SwingRobot}.
+	 * @param type     the type of {@code Window} to find using the given {@code SwingRobot}.
 	 * @throws NullPointerException                                  if the given robot is {@code null}.
 	 * @throws NullPointerException                                  if the given {@code Window} type is {@code null}.
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if a {@code Window} having a matching name could not
@@ -100,13 +101,13 @@ public abstract class AbstractWindowFixture<S, C extends Window, D extends Windo
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one {@code Window} having a matching name
 	 *                                                               is found.
 	 */
-	public AbstractWindowFixture(@Nonnull Class<S> selfType, @Nonnull Robot robot, @Nullable String name,
+	public AbstractWindowFixture(@Nonnull Class<S> selfType, @Nonnull SwingRobot robot, @Nullable String name,
 								 @Nonnull Class<? extends C> type) {
 		super(selfType, robot, name, type);
 	}
 
 	/**
-	 * Creates a new {@link AbstractWindowFixture}. This constructor creates a new {@link Robot} containing the current
+	 * Creates a new {@link AbstractWindowFixture}. This constructor creates a new {@link SwingRobot} containing the current
 	 * AWT hierarchy.
 	 *
 	 * @param selfType the "self type."
@@ -126,7 +127,7 @@ public abstract class AbstractWindowFixture<S, C extends Window, D extends Windo
 	 * @throws NullPointerException if the given robot is {@code null}.
 	 * @throws NullPointerException if the given target {@code Window} is {@code null}.
 	 */
-	public AbstractWindowFixture(@Nonnull Class<S> selfType, @Nonnull Robot robot, @Nonnull C target) {
+	public AbstractWindowFixture(@Nonnull Class<S> selfType, @Nonnull SwingRobot robot, @Nonnull C target) {
 		super(selfType, robot, target);
 	}
 

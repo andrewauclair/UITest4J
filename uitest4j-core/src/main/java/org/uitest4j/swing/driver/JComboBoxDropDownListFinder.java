@@ -14,7 +14,7 @@ package org.uitest4j.swing.driver;
 
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.core.ComponentMatcher;
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.core.TypeMatcher;
 import org.uitest4j.swing.util.TimeoutWatch;
 
@@ -36,9 +36,9 @@ import static org.uitest4j.swing.util.TimeoutWatch.startWatchWithTimeoutOf;
 final class JComboBoxDropDownListFinder {
 	static final ComponentMatcher LIST_MATCHER = new TypeMatcher(JList.class);
 
-	private final Robot robot;
+	private final SwingRobot robot;
 
-	JComboBoxDropDownListFinder(Robot robot) {
+	JComboBoxDropDownListFinder(SwingRobot robot) {
 		this.robot = robot;
 	}
 

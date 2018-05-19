@@ -13,7 +13,7 @@
 package org.uitest4j.swing.fixture;
 
 import org.junit.jupiter.api.Test;
-import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.core.SwingRobotBasedTestCase;
 import org.uitest4j.swing.test.swing.TestWindow;
 
 import javax.swing.*;
@@ -28,7 +28,7 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
  *
  * @author Alex Ruiz
  */
-public class FEST122_addSupportForEditableJComboBoxAsCellEditor_Test extends RobotBasedTestCase {
+public class FEST122_addSupportForEditableJComboBoxAsCellEditor_Test extends SwingRobotBasedTestCase {
 	private FrameFixture frame;
 
 	@Override

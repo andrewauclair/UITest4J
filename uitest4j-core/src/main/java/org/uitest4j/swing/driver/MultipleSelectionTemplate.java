@@ -13,8 +13,8 @@
 package org.uitest4j.swing.driver;
 
 import org.opentest4j.AssertionFailedError;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.annotation.RunsInEDT;
-import org.uitest4j.core.api.swing.Robot;
 
 import javax.annotation.Nonnull;
 import java.util.function.Consumer;
@@ -28,9 +28,9 @@ import static org.uitest4j.swing.util.Platform.controlOrCommandKey;
  * @author Christian Rösch
  */
 abstract class MultipleSelectionTemplate {
-	private final Robot robot;
+	private final SwingRobot robot;
 
-	MultipleSelectionTemplate(@Nonnull Robot robot) {
+	MultipleSelectionTemplate(@Nonnull SwingRobot robot) {
 		this.robot = robot;
 	}
 

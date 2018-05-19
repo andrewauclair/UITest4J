@@ -15,7 +15,7 @@ package org.uitest4j.swing.fixture;
 import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.uitest4j.swing.annotation.RunsInEDT;
-import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.core.SwingRobotBasedTestCase;
 import org.uitest4j.swing.test.swing.TestWindow;
 
 import javax.swing.*;
@@ -28,7 +28,7 @@ import static org.uitest4j.swing.timing.Timeout.timeout;
  *
  * @author Alex Ruiz
  */
-public class FEST303_JFileChooserNotFoundOnMacOS_Test extends RobotBasedTestCase {
+public class FEST303_JFileChooserNotFoundOnMacOS_Test extends SwingRobotBasedTestCase {
 	private FrameFixture frame;
 
 	@Override

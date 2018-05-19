@@ -14,7 +14,7 @@ package org.uitest4j.swing.fixture;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.driver.JOptionPaneDriver;
 
 import javax.swing.*;
@@ -36,7 +36,7 @@ class JOptionPaneFixture_withMocks_Test {
 
 	@BeforeEach
 	void setUp() {
-		fixture = new JOptionPaneFixture(mock(Robot.class), mock(JOptionPane.class));
+		fixture = new JOptionPaneFixture(mock(SwingRobot.class), mock(JOptionPane.class));
 		fixture.replaceDriverWith(mock(JOptionPaneDriver.class));
 		driver = fixture.driver();
 		target = fixture.target();

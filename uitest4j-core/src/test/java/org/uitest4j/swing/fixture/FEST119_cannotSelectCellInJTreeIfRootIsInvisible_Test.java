@@ -14,7 +14,7 @@ package org.uitest4j.swing.fixture;
 
 import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.annotation.RunsInEDT;
-import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.core.SwingRobotBasedTestCase;
 import org.uitest4j.swing.test.swing.TestTree;
 import org.uitest4j.swing.test.swing.TestWindow;
 
@@ -32,7 +32,7 @@ import static org.uitest4j.swing.test.swing.TreeNodeFactory.node;
  *
  * @author Alex Ruiz
  */
-public class FEST119_cannotSelectCellInJTreeIfRootIsInvisible_Test extends RobotBasedTestCase {
+public class FEST119_cannotSelectCellInJTreeIfRootIsInvisible_Test extends SwingRobotBasedTestCase {
 	private FrameFixture frameFixture;
 
 	@Override

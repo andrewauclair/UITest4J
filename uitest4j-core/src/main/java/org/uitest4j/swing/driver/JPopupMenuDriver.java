@@ -14,7 +14,7 @@ package org.uitest4j.swing.driver;
 
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.core.GenericTypeMatcher;
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.internal.annotation.InternalApi;
 
 import javax.annotation.Nonnull;
@@ -43,7 +43,7 @@ public class JPopupMenuDriver extends JComponentDriver {
 	 *
 	 * @param robot the robot to use to simulate user input.
 	 */
-	public JPopupMenuDriver(@Nonnull Robot robot) {
+	public JPopupMenuDriver(@Nonnull SwingRobot robot) {
 		super(robot);
 	}
 

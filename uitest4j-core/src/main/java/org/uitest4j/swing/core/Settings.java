@@ -37,7 +37,7 @@ import static org.uitest4j.swing.util.Platform.*;
  * class.
  * </p>
  * <p>
- * The writable entries are not static but depend on the {@link Settings} object which is created in {@link BasicRobot}
+ * The writable entries are not static but depend on the {@link Settings} object which is created in {@link BasicSwingRobot}
  * and can be accessed through the robot instance. The initialisation is the same as for read-only properties, but you
  * may change the value at runtime calling the setter methods.
  * </p>

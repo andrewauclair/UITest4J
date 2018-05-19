@@ -16,7 +16,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.test.core.MethodInvocations;
-import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.core.SwingRobotBasedTestCase;
 import org.uitest4j.swing.test.data.BooleanProvider;
 import org.uitest4j.swing.test.swing.TestWindow;
 
@@ -33,7 +33,7 @@ import static org.uitest4j.swing.test.task.ComponentSetEnabledTask.setEnabled;
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
-class ComponentEnabledQuery_isEnabled_Test extends RobotBasedTestCase {
+class ComponentEnabledQuery_isEnabled_Test extends SwingRobotBasedTestCase {
 	private MyWindow window;
 
 	private static Collection<Object[]> booleans() {

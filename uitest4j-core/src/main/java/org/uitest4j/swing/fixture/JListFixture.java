@@ -15,7 +15,7 @@ package org.uitest4j.swing.fixture;
 import org.uitest4j.exception.ActionFailedException;
 import org.uitest4j.swing.cell.JListCellReader;
 import org.uitest4j.swing.core.MouseButton;
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.driver.JListDriver;
 import org.uitest4j.swing.util.Range;
 
@@ -47,12 +47,12 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
 	 * Creates a new {@link JListFixture}.
 	 *
 	 * @param robot    performs simulation of user events on a {@code JList}.
-	 * @param listName the name of the {@code JList} to find using the given {@code Robot}.
+	 * @param listName the name of the {@code JList} to find using the given {@code SwingRobot}.
 	 * @throws NullPointerException                                  if {@code robot} is {@code null}.
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching {@code JList} could not be found.
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching {@code JList} is found.
 	 */
-	public JListFixture(@Nonnull Robot robot, @Nullable String listName) {
+	public JListFixture(@Nonnull SwingRobot robot, @Nullable String listName) {
 		super(JListFixture.class, robot, listName, JList.class);
 	}
 
@@ -64,13 +64,13 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
 	 * @throws NullPointerException if {@code robot} is {@code null}.
 	 * @throws NullPointerException if {@code target} is {@code null}.
 	 */
-	public JListFixture(@Nonnull Robot robot, @Nonnull JList target) {
+	public JListFixture(@Nonnull SwingRobot robot, @Nonnull JList target) {
 		super(JListFixture.class, robot, target);
 	}
 
 	@Override
 	@Nonnull
-	protected JListDriver createDriver(@Nonnull Robot robot) {
+	protected JListDriver createDriver(@Nonnull SwingRobot robot) {
 		return new JListDriver(robot);
 	}
 

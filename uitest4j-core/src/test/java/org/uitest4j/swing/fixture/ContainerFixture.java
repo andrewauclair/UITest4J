@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.fixture;
 
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.driver.FrameDriver;
 
 import javax.annotation.Nonnull;
@@ -24,13 +24,13 @@ import javax.swing.*;
  * @author Alex Ruiz
  */
 public class ContainerFixture extends AbstractContainerFixture<ContainerFixture, JFrame, FrameDriver> {
-	public ContainerFixture(Robot robot, JFrame target) {
+	public ContainerFixture(SwingRobot robot, JFrame target) {
 		super(ContainerFixture.class, robot, target);
 	}
 
 	@Override
 	@Nonnull
-	protected FrameDriver createDriver(@Nonnull Robot robot) {
+	protected FrameDriver createDriver(@Nonnull SwingRobot robot) {
 		return new FrameDriver(robot);
 	}
 }

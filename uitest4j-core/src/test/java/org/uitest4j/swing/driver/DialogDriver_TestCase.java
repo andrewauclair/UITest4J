@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.driver;
 
-import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.core.SwingRobotBasedTestCase;
 import org.uitest4j.swing.test.swing.TestDialog;
 import org.uitest4j.swing.test.swing.TestWindow;
 
@@ -21,7 +21,7 @@ import org.uitest4j.swing.test.swing.TestWindow;
  *
  * @author Alex Ruiz
  */
-public abstract class DialogDriver_TestCase extends RobotBasedTestCase {
+public abstract class DialogDriver_TestCase extends SwingRobotBasedTestCase {
 	TestDialog dialog;
 	DialogDriver driver;
 

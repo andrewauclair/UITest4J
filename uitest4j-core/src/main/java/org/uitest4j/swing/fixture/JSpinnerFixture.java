@@ -12,8 +12,8 @@
  */
 package org.uitest4j.swing.fixture;
 
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.exception.ActionFailedException;
-import org.uitest4j.core.api.swing.Robot;
 import org.uitest4j.swing.driver.JSpinnerDriver;
 
 import javax.annotation.Nonnull;
@@ -31,12 +31,12 @@ public class JSpinnerFixture extends AbstractJPopupMenuInvokerFixture<JSpinnerFi
 	 * Creates a new {@link JSpinnerFixture}.
 	 *
 	 * @param robot       performs simulation of user events on a {@code JSpinner}.
-	 * @param spinnerName the name of the {@code JSpinner} to find using the given {@code Robot}.
+	 * @param spinnerName the name of the {@code JSpinner} to find using the given {@code SwingRobot}.
 	 * @throws NullPointerException                                  if {@code robot} is {@code null}.
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching {@code JSpinner} could not be found.
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching {@code JSpinner} is found.
 	 */
-	public JSpinnerFixture(@Nonnull Robot robot, @Nullable String spinnerName) {
+	public JSpinnerFixture(@Nonnull SwingRobot robot, @Nullable String spinnerName) {
 		super(JSpinnerFixture.class, robot, spinnerName, JSpinner.class);
 	}
 
@@ -48,13 +48,13 @@ public class JSpinnerFixture extends AbstractJPopupMenuInvokerFixture<JSpinnerFi
 	 * @throws NullPointerException if {@code robot} is {@code null}.
 	 * @throws NullPointerException if {@code target} is {@code null}.
 	 */
-	public JSpinnerFixture(@Nonnull Robot robot, @Nonnull JSpinner target) {
+	public JSpinnerFixture(@Nonnull SwingRobot robot, @Nonnull JSpinner target) {
 		super(JSpinnerFixture.class, robot, target);
 	}
 
 	@Override
 	@Nonnull
-	protected JSpinnerDriver createDriver(@Nonnull Robot robot) {
+	protected JSpinnerDriver createDriver(@Nonnull SwingRobot robot) {
 		return new JSpinnerDriver(robot);
 	}
 

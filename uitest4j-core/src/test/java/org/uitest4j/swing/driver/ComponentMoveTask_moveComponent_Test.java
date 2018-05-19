@@ -13,7 +13,7 @@
 package org.uitest4j.swing.driver;
 
 import org.junit.jupiter.api.Test;
-import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.core.SwingRobotBasedTestCase;
 import org.uitest4j.swing.test.swing.TestWindow;
 
 import java.awt.*;
@@ -30,7 +30,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
-public class ComponentMoveTask_moveComponent_Test extends RobotBasedTestCase {
+public class ComponentMoveTask_moveComponent_Test extends SwingRobotBasedTestCase {
 	private TestWindow window;
 	private Point location;
 	private boolean moved;

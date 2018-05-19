@@ -12,8 +12,8 @@
  */
 package org.uitest4j.swing.fixture;
 
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.annotation.RunsInEDT;
-import org.uitest4j.core.api.swing.Robot;
 import org.uitest4j.swing.edt.GuiQuery;
 
 import javax.annotation.Nonnull;
@@ -38,9 +38,9 @@ public final class Containers {
 	 * Creates a new {@code JFrame} and uses the given {@code Container} as its content pane. The created {@code JFrame}
 	 * is wrapped and displayed by a {@link FrameFixture}.
 	 * <p>
-	 * <strong>Note:</strong>This method creates a new {@link Robot}. When using this method, please do not create any
-	 * additional instances of {@code Robot}. Only one instance of {@code Robot} can exist per test class. If you've
-	 * created your own {@code Robot} e.g. by extending the base test class, use {@code #showInFrame(Robot, Container)}.
+	 * <strong>Note:</strong>This method creates a new {@link SwingRobot}. When using this method, please do not create any
+	 * additional instances of {@code SwingRobot}. Only one instance of {@code SwingRobot} can exist per test class. If you've
+	 * created your own {@code SwingRobot} e.g. by extending the base test class, use {@code #showInFrame(SwingRobot, Container)}.
 	 * </p>
 	 *
 	 * @param contentPane the {@code Container} to use as content pane for the {@code JFrame} to create.
@@ -57,8 +57,8 @@ public final class Containers {
 
 	/**
 	 * Creates a new {@code JFrame} and uses the given {@code Container} as its content pane. The created {@code JFrame}
-	 * is wrapped and displayed by a {@link FrameFixture}. It uses the given {@code Robot}, if you've created your own
-	 * {@code Robot} this method is best for you, if not use {@code #showInFrame(Container)}.
+	 * is wrapped and displayed by a {@link FrameFixture}. It uses the given {@code SwingRobot}, if you've created your own
+	 * {@code SwingRobot} this method is best for you, if not use {@code #showInFrame(Container)}.
 	 *
 	 * @param robot       performs user events on the given window and verifies expected output.
 	 * @param contentPane the {@code Container} to use as content pane for the {@code JFrame} to create.
@@ -67,7 +67,7 @@ public final class Containers {
 	 */
 	@RunsInEDT
 	@Nonnull
-	public static FrameFixture showInFrame(@Nonnull Robot robot, @Nonnull Container contentPane) {
+	public static FrameFixture showInFrame(@Nonnull SwingRobot robot, @Nonnull Container contentPane) {
 		FrameFixture frameFixture = frameFixtureFor(robot, contentPane);
 		frameFixture.show();
 		return frameFixture;
@@ -78,10 +78,10 @@ public final class Containers {
 	 * is wrapped by a {@link FrameFixture}. Unlike {@link #showInFrame(Container)}, this method does <strong>not</strong>
 	 * display the created {@code JFrame}.
 	 * <p>
-	 * <strong>Note:</strong>This method creates a new {@link Robot}. When using this method, please do not create any
-	 * additional instances of {@code Robot}. Only one instance of {@code Robot} can exist per test class. If you've
-	 * created your own {@code Robot} e.g. by extending the base test class, use
-	 * {@code #frameFixtureFor(Robot, Container)}.
+	 * <strong>Note:</strong>This method creates a new {@link SwingRobot}. When using this method, please do not create any
+	 * additional instances of {@code SwingRobot}. Only one instance of {@code SwingRobot} can exist per test class. If you've
+	 * created your own {@code SwingRobot} e.g. by extending the base test class, use
+	 * {@code #frameFixtureFor(SwingRobot, Container)}.
 	 * </p>
 	 *
 	 * @param contentPane the {@code Container} to use as content pane for the {@code JFrame} to create.
@@ -97,7 +97,7 @@ public final class Containers {
 	/**
 	 * Creates a new {@code JFrame} and uses the given {@code Container} as its content pane. The created {@code JFrame}
 	 * is wrapped by a {@link FrameFixture}. Unlike {@link #showInFrame(Container)}, this method does <strong>not</strong>
-	 * display the created {@code JFrame}. It uses the given {@code Robot}, if you've created your own {@code Robot} this
+	 * display the created {@code JFrame}. It uses the given {@code SwingRobot}, if you've created your own {@code SwingRobot} this
 	 * method is best for you, if not use {@code #frameFixtureFor(Container)}.
 	 *
 	 * @param robot       performs user events on the given window and verifies expected output.
@@ -107,7 +107,7 @@ public final class Containers {
 	 */
 	@RunsInEDT
 	@Nonnull
-	public static FrameFixture frameFixtureFor(@Nonnull Robot robot, @Nonnull Container contentPane) {
+	public static FrameFixture frameFixtureFor(@Nonnull SwingRobot robot, @Nonnull Container contentPane) {
 		return new FrameFixture(robot, frameFor(contentPane));
 	}
 

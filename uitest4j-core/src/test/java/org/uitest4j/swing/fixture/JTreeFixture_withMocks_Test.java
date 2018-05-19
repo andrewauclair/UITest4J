@@ -14,9 +14,9 @@ package org.uitest4j.swing.fixture;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.cell.JTreeCellReader;
 import org.uitest4j.swing.core.MouseClickInfo;
-import org.uitest4j.core.api.swing.Robot;
 import org.uitest4j.swing.driver.JTreeDriver;
 
 import javax.swing.*;
@@ -41,7 +41,7 @@ class JTreeFixture_withMocks_Test {
 
 	@BeforeEach
 	void setUp() {
-		fixture = new JTreeFixture(mock(Robot.class), mock(JTree.class));
+		fixture = new JTreeFixture(mock(SwingRobot.class), mock(JTree.class));
 		fixture.replaceDriverWith(mock(JTreeDriver.class));
 		driver = fixture.driver();
 		target = fixture.target();

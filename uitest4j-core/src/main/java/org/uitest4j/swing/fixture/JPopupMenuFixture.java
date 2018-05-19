@@ -12,8 +12,8 @@
  */
 package org.uitest4j.swing.fixture;
 
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.core.GenericTypeMatcher;
-import org.uitest4j.core.api.swing.Robot;
 import org.uitest4j.swing.driver.JPopupMenuDriver;
 
 import javax.annotation.Nonnull;
@@ -36,14 +36,14 @@ public class JPopupMenuFixture extends AbstractJComponentFixture<JPopupMenuFixtu
 	 * @throws NullPointerException if {@code robot} is {@code null}.
 	 * @throws NullPointerException if {@code target} is {@code null}.
 	 */
-	public JPopupMenuFixture(@Nonnull Robot robot, @Nonnull JPopupMenu target) {
+	public JPopupMenuFixture(@Nonnull SwingRobot robot, @Nonnull JPopupMenu target) {
 		super(JPopupMenuFixture.class, robot, target);
 		menuItemFinder = new JMenuItemFinder(robot, target);
 	}
 
 	@Override
 	@Nonnull
-	protected JPopupMenuDriver createDriver(@Nonnull Robot robot) {
+	protected JPopupMenuDriver createDriver(@Nonnull SwingRobot robot) {
 		return new JPopupMenuDriver(robot);
 	}
 

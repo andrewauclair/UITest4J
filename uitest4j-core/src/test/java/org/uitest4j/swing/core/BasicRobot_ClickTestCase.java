@@ -15,10 +15,10 @@ package org.uitest4j.swing.core;
 import org.uitest4j.swing.test.recorder.ClickRecorderManager;
 
 /**
- * Base case for tests for {@link BasicRobot} that test clicks.
+ * Base case for tests for {@link BasicSwingRobot} that test clicks.
  *
  * @author Christian Rösch
  */
-public class BasicRobot_ClickTestCase extends BasicRobot_TestCase {
+public class BasicRobot_ClickTestCase extends BasicSwingRobot_TestCase {
 	public ClickRecorderManager clickRecorder = new ClickRecorderManager();
 }

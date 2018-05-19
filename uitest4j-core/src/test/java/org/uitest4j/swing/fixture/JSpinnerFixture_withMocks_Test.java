@@ -14,7 +14,7 @@ package org.uitest4j.swing.fixture;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.driver.JSpinnerDriver;
 
 import javax.swing.*;
@@ -33,7 +33,7 @@ class JSpinnerFixture_withMocks_Test {
 
 	@BeforeEach
 	void setUp() {
-		fixture = new JSpinnerFixture(mock(Robot.class), mock(JSpinner.class));
+		fixture = new JSpinnerFixture(mock(SwingRobot.class), mock(JSpinner.class));
 		fixture.replaceDriverWith(mock(JSpinnerDriver.class));
 	}
 

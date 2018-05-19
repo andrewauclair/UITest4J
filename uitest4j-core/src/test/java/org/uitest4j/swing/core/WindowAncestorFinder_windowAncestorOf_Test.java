@@ -15,7 +15,7 @@ package org.uitest4j.swing.core;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.test.core.EDTSafeTestCase;
 import org.uitest4j.swing.test.swing.TestWindow;
@@ -66,9 +66,9 @@ public class WindowAncestorFinder_windowAncestorOf_Test extends EDTSafeTestCase 
 
 	@Test
 	void should_Return_Invoker_As_Ancestor_Of_MenuElement() {
-		Robot robot = null;
+		SwingRobot robot = null;
 		try {
-			robot = BasicRobot.robotWithCurrentAwtHierarchy();
+			robot = BasicSwingRobot.robotWithCurrentAwtHierarchy();
 			robot.showWindow(frame);
 			robot.showPopupMenu(frame.textField);
 			Window ancestor = WindowAncestorFinder.windowAncestorOf(frame.popupMenu);

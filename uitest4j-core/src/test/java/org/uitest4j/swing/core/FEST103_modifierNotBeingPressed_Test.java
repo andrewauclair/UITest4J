@@ -16,7 +16,7 @@ import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.fixture.FrameFixture;
 import org.uitest4j.swing.fixture.JOptionPaneFixture;
-import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.core.SwingRobotBasedTestCase;
 import org.uitest4j.swing.test.swing.TestWindow;
 
 import javax.swing.*;
@@ -37,7 +37,7 @@ import static org.uitest4j.swing.finder.JOptionPaneFinder.findOptionPane;
  *
  * @author Alex Ruiz
  */
-class FEST103_modifierNotBeingPressed_Test extends RobotBasedTestCase {
+class FEST103_modifierNotBeingPressed_Test extends SwingRobotBasedTestCase {
 	private FrameFixture frameFixture;
 	private MyWindow window;
 

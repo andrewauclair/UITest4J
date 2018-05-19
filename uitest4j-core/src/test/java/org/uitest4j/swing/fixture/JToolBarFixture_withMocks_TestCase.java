@@ -14,7 +14,7 @@ package org.uitest4j.swing.fixture;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.driver.JToolBarDriver;
 
 import javax.swing.*;
@@ -36,7 +36,7 @@ class JToolBarFixture_withMocks_TestCase {
 
 	@BeforeEach
 	void setUp() {
-		fixture = new JToolBarFixture(mock(Robot.class), mock(JToolBar.class));
+		fixture = new JToolBarFixture(mock(SwingRobot.class), mock(JToolBar.class));
 		fixture.replaceDriverWith(mock(JToolBarDriver.class));
 	}
 

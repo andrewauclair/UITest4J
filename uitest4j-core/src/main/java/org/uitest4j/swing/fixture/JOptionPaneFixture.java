@@ -13,7 +13,7 @@
 package org.uitest4j.swing.fixture;
 
 
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.driver.JOptionPaneDriver;
 
 import javax.annotation.Nonnull;
@@ -36,12 +36,12 @@ public class JOptionPaneFixture extends AbstractContainerFixture<JOptionPaneFixt
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if a showing {@code JOptionPane} could not be found.
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one showing {@code JOptionPane} is found.
 	 */
-	public JOptionPaneFixture(@Nonnull Robot robot) {
+	public JOptionPaneFixture(@Nonnull SwingRobot robot) {
 		this(robot, findShowingOptionPane(robot));
 	}
 
 	@Nonnull
-	private static JOptionPane findShowingOptionPane(@Nonnull Robot robot) {
+	private static JOptionPane findShowingOptionPane(@Nonnull SwingRobot robot) {
 		Objects.requireNonNull(robot);
 		return robot.finder().findByType(JOptionPane.class, true);
 	}
@@ -54,13 +54,13 @@ public class JOptionPaneFixture extends AbstractContainerFixture<JOptionPaneFixt
 	 * @throws NullPointerException     if {@code robot} is {@code null}.
 	 * @throws IllegalArgumentException if {@code target} is {@code null}.
 	 */
-	public JOptionPaneFixture(@Nonnull Robot robot, @Nonnull JOptionPane target) {
+	public JOptionPaneFixture(@Nonnull SwingRobot robot, @Nonnull JOptionPane target) {
 		super(JOptionPaneFixture.class, robot, target);
 	}
 
 	@Override
 	@Nonnull
-	protected JOptionPaneDriver createDriver(@Nonnull Robot robot) {
+	protected JOptionPaneDriver createDriver(@Nonnull SwingRobot robot) {
 		return new JOptionPaneDriver(robot);
 	}
 

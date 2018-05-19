@@ -14,7 +14,7 @@ package org.uitest4j.swing.fixture;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.driver.AbstractButtonDriver;
 
 import javax.annotation.Nonnull;
@@ -113,12 +113,12 @@ class AbstractTwoStateButtonFixture_withMocks_Test {
 	private static class TwoStateButtonFixture extends
 			AbstractTwoStateButtonFixture<TwoStateButtonFixture, AbstractButton> {
 		TwoStateButtonFixture() {
-			super(TwoStateButtonFixture.class, mock(Robot.class), mock(AbstractButton.class));
+			super(TwoStateButtonFixture.class, mock(SwingRobot.class), mock(AbstractButton.class));
 		}
 
 		@Override
 		@Nonnull
-		protected AbstractButtonDriver createDriver(@Nonnull Robot robot) {
+		protected AbstractButtonDriver createDriver(@Nonnull SwingRobot robot) {
 			return mock(AbstractButtonDriver.class);
 		}
 	}

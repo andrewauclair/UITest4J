@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.fixture;
 
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
 
 import javax.annotation.Nonnull;
 import java.awt.*;
@@ -30,10 +30,10 @@ public abstract class ComponentFixtureExtension<C extends Component, F extends A
 	/**
 	 * Creates a new {@link AbstractComponentFixture}.
 	 *
-	 * @param robot the {@code Robot} to pass to the new fixture.
+	 * @param robot the {@code SwingRobot} to pass to the new fixture.
 	 * @param root  the container where the component to handle by the created fixture is contained.
 	 * @return the created {@code ComponentFixture}.
 	 */
 	public abstract @Nonnull
-	F createFixture(@Nonnull Robot robot, @Nonnull Container root);
+	F createFixture(@Nonnull SwingRobot robot, @Nonnull Container root);
 }

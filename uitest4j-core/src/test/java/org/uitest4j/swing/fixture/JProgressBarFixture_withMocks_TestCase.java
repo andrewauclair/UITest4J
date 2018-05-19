@@ -14,7 +14,7 @@ package org.uitest4j.swing.fixture;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.driver.JProgressBarDriver;
 
 import javax.swing.*;
@@ -35,7 +35,7 @@ class JProgressBarFixture_withMocks_TestCase {
 
 	@BeforeEach
 	void setUp() {
-		fixture = new JProgressBarFixture(mock(Robot.class), mock(JProgressBar.class));
+		fixture = new JProgressBarFixture(mock(SwingRobot.class), mock(JProgressBar.class));
 		fixture.replaceDriverWith(mock(JProgressBarDriver.class));
 	}
 

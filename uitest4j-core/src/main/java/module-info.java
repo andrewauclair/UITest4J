@@ -30,7 +30,7 @@ module org.uitest4j.core {
 	exports org.uitest4j.swing.awt;
 	exports org.uitest4j.swing.cell;
 
-	// TODO This needs to be exported for the Robot class, but there might be other internal classes we would want to hide that exist in org.uitest4j.swing.core
+	// TODO This needs to be exported for the SwingRobot class, but there might be other internal classes we would want to hide that exist in org.uitest4j.swing.core
 	exports org.uitest4j.swing.core;
 
 	exports org.uitest4j.swing.data;

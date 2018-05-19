@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.fixture;
 
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.driver.JSliderDriver;
 
 import javax.annotation.Nonnull;
@@ -34,7 +34,7 @@ public class JSliderFixture extends AbstractJPopupMenuInvokerFixture<JSliderFixt
 	 * @throws NullPointerException if {@code robot} is {@code null}.
 	 * @throws NullPointerException if {@code target} is {@code null}.
 	 */
-	public JSliderFixture(@Nonnull Robot robot, @Nonnull JSlider target) {
+	public JSliderFixture(@Nonnull SwingRobot robot, @Nonnull JSlider target) {
 		super(JSliderFixture.class, robot, target);
 	}
 
@@ -42,18 +42,18 @@ public class JSliderFixture extends AbstractJPopupMenuInvokerFixture<JSliderFixt
 	 * Creates a new {@link JSliderFixture}.
 	 *
 	 * @param robot      performs simulation of user events on a {@code JSlider}.
-	 * @param sliderName the name of the {@code JSlider} to find using the given {@code Robot}.
+	 * @param sliderName the name of the {@code JSlider} to find using the given {@code SwingRobot}.
 	 * @throws NullPointerException                                  if {@code robot} is {@code null}.
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching {@code JSlider} could not be found.
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching {@code JSlider} is found.
 	 */
-	public JSliderFixture(@Nonnull Robot robot, @Nullable String sliderName) {
+	public JSliderFixture(@Nonnull SwingRobot robot, @Nullable String sliderName) {
 		super(JSliderFixture.class, robot, sliderName, JSlider.class);
 	}
 
 	@Override
 	@Nonnull
-	protected JSliderDriver createDriver(@Nonnull Robot robot) {
+	protected JSliderDriver createDriver(@Nonnull SwingRobot robot) {
 		return new JSliderDriver(robot);
 	}
 

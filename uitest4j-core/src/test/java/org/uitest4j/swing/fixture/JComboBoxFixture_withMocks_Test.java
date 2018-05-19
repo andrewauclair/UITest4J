@@ -14,8 +14,8 @@ package org.uitest4j.swing.fixture;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.cell.JComboBoxCellReader;
-import org.uitest4j.core.api.swing.Robot;
 import org.uitest4j.swing.driver.JComboBoxDriver;
 
 import javax.swing.*;
@@ -34,7 +34,7 @@ class JComboBoxFixture_withMocks_Test {
 
 	@BeforeEach
 	void setUp() {
-		fixture = new JComboBoxFixture(mock(Robot.class), mock(JComboBox.class));
+		fixture = new JComboBoxFixture(mock(SwingRobot.class), mock(JComboBox.class));
 		fixture.replaceDriverWith(mock(JComboBoxDriver.class));
 	}
 

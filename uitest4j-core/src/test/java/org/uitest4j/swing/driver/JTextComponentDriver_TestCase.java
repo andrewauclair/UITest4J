@@ -13,7 +13,7 @@
 package org.uitest4j.swing.driver;
 
 import org.uitest4j.swing.annotation.RunsInEDT;
-import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.core.SwingRobotBasedTestCase;
 import org.uitest4j.swing.test.swing.TestWindow;
 
 import javax.swing.*;
@@ -32,7 +32,7 @@ import static org.uitest4j.swing.test.task.ComponentSetEnabledTask.disable;
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
-public abstract class JTextComponentDriver_TestCase extends RobotBasedTestCase {
+public abstract class JTextComponentDriver_TestCase extends SwingRobotBasedTestCase {
 	MyWindow window;
 	JTextField textField;
 	JTextComponentDriver driver;

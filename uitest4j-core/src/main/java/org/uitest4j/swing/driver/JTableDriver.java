@@ -13,12 +13,12 @@
 package org.uitest4j.swing.driver;
 
 import org.opentest4j.AssertionFailedError;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.cell.JTableCellReader;
 import org.uitest4j.swing.cell.JTableCellWriter;
 import org.uitest4j.swing.core.MouseButton;
-import org.uitest4j.core.api.swing.Robot;
 import org.uitest4j.swing.data.TableCell;
 import org.uitest4j.swing.data.TableCellFinder;
 import org.uitest4j.swing.edt.GuiQuery;
@@ -85,7 +85,7 @@ public class JTableDriver extends JComponentDriver {
 	 *
 	 * @param robot the robot to use to simulate user events.
 	 */
-	public JTableDriver(@Nonnull Robot robot) {
+	public JTableDriver(@Nonnull SwingRobot robot) {
 		super(robot);
 		replaceCellReader(new BasicJTableCellReader());
 		replaceCellWriter(new BasicJTableCellWriter(robot));

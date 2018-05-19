@@ -13,7 +13,7 @@
 package org.uitest4j.swing.driver;
 
 import org.uitest4j.swing.annotation.RunsInEDT;
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
 
 import javax.annotation.Nonnull;
 import javax.swing.*;
@@ -32,7 +32,7 @@ import static org.uitest4j.swing.driver.JTableStopCellEditingTask.stopEditing;
 public class JTableComboBoxEditorCellWriter extends AbstractJTableCellWriter {
 	private final JComboBoxDriver driver;
 
-	public JTableComboBoxEditorCellWriter(@Nonnull Robot robot) {
+	public JTableComboBoxEditorCellWriter(@Nonnull SwingRobot robot) {
 		super(robot);
 		driver = new JComboBoxDriver(robot);
 	}

@@ -12,9 +12,9 @@
  */
 package org.uitest4j.swing.driver;
 
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.driver.TextDisplayDriver;
 import org.uitest4j.swing.annotation.RunsInEDT;
-import org.uitest4j.core.api.swing.Robot;
 import org.uitest4j.swing.internal.annotation.InternalApi;
 import org.uitest4j.swing.internal.assertions.OpenTest4JAssertions;
 
@@ -49,7 +49,7 @@ public class AbstractButtonDriver extends JComponentDriver implements TextDispla
 	 *
 	 * @param robot the robot to use to simulate user input.
 	 */
-	public AbstractButtonDriver(@Nonnull Robot robot) {
+	public AbstractButtonDriver(@Nonnull SwingRobot robot) {
 		super(robot);
 	}
 

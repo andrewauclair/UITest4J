@@ -14,9 +14,9 @@ package org.uitest4j.swing.fixture;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.core.KeyPressInfo;
 import org.uitest4j.swing.core.MouseClickInfo;
-import org.uitest4j.core.api.swing.Robot;
 import org.uitest4j.swing.driver.ComponentDriver;
 import org.uitest4j.swing.timing.Timeout;
 
@@ -182,12 +182,12 @@ class AbstractComponentFixture_withMocks_Test {
 
 	private static class ComponentFixture extends AbstractComponentFixture<ComponentFixture, Component, ComponentDriver> {
 		ComponentFixture() {
-			super(ComponentFixture.class, mock(Robot.class), mock(Component.class));
+			super(ComponentFixture.class, mock(SwingRobot.class), mock(Component.class));
 		}
 
 		@Override
 		@Nonnull
-		protected ComponentDriver createDriver(@Nonnull Robot robot) {
+		protected ComponentDriver createDriver(@Nonnull SwingRobot robot) {
 			return mock(ComponentDriver.class);
 		}
 	}

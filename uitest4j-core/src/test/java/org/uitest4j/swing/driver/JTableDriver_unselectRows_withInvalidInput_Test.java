@@ -14,7 +14,7 @@ package org.uitest4j.swing.driver;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.core.SwingRobotBasedTestCase;
 
 import javax.swing.*;
 
@@ -26,7 +26,7 @@ import static org.uitest4j.swing.test.builder.JTables.table;
  *
  * @author Christian Rösch
  */
-public class JTableDriver_unselectRows_withInvalidInput_Test extends RobotBasedTestCase {
+public class JTableDriver_unselectRows_withInvalidInput_Test extends SwingRobotBasedTestCase {
 	private static JTable table;
 	private JTableDriver driver;
 

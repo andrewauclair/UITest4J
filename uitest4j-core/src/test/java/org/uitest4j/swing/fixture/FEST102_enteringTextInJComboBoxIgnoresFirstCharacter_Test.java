@@ -14,7 +14,7 @@ package org.uitest4j.swing.fixture;
 
 import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.annotation.RunsInEDT;
-import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.core.SwingRobotBasedTestCase;
 import org.uitest4j.swing.test.swing.TestWindow;
 
 import javax.swing.*;
@@ -30,7 +30,7 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
  *
  * @author Alex Ruiz
  */
-public class FEST102_enteringTextInJComboBoxIgnoresFirstCharacter_Test extends RobotBasedTestCase {
+public class FEST102_enteringTextInJComboBoxIgnoresFirstCharacter_Test extends SwingRobotBasedTestCase {
 	@Test
 	public void should_Enter_Text_In_JComboBox_With__Integer_Values() {
 		JComboBoxFixture comboBox = fixture(newArrayList(1999, 2000, 2001, 2002));

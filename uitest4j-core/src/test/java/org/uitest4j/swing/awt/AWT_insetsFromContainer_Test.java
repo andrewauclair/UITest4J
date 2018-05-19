@@ -13,14 +13,14 @@
 package org.uitest4j.swing.awt;
 
 import org.junit.jupiter.api.Test;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.annotation.RunsInEDT;
-import org.uitest4j.core.api.swing.Robot;
 import org.uitest4j.swing.test.swing.TestWindow;
 
 import java.awt.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.uitest4j.swing.core.BasicRobot.robotWithNewAwtHierarchy;
+import static org.uitest4j.swing.core.BasicSwingRobot.robotWithNewAwtHierarchy;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 import static org.uitest4j.swing.test.query.ContainerInsetsQuery.insetsOf;
 
@@ -34,7 +34,7 @@ class AWT_insetsFromContainer_Test {
 
 	@Test
 	void should_Return_Insets_From_Container() {
-		Robot robot = robotWithNewAwtHierarchy();
+		SwingRobot robot = robotWithNewAwtHierarchy();
 		TestWindow window = TestWindow.createNewWindow(getClass());
 		try {
 			robot.showWindow(window, new Dimension(500, 300));

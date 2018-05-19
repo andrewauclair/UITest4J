@@ -15,8 +15,8 @@ package org.uitest4j.swing.finder;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.uitest4j.swing.core.BasicRobot;
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
+import org.uitest4j.swing.core.BasicSwingRobot;
 import org.uitest4j.swing.fixture.JOptionPaneFixture;
 import org.uitest4j.swing.test.core.EDTSafeTestCase;
 import org.uitest4j.swing.test.swing.JOptionPaneLauncher;
@@ -32,13 +32,13 @@ import static org.uitest4j.swing.finder.JOptionPaneFinder.findOptionPane;
  * @author Alex Ruiz
  */
 class FEST250_findJOptionPaneWithNullParent extends EDTSafeTestCase {
-	private Robot robot;
+	private SwingRobot robot;
 
 	@BeforeEach
 	void setUp() {
 		JOptionPane optionPane = execute(() -> new JOptionPane("Hello World!"));
 		JOptionPaneLauncher.launch(optionPane);
-		robot = BasicRobot.robotWithCurrentAwtHierarchy();
+		robot = BasicSwingRobot.robotWithCurrentAwtHierarchy();
 	}
 
 	@AfterEach

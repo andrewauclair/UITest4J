@@ -12,8 +12,8 @@
  */
 package org.uitest4j.swing.fixture;
 
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.fixture.TextDisplayFixture;
-import org.uitest4j.core.api.swing.Robot;
 import org.uitest4j.swing.driver.JProgressBarDriver;
 import org.uitest4j.swing.timing.Timeout;
 
@@ -38,7 +38,7 @@ public class JProgressBarFixture extends
 	 * @throws NullPointerException if {@code robot} is {@code null}.
 	 * @throws NullPointerException if {@code target} is {@code null}.
 	 */
-	public JProgressBarFixture(@Nonnull Robot robot, @Nonnull JProgressBar target) {
+	public JProgressBarFixture(@Nonnull SwingRobot robot, @Nonnull JProgressBar target) {
 		super(JProgressBarFixture.class, robot, target);
 	}
 
@@ -46,18 +46,18 @@ public class JProgressBarFixture extends
 	 * Creates a new {@link JProgressBarFixture}.
 	 *
 	 * @param robot     performs simulation of user events on a {@code JProgressBar}.
-	 * @param labelName the name of the {@code JProgressBar} to find using the given {@code Robot}.
+	 * @param labelName the name of the {@code JProgressBar} to find using the given {@code SwingRobot}.
 	 * @throws NullPointerException                                  if {@code robot} is {@code null}.
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching {@code JProgressBar} could not be found.
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching {@code JProgressBar} is found.
 	 */
-	public JProgressBarFixture(@Nonnull Robot robot, @Nonnull String labelName) {
+	public JProgressBarFixture(@Nonnull SwingRobot robot, @Nonnull String labelName) {
 		super(JProgressBarFixture.class, robot, labelName, JProgressBar.class);
 	}
 
 	@Override
 	@Nonnull
-	protected JProgressBarDriver createDriver(@Nonnull Robot robot) {
+	protected JProgressBarDriver createDriver(@Nonnull SwingRobot robot) {
 		return new JProgressBarDriver(robot);
 	}
 

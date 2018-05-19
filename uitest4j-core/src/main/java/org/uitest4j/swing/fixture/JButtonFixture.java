@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.fixture;
 
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.exception.ComponentLookupException;
 
 import javax.annotation.Nonnull;
@@ -34,7 +34,7 @@ public class JButtonFixture extends AbstractButtonFixture<JButtonFixture, JButto
 	 * @throws NullPointerException if {@code robot} is {@code null}.
 	 * @throws NullPointerException if {@code target} is {@code null}.
 	 */
-	public JButtonFixture(@Nonnull Robot robot, @Nonnull JButton target) {
+	public JButtonFixture(@Nonnull SwingRobot robot, @Nonnull JButton target) {
 		super(JButtonFixture.class, robot, target);
 	}
 
@@ -47,7 +47,7 @@ public class JButtonFixture extends AbstractButtonFixture<JButtonFixture, JButto
 	 * @throws ComponentLookupException if a matching {@code JButton} could not be found.
 	 * @throws ComponentLookupException if more than one matching {@code JButton} is found.
 	 */
-	public JButtonFixture(@Nonnull Robot robot, @Nullable String buttonName) {
+	public JButtonFixture(@Nonnull SwingRobot robot, @Nullable String buttonName) {
 		super(JButtonFixture.class, robot, buttonName, JButton.class);
 	}
 }

@@ -12,13 +12,13 @@
  */
 package org.uitest4j.swing.driver;
 
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
 
 import javax.annotation.Nonnull;
 import javax.swing.*;
 
 class AbstractJTableCellWriterStub extends AbstractJTableCellWriter {
-	AbstractJTableCellWriterStub(Robot robot) {
+	AbstractJTableCellWriterStub(SwingRobot robot) {
 		super(robot);
 	}
 

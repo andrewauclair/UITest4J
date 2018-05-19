@@ -15,7 +15,7 @@ package org.uitest4j.swing.driver;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.uitest4j.swing.annotation.RunsInEDT;
-import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.core.SwingRobotBasedTestCase;
 import org.uitest4j.swing.test.swing.TableRenderDemo;
 import org.uitest4j.swing.test.swing.TestWindow;
 
@@ -34,7 +34,7 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
-public class JTableCellEditorQuery_cellEditorIn_Test extends RobotBasedTestCase {
+public class JTableCellEditorQuery_cellEditorIn_Test extends SwingRobotBasedTestCase {
 	private JTable table;
 
 	private static Collection<Object[]> editorTypes() {

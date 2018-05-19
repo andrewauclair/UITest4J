@@ -13,7 +13,7 @@
 package org.uitest4j.swing.driver;
 
 import org.uitest4j.swing.annotation.RunsInEDT;
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.edt.GuiQuery;
 import org.uitest4j.swing.util.Pair;
 
@@ -32,7 +32,7 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
  * @author Yvonne Wang
  */
 public class JTableCheckBoxEditorCellWriter extends AbstractJTableCellWriter {
-	public JTableCheckBoxEditorCellWriter(@Nonnull Robot robot) {
+	public JTableCheckBoxEditorCellWriter(@Nonnull SwingRobot robot) {
 		super(robot);
 	}
 

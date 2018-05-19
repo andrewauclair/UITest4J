@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.fixture;
 
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.driver.JSplitPaneDriver;
 
 import javax.annotation.Nonnull;
@@ -35,7 +35,7 @@ public class JSplitPaneFixture extends
 	 * @throws NullPointerException if {@code robot} is {@code null}.
 	 * @throws NullPointerException if {@code target} is {@code null}.
 	 */
-	public JSplitPaneFixture(@Nonnull Robot robot, @Nonnull JSplitPane target) {
+	public JSplitPaneFixture(@Nonnull SwingRobot robot, @Nonnull JSplitPane target) {
 		super(JSplitPaneFixture.class, robot, target);
 	}
 
@@ -43,17 +43,17 @@ public class JSplitPaneFixture extends
 	 * Creates a new {@link JSplitPaneFixture}.
 	 *
 	 * @param robot       performs simulation of user events on a {@code JSplitPane}.
-	 * @param spinnerName the name of the {@code JSplitPane} to find using the given {@code Robot}.
+	 * @param spinnerName the name of the {@code JSplitPane} to find using the given {@code SwingRobot}.
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if a matching {@code JSplitPane} could not be found.
 	 * @throws org.uitest4j.swing.exception.ComponentLookupException if more than one matching {@code JSplitPane} is found.
 	 */
-	public JSplitPaneFixture(@Nonnull Robot robot, @Nullable String spinnerName) {
+	public JSplitPaneFixture(@Nonnull SwingRobot robot, @Nullable String spinnerName) {
 		super(JSplitPaneFixture.class, robot, spinnerName, JSplitPane.class);
 	}
 
 	@Override
 	@Nonnull
-	protected JSplitPaneDriver createDriver(@Nonnull Robot robot) {
+	protected JSplitPaneDriver createDriver(@Nonnull SwingRobot robot) {
 		return new JSplitPaneDriver(robot);
 	}
 

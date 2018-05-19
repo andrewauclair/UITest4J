@@ -14,8 +14,8 @@ package org.uitest4j.swing.fixture;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.core.ComponentFinder;
-import org.uitest4j.core.api.swing.Robot;
 import org.uitest4j.swing.core.Settings;
 import org.uitest4j.swing.driver.ComponentDriver;
 
@@ -29,17 +29,17 @@ import static org.mockito.Mockito.when;
 import static org.uitest4j.swing.core.ComponentLookupScope.SHOWING_ONLY;
 
 /**
- * Tests for {@link AbstractComponentFixture#AbstractComponentFixture(Class, Robot, Class)}.
+ * Tests for {@link AbstractComponentFixture#AbstractComponentFixture(Class, SwingRobot, Class)}.
  *
  * @author Alex Ruiz
  */
 class AbstractComponentFixture_constructor_withLookupByType_Test {
-	private Robot robot;
+	private SwingRobot robot;
 	private Class<Frame> type;
 
 	@BeforeEach
 	void setUp() {
-		robot = mock(Robot.class);
+		robot = mock(SwingRobot.class);
 		type = Frame.class;
 	}
 
@@ -73,14 +73,14 @@ class AbstractComponentFixture_constructor_withLookupByType_Test {
 	}
 
 	private static class ComponentFixture extends AbstractComponentFixture<ComponentFixture, Component, ComponentDriver> {
-		ComponentFixture(@Nonnull Class<ComponentFixture> selfType, @Nonnull Robot robot,
+		ComponentFixture(@Nonnull Class<ComponentFixture> selfType, @Nonnull SwingRobot robot,
 						 @Nonnull Class<? extends Component> type) {
 			super(selfType, robot, type);
 		}
 
 		@Override
 		@Nonnull
-		protected ComponentDriver createDriver(@Nonnull Robot robot) {
+		protected ComponentDriver createDriver(@Nonnull SwingRobot robot) {
 			return new ComponentDriver(robot);
 		}
 	}

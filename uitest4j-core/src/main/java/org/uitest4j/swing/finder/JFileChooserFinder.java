@@ -12,8 +12,8 @@
  */
 package org.uitest4j.swing.finder;
 
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.core.GenericTypeMatcher;
-import org.uitest4j.core.api.swing.Robot;
 import org.uitest4j.swing.fixture.JFileChooserFixture;
 
 import javax.annotation.Nonnegative;
@@ -38,7 +38,7 @@ import java.util.concurrent.TimeUnit;
  * </pre>
  *
  * <p>
- * Where {@code robot} is an instance of {@link Robot}.
+ * Where {@code robot} is an instance of {@link SwingRobot}.
  * </p>
  *
  * <p>
@@ -139,7 +139,7 @@ public class JFileChooserFinder extends ComponentFinderTemplate<JFileChooser> {
 	 */
 	@Override
 	@Nonnull
-	public JFileChooserFixture using(@Nonnull Robot robot) {
+	public JFileChooserFixture using(@Nonnull SwingRobot robot) {
 		return new JFileChooserFixture(robot, findComponentWith(robot));
 	}
 

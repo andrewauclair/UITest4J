@@ -16,7 +16,7 @@ import org.uitest4j.exception.ActionFailedException;
 import org.uitest4j.swing.annotation.RunsInCurrentThread;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.core.*;
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.internal.annotation.InternalApi;
 import org.uitest4j.swing.internal.assertions.OpenTest4JAssertions;
 import org.uitest4j.swing.timing.Timeout;
@@ -57,7 +57,7 @@ import static org.uitest4j.swing.util.TimeoutWatch.startWatchWithTimeoutOf;
  */
 @InternalApi
 public class ComponentDriver {
-	protected final Robot robot;
+	protected final SwingRobot robot;
 
 	private final ComponentDragAndDrop dragAndDrop;
 
@@ -66,7 +66,7 @@ public class ComponentDriver {
 	 *
 	 * @param robot the robot to use to simulate user input.
 	 */
-	public ComponentDriver(@Nonnull Robot robot) {
+	public ComponentDriver(@Nonnull SwingRobot robot) {
 		this.robot = robot;
 		dragAndDrop = new ComponentDragAndDrop(robot);
 	}
@@ -427,7 +427,7 @@ public class ComponentDriver {
 	 * </p>
 	 * <p>
 	 * This method is tuned for native drag/drop operations, so if you get odd behavior, you might try using a simple
-	 * {@link Robot#moveMouse(Component, int, int)} and {@link Robot#releaseMouseButtons()}.
+	 * {@link SwingRobot#moveMouse(Component, int, int)} and {@link SwingRobot#releaseMouseButtons()}.
 	 *
 	 * @param c     the target {@code Component}.
 	 * @param where the point where the drag operation ends.

@@ -14,7 +14,7 @@ package org.uitest4j.swing.driver;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.core.Settings;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -28,7 +28,7 @@ import static org.uitest4j.swing.core.TestRobots.newRobotMock;
  * @author Yvonne Wang
  */
 class ComponentDriver_settings_Test {
-	private Robot robot;
+	private SwingRobot robot;
 	private ComponentDriver driver;
 
 	@BeforeEach

@@ -14,7 +14,7 @@ package org.uitest4j.swing.driver;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
@@ -29,7 +29,7 @@ import static org.uitest4j.swing.util.Platform.controlOrCommandKey;
  * @author Christian Rösch
  */
 class MultipleSelectionTemplate_multiUnselect_Test {
-	private Robot robot;
+	private SwingRobot robot;
 	private MultipleSelection template;
 
 	@BeforeEach
@@ -60,7 +60,7 @@ class MultipleSelectionTemplate_multiUnselect_Test {
 
 		int timesUnselected;
 
-		MultipleSelection(Robot robot, int elementCount) {
+		MultipleSelection(SwingRobot robot, int elementCount) {
 			super(robot);
 			this.elementCount = elementCount;
 		}

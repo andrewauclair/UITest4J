@@ -14,9 +14,9 @@ package org.uitest4j.swing.driver;
 
 import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.annotation.RunsInEDT;
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.test.ExpectedException;
-import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.core.SwingRobotBasedTestCase;
 import org.uitest4j.swing.test.swing.TestMdiWindow;
 import org.uitest4j.swing.test.task.ComponentSetEnabledTask;
 
@@ -34,12 +34,12 @@ import static org.uitest4j.swing.test.builder.JFrames.frame;
  *
  * @author Alex Ruiz
  */
-public class ContainerDriver_checkCanResize_Test extends RobotBasedTestCase {
+public class ContainerDriver_checkCanResize_Test extends SwingRobotBasedTestCase {
 	private ContainerDriver driver;
 
 	@Override
 	protected void onSetUp() {
-		driver = new ContainerDriver(mock(Robot.class)) {
+		driver = new ContainerDriver(mock(SwingRobot.class)) {
 		};
 	}
 

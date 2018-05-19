@@ -14,7 +14,7 @@ package org.uitest4j.swing.fixture;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.driver.JScrollBarDriver;
 
 import javax.swing.*;
@@ -33,7 +33,7 @@ class JScrollBarFixture_withMocks_Test {
 
 	@BeforeEach
 	void setUp() {
-		fixture = new JScrollBarFixture(mock(Robot.class), mock(JScrollBar.class));
+		fixture = new JScrollBarFixture(mock(SwingRobot.class), mock(JScrollBar.class));
 		fixture.replaceDriverWith(mock(JScrollBarDriver.class));
 	}
 

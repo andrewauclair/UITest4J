@@ -15,7 +15,7 @@ package org.uitest4j.swing.fixture;
 import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.exception.WaitTimedOutError;
 import org.uitest4j.swing.test.ExpectedException;
-import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.core.SwingRobotBasedTestCase;
 import org.uitest4j.swing.test.swing.JOptionPaneLauncherWindow;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -26,7 +26,7 @@ import static org.uitest4j.swing.timing.Timeout.timeout;
  *
  * @author Alex Ruiz
  */
-public class AbstractContainerFixture_optionPane_Test extends RobotBasedTestCase {
+public class AbstractContainerFixture_optionPane_Test extends SwingRobotBasedTestCase {
 	private ContainerFixture launcher;
 	private JOptionPaneLauncherWindow window;
 

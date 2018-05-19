@@ -14,7 +14,7 @@ package org.uitest4j.swing.core;
 
 import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.edt.GuiActionRunner;
-import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.core.SwingRobotBasedTestCase;
 
 import javax.swing.*;
 import java.awt.*;
@@ -31,7 +31,7 @@ import static org.uitest4j.swing.timing.Pause.pause;
  *
  * @author Alex Ruiz
  */
-class Bug289_robotShouldFocusWindowBeforeClosing_Test extends RobotBasedTestCase {
+class Bug289_robotShouldFocusWindowBeforeClosing_Test extends SwingRobotBasedTestCase {
 	@Test
 	void should_Give_Focus_To_Window_Before_Closing_It() {
 		MyWindow window1 = MyWindow.createNew();

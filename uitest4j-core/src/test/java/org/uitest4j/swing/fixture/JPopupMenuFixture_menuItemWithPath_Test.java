@@ -14,7 +14,7 @@ package org.uitest4j.swing.fixture;
 
 import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.annotation.RunsInEDT;
-import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.core.SwingRobotBasedTestCase;
 import org.uitest4j.swing.test.recorder.ClickRecorder;
 import org.uitest4j.swing.test.recorder.ClickRecorderManager;
 import org.uitest4j.swing.test.swing.TestWindow;
@@ -33,7 +33,7 @@ import static org.uitest4j.swing.util.Platform.isOSX;
  * @author Yvonne Wang
  */
 // TODO(Alex): Test JMenuItemFinder instead.
-public class JPopupMenuFixture_menuItemWithPath_Test extends RobotBasedTestCase {
+public class JPopupMenuFixture_menuItemWithPath_Test extends SwingRobotBasedTestCase {
 	public ClickRecorderManager clickRecorder = new ClickRecorderManager();
 
 	private MyWindow window;

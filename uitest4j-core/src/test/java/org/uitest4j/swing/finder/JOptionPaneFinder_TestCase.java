@@ -13,7 +13,7 @@
 package org.uitest4j.swing.finder;
 
 import org.uitest4j.swing.fixture.FrameFixture;
-import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.core.SwingRobotBasedTestCase;
 import org.uitest4j.swing.test.swing.JOptionPaneLauncherWindow;
 
 /**
@@ -22,7 +22,7 @@ import org.uitest4j.swing.test.swing.JOptionPaneLauncherWindow;
  * @author Yvonne Wang
  * @author Alex Ruiz
  */
-public abstract class JOptionPaneFinder_TestCase extends RobotBasedTestCase {
+public abstract class JOptionPaneFinder_TestCase extends SwingRobotBasedTestCase {
 	private FrameFixture frameFixture;
 
 	JOptionPaneLauncherWindow window;

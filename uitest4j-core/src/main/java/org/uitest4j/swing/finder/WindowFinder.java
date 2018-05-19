@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.finder;
 
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.core.GenericTypeMatcher;
 
 import javax.annotation.Nonnull;
@@ -35,7 +35,7 @@ import java.awt.*;
  * </pre>
  *
  * <p>
- * Where {@code robot} is an instance of {@link Robot}.
+ * Where {@code robot} is an instance of {@link SwingRobot}.
  * </p>
  *
  * <p>

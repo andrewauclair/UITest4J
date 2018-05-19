@@ -14,7 +14,7 @@ package org.uitest4j.swing.fixture;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.driver.DialogDriver;
 
 import java.awt.*;
@@ -35,7 +35,7 @@ class DialogFixture_withMocks_Test {
 
 	@BeforeEach
 	void setUp() {
-		fixture = new DialogFixture(mock(Robot.class), mock(Dialog.class));
+		fixture = new DialogFixture(mock(SwingRobot.class), mock(Dialog.class));
 		fixture.replaceDriverWith(mock(DialogDriver.class));
 	}
 

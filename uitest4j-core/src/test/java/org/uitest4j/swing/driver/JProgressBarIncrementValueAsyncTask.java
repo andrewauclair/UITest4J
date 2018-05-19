@@ -12,7 +12,7 @@
  */
 package org.uitest4j.swing.driver;
 
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
 
 import javax.annotation.Nonnull;
 import javax.swing.*;
@@ -45,12 +45,12 @@ class JProgressBarIncrementValueAsyncTask {
 	private final Runnable task;
 	private Future<?> future;
 
-	private final Robot robot;
+	private final SwingRobot robot;
 	private final JProgressBar progressBar;
 	private final int increment;
 	private final long periodInMs;
 
-	private JProgressBarIncrementValueAsyncTask(@Nonnull Robot robot, @Nonnull JProgressBar progressBar, int increment,
+	private JProgressBarIncrementValueAsyncTask(@Nonnull SwingRobot robot, @Nonnull JProgressBar progressBar, int increment,
 												long periodInMs) {
 		this.robot = robot;
 		this.progressBar = progressBar;
@@ -113,7 +113,7 @@ class JProgressBarIncrementValueAsyncTask {
 		}
 
 		@Nonnull
-		JProgressBarIncrementValueAsyncTask createTask(@Nonnull Robot robot) {
+		JProgressBarIncrementValueAsyncTask createTask(@Nonnull SwingRobot robot) {
 			return new JProgressBarIncrementValueAsyncTask(robot, progressBar, increment, periodInMs);
 		}
 	}

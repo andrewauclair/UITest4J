@@ -18,7 +18,7 @@ import org.uitest4j.swing.exception.UnexpectedException;
 import org.uitest4j.swing.finder.WindowFinder;
 import org.uitest4j.swing.fixture.FrameFixture;
 import org.uitest4j.swing.test.ExpectedException;
-import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.core.SwingRobotBasedTestCase;
 
 import javax.annotation.Nonnull;
 import java.awt.*;
@@ -34,7 +34,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
  *
  * @author Yvonne Wang
  */
-class ApplicationLauncher_start_Test extends RobotBasedTestCase {
+class ApplicationLauncher_start_Test extends SwingRobotBasedTestCase {
 	@Test
 	void should_Throw_Error_If_Application_Class_Name_Is_Invalid() {
 		ExpectedException.assertContainsMessage(UnexpectedException.class, () -> ApplicationLauncher.application("Hello").start(), "Unable to load class 'Hello'");

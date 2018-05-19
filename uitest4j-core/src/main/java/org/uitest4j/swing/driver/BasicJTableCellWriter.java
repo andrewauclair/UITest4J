@@ -12,9 +12,9 @@
  */
 package org.uitest4j.swing.driver;
 
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.exception.ActionFailedException;
 import org.uitest4j.swing.cell.JTableCellWriter;
-import org.uitest4j.core.api.swing.Robot;
 
 import javax.annotation.Nonnull;
 import javax.swing.*;
@@ -32,7 +32,7 @@ public class BasicJTableCellWriter extends AbstractJTableCellWriter {
 	private final JTableComboBoxEditorCellWriter comboBoxWriter;
 	private final JTableTextComponentEditorCellWriter textComponentWriter;
 
-	public BasicJTableCellWriter(@Nonnull Robot robot) {
+	public BasicJTableCellWriter(@Nonnull SwingRobot robot) {
 		super(robot);
 		checkBoxWriter = new JTableCheckBoxEditorCellWriter(robot);
 		comboBoxWriter = new JTableComboBoxEditorCellWriter(robot);

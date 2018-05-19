@@ -15,7 +15,7 @@ package org.uitest4j.swing.fixture;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.core.GenericTypeMatcher;
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.driver.JPopupMenuDriver;
 
 import javax.swing.*;
@@ -37,7 +37,7 @@ class JPopupMenuFixture_withMocks_Test {
 
 	@BeforeEach
 	void setUp() {
-		fixture = new JPopupMenuFixture(mock(Robot.class), mock(JPopupMenu.class));
+		fixture = new JPopupMenuFixture(mock(SwingRobot.class), mock(JPopupMenu.class));
 		fixture.replaceDriverWith(mock(JPopupMenuDriver.class));
 		driver = fixture.driver();
 		target = fixture.target();

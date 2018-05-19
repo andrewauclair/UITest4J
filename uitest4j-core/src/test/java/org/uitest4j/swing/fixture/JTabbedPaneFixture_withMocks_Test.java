@@ -14,7 +14,7 @@ package org.uitest4j.swing.fixture;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.driver.JTabbedPaneDriver;
 
 import javax.swing.*;
@@ -35,7 +35,7 @@ class JTabbedPaneFixture_withMocks_Test {
 
 	@BeforeEach
 	void setUp() {
-		fixture = new JTabbedPaneFixture(mock(Robot.class), mock(JTabbedPane.class));
+		fixture = new JTabbedPaneFixture(mock(SwingRobot.class), mock(JTabbedPane.class));
 		fixture.replaceDriverWith(mock(JTabbedPaneDriver.class));
 	}
 

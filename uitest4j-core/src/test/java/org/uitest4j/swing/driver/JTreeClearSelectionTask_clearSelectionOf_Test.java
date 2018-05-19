@@ -15,7 +15,7 @@ package org.uitest4j.swing.driver;
 import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.test.core.MethodInvocations;
-import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.core.SwingRobotBasedTestCase;
 import org.uitest4j.swing.test.swing.TestWindow;
 
 import javax.swing.*;
@@ -29,7 +29,7 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
  *
  * @author Alex Ruiz
  */
-public class JTreeClearSelectionTask_clearSelectionOf_Test extends RobotBasedTestCase {
+public class JTreeClearSelectionTask_clearSelectionOf_Test extends SwingRobotBasedTestCase {
 	static final String TEXTBOX_TEXT = "Hello World";
 
 	private MyTree tree;

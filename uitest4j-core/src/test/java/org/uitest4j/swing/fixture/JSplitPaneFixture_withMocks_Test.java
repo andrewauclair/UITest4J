@@ -14,7 +14,7 @@ package org.uitest4j.swing.fixture;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.driver.JSplitPaneDriver;
 
 import javax.swing.*;
@@ -34,7 +34,7 @@ class JSplitPaneFixture_withMocks_Test {
 
 	@BeforeEach
 	void setUp() {
-		fixture = new JSplitPaneFixture(mock(Robot.class), mock(JSplitPane.class));
+		fixture = new JSplitPaneFixture(mock(SwingRobot.class), mock(JSplitPane.class));
 		fixture.replaceDriverWith(mock(JSplitPaneDriver.class));
 	}
 

@@ -15,7 +15,7 @@ package org.assertj.swing.junit.testcase;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
-import org.uitest4j.core.api.swing.Robot;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.swing.edt.FailOnThreadViolationRepaintManager;
 import org.uitest4j.swing.testing.AssertJSwingTestCaseTemplate;
 import org.junit.Before;
@@ -23,7 +23,7 @@ import org.junit.Before;
 /**
  * Understands a template for test cases that use AssertJ-Swing and JUnit. This template installs a
  * <code>{@link FailOnThreadViolationRepaintManager}</code> to catch violations of Swing thread rules and manages both
- * creation and clean up of a <code>{@link Robot}</code>.
+ * creation and clean up of a <code>{@link SwingRobot}</code>.
  *
  * @author Alex Ruiz
  */
@@ -38,7 +38,7 @@ public abstract class AssertJSwingJUnitTestCase extends AssertJSwingTestCaseTemp
   }
 
   /**
-   * Sets up this test's fixture, starting from creation of a new <code>{@link Robot}</code>.
+   * Sets up this test's fixture, starting from creation of a new <code>{@link SwingRobot}</code>.
    *
    * @see #setUpRobot()
    * @see #onSetUp()
@@ -66,7 +66,7 @@ public abstract class AssertJSwingJUnitTestCase extends AssertJSwingTestCaseTemp
 
   /**
    * Cleans up any resources used in this test. After calling <code>{@link #onTearDown()}</code>, this method cleans up
-   * resources used by this test's <code>{@link Robot}</code>.
+   * resources used by this test's <code>{@link SwingRobot}</code>.
    *
    * @see #cleanUp()
    * @see #onTearDown()

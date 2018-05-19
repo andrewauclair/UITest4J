@@ -13,11 +13,11 @@
 package org.uitest4j.swing.driver;
 
 import org.opentest4j.AssertionFailedError;
+import org.uitest4j.core.api.swing.SwingRobot;
 import org.uitest4j.exception.ActionFailedException;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.cell.JListCellReader;
 import org.uitest4j.swing.core.MouseButton;
-import org.uitest4j.core.api.swing.Robot;
 import org.uitest4j.swing.exception.LocationUnavailableException;
 import org.uitest4j.swing.internal.annotation.InternalApi;
 import org.uitest4j.swing.internal.assertions.OpenTest4JAssertions;
@@ -81,7 +81,7 @@ public class JListDriver extends JComponentDriver {
 	 *
 	 * @param robot the robot to use to simulate user input.
 	 */
-	public JListDriver(@Nonnull Robot robot) {
+	public JListDriver(@Nonnull SwingRobot robot) {
 		super(robot);
 		replaceCellReader(new BasicJListCellReader());
 	}

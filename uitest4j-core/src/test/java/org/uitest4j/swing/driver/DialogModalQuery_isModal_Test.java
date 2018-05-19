@@ -18,7 +18,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.test.ExpectedException;
 import org.uitest4j.swing.test.core.MethodInvocations;
-import org.uitest4j.swing.test.core.RobotBasedTestCase;
+import org.uitest4j.swing.test.core.SwingRobotBasedTestCase;
 import org.uitest4j.swing.test.data.BooleanProvider;
 import org.uitest4j.swing.test.swing.TestDialog;
 import org.uitest4j.swing.test.swing.TestWindow;
@@ -37,7 +37,7 @@ import static org.uitest4j.swing.test.task.DialogSetModalTask.makeModal;
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
-class DialogModalQuery_isModal_Test extends RobotBasedTestCase {
+class DialogModalQuery_isModal_Test extends SwingRobotBasedTestCase {
 	private MyDialog dialog;
 
 	private static Collection<Object[]> booleans() {
