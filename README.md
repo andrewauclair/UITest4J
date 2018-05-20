@@ -1,3 +1,5 @@
+https://travis-ci.org/andrewauclair/UITest4J.svg?branch=master
+
 <!-- Test NG: [![][Maven Central TestNG img]][Maven Central TestNG]
 JUnit: [![][Maven Central JUnit img]][Maven Central JUnit] -->
 
