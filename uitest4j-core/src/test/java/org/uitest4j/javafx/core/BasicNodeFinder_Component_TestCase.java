@@ -14,10 +14,8 @@ package org.uitest4j.javafx.core;
 
 import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
+import javafx.embed.swing.SwingNode;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.StackPane;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -25,14 +23,14 @@ import org.junit.jupiter.api.BeforeEach;
 import org.uitest4j.javafx.test.TestStage;
 
 import javax.annotation.Nonnull;
+import javax.swing.*;
 
 import static org.uitest4j.javafx.platform.FXGUIActionRunner.executeFX;
-
 
 /**
  * @author Andrew Auclair
  */
-class BasicNodeFinder_TestCase {
+public class BasicNodeFinder_Component_TestCase {
 	BasicNodeFinder finder;
 	MyStage stage;
 
@@ -55,10 +53,10 @@ class BasicNodeFinder_TestCase {
 	}
 
 	static class MyStage extends TestStage {
-		final Button button = new Button("A Button");
-		final Label label = new Label("A Label");
-		final TextField textField1 = new TextField("TextField 1");
-		final TextField textField2 = new TextField("TextField 2");
+		final JButton button = new JButton("A Button");
+		final JLabel label = new JLabel("A Label");
+		final JTextField textField1 = new JTextField("TextField 1");
+		final JTextField textField2 = new JTextField("TextField 2");
 
 		static MyStage createNew(final Class<?> testClass) {
 			return executeFX(() -> new MyStage(testClass));
@@ -66,11 +64,22 @@ class BasicNodeFinder_TestCase {
 
 		private MyStage(@Nonnull Class<?> testClass) {
 			super(testClass);
+			button.setName("button");
+
+			SwingNode swingNode = new SwingNode();
+
+			JPanel panel = new JPanel();
+			panel.add(button);
+			panel.add(label);
+			panel.add(textField1);
+			panel.add(textField2);
+
+			swingNode.setContent(panel);
+
 			StackPane root = new StackPane();
-			root.getChildren().addAll(button, label, textField1, textField2);
+			root.getChildren().add(swingNode);
 
 			label.setLabelFor(button);
-			button.setUserData("button");
 
 			Scene scene = new Scene(root, 200, 200);
 			setScene(scene);
