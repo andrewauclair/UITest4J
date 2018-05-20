@@ -37,8 +37,6 @@ public class ImageHandler_decodeBase64_withImageDecoder_Test extends ImageHandle
 
   @Test
   public void should_Not_Rethrow_Error() {
-    System.out.println("DISPLAY: " + System.getProperty("DISPLAY"));
-    System.err.println("DISPLAY: " + System.getProperty("DISPLAY"));
     new EasyMockTemplate(decoder) {
       @Override
       protected void expectations() throws Throwable {
