@@ -15,12 +15,17 @@ package org.uitest4j.javafx.core;
 import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.uitest4j.javafx.test.TestStage;
+
+import javax.annotation.Nonnull;
 
 import static org.uitest4j.javafx.platform.FXGUIActionRunner.executeFX;
 
@@ -30,9 +35,7 @@ import static org.uitest4j.javafx.platform.FXGUIActionRunner.executeFX;
  */
 class BasicNodeFinder_TestCase {
 	BasicNodeFinder finder;
-	Label label;
-
-	private Stage stage;
+	MyStage stage;
 
 	@BeforeAll
 	static void beforeAll() {
@@ -43,23 +46,37 @@ class BasicNodeFinder_TestCase {
 
 	@BeforeEach
 	void beforeEach() {
-		label = new Label("Hi");
-		label.setUserData("TestLabel");
-		StackPane root = new StackPane();
-		root.getChildren().add(label);
-		Scene scene = new Scene(root, 200, 200);
-
-		executeFX(() -> {
-			stage = new Stage();
-			finder = new BasicNodeFinder(stage);
-			stage.setScene(scene);
-			stage.centerOnScreen();
-			stage.show();
-		});
+		finder = BasicNodeFinder.finderWithCurrentWindowHierarchy();
+		stage = MyStage.createNew(getClass());
 	}
 
 	@AfterEach
 	void afterEach() {
 		executeFX(stage::close);
+	}
+
+	static class MyStage extends TestStage {
+		final Button button = new Button("A Button");
+		final Label label = new Label("A Label");
+		final TextField textField1 = new TextField("TextField 1");
+		final TextField textField2 = new TextField("TextField 2");
+
+		static MyStage createNew(final Class<?> testClass) {
+			return executeFX(() -> new MyStage(testClass));
+		}
+
+		private MyStage(@Nonnull Class<?> testClass) {
+			super(testClass);
+			StackPane root = new StackPane();
+			root.getChildren().addAll(button, label, textField1, textField2);
+
+			label.setLabelFor(button);
+			button.setUserData("button");
+
+			Scene scene = new Scene(root, 200, 200);
+			setScene(scene);
+			centerOnScreen();
+			show();
+		}
 	}
 }

@@ -10,20 +10,13 @@
  * <p>
  * Copyright 2018 the original author or authors.
  */
-package org.uitest4j.core.api;
-
-import javax.annotation.Nullable;
+package org.uitest4j.javafx.exception;
 
 /**
- * @author Alex Ruiz
  * @author Andrew Auclair
  */
-public interface Matcher<C> {
-	/**
-	 * Indicates whether the given AWT or Swing {@code Component} or JavaFX {@code Node} matches some lookup criteria.
-	 *
-	 * @param c the {@code Component} or {@code Node} to verify.
-	 * @return {@code true} if the given {@code Component} or {@code Node} matches some lookup criteria, otherwise {@code false}.
-	 */
-	boolean matches(@Nullable C c);
+public class NodeLookupException extends RuntimeException {
+	public NodeLookupException(String message) {
+		super(message);
+	}
 }

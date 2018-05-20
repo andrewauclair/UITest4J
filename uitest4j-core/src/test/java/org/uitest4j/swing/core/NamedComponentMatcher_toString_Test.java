@@ -17,14 +17,14 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
- * Tests for {@link NameMatcher#toString()}.
+ * Tests for {@link NamedComponentMatcher#toString()}.
  *
  * @author Alex Ruiz
  */
-public class NameMatcher_toString_Test {
+public class NamedComponentMatcher_toString_Test {
 	@Test
 	public void should_Implement_ToString() {
-		NameMatcher matcher = new NameMatcher("my button");
+		NamedComponentMatcher matcher = new NamedComponentMatcher("my button");
 		assertThat(matcher.toString()).contains("name='my button'").contains("type=java.awt.Component")
 				.contains("requireShowing=false");
 	}

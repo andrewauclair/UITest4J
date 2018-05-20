@@ -10,33 +10,46 @@
  * <p>
  * Copyright 2018 the original author or authors.
  */
-package org.uitest4j.core.api.javafx;
+package org.uitest4j.javafx.hierarchy;
 
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.stage.Window;
+import org.uitest4j.core.api.javafx.NodeHierarchy;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.util.ArrayList;
+import java.util.Collection;
 
 /**
  * @author Andrew Auclair
  */
-public interface NodeFinder {
+public class ExistingFXHierarchy implements NodeHierarchy {
 	@Nonnull
-	<T extends Node> T findByName(@Nonnull Parent root, @Nullable String name, @Nonnull Class<T> type);
+	@Override
+	public Collection<Window> roots() {
+		return Window.getWindows();
+	}
 
 	@Nonnull
-	<T extends Node> T findByName(@Nonnull Parent root, @Nullable String name, @Nonnull Class<T> type, boolean showing);
+	@Override
+	public Collection<Node> childrenOf(@Nonnull Node node) {
+		if (node instanceof Parent) {
+			Parent parent = (Parent) node;
+			return parent.getChildrenUnmodifiable();
+		}
+		return new ArrayList<>();
+	}
 
-	@Nonnull
-	Node find(@Nullable Parent root, @Nonnull NodeMatcher matcher);
+	@Nullable
+	@Override
+	public Parent parentOf(@Nonnull Node node) {
+		return null;
+	}
 
-	@Nonnull
-	Node findByName(@Nullable String name);
-
-	@Nonnull
-	Node findByName(@Nullable String name, boolean showing);
-
-	@Nonnull
-	Node find(@Nonnull NodeMatcher matcher);
+	@Override
+	public boolean contains(@Nonnull Node node) {
+		return false;
+	}
 }

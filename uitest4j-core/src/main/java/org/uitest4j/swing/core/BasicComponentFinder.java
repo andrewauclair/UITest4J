@@ -137,7 +137,7 @@ public final class BasicComponentFinder implements ComponentFinder {
 	@Override
 	@Nonnull
 	public <T extends Component> T findByName(@Nullable String name, @Nonnull Class<T> type, boolean showing) {
-		Component found = find(new NameMatcher(name, type, showing));
+		Component found = find(new NamedComponentMatcher(name, type, showing));
 		return type.cast(found);
 	}
 
@@ -152,7 +152,7 @@ public final class BasicComponentFinder implements ComponentFinder {
 	@Override
 	@Nonnull
 	public Component findByName(@Nullable String name, boolean showing) {
-		return find(new NameMatcher(name, showing));
+		return find(new NamedComponentMatcher(name, showing));
 	}
 
 	@RunsInEDT
@@ -213,7 +213,7 @@ public final class BasicComponentFinder implements ComponentFinder {
 	@Nonnull
 	public <T extends Component> T findByName(@Nonnull Container root, @Nullable String name,
 											  @Nonnull Class<T> type, boolean showing) {
-		Component found = find(root, new NameMatcher(name, type, showing));
+		Component found = find(root, new NamedComponentMatcher(name, type, showing));
 		return type.cast(found);
 	}
 
@@ -228,7 +228,7 @@ public final class BasicComponentFinder implements ComponentFinder {
 	@Override
 	@Nonnull
 	public Component findByName(@Nonnull Container root, @Nullable String name, boolean showing) {
-		return find(root, new NameMatcher(name, showing));
+		return find(root, new NamedComponentMatcher(name, showing));
 	}
 
 	@RunsInEDT

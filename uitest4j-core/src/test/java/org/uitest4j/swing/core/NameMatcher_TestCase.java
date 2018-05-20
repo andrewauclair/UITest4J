@@ -21,7 +21,7 @@ import javax.swing.*;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
 /**
- * Tests for {@link NameMatcher#matches(java.awt.Component)}.
+ * Tests for {@link NamedComponentMatcher#matches(java.awt.Component)}.
  *
  * @author Alex Ruiz
  */

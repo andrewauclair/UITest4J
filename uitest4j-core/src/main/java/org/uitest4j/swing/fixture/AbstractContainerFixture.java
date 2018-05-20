@@ -198,7 +198,7 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
 	@Override
 	@Nonnull
 	public DialogFixture dialog(@Nullable String name, @Nonnull Timeout timeout) {
-		NameMatcher matcher = new NameMatcher(name, Dialog.class, requireShowing());
+		NamedComponentMatcher matcher = new NamedComponentMatcher(name, Dialog.class, requireShowing());
 		return findDialog(matcher, timeout);
 	}
 
@@ -252,7 +252,7 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
 	@Override
 	@Nonnull
 	public JFileChooserFixture fileChooser(@Nullable String name, @Nonnull Timeout timeout) {
-		NameMatcher matcher = new NameMatcher(name, JFileChooser.class, requireShowing());
+		NamedComponentMatcher matcher = new NamedComponentMatcher(name, JFileChooser.class, requireShowing());
 		return findFileChooser(matcher, timeout);
 	}
 

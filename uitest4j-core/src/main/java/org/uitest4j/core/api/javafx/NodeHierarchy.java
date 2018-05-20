@@ -10,20 +10,28 @@
  * <p>
  * Copyright 2018 the original author or authors.
  */
-package org.uitest4j.core.api;
+package org.uitest4j.core.api.javafx;
 
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.stage.Window;
+
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.util.Collection;
 
 /**
- * @author Alex Ruiz
  * @author Andrew Auclair
  */
-public interface Matcher<C> {
-	/**
-	 * Indicates whether the given AWT or Swing {@code Component} or JavaFX {@code Node} matches some lookup criteria.
-	 *
-	 * @param c the {@code Component} or {@code Node} to verify.
-	 * @return {@code true} if the given {@code Component} or {@code Node} matches some lookup criteria, otherwise {@code false}.
-	 */
-	boolean matches(@Nullable C c);
+public interface NodeHierarchy {
+	@Nonnull
+	Collection<Window> roots();
+
+	@Nonnull
+	Collection<Node> childrenOf(@Nonnull Node node);
+
+	@Nullable
+	Parent parentOf(@Nonnull Node node);
+
+	boolean contains(@Nonnull Node node);
 }

@@ -10,15 +10,16 @@
  * <p>
  * Copyright 2018 the original author or authors.
  */
-package org.uitest4j.javafx.core;
-
-import javafx.scene.Node;
-
-import javax.annotation.Nullable;
+package org.uitest4j.core.api.javafx;
 
 /**
  * @author Andrew Auclair
  */
-public interface NodeMatcher {
-	boolean matches(@Nullable Node node);
+public interface ResettableNodeMatcher extends NodeMatcher {
+	/**
+	 * Resets the internal state of this matcher.
+	 *
+	 * @param matchFound indicates whether a match has been found before resetting.
+	 */
+	void reset(boolean matchFound);
 }

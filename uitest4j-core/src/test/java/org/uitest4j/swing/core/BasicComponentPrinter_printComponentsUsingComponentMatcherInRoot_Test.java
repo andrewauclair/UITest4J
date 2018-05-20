@@ -31,7 +31,7 @@ class BasicComponentPrinter_printComponentsUsingComponentMatcherInRoot_Test exte
 	@Test
 	void should_Throw_Error_If_OutputStream_Is_Null() {
 		// jsr305 throws IllegalArgumentExceptions when @Nonnull is used
-		assertThrows(IllegalArgumentException.class, () -> printer.printComponents(null, new NameMatcher("button1"), windowOne));
+		assertThrows(IllegalArgumentException.class, () -> printer.printComponents(null, new NamedComponentMatcher("button1"), windowOne));
 	}
 
 	@Test

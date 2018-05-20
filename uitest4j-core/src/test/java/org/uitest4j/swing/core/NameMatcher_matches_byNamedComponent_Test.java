@@ -17,31 +17,31 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
- * Tests for {@link NameMatcher#matches(java.awt.Component)}.
+ * Tests for {@link NamedComponentMatcher#matches(java.awt.Component)}.
  *
  * <p>
- * The {@link NameMatcher} is created through {@link NameMatcher#NameMatcher(String)}.
+ * The {@link NamedComponentMatcher} is created through {@link NamedComponentMatcher#NamedComponentMatcher(String)}.
  * </p>
  *
  * @author Alex Ruiz
  */
-class NameMatcher_matches_byName_Test extends NameMatcher_TestCase {
+class NameMatcher_matches_byNamedComponent_Test extends NameMatcher_TestCase {
 	@Test
 	void should_Return_True_If_Name_Matches_And_Component_Is_Showing() {
 		window.display();
-		NameMatcher matcher = new NameMatcher(LABEL_TEXT);
+		NamedComponentMatcher matcher = new NamedComponentMatcher(LABEL_TEXT);
 		assertThat(matcher.matches(window.button)).isTrue();
 	}
 
 	@Test
 	void should_Return_True_If_Name_Matches_And_Component_Is_Not_Showing() {
-		NameMatcher matcher = new NameMatcher(LABEL_TEXT);
+		NamedComponentMatcher matcher = new NamedComponentMatcher(LABEL_TEXT);
 		assertThat(matcher.matches(window.button)).isTrue();
 	}
 
 	@Test
 	void should_Return_False_If_Name_Does_Not_Match() {
-		NameMatcher matcher = new NameMatcher("Hello");
+		NamedComponentMatcher matcher = new NamedComponentMatcher("Hello");
 		assertThat(matcher.matches(window.button)).isFalse();
 	}
 }

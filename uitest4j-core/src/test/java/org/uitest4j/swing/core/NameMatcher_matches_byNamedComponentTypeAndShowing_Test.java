@@ -19,31 +19,31 @@ import javax.swing.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
- * Tests for {@link NameMatcher#matches(java.awt.Component)}.
+ * Tests for {@link NamedComponentMatcher#matches(java.awt.Component)}.
  * <p>
- * The {@link NameMatcher} is created through {@link NameMatcher#NameMatcher(String, Class, boolean)}, passing
+ * The {@link NamedComponentMatcher} is created through {@link NamedComponentMatcher#NamedComponentMatcher(String, Class, boolean)}, passing
  * {@code true} to indicate that the {@link java.awt.Component} to match must be showing on the screen.
  * </p>
  *
  * @author Alex Ruiz
  */
-class NameMatcher_matches_byNameTypeAndShowing_Test extends NameMatcher_TestCase {
+class NameMatcher_matches_byNamedComponentTypeAndShowing_Test extends NameMatcher_TestCase {
 	@Test
 	void should_Return_False_If_Type_Does_Not_Match() {
 		window.display();
-		NameMatcher matcher = new NameMatcher("b", JTextField.class, true);
+		NamedComponentMatcher matcher = new NamedComponentMatcher("b", JTextField.class, true);
 		assertThat(matcher.matches(window.button)).isFalse();
 	}
 
 	@Test
 	void should_Return_False_If_Name_And_Type_Match_But_Component_Is_Not_Showing() {
-		NameMatcher matcher = new NameMatcher(LABEL_TEXT, JButton.class, true);
+		NamedComponentMatcher matcher = new NamedComponentMatcher(LABEL_TEXT, JButton.class, true);
 		assertThat(matcher.matches(window.button)).isFalse();
 	}
 
 	@Test
 	void should_Return_False_If_Nothing_Matches() {
-		NameMatcher matcher = new NameMatcher("b", JTextField.class, true);
+		NamedComponentMatcher matcher = new NamedComponentMatcher("b", JTextField.class, true);
 		assertThat(matcher.matches(window.button)).isFalse();
 	}
 

@@ -14,24 +14,21 @@ package org.uitest4j.swing.core;
 
 import org.junit.jupiter.api.Test;
 
-import javax.swing.*;
-
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
- * Tests for {@link NameMatcher#matches(java.awt.Component)}.
- *
- * <p>
- * The {@link NameMatcher} is created through {@link NameMatcher#NameMatcher(String, Class)}.
- * </p>
+ * Tests for {@link NamedComponentMatcher#NamedComponentMatcher(String)}.
  *
  * @author Alex Ruiz
  */
-class NameMatcher_matches_byNameAndType_Test extends NameMatcher_TestCase {
+class NameMatcher_constructorWithNamedComponent_Test {
 	@Test
-	void should_Return_True_If_Name_And_Type_Match() {
-		window.display();
-		NameMatcher matcher = new NameMatcher(LABEL_TEXT, JButton.class);
-		assertThat(matcher.matches(window.button)).isTrue();
+	void should_Throw_Error_If_Name_Is_Null() {
+		assertThrows(NullPointerException.class, () -> new NamedComponentMatcher(null));
+	}
+
+	@Test
+	void should_Throw_Error_If_Name_Is_Empty() {
+		assertThrows(IllegalArgumentException.class, () -> new NamedComponentMatcher(""));
 	}
 }

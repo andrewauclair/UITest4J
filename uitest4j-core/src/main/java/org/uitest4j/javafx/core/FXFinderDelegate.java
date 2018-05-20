@@ -13,7 +13,10 @@
 package org.uitest4j.javafx.core;
 
 import javafx.scene.Node;
-import org.uitest4j.javafx.hierarchy.NodeHierarchy;
+import javafx.scene.Parent;
+import javafx.stage.Window;
+import org.uitest4j.core.api.javafx.NodeHierarchy;
+import org.uitest4j.core.api.javafx.NodeMatcher;
 import org.uitest4j.swing.edt.GuiActionRunner;
 
 import javax.annotation.Nonnull;
@@ -31,14 +34,14 @@ public class FXFinderDelegate {
 	@Nonnull
 	Collection<Node> find(@Nonnull NodeHierarchy hierarchy, @Nonnull NodeMatcher matcher) {
 		Set<Node> found = new LinkedHashSet<>();
-		for (Node node : rootsOf(hierarchy)) {
-			find(hierarchy, matcher, Objects.requireNonNull(node), found);
+		for (Window window : rootsOf(hierarchy)) {
+			find(hierarchy, matcher, Objects.requireNonNull(window), found);
 		}
 		return found;
 	}
 
 	private void find(@Nonnull NodeHierarchy hierarchy, @Nonnull NodeMatcher matcher, @Nonnull Node root,
-						  @Nonnull Set<Node> found) {
+					  @Nonnull Set<Node> found) {
 		for (Node node : childrenOfNode(root, hierarchy)) {
 			find(hierarchy, matcher, Objects.requireNonNull(node), found);
 		}
@@ -47,11 +50,26 @@ public class FXFinderDelegate {
 		}
 	}
 
+	private void find(@Nonnull NodeHierarchy hierarchy, @Nonnull NodeMatcher matcher, @Nonnull Window window,
+					  @Nonnull Set<Node> found) {
+		for (Node node : childrenOfWindow(window, hierarchy)) {
+			find(hierarchy, matcher, Objects.requireNonNull(node), found);
+		}
+	}
+
 	@Nonnull
 	private static Collection<Node> childrenOfNode(final @Nonnull Node node,
-															 final @Nonnull NodeHierarchy hierarchy) {
+												   final @Nonnull NodeHierarchy hierarchy) {
 		Collection<Node> children = executeFX(() -> hierarchy.childrenOf(node));
 		return Objects.requireNonNull(children);
+	}
+
+	@Nonnull
+	private static Collection<Node> childrenOfWindow(final @Nonnull Window window, final @Nonnull NodeHierarchy hierarchy) {
+		return Objects.requireNonNull(executeFX(() -> {
+			Parent root = window.getScene().getRoot();
+			return hierarchy.childrenOf(root);
+		}));
 	}
 
 	private static boolean isMatching(@Nonnull final Node node, @Nonnull final NodeMatcher matcher) {
@@ -60,7 +78,7 @@ public class FXFinderDelegate {
 	}
 
 	@Nonnull
-	private static Collection<? extends Node> rootsOf(final @Nonnull NodeHierarchy hierarchy) {
+	private static Collection<Window> rootsOf(final @Nonnull NodeHierarchy hierarchy) {
 		return Objects.requireNonNull(executeFX(hierarchy::roots));
 	}
 }

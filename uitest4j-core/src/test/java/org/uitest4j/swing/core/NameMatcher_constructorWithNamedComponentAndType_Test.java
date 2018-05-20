@@ -17,14 +17,14 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
- * Tests for {@link NameMatcher#NameMatcher(String, Class)}.
+ * Tests for {@link NamedComponentMatcher#NamedComponentMatcher(String, Class)}.
  *
  * @author Alex Ruiz
  */
-class NameMatcher_constructorWithNameAndType_Test {
+class NameMatcher_constructorWithNamedComponentAndType_Test {
 	@Test
 	void should_Throw_Error_If_Type_Is_Null() {
 		// jsr305 throws IllegalArgumentExceptions when @Nonnull is used
-		assertThrows(IllegalArgumentException.class, () -> new NameMatcher("label", null));
+		assertThrows(IllegalArgumentException.class, () -> new NamedComponentMatcher("label", null));
 	}
 }

@@ -1041,7 +1041,8 @@
                 thier associated JLabel.
             </action>
             <action dev="alexruiz" type="add" issue="244">
-                Consolidated org.uitest4j.swing.core.NameMatcher and org.uitest4j.swing.core.NameAndTypeMatcher into one
+                Consolidated org.uitest4j.swing.core.NamedComponentMatcher and
+                org.uitest4j.swing.core.NameAndTypeMatcher into one
                 matcher.
             </action>
             <action dev="alexruiz" type="fix" issue="246" due-to="Juhos Csaba-Zsolt">
@@ -1640,7 +1641,8 @@
                 'printComponents(PrintStream, Class, Container)' to ComponentFinder.
             </action>
             <action dev="alexruiz" type="fix" issue="71" due-to="Wim Deblauwe">
-                Added 'toString' implementation to org.uitest4j.swing.core.NameMatcher to facilitate debugging.
+                Added 'toString' implementation to org.uitest4j.swing.core.NamedComponentMatcher to facilitate
+                debugging.
             </action>
             <action dev="alexruiz" type="fix" issue="71" due-to="Wim Deblauwe">
                 Added 'toString' implementation to org.uitest4j.swing.core.TypeMatcher to facilitate debugging.

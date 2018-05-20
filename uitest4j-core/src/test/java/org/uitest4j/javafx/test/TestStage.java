@@ -10,27 +10,20 @@
  * <p>
  * Copyright 2018 the original author or authors.
  */
-package org.uitest4j.javafx.hierarchy;
+package org.uitest4j.javafx.test;
 
-import javafx.scene.Node;
-import javafx.scene.Parent;
+import javafx.stage.Stage;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import java.util.Collection;
+import java.awt.geom.Point2D;
 
 /**
  * @author Andrew Auclair
  */
-public interface NodeHierarchy {
-	@Nonnull
-	Collection<Parent> roots();
+public class TestStage extends Stage {
+	static final Point2D DEFAULT_WINDOW_LOCATION = new Point2D.Double(100.0, 100.0);
 
-	@Nonnull
-	Collection<Node> childrenOf(@Nonnull Node node);
-
-	@Nullable
-	Parent parentOf(@Nonnull Node node);
-
-	boolean contains(@Nonnull Node node);
+	protected TestStage(@Nonnull Class<?> testClass) {
+		setTitle(testClass.getSimpleName());
+	}
 }

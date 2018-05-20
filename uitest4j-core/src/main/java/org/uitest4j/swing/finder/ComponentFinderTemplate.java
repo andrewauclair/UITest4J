@@ -47,7 +47,7 @@ public abstract class ComponentFinderTemplate<T extends Component> {
 	 * @param componentType the type of the {@code Component} to find.
 	 */
 	protected ComponentFinderTemplate(@Nullable String componentName, @Nonnull Class<? extends T> componentType) {
-		this(new NameMatcher(componentName, componentType, true));
+		this(new NamedComponentMatcher(componentName, componentType, true));
 	}
 
 	/**

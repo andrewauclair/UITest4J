@@ -14,24 +14,52 @@ package org.uitest4j.javafx.core;
 
 import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.stage.Stage;
-import org.uitest4j.javafx.hierarchy.NodeHierarchy;
+import org.opentest4j.AssertionFailedError;
+import org.uitest4j.core.api.javafx.NodeFinder;
+import org.uitest4j.core.api.javafx.NodeHierarchy;
+import org.uitest4j.core.api.javafx.NodeMatcher;
+import org.uitest4j.javafx.exception.NodeLookupException;
+import org.uitest4j.javafx.hierarchy.ExistingFXHierarchy;
 import org.uitest4j.swing.annotation.RunsInEDT;
+import org.uitest4j.swing.core.ComponentLookupScope;
+import org.uitest4j.swing.core.NamedComponentMatcher;
+import org.uitest4j.swing.core.Settings;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.awt.*;
+import java.util.Collection;
+import java.util.Objects;
+
+import static java.lang.System.lineSeparator;
 
 /**
  * @author Andrew Auclair
  */
 public class BasicNodeFinder implements NodeFinder {
-	private final NodeHierarchy hierarchy = null;
-	private Stage stage;
+	private final NodeHierarchy hierarchy;
+	private final Settings settings;
 
-	public BasicNodeFinder(Stage stage) {
-		this.stage = stage;
-		stage.getScene().getRoot();
+	private final FXFinderDelegate finderDelegate = new FXFinderDelegate();
+
+//	@Nonnull
+//	public static NodeFinder finderWithNewWindowHierarchy() {
+//		return new BasicNodeFinder(ignoreExistingNodes());
+//	}
+
+	@Nonnull
+	public static BasicNodeFinder finderWithCurrentWindowHierarchy() {
+		return new BasicNodeFinder(new ExistingFXHierarchy());
+	}
+
+	protected BasicNodeFinder(@Nonnull NodeHierarchy hierarchy) {
+		this(hierarchy, null);
+	}
+
+	protected BasicNodeFinder(@Nonnull NodeHierarchy hierarchy, @Nullable Settings settings) {
+		this.hierarchy = hierarchy;
+		this.settings = settings;
+		// TODO Printer
 
 	}
 
@@ -56,46 +84,59 @@ public class BasicNodeFinder implements NodeFinder {
 	@Nonnull
 	@Override
 	public Node findByName(@Nullable String name) {
-		return findByName(name, true);
+		return findByName(name, requireShowing());
 	}
 
 	@RunsInEDT
 	@Override
 	@Nonnull
 	public Node findByName(@Nullable String name, boolean showing) {
-//		return find(new NameMatcher(name, showing));
-		return null;
+		return find(new NamedNodeMatcher(name, showing));
 	}
 
 	@Nonnull
 	public Node find(@Nonnull NodeMatcher matcher) {
-//		return find(hierarchy, matcher);
-		return null;
+		return find(hierarchy, matcher);
 	}
 
 	@RunsInEDT
 	@Nonnull
-	private Component find(@Nonnull NodeHierarchy h, @Nonnull NodeMatcher m) {
-//		Collection<Component> found = finderDelegate.find(h, m);
-//		if (found.isEmpty()) {
-//			throw componentNotFound(h, m);
-//		}
-//		if (found.size() > 1) {
+	private Node find(@Nonnull NodeHierarchy h, @Nonnull NodeMatcher m) {
+		Collection<Node> found = finderDelegate.find(h, m);
+		if (found.isEmpty()) {
+			throw nodeNotFound(h, m);
+		}
+		if (found.size() > 1) {
+			throw new AssertionFailedError("Multiple components found");
 //			throw multipleComponentsFound(found, m);
-//		}
-//		return Objects.requireNonNull(found.iterator().next());
-
-		return null;
+		}
+		return Objects.requireNonNull(found.iterator().next());
 	}
 
-//	@RunsInEDT
-//	@Nonnull
-//	private ComponentLookupException componentNotFound(@Nonnull ComponentHierarchy h, @Nonnull ComponentMatcher m) {
-//		String message = "Unable to find component using matcher " + m + ".";
-//		if (includeHierarchyIfComponentNotFound()) {
-//			message = message + lineSeparator() + lineSeparator() + "Component hierarchy:" + lineSeparator() +
-//					formattedHierarchy(root(h));
+	@Nonnull
+	private NodeLookupException nodeNotFound(@Nonnull NodeHierarchy h, @Nonnull NodeMatcher m) {
+		String message = "Unable to find node using matcher " + m + ".";
+//		if (includeHierarchyIfNodeNotFound()) {
+//			message += lineSeparator() + lineSeparator() + "Node Hierarchy: " + lineSeparator();
 //		}
-//		throw new ComponentLookupException(message);
-//	}
+		return new NodeLookupException(message);
+	}
+
+	private boolean requireShowing() {
+		return requireShowingFromSettingsOr();
+	}
+
+	/**
+	 * Returns the value of the flag "requireShowing" in the {@link ComponentLookupScope} this finder's {@link Settings}.
+	 * If the settings object is {@code null}, this method will return the provided default value.
+	 *
+	 * @return the value of the flag "requireShowing" in this finder's settings, or the provided default value if this
+	 * finder does not have configuration settings.
+	 */
+	private boolean requireShowingFromSettingsOr() {
+		if (settings == null) {
+			return false;
+		}
+		return settings.componentLookupScope().requireShowing();
+	}
 }
