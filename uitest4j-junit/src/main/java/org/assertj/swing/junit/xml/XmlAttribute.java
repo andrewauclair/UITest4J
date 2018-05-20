@@ -48,7 +48,6 @@ public class XmlAttribute {
   
   @Override
   public int hashCode() {
-    
     return Objects.hash(name, value);
   }
   

@@ -67,7 +67,6 @@ public class XmlAttributes implements Iterable<XmlAttribute> {
 
   @Override
   public int hashCode() {
-
     return Objects.hash(attributes);
   }
 }

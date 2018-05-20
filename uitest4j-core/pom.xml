@@ -18,7 +18,7 @@
     </properties>
 
     <build>
-        <plugins>
+        <!--<plugins>-->
             <!--<plugin>-->
             <!--<groupId>org.apache.maven.plugins</groupId>-->
             <!--<artifactId>maven-surefire-plugin</artifactId>-->
@@ -29,6 +29,17 @@
             <!--<artifactId>asm</artifactId>-->
             <!--<version>6.1.1</version> &lt;!&ndash; Use newer version of ASM &ndash;&gt;-->
             <!--</dependency>-->
+                <!--&lt;!&ndash;Custom provider and engine for Junit 5 to surefire&ndash;&gt;-->
+                <!--<dependency>-->
+                    <!--<groupId>org.junit.platform</groupId>-->
+                    <!--<artifactId>junit-platform-surefire-provider</artifactId>-->
+                    <!--<version>1.0.1</version>-->
+                <!--</dependency>-->
+                <!--<dependency>-->
+                    <!--<groupId>org.junit.jupiter</groupId>-->
+                    <!--<artifactId>junit-jupiter-engine</artifactId>-->
+                    <!--<version>5.1.0</version>-->
+                <!--</dependency>-->
             <!--</dependencies>-->
             <!--<configuration>-->
             <!--<forkMode>always</forkMode>-->
@@ -38,12 +49,12 @@
             <!--<argLine>-Xms512m -Xmx512m</argLine>-->
             <!--</configuration>-->
             <!--</plugin>-->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>3.0.2</version>
-            </plugin>
-        </plugins>
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-jar-plugin</artifactId>-->
+                <!--<version>3.0.2</version>-->
+            <!--</plugin>-->
+        <!--</plugins>-->
     </build>
     <dependencies>
         <dependency>

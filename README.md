@@ -1,5 +1,4 @@
-<!-- Test NG: [![][Maven Central TestNG img]][Maven Central TestNG]
-JUnit: [![][Maven Central JUnit img]][Maven Central JUnit] -->
+[![Build Status](https://travis-ci.org/andrewauclair/UITest4J.svg?branch=master)](https://travis-ci.org/andrewauclair/UITest4J)
 
 This project provides a simple and intuitive API for functional testing of Swing user interfaces, resulting in tests 
 that are compact, easy to write, and read like a specification. Tests written using AssertJ Swing are also robust. 
