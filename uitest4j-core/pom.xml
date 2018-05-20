@@ -19,25 +19,36 @@
 
     <build>
         <plugins>
-            <!--<plugin>-->
-            <!--<groupId>org.apache.maven.plugins</groupId>-->
-            <!--<artifactId>maven-surefire-plugin</artifactId>-->
-            <!--<version>2.21.0</version>-->
-            <!--<dependencies>-->
-            <!--<dependency>-->
-            <!--<groupId>org.ow2.asm</groupId>-->
-            <!--<artifactId>asm</artifactId>-->
-            <!--<version>6.1.1</version> &lt;!&ndash; Use newer version of ASM &ndash;&gt;-->
-            <!--</dependency>-->
-            <!--</dependencies>-->
-            <!--<configuration>-->
-            <!--<forkMode>always</forkMode>-->
-            <!--<includes>-->
-            <!--<include>**/*Test.java</include>-->
-            <!--</includes>-->
-            <!--<argLine>-Xms512m -Xmx512m</argLine>-->
-            <!--</configuration>-->
-            <!--</plugin>-->
+            <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>2.21.0</version>
+            <dependencies>
+            <dependency>
+            <groupId>org.ow2.asm</groupId>
+            <artifactId>asm</artifactId>
+            <version>6.1.1</version> <!-- Use newer version of ASM -->
+            </dependency>
+                <!--Custom provider and engine for Junit 5 to surefire-->
+                <dependency>
+                    <groupId>org.junit.platform</groupId>
+                    <artifactId>junit-platform-surefire-provider</artifactId>
+                    <version>1.0.1</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.junit.jupiter</groupId>
+                    <artifactId>junit-jupiter-engine</artifactId>
+                    <version>5.1.0</version>
+                </dependency>
+            </dependencies>
+            <configuration>
+            <forkMode>always</forkMode>
+            <includes>
+            <include>**/*Test.java</include>
+            </includes>
+            <argLine>-Xms512m -Xmx512m</argLine>
+            </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
