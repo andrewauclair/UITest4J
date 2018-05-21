@@ -10,23 +10,22 @@
  * <p>
  * Copyright 2018 the original author or authors.
  */
-package org.uitest4j.javafx.core;
+package org.uitest4j.javafx.driver;
 
-import javafx.geometry.Point2D;
-import org.junit.jupiter.api.Test;
-import org.uitest4j.swing.test.recorder.ClickRecorder;
+import javafx.stage.Stage;
+import org.uitest4j.swing.internal.assertions.OpenTest4JAssertions;
 
-import static org.uitest4j.swing.core.MouseButton.LEFT_BUTTON;
+import javax.annotation.Nonnull;
+
+import static org.uitest4j.javafx.driver.StageTitleQuery.titleOf;
 
 /**
  * @author Andrew Auclair
  */
-class BasicFXRobot_clickNodeAtPoint_Test extends BasicFXRobot_TestCase {
-	@Test
-	void click_node_at_given_point() {
-		Point2D p = new Point2D(10, 10);
-		ClickRecorder recorder = clickRecorder.attachDirectlyTo(button);
-		robot.click(button, p);
-		recorder.clicked(LEFT_BUTTON).timesClicked(1).clickedAt(p);
+public class StageDriver extends NodeDriver {
+	public void requireTitle(@Nonnull Stage stage, String expected) {
+		String actual = titleOf(stage);
+		OpenTest4JAssertions.assertEquals(expected, actual,
+				() -> String.format("Expected title of '%s' to be '%s' but was '%s'", stage.getUserData(), expected, actual));
 	}
 }

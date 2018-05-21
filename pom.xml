@@ -13,7 +13,7 @@
     <artifactId>uitest4j-parent-pom</artifactId>
     <version>0.1.1-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>AssertJ Swing: Fluent assertions for java unit testing</name>
+    <name>UITest4J: Fluent assertions for java unit testing</name>
     <description>Parent POM for all UITest4J modules</description>
     <inceptionYear>2018</inceptionYear>
 
@@ -24,6 +24,7 @@
     <modules>
         <module>uitest4j-core</module>
         <module>uitest4j-junit</module>
+        <module>uitest4j-examples</module>
         <!--<module>uitest4j-testng</module>-->
         <!--<module>uitest4j-jide</module>-->
     </modules>

@@ -35,7 +35,7 @@ class BasicFXRobot_clickNodeWithButton_Test extends BasicFXRobot_TestCase {
 	@MethodSource("buttons")
 	void should_Click_Component_Once_With_Given_Button(@Nonnull MouseButton button) {
 		ClickRecorder recorder = clickRecorder.attachDirectlyTo(this.button);
-		robot().click(this.button, button);
+		robot.click(this.button, button);
 		recorder.clicked(button).timesClicked(1);
 	}
 }

@@ -37,7 +37,7 @@ class BasicFXRobot_clickNodeWithButtonTheGivenTimes_Test extends BasicFXRobot_Te
 	@MethodSource("buttons")
 	void should_Click_Component_With_Given_Mouse_Button_And_Given_Number_Of_Times(@Nonnull MouseButton button, int times) {
 		ClickRecorder recorder = clickRecorder.attachDirectlyTo(this.button);
-		robot().click(this.button, button, times);
+		robot.click(this.button, button, times);
 		recorder.clicked(button).timesClicked(times).clickedAt(JavaFX.centerOf(this.button));
 	}
 }

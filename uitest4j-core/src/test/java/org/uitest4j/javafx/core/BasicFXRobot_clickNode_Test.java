@@ -24,7 +24,7 @@ class BasicFXRobot_clickNode_Test extends BasicFXRobot_TestCase {
 	@Test
 	void clicks_node() {
 		ClickRecorder recorder = clickRecorder.attachDirectlyTo(button);
-		robot().click(button);
+		robot.click(button);
 		recorder.clicked(LEFT_BUTTON).timesClicked(1);
 	}
 }

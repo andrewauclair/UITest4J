@@ -10,23 +10,23 @@
  * <p>
  * Copyright 2018 the original author or authors.
  */
-package org.uitest4j.javafx.core;
+package org.uitest4j.javafx.driver;
 
-import javafx.geometry.Point2D;
 import org.junit.jupiter.api.Test;
-import org.uitest4j.swing.test.recorder.ClickRecorder;
-
-import static org.uitest4j.swing.core.MouseButton.LEFT_BUTTON;
+import org.uitest4j.javafx.core.BasicFXRobot_TestCase;
+import org.uitest4j.swing.test.ExpectedException;
 
 /**
  * @author Andrew Auclair
  */
-class BasicFXRobot_clickNodeAtPoint_Test extends BasicFXRobot_TestCase {
+class StageDriver_requireTitle_Test extends BasicFXRobot_TestCase {
 	@Test
-	void click_node_at_given_point() {
-		Point2D p = new Point2D(10, 10);
-		ClickRecorder recorder = clickRecorder.attachDirectlyTo(button);
-		robot.click(button, p);
-		recorder.clicked(LEFT_BUTTON).timesClicked(1).clickedAt(p);
+	void passes_when_stage_title_matches() {
+		new StageDriver().requireTitle(stage(), getClass().getName());
+	}
+	
+	@Test
+	void fails_when_stage_title_does_not_match() {
+		ExpectedException.assertOpenTest4jError(() -> new StageDriver().requireTitle(stage(), "Hello"), "Expected title of 'TestStage' to be 'Hello' but was '" + getClass().getName() + "'", "Hello", getClass().getName());
 	}
 }

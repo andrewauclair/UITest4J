@@ -10,23 +10,27 @@
  * <p>
  * Copyright 2018 the original author or authors.
  */
-package org.uitest4j.javafx.core;
+package org.uitest4j.javafx.driver;
 
-import javafx.geometry.Point2D;
-import org.junit.jupiter.api.Test;
-import org.uitest4j.swing.test.recorder.ClickRecorder;
+import javafx.stage.Stage;
 
-import static org.uitest4j.swing.core.MouseButton.LEFT_BUTTON;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+
+import static org.uitest4j.javafx.platform.FXGUIActionRunner.executeFX;
 
 /**
+ * Returns the title of a given {@code Stage}. This task is executed in the JavaFX Application Thread.
+ *
  * @author Andrew Auclair
+ * @see Stage#getTitle()
  */
-class BasicFXRobot_clickNodeAtPoint_Test extends BasicFXRobot_TestCase {
-	@Test
-	void click_node_at_given_point() {
-		Point2D p = new Point2D(10, 10);
-		ClickRecorder recorder = clickRecorder.attachDirectlyTo(button);
-		robot.click(button, p);
-		recorder.clicked(LEFT_BUTTON).timesClicked(1).clickedAt(p);
+public class StageTitleQuery {
+	static @Nullable
+	String titleOf(@Nonnull Stage stage) {
+		return executeFX(stage::getTitle);
+	}
+	
+	private StageTitleQuery() {
 	}
 }

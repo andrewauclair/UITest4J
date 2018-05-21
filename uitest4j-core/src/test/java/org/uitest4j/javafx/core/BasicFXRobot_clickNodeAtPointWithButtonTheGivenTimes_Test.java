@@ -40,7 +40,7 @@ class BasicFXRobot_clickNodeAtPointWithButtonTheGivenTimes_Test extends BasicFXR
 		ClickRecorder recorder = clickRecorder.attachDirectlyTo(this.button);
 		Point2D visibleCenter = JavaFX.visibleCenterOf(this.button);
 		Point2D screenLocation = this.button.localToScreen(visibleCenter);
-		robot().click(screenLocation, button, times);
+		robot.click(screenLocation, button, times);
 		recorder.clicked(button).timesClicked(times).clickedAt(visibleCenter);
 	}
 }

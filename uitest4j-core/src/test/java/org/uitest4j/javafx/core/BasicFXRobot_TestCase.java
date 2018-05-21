@@ -21,6 +21,7 @@ import javafx.stage.Stage;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.uitest4j.javafx.test.core.FXRobotBasedTestCase;
 import org.uitest4j.swing.test.recorder.ClickRecorderManager;
 
 import static org.uitest4j.javafx.platform.FXGUIActionRunner.executeFX;
@@ -28,27 +29,19 @@ import static org.uitest4j.javafx.platform.FXGUIActionRunner.executeFX;
 /**
  * @author Andrew Auclair
  */
-public class BasicFXRobot_TestCase {
+public class BasicFXRobot_TestCase extends FXRobotBasedTestCase {
 	public ClickRecorderManager clickRecorder = new ClickRecorderManager();
-	private BasicFXRobot robot;
 
 	Button button;
 
 	private Stage stage;
 
-	BasicFXRobot robot() {
-		return robot;
+	public Stage stage() {
+		return stage;
 	}
-
-	@BeforeAll
-	static void beforeAll() {
-		// Prime the JavaFX Platform
-		Platform.setImplicitExit(false);
-		new JFXPanel();
-	}
-
-	@BeforeEach
-	void beforeEach() {
+	
+	@Override
+	protected void onSetUp() {
 		button = new Button("Hello");
 		button.setUserData("TestButton");
 		StackPane root = new StackPane();
@@ -57,6 +50,8 @@ public class BasicFXRobot_TestCase {
 
 		executeFX(() -> {
 			stage = new Stage();
+			stage.setUserData("TestStage");
+			stage.setTitle(this.getClass().getName());
 			robot = new BasicFXRobot(stage);
 			stage.setScene(scene);
 			stage.centerOnScreen();
@@ -64,8 +59,8 @@ public class BasicFXRobot_TestCase {
 		});
 	}
 
-	@AfterEach
-	void afterEach() {
+	@Override
+	protected void onTearDown() {
 		executeFX(stage::close);
 	}
 }
