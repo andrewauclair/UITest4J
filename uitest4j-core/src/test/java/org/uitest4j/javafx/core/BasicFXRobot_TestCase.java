@@ -29,7 +29,8 @@ import static org.uitest4j.javafx.platform.FXGUIActionRunner.executeFX;
 /**
  * @author Andrew Auclair
  */
-public class BasicFXRobot_TestCase extends FXRobotBasedTestCase {
+public class BasicFXRobot_TestCase extends
+		FXRobotBasedTestCase {
 	public ClickRecorderManager clickRecorder = new ClickRecorderManager();
 
 	Button button;

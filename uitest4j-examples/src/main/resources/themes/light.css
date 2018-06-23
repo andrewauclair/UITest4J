@@ -1,0 +1,14 @@
+* {
+   -base-color: rgb(60, 63, 65);
+}
+
+.button {
+    -fx-text-fill: derive(-base-color, -20%);
+    -fx-border-color: derive(-base-color, 70%);
+    -fx-background-color: derive(-base-color, 50%);
+    -fx-border-radius: 0;
+}
+
+.root {
+    -fx-background-color: -base-color;
+}

@@ -12,6 +12,7 @@
  */
 package org.uitest4j.javafx;
 
+import javafx.embed.swing.JFXPanel;
 import javafx.geometry.Bounds;
 import javafx.geometry.Point2D;
 import javafx.scene.Node;
@@ -25,6 +26,11 @@ import static org.uitest4j.javafx.platform.FXGUIActionRunner.executeFX;
  * @author Andrew Auclair
  */
 public class JavaFX {
+	public static void initPlatform() {
+		// create a new JFXPanel which will initialize the toolkit if it hasn't been already
+		new JFXPanel();
+	}
+	
 	@Nonnull
 	public static Point2D localToScreen(@Nonnull Node node, double x, double y) {
 		return node.localToScreen(new Point2D(x, y));
