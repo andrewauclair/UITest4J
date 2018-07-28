@@ -12,15 +12,10 @@
  */
 package org.uitest4j.javafx.core;
 
-import javafx.application.Platform;
-import javafx.embed.swing.JFXPanel;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.uitest4j.javafx.test.core.FXRobotBasedTestCase;
 import org.uitest4j.swing.test.recorder.ClickRecorderManager;
 

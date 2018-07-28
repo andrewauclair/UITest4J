@@ -58,7 +58,7 @@ public class AbstractClickRecorder {
 	protected void record(@Nonnull javafx.scene.input.MouseEvent e) {
 		clickedButton = JAVAFX_MOUSE_BUTTON_MAP.get(e.getButton());
 		clickCount = e.getClickCount();
-		pointClicked = new Point((int) e.getX(), (int) e.getY());
+		pointClicked = new Point((int) Math.round(e.getX()), (int) Math.round(e.getY()));
 	}
 	
 	public final @Nonnull

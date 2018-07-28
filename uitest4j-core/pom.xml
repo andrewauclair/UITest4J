@@ -131,6 +131,16 @@
             <artifactId>javafx-graphics</artifactId>
             <version>11-ea+19</version>
         </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>11-ea+19</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-swing</artifactId>
+            <version>11-ea+19</version>
+        </dependency>
         <!--<dependency>-->
             <!--<groupId>javafx</groupId>-->
             <!--<artifactId>javafx.controls</artifactId>-->
