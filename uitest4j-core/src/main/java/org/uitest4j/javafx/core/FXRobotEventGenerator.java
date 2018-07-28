@@ -72,7 +72,7 @@ public class FXRobotEventGenerator implements FXInputEventGenerator {
 
 	@Override
 	public void pressMouse(@Nonnull Node node, @Nonnull Point2D where, int buttons) {
-		Point2D p = Objects.requireNonNull(executeFX(() -> JavaFX.localToScreen(node, where.getX(), where.getY())));
+		Point2D p = Objects.requireNonNull(executeFX(() -> node.localToScreen(where)));
 		pressMouse(p, buttons);
 	}
 
@@ -90,7 +90,7 @@ public class FXRobotEventGenerator implements FXInputEventGenerator {
 
 	@Override
 	public void moveMouse(double x, double y) {
-		robot.mouseMove((int) x, (int) y);
+		robot.mouseMove((int) Math.round(x), (int) Math.round(y));
 	}
 
 	@Override

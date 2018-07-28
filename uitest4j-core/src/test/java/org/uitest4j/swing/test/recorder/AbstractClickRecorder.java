@@ -29,6 +29,7 @@ import static org.uitest4j.swing.util.Maps.newHashMap;
  *
  * @author Alex Ruiz
  * @author Yvonne Wang
+ * @author Andrew Auclair
  */
 public class AbstractClickRecorder {
 
@@ -107,7 +108,7 @@ public class AbstractClickRecorder {
 
 	public final @Nonnull
 	AbstractClickRecorder clickedAt(@Nonnull Point2D p) {
-		assertThat(pointClicked).isEqualTo(new Point((int) p.getX(), (int) p.getY()));
+		assertThat(pointClicked).isEqualTo(new Point((int) Math.round(p.getX()), (int) Math.round(p.getY())));
 		return this;
 	}
 
