@@ -14,8 +14,12 @@ package org.uitest4j.javafx.fixture;
 
 import javafx.stage.Stage;
 import org.uitest4j.core.api.javafx.FXRobot;
+import org.uitest4j.javafx.driver.StageDriver;
+import org.uitest4j.swing.assertions.Assertions;
+import org.uitest4j.swing.fixture.FrameFixture;
 
 import javax.annotation.Nonnull;
+import java.util.Objects;
 
 /**
  * @author Andrew Auclair
@@ -23,6 +27,7 @@ import javax.annotation.Nonnull;
 public class StageFixture {
 	private FXRobot robot;
 	private Stage stage;
+	private StageDriver driver = new StageDriver();
 	
 	public FXRobot robot() {
 		return robot;
@@ -36,8 +41,22 @@ public class StageFixture {
 		this.robot = robot;
 	}
 	
-	StageFixture(@Nonnull FXRobot robot, Stage stage) {
+	public StageFixture(@Nonnull FXRobot robot, Stage stage) {
 		this.robot = robot;
 		this.stage = stage;
+	}
+	
+	public StageDriver driver() {
+		return driver;
+	}
+	
+	public final void replaceDriverWith(@Nonnull StageDriver driver) {
+		this.driver = Objects.requireNonNull(driver);
+	}
+	
+	@Nonnull
+	public StageFixture requireTitle(String expected) {
+		driver().requireTitle(target(), expected);
+		return this;
 	}
 }

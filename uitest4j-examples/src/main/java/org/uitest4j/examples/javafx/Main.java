@@ -1,4 +1,4 @@
-package org.uitest4j.examples.org.uitest4j.examples.javafx;
+package org.uitest4j.examples.javafx;
 
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -9,8 +9,6 @@ import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-
-import static javafx.scene.input.KeyCombination.CONTROL_DOWN;
 
 public class Main extends Application {
 	public static void main(String[] args) {

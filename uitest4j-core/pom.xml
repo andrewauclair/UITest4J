@@ -115,12 +115,6 @@
             <artifactId>equalsverifier</artifactId>
             <scope>test</scope>
         </dependency>
-        <!--<dependency>-->
-            <!--<groupId>org.openjfx</groupId>-->
-            <!--<artifactId>javafx</artifactId>-->
-            <!--<version>11-ea+19</version>-->
-        <!--</dependency>-->
-        <!-- https://mvnrepository.com/artifact/org.openjfx/javafx-base -->
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-base</artifactId>
@@ -141,10 +135,5 @@
             <artifactId>javafx-swing</artifactId>
             <version>11-ea+19</version>
         </dependency>
-        <!--<dependency>-->
-            <!--<groupId>javafx</groupId>-->
-            <!--<artifactId>javafx.controls</artifactId>-->
-            <!--&lt;!&ndash;<version>11.0.0</version>&ndash;&gt;-->
-        <!--</dependency>-->
     </dependencies>
 </project>

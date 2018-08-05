@@ -17,11 +17,15 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.uitest4j.examples.org.uitest4j.examples.javafx.Main;
 import org.uitest4j.javafx.JavaFX;
+import org.uitest4j.javafx.core.BasicFXRobot;
+import org.uitest4j.javafx.fixture.StageFixture;
 
 import static org.uitest4j.javafx.platform.FXGUIActionRunner.executeFX;
 
+/**
+ * @author Andrew Auclair
+ */
 class Main_UITest {
 	Main main;
 	private Stage stage;
@@ -49,6 +53,8 @@ class Main_UITest {
 	
 	@Test
 	void title_of_javafx_example() {
-	
+		StageFixture fixture = new StageFixture(new BasicFXRobot(stage), stage);
+		
+		fixture.requireTitle("UITest4J JavaFX Examples");
 	}
 }
