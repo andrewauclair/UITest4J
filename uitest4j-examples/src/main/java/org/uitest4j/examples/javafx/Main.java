@@ -8,7 +8,10 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+
+import javax.swing.*;
 
 public class Main extends Application {
 	public static void main(String[] args) {
@@ -77,5 +80,15 @@ public class Main extends Application {
 		
 		primaryStage.setTitle("UITest4J JavaFX Examples");
 		primaryStage.show();
+		
+		
+		Button button = new Button("application modal");
+		button.setOnAction(e -> {
+			Stage popup = new Stage();
+			popup.initModality(Modality.APPLICATION_MODAL);
+			popup.show();
+		});
+		
+		root.getChildren().add(button);
 	}
 }

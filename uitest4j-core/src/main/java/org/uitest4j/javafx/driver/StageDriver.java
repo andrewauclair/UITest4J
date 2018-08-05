@@ -12,6 +12,7 @@
  */
 package org.uitest4j.javafx.driver;
 
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.uitest4j.swing.internal.assertions.OpenTest4JAssertions;
 
@@ -27,5 +28,11 @@ public class StageDriver extends NodeDriver {
 		String actual = titleOf(stage);
 		OpenTest4JAssertions.assertEquals(expected, actual,
 				() -> String.format("Expected title of '%s' to be '%s' but was '%s'", stage.getUserData(), expected, actual));
+	}
+	
+	public void requireApplicationModality(@Nonnull Stage stage) {
+		Modality actual = stage.getModality();
+		OpenTest4JAssertions.assertEquals(Modality.APPLICATION_MODAL, actual,
+				() -> String.format("Expected modality of '%s' to be APPLICATION_MODAL but was %s", stage.getUserData(), actual));
 	}
 }

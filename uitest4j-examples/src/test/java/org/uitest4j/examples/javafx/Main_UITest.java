@@ -27,7 +27,7 @@ import static org.uitest4j.javafx.platform.FXGUIActionRunner.executeFX;
  * @author Andrew Auclair
  */
 class Main_UITest {
-	Main main;
+	private Main main;
 	private Stage stage;
 	
 	@BeforeAll

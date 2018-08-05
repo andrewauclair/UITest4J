@@ -15,8 +15,6 @@ package org.uitest4j.javafx.fixture;
 import javafx.stage.Stage;
 import org.uitest4j.core.api.javafx.FXRobot;
 import org.uitest4j.javafx.driver.StageDriver;
-import org.uitest4j.swing.assertions.Assertions;
-import org.uitest4j.swing.fixture.FrameFixture;
 
 import javax.annotation.Nonnull;
 import java.util.Objects;
@@ -57,6 +55,12 @@ public class StageFixture {
 	@Nonnull
 	public StageFixture requireTitle(String expected) {
 		driver().requireTitle(target(), expected);
+		return this;
+	}
+	
+	@Nonnull
+	public StageFixture requireApplicationModality() {
+		driver().requireApplicationModality(target());
 		return this;
 	}
 }

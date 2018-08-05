@@ -12,6 +12,7 @@
  */
 package org.uitest4j.javafx.fixture;
 
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -38,5 +39,11 @@ class StageFixture_withMocks_Test {
 	void calls_requireTitle_in_driver_and_returns_self() {
 		assertThat(fixture.requireTitle("Title")).isSameAs(fixture);
 		verify(fixture.driver()).requireTitle(fixture.target(), "Title");
+	}
+	
+	@Test
+	void calls_requireApplicationModality_in_driver_and_returns_self() {
+		assertThat(fixture.requireApplicationModality()).isSameAs(fixture);
+		verify(fixture.driver()).requireApplicationModality(fixture.target());
 	}
 }
