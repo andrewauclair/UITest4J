@@ -114,14 +114,14 @@ public abstract class SuiteXmlNodeWriter_TestCase {
 
   public void shouldWriteStatisticsAsAttribute() {
     final JUnitTest suite = new JUnitTest("Hello");
-    suite.setCounts(6l, 2l, 1l);
-    suite.setRunTime(8000l);
+    suite.setCounts(6L, 2L, 1L);
+    suite.setRunTime(8000L);
     new EasyMockTemplate(targetNode) {
       @Override
       protected void expectations() {
-        expectAttributeAdded(name(ATTR_TESTS).value(6l));
-        expectAttributeAdded(name(ATTR_FAILURES).value(2l));
-        expectAttributeAdded(name(ATTR_ERRORS).value(1l));
+        expectAttributeAdded(name(ATTR_TESTS).value(6L));
+        expectAttributeAdded(name(ATTR_FAILURES).value(2L));
+        expectAttributeAdded(name(ATTR_ERRORS).value(1L));
         expectAttributeAdded(name(ATTR_TIME).value(8.0));
       }
 

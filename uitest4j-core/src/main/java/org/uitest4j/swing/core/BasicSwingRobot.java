@@ -42,9 +42,6 @@ import java.awt.event.WindowEvent;
 import java.util.*;
 import java.util.List;
 
-import static java.awt.event.InputEvent.BUTTON1_DOWN_MASK;
-import static java.awt.event.InputEvent.BUTTON2_DOWN_MASK;
-import static java.awt.event.InputEvent.BUTTON3_DOWN_MASK;
 import static java.awt.event.KeyEvent.*;
 import static java.awt.event.WindowEvent.WINDOW_CLOSING;
 import static java.lang.System.currentTimeMillis;

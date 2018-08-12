@@ -19,8 +19,6 @@ import org.uitest4j.swing.test.core.EDTSafeTestCase;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 
-import static java.awt.event.InputEvent.CTRL_DOWN_MASK;
-import static java.awt.event.InputEvent.SHIFT_DOWN_MASK;
 import static java.awt.event.KeyEvent.*;
 import static org.mockito.Mockito.*;
 import static org.uitest4j.swing.test.awt.TestAWTEvents.newAWTEventMock;

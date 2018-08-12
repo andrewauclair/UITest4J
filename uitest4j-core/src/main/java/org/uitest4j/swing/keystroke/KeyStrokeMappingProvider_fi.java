@@ -17,8 +17,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import static java.awt.event.InputEvent.ALT_GRAPH_DOWN_MASK;
-import static java.awt.event.InputEvent.SHIFT_DOWN_MASK;
 import static java.awt.event.KeyEvent.*;
 import static org.uitest4j.swing.keystroke.KeyStrokeMapping.mapping;
 

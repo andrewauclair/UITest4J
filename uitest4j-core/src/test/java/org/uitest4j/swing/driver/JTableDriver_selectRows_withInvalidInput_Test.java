@@ -43,11 +43,11 @@ public class JTableDriver_selectRows_withInvalidInput_Test extends SwingRobotBas
 	@Test
 	void should_Throw_Error_If_Array_Of_Indices_Is_Null() {
 		// jsr305 throws IllegalArgumentExceptions when @Nonnull is used
-		assertThrows(IllegalArgumentException.class, () -> driver.selectRows(table, null));
+		assertThrows(IllegalArgumentException.class, () -> driver.selectRows(table, (Integer) null));
 	}
 
 	@Test
 	void should_Throw_Error_If_Array_Of_Indices_Is_Empty() {
-		assertThrows(IllegalArgumentException.class, () -> driver.selectRows(table, new int[0]));
+		assertThrows(IllegalArgumentException.class, () -> driver.selectRows(table));
 	}
 }

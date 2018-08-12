@@ -18,8 +18,6 @@ import java.awt.event.AWTEventListener;
 import java.awt.event.MouseEvent;
 import java.util.EmptyStackException;
 
-import static java.awt.AWTEvent.MOUSE_EVENT_MASK;
-import static java.awt.AWTEvent.MOUSE_MOTION_EVENT_MASK;
 import static java.awt.event.MouseEvent.*;
 import static javax.swing.SwingUtilities.convertMouseEvent;
 import static javax.swing.SwingUtilities.getDeepestComponentAt;

@@ -13,7 +13,6 @@
 package org.uitest4j.javafx.test;
 
 import javafx.application.Application;
-import javafx.stage.Stage;
 
 /**
  * @author Andrew Auclair

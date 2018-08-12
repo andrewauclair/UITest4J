@@ -11,8 +11,6 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-import javax.swing.*;
-
 public class Main extends Application {
 	public static void main(String[] args) {
 		launch(args);

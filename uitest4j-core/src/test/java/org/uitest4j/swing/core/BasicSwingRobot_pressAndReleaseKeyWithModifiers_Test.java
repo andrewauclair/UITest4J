@@ -21,8 +21,6 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.List;
 
-import static java.awt.event.InputEvent.CTRL_DOWN_MASK;
-import static java.awt.event.InputEvent.SHIFT_DOWN_MASK;
 import static java.awt.event.KeyEvent.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Lists.newArrayList;
@@ -112,9 +110,8 @@ class BasicSwingRobot_pressAndReleaseKeyWithModifiers_Test extends BasicSwingRob
 		@Override
 		@Nonnull
 		public String toString() {
-			String b = "[type=" + type + ", " +
+			return "[type=" + type + ", " +
 					"keyCode=" + keyCode + "]";
-			return b;
 		}
 	}
 }

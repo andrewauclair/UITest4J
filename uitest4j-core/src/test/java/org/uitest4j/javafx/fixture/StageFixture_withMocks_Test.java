@@ -12,7 +12,6 @@
  */
 package org.uitest4j.javafx.fixture;
 
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

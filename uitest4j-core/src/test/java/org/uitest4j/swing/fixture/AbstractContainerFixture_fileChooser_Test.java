@@ -33,7 +33,7 @@ import static org.uitest4j.swing.timing.Timeout.timeout;
  *
  * @author Alex Ruiz
  */
-public class AbstractContainerFixture_fileChooser_Test extends SwingRobotBasedTestCase {
+class AbstractContainerFixture_fileChooser_Test extends SwingRobotBasedTestCase {
 	private ContainerFixture fixture;
 	private JFileChooserLauncherWindow window;
 

@@ -33,11 +33,11 @@ import static org.uitest4j.swing.test.task.AbstractButtonSetArmedTask.setArmed;
  *
  * @author Christian Rösch
  */
-public class AbstractButtonArmedQuery_isArmed_Test extends SwingRobotBasedTestCase {
+class AbstractButtonArmedQuery_isArmed_Test extends SwingRobotBasedTestCase {
 	private JCheckBox checkBox;
 
 	@Nonnull
-	public static Collection<Object[]> booleans() {
+	private static Collection<Object[]> booleans() {
 		return newArrayList(BooleanProvider.booleans());
 	}
 

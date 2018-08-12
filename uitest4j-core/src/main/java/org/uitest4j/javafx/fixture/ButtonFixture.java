@@ -14,10 +14,6 @@ package org.uitest4j.javafx.fixture;
 
 import javafx.scene.control.Button;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import java.util.regex.Pattern;
-
 /**
  * @author Andrew Auclair
  */

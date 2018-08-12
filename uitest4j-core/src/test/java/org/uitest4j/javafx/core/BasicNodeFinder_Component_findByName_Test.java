@@ -17,10 +17,6 @@ import org.junit.jupiter.api.Test;
 import org.uitest4j.swing.exception.ComponentLookupException;
 import org.uitest4j.swing.test.ExpectedException;
 
-import java.awt.*;
-
-import static org.assertj.core.api.Assertions.assertThat;
-
 /**
  * @author Andrew Auclair
  */

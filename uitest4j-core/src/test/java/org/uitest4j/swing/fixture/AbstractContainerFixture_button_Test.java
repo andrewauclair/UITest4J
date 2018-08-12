@@ -31,7 +31,7 @@ import static org.uitest4j.swing.test.core.NeverMatchingComponentMatcher.neverMa
  *
  * @author Alex Ruiz
  */
-public class AbstractContainerFixture_button_Test extends SwingRobotBasedTestCase {
+class AbstractContainerFixture_button_Test extends SwingRobotBasedTestCase {
 	private ContainerFixture fixture;
 	private MyWindow window;
 

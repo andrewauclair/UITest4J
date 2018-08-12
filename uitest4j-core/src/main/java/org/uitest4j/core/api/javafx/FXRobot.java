@@ -18,7 +18,6 @@ import org.uitest4j.exception.ActionFailedException;
 import org.uitest4j.swing.core.MouseButton;
 
 import javax.annotation.Nonnull;
-import java.awt.*;
 
 /**
  * @author Andrew Auclair

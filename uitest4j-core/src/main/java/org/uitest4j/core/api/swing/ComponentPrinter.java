@@ -14,10 +14,7 @@ package org.uitest4j.core.api.swing;
 
 import org.uitest4j.core.api.Printer;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import java.awt.*;
-import java.io.PrintStream;
 
 /**
  * Sends the {@code String} representation of AWT and Swing {@code Component}s to a {@code java.io.PrintStream}, to

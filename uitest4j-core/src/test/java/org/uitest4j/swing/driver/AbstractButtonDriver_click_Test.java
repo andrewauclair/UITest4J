@@ -24,8 +24,8 @@ import static org.uitest4j.swing.core.MouseButton.LEFT_BUTTON;
  *
  * @author Alex Ruiz
  */
-public class AbstractButtonDriver_click_Test extends AbstractButtonDriver_TestCase {
-	public ClickRecorderManager clickRecorder = new ClickRecorderManager();
+class AbstractButtonDriver_click_Test extends AbstractButtonDriver_TestCase {
+	private ClickRecorderManager clickRecorder = new ClickRecorderManager();
 
 	@Test
 	void should_Click_Button() {

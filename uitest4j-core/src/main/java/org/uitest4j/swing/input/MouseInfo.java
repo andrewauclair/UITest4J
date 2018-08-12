@@ -19,9 +19,6 @@ import java.awt.event.MouseEvent;
 import java.lang.ref.WeakReference;
 import java.util.Stack;
 
-import static java.awt.event.InputEvent.BUTTON1_DOWN_MASK;
-import static java.awt.event.InputEvent.BUTTON2_DOWN_MASK;
-import static java.awt.event.InputEvent.BUTTON3_DOWN_MASK;
 import static java.awt.event.MouseEvent.*;
 import static org.uitest4j.swing.query.ComponentShowingQuery.isShowing;
 

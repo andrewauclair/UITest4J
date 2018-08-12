@@ -69,11 +69,9 @@ public class XmlOutputWriter_write_Test extends XmlOutputWriter_TestCase {
   }
 
   private String expectedXml() {
-    StringBuilder expected = new StringBuilder();
-    expected.append("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>").append(lineSeparator()).append("<root>")
-            .append(lineSeparator()).append("  <child />").append(lineSeparator()).append("</root>")
-            .append(lineSeparator());
-    return expected.toString();
+    return "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>" + lineSeparator() + "<root>" +
+            lineSeparator() + "  <child />" + lineSeparator() + "</root>" +
+            lineSeparator();
   }
 
   private static class MyOutputStream extends ByteArrayOutputStream {

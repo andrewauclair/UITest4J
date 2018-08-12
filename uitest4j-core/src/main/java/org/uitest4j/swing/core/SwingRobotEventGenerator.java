@@ -12,18 +12,14 @@
  */
 package org.uitest4j.swing.core;
 
-import javafx.scene.Node;
 import org.uitest4j.core.api.swing.SwingInputEventGenerator;
-import org.uitest4j.javafx.JavaFX;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.util.RobotFactory;
 
 import javax.annotation.Nonnull;
 import java.awt.*;
-import java.awt.Robot;
 import java.util.Objects;
 
-import static org.uitest4j.javafx.platform.FXGUIActionRunner.executeFX;
 import static org.uitest4j.swing.awt.AWT.isPointInScreenBoundaries;
 import static org.uitest4j.swing.awt.AWT.translate;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;

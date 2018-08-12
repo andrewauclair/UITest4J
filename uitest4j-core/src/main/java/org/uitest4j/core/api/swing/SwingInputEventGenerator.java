@@ -12,7 +12,6 @@
  */
 package org.uitest4j.core.api.swing;
 
-import javafx.scene.Node;
 import org.uitest4j.exception.ActionFailedException;
 
 import javax.annotation.Nonnull;

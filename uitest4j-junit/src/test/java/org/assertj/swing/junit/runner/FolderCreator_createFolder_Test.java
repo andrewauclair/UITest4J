@@ -19,7 +19,6 @@ import org.junit.Test;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.UncheckedIOException;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Fail.fail;

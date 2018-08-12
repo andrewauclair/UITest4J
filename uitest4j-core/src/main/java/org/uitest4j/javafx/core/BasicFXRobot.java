@@ -16,15 +16,12 @@ import javafx.geometry.Point2D;
 import javafx.scene.Node;
 import javafx.stage.Stage;
 import org.uitest4j.core.api.javafx.FXRobot;
-import org.uitest4j.core.api.swing.SwingInputEventGenerator;
 import org.uitest4j.javafx.JavaFX;
 import org.uitest4j.swing.core.MouseButton;
-import org.uitest4j.swing.core.SwingRobotEventGenerator;
 import org.uitest4j.swing.core.Settings;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import java.awt.*;
 
 import static java.awt.event.InputEvent.BUTTON1_DOWN_MASK;
 import static java.awt.event.InputEvent.BUTTON2_DOWN_MASK;

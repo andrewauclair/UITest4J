@@ -26,7 +26,7 @@ import static org.uitest4j.swing.timing.Timeout.timeout;
  *
  * @author Alex Ruiz
  */
-public class AbstractContainerFixture_optionPane_Test extends SwingRobotBasedTestCase {
+class AbstractContainerFixture_optionPane_Test extends SwingRobotBasedTestCase {
 	private ContainerFixture launcher;
 	private JOptionPaneLauncherWindow window;
 

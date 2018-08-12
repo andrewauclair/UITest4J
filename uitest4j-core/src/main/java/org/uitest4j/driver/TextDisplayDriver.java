@@ -14,7 +14,6 @@ package org.uitest4j.driver;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import java.awt.*;
 import java.util.regex.Pattern;
 
 /**

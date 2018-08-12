@@ -22,16 +22,12 @@ import org.uitest4j.javafx.exception.NodeLookupException;
 import org.uitest4j.javafx.hierarchy.ExistingFXHierarchy;
 import org.uitest4j.swing.annotation.RunsInEDT;
 import org.uitest4j.swing.core.ComponentLookupScope;
-import org.uitest4j.swing.core.NamedComponentMatcher;
 import org.uitest4j.swing.core.Settings;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import java.awt.*;
 import java.util.Collection;
 import java.util.Objects;
-
-import static java.lang.System.lineSeparator;
 
 /**
  * @author Andrew Auclair

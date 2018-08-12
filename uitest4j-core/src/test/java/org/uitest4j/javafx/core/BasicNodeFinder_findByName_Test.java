@@ -13,11 +13,8 @@
 package org.uitest4j.javafx.core;
 
 import javafx.scene.Node;
-import javafx.scene.control.Button;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.uitest4j.javafx.exception.NodeLookupException;
-import org.uitest4j.swing.exception.ComponentLookupException;
 import org.uitest4j.swing.test.ExpectedException;
 
 import static org.assertj.core.api.Assertions.assertThat;

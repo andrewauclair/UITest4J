@@ -28,7 +28,7 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
  *
  * @author Alex Ruiz
  */
-public class AbstractButtonTextQuery_textOf_Test extends SwingRobotBasedTestCase {
+class AbstractButtonTextQuery_textOf_Test extends SwingRobotBasedTestCase {
 	private MyButton button;
 
 	@Override
@@ -38,7 +38,7 @@ public class AbstractButtonTextQuery_textOf_Test extends SwingRobotBasedTestCase
 	}
 
 	@Test
-	public void should_Return_Text_Of_AbstractButton() {
+	void should_Return_Text_Of_AbstractButton() {
 		button.startRecording();
 		assertThat(AbstractButtonTextQuery.textOf(button)).isEqualTo("A Button");
 		button.requireInvoked("getText");
@@ -62,7 +62,7 @@ public class AbstractButtonTextQuery_textOf_Test extends SwingRobotBasedTestCase
 		private boolean recording;
 		private final MethodInvocations methodInvocations = new MethodInvocations();
 
-		public MyButton(String text) {
+		MyButton(String text) {
 			super(text);
 		}
 

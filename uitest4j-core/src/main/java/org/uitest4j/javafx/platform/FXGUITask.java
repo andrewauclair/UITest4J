@@ -2,8 +2,6 @@ package org.uitest4j.javafx.platform;
 
 import javafx.application.Platform;
 
-import javax.annotation.Nullable;
-
 import static org.uitest4j.exception.ActionFailedException.actionFailure;
 
 /**

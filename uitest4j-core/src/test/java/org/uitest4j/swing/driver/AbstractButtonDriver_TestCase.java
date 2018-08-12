@@ -34,7 +34,7 @@ import static org.uitest4j.swing.test.task.ComponentSetEnabledTask.disable;
  */
 public abstract class AbstractButtonDriver_TestCase extends SwingRobotBasedTestCase {
 	AbstractButtonDriver driver;
-	MyWindow window;
+	private MyWindow window;
 	JCheckBox checkBox;
 
 	@Override

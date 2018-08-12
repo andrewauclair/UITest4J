@@ -35,7 +35,7 @@ import static org.uitest4j.swing.test.core.NeverMatchingComponentMatcher.neverMa
  *
  * @author Alex Ruiz
  */
-public class AbstractContainerFixture_scrollPane_Test extends SwingRobotBasedTestCase {
+class AbstractContainerFixture_scrollPane_Test extends SwingRobotBasedTestCase {
 	private ContainerFixture fixture;
 	private MyWindow window;
 
@@ -89,7 +89,7 @@ public class AbstractContainerFixture_scrollPane_Test extends SwingRobotBasedTes
 	}
 
 	private static class MyWindow extends TestWindow {
-		final JScrollPane scrollPane = new JScrollPane(new JList(array("One", "Two")));
+		final JScrollPane scrollPane = new JScrollPane(new JList<>(array("One", "Two")));
 
 		static @Nonnull
 		MyWindow createNew(final @Nonnull Class<?> testClass) {

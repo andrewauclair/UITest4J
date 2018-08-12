@@ -60,12 +60,9 @@ public class ScreenshotOnFailureResultFormatter_onFailureOrError_Test {
   }
 
   private void headlessAWT(final boolean headless) {
-    doPrivileged(new PrivilegedAction<Void>() {
-      @Override
-      public Void run() {
-        System.setProperty(HEADLESS_MODE_PROPERTY, valueOf(headless));
-        return null;
-      }
+    doPrivileged((PrivilegedAction<Void>) () -> {
+      System.setProperty(HEADLESS_MODE_PROPERTY, valueOf(headless));
+      return null;
     });
   }
 

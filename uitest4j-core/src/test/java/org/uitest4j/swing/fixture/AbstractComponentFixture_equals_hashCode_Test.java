@@ -35,7 +35,7 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
  */
 public class AbstractComponentFixture_equals_hashCode_Test extends SwingRobotBasedTestCase {
 	@Test
-	public void should_Work() {
+	void should_Work() {
 		ConcreteComponentFixture one = new ConcreteComponentFixture(robot, execute((Callable<JLabel>) JLabel::new));
 		ConcreteComponentFixture two = new ConcreteComponentFixture(robot, execute((Callable<JLabel>) JLabel::new));
 		EqualsVerifier<AbstractComponentFixture> verifier = EqualsVerifier.forClass(AbstractComponentFixture.class);
@@ -52,7 +52,7 @@ public class AbstractComponentFixture_equals_hashCode_Test extends SwingRobotBas
 
 	private static class ConcreteComponentFixture extends
 			AbstractComponentFixture<ConcreteComponentFixture, Component, ComponentDriver> {
-		public ConcreteComponentFixture(SwingRobot robot, Component component) {
+		ConcreteComponentFixture(SwingRobot robot, Component component) {
 			super(ConcreteComponentFixture.class, robot, component);
 		}
 

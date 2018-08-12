@@ -18,7 +18,6 @@ import org.uitest4j.swing.exception.UnexpectedException;
 import org.uitest4j.swing.util.RobotFactory;
 
 import java.awt.*;
-import java.awt.Robot;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;

@@ -13,8 +13,6 @@
 package org.uitest4j.javafx.platform;
 
 import javafx.application.Platform;
-import org.uitest4j.swing.edt.GuiActionRunnable;
-import org.uitest4j.swing.edt.GuiTask;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;

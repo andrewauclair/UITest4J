@@ -15,8 +15,6 @@ package org.uitest4j.core.api.javafx;
 import javafx.scene.Node;
 import org.uitest4j.core.api.Matcher;
 
-import javax.annotation.Nullable;
-
 /**
  * @author Andrew Auclair
  */

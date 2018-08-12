@@ -12,8 +12,6 @@
  */
 package org.uitest4j.swing.test.recorder;
 
-import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
 
@@ -63,12 +61,8 @@ public class ClickRecorder extends AbstractClickRecorder {
 	}
 
 	public static void attach(@Nonnull ClickRecorder recorder, @Nonnull Node target) {
-		target.addEventHandler(MouseEvent.MOUSE_PRESSED, event -> {
-			recorder.record(Objects.requireNonNull(event));
-		});
-		target.addEventHandler(MouseEvent.MOUSE_RELEASED, event -> {
-			recorder.record(Objects.requireNonNull(event));
-		});
+		target.addEventHandler(MouseEvent.MOUSE_PRESSED, event -> recorder.record(Objects.requireNonNull(event)));
+		target.addEventHandler(MouseEvent.MOUSE_RELEASED, event -> recorder.record(Objects.requireNonNull(event)));
 	}
 	
 	private static class ClickListener extends MouseAdapter {
