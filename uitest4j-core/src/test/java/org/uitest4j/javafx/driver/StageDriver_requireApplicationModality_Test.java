@@ -21,19 +21,26 @@ import org.uitest4j.swing.test.ExpectedException;
 
 import java.util.Objects;
 
+import static org.uitest4j.javafx.platform.FXGUIActionRunner.executeFX;
+
 /**
  * @author Andrew Auclair
  */
 class StageDriver_requireApplicationModality_Test extends BasicFXRobot_TestCase {
 	@Test
 	void passes_when_modality_is_application_modal() {
-		Stage appModalStage = Objects.requireNonNull(FXGUIActionRunner.executeFX(() -> {
+		Stage appModalStage = Objects.requireNonNull(executeFX(() -> {
 			Stage stage = new Stage();
 			stage.initModality(Modality.APPLICATION_MODAL);
 			stage.show();
 			return stage;
 		}));
-		new StageDriver().requireApplicationModality(appModalStage);
+		try {
+			new StageDriver().requireApplicationModality(appModalStage);
+		}
+		finally {
+			executeFX(appModalStage::close);
+		}
 	}
 	
 	@Test

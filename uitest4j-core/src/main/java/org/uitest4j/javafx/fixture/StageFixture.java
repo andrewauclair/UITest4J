@@ -12,9 +12,12 @@
  */
 package org.uitest4j.javafx.fixture;
 
+import javafx.collections.ObservableList;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 import org.uitest4j.core.api.javafx.FXRobot;
 import org.uitest4j.javafx.driver.StageDriver;
+import org.uitest4j.javafx.exception.NodeLookupException;
 
 import javax.annotation.Nonnull;
 import java.util.Objects;
@@ -35,8 +38,23 @@ public class StageFixture {
 		return stage;
 	}
 	
-	StageFixture(@Nonnull FXRobot robot, String stageName) {
+	StageFixture(@Nonnull FXRobot robot, @Nonnull String stageName) {
 		this.robot = robot;
+		
+		ObservableList<Window> windows = Window.getWindows();
+		for (Window window : windows) {
+			Object userData = window.getUserData();
+			if (stageName.equals(userData)) {
+				if (window instanceof Stage) {
+					stage = (Stage) window;
+					break;
+				}
+			}
+		}
+		
+		if (stage == null) {
+			throw new NodeLookupException("Couldn't find a stage named '" + stageName + "'");
+		}
 	}
 	
 	public StageFixture(@Nonnull FXRobot robot, Stage stage) {
