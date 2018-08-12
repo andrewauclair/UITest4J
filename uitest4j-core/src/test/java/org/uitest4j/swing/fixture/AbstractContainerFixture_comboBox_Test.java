@@ -86,7 +86,7 @@ public class AbstractContainerFixture_comboBox_Test extends SwingRobotBasedTestC
 	}
 
 	private static class MyWindow extends TestWindow {
-		final JComboBox comboBox = new JComboBox(array("One", "Two", "Three"));
+		final JComboBox<String> comboBox = new JComboBox<>(array("One", "Two", "Three"));
 
 		static MyWindow createNew(final Class<?> testClass) {
 			return execute(() -> new MyWindow(testClass));

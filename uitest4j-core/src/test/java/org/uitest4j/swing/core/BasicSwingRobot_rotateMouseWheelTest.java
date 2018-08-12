@@ -20,6 +20,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
+import java.util.Objects;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Arrays.array;
@@ -60,7 +61,7 @@ class BasicSwingRobot_rotateMouseWheelTest extends BasicSwingRobot_TestCase {
 	@RunsInEDT
 	private static int firstVisibleIndexOf(final JList list) {
 		Integer result = execute(list::getFirstVisibleIndex);
-		return checkNotNull(result);
+		return Objects.requireNonNull(result);
 	}
 
 	private static class MouseWheelRecorder implements MouseWheelListener {

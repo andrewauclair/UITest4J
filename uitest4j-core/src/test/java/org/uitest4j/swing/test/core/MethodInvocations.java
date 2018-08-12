@@ -15,6 +15,7 @@ package org.uitest4j.swing.test.core;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.Map;
+import java.util.Objects;
 
 import static java.util.Arrays.deepEquals;
 import static org.assertj.core.api.Fail.fail;
@@ -55,7 +56,7 @@ public class MethodInvocations {
 	 */
 	@Nonnull
 	public MethodInvocations invoked(@Nonnull String methodName, @Nonnull Args args) {
-		checkNotNull(args);
+		Objects.requireNonNull(args);
 		invocations.put(methodName, args.args);
 		return this;
 	}
@@ -86,7 +87,7 @@ public class MethodInvocations {
 	 */
 	@Nonnull
 	public MethodInvocations requireInvoked(@Nonnull String methodName, @Nonnull Args args) {
-		checkNotNull(args);
+		Objects.requireNonNull(args);
 		if (!invocations.containsKey(methodName)) {
 			methodNotInvoked(methodName);
 		}

@@ -16,6 +16,7 @@ import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.annotation.Nonnull;
 import java.awt.*;
+import java.util.Objects;
 
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
@@ -38,7 +39,7 @@ public final class ContainerInsetsQuery {
 	@Nonnull
 	public static Insets insetsOf(final @Nonnull Container container) {
 		Insets result = execute(container::getInsets);
-		return checkNotNull(result);
+		return Objects.requireNonNull(result);
 	}
 
 	private ContainerInsetsQuery() {

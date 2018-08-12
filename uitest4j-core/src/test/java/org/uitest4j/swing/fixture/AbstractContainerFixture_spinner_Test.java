@@ -22,6 +22,8 @@ import org.uitest4j.swing.test.swing.TestWindow;
 import javax.annotation.Nonnull;
 import javax.swing.*;
 
+import java.util.Objects;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
@@ -90,7 +92,7 @@ public class AbstractContainerFixture_spinner_Test extends SwingRobotBasedTestCa
 
 		static @Nonnull
 		MyWindow createNew(final @Nonnull Class<?> testClass) {
-			return checkNotNull(execute(() -> new MyWindow(testClass)));
+			return Objects.requireNonNull(execute(() -> new MyWindow(testClass)));
 		}
 
 		private MyWindow(@Nonnull Class<?> testClass) {

@@ -22,6 +22,7 @@ import javax.annotation.Nonnull;
 
 import java.awt.*;
 import java.awt.event.MouseAdapter;
+import java.util.Objects;
 
 import static org.assertj.core.util.Preconditions.checkNotNull;
 
@@ -57,16 +58,16 @@ public class ClickRecorder extends AbstractClickRecorder {
 			return;
 		}
 		for (Component c : ((Container) target).getComponents()) {
-			attach(listener, checkNotNull(c));
+			attach(listener, Objects.requireNonNull(c));
 		}
 	}
 
 	public static void attach(@Nonnull ClickRecorder recorder, @Nonnull Node target) {
 		target.addEventHandler(MouseEvent.MOUSE_PRESSED, event -> {
-			recorder.record(checkNotNull(event));
+			recorder.record(Objects.requireNonNull(event));
 		});
 		target.addEventHandler(MouseEvent.MOUSE_RELEASED, event -> {
-			recorder.record(checkNotNull(event));
+			recorder.record(Objects.requireNonNull(event));
 		});
 	}
 	
@@ -79,12 +80,12 @@ public class ClickRecorder extends AbstractClickRecorder {
 
 		@Override
 		public void mousePressed(java.awt.event.MouseEvent e) {
-			owner.record(checkNotNull(e));
+			owner.record(Objects.requireNonNull(e));
 		}
 
 		@Override
 		public void mouseReleased(java.awt.event.MouseEvent e) {
-			owner.record(checkNotNull(e));
+			owner.record(Objects.requireNonNull(e));
 		}
 	}
 }

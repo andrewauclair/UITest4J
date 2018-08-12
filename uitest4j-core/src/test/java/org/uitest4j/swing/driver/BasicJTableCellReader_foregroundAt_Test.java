@@ -18,6 +18,7 @@ import org.uitest4j.swing.annotation.RunsInEDT;
 import javax.annotation.Nonnull;
 import javax.swing.*;
 import java.awt.*;
+import java.util.Objects;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Preconditions.checkNotNull;
@@ -48,6 +49,6 @@ public class BasicJTableCellReader_foregroundAt_Test extends BasicJTableCellRead
 	@Nonnull
 	private static Color foregroundOf(final @Nonnull Component component) {
 		Color result = execute(component::getForeground);
-		return checkNotNull(result);
+		return Objects.requireNonNull(result);
 	}
 }

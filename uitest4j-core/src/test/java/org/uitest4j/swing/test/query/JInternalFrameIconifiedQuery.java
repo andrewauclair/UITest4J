@@ -17,6 +17,8 @@ import org.uitest4j.swing.annotation.RunsInEDT;
 import javax.annotation.Nonnull;
 import javax.swing.*;
 
+import java.util.Objects;
+
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
@@ -35,7 +37,7 @@ public final class JInternalFrameIconifiedQuery {
 	@Nonnull
 	public static Boolean isIconified(final @Nonnull JInternalFrame internalFrame) {
 		Boolean result = execute(internalFrame::isIcon);
-		return checkNotNull(result);
+		return Objects.requireNonNull(result);
 	}
 
 	private JInternalFrameIconifiedQuery() {

@@ -35,4 +35,10 @@ public class StageDriver extends NodeDriver {
 		OpenTest4JAssertions.assertEquals(Modality.APPLICATION_MODAL, actual,
 				() -> String.format("Expected modality of '%s' to be APPLICATION_MODAL but was %s", stage.getUserData(), actual));
 	}
+	
+	public void requireWindowModality(@Nonnull Stage stage) {
+		Modality actual = stage.getModality();
+		OpenTest4JAssertions.assertEquals(Modality.WINDOW_MODAL, actual,
+				() -> String.format("Expected modality of '%s' to be WINDOW_MODAL but was %s", stage.getUserData(), actual));
+	}
 }

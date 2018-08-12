@@ -24,20 +24,20 @@ import java.util.Objects;
 /**
  * @author Andrew Auclair
  */
-class StageDriver_requireApplicationModality_Test extends BasicFXRobot_TestCase {
+class StageDriver_requireWindowModality_Test extends BasicFXRobot_TestCase {
 	@Test
-	void passes_when_modality_is_application_modal() {
+	void passes_when_modality_is_window_modal() {
 		Stage appModalStage = Objects.requireNonNull(FXGUIActionRunner.executeFX(() -> {
 			Stage stage = new Stage();
-			stage.initModality(Modality.APPLICATION_MODAL);
+			stage.initModality(Modality.WINDOW_MODAL);
 			stage.show();
 			return stage;
 		}));
-		new StageDriver().requireApplicationModality(appModalStage);
+		new StageDriver().requireWindowModality(appModalStage);
 	}
 	
 	@Test
 	void fails_when_modality_does_not_match() {
-		ExpectedException.assertOpenTest4jError(() -> new StageDriver().requireApplicationModality(stage()), "Expected modality of 'TestStage' to be APPLICATION_MODAL but was NONE", Modality.APPLICATION_MODAL, Modality.NONE);
+		ExpectedException.assertOpenTest4jError(() -> new StageDriver().requireWindowModality(stage()), "Expected modality of 'TestStage' to be WINDOW_MODAL but was NONE", Modality.WINDOW_MODAL, Modality.NONE);
 	}
 }

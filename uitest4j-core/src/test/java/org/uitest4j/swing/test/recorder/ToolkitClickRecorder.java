@@ -18,6 +18,7 @@ import java.awt.event.AWTEventListener;
 import java.awt.event.MouseEvent;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 import static org.assertj.core.util.Lists.newArrayList;
 import static org.assertj.core.util.Preconditions.checkNotNull;
@@ -61,7 +62,7 @@ public class ToolkitClickRecorder extends AbstractClickRecorder {
 			return;
 		}
 		for (Component c : ((Container) target).getComponents()) {
-			attach(listener, checkNotNull(c));
+			attach(listener, Objects.requireNonNull(c));
 		}
 	}
 

@@ -17,6 +17,7 @@ import org.uitest4j.swing.annotation.RunsInEDT;
 import javax.annotation.Nonnull;
 import javax.swing.*;
 import java.io.File;
+import java.util.Objects;
 
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
@@ -39,7 +40,7 @@ public final class JFileChooserCurrentDirectoryQuery {
 	@Nonnull
 	public static File currentDirectoryOf(final @Nonnull JFileChooser fileChooser) {
 		File result = execute(fileChooser::getCurrentDirectory);
-		return checkNotNull(result);
+		return Objects.requireNonNull(result);
 	}
 
 	private JFileChooserCurrentDirectoryQuery() {

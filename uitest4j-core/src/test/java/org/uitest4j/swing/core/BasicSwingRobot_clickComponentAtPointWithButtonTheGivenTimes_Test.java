@@ -19,6 +19,7 @@ import org.uitest4j.swing.test.recorder.ClickRecorder;
 import javax.swing.*;
 import java.awt.*;
 import java.util.Collection;
+import java.util.Objects;
 
 import static org.assertj.core.util.Lists.newArrayList;
 import static org.assertj.core.util.Preconditions.checkNotNull;
@@ -44,7 +45,7 @@ class BasicSwingRobot_clickComponentAtPointWithButtonTheGivenTimes_Test extends 
 		Thread.sleep(750);
 		JTextField textField = window().textField();
 		ClickRecorder recorder = clickRecorder.attachDirectlyTo(textField);
-		Point screenLocation = checkNotNull(locationOnScreenOf(textField));
+		Point screenLocation = Objects.requireNonNull(locationOnScreenOf(textField));
 		Point visibleCenter = visibleCenterOf(textField);
 		screenLocation.translate(visibleCenter.x, visibleCenter.y);
 		robot().click(screenLocation, button, times);

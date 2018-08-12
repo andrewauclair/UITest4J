@@ -21,6 +21,7 @@ import org.uitest4j.swing.test.swing.TestWindow;
 import javax.annotation.Nonnull;
 import javax.swing.*;
 import java.awt.*;
+import java.util.Objects;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Preconditions.checkNotNull;
@@ -43,7 +44,7 @@ public abstract class BasicSwingRobot_TestCase extends EDTSafeTestCase {
 	@BeforeEach
 	public final void setUp() {
 		robot = (BasicSwingRobot) BasicSwingRobot.robotWithCurrentAwtHierarchy();
-		window = MyWindow.createAndShow(checkNotNull(getClass()));
+		window = MyWindow.createAndShow(Objects.requireNonNull(getClass()));
 		beforeShowingWindow();
 		robot.showWindow(window); // implicitly test 'showWindow(Window)'
 		assertThat(isShowing(window)).isTrue();
@@ -80,9 +81,9 @@ public abstract class BasicSwingRobot_TestCase extends EDTSafeTestCase {
 		@RunsInEDT
 		static @Nonnull
 		MyWindow createAndShow(final @Nonnull Class<?> testClass) {
-			MyWindow result = execute(() -> display(new MyWindow(testClass)));
+			MyWindow result = Objects.requireNonNull(execute(() -> display(new MyWindow(testClass))));
 			waitForShowing(result);
-			return checkNotNull(result);
+			return result;
 		}
 
 		private MyWindow(@Nonnull Class<?> testClass) {
@@ -93,17 +94,17 @@ public abstract class BasicSwingRobot_TestCase extends EDTSafeTestCase {
 
 		@Nonnull
 		JTextField textField() {
-			return checkNotNull(textField);
+			return Objects.requireNonNull(textField);
 		}
 	}
 
 	@Nonnull
 	BasicSwingRobot robot() {
-		return checkNotNull(robot);
+		return Objects.requireNonNull(robot);
 	}
 
 	@Nonnull
 	MyWindow window() {
-		return checkNotNull(window);
+		return Objects.requireNonNull(window);
 	}
 }

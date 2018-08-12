@@ -19,6 +19,7 @@ import org.uitest4j.swing.test.core.EDTSafeTestCase;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Objects;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Preconditions.checkNotNull;
@@ -49,7 +50,7 @@ class BasicSwingRobot_showWindowBySizeAndPacking_Test extends EDTSafeTestCase {
 		// TODO split this test case in 2+
 		Dimension size = new Dimension(100, 100);
 		WindowToShow result = execute(WindowToShow::new);
-		WindowToShow w = checkNotNull(result);
+		WindowToShow w = Objects.requireNonNull(result);
 		robot.showWindow(w, size, false);
 		assertThat(sizeOf(w)).isEqualTo(size);
 		assertThat(w.wasPacked()).isFalse();

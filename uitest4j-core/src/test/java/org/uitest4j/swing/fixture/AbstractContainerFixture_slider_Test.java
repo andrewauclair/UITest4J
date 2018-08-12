@@ -22,6 +22,8 @@ import org.uitest4j.swing.test.swing.TestWindow;
 import javax.annotation.Nonnull;
 import javax.swing.*;
 
+import java.util.Objects;
+
 import static javax.swing.SwingConstants.HORIZONTAL;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Preconditions.checkNotNull;
@@ -91,7 +93,7 @@ public class AbstractContainerFixture_slider_Test extends SwingRobotBasedTestCas
 
 		static @Nonnull
 		MyWindow createNew(final @Nonnull Class<?> testClass) {
-			return checkNotNull(execute(() -> new MyWindow(testClass)));
+			return Objects.requireNonNull(execute(() -> new MyWindow(testClass)));
 		}
 
 		private MyWindow(@Nonnull Class<?> testClass) {

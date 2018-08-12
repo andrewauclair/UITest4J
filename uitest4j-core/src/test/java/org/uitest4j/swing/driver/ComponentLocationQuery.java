@@ -14,6 +14,7 @@ package org.uitest4j.swing.driver;
 
 import javax.annotation.Nonnull;
 import java.awt.*;
+import java.util.Objects;
 import java.util.concurrent.Callable;
 
 import static org.assertj.core.util.Preconditions.checkNotNull;
@@ -30,7 +31,7 @@ final class ComponentLocationQuery {
 	static @Nonnull
 	Point locationOf(final @Nonnull Component component) {
 		Point result = execute((Callable<Point>) component::getLocation);
-		return checkNotNull(result);
+		return Objects.requireNonNull(result);
 	}
 
 	private ComponentLocationQuery() {

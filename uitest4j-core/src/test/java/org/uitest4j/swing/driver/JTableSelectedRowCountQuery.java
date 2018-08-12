@@ -15,6 +15,8 @@ package org.uitest4j.swing.driver;
 import javax.annotation.Nonnull;
 import javax.swing.*;
 
+import java.util.Objects;
+
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 
@@ -27,7 +29,7 @@ import static org.uitest4j.swing.edt.GuiActionRunner.execute;
 final class JTableSelectedRowCountQuery {
 	static int selectedRowCountOf(final @Nonnull JTable table) {
 		Integer result = execute(table::getSelectedRowCount);
-		return checkNotNull(result);
+		return Objects.requireNonNull(result);
 	}
 
 	private JTableSelectedRowCountQuery() {

@@ -14,6 +14,8 @@ package org.uitest4j.swing.test.swing;
 
 import javax.swing.*;
 
+import java.util.Objects;
+
 import static org.assertj.core.util.Preconditions.checkNotNull;
 
 /**
@@ -29,7 +31,7 @@ public class TestListModel extends DefaultListModel {
 
 	public void setElements(Object... elements) {
 		clear();
-		checkNotNull(elements);
+		Objects.requireNonNull(elements);
 		for (Object e : elements) {
 			addElement(e);
 		}

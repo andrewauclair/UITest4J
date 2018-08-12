@@ -17,6 +17,8 @@ import org.uitest4j.swing.annotation.RunsInEDT;
 
 import javax.swing.*;
 
+import java.util.Objects;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.uitest4j.swing.edt.GuiActionRunner.execute;
@@ -51,6 +53,6 @@ public class JComboBoxDriver_showDropDownList_Test extends JComboBoxDriver_TestC
 	@RunsInEDT
 	private static boolean isDropDownVisible(final JComboBox comboBox) {
 		Boolean result = execute(() -> comboBox.getUI().isPopupVisible(comboBox));
-		return checkNotNull(result);
+		return Objects.requireNonNull(result);
 	}
 }

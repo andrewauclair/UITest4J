@@ -18,6 +18,7 @@ import org.uitest4j.swing.annotation.RunsInEDT;
 import javax.annotation.Nonnull;
 import javax.swing.*;
 import java.awt.*;
+import java.util.Objects;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Preconditions.checkNotNull;
@@ -46,6 +47,6 @@ public class BasicJTableCellReader_fontAt_Test extends BasicJTableCellReader_Tes
 	@Nonnull
 	private static Font fontOf(final @Nonnull Component component) {
 		Font result = execute(component::getFont);
-		return checkNotNull(result);
+		return Objects.requireNonNull(result);
 	}
 }
