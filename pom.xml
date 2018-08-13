@@ -6,12 +6,12 @@
     <!--<parent>-->
     <!--<groupId>com.github.andrewauclair</groupId>-->
     <!--<artifactId>assertj-parent-pom</artifactId>-->
-    <!--<version>0.1.1-SNAPSHOT</version>-->
+    <!--<version>0.2-SNAPSHOT</version>-->
     <!--</parent>-->
 
     <groupId>com.github.andrewauclair</groupId>
     <artifactId>uitest4j-parent-pom</artifactId>
-    <version>0.1.1-SNAPSHOT</version>
+    <version>0.2-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>UITest4J: Fluent assertions for java unit testing</name>
     <description>Parent POM for all UITest4J modules</description>
