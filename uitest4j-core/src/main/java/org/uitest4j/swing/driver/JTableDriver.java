@@ -958,7 +958,7 @@ public class JTableDriver extends JComponentDriver {
 				.collect(Collectors.toList());
 		if (!selected.containsAll(expected)) {
 			throw new AssertionFailedError("Expected selected rows of '" + table.getName() + "' to contain " + Arrays.toString(rows) +
-					". Selected rows were " + Arrays.toString(selectedRows), rows, selectedRows);
+					". Selected rows were " + Arrays.toString(selectedRows), Arrays.toString(rows), Arrays.toString(selectedRows));
 		}
 	}
 
