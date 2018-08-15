@@ -6,7 +6,7 @@
     <parent>
         <groupId>com.github.andrewauclair</groupId>
         <artifactId>uitest4j-parent-pom</artifactId>
-        <version>0.2-SNAPSHOT</version>
+        <version>0.2.1-SNAPSHOT</version>
     </parent>
 
     <artifactId>uitest4j-examples</artifactId>
@@ -60,7 +60,7 @@
         <dependency>
             <groupId>com.github.andrewauclair</groupId>
             <artifactId>uitest4j-core</artifactId>
-            <version>0.2-SNAPSHOT</version>
+            <version>0.2.1-SNAPSHOT</version>
 			<scope>test</scope>
         </dependency>
         <dependency>

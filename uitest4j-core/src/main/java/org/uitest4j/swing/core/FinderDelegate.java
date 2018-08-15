@@ -35,12 +35,14 @@ final class FinderDelegate {
 	@Nonnull
 	Collection<Component> find(@Nonnull ComponentHierarchy h, @Nonnull ComponentMatcher m) {
 		Set<Component> found = new LinkedHashSet<>();
-		for (Component c : rootsOf(h)) {
-			find(h, m, Objects.requireNonNull(c), found);
-		}
+		execute(() -> {
+			for (Component c : rootsOf(h)) {
+				find(h, m, Objects.requireNonNull(c), found);
+			}
+		});
 		return found;
 	}
-
+	
 	@RunsInEDT
 	private void find(@Nonnull ComponentHierarchy h, @Nonnull ComponentMatcher m, @Nonnull Component root,
 					  @Nonnull Set<Component> found) {
@@ -51,37 +53,42 @@ final class FinderDelegate {
 			found.add(root);
 		}
 	}
-
+	
 	@RunsInEDT
 	@Nonnull
 	private static Collection<Component> childrenOfComponent(final @Nonnull Component c,
 															 final @Nonnull ComponentHierarchy h) {
-		Collection<Component> children = execute(() -> h.childrenOf(c));
-		return Objects.requireNonNull(children);
+//		Collection<Component> children = execute(() -> h.childrenOf(c));
+//		return Objects.requireNonNull(children);
+		return h.childrenOf(c);
 	}
-
+	
 	@RunsInEDT
 	private static boolean isMatching(@Nonnull final Component c, @Nonnull final ComponentMatcher m) {
-		Boolean matching = execute(() -> m.matches(c));
-		return Objects.requireNonNull(matching);
+//		Boolean matching = execute(() -> m.matches(c));
+//		return Objects.requireNonNull(matching);
+		return m.matches(c);
 	}
-
+	
 	@RunsInEDT
 	@Nonnull
 	<T extends Component> Collection<T> find(@Nonnull ComponentHierarchy h, @Nonnull GenericTypeMatcher<T> m) {
 		Set<T> found = new LinkedHashSet<>();
-		for (Component c : rootsOf(h)) {
-			find(h, m, Objects.requireNonNull(c), found);
-		}
+		execute(() -> {
+			for (Component c : rootsOf(h)) {
+				find(h, m, Objects.requireNonNull(c), found);
+			}
+		});
 		return found;
 	}
-
+	
 	@RunsInEDT
 	@Nonnull
 	private static Collection<? extends Component> rootsOf(final @Nonnull ComponentHierarchy h) {
-		return Objects.requireNonNull(execute(h::roots));
+//		return Objects.requireNonNull(execute(h::roots));
+		return Objects.requireNonNull(h.roots());
 	}
-
+	
 	@RunsInEDT
 	private <T extends Component> void find(@Nonnull ComponentHierarchy h, @Nonnull GenericTypeMatcher<T> m,
 											@Nonnull Component root, Set<T> found) {
@@ -92,11 +99,12 @@ final class FinderDelegate {
 			found.add(m.supportedType().cast(root));
 		}
 	}
-
+	
 	@RunsInEDT
 	private static <T extends Component> boolean isMatching(final @Nonnull Component c,
 															final @Nonnull GenericTypeMatcher<T> m) {
-		Boolean matching = execute(() -> m.matches(c));
-		return Objects.requireNonNull(matching);
+//		Boolean matching = execute(() -> m.matches(c));
+//		return Objects.requireNonNull(matching);
+		return m.matches(c);
 	}
 }

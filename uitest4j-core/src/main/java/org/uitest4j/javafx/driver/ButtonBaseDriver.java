@@ -28,14 +28,17 @@ import static org.uitest4j.javafx.platform.FXGUIActionRunner.executeFX;
 public class ButtonBaseDriver implements TextDisplayDriver<Button> {
 	@Override
 	public void requireText(@Nonnull Button button, @Nullable String expected) {
-		OpenTest4JAssertions.assertEquals(expected, textOf(button), () -> "Expected text of '" + button.getUserData() +
-				"' to be '" + expected + "' but was '" + textOf(button) + "'");
+		String actual = textOf(button);
+		OpenTest4JAssertions.assertEquals(expected, actual, () -> "Expected text of '" + button.getUserData() +
+				"' to be '" + expected + "' but was '" + actual + "'");
 	}
 	
 	@Override
 	public void requireText(@Nonnull Button button, @Nonnull Pattern pattern) {
-		OpenTest4JAssertions.assertMatchesPattern(pattern, textOf(button), () -> "Expected text of '" + button.getUserData() +
-				"' to match pattern '" + pattern + "' but was '" + textOf(button) + "'");
+		String actual = textOf(button);
+		OpenTest4JAssertions.assertMatchesPattern(pattern, actual,
+				() -> String.format("Expected text of '%s' to match pattern '%s' but was '%s'",
+						button.getUserData(), pattern, actual));
 	}
 	
 	@Nullable

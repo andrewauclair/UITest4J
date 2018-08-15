@@ -23,7 +23,7 @@ import static org.uitest4j.javafx.driver.StageTitleQuery.titleOf;
 /**
  * @author Andrew Auclair
  */
-public class StageDriver extends NodeDriver {
+public class StageDriver extends WindowDriver {
 	public void requireTitle(@Nonnull Stage stage, String expected) {
 		String actual = titleOf(stage);
 		OpenTest4JAssertions.assertEquals(expected, actual,
