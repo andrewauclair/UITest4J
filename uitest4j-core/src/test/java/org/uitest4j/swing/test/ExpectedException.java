@@ -46,6 +46,9 @@ public final class ExpectedException {
 
 		assertEquals(String.valueOf(expected), error.getExpected().getStringRepresentation(), "Should have expected value '" + String.valueOf(expected) + "'");
 		assertEquals(String.valueOf(actual), error.getActual().getStringRepresentation(), "Should have actual value '" + String.valueOf(actual) + "'");
+		
+		assertEquals(expected.toString(), error.getExpected().getStringRepresentation(), "Should have expected value '" + String.valueOf(expected) + "'");
+		assertEquals(actual.toString(), error.getActual().getStringRepresentation(), "Should have actual value '" + String.valueOf(actual) + "'");
 	}
 
 	public static void assertOpenTest4jError(Executable executable, String message, Object[] expected, Object[] actual) {
@@ -55,14 +58,8 @@ public final class ExpectedException {
 		Objects.requireNonNull(error.getExpected(), "Expected value should not be null");
 		Objects.requireNonNull(error.getActual(), "Actual value should not be null");
 
-//		if (error.getExpected().getValue() != null && error.getActual().getValue() != null) {
-//			assertEquals(expected, error.getExpected().getValue(), "Should have expected value '" + Arrays.toString(expected) + "'");
-//			assertEquals(actual, error.getExpected().getValue(), "Should have actual value '" + Arrays.toString(actual) + "'");
-//		}
-//		else {
 		assertEquals(Arrays.toString(expected), error.getExpected().getStringRepresentation(), "Should have expected value '" + Arrays.toString(expected) + "'");
 		assertEquals(Arrays.toString(actual), error.getActual().getStringRepresentation(), "Should have actual value '" + Arrays.toString(actual) + "'");
-//		}
 	}
 
 	public static void assertOpenTest4jError(Executable executable, String message, int[] expected, int[] actual) {
